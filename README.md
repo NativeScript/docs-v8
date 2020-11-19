@@ -1,3 +1,6 @@
+Writing Guide from the Vue team we can refer to and follow:
+https://v3.vuejs.org/guide/contributing/writing-guide.html
+
 The outline of the docs:
 
 * [Introduction](/introduction.md)
