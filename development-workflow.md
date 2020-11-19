@@ -11,11 +11,3 @@
 ## Using packages
 
 ## Updating
-
-# UI & Styling
-
-## Layouts
-
-## Components
-
-## CSS
