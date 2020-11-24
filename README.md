@@ -8,6 +8,7 @@ The outline of the docs:
   * Prerequisites
   * Learn the basics
   * Templates
+  * Versioning Scheme
 * [Environment Setup](/environment-setup.md)
   * Setting up your system
   * Integrating with native apps
