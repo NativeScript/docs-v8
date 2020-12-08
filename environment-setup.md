@@ -24,9 +24,9 @@ This page will walk through installing everything you need to build your first N
 
 You will need Node, NativeScript CLI (command line interface), Android Studio and a JDK (java development kit).
 
-**Android Studio** is not strictly necessary - however it provides an easy to use interface for installing and managing the Android SDKs.
+**Android Studio** is not strictly necessary &mdash; however it provides an easy to use interface for installing and managing the Android SDKs.
 
-We recommend using [Chocolatey](https://chocolatey.org/) to install the required dependencies - a popular package manager for Windows.
+We recommend using [Chocolatey](https://chocolatey.org/) to install the required dependencies &mdash; a popular package manager for Windows.
 
 To install **Node** and **JDK** open an Administrator Command Prompt (right click and select "Run as Administrator") and run the following command:
 
@@ -43,7 +43,7 @@ Setting up the Android development environment can be daunting if you are new to
 * Android SDK
 * Android SDK Platform
 * Android Virtual Device
-* Performance (Intel ® HAXM) - optional, learn more about [AMD Processor & Hyper-V support](https://android-developers.googleblog.com/2018/07/android-emulator-amd-processor-hyper-v.html)
+* Performance (Intel ® HAXM) &mdash; optional, learn more about [AMD Processor & Hyper-V support](https://android-developers.googleblog.com/2018/07/android-emulator-amd-processor-hyper-v.html)
 
 The setup may take a while, but once it has finished a welcome screen should appear. 
 
@@ -108,13 +108,13 @@ To run a NativeScript app, you will need an Android device &mdash; either a phy
 
 * **Using a virtual device**: Open Android Studio, and open "AVD Manager" &mdash; If you are on the welcome screen, it's under the **Configure › AVD Manager** dropdown, otherwise under the **Tools › AVD Manager** menu.
 
-  If the list of available Virtual Devices is empty, you will need to create a new AVD. Click on "**Create Virtual Device...**" then pick a phone from the list. You can select any phone from the list - for example "**Pixel 3 XL**" and then click "**Next**". For the System Image select the latest version (the highest API Level in the list). If the selection is greyed out, click the "Download" link next to the Release Name to download the System Image and then click "**Next**" and "**Finish**" to create the AVD. The newly created AVD should show up in the list, and  you should be able to click the green "play" button to start the virtual device. 
+  If the list of available Virtual Devices is empty, you will need to create a new AVD. Click on "**Create Virtual Device...**" then pick a phone from the list. You can select any phone from the list &mdash; for example "**Pixel 3 XL**" and then click "**Next**". For the System Image select the latest version (the highest API Level in the list). If the selection is greyed out, click the "Download" link next to the Release Name to download the System Image and then click "**Next**" and "**Finish**" to create the AVD. The newly created AVD should show up in the list, and  you should be able to click the green "play" button to start the virtual device. 
 
 
 
 ### Windows + iOS
 
-> **Unsupported** - A Mac is required to build projects that use native iOS code. Simpler apps can be tested using the NativeScript Playground.
+> **Unsupported** &mdash; A Mac is required to build projects that use native iOS code. Simpler apps can be tested using the NativeScript Playground.
 
 
 
