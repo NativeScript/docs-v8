@@ -118,6 +118,81 @@ To run a NativeScript app, you will need an Android device &mdash; either a phy
 
 
 
+### macOS + Android
+
+You will need Node, NativeScript CLI (command line interface), Android Studio and a JDK (java development kit).
+
+**Android Studio** is not strictly necessary &mdash; however it provides an easy to use interface for installing and managing the Android SDKs.
+
+We recommend using [Howbrew](https://brew.sh/) to install the required dependencies &mdash; a popular package manager for macOS.
+
+
+
+To install **Node** open a Terminal and run the following command:
+
+```powershell
+brew install node
+```
+
+
+
+To install a **JDK** run the following command:
+
+```
+brew cask install adoptopenjdk/openjdk/adoptopenjdk8
+```
+
+
+
+Setting up the Android development environment can be daunting if you are new to Android development, however following the next steps carefully will get you up and running in no time.
+
+> !!! Same-ish as Windows + Android! Copy here once Windows version is finalized.
+
+Configure the `ANDROID_HOME` environment variable for NativeScript to be able to find the Android SDK, and add the required tools to path.
+
+Add the following lines to your shell profile, usually `~/.bash_profile` or `~/.bashrc`, or if you are using `zsh` then `~/.zshrc` config file:
+
+```shell
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+```
+
+
+
+Install the NativeScript CLI globally:
+
+```
+npm install -g nativescript
+```
+
+
+
+To verify if the installation was successful, open a new Command Prompt window to ensure the new environment variables are loaded and run
+
+```
+ns doctor
+```
+
+If you see **No issues were detected** you have successfully set up your system.
+
+
+
+#### Preparing an Android device
+
+To run a NativeScript app, you will need an Android device &mdash; either a physical or a virtual device.
+
+* **Using a physical device**: Connect the device using a USB cable, and follow the instructions from [Running on a physical device](/development-workflow.md)
+
+* **Using a virtual device**: Open Android Studio, and open "AVD Manager" &mdash; If you are on the welcome screen, it's under the **Configure › AVD Manager** dropdown, otherwise under the **Tools › AVD Manager** menu.
+
+  If the list of available Virtual Devices is empty, you will need to create a new AVD. Click on "**Create Virtual Device...**" then pick a phone from the list. You can select any phone from the list &mdash; for example "**Pixel 3 XL**" and then click "**Next**". For the System Image select the latest version (the highest API Level in the list). If the selection is greyed out, click the "Download" link next to the Release Name to download the System Image and then click "**Next**" and "**Finish**" to create the AVD. The newly created AVD should show up in the list, and  you should be able to click the green "play" button to start the virtual device. 
+
+  
+
+### macOS + iOS
+
+
+
 
 
 
