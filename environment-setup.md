@@ -38,7 +38,7 @@ choco install -y nodejs.install openjdk8
 
 Setting up the Android development environment can be daunting if you are new to Android development, however following the next steps carefully will get you up and running in no time.
 
-[Download and install Android Studio](https://developer.android.com/studio). In the installation wizard make sure to have the following components ticked:
+[Download and install Android Studio](https://developer.android.com/studio). In the installation wizard make sure to have the following components selected:
 
 * Android SDK
 * Android SDK Platform
@@ -49,7 +49,7 @@ The setup may take a while, but once it has finished a welcome screen should app
 
 Android Studio installs the latest Android SDK by default, which in most cases should be all that's needed to build a NativeScript app.
 
-Configure the `ANDROID_HOME` environment variable for NativeScript to find the Android SDK.
+Configure the `ANDROID_HOME` environment variable for NativeScript to be able to find the Android SDK.
 
 1. Search for "**Edit the system environment variables**" in Windows Search and select
 2. Click on "**Environment variables...**" in the bottom corner
@@ -65,6 +65,8 @@ The SDK is by default located at
 
 To find the actual location in the Android Studio **Settings**, navigate to **Appearance & Behavior › System Settings › Android SDK** and copy the Android SDK Location.
 
+
+
 Add Android **platform-tools** to path.
 
 1. Search for "**Edit the system environment variables**" in Windows Search and select
@@ -77,6 +79,8 @@ The default location is inside the Android SDK's `platform-tools` folder:
 ```
 %LOCALAPPDATA%\Android\Sdk\platform-tools
 ```
+
+
 
 Install the NativeScript CLI globally:
 
