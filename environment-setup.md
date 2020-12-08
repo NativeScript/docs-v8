@@ -55,7 +55,7 @@ Configure the `ANDROID_HOME` environment variable for NativeScript to find the A
 2. Click on "**Environment variables...**" in the bottom corner
 3. Under the "**User variables for...**" click on **New...** to create the `ANDROID_HOME` user variable that points to the path of the Android SDK:
 
-![New User Variable (ANDROID_HOME)](C:\Users\rigor789\Documents\Code\docs-new\assets\environment-setup\new_user_variable_dialog.png)
+![New User Variable (ANDROID_HOME)](./assets/environment-setup/new_user_variable_dialog.png)
 
 The SDK is by default located at
 
