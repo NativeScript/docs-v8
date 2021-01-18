@@ -1,6 +1,12 @@
 Writing Guide from the Vue team we can refer to and follow:
 https://v3.vuejs.org/guide/contributing/writing-guide.html
 
+```shell
+git clone https://github.com/NativeScript/docs-new.git
+npm i
+npm start
+```
+
 The outline of the docs:
 
 * [Introduction](/introduction.md)

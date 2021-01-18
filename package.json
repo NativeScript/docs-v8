@@ -1,0 +1,12 @@
+{
+    "name": "nativescript-docs-new",
+    "private": true,
+    "scripts": {
+        "start": "npm run dev",
+        "dev": "vitepress dev .",
+        "build": "vitepress build ."
+    },
+    "devDependencies": {
+        "vitepress": "0.7.4"
+    }
+}
