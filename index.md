@@ -1,8 +1,7 @@
 ---
 home: true
-heroImage: /assets/NativeScript Wide Logo Light.svg 
-heroText: 
-tagline:
+heroText: Create Native iOS and Android Apps with JavaScript
+tagline: Open source framework for building truly native mobile apps with Angular, Vue.js, TypeScript, or JavaScript.
 actionText: Get Started
 actionLink: /introduction
 # features:
