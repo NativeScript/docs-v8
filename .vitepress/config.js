@@ -40,9 +40,9 @@ function getSidebar() {
         text: 'Docs',
         children: [
             { text: 'Introduction', link: '/introduction' },
-            { text: 'Environment Setup', link: '/environment-setup' },
+            { text: 'Environment Setup (Igor)', link: '/environment-setup' },
             { text: 'Development Workflow', link: '/development-workflow' },
-            { text: 'UI & Styling', link: './/ui-and-styling' },
+            { text: 'UI & Styling (Igor)', link: './ui-and-styling' },
             { text: 'Interaction', link: '/interaction' },
             { text: 'Networking', link: '/networking' },
             { text: 'Security', link: '/security' },
