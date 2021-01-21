@@ -60,17 +60,17 @@ The outline of the docs:
   * Code Sharing (ng):
     * https://github.com/NativeScript/docs/tree/master/docs/code-sharing
   * Flavor Choice:
-    * https://github.com/NativeScript/docs/blob/master/docs/guides/architecture-choice.md
+    * [REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/guides/architecture-choice.md
   * Cloud backends (Kinvey/Firebase)
-    * https://github.com/NativeScript/docs/blob/master/docs/guides/wire-backend.md
+    * [REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/guides/wire-backend.md
       * Probably should live under a guides/cookbook type of page (blog post style)
   * Troubleshooting - Perhaps under Development Workflow?
-    * https://github.com/NativeScript/docs/blob/master/docs/troubleshooting.md
+    * [REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/troubleshooting.md
   * Configuration
-    * https://github.com/NativeScript/docs/blob/master/docs/tooling/changing-appid.md
-    * https://github.com/NativeScript/docs/blob/master/docs/tooling/custom-webpack-configuration.md
+    * [REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/tooling/changing-appid.md
+    * [REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/tooling/custom-webpack-configuration.md
   * ios stuff
-    * https://github.com/NativeScript/docs/blob/master/docs/tooling/ios-app-extensions.md
+    * [REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/tooling/ios-app-extensions.md
   * CLI related
-    * https://github.com/NativeScript/docs/blob/master/docs/tooling/package-managers.md
-    * (obsolete?) https://github.com/NativeScript/docs/blob/master/docs/tooling/transpilers.md
+    * [REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/tooling/package-managers.md
+    * (obsolete?) [REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/tooling/transpilers.md

@@ -7,8 +7,8 @@ Take what's already there in https://github.com/nativescript-vue/nativescript-vu
 https://github.com/nativescript-vue/nativescript-vue.org/tree/master/content/docs/en/elements/components
 
 * ng specific:
-  * https://github.com/NativeScript/docs/blob/master/docs/cookbook/formatted-string-ng.md
-  * https://github.com/NativeScript/docs/blob/master/docs/cookbook/tab-view-ng.md
+  * [REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/cookbook/formatted-string-ng.md
+  * [REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/cookbook/tab-view-ng.md
 * https://github.com/NativeScript/docs/tree/master/docs/ui
 
 ## CSS

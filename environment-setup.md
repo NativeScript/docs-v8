@@ -1,10 +1,10 @@
 ## Setting up your system
 
-* https://github.com/NativeScript/docs/blob/master/docs/start/general-requirements.md
-* https://github.com/NativeScript/docs/blob/master/docs/start/ns-setup-linux.md
-* https://github.com/NativeScript/docs/blob/master/docs/start/ns-setup-os-x.md
-* https://github.com/NativeScript/docs/blob/master/docs/start/ns-setup-win.md
-* https://github.com/NativeScript/docs/blob/master/docs/start/quick-setup.md
+* [REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/start/general-requirements.md
+* [REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/start/ns-setup-linux.md
+* [REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/start/ns-setup-os-x.md
+* [REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/start/ns-setup-win.md
+* [REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/start/quick-setup.md
 
 ---
 
@@ -213,6 +213,6 @@ Talk about how NativeScript can be embedded into existing apps - clear and detai
 
 ### Building for Smart Watches
 
-* https://github.com/NativeScript/docs/blob/master/docs/tooling/ios-watch-apps.md
+* [REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/tooling/ios-watch-apps.md
 
 ### Potentially desktop in the future?
