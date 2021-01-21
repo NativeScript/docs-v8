@@ -1,3 +1,5 @@
+* https://github.com/NativeScript/docs/blob/master/docs/start/introduction.md
+
 The docs should not assume the experience level of the reader - clear examples and explanations.
 
 ## How to use the docs 
@@ -17,6 +19,9 @@ Emphasize the importance of keeping layouts simple right from the start to avoid
 Flavor specific guide to building your first screen with a very simple example.
 
 ## Templates
+
+* https://github.com/NativeScript/docs/blob/master/docs/app-templates/app-templates.md
+* https://github.com/NativeScript/docs/blob/master/docs/app-templates/creating-custom-templates.md
 
 ## Versioning Scheme
 

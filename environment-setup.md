@@ -1,6 +1,10 @@
 ## Setting up your system
 
-
+* https://github.com/NativeScript/docs/blob/master/docs/start/general-requirements.md
+* https://github.com/NativeScript/docs/blob/master/docs/start/ns-setup-linux.md
+* https://github.com/NativeScript/docs/blob/master/docs/start/ns-setup-os-x.md
+* https://github.com/NativeScript/docs/blob/master/docs/start/ns-setup-win.md
+* https://github.com/NativeScript/docs/blob/master/docs/start/quick-setup.md
 
 ---
 
@@ -201,10 +205,14 @@ To run a NativeScript app, you will need an Android device &mdash; either a phy
 
 Talk about how NativeScript can be embedded into existing apps - clear and detailed step-by-step guide. This is a huge potential for bringing more people into the ecosystem.
 
+* https://github.com/NativeScript/docs/tree/master/docs/guides/integration-with-existing-ios-and-android-apps
+
 ## Building for Other Platforms/Devices
 
 ### Building for TV devices
 
 ### Building for Smart Watches
+
+* https://github.com/NativeScript/docs/blob/master/docs/tooling/ios-watch-apps.md
 
 ### Potentially desktop in the future?
