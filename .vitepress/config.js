@@ -28,6 +28,15 @@ module.exports = {
         activeMatch: "^/",
       },
       {
+        text: "Plugins",
+        link: "/plugins/index",
+        activeMatch: "^/plugins",
+      },
+      {
+        text: "Capacitor",
+        link: "https://capacitor.nativescript.org"
+      },
+      {
           text: 'Writing Guide',
           link: 'https://v3.vuejs.org/guide/contributing/writing-guide.html',
       }
@@ -55,10 +64,15 @@ function getSidebar() {
             { text: 'Advanced Concepts (Nathan & Nathanael)', link: '/advanced-concepts' },
             { text: 'Releasing your app (Igor)', link: '/releasing' },
             { text: 'Developing Plugins (Osei & Nathanael)', link: '/developing-plugins' },
-            { text: 'Common Pitfalls (Nathan)', link: '/common-pitfalls' },
-            { text: '______________', link: '#' },
-            { text: 'Capacitor', link: '/capacitor' },
+            { text: 'Common Pitfalls (Nathan)', link: '/common-pitfalls' }
         ]
+    },
+    {
+      text: 'Plugins',
+      children: [
+        { text: 'Camera', link: '/plugins/camera'},
+        { text: 'DateTimePicker', link: '/plugins/datetimepicker'}
+      ]
     }
   ];
 }
