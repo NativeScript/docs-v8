@@ -51,25 +51,58 @@ module.exports = {
 function getSidebar() {
   return [
     {
-        text: 'Docs',
+        text: 'Setup',
         children: [
             { text: 'Introduction', link: '/introduction' },
-            { text: 'Environment Setup (Igor)', link: '/environment-setup' },
-            { text: 'Development Workflow', link: '/development-workflow' },
-            { text: 'UI & Styling (Dave)', link: '/ui-and-styling' },
-            { text: 'Interaction (Nathan)', link: '/interaction' },
-            { text: 'Networking (Brad)', link: '/networking' },
-            { text: 'Security (Brad)', link: '/security' },
-            { text: 'Performance (Brad)', link: '/performance' },
-            { text: 'Advanced Concepts (Nathan & Nathanael)', link: '/advanced-concepts' },
-            { text: 'Releasing your app (Igor)', link: '/releasing' },
-            { text: 'Developing Plugins (Osei & Nathanael)', link: '/developing-plugins' },
-            { text: 'Common Pitfalls (Nathan)', link: '/common-pitfalls' }
+            { text: 'Environment Setup', link: '/environment-setup' },
+            { text: 'Development Workflow', link: '/development-workflow' }
         ]
+    },
+    {
+      text: 'UI & Styling',
+      children: [
+          { text: 'UI & Styling', link: '/ui-and-styling' },
+          { text: 'Interaction', link: '/interaction' },
+      ]
+    },
+    {
+      text: 'Networking & Security',
+      children: [
+          { text: 'Networking', link: '/networking' },
+          { text: 'Security', link: '/security' },
+      ]
+    },
+    {
+      text: 'Performance',
+      children: [
+          { text: 'Performance', link: '/performance' },
+      ]
+    },
+    {
+      text: 'Advanced Concepts',
+      children: [
+          { text: 'Advanced Concepts', link: '/advanced-concepts' },
+      ]
+    },
+    {
+      text: 'Distribution',
+      children: [
+          { text: 'Releasing your app', link: '/releasing' },
+      ]
+    },
+    {
+      text: 'Troubleshooting',
+      children: [
+          { text: 'Common Pitfalls', link: '/common-pitfalls' }
+      ]
     },
     {
       text: 'Plugins',
       children: [
+        { text: 'Developing Plugins', link: '/developing-plugins' },
+        { text: '-----------', link: '#' },
+        { text: 'Background HTTP', link: '/plugins/background-http'},
+        { text: 'Brightness', link: '/plugins/brightness'},
         { text: 'Camera', link: '/plugins/camera'},
         { text: 'DateTimePicker', link: '/plugins/datetimepicker'}
       ]
