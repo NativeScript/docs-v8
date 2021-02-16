@@ -1,3 +1,7 @@
+---
+title: Brightness
+---
+
 ```javascript
 ns plugin add @nativescript/brightness
 ```

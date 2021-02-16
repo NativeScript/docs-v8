@@ -1,3 +1,7 @@
+---
+title: Networking
+---
+
 ### HTTP Get
 
 The example demonstrates different ways, how we could receive content from a server while making HTTP GET request.

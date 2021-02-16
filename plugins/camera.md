@@ -1,3 +1,7 @@
+---
+title: Camera
+---
+
 ## Overview
 
 Almost every mobile application needs the option to capture, save and share images. The NativeScript camera plugin was designed for the first two parts of the job (taking a picture and optionally saving to device storage).

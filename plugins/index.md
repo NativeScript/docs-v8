@@ -1,3 +1,7 @@
+---
+title: Plugins
+---
+
 # Plugins are sweet!
 
 - [@nativescript/background-http](background-http)

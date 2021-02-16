@@ -1,3 +1,7 @@
+---
+title: UI & Styling
+---
+
 ## Layouts
 
 - [USED REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/ui/layouts/layout.md

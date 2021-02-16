@@ -81,10 +81,15 @@
 	--accent-color: var(--c-brand) !important;
 }
 
-header.hero .nav-link:hover {
+.hero .nav-link:hover {
 	background-color: var(--c-brand-light) !important;
 }
 
-.title .logo {
-	height: 35px !important;
+.nav-bar-title .logo {
+	height: 1.8rem !important;
+}
+
+/* hides site title next to the logo */
+.nav-bar-title {
+	font-size: 0 !important;
 }

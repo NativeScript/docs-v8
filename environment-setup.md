@@ -1,3 +1,7 @@
+---
+title: Environment Setup
+---
+
 ## Setting up your system
 
 - [REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/start/general-requirements.md

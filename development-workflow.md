@@ -1,3 +1,7 @@
+---
+title: Development Workflow
+---
+
 - [REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/start/cli-basics.md
 - [REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/tooling/angular-cli.md
 - [REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/tooling/visual-studio-code-extension.md

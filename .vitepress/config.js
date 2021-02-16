@@ -1,6 +1,6 @@
 module.exports = {
 	lang: 'en-US',
-	title: ' ',
+	title: 'NativeScript',
 	description: 'NativeScript docs',
 
 	head: [['link', { rel: 'stylesheet', href: '/styles.css' }]],

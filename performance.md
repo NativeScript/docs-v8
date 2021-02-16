@@ -1,3 +1,7 @@
+---
+title: Performance
+---
+
 ## Webpack/Bundle Optimisations
 
 - [REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/performance-optimizations/bundling-with-webpack.md
