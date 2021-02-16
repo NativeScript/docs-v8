@@ -24,8 +24,8 @@ module.exports = {
     nav: [
       {
         text: "Docs",
-        link: "/",
-        activeMatch: "^/",
+        link: "/introduction",
+        activeMatch: "^/(?!plugins)",
       },
       {
         text: "Plugins",
@@ -43,6 +43,9 @@ module.exports = {
     ],
 
     sidebar: {
+      "/plugins/": getPluginsSidebar(),
+
+      // fallback
       "/": getSidebar(),
     },
   },
@@ -96,6 +99,11 @@ function getSidebar() {
           { text: 'Common Pitfalls', link: '/common-pitfalls' }
       ]
     },
+  ];
+}
+
+function getPluginsSidebar() {
+  return [
     {
       text: 'Plugins',
       children: [
@@ -107,5 +115,5 @@ function getSidebar() {
         { text: 'DateTimePicker', link: '/plugins/datetimepicker'}
       ]
     }
-  ];
+  ]
 }
