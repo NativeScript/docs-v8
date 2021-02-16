@@ -70,7 +70,7 @@ function getSidebar() {
 			text: 'Networking & Security',
 			children: [
 				{ text: 'Networking', link: '/networking' },
-				{ text: 'Security', link: '/security' },
+				{ text: 'Security (Nathanael)', link: '/security' },
 			],
 		},
 		{
