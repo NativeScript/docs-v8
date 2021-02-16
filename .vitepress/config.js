@@ -56,7 +56,7 @@ function getSidebar() {
             { text: 'Introduction', link: '/introduction' },
             { text: 'Environment Setup (Igor)', link: '/environment-setup' },
             { text: 'Development Workflow', link: '/development-workflow' },
-            { text: 'UI & Styling (Igor)', link: '/ui-and-styling' },
+            { text: 'UI & Styling (Dave)', link: '/ui-and-styling' },
             { text: 'Interaction (Nathan)', link: '/interaction' },
             { text: 'Networking (Brad)', link: '/networking' },
             { text: 'Security (Brad)', link: '/security' },
