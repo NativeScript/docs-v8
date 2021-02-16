@@ -1,17 +1,17 @@
-### HTTP Get
+### Http
 
-The example demonstrates different ways, how we could receive content from a server while making HTTP GET request.
+The import for the Http module.
 
 ```typescript
-import { HTTP } from '@nativescript/core'
+import { Http } from '@nativescript/core'
 ```
 
-The `getString` method allows us to make a request and to get the response body as a string value.
+The `getString` method allows us to make a request and get the response body as a string value.
 
 ```typescript
-import { HTTP } from '@nativescript/core'
+import { Http } from '@nativescript/core'
 
-HTTP.getString('https://httpbin.org/get').then(
+Http.getString('https://httpbin.org/get').then(
   (result: string) => {
     viewModel.set('getStringResult', r)
   },
@@ -19,12 +19,12 @@ HTTP.getString('https://httpbin.org/get').then(
 )
 ```
 
-The `getJSON` method gives us a simple way to get the response body as JSON object and to access the data while using all benefits of the JSON.
+The `getJSON` method gives us a simple way to get the response body as a JSON object.
 
 ```typescript
-import { HTTP } from '@nativescript/core'
+import { Http } from '@nativescript/core'
 
-HTTP.getJSON('https://httpbin.org/get').then(
+Http.getJSON('https://httpbin.org/get').then(
   (result: any) => {
     console.log(result)
   },
@@ -32,12 +32,12 @@ HTTP.getJSON('https://httpbin.org/get').then(
 )
 ```
 
-`getImage` allow us to get an image from a specific URL. The returned object will be ImageSource and it could be used for direct displaying the source into Image view.
+The `getImage` method allows us to get an image from a specific URL. The returned object will be ImageSource and it could be used for direct displaying the source into Image view in your UI.
 
 ```typescript
-import { HTTP } from '@nativescript/core'
+import { Http } from '@nativescript/core'
 
-HTTP.getImage('https://httpbin.org/image/jpeg').then(
+Http.getImage('https://httpbin.org/image/jpeg').then(
   (r: ImageSource) => {
     // getImage method returns ImageSource object
   },
@@ -45,34 +45,20 @@ HTTP.getImage('https://httpbin.org/image/jpeg').then(
 )
 ```
 
-With `request` method we can make a request and check the response status code by accessing `statusCode` property.
+This example `request` method demonstrates how we can access the response headers, content, and statusCode.
 
 ```typescript
-import { HTTP } from '@nativescript/core'
+import { Http } from '@nativescript/core'
 
-HTTP.request({
+Http.request({
   url: 'https://httpbin.org/get',
   method: 'GET'
 }).then(
   (response: HttpResponse) => {
     // Argument (response) is HttpResponse
-    console.log(response.statusCode)
-  },
-  e => {}
-)
-```
-
-This example demonstrates, how to get the request-response header and how to access the available data in it.
-
-```typescript
-import { HTTP } from '@nativescript/core'
-
-HTTP.request({
-  url: 'https://httpbin.org/get',
-  method: 'GET'
-}).then(
-  (response: HttpResponse) => {
-    // Argument (response) is HttpResponse
+    console.log(`Response Status Code: ${response.statusCode}`)
+    console.log(`Response Headers: ${response.statusCode}`)
+    console.log(`Response Content: ${response.content}`)
   },
   e => {}
 )
@@ -81,9 +67,9 @@ HTTP.request({
 This example demonstrates, how to get the request-response content and how to represent the received data as a `String` value or `JSON` object. We could also use `toImage` method when we download an image.
 
 ```typescript
-import { HTTP } from '@nativescript/core'
+import { Http } from '@nativescript/core'
 
-HTTP.request({
+Http.request({
   url: 'https://httpbin.org/get',
   method: 'GET'
 }).then(
@@ -107,9 +93,9 @@ HTTP.request({
 This example demonstrates how to download a file while using `getFile` method.
 
 ```typescript
-import { HTTP } from '@nativescript/core'
+import { Http } from '@nativescript/core'
 
-HTTP.getFile('https://d1lfyz5kwt8vu9.cloudfront.net/nativescript-logo-2021.png').then(
+Http.getFile('https://d1lfyz5kwt8vu9.cloudfront.net/nativescript-logo-2021.png').then(
   resultFile => {
     // The returned result will be File object
   },
@@ -122,10 +108,11 @@ HTTP.getFile('https://d1lfyz5kwt8vu9.cloudfront.net/nativescript-logo-2021.png')
 In the `getFile` method we could also specify the path, where the file to be saved. This scenario is demonstrated in the example below, where the image file will be kept in the current application folder.
 
 ```typescript
-import { HTTP, knownFolders, path } from '@nativescript/core'
+import { Http, knownFolders, path } from '@nativescript/core'
 
 const filePath: string = path.join(knownFolders.currentApp().path, 'test.png')
-HTTP.getFile(
+
+Http.getFile(
   'https://httpbin.org/image/png?testQuery=query&anotherParam=param',
   filePath
 ).then(
@@ -136,14 +123,14 @@ HTTP.getFile(
 )
 ```
 
-### HTTP Post
+### Http Post
 
-The example demonstrates, how to make HTTP POST request and how to get request response.
+The example demonstrates, how to make Http POST request and how to get request response.
 
 ```typescript
-import { HTTP } from "@nativescript/core";
+import { Http } from "@nativescript/core";
 
-HTTP.request({
+Http.request({
   url: "https://httpbin.org/post",
   method: "POST",
   headers: { "Content-Type": "application/json" },
@@ -154,6 +141,7 @@ HTTP.request({
 }).then(
   (response) => {
     const result = response.content.toJSON();
+    console.log(`Http POST Result: ${result}`)
   },
   (e) => {}
 );
