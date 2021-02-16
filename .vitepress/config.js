@@ -1,11 +1,16 @@
 module.exports = {
   lang: "en-US",
-  title: "NativeScript",
+  title: " ",
   description: "NativeScript docs",
+
+  head: [
+    ['link', { rel: 'stylesheet', href:'/styles.css' }]
+  ],
 
   themeConfig: {
     repo: "NativeScript/docs-new",
     docsDir: ".",
+    logo: "/assets/images/NativeScript_Logo_Wide_White_Blue_Rounded_Blue.png",
 
     editLinks: true,
     editLinkText: "Edit this page on GitHub",
