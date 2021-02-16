@@ -20,6 +20,6 @@ actionLink: /introduction
 ---
 
 
-<!-- <div style="text-align:center;margin: 0 auto;">
+<div style="text-align:center;margin: 0 auto;">
   <img src="/assets/images/mobile.gif">
-</div> -->
+</div>
