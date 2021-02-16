@@ -1,43 +1,48 @@
 ## Gestures
 
-* [USED REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/ui/gestures.md
+- [USED REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/ui/gestures.md
 
 Gestures, such as tap, slide and pinch, allow users to interact with your app by manipulating UI elements on the screen.
 
 In NativeScript, `View`&mdash;the base class for all NativeScript UI elements&mdash;has `on` and `off` methods that let you subscribe or unsubscribe to all events and gestures recognized by the UI element.
 
-As the first parameter, you pass an `on` or `off` method and the type of gesture you want to track. The second  parameter is a function that is called each time the specified gesture is recognized. The function arguments contain additional information about the gesture, if applicable.
+As the first parameter, you pass an `on` or `off` method and the type of gesture you want to track. The second parameter is a function that is called each time the specified gesture is recognized. The function arguments contain additional information about the gesture, if applicable.
 
-- **on(** type _Number_ | name _String_ | names Comma separated _String_, callback _Function_... **)
-   - **type** - _Number_ | **name** - _String_ | **names** - Comma separated _String_
-   - **callback** - _Function_(args _GestureEventData_)
+- **on(** type _Number_ | name _String_ | names Comma separated _String_, callback _Function_... \*\*)
 
-- **off(** type _Number_ | name _String_ | names Comma separated _String_, callback _Function_... **)
-   - **type** - _Number_ | **name** - _String_ | **names** - Comma separated _String_
-   - **callback** - _Function_(args _GestureEventData_)
+  - **type** - _Number_ | **name** - _String_ | **names** - Comma separated _String_
+  - **callback** - _Function_(args _GestureEventData_)
+
+- **off(** type _Number_ | name _String_ | names Comma separated _String_, callback _Function_... \*\*)
+  - **type** - _Number_ | **name** - _String_ | **names** - Comma separated _String_
+  - **callback** - _Function_(args _GestureEventData_)
 
 ### Tap
 
 **Action: Briefly touch the screen.**
 
 {% nativescript %}
-``` TypeScript
+
+```TypeScript
 import { GestureTypes, GestureEventData, Label } from "@nativescript/core";
 var label = new Label();
 label.on(GestureTypes.tap, function (args: GestureEventData) {
     console.log("Tap");
 });
 ```
-{% endnativescript %}
-{% angular %}
+
+{% endnativescript %} {% angular %}
+
 ```TypeScript
 onTap(args: GestureEventData) {
     console.log("Tap!");
 }
 ```
+
 ```HTML
 <Label text="Tap here" (tap)="onTap($event)"></Label>
 ```
+
 {% endangular %}
 
 ### Double Tap
@@ -45,61 +50,69 @@ onTap(args: GestureEventData) {
 **Action: Two taps in a quick succession.**
 
 {% nativescript %}
-``` TypeScript
+
+```TypeScript
 import { GestureTypes, GestureEventData, Label } from "@nativescript/core";
 var label = new Label();
 label.on(GestureTypes.doubleTap, function (args: GestureEventData) {
     console.log("Double Tap");
 });
 ```
-{% endnativescript %}
-{% angular %}
+
+{% endnativescript %} {% angular %}
+
 ```TypeScript
 onDoubleTap(args: GestureEventData) {
     console.log("DoubleTap!");
 
 }
 ```
+
 ```HTML
 <Label text="Double tap here" (doubleTap)="onDoubleTap($event)"></Label>
 ```
-{% endangular %}
-Possible implementation:
-* Scale up the object with a predefined percentage, centered around the double-tapped region. If a user keeps repeating the double tap gesture, continue to scale up until the maximum scale is reached.
-* Scale up the smallest targetable view or returns it to its original scale in nested views.
-* Select text.
+
+{% endangular %} Possible implementation:
+
+- Scale up the object with a predefined percentage, centered around the double-tapped region. If a user keeps repeating the double tap gesture, continue to scale up until the maximum scale is reached.
+- Scale up the smallest targetable view or returns it to its original scale in nested views.
+- Select text.
 
 ### Long Press
 
 **Action: Press your finger against the screen for a few moments.**
 
 {% nativescript %}
-``` TypeScript
+
+```TypeScript
 import { GestureTypes, GestureEventData, Label } from "@nativescript/core";
 var label = new Label();
 label.on(GestureTypes.longPress, function (args: GestureEventData) {
     console.log("Long Press");
 });
 ```
-{% endnativescript %}
-{% angular %}
+
+{% endnativescript %} {% angular %}
+
 ```TypeScript
 onLongPress(args: GestureEventData) {
     console.log("LongPress!");
 }
 ```
+
 ```HTML
 <Label text="Long press here" (longPress)="onLongPress($event)"></Label>
 ```
-{% endangular %}
-Possible implementation: Select one or more items in a view and act upon the data using a contextual action bar. Enter data selection mode. Avoid using long press for displaying contextual menus.
+
+{% endangular %} Possible implementation: Select one or more items in a view and act upon the data using a contextual action bar. Enter data selection mode. Avoid using long press for displaying contextual menus.
 
 ### Swipe
 
 **Action: Swiftly slide your finger across the screen. Swipes are quick and affect the screen even after the finger is lifted off the screen.**
 
 {% nativescript %}
-``` TypeScript
+
+```TypeScript
 import { GestureTypes, SwipeGestureEventData, Label } from "@nativescript/core";
 
 var label = new Label();
@@ -107,25 +120,28 @@ label.on(GestureTypes.swipe, function (args: SwipeGestureEventData) {
     console.log("Swipe Direction: " + args.direction);
 });
 ```
-{% endnativescript %}
-{% angular %}
+
+{% endnativescript %} {% angular %}
+
 ```TypeScript
 onSwipe(args: SwipeGestureEventData) {
     console.log("Swipe Direction: " + args.direction);
 }
 ```
+
 ```HTML
 <Label text="Swipe here" (swipe)="onSwipe($event)"></Label>
 ```
-{% endangular %}
-Possible implementation: Navigate between views in the same hierarchy.
+
+{% endangular %} Possible implementation: Navigate between views in the same hierarchy.
 
 ### Pan
 
 **Action: Press your finger down and immediately start moving it around. Pans are executed more slowly and allow for more precision and the screen stops responding as soon as the finger is lifted off it.**
 
 {% nativescript %}
-``` TypeScript
+
+```TypeScript
 import { GestureTypes, PanGestureEventData, Label } from "@nativescript/core";
 
 const label = new Label();
@@ -133,16 +149,19 @@ label.on(GestureTypes.pan, function (args: PanGestureEventData) {
     console.log("Pan deltaX:" + args.deltaX + "; deltaY:" + args.deltaY + ";");
 });
 ```
-{% endnativescript %}
-{% angular %}
+
+{% endnativescript %} {% angular %}
+
 ```TypeScript
 onPan(args: PanGestureEventData) {
     console.log("Pan delta: [" + args.deltaX + ", " + args.deltaY + "] state: " + args.state);
 }
 ```
+
 ```HTML
 <Label text="Pan here" (pan)="onPan($event)"></Label>
 ```
+
 {% endangular %}
 
 ### Pinch
@@ -150,7 +169,8 @@ onPan(args: PanGestureEventData) {
 **Action: Touch the screen using two of your fingers, then move them towards each other or away from each other.**
 
 {% nativescript %}
-``` TypeScript
+
+```TypeScript
 import { GestureTypes, PinchGestureEventData, Label } from "@nativescript/core";
 
 var label = new Label();
@@ -158,25 +178,28 @@ label.on(GestureTypes.pinch, function (args: PinchGestureEventData) {
     console.log("Pinch Scale: " + args.scale);
 });
 ```
-{% endnativescript %}
-{% angular %}
+
+{% endnativescript %} {% angular %}
+
 ```TypeScript
 onPinch(args: PinchGestureEventData) {
     console.log("Pinch scale: " + args.scale + " state: " + args.state);
 }
 ```
+
 ```HTML
 <Label text="Pinch here" (pinch)="onPinch($event)"></Label>
 ```
-{% endangular %}
-Possible implementation: Zoom into content or out of content.
+
+{% endangular %} Possible implementation: Zoom into content or out of content.
 
 ### Rotation
 
 **Action: Touch the screen using two of your fingers, then rotate them simultaneously left or right.**
 
 {% nativescript %}
-``` TypeScript
+
+```TypeScript
 import { GestureTypes, RotationGestureEventData, Label } from "@nativescript/core";
 
 var label = new Label();
@@ -184,16 +207,19 @@ label.on(GestureTypes.rotation, function (args: RotationGestureEventData) {
     console.log("Rotation: " + args.rotation);
 });
 ```
-{% endnativescript %}
-{% angular %}
+
+{% endnativescript %} {% angular %}
+
 ```TypeScript
 onRotate(args: RotationGestureEventData) {
     console.log("Rotate angle: " + args.rotation + " state: " + args.state);
 }
 ```
+
 ```HTML
 <Label text="Rotate here" (rotation)="onRotate($event)"></Label>
 ```
+
 {% endangular %}
 
 ### Touch
@@ -203,7 +229,8 @@ onRotate(args: RotationGestureEventData) {
 This is a general purpose gesture that is triggered whenever a pointer (usually a finger) has performed a touch action (up, down, move or cancel). `TouchGestureEventData` provides information about all the pointers currently on the screen and their position inside the view that triggered the event.
 
 {% nativescript %}
-``` TypeScript
+
+```TypeScript
 import { GestureTypes, TouchGestureEventData, Label } from "@nativescript/core";
 
 var label = new Label();
@@ -211,8 +238,9 @@ label.on(GestureTypes.touch, function (args: TouchGestureEventData) {
     console.log("Touch: x: " + args.getX() + " y: " + args.getY());
 });
 ```
-{% endnativescript %}
-{% angular %}
+
+{% endnativescript %} {% angular %}
+
 ```TypeScript
 onTouch(args: TouchGestureEventData) {
     console.log(
@@ -220,17 +248,20 @@ onTouch(args: TouchGestureEventData) {
         "] activePointers: " + args.getActivePointers().length);
 }
 ```
+
 ```HTML
 <Label text="Touch here" (touch)="onTouch($event)"></Label>
 ```
+
 {% endangular %}
 
 {% nativescript %}
+
 ### Subscribing to Multiple Gestures and Events
 
 Since the release of NativeScript 1.3, when subscribing you can use gestures names, comma separated gestures names and/or even mix with events.
 
-``` TypeScript
+```TypeScript
 import { GestureEventData, Label } from "@nativescript/core";
 
 var label = new Label();
@@ -238,6 +269,7 @@ label.on("loaded, tap, doubleTap, longPress", function (args: GestureEventData) 
     console.log("Event: " + args.eventName + ", sender: " + args.object);
 });
 ```
+
 {% endnativescript %}
 
 ### Gesture Manipulations
@@ -252,31 +284,32 @@ In some scenarios, you would want to disable the user interaction or to create m
 
 > **Note: **: There is a conceptual difference in how `isEnabled` is acting on Android and iOS. On Android, the `isEnabled` set to `false` (e.g., on Button) won't allow any events to pass through even when `isPassThroughParentEnabled` is set to `true` for its parent. On the contrary on iOS, the same setup will pass through the event to the parent.
 
-Playground application demonstrating the usage of the three properties can be found [here](https://play.nativescript.org/?template=play-tsc&id=6c9GA0). 
+Playground application demonstrating the usage of the three properties can be found [here](https://play.nativescript.org/?template=play-tsc&id=6c9GA0).
 
 ## Navigation
 
 ## Animations
 
-* [USED REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/ui/animation-code.md
-* [USED REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/ui/animation-css.md
-* [USED REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/ui/animation.md
-* [USED REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/ui/animation-examples.md
+- [USED REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/ui/animation-code.md
+- [USED REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/ui/animation-css.md
+- [USED REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/ui/animation.md
+- [USED REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/ui/animation-examples.md
 
 ### Animations with code
 
 The easiest way to animate a **single** [`View`](/api-reference/classes/_ui_core_view_.view.html) is by using the `View.animate` method which accepts an [`AnimationDefinition`](/api-reference/interfaces/_ui_animation_.animationdefinition.html), immediately starts the animation and then returns its finished promise.
 
-__Example 20: How to execute animation on single view.__
+**Example 20: How to execute animation on single view.**
 
-``` JavaScript
+```JavaScript
 view.animate({
     translate: { x: 0, y: 100},
     duration: 1000,
     curve: enums.AnimationCurve.easeIn
 });
 ```
-``` TypeScript
+
+```TypeScript
 view.animate({
     translate: { x: 0, y: 100},
     duration: 1000,
@@ -290,49 +323,49 @@ view.animate({
 
 The [`AnimationDefinition`](/api-reference/interfaces/_ui_animation_.animationdefinition.html) interface is central for defining an animation for **one or more properties** of a **single** [`View`](/api-reference/classes/_ui_core_view_.view.html). The animatable properties are:
 
- - **opacity**
- - **backgroundColor**
- - **translateX** and **translateY**
- - **scaleX** and **scaleY**
- - **rotate**
- - **width** and **height**
+- **opacity**
+- **backgroundColor**
+- **translateX** and **translateY**
+- **scaleX** and **scaleY**
+- **rotate**
+- **width** and **height**
 
 The [`AnimationDefinition`](/api-reference/interfaces/_ui_animation_.animationdefinition.html) interface has the following members:
 
- - **target**: The view whose property is to be animated.
- - **opacity**: Animates the opacity of the view. Value should be a number between 0.0 and 1.0.
- - **backgroundColor**: Animates the backgroundColor of the view.
- - **translate**: Animates the translate affine transform of the view. Value should be a [`Pair`](/api-reference/interfaces/_ui_animation_.pair.html).
- - **scale**: Animates the scale affine transform of the view. Value should be a [`Pair`](/api-reference/interfaces/_ui_animation_.pair.html).
- - **rotate**: Animates the rotate affine transform of the view. Value should be a number specifying the rotation amount in degrees.
- - **duration**: The length of the animation in milliseconds. The default duration is 300 milliseconds.
- - **delay**: The amount of time, in milliseconds, to delay starting the animation.
- - **iterations**: Specifies how many times the animation should be played. Default is 1. iOS animations support fractional iterations, i.e., 1.5. To repeat an animation infinitely, use `Number.POSITIVE_INFINITY`.
- - **curve**: An optional animation curve. Possible values are contained in the [AnimationCurve enumeration](/api-reference/modules/_ui_enums_.animationcurve.html). Alternatively, you can pass an instance of type [`UIViewAnimationCurve`](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIView_Class/#//apple_ref/c/tdef/UIViewAnimationCurve) for iOS or [`android.animation.TimeInterpolator`](http://developer.android.com/reference/android/animation/TimeInterpolator.html) for Android.
- - **width**: Animates view's width.
- - **height**: Animates view's height.
+- **target**: The view whose property is to be animated.
+- **opacity**: Animates the opacity of the view. Value should be a number between 0.0 and 1.0.
+- **backgroundColor**: Animates the backgroundColor of the view.
+- **translate**: Animates the translate affine transform of the view. Value should be a [`Pair`](/api-reference/interfaces/_ui_animation_.pair.html).
+- **scale**: Animates the scale affine transform of the view. Value should be a [`Pair`](/api-reference/interfaces/_ui_animation_.pair.html).
+- **rotate**: Animates the rotate affine transform of the view. Value should be a number specifying the rotation amount in degrees.
+- **duration**: The length of the animation in milliseconds. The default duration is 300 milliseconds.
+- **delay**: The amount of time, in milliseconds, to delay starting the animation.
+- **iterations**: Specifies how many times the animation should be played. Default is 1. iOS animations support fractional iterations, i.e., 1.5. To repeat an animation infinitely, use `Number.POSITIVE_INFINITY`.
+- **curve**: An optional animation curve. Possible values are contained in the [AnimationCurve enumeration](/api-reference/modules/_ui_enums_.animationcurve.html). Alternatively, you can pass an instance of type [`UIViewAnimationCurve`](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIView_Class/#//apple_ref/c/tdef/UIViewAnimationCurve) for iOS or [`android.animation.TimeInterpolator`](http://developer.android.com/reference/android/animation/TimeInterpolator.html) for Android.
+- **width**: Animates view's width.
+- **height**: Animates view's height.
 
- All members of the interface are **optional** and have default values with the following exceptions:
+All members of the interface are **optional** and have default values with the following exceptions:
 
- - target is only optional when calling the `animate` method of a [`View`](/api-reference/classes/_ui_core_view_.view.html) instance since it is set automatically for you.
- - You must specify at least one property from this list: opacity, backgroundColor, scale, rotate or translate.
+- target is only optional when calling the `animate` method of a [`View`](/api-reference/classes/_ui_core_view_.view.html) instance since it is set automatically for you.
+- You must specify at least one property from this list: opacity, backgroundColor, scale, rotate or translate.
 
 ### The Animation class
 
-The [`Animation`](/api-reference/classes/_ui_animation_.animation.html) class represents a **set** of one or more [`AnimationDefinitions`](/api-reference/interfaces/_ui_animation_.animationdefinition.html) that can be played either **simultaneously or sequentially**. **This class is typically used when you need to animate several views together**. The constructor of the  [`Animation`](/api-reference/classes/_ui_animation_.animation.html) class accepts an array of [`AnimationDefinitions`](/api-reference/interfaces/_ui_animation_.animationdefinition.html) and a boolean parameter indicating whether to play the animations sequentially. Creating an instance of the [`Animation`](/api-reference/classes/_ui_animation_.animation.html) class does not start the animation playback. The class has four members:
+The [`Animation`](/api-reference/classes/_ui_animation_.animation.html) class represents a **set** of one or more [`AnimationDefinitions`](/api-reference/interfaces/_ui_animation_.animationdefinition.html) that can be played either **simultaneously or sequentially**. **This class is typically used when you need to animate several views together**. The constructor of the [`Animation`](/api-reference/classes/_ui_animation_.animation.html) class accepts an array of [`AnimationDefinitions`](/api-reference/interfaces/_ui_animation_.animationdefinition.html) and a boolean parameter indicating whether to play the animations sequentially. Creating an instance of the [`Animation`](/api-reference/classes/_ui_animation_.animation.html) class does not start the animation playback. The class has four members:
 
- - **play**: A method that starts the animation and returns the instance it was called on for fluent animation chaining.
- - **cancel**: A void method that stops the animation.
- - **finished**: A promise that will be resolved when the animation finishes or rejected when the animation is cancelled or stops for another reason.
- - **isPlaying**: A boolean property returning __True__ if the animation is currently playing.
+- **play**: A method that starts the animation and returns the instance it was called on for fluent animation chaining.
+- **cancel**: A void method that stops the animation.
+- **finished**: A promise that will be resolved when the animation finishes or rejected when the animation is cancelled or stops for another reason.
+- **isPlaying**: A boolean property returning **True** if the animation is currently playing.
 
 ### Animating multiple properties
 
 It is easy to animate multiple properties at once; just pass the desired animatable properties and the corresponding values when calling the animate function.
 
-__Example 21: How to animate multiple properties.__
+**Example 21: How to animate multiple properties.**
 
-``` JavaScript
+```JavaScript
 view.animate({
     backgroundColor: new color.Color("#3D5AFE"),
     opacity: 0.5,
@@ -341,7 +374,8 @@ view.animate({
     duration: 3000
 });
 ```
-``` TypeScript
+
+```TypeScript
 view.animate({
     backgroundColor: new color.Color("#3D5AFE"),
     opacity: 0.5,
@@ -351,15 +385,15 @@ view.animate({
 });
 ```
 
-![multiple-properties](/assets/images/modules/animation/multiple-properties.gif "Multiple Properties")
+![multiple-properties](/assets/images/modules/animation/multiple-properties.gif 'Multiple Properties')
 
 ### Chaining animations with promises
 
-The animate method returns a promise that you can use to chain animations, as shown in __Example 21__.
+The animate method returns a promise that you can use to chain animations, as shown in **Example 21**.
 
-__Example 22: How to create chain animations.__
+**Example 22: How to create chain animations.**
 
-``` JavaScript
+```JavaScript
 view.animate({ opacity: 0 })
     .then(function () { return view.animate({ opacity: 1 }); })
     .then(function () { return view.animate({ translate: { x: 100, y: 100 } }); })
@@ -375,7 +409,8 @@ view.animate({ opacity: 0 })
     console.log(e.message);
 });
 ```
-``` TypeScript
+
+```TypeScript
 view.animate({ opacity: 0 })
     .then(() => view.animate({ opacity: 1 }))
     .then(() => view.animate({ translate: { x: 100, y: 100 } }))
@@ -392,7 +427,7 @@ view.animate({ opacity: 0 })
   });
 ```
 
-![chaining-with-promises](/assets/images/modules/animation/chaining-with-promises.gif "Chaining with Promises")
+![chaining-with-promises](/assets/images/modules/animation/chaining-with-promises.gif 'Chaining with Promises')
 
 ### CSS Animations
 
@@ -400,11 +435,11 @@ CSS animations are based on the simple and easy to use standard [CSS3 animations
 
 CSS animations consist of two components: a style describing the CSS animation and a set of keyframes that indicate the start and end states of the animation's style, as well as possible intermediate waypoints. You can change as many animatable CSS properties you want, as many times you want.
 
-__Example 1__ binds the "example" animation to the button element. The animation lasts 4 seconds. It will gradually change the background-color of the button element from "red" to "green".
+**Example 1** binds the "example" animation to the button element. The animation lasts 4 seconds. It will gradually change the background-color of the button element from "red" to "green".
 
-__Example 1: How to create simple animation using CSS.__
+**Example 1: How to create simple animation using CSS.**
 
-``` CSS
+```CSS
 @keyframes example {
     from { background-color: red; }
     to { background-color: green; }
@@ -419,13 +454,15 @@ __Example 1: How to create simple animation using CSS.__
 
 To get an animation to work, you must bind the animation to an element:
 
-``` JavaScript
+```JavaScript
 view1.className = "example";
 ```
-``` TypeScript
+
+```TypeScript
 view1.className = "example";
 ```
-``` XML
+
+```XML
 <Button id="myButton" text="{N}" class="example"/>
 ```
 
@@ -433,11 +470,11 @@ view1.className = "example";
 
 ### Animatable properties
 
-CSS animations support the same animatable properties used in code-based animations: 
+CSS animations support the same animatable properties used in code-based animations:
 
 - **opacity**
 - **background-color**: Corresponds with the backgroundColor.
-- **transform: translate**: Corresponds with translateX and translateY properties. 
+- **transform: translate**: Corresponds with translateX and translateY properties.
 - **transform: scale**: Corresponds with scaleX and scaleY properties.
 - **transform: rotate**: Corresponds with the rotate property.
 
@@ -460,24 +497,24 @@ The following list presents all animation properties:
 
 ### Animation keyframes
 
-To set multiple points at which an element should undergo a transition, use the **@keyframes** rule, shown in __Example 2__. It includes the animation name, any animation breakpoints, and the properties intended to be animated. 
+To set multiple points at which an element should undergo a transition, use the **@keyframes** rule, shown in **Example 2**. It includes the animation name, any animation breakpoints, and the properties intended to be animated.
 
-__Example 2: How to use **@keyframes** rule.__
+**Example 2: How to use **@keyframes** rule.**
 
-``` CSS
+```CSS
 @keyframes example {
     from { background-color: red; }
     to { background-color: green; }
 }
 ```
 
-__Example 2__ defines an animation with two keyframes. The "from" represents 0% (the start of the animation) and "to" represents 100% (the final value). You can add more keyframes by using percent.
+**Example 2** defines an animation with two keyframes. The "from" represents 0% (the start of the animation) and "to" represents 100% (the final value). You can add more keyframes by using percent.
 
-__Example 3__ shows how to change the background color when the animation is 25% complete, 50% complete, and again when the animation is 100% complete.
+**Example 3** shows how to change the background color when the animation is 25% complete, 50% complete, and again when the animation is 100% complete.
 
-__Example 3: Changing background color in different animation stages.__
+**Example 3: Changing background color in different animation stages.**
 
-``` CSS
+```CSS
 @keyframes example {
     0%   { background-color: red; }
     25%  { background-color: yellow; }
@@ -486,11 +523,11 @@ __Example 3: Changing background color in different animation stages.__
 }
 ```
 
-You can set multiple properties in a keyframe, as shown in __Example 4__.
+You can set multiple properties in a keyframe, as shown in **Example 4**.
 
-__Example 4: Changing multiple properties in different animation stages.__
+**Example 4: Changing multiple properties in different animation stages.**
 
-``` CSS
+```CSS
 @keyframes example {
     0%   { background-color: red; transform: translate(0, 0); }
     25%  { background-color: yellow; transform: translate(200, 0); }
@@ -500,11 +537,11 @@ __Example 4: Changing multiple properties in different animation stages.__
 }
 ```
 
-You can combine keyframes, as shown in __Example 5__.
+You can combine keyframes, as shown in **Example 5**.
 
-__Example 5: Set up properties for several keyframes__
+**Example 5: Set up properties for several keyframes**
 
-``` CSS
+```CSS
 @keyframes example {
     0%, 50% { background-color: red; transform: translate(0, 0); }
     25%, 75% { background-color: yellow; transform: translate(200, 0); }
@@ -516,9 +553,9 @@ __Example 5: Set up properties for several keyframes__
 
 The **animation-delay** property specifies a delay (in seconds) before the animation starts:
 
-__Example 6: Set up a delay before the animation starts__
+**Example 6: Set up a delay before the animation starts**
 
-``` CSS
+```CSS
 .view {
 	background-color: red;
     animation-name: example;
@@ -529,11 +566,11 @@ __Example 6: Set up a delay before the animation starts__
 
 ### Set how many times an animation should run
 
-The **animation-iteration-count** property defines the number of times an animation should run. The animation in __Example 7__ will play two times before it stops.
+The **animation-iteration-count** property defines the number of times an animation should run. The animation in **Example 7** will play two times before it stops.
 
-__Example 7: How to use `animation-iteration-count` property__
+**Example 7: How to use `animation-iteration-count` property**
 
-``` CSS
+```CSS
 .view {
 	background-color: red;
    animation-name: example;
@@ -544,7 +581,7 @@ __Example 7: How to use `animation-iteration-count` property__
 
 If you want to play an animation forever, set this property to "infinite".
 
-``` CSS
+```CSS
 animation-iteration-count: infinite;
 ```
 
@@ -558,11 +595,11 @@ The **animation-timing-function** property specifies the speed curve of the anim
 - **ease-out**: Specifies an animation with a slow end.
 - **ease-in-out**: Specifies an animation with a slow start and slow end.
 - **spring**: Specifies a spring animation.
-- **cubic-bezier(n,n,n,n)**: Lets you define your own values in a cubic-bezier function, as shown in __Example 8__.
+- **cubic-bezier(n,n,n,n)**: Lets you define your own values in a cubic-bezier function, as shown in **Example 8**.
 
-__Example 8: How to specify the speed curve using cubic-bezier function.__
+**Example 8: How to specify the speed curve using cubic-bezier function.**
 
-``` CSS
+```CSS
 .view {
 	animation-name: example;
    animation-timing-function: cubic-bezier(0.1, 0.1, 1.0, 1.0);
@@ -573,9 +610,9 @@ __Example 8: How to specify the speed curve using cubic-bezier function.__
 
 The **animation-fill-mode** property determines the element style when the animation finishes. Its default value is "none". In this case, all animated values will be reset to the state before the animation started. You should choose "forwards" in order to preserve the property values set during the animation.
 
-__Example 9: How to use **animation-fill-mode** property__
+**Example 9: How to use **animation-fill-mode** property**
 
-``` CSS
+```CSS
 .view {
 	background-color: red;
     animation-name: example;
@@ -586,11 +623,11 @@ __Example 9: How to use **animation-fill-mode** property__
 
 ### Animation direction
 
-You can use the **animation-direction** property to play a CSS animation in reverse direction, as shown in __Example 10__.
+You can use the **animation-direction** property to play a CSS animation in reverse direction, as shown in **Example 10**.
 
-__Example 10: How to reverse animation direction.__
+**Example 10: How to reverse animation direction.**
 
-``` CSS
+```CSS
 .view {
 	background-color: red;
     animation-name: example;
@@ -603,9 +640,9 @@ __Example 10: How to reverse animation direction.__
 
 The **animation** property allows setting all seven animation properties with a single line:
 
-__Example 11: How to use animation shorthand property__
+**Example 11: How to use animation shorthand property**
 
-``` CSS
+```CSS
 .view {
     animation: example 4s ease-in-out 2s infinite reverse forwards;
 }
@@ -617,9 +654,9 @@ animation: name duration timing-function delay iteration-count direction fill-mo
 
 You can combine two animations in the **animation** property by using commas:
 
-__Example 12: How to combine several animations in the **animation** property__
+**Example 12: How to combine several animations in the **animation** property**
 
-``` CSS
+```CSS
 .view {
     animation: example 4s ease-in-out 2s infinite reverse, second-animation-example 5s ease-out;
 }
@@ -629,9 +666,9 @@ __Example 12: How to combine several animations in the **animation** property__
 
 A pseudo selector is used to define a special state of an element. For example, when a button is touched by the user. You can use pseudo selectors to trigger animations:
 
-__Example 13: How to trigger animation on element special state__
+**Example 13: How to trigger animation on element special state**
 
-``` CSS
+```CSS
 .button {
     background-color: green;
 }
@@ -652,8 +689,8 @@ __Example 13: How to trigger animation on element special state__
 
 ### Animations - width and height
 
-__Example 14: How to animate view's width and height.__
-{% nativescript %}
+**Example 14: How to animate view's width and height.** {% nativescript %}
+
 ```XML
 <GridLayout rows="* *" columns="*" class="home-panel">
         <StackLayout row="0">
@@ -664,6 +701,7 @@ __Example 14: How to animate view's width and height.__
         </StackLayout>
 </GridLayout>
 ```
+
 ```CSS
 .first-view {
     animation-name: example-width;
@@ -687,9 +725,9 @@ __Example 14: How to animate view's width and height.__
     to { height:200; }
 }
 ```
-[Demo](https://play.nativescript.org/?template=play-js&id=xe3lMf)
-{% endnativescript %}
-{% angular %}
+
+[Demo](https://play.nativescript.org/?template=play-js&id=xe3lMf) {% endnativescript %} {% angular %}
+
 ```HTML
 <GridLayout rows="* *" columns="*" class="home-panel">
     <StackLayout row="0">
@@ -700,6 +738,7 @@ __Example 14: How to animate view's width and height.__
     </StackLayout>
 </GridLayout>
 ```
+
 ```CSS
 .first-view {
     animation-name: example-width;
@@ -723,19 +762,20 @@ __Example 14: How to animate view's width and height.__
     to { height:200; }
 }
 ```
-[Demo](https://play.nativescript.org/?template=play-ng&id=NMM4I5)
-{% endangular %}
+
+[Demo](https://play.nativescript.org/?template=play-ng&id=NMM4I5) {% endangular %}
 
 ### Access CSS animations from code
 
 The simplest way to trigger a CSS animation is by changing the element **className** property:
 
-__Example 15: How to trigger CSS animation__
+**Example 15: How to trigger CSS animation**
 
 ```JavaScript
 var view = page.getViewById("view");
 view.className = "transparent";
 ```
+
 ```TypeScript
 let view = page.getViewById<viewModule.View>("view");
 view.className = "transparent";
@@ -743,10 +783,9 @@ view.className = "transparent";
 
 All keyframes defined in CSS can be accessed with code by using the **getKeyframeAnimationWithName** method. This allows further customization of animation properties:
 
+**Example 16: Accessing CSS defined keyframe in the code via **getKeyframeAnimationWithName** method**
 
-__Example 16: Accessing CSS defined keyframe in the code via **getKeyframeAnimationWithName** method__
-
-``` JavaScript
+```JavaScript
 import { KeyframeAnimation } from "@nativescript/core";
 
 var view = page.getViewById("view");
@@ -757,7 +796,8 @@ animation.play(view).then(() => {
     console.log("Played with code!");
 });
 ```
-``` TypeScript
+
+```TypeScript
 import { KeyframeAnimation, View } from "@nativescript/core";
 
 let view = page.getViewById<View>("view");
@@ -782,20 +822,21 @@ For your convenience, we expose two ways of creating animations:
 
 ##Hello world example
 
-In __Example 1__ we will change the background color of a button from "red" to "green". You can use JavaScript or TypeScript code to do the following:
+In **Example 1** we will change the background color of a button from "red" to "green". You can use JavaScript or TypeScript code to do the following:
 
-__Example 1: Changing background color animation with code.__
+**Example 1: Changing background color animation with code.**
 
-![hello-world](/assets/images/modules/animation/hello-world.gif "Hello world")
+![hello-world](/assets/images/modules/animation/hello-world.gif 'Hello world')
 
-``` JavaScript
+```JavaScript
 // Import color module
 import { Color } from "@nativescript/core";
 
 view.backgroundColor = new Color("red");
 view.animate({ backgroundColor: new Color("green"), duration: 2000 });
 ```
-``` TypeScript
+
+```TypeScript
 // Import color module
 import { Color } from "@nativescript/core";
 
@@ -807,9 +848,9 @@ view.animate({ backgroundColor: new Color("green"), duration: 2000 });
 
 As _Example 2_ shows, you can express the same animation in CSS with the following definition:
 
-__Example 2: Changing background color animation with CSS.__
+**Example 2: Changing background color animation with CSS.**
 
-``` CSS
+```CSS
 @keyframes example {
     from { background-color: red; }
     to { background-color: green; }
@@ -820,7 +861,8 @@ __Example 2: Changing background color animation with CSS.__
     animation-fill-mode: forwards;
 }
 ```
-``` XML
+
+```XML
 <!-- Apply CSS class to element to trigger CSS animation -->
 <Label class="view" text="{N}"></Label>
 ```
@@ -853,29 +895,29 @@ By default, an animation moves with a linear speed without acceleration or decel
 
 - **linear**: The simplest animation curve is linear. It maintains a constant speed while the animation is running:
 
-![linear](/assets/images/modules/animation/linear.gif "Linear")
+![linear](/assets/images/modules/animation/linear.gif 'Linear')
 
 - **Ease-in**: The ease-in curve causes the animation to begin slowly, and then speed up as it progresses.
 
-![easein](/assets/images/modules/animation/easein.gif "EaseIn")
+![easein](/assets/images/modules/animation/easein.gif 'EaseIn')
 
 - **Ease-out**: An ease-out curve causes the animation to begin quickly, and then slow down as it completes.
 
-![easeout](/assets/images/modules/animation/easeout.gif "EaseOut")
+![easeout](/assets/images/modules/animation/easeout.gif 'EaseOut')
 
 - **Ease-in-out**: An ease-in ease-out curve causes the animation to begin slowly, accelerate through the middle of its duration, and then slow again before completing.
 
-![easeinout](/assets/images/modules/animation/easeinout.gif "EaseInOut")
+![easeinout](/assets/images/modules/animation/easeinout.gif 'EaseInOut')
 
 - **Spring**: A spring animation curve causes an animation to produce a spring (bounce) effect.
 
-![spring](/assets/images/modules/animation/spring.gif "Spring")
+![spring](/assets/images/modules/animation/spring.gif 'Spring')
 
-In NativeScript, the animation curve is represented by the AnimationCurve enumeration and can be specified with the curve property of the animation. In CSS, the animation curve is defined by using the animation-timing-function property (see __Example 3__):
+In NativeScript, the animation curve is represented by the AnimationCurve enumeration and can be specified with the curve property of the animation. In CSS, the animation curve is defined by using the animation-timing-function property (see **Example 3**):
 
-__Example 3: How to customize the animation timing function__
+**Example 3: How to customize the animation timing function**
 
-``` JavaScript
+```JavaScript
 import { Enums } from "@nativescript/core";
 view.animate({
 	translate: { x: 0, y: 100},
@@ -883,7 +925,8 @@ view.animate({
 	curve: Enums.AnimationCurve.easeIn
 });
 ```
-``` TypeScript
+
+```TypeScript
 import { Enums } from "@nativescript/core";
 view.animate({
 	translate: { x: 0, y: 100},
@@ -891,7 +934,8 @@ view.animate({
 	curve: Enums.AnimationCurve.easeIn
 });
 ```
-``` CSS
+
+```CSS
 .view {
 	animation-name: example;
 	animation-duration: 1;
@@ -906,15 +950,15 @@ view.animate({
 
 [Experiment with the different animation timing functions in the NativeScript Playground](https://play.nativescript.org/?template=play-tsc&id=zt5sXZ)
 
-It is easy to create your own animation curve by passing in the X and Y components of two control points of a cubic Bezier curve (as shown in __Example 4__). Using Bezier curves is a common technique to create smooth curves in computer graphics and they are widely used in vector-based drawing tools. The values passed to the cubicBezier method control the curve shape. The animation speed will be adjusted based on the resulting path.
+It is easy to create your own animation curve by passing in the X and Y components of two control points of a cubic Bezier curve (as shown in **Example 4**). Using Bezier curves is a common technique to create smooth curves in computer graphics and they are widely used in vector-based drawing tools. The values passed to the cubicBezier method control the curve shape. The animation speed will be adjusted based on the resulting path.
 
 For help finding the `cubicBezier` values you need for your custom animation timing function, use the visual tools on [cubic-bezier.com](http://cubic-bezier.com). Once you find an animation path you like, simply copy and paste the cubic bezier values and paste them in the `AnimationCurve.cubicBezier` function. There should be four numbers (X,Y coordinates for each of the two points in the animation).
 
-__Example 4: How to create own animation curve via cubic Bezier__
+**Example 4: How to create own animation curve via cubic Bezier**
 
-![beziergraph](/assets/images/modules/animation/bezier-graph.png "BezierGraph")
+![beziergraph](/assets/images/modules/animation/bezier-graph.png 'BezierGraph')
 
-``` JavaScript
+```JavaScript
 import { Enums } from "@nativescript/core";
 
 view.animate({
@@ -923,7 +967,8 @@ view.animate({
     curve: Enums.AnimationCurve.cubicBezier(0.1, 0.1, 0.1, 1)
 });
 ```
-``` TypeScript
+
+```TypeScript
 import { Enums } from "@nativescript/core";
 view.animate({
     translate: { x: 0, y: 100 },
@@ -931,7 +976,8 @@ view.animate({
     curve: Enums.AnimationCurve.cubicBezier(0.1, 0.1, 0.1, 1)
 });
 ```
-``` CSS
+
+```CSS
 .view {
 	animation-name: example;
 	animation-duration: 1;
@@ -940,7 +986,7 @@ view.animate({
 }
 ```
 
-![bezier](/assets/images/modules/animation/bezier.gif "Bezier")
+![bezier](/assets/images/modules/animation/bezier.gif 'Bezier')
 
 More detailed examples are available on the [Animation Examples](./animation-examples.md) page.
 
@@ -948,9 +994,9 @@ More detailed examples are available on the [Animation Examples](./animation-exa
 
 To create more complex animations, we might need to change the origin point around which the selected view will be transformed. This can be achieved using [`originX`](/api-reference/classes/_ui_core_view_.view#originx) and [`originY`](/api-reference/classes/_ui_core_view_.view#originy) properties of `View`.
 
-__Example 5: Rotating a view around its center. Center of view is changed via `originX` and `originY` properties.__
+**Example 5: Rotating a view around its center. Center of view is changed via `originX` and `originY` properties.**
 
-``` JavaScript
+```JavaScript
 view.originX = 1; // default 0.5 (center), 0 is most left, 1 is most right
 view.originY = 0.5; // default 0.5 (middle), 0 is top, 1 is bottom
 view.animate({
@@ -958,7 +1004,8 @@ view.animate({
     duration: 1000
 });
 ```
-``` TypeScript
+
+```TypeScript
 view.originX = 1; // default 0.5 (center), 0 is most left, 1 is most right
 view.originY = 0.5; // default 0.5 (middle), 0 is top, 1 is bottom
 view.animate({
@@ -981,21 +1028,23 @@ The full source code for all samples is located [here](https://github.com/Native
 
 ### Animated opacity
 
-![opacity](/assets/images/modules/animation/opacity.gif "Opacity")
+![opacity](/assets/images/modules/animation/opacity.gif 'Opacity')
 
-``` JavaScript
+```JavaScript
 view.animate({
     opacity: 0,
     duration: 3000
 });
 ```
-``` TypeScript
+
+```TypeScript
 view.animate({
     opacity: 0,
     duration: 3000
 });
 ```
-``` CSS
+
+```CSS
 .view {
 	animation-name: opacity;
 	animation-duration: 3;
@@ -1010,21 +1059,23 @@ view.animate({
 
 ### Animate background color
 
-![background-color](/assets/images/modules/animation/background-color.gif "Background Color")
+![background-color](/assets/images/modules/animation/background-color.gif 'Background Color')
 
-``` JavaScript
+```JavaScript
 view.animate({
     backgroundColor: new colorModule.Color("#3D5AFE"),
     duration: 3000
 });
 ```
-``` TypeScript
+
+```TypeScript
 view.animate({
     backgroundColor: new colorModule.Color("#3D5AFE"),
     duration: 3000
 });
 ```
-``` CSS
+
+```CSS
 .view {
 	animation-name: backgroundColor;
 	animation-duration: 3;
@@ -1039,21 +1090,23 @@ view.animate({
 
 ### Animate position
 
-![translate](/assets/images/modules/animation/translate.gif "Translate")
+![translate](/assets/images/modules/animation/translate.gif 'Translate')
 
-``` JavaScript
+```JavaScript
 view.animate({
     translate: { x: 100, y: 100},
     duration: 3000
 });
 ```
-``` TypeScript
+
+```TypeScript
 view.animate({
     translate: { x: 100, y: 100},
     duration: 3000
 });
 ```
-``` CSS
+
+```CSS
 .view {
 	animation-name: translate;
 	animation-duration: 3;
@@ -1068,21 +1121,23 @@ view.animate({
 
 ### Animate scale
 
-![scale](/assets/images/modules/animation/scale.gif "Scale")
+![scale](/assets/images/modules/animation/scale.gif 'Scale')
 
-``` JavaScript
+```JavaScript
 view.animate({
     scale: { x: 2, y: 2},
     duration: 3000
 });
 ```
-``` TypeScript
+
+```TypeScript
 view.animate({
     scale: { x: 2, y: 2},
     duration: 3000
 });
 ```
-``` CSS
+
+```CSS
 .view {
 	animation-name: scale;
 	animation-duration: 3;
@@ -1097,21 +1152,23 @@ view.animate({
 
 ### Animate rotate
 
-![rotate](/assets/images/modules/animation/rotate.gif "Rotate")
+![rotate](/assets/images/modules/animation/rotate.gif 'Rotate')
 
-``` JavaScript
+```JavaScript
 view.animate({
     rotate: 360,
     duration: 3000
 });
 ```
-``` TypeScript
+
+```TypeScript
 view.animate({
     rotate: 360,
     duration: 3000
 });
 ```
-``` CSS
+
+```CSS
 .view {
 	animation-name: rotate;
 	animation-duration: 3;
@@ -1126,9 +1183,9 @@ view.animate({
 
 ### Chaining animations with AnimationSet
 
-![chaining-with-animation-set](/assets/images/modules/animation/chaining-with-animation-set.gif "Chaining with Animation Set")
+![chaining-with-animation-set](/assets/images/modules/animation/chaining-with-animation-set.gif 'Chaining with Animation Set')
 
-``` JavaScript
+```JavaScript
 var definitions = new Array();
 definitions.push({ target: view1, translate: { x: 200, y: 0 }, duration: 3000 });
 definitions.push({ target: view2, translate: { x: 0, y: 200 }, duration: 3000 });
@@ -1143,7 +1200,8 @@ animationSet.play().then(function () {
     console.log(e.message);
 });
 ```
-``` TypeScript
+
+```TypeScript
 var definitions = new Array<animationModule.AnimationDefinition>();
 definitions.push({target: view1, translate: {x: 200, y: 0}, duration: 3000 });
 definitions.push({target: view2, translate: {x: 0, y: 200}, duration: 3000 });
@@ -1161,9 +1219,9 @@ animationSet.play().then(() => {
 
 ### Animating multiple views
 
-![multiple-views](/assets/images/modules/animation/multiple-views.gif "Multiple Views")
+![multiple-views](/assets/images/modules/animation/multiple-views.gif 'Multiple Views')
 
-``` JavaScript
+```JavaScript
 var definitions = new Array();
 var a1 = {
     target: view1,
@@ -1197,7 +1255,8 @@ animationSet.play().then(function () {
     console.log(e.message);
 });
 ```
-``` TypeScript
+
+```TypeScript
 var definitions = new Array<animationModule.AnimationDefinition>();
 var a1: animationModule.AnimationDefinition = {
     target: view1,
@@ -1241,9 +1300,9 @@ animationSet.play().then(() => {
 
 ### Reusing animations
 
-![reusing](/assets/images/modules/animation/reusing.gif "Reusing Animations")
+![reusing](/assets/images/modules/animation/reusing.gif 'Reusing Animations')
 
-``` JavaScript
+```JavaScript
 var animation1 = view.createAnimation({ opacity: 0 });
 var animation2 = view.createAnimation({ opacity: 1 });
 animation1.play()
@@ -1259,7 +1318,8 @@ animation1.play()
     console.log(e.message);
 });
 ```
-``` TypeScript
+
+```TypeScript
 var animation1 = view.createAnimation({opacity: 0});
 var animation2 = view.createAnimation({opacity: 1});
 
@@ -1279,9 +1339,9 @@ animation1.play()
 
 ### Slide-in effect
 
-![slide-in-effect](/assets/images/modules/animation/slide-in-effect.gif "Slide-in Effect")
+![slide-in-effect](/assets/images/modules/animation/slide-in-effect.gif 'Slide-in Effect')
 
-``` JavaScript
+```JavaScript
 var item = new imageModule.Image();
 item.src = "~/res/icon_100x100.png";
 item.width = 90;
@@ -1294,7 +1354,8 @@ item.on("loaded", function (args) {
 });
 wrapLayout.addChild(item);
 ```
-``` TypeScript
+
+```TypeScript
 var item = new imageModule.Image();
 item.src = "~/res/icon_100x100.png";
 item.width = 90;
@@ -1310,9 +1371,9 @@ wrapLayout.addChild(item);
 
 ### Infinite animations
 
-![infinite](/assets/images/modules/animation/infinite.gif "Infinite")
+![infinite](/assets/images/modules/animation/infinite.gif 'Infinite')
 
-``` JavaScript
+```JavaScript
 animationSet = new animationModule.Animation([{
         target: view,
         rotate: 360,
@@ -1325,7 +1386,8 @@ animationSet.play().catch(function (e) {
 });
 // Call animationSet.cancel() to stop it;
 ```
-``` TypeScript
+
+```TypeScript
 animationSet = new animationModule.Animation([{
     target: view,
     rotate: 360,
@@ -1340,11 +1402,12 @@ animationSet.play().catch((e) => {
 ```
 
 ### Rotation using originX and originY
-__Example 5: Rotating a view around its center. Center of view is changed via `originX` and `originY` properties.__
 
-![rotation_origin_x_y](/assets/images/modules/animation/rotation_origin_x_y.gif "Rotation originX / originY")
+**Example 5: Rotating a view around its center. Center of view is changed via `originX` and `originY` properties.**
 
-``` JavaScript
+![rotation_origin_x_y](/assets/images/modules/animation/rotation_origin_x_y.gif 'Rotation originX / originY')
+
+```JavaScript
 const view = page.getViewById("myView");
 
 view.originX = 1; // default 0.5 (center), 0 is most left, 1 is most right
@@ -1363,7 +1426,8 @@ view.animate({
     })
 })
 ```
-``` TypeScript
+
+```TypeScript
 const view = page.getViewById("myView");
 
 view.originX = 1; // default 0.5 (center), 0 is most left, 1 is most right
@@ -1383,9 +1447,12 @@ view.animate({
 })
 ```
 
-### Animation -  View's Width and Height
+### Animation - View's Width and Height
+
 {% nativescript %}
+
 ### Width
+
 ```JavaScript
 let label = page.getViewById("lblNS");
 let animation = new Animation([
@@ -1399,6 +1466,7 @@ let animation = new Animation([
   ]);
 animation.play();
 ```
+
 ```TypeScript
 let label: Label = <Label>page.getViewById("lblNS");
 let animation = new Animation([
@@ -1412,7 +1480,9 @@ let animation = new Animation([
     ]);
 animation.play();
 ```
+
 ### Height
+
 ```JavaScript
 let label = page.getViewById("lblNS");
 let animation = new Animation([
@@ -1426,6 +1496,7 @@ let animation = new Animation([
   ]);
 animation.play();
 ```
+
 ```TypeScript
 let label: Label = <Label>page.getViewById("lblNS");
 let animation = new Animation([
@@ -1439,11 +1510,11 @@ let animation = new Animation([
     ]);
 animation.play();
 ```
-[Demo JavaScript](https://play.nativescript.org/?template=play-js&id=mOZv68)
-[Demo TypeScript](https://play.nativescript.org/?template=play-tsc&id=ckdYDS)
-{% endnativescript %}
-{% angular %}
+
+[Demo JavaScript](https://play.nativescript.org/?template=play-js&id=mOZv68) [Demo TypeScript](https://play.nativescript.org/?template=play-tsc&id=ckdYDS) {% endnativescript %} {% angular %}
+
 ### Width
+
 ```TypeScript
 @ViewChild("lblNS", { read: ElementRef, static: false }) labelRef: ElementRef;
 private label: Label;
@@ -1463,7 +1534,9 @@ let animation = new Animation([
 ]);
 animation.play();
 ```
+
 ### Height
+
 ```TypeScript
 @ViewChild("lblNS", { read: ElementRef, static: false }) labelRef: ElementRef;
 private label: Label;
@@ -1483,7 +1556,7 @@ let animation = new Animation([
 ]);
 animation.play();
 ```
-[Demo](https://play.nativescript.org/?template=play-ng&id=cWAc2j)
-{% endangular %}
+
+[Demo](https://play.nativescript.org/?template=play-ng&id=cWAc2j) {% endangular %}
 
 ## Accessibility

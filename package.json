@@ -4,9 +4,21 @@
     "scripts": {
         "start": "npm run dev",
         "dev": "vitepress dev .",
-        "build": "vitepress build ."
+        "build": "vitepress build .",
+        "format": "prettier --loglevel warn --write \"**/*.{js,css,md}\""
     },
     "devDependencies": {
+        "husky": "^5.0.9",
+        "lint-staged": "^10.5.4",
+        "prettier": "^2.2.1",
         "vitepress": "0.12.2"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "*.{js,css,md}": "prettier --write"
     }
 }

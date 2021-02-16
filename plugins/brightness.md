@@ -12,16 +12,16 @@ To use the brightness module you must first `require()` and instantiate it:
 
 ```js
 // JavaScript
-var nativescriptBrightness = require('@nativescript/brightness');
-var brightness = new nativescriptBrightness.Brightness();
+var nativescriptBrightness = require('@nativescript/brightness')
+var brightness = new nativescriptBrightness.Brightness()
 ```
 
 Or if you’re using TypeScript, `import` the module:
 
 ```typescript
 // TypeScript
-import { Brightness } from '@nativescript/brightness';
-const brightness = new Brightness();
+import { Brightness } from '@nativescript/brightness'
+const brightness = new Brightness()
 ```
 
 After you have a reference to the module you can then call its `get()` and `set()` methods. For example, the code below updates you screen's brightness with an `intensity` setting of 25%.
@@ -30,12 +30,12 @@ The `intensity` can be set to a value from 1 to 100.
 
 ```js
 // TypeScript
-import { Brightness } from '@nativescript/brightness';
-const brightness = new Brightness();
+import { Brightness } from '@nativescript/brightness'
+const brightness = new Brightness()
 
 brightness.set({
-	intensity: 25,
-});
+  intensity: 25
+})
 ```
 
 ## API

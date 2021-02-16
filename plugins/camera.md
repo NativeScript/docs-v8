@@ -1,7 +1,6 @@
 ## Overview
 
-Almost every mobile application needs the option to capture, save and share images.
-The NativeScript camera plugin was designed for the first two parts of the job (taking a picture and optionally saving to device storage).
+Almost every mobile application needs the option to capture, save and share images. The NativeScript camera plugin was designed for the first two parts of the job (taking a picture and optionally saving to device storage).
 
 ## Installation
 
@@ -68,8 +67,7 @@ requestPermissions().then(
 
 ### Using the camera module to take a picture
 
-Using the camera module is relatively simple.
-However, there are some points that need a little bit more explanation.
+Using the camera module is relatively simple. However, there are some points that need a little bit more explanation.
 
 In order to use the camera module, just require it, as shown in Example 1:
 
@@ -130,8 +128,7 @@ The code in **Example 2** will start the native platform camera application. Aft
 - **allowsEditing**: (iOS Only) A boolean parameter that indicates if the camera "Retake" or "Use Photo" screen forces the user to crop camera picture to a square and optionally lets them zoom in.
 - **cameraFacing**: Start with either the "front" or "rear" (default) camera of the device. The current implementation doesn't work on all Android devices, in which case it falls back to the default behavior.
 
-What does `device independent pixels` mean? The NativeScript layout mechanism uses device-independent pixels when measuring UI controls. This allows you to declare one layout and this layout will look similar to all devices (no matter the device's display resolution). In order to get a proper image quality for high resolution devices (like iPhone retina and Android Full HD), camera will return an image with bigger dimensions. For example, if we request an image that is 100x100, on iPhone 6 the actual image will be 200x200 (since its display density factor is 2 -> 100*2x100*2).
-Setting the `keepAspectRatio` property could result in a different than requested width or height. The camera will return an image with the correct aspect ratio but generally only one (from width and height) will be the same as requested; the other value will be calculated in order to preserve the aspect of the original image.
+What does `device independent pixels` mean? The NativeScript layout mechanism uses device-independent pixels when measuring UI controls. This allows you to declare one layout and this layout will look similar to all devices (no matter the device's display resolution). In order to get a proper image quality for high resolution devices (like iPhone retina and Android Full HD), camera will return an image with bigger dimensions. For example, if we request an image that is 100x100, on iPhone 6 the actual image will be 200x200 (since its display density factor is 2 -> 100*2x100*2). Setting the `keepAspectRatio` property could result in a different than requested width or height. The camera will return an image with the correct aspect ratio but generally only one (from width and height) will be the same as requested; the other value will be calculated in order to preserve the aspect of the original image.
 
 **Example 3** shows how to use the options parameter:
 
@@ -206,8 +203,7 @@ This could be used to create thumbnails for quick display within your applicatio
 
 ### Check if the device has available camera
 
-The first thing that the developers should check if the device has an available camera.
-The method isAvaiable will return true if the camera hardware is ready to use or false if otherwise.
+The first thing that the developers should check if the device has an available camera. The method isAvaiable will return true if the camera hardware is ready to use or false if otherwise.
 
 ```
 const isAvailable = camera.isAvailable();

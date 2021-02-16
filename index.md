@@ -6,7 +6,7 @@ actionText: Get Started
 actionLink: /introduction
 # features:
 #   - title: Hello
-#     details: | 
+#     details: |
 #       <div style="text-align:center;margin: 0 auto;">
 #         <img src="/assets/images/mobile.gif">
 #       </div>
@@ -18,7 +18,6 @@ actionLink: /introduction
 #   details: yep!
 # footer: Copyright © 2021
 ---
-
 
 <div style="text-align:center;margin: 0 auto;">
   <img src="/assets/images/mobile.gif">
