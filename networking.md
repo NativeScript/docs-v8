@@ -161,7 +161,7 @@ HTTP.request({
 );
 ```
 
-## Methods
+### Methods
 
 | Name                                                                | Type                    | Description                                                                                         |
 | ------------------------------------------------------------------- | ----------------------- | --------------------------------------------------------------------------------------------------- |
@@ -171,7 +171,7 @@ HTTP.request({
 | `getString(url: string): Promise<string>`                           | `Promise<string>`       | Downloads the content from the specified URL as a string.                                           |
 | `request(options: HttpRequestOptions): Promise<HttpResponse>`       | `Promise<HttpResponse>` | Makes a generic http request using the provided options and returns a HttpResponse Object.          |
 
-## API References
+### API References
 
 | Name                                                                                    | Type     |
 | --------------------------------------------------------------------------------------- | -------- |
