@@ -79,7 +79,13 @@ function getSidebar() {
 		},
 		{
 			text: 'Advanced Concepts',
-			children: [{ text: 'Advanced Concepts', link: '/advanced-concepts' }],
+			children: [
+				{ text: 'Advanced Concepts', link: '/advanced-concepts' },
+				{
+					text: 'Adding Native iOS ObjectiveC Code',
+					link: '/adding-objective-c',
+				},
+			],
 		},
 		{
 			text: 'Distribution',
@@ -94,7 +100,7 @@ function getSidebar() {
 
 function getPluginsSidebar() {
 	return [
-    { text: 'Developing Plugins', link: '/plugins/developing-plugins' },
+		{ text: 'Developing Plugins', link: '/plugins/developing-plugins' },
 		{
 			text: 'Official Plugins',
 			children: [
