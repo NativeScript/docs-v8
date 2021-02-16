@@ -94,11 +94,10 @@ function getSidebar() {
 
 function getPluginsSidebar() {
 	return [
+    { text: 'Developing Plugins', link: '/plugins/developing-plugins' },
 		{
-			text: 'Plugins',
+			text: 'Official Plugins',
 			children: [
-				{ text: 'Developing Plugins', link: '/developing-plugins' },
-				{ text: '-----------', link: '#' },
 				{ text: 'Background HTTP', link: '/plugins/background-http' },
 				{ text: 'Brightness', link: '/plugins/brightness' },
 				{ text: 'Camera', link: '/plugins/camera' },

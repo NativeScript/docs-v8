@@ -49,7 +49,7 @@ The outline of the docs:
   - Multithreading & Workers
   - Metadata filtering
 - [Releasing your app](/releasing.md)
-- [Developing Plugins](/developing-plugins.md)
+- [Developing Plugins](/plugins/developing-plugins.md)
 - [Common Pitfalls](/common-pitfalls.md)
 
   - Layout Nesting
