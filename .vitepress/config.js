@@ -105,6 +105,7 @@ function getPluginsSidebar() {
 				{ text: 'Email', link: '/plugins/email' },
 				{ text: 'Fingerprint-Auth', link: '/plugins/fingerprint-auth' },
 				{ text: 'Geolocation', link: '/plugins/geolocation' },
+				{ text: 'Image Picker', link: '/plugins/imagepicker' },
 			],
 		},
 	]

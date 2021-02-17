@@ -11,3 +11,4 @@ title: Plugins
 - [@nativescript/email](email)
 - [@nativescript/fingerprint-auth](fingerprint-auth)
 - [@nativescript/geolocation](geolocation)
+- [@nativescript/imagepicker](imagepicker)
