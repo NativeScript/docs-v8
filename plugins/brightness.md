@@ -2,25 +2,17 @@
 title: Brightness
 ---
 
-```javascript
+```bash
 ns plugin add @nativescript/brightness
 ```
 
 This command automatically installs the necessary files, as well as stores @nativescript/brightness as a dependency in your project's `package.json` file.
 
-This plugin requires `<uses-permission android:name="android.permission.WRITE_SETTINGS"/>` to be added in the android manifest.
+This plugin requires `<uses-permission android:name="android.permission.WRITE_SETTINGS"/>` to be added in the android manifest in `App_Resources/Android/` directory of your application.
 
 ## Usage
 
-To use the brightness module you must first `require()` and instantiate it:
-
-```js
-// JavaScript
-var nativescriptBrightness = require('@nativescript/brightness')
-var brightness = new nativescriptBrightness.Brightness()
-```
-
-Or if you’re using TypeScript, `import` the module:
+To use the brightness module:
 
 ```typescript
 // TypeScript
@@ -32,7 +24,7 @@ After you have a reference to the module you can then call its `get()` and `set(
 
 The `intensity` can be set to a value from 1 to 100.
 
-```js
+```typescript
 // TypeScript
 import { Brightness } from '@nativescript/brightness'
 const brightness = new Brightness()

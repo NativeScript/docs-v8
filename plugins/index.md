@@ -8,3 +8,4 @@ title: Plugins
 - [@nativescript/brightness](brightness)
 - [@nativescript/camera](camera)
 - [@nativescript/datetimepicker](datetimepicker)
+- [@nativescript/geolocation](geolocation)

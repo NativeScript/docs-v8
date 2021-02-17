@@ -102,6 +102,7 @@ function getPluginsSidebar() {
 				{ text: 'Brightness', link: '/plugins/brightness' },
 				{ text: 'Camera', link: '/plugins/camera' },
 				{ text: 'DateTimePicker', link: '/plugins/datetimepicker' },
+				{ text: 'Geolocation', link: '/plugins/geolocation' },
 			],
 		},
 	]
