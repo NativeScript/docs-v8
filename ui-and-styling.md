@@ -415,6 +415,12 @@ When an element is a direct child of `<GridLayout>`, you can work with the follo
 
 The following example creates a vertical stack of 3 equally-sized elements. Items are stretched to cover the entire width of the screen. Items are placed in the order they were declared in.
 
+Note: Do not treat the `<StackLayout/>` like a `<div>` on the web.
+It is best for a simple layout to stack child views.
+If you have a complex layout or nest multiple `<StackLayout/>` to design your UI.
+You should consider using a `<GridLayout/>` or `<FlexboxLayout/>`.
+See [Layout Nesting](/common-pitfalls.html#layout-nesting) for more information.
+
 ```html
 <StackLayout backgroundColor="#3c495e">
   <label text="first" height="70" backgroundColor="#43b883" />
