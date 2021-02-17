@@ -26,7 +26,7 @@ In order to satisfy the above constraints the developer has to:
 
 For a detailed walkthrough on how to use native iOS source code in NativeScript [here](https://www.nativescript.org/blog/adding-objective-c-code-to-a-nativescript-app).
 
-### Objective C Example:
+### Objective C Example
 
 A minimal example for adding native Objective C source code to your NativeScript application:
 
