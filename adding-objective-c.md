@@ -2,7 +2,7 @@
 title: Advanced Concepts
 ---
 
-## Adding ObjC/Swift code
+## Adding ObjC/Swift Code
 
 - [USED REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/guides/ios-source-code.md
 
@@ -25,6 +25,8 @@ In order to satisfy the above constraints the developer has to:
 **Note:** Swift classes need to be accessible from the Objective-C runtime in order to be used from NativeScript. This can be done by using the _@objc_ attribute or by inheriting _NSObject_.
 
 For a detailed walkthrough on how to use native iOS source code in NativeScript [here](https://www.nativescript.org/blog/adding-objective-c-code-to-a-nativescript-app).
+
+### Objective C Example:
 
 A minimal example for adding native Objective C source code to your NativeScript application:
 
