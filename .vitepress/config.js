@@ -103,6 +103,7 @@ function getPluginsSidebar() {
 				{ text: 'Camera', link: '/plugins/camera' },
 				{ text: 'DateTimePicker', link: '/plugins/datetimepicker' },
 				{ text: 'Email', link: '/plugins/email' },
+				{ text: 'Fingerprint-Auth', link: '/plugins/fingerprint-auth' },
 				{ text: 'Geolocation', link: '/plugins/geolocation' },
 			],
 		},
