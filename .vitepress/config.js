@@ -79,13 +79,7 @@ function getSidebar() {
 		},
 		{
 			text: 'Advanced Concepts',
-			children: [
-				{ text: 'Advanced Concepts', link: '/advanced-concepts' },
-				{
-					text: 'Adding Native iOS ObjectiveC Code',
-					link: '/adding-objective-c',
-				},
-			],
+			children: [{ text: 'Advanced Concepts', link: '/advanced-concepts' }],
 		},
 		{
 			text: 'Distribution',
