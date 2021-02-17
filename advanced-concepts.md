@@ -461,7 +461,7 @@ Workers API in NativeScript is loosely based on the [Dedicated Web Workers API](
 
 ### Sample Usage
 
-![NativeScript Workers API](../img/multithreading/Workers.png)
+![NativeScript Workers API](/assets/images/multithreading/Workers.png)
 
 > Note: In order to use `console`'s methods, setTimeout/setInterval, or other functionality coming from the core-modules package, the `globals` module needs to be imported manually to bootstrap the infrastructure on the new worker thread.
 
