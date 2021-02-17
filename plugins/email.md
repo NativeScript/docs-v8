@@ -11,21 +11,13 @@ You can use this plugin to compose an e-mail, have the user edit the draft manua
 
 > Note that this plugin depends on the default mail app. If you want a fallback to a third party client app like Gmail or Outlook, then check for availability, and if not available use a solution like [the Social Share plugin](https://github.com/tjvantoll/nativescript-social-share).
 
+## Install
+
 ```bash
 ns plugin add @nativescript/email
 ```
 
-## Usage
-
 ## API
-
-To use this plugin you must first require/import it:
-
-#### TypeScript
-
-```typescript
-import * as email from '@nativescript/email'
-```
 
 ### `available`
 
