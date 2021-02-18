@@ -35,7 +35,9 @@ npm install @nativescript/camera --save
 | allowsEditing   | false   | iOS      | Defines if camera "Retake" or "Use Photo" screen forces the user to crop camera picture to a square and optionally lets them zoom in.                                                                                                                                                                                                                                                    |
 | cameraFacing    | rear    | Both     | The initial camera facing. Use `'front'` for selfies.                                                                                                                                                                                                                                                                                                                                    |
 
-> Note: The `saveToGallery` option might have unexpected behavior on Android! Some vendor camera apps (e.g. LG) will save all captured images to the gallery regardless of what the value of `saveToGallery` is. This behavior cannot be controlled by the camera plugin and if you must exclude the captured image from the photo gallery, you will need to get a local storage read/write permission and write custom code to find the gallery location and delete the new image from there.
+::: warning Note
+The `saveToGallery` option might have unexpected behavior on Android! Some vendor camera apps (e.g. LG) will save all captured images to the gallery regardless of what the value of `saveToGallery` is. This behavior cannot be controlled by the camera plugin and if you must exclude the captured image from the photo gallery, you will need to get a local storage read/write permission and write custom code to find the gallery location and delete the new image from there.
+:::
 
 ## Usage
 
@@ -58,9 +60,12 @@ requestPermissions().then(
 );
 ```
 
-> **Note for Android:** Older versions of Android that don't use a request permissions popup won't be affected by the usage of the requestPermissions method.
+::: warning Note
+Older versions of Android that don't use a request permissions popup won't be affected by the usage of the requestPermissions method.
+:::
 
-> **Note for iOS:** If the user rejects permissions from the iOS popup, the app is not allowed to ask again. You can instruct the user to go to app settings and enable the camera permission manually from there. Additionally, [App Store Guideline 5.1.1](https://developer.apple.com/app-store/review/guidelines/#data-collection-and-storage) requires apps to clarify the usage of the camera and photo library. To do so, edit your `app/App_Resources/iOS/Info.plist` and add the following clarifications:
+::: warning Note
+If the user rejects permissions from the iOS popup, the app is not allowed to ask again. You can instruct the user to go to app settings and enable the camera permission manually from there. Additionally, [App Store Guideline 5.1.1](https://developer.apple.com/app-store/review/guidelines/#data-collection-and-storage) requires apps to clarify the usage of the camera and photo library. To do so, edit your `app/App_Resources/iOS/Info.plist` and add the following clarifications:
 
 ```
 <key>NSCameraUsageDescription</key>
@@ -68,6 +73,8 @@ requestPermissions().then(
 <key>NSPhotoLibraryUsageDescription</key>
 <string>enter your photo library permission request text here</string>
 ```
+
+:::
 
 ### Using the camera module to take a picture
 
@@ -213,4 +220,6 @@ The first thing that the developers should check if the device has an available 
 const isAvailable = camera.isAvailable();
 ```
 
-> Note: This method will return false when used in iOS simulator (as the simulator does not have camera hardware)
+::: warning Note
+This method will return false when used in iOS simulator (as the simulator does not have camera hardware)
+:::

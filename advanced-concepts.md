@@ -14,7 +14,9 @@ For the Objective-C/Swift symbols to be accessible by the Nativescript runtimes 
 
 The first task is done by the NativeScript CLI by adding the source files to the generated _.xcodeproj_. For the second one the Metadata Generator needs to find a [module.modulemap](https://clang.llvm.org/docs/Modules.html) of the compiled modules.
 
-**Note:** For _.swift_ files _module.modulemap_ is not required.
+::: warning Note
+For _.swift_ files _module.modulemap_ is not required.
+:::
 
 In order to satisfy the above constraints the developer has to:
 
@@ -22,7 +24,9 @@ In order to satisfy the above constraints the developer has to:
 
 **2)** Create a modulemap for the Objective-C files
 
-**Note:** Swift classes need to be accessible from the Objective-C runtime in order to be used from NativeScript. This can be done by using the _@objc_ attribute or by inheriting _NSObject_.
+::: warning Note
+Swift classes need to be accessible from the Objective-C runtime in order to be used from NativeScript. This can be done by using the _@objc_ attribute or by inheriting _NSObject_.
+:::
 
 For a detailed walkthrough on how to use native iOS source code in NativeScript [here](https://www.nativescript.org/blog/adding-objective-c-code-to-a-nativescript-app).
 
@@ -238,7 +242,9 @@ FloatArraySample.dumpFloats(CGFloatArray.from(jsArray), jsArray.length);
 @end
 ```
 
-> Note: Keep in mind that `CGFloat` is architecture dependent. On 32-bit devices, we need to use `Float32Array` and `Float64Array` -- on 64-bit ones. A straightforward way to verify the device/emulator architecture is to check the pointer size via `interop.sizeof(interop.types.id)`. The return value for the pointer size will be 4 bytes for 32-bit architectures and 8 bytes - for 64-bit ones. For further info, check out [CGFloat's documentation](https://developer.apple.com/documentation/coregraphics/cgfloat).
+::: warning Note
+Keep in mind that `CGFloat` is architecture dependent. On 32-bit devices, we need to use `Float32Array` and `Float64Array` -- on 64-bit ones. A straightforward way to verify the device/emulator architecture is to check the pointer size via `interop.sizeof(interop.types.id)`. The return value for the pointer size will be 4 bytes for 32-bit architectures and 8 bytes - for 64-bit ones. For further info, check out [CGFloat's documentation](https://developer.apple.com/documentation/coregraphics/cgfloat).
+:::
 
 ### Primitive Exceptions
 
@@ -499,7 +505,9 @@ var myObject = new MyObject()
 myObject.myMethod(10) // myMethod(int) will be called.
 ```
 
-> **Note:** If there is no myMethod(int) implementation, the Runtime will try to choose the best possible overload with least conversion loss. If no such method is found an exception will be raised.
+::: warning Note
+If there is no myMethod(int) implementation, the Runtime will try to choose the best possible overload with least conversion loss. If no such method is found an exception will be raised.
+:::
 
 - Implicit **floating-point** conversion:
 
@@ -507,26 +515,28 @@ myObject.myMethod(10) // myMethod(int) will be called.
 myObject.myMethod(10.5) // myMethod(double) will be called.
 ```
 
-> **Note:** If there is no myMethod(double) implementation, the Runtime will try to choose the best possible overload with least conversion loss. If no such method is found an exception will be raised.
+::: warning Note
+If there is no myMethod(double) implementation, the Runtime will try to choose the best possible overload with least conversion loss. If no such method is found an exception will be raised.
+:::
 
 - Explicitly call an overload: <br/>
   To enable developers call a specific method overload, the Runtime exposes the following functions directly in the global context:
 
       * byte(number) → Java primitive byte
 
-      >The number value will be truncated and only its first byte of the whole part will be used.
+      > The number value will be truncated and only its first byte of the whole part will be used.
 
       * short(number) → Java primitive short
 
-      >The number value will be truncated and only its first 2 bytes of the whole part will be used.
+      > The number value will be truncated and only its first 2 bytes of the whole part will be used.
 
       * float(number) → Java primitive float
 
-      >The number value will be converted (with a possible precision loss) to a 2^32 floating-point value.
+      > The number value will be converted (with a possible precision loss) to a 2^32 floating-point value.
 
       * long(number) → Java primitive long (in case the number literal fits JavaScript 2^53 limit)
 
-      >The number value's whole part will be taken only.
+      > The number value's whole part will be taken only.
 
       * long("number") → Java primitive long (in case the number literal doesn't fit JavaScript 2^53 limit)
 
@@ -538,7 +548,9 @@ myObject.myMethod(long(10)) // will call myMethod(long)
 myObject.myMethod(long('123456')) // will convert "123456" to Java long and will call myMethod(long)
 ```
 
-> **Note:** When an explicit cast function is called and there is no such implementation found, the Runtime will directly fail, without trying to find a matching overload.
+::: warning Note
+When an explicit cast function is called and there is no such implementation found, the Runtime will directly fail, without trying to find a matching overload.
+:::
 
 #### Array
 
@@ -621,7 +633,9 @@ var myObject = new MyObject()
 myObject.myMethod(10) // myMethod(Int) will be called.
 ```
 
-> **Note:** If there is no myMethod(Int) implementation, the Runtime will try to choose the best possible overload with least conversion loss. If no such method is found an exception will be raised.
+::: warning Note
+If there is no myMethod(Int) implementation, the Runtime will try to choose the best possible overload with least conversion loss. If no such method is found an exception will be raised.
+:::
 
 - Implicit **floating-point** conversion:
 
@@ -629,7 +643,9 @@ myObject.myMethod(10) // myMethod(Int) will be called.
 myObject.myMethod(10.5) // myMethod(Double) will be called.
 ```
 
-> **Note:** If there is no myMethod(Double) implementation, the Runtime will try to choose the best possible overload with least conversion loss. If no such method is found an exception will be raised.
+::: warning Note
+If there is no myMethod(Double) implementation, the Runtime will try to choose the best possible overload with least conversion loss. If no such method is found an exception will be raised.
+:::
 
 - Explicitly call an overload: <br/>
   To enable developers call a specific method overload, the Runtime exposes the following functions directly in the global context:
@@ -660,7 +676,9 @@ myObject.myMethod(long(10)) // will call myMethod(Long)
 myObject.myMethod(long('123456')) // will convert "123456" to Kotlin Long and will call myMethod(Long)
 ```
 
-> **Note:** When an explicit cast function is called and there is no such implementation found, the Runtime will directly fail, without trying to find a matching overload.
+::: warning Note
+When an explicit cast function is called and there is no such implementation found, the Runtime will directly fail, without trying to find a matching overload.
+:::
 
 #### Array
 
@@ -789,7 +807,9 @@ var files = directory.listFiles() // files is a special object as described abov
 var singleFile = files[0] // the indexed getter callback is triggered and a proxy object over the java.io.File is returned
 ```
 
-> **Note:** A Java Array is intentionally not converted to a JavaScript [Array](http://www.w3schools.com/jsref/jsref_obj_array.asp) for the sake of performance, especially when it comes to large arrays.
+::: warning Note
+A Java Array is intentionally not converted to a JavaScript [Array](http://www.w3schools.com/jsref/jsref_obj_array.asp) for the sake of performance, especially when it comes to large arrays.
+:::
 
 #### Array of Objects
 
@@ -1082,7 +1102,9 @@ class KotlinClassWithStringArrayProperty {
 }
 ```
 
-> **Note:** A Kotlin Array is intentionally not converted to a JavaScript [Array](http://www.w3schools.com/jsref/jsref_obj_array.asp) for the sake of performance, especially when it comes to large arrays.
+::: warning Note
+A Kotlin Array is intentionally not converted to a JavaScript [Array](http://www.w3schools.com/jsref/jsref_obj_array.asp) for the sake of performance, especially when it comes to large arrays.
+:::
 
 #### Creating arrays
 
@@ -1281,7 +1303,9 @@ Workers API in NativeScript is loosely based on the [Dedicated Web Workers API](
 
 ![NativeScript Workers API](/assets/images/multithreading/Workers.png)
 
-> Note: In order to use `console`'s methods, setTimeout/setInterval, or other functionality coming from the core-modules package, the `globals` module needs to be imported manually to bootstrap the infrastructure on the new worker thread.
+::: warning Note
+In order to use `console`'s methods, setTimeout/setInterval, or other functionality coming from the core-modules package, the `globals` module needs to be imported manually to bootstrap the infrastructure on the new worker thread.
+:::
 
 main-view-model.js
 
@@ -1431,7 +1455,9 @@ if (android.os.Build.VERSION.SDK_INT >= 21) {
 
 One of NativeScript's strongest capabilities is the access to Android (also referred to as **'Java/Kotlin'** or **'native'**) APIs inside JavaScript/TypeScript. That's possible thanks to build-time generated [Metadata](./overview.md) chunks which hold the information about the public classes from the Android SDK, Android support libraries, and any other Android libraries which may be imported into your Android NativeScript project.
 
-> Note: 'Android classes' and 'Java/Kotlin classes' are used interchangeably throughout the article to refer to classes in the Java/Kotlin programming language.
+::: warning Note
+'Android classes' and 'Java/Kotlin classes' are used interchangeably throughout the article to refer to classes in the Java/Kotlin programming language.
+:::
 
 #### Access Android Packages
 
@@ -1464,11 +1490,17 @@ To find out the package name of an Android class, refer to the [Android SDK Refe
 
 For example, if you need to work with the Google API for Google Maps, after following the installation guide, you may need to access packages from the plugin like `com.google.android.gms.maps`, which you can find a reference for at [Google APIs for Android Reference](https://developers.google.com/android/reference/com/google/android/gms/maps/package-summary)
 
-> **Note:** To have access and Intellisense for the native APIs with **NativeScript + TypeScript** or **NativeScript + Angular** projects, you have to add a dev dependency to `@nativescript/types`. More details about accessing native APIs with TypeScript can be found [here]({% slug access-native-apis %}#intellisense-and-access-to-native-apis-via-typescript).
+::: warning Note
+To have access and Intellisense for the native APIs with **NativeScript + TypeScript** or **NativeScript + Angular** projects, you have to add a dev dependency to `@nativescript/types`. More details about accessing native APIs with TypeScript can be found [here]({% slug access-native-apis %}#intellisense-and-access-to-native-apis-via-typescript).
+:::
 
-> **Note:** **(Experimental)** Alternatively, to get Intellisense for the native APIs based on the available Android Platform SDK and imported Android Support packages (added by default to your Android project), supply the `--androidTypings` flag with your `tns run | build android` command. The resulting `android.d.ts` file can then be used to provide auto-completion.
+::: warning Note
+**(Experimental)** Alternatively, to get Intellisense for the native APIs based on the available Android Platform SDK and imported Android Support packages (added by default to your Android project), supply the `--androidTypings` flag with your `tns run | build android` command. The resulting `android.d.ts` file can then be used to provide auto-completion.
+:::
 
-> **Note:** You cannot use APIs that are not present in the metadata. By default, if `--compileSdk` argument isn't provided while building, metadata will be built against the latest Android [Platform SDK](https://developer.android.com/about/versions/nougat/index.html) installed on the workstation. See [metadata limitations](./overview.md).
+::: warning Note
+You cannot use APIs that are not present in the metadata. By default, if `--compileSdk` argument isn't provided while building, metadata will be built against the latest Android [Platform SDK](https://developer.android.com/about/versions/nougat/index.html) installed on the workstation. See [metadata limitations](./overview.md).
+:::
 
 #### Access Android Classes
 

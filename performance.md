@@ -30,7 +30,9 @@ In contrast, when using `ImageSource` or Base64 encoded string, the Bitmap is tr
 
 As an additional feature for Android, NativeScript supports `decodeWidth` and `decodeHeight`. These properties will **downsample** your image so that it will take less memory. The goal is to avoid as much as possible out of memory exceptions caused by images being loaded into memory and at the same time display crispy images.
 
-> **Note:** Use `decodeWidth` and `decodeHeight` only when working with large photos and there are `Out of Memory` exceptions issues. With NativeScript 3.x.x and above, image optimizations were implemented and in the common scenarios, you should not worry about hitting OOM.
+::: warning Note
+Use `decodeWidth` and `decodeHeight` only when working with large photos and there are `Out of Memory` exceptions issues. With NativeScript 3.x.x and above, image optimizations were implemented and in the common scenarios, you should not worry about hitting OOM.
+:::
 
 When working with the decode properties, the following considerations should be taken:
 
@@ -42,7 +44,7 @@ When working with the decode properties, the following considerations should be 
 
 - Image caching now takes into account the `decodeWidth` and `decodeHeight` values. Identical images with different decode property values will now be retrieved and saved separately in the cache. This results in better quality images. If you have a small version of the image in a master list and want to decode it with 100 x 100 DP, and then want to display it in 1000 x 1000 DP on the detail page, the detailed image will now not be blurry. This also means you can now control caching - using the same image with the same decode parameter values will still get the image from the cache.
 
-> **Important**: The `decodeWidth` and `decodeHeight` properties will work only for Android. Setting them for our iOS images will not change the application behaviour in any way.
+> **Important**: The `decodeWidth` and `decodeHeight` properties will work only for Android. Setting them for our iOS images will not change the application behavior in any way.
 
 ### Using `loadMode` property
 
@@ -57,13 +59,17 @@ With [loadMode](/api-reference/modules/_ui_image_.html#loadmode) set to `async`,
 </StackLayout>
 ```
 
-> **Note**: When the `src` value starts with `http` it will be loaded asynchronously no matter what value is set to `loadMode`.
+::: warning Note
+When the `src` value starts with `http` it will be loaded asynchronously no matter what value is set to `loadMode`.
+:::
 
 ### Using `useCache` property
 
 The `Image` module will use internal memory and disk cache, so when loaded the module stores the images in the memory cache, and when they are not needed anymore, the `Image` module saves the images in the disk cache. This way the next time the application needs the same image NativeScript will load it from memory or the disk cache. Setting property `useCache` to `false` could be used to bypass image cache and load the image as it is on the first request to the specified URL.
 
-> **Note**: The property `useCache` will work only for Android. Setting it for our iOS images will not change the application behaviour in any way.
+::: tip Tip
+The property `useCache` will work only for Android. Setting it for our iOS images will not change the application behavior in any way.
+:::
 
 **API Reference for** [Image Module](/api-reference/modules/_ui_image_.html)
 

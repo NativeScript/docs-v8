@@ -51,9 +51,12 @@ context
 
 ### Permissions
 
-> **NOTE**: To request permissions for Android 6+ (API 23+) we use [nativescript-permissions](https://www.npmjs.com/package/nativescript-permissions).
+::: warning Note
+To request permissions for Android 6+ (API 23+) we use [nativescript-permissions](https://www.npmjs.com/package/nativescript-permissions).
+:::
 
-> **NOTE**: To be sure to have permissions add the following lines to AndroidManifest.xml in `App_Resources/Android/` in your application.
+::: warning Note
+To be sure to have permissions add the following lines to AndroidManifest.xml in `App_Resources/Android/` in your application.
 
 ```
 <manifest ... >
@@ -65,12 +68,17 @@ context
 </manifest>
 ```
 
-> **NOTE**: Using the plugin on iOS requres photo library permission. Your app might be rejected from the Apple App Store if you do not provide a description about why you need this permission. The default message "Requires access to photo library." might not be enough for the App Store reviewers. You can customize it by editing the `app/App_Resources/iOS/Info.plist` file in your app and adding the following key:
+:::
+
+::: warning Note
+Using the plugin on iOS requres photo library permission. Your app might be rejected from the Apple App Store if you do not provide a description about why you need this permission. The default message "Requires access to photo library." might not be enough for the App Store reviewers. You can customize it by editing the `app/App_Resources/iOS/Info.plist` file in your app and adding the following key:
 
 ```xml
 <key>NSPhotoLibraryUsageDescription</key>
 <string>Description text goes here</string>
 ```
+
+:::
 
 ## API
 

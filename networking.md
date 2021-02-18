@@ -107,7 +107,9 @@ Http.getFile('https://d1lfyz5kwt8vu9.cloudfront.net/nativescript-logo-2021.png')
 )
 ```
 
-> Note: By default the file will be saved in Documents folder.
+::: warning Note
+By default the file will be saved in Documents folder.
+:::
 
 In the `getFile` method we could also specify the path, where the file to be saved. This scenario is demonstrated in the example below, where the image file will be kept in the current application folder.
 

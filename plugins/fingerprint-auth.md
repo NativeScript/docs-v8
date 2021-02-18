@@ -40,7 +40,9 @@ class MyClass {
 
 ### `verifyFingerprint`
 
-Note that on the iOS simulator this will just `resolve()`.
+::: warning Note
+On the iOS simulator this will just `resolve()`.
+:::
 
 ```typescript
 import { FingerprintAuth } from '@nativescript/fingerprint-auth'

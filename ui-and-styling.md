@@ -105,7 +105,9 @@ Internally, the workflow is as follows:
 2. Layout pass - all components are laid out in full screen, but are inset to the safe area boundaries.
 3. Layout pass - if the component borders the safe area, it is adjusted and expanded to the edges of the screen.
 
-> **NOTE**: The above workflow can lead to containers being laid out with a bigger size than initially declared in the markup. You can prevent this behavior by setting the `iosOverflowSafeArea` property below to `false`.
+::: tip
+The above workflow can lead to containers being laid out with a bigger size than initially declared in the markup. You can prevent this behavior by setting the `iosOverflowSafeArea` property below to `false`.
+:::
 
 #### iosOverflowSafeArea Property
 
@@ -415,11 +417,11 @@ When an element is a direct child of `<GridLayout>`, you can work with the follo
 
 The following example creates a vertical stack of 3 equally-sized elements. Items are stretched to cover the entire width of the screen. Items are placed in the order they were declared in.
 
-Note: Do not treat the `<StackLayout/>` like a `<div>` on the web.
-It is best for a simple layout to stack child views.
-If you have a complex layout or nest multiple `<StackLayout/>` to design your UI.
-You should consider using a `<GridLayout/>` or `<FlexboxLayout/>`.
+::: danger Important
+Try not to nest too many `<StackLayout/>` in your markup. If you find yourself nesting a lot of `<StackLayout/>`
+you will likely get better performance by switching to a `<GridLayout/>` or `<FlexboxLayout/>`.
 See [Layout Nesting](/common-pitfalls.html#layout-nesting) for more information.
+:::
 
 ```html
 <StackLayout backgroundColor="#3c495e">
@@ -1105,9 +1107,12 @@ When you create conditions for `<v-template>`, you can use a valid JavaScript ex
 
 Only the above variables are available in this scope, and currently you do not have access to the component scope (component state, computed properties...).
 
+::: warning Note
+
 #### An important note about `v-for`
 
 `<ListView>` does not loop through list items as you would expect when using a [`v-for`](https://vuejs.org/v2/guide/list.html#Mapping-an-Array-to-Elements-with-v-for) loop. Instead `<ListView>` only creates the necessary views to display the currently visible items on the screen, and reuses the views that are already off-screen when scrolled. This concept is called _view recycling_ and is commonly used in mobile apps to improve performance.
+:::
 
 **This is important, because you should not use `key` properties within your v-templates, as they will force the ListView to re-create the views and prevent view recycling from working properly.**
 
@@ -1124,7 +1129,9 @@ onItemTap(event) {
 }
 ```
 
-**NOTE:** If a `v-for` is used on a `<ListView>` a warning will be printed to the console, and it will be converted to the `for` property.
+::: warning Note
+If a `v-for` is used on a `<ListView>` a warning will be printed to the console, and it will be converted to the `for` property.
+:::
 
 #### Props
 
@@ -1194,7 +1201,9 @@ export default {
 }
 ```
 
-> **NOTE**: Developers coming from a web background would usually reach for the `mounted` lifecycle hook Vue provides, however in NativeScript the application, and certain elements might not yet be loaded when the `mounted` hook is executed, thus certain actions such as alerts, dialogs, navigation etc. are not possible inside the `mounted` hook. To work around this limitation, the `loaded` event may be used, which only fires after the application is ready. In this case, we are using the `loaded` event of the [`<Page>`](/en/docs/elements/components/page) element, but this event is available for all NativeScript elements.
+::: warning Note
+Developers coming from a web background would usually reach for the `mounted` lifecycle hook Vue provides, however in NativeScript the application, and certain elements might not yet be loaded when the `mounted` hook is executed, thus certain actions such as alerts, dialogs, navigation etc. are not possible inside the `mounted` hook. To work around this limitation, the `loaded` event may be used, which only fires after the application is ready. In this case, we are using the `loaded` event of the [`<Page>`](/en/docs/elements/components/page) element, but this event is available for all NativeScript elements.
+:::
 
 #### Props
 
@@ -1500,7 +1509,9 @@ The default state is `false` or OFF.
 
 ### TabView
 
-**Note**: NativeScript 6 introduced two new tab navigation components, `<BottomNavigation>` and `<Tabs>`. These are meant to be new and better alternatives to the existing `<TabView>` component. Read [the announcement blog post here](https://www.nativescript.org/blog/tabs-and-bottomnavigation-nativescripts-two-new-components).
+::: warning Note
+NativeScript 6 introduced two new tab navigation components, `<BottomNavigation>` and `<Tabs>`. These are meant to be new and better alternatives to the existing `<TabView>` component. Read [the announcement blog post here](https://www.nativescript.org/blog/tabs-and-bottomnavigation-nativescripts-two-new-components).
+:::
 
 `<TabView>` is a navigation component that shows content grouped into tabs and lets users switch between tabs.
 
@@ -1526,7 +1537,9 @@ methods: {
 }
 ```
 
-**NOTE:** Currently, `TabViewItem` expects a single child element. In most cases, you might want to wrap your content in a layout.
+::: warning Note
+Currently, `TabViewItem` expects a single child element. In most cases, you might want to wrap your content in a layout.
+:::
 
 #### Adding icons to tabs
 
@@ -1541,7 +1554,9 @@ methods: {
 </TabView>
 ```
 
-**NOTE:** You can use images for tab icons instead of icon fonts. For more information about how to control the size of icons, see [Working with image from resource folders](https://docs.nativescript.org/ui/image-resources).
+::: tip Tip
+You can use images for tab icons instead of icon fonts. For more information about how to control the size of icons, see [Working with image from resource folders](https://docs.nativescript.org/ui/image-resources).
+:::
 
 #### Props
 
