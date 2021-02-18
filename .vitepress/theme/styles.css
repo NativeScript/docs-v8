@@ -93,3 +93,7 @@
 .nav-bar-title {
 	font-size: 0 !important;
 }
+
+.container {
+	max-width: 60rem !important;
+}

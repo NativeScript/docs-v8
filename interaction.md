@@ -27,24 +27,24 @@ As the first parameter, you pass an `on` or `off` method and the type of gesture
 
 {% nativescript %}
 
-```TypeScript
-import { GestureTypes, GestureEventData, Label } from "@nativescript/core";
-var label = new Label();
+```typescript
+import { GestureTypes, GestureEventData, Label } from '@nativescript/core'
+var label = new Label()
 label.on(GestureTypes.tap, function (args: GestureEventData) {
-    console.log("Tap");
-});
+  console.log('Tap')
+})
 ```
 
 {% endnativescript %} {% angular %}
 
-```TypeScript
+```typescript
 onTap(args: GestureEventData) {
-    console.log("Tap!");
+  console.log("Tap!");
 }
 ```
 
-```HTML
-<Label text="Tap here" (tap)="onTap($event)"></Label>
+```html
+<label text="Tap here" (tap)="onTap($event)"></label>
 ```
 
 {% endangular %}
@@ -55,25 +55,24 @@ onTap(args: GestureEventData) {
 
 {% nativescript %}
 
-```TypeScript
-import { GestureTypes, GestureEventData, Label } from "@nativescript/core";
-var label = new Label();
+```typescript
+import { GestureTypes, GestureEventData, Label } from '@nativescript/core'
+var label = new Label()
 label.on(GestureTypes.doubleTap, function (args: GestureEventData) {
-    console.log("Double Tap");
-});
+  console.log('Double Tap')
+})
 ```
 
 {% endnativescript %} {% angular %}
 
-```TypeScript
+```typescript
 onDoubleTap(args: GestureEventData) {
-    console.log("DoubleTap!");
-
+  console.log("DoubleTap!");
 }
 ```
 
-```HTML
-<Label text="Double tap here" (doubleTap)="onDoubleTap($event)"></Label>
+```html
+<label text="Double tap here" (doubleTap)="onDoubleTap($event)"></label>
 ```
 
 {% endangular %} Possible implementation:
@@ -88,24 +87,24 @@ onDoubleTap(args: GestureEventData) {
 
 {% nativescript %}
 
-```TypeScript
-import { GestureTypes, GestureEventData, Label } from "@nativescript/core";
-var label = new Label();
+```typescript
+import { GestureTypes, GestureEventData, Label } from '@nativescript/core'
+var label = new Label()
 label.on(GestureTypes.longPress, function (args: GestureEventData) {
-    console.log("Long Press");
-});
+  console.log('Long Press')
+})
 ```
 
 {% endnativescript %} {% angular %}
 
-```TypeScript
+```typescript
 onLongPress(args: GestureEventData) {
-    console.log("LongPress!");
+  console.log("LongPress!");
 }
 ```
 
-```HTML
-<Label text="Long press here" (longPress)="onLongPress($event)"></Label>
+```html
+<label text="Long press here" (longPress)="onLongPress($event)"></label>
 ```
 
 {% endangular %} Possible implementation: Select one or more items in a view and act upon the data using a contextual action bar. Enter data selection mode. Avoid using long press for displaying contextual menus.
@@ -116,25 +115,25 @@ onLongPress(args: GestureEventData) {
 
 {% nativescript %}
 
-```TypeScript
-import { GestureTypes, SwipeGestureEventData, Label } from "@nativescript/core";
+```typescript
+import { GestureTypes, SwipeGestureEventData, Label } from '@nativescript/core'
 
-var label = new Label();
+var label = new Label()
 label.on(GestureTypes.swipe, function (args: SwipeGestureEventData) {
-    console.log("Swipe Direction: " + args.direction);
-});
+  console.log('Swipe Direction: ' + args.direction)
+})
 ```
 
 {% endnativescript %} {% angular %}
 
-```TypeScript
+```typescript
 onSwipe(args: SwipeGestureEventData) {
-    console.log("Swipe Direction: " + args.direction);
+  console.log("Swipe Direction: " + args.direction);
 }
 ```
 
-```HTML
-<Label text="Swipe here" (swipe)="onSwipe($event)"></Label>
+```html
+<label text="Swipe here" (swipe)="onSwipe($event)"></label>
 ```
 
 {% endangular %} Possible implementation: Navigate between views in the same hierarchy.
@@ -145,25 +144,25 @@ onSwipe(args: SwipeGestureEventData) {
 
 {% nativescript %}
 
-```TypeScript
-import { GestureTypes, PanGestureEventData, Label } from "@nativescript/core";
+```typescript
+import { GestureTypes, PanGestureEventData, Label } from '@nativescript/core'
 
-const label = new Label();
+const label = new Label()
 label.on(GestureTypes.pan, function (args: PanGestureEventData) {
-    console.log("Pan deltaX:" + args.deltaX + "; deltaY:" + args.deltaY + ";");
-});
+  console.log('Pan deltaX:' + args.deltaX + '; deltaY:' + args.deltaY + ';')
+})
 ```
 
 {% endnativescript %} {% angular %}
 
-```TypeScript
+```typescript
 onPan(args: PanGestureEventData) {
-    console.log("Pan delta: [" + args.deltaX + ", " + args.deltaY + "] state: " + args.state);
+  console.log("Pan delta: [" + args.deltaX + ", " + args.deltaY + "] state: " + args.state);
 }
 ```
 
-```HTML
-<Label text="Pan here" (pan)="onPan($event)"></Label>
+```html
+<label text="Pan here" (pan)="onPan($event)"></label>
 ```
 
 {% endangular %}
@@ -174,25 +173,25 @@ onPan(args: PanGestureEventData) {
 
 {% nativescript %}
 
-```TypeScript
-import { GestureTypes, PinchGestureEventData, Label } from "@nativescript/core";
+```typescript
+import { GestureTypes, PinchGestureEventData, Label } from '@nativescript/core'
 
-var label = new Label();
+var label = new Label()
 label.on(GestureTypes.pinch, function (args: PinchGestureEventData) {
-    console.log("Pinch Scale: " + args.scale);
-});
+  console.log('Pinch Scale: ' + args.scale)
+})
 ```
 
 {% endnativescript %} {% angular %}
 
-```TypeScript
+```typescript
 onPinch(args: PinchGestureEventData) {
-    console.log("Pinch scale: " + args.scale + " state: " + args.state);
+  console.log("Pinch scale: " + args.scale + " state: " + args.state);
 }
 ```
 
-```HTML
-<Label text="Pinch here" (pinch)="onPinch($event)"></Label>
+```html
+<label text="Pinch here" (pinch)="onPinch($event)"></label>
 ```
 
 {% endangular %} Possible implementation: Zoom into content or out of content.
@@ -203,25 +202,25 @@ onPinch(args: PinchGestureEventData) {
 
 {% nativescript %}
 
-```TypeScript
-import { GestureTypes, RotationGestureEventData, Label } from "@nativescript/core";
+```typescript
+import { GestureTypes, RotationGestureEventData, Label } from '@nativescript/core'
 
-var label = new Label();
+var label = new Label()
 label.on(GestureTypes.rotation, function (args: RotationGestureEventData) {
-    console.log("Rotation: " + args.rotation);
-});
+  console.log('Rotation: ' + args.rotation)
+})
 ```
 
 {% endnativescript %} {% angular %}
 
-```TypeScript
+```typescript
 onRotate(args: RotationGestureEventData) {
-    console.log("Rotate angle: " + args.rotation + " state: " + args.state);
+  console.log("Rotate angle: " + args.rotation + " state: " + args.state);
 }
 ```
 
-```HTML
-<Label text="Rotate here" (rotation)="onRotate($event)"></Label>
+```html
+<label text="Rotate here" (rotation)="onRotate($event)"></label>
 ```
 
 {% endangular %}
@@ -234,27 +233,27 @@ This is a general purpose gesture that is triggered whenever a pointer (usually 
 
 {% nativescript %}
 
-```TypeScript
-import { GestureTypes, TouchGestureEventData, Label } from "@nativescript/core";
+```typescript
+import { GestureTypes, TouchGestureEventData, Label } from '@nativescript/core'
 
-var label = new Label();
+var label = new Label()
 label.on(GestureTypes.touch, function (args: TouchGestureEventData) {
-    console.log("Touch: x: " + args.getX() + " y: " + args.getY());
-});
+  console.log('Touch: x: ' + args.getX() + ' y: ' + args.getY())
+})
 ```
 
 {% endnativescript %} {% angular %}
 
-```TypeScript
+```typescript
 onTouch(args: TouchGestureEventData) {
-    console.log(
-        "Touch point: [" + args.getX() + ", " + args.getY() +
-        "] activePointers: " + args.getActivePointers().length);
+  console.log(
+    "Touch point: [" + args.getX() + ", " + args.getY() +
+    "] activePointers: " + args.getActivePointers().length);
 }
 ```
 
-```HTML
-<Label text="Touch here" (touch)="onTouch($event)"></Label>
+```html
+<label text="Touch here" (touch)="onTouch($event)"></label>
 ```
 
 {% endangular %}
@@ -265,13 +264,13 @@ onTouch(args: TouchGestureEventData) {
 
 Since the release of NativeScript 1.3, when subscribing you can use gestures names, comma separated gestures names and/or even mix with events.
 
-```TypeScript
-import { GestureEventData, Label } from "@nativescript/core";
+```typescript
+import { GestureEventData, Label } from '@nativescript/core'
 
-var label = new Label();
-label.on("loaded, tap, doubleTap, longPress", function (args: GestureEventData) {
-    console.log("Event: " + args.eventName + ", sender: " + args.object);
-});
+var label = new Label()
+label.on('loaded, tap, doubleTap, longPress', function (args: GestureEventData) {
+  console.log('Event: ' + args.eventName + ', sender: ' + args.object)
+})
 ```
 
 {% endnativescript %}
@@ -307,20 +306,20 @@ The easiest way to animate a **single** [`View`](/api-reference/classes/_ui_core
 
 **Example 20: How to execute animation on single view.**
 
-```JavaScript
+```javascript
 view.animate({
-    translate: { x: 0, y: 100},
-    duration: 1000,
-    curve: enums.AnimationCurve.easeIn
-});
+  translate: { x: 0, y: 100 },
+  duration: 1000,
+  curve: enums.AnimationCurve.easeIn
+})
 ```
 
-```TypeScript
+```typescript
 view.animate({
-    translate: { x: 0, y: 100},
-    duration: 1000,
-    curve: enums.AnimationCurve.easeIn
-});
+  translate: { x: 0, y: 100 },
+  duration: 1000,
+  curve: enums.AnimationCurve.easeIn
+})
 ```
 
 > You should create an [`Animation`](/api-reference/classes/_ui_animation_.animation.html) class in order to be able to **cancel** the animation. This is demonstrated below.
@@ -371,24 +370,24 @@ It is easy to animate multiple properties at once; just pass the desired animata
 
 **Example 21: How to animate multiple properties.**
 
-```JavaScript
+```javascript
 view.animate({
-    backgroundColor: new color.Color("#3D5AFE"),
-    opacity: 0.5,
-    translate: { x: 100, y: 100 },
-    rotate: 180,
-    duration: 3000
-});
+  backgroundColor: new color.Color('#3D5AFE'),
+  opacity: 0.5,
+  translate: { x: 100, y: 100 },
+  rotate: 180,
+  duration: 3000
+})
 ```
 
-```TypeScript
+```typescript
 view.animate({
-    backgroundColor: new color.Color("#3D5AFE"),
-    opacity: 0.5,
-    translate: {x: 100, y: 100},
-    rotate: 180,
-    duration: 3000
-});
+  backgroundColor: new color.Color('#3D5AFE'),
+  opacity: 0.5,
+  translate: { x: 100, y: 100 },
+  rotate: 180,
+  duration: 3000
+})
 ```
 
 ![multiple-properties](/assets/images/modules/animation/multiple-properties.gif 'Multiple Properties')
@@ -399,38 +398,54 @@ The animate method returns a promise that you can use to chain animations, as sh
 
 **Example 22: How to create chain animations.**
 
-```JavaScript
-view.animate({ opacity: 0 })
-    .then(function () { return view.animate({ opacity: 1 }); })
-    .then(function () { return view.animate({ translate: { x: 100, y: 100 } }); })
-    .then(function () { return view.animate({ translate: { x: 0, y: 0 } }); })
-    .then(function () { return view.animate({ scale: { x: 3, y: 3 } }); })
-    .then(function () { return view.animate({ scale: { x: 1, y: 1 } }); })
-    .then(function () { return view.animate({ rotate: 180 }); })
-    .then(function () { return view.animate({ rotate: 0 }); })
-    .then(function () {
-    console.log("Animation finished");
-})
-    .catch(function (e) {
-    console.log(e.message);
-});
+```javascript
+view
+  .animate({ opacity: 0 })
+  .then(function () {
+    return view.animate({ opacity: 1 })
+  })
+  .then(function () {
+    return view.animate({ translate: { x: 100, y: 100 } })
+  })
+  .then(function () {
+    return view.animate({ translate: { x: 0, y: 0 } })
+  })
+  .then(function () {
+    return view.animate({ scale: { x: 3, y: 3 } })
+  })
+  .then(function () {
+    return view.animate({ scale: { x: 1, y: 1 } })
+  })
+  .then(function () {
+    return view.animate({ rotate: 180 })
+  })
+  .then(function () {
+    return view.animate({ rotate: 0 })
+  })
+  .then(function () {
+    console.log('Animation finished')
+  })
+  .catch(function (e) {
+    console.log(e.message)
+  })
 ```
 
-```TypeScript
-view.animate({ opacity: 0 })
-    .then(() => view.animate({ opacity: 1 }))
-    .then(() => view.animate({ translate: { x: 100, y: 100 } }))
-    .then(() => view.animate({ translate: { x: 0, y: 0 } }))
-    .then(() => view.animate({ scale: { x: 3, y: 3 } }))
-    .then(() => view.animate({ scale: { x: 1, y: 1 } }))
-    .then(() => view.animate({ rotate: 180 }))
-    .then(() => view.animate({ rotate: 0 }))
-    .then(() => {
-    console.log("Animation finished");
+```typescript
+view
+  .animate({ opacity: 0 })
+  .then(() => view.animate({ opacity: 1 }))
+  .then(() => view.animate({ translate: { x: 100, y: 100 } }))
+  .then(() => view.animate({ translate: { x: 0, y: 0 } }))
+  .then(() => view.animate({ scale: { x: 3, y: 3 } }))
+  .then(() => view.animate({ scale: { x: 1, y: 1 } }))
+  .then(() => view.animate({ rotate: 180 }))
+  .then(() => view.animate({ rotate: 0 }))
+  .then(() => {
+    console.log('Animation finished')
   })
-    .catch((e) => {
-    console.log(e.message);
-  });
+  .catch(e => {
+    console.log(e.message)
+  })
 ```
 
 ![chaining-with-promises](/assets/images/modules/animation/chaining-with-promises.gif 'Chaining with Promises')
@@ -445,31 +460,35 @@ CSS animations consist of two components: a style describing the CSS animation a
 
 **Example 1: How to create simple animation using CSS.**
 
-```CSS
+```css
 @keyframes example {
-    from { background-color: red; }
-    to { background-color: green; }
+  from {
+    background-color: red;
+  }
+  to {
+    background-color: green;
+  }
 }
 
 .view {
-    animation-name: example;
-    animation-duration: 4s;
-	animation-fill-mode: forwards;
+  animation-name: example;
+  animation-duration: 4s;
+  animation-fill-mode: forwards;
 }
 ```
 
 To get an animation to work, you must bind the animation to an element:
 
-```JavaScript
-view1.className = "example";
+```javascript
+view1.className = 'example'
 ```
 
-```TypeScript
-view1.className = "example";
+```typescript
+view1.className = 'example'
 ```
 
-```XML
-<Button id="myButton" text="{N}" class="example"/>
+```xml
+<Button id="myButton" text="{N}" class="example" />
 ```
 
 > If the **animation-duration** property is not specified, the animation will use a default value - 0.3 seconds.
@@ -507,10 +526,14 @@ To set multiple points at which an element should undergo a transition, use the 
 
 **Example 2: How to use **@keyframes** rule.**
 
-```CSS
+```css
 @keyframes example {
-    from { background-color: red; }
-    to { background-color: green; }
+  from {
+    background-color: red;
+  }
+  to {
+    background-color: green;
+  }
 }
 ```
 
@@ -520,12 +543,20 @@ To set multiple points at which an element should undergo a transition, use the 
 
 **Example 3: Changing background color in different animation stages.**
 
-```CSS
+```css
 @keyframes example {
-    0%   { background-color: red; }
-    25%  { background-color: yellow; }
-    50%  { background-color: blue; }
-    100% { background-color: green; }
+  0% {
+    background-color: red;
+  }
+  25% {
+    background-color: yellow;
+  }
+  50% {
+    background-color: blue;
+  }
+  100% {
+    background-color: green;
+  }
 }
 ```
 
@@ -533,13 +564,28 @@ You can set multiple properties in a keyframe, as shown in **Example 4**.
 
 **Example 4: Changing multiple properties in different animation stages.**
 
-```CSS
+```css
 @keyframes example {
-    0%   { background-color: red; transform: translate(0, 0); }
-    25%  { background-color: yellow; transform: translate(200, 0); }
-    50%  { background-color: blue; transform: translate(200, 200);  }
-    75%  { background-color: green; transform: translate(0, 200); }
-    100% { background-color: red; transform: translate(0, 0); }
+  0% {
+    background-color: red;
+    transform: translate(0, 0);
+  }
+  25% {
+    background-color: yellow;
+    transform: translate(200, 0);
+  }
+  50% {
+    background-color: blue;
+    transform: translate(200, 200);
+  }
+  75% {
+    background-color: green;
+    transform: translate(0, 200);
+  }
+  100% {
+    background-color: red;
+    transform: translate(0, 0);
+  }
 }
 ```
 
@@ -547,11 +593,22 @@ You can combine keyframes, as shown in **Example 5**.
 
 **Example 5: Set up properties for several keyframes**
 
-```CSS
+```css
 @keyframes example {
-    0%, 50% { background-color: red; transform: translate(0, 0); }
-    25%, 75% { background-color: yellow; transform: translate(200, 0); }
-    100% { background-color: red; transform: translate(0, 0); }
+  0%,
+  50% {
+    background-color: red;
+    transform: translate(0, 0);
+  }
+  25%,
+  75% {
+    background-color: yellow;
+    transform: translate(200, 0);
+  }
+  100% {
+    background-color: red;
+    transform: translate(0, 0);
+  }
 }
 ```
 
@@ -561,12 +618,12 @@ The **animation-delay** property specifies a delay (in seconds) before the anima
 
 **Example 6: Set up a delay before the animation starts**
 
-```CSS
+```css
 .view {
-	background-color: red;
-    animation-name: example;
-    animation-duration: 4s;
-    animation-delay: 2s;
+  background-color: red;
+  animation-name: example;
+  animation-duration: 4s;
+  animation-delay: 2s;
 }
 ```
 
@@ -576,18 +633,18 @@ The **animation-iteration-count** property defines the number of times an animat
 
 **Example 7: How to use `animation-iteration-count` property**
 
-```CSS
+```css
 .view {
-	background-color: red;
-   animation-name: example;
-   animation-duration: 4s;
-   animation-iteration-count: 2;
+  background-color: red;
+  animation-name: example;
+  animation-duration: 4s;
+  animation-iteration-count: 2;
 }
 ```
 
 If you want to play an animation forever, set this property to "infinite".
 
-```CSS
+```css
 animation-iteration-count: infinite;
 ```
 
@@ -605,10 +662,10 @@ The **animation-timing-function** property specifies the speed curve of the anim
 
 **Example 8: How to specify the speed curve using cubic-bezier function.**
 
-```CSS
+```css
 .view {
-	animation-name: example;
-   animation-timing-function: cubic-bezier(0.1, 0.1, 1.0, 1.0);
+  animation-name: example;
+  animation-timing-function: cubic-bezier(0.1, 0.1, 1, 1);
 }
 ```
 
@@ -618,12 +675,12 @@ The **animation-fill-mode** property determines the element style when the anima
 
 **Example 9: How to use **animation-fill-mode** property**
 
-```CSS
+```css
 .view {
-	background-color: red;
-    animation-name: example;
-    animation-duration: 2s;
-    animation-fill-mode: forwards;
+  background-color: red;
+  animation-name: example;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
 }
 ```
 
@@ -633,12 +690,12 @@ You can use the **animation-direction** property to play a CSS animation in reve
 
 **Example 10: How to reverse animation direction.**
 
-```CSS
+```css
 .view {
-	background-color: red;
-    animation-name: example;
-    animation-duration: 4s;
-    animation-direction: reverse;
+  background-color: red;
+  animation-name: example;
+  animation-duration: 4s;
+  animation-direction: reverse;
 }
 ```
 
@@ -648,9 +705,9 @@ The **animation** property allows setting all seven animation properties with a 
 
 **Example 11: How to use animation shorthand property**
 
-```CSS
+```css
 .view {
-    animation: example 4s ease-in-out 2s infinite reverse forwards;
+  animation: example 4s ease-in-out 2s infinite reverse forwards;
 }
 ```
 
@@ -662,9 +719,10 @@ You can combine two animations in the **animation** property by using commas:
 
 **Example 12: How to combine several animations in the **animation** property**
 
-```CSS
+```css
 .view {
-    animation: example 4s ease-in-out 2s infinite reverse, second-animation-example 5s ease-out;
+  animation: example 4s ease-in-out 2s infinite reverse, second-animation-example 5s
+      ease-out;
 }
 ```
 
@@ -674,20 +732,24 @@ A pseudo selector is used to define a special state of an element. For example, 
 
 **Example 13: How to trigger animation on element special state**
 
-```CSS
+```css
 .button {
-    background-color: green;
+  background-color: green;
 }
 
 .button:highlighted {
-    animation-name: highlight;
-    animation-duration: 2s;
-    animation-fill-mode: forwards;
+  animation-name: highlight;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
 }
 
 @keyframes highlight {
-    from { background-color: yellow; }
-    to { background-color: red; }
+  from {
+    background-color: yellow;
+  }
+  to {
+    background-color: red;
+  }
 }
 ```
 
@@ -697,75 +759,91 @@ A pseudo selector is used to define a special state of an element. For example, 
 
 **Example 14: How to animate view's width and height.** {% nativescript %}
 
-```XML
+```xml
 <GridLayout rows="* *" columns="*" class="home-panel">
-        <StackLayout row="0">
-            <Label text="{N}" class="big-label first-view" textWrap="true" />
-        </StackLayout>
-        <StackLayout row="1">
-            <Label text="{N}" class="big-label second-view" textWrap="true" />
-        </StackLayout>
+  <StackLayout row="0">
+    <Label text="{N}" class="big-label first-view" textWrap="true" />
+  </StackLayout>
+  <StackLayout row="1">
+    <Label text="{N}" class="big-label second-view" textWrap="true" />
+  </StackLayout>
 </GridLayout>
 ```
 
-```CSS
+```css
 .first-view {
-    animation-name: example-width;
-    animation-duration: 5s;
-    animation-fill-mode: forwards;
+  animation-name: example-width;
+  animation-duration: 5s;
+  animation-fill-mode: forwards;
 }
 
 .second-view {
-    animation-name: example-height;
-    animation-duration: 5s;
-    animation-fill-mode: forwards;
+  animation-name: example-height;
+  animation-duration: 5s;
+  animation-fill-mode: forwards;
 }
 
 @keyframes example-width {
-    from { width:140; }
-    to { width:200; }
+  from {
+    width: 140;
+  }
+  to {
+    width: 200;
+  }
 }
 
 @keyframes example-height {
-    from { height:140; }
-    to { height:200; }
+  from {
+    height: 140;
+  }
+  to {
+    height: 200;
+  }
 }
 ```
 
 [Demo](https://play.nativescript.org/?template=play-js&id=xe3lMf) {% endnativescript %} {% angular %}
 
-```HTML
+```html
 <GridLayout rows="* *" columns="*" class="home-panel">
-    <StackLayout row="0">
-        <Label text="{N}" class="big-label first-view" textWrap="true" ></Label>
-    </StackLayout>
-    <StackLayout row="1">
-        <Label text="{N}" class="big-label second-view" textWrap="true" ></Label>
-    </StackLayout>
+  <StackLayout row="0">
+    <label text="{N}" class="big-label first-view" textWrap="true"></label>
+  </StackLayout>
+  <StackLayout row="1">
+    <label text="{N}" class="big-label second-view" textWrap="true"></label>
+  </StackLayout>
 </GridLayout>
 ```
 
-```CSS
+```css
 .first-view {
-    animation-name: example-width;
-    animation-duration: 5s;
-    animation-fill-mode: forwards;
+  animation-name: example-width;
+  animation-duration: 5s;
+  animation-fill-mode: forwards;
 }
 
 .second-view {
-    animation-name: example-height;
-    animation-duration: 5s;
-    animation-fill-mode: forwards;
+  animation-name: example-height;
+  animation-duration: 5s;
+  animation-fill-mode: forwards;
 }
 
 @keyframes example-width {
-    from { width:140; }
-    to { width:200; }
+  from {
+    width: 140;
+  }
+  to {
+    width: 200;
+  }
 }
 
 @keyframes example-height {
-    from { height:140; }
-    to { height:200; }
+  from {
+    height: 140;
+  }
+  to {
+    height: 200;
+  }
 }
 ```
 
@@ -777,42 +855,42 @@ The simplest way to trigger a CSS animation is by changing the element **classNa
 
 **Example 15: How to trigger CSS animation**
 
-```JavaScript
-var view = page.getViewById("view");
-view.className = "transparent";
+```javascript
+var view = page.getViewById('view')
+view.className = 'transparent'
 ```
 
-```TypeScript
-let view = page.getViewById<viewModule.View>("view");
-view.className = "transparent";
+```typescript
+let view = page.getViewById<viewModule.View>('view')
+view.className = 'transparent'
 ```
 
 All keyframes defined in CSS can be accessed with code by using the **getKeyframeAnimationWithName** method. This allows further customization of animation properties:
 
 **Example 16: Accessing CSS defined keyframe in the code via **getKeyframeAnimationWithName** method**
 
-```JavaScript
-import { KeyframeAnimation } from "@nativescript/core";
+```javascript
+import { KeyframeAnimation } from '@nativescript/core'
 
-var view = page.getViewById("view");
-var animationInfo = page.getKeyframeAnimationWithName("bounce");
-animationInfo.duration = 2000;
-var animation = KeyframeAnimation.keyframeAnimationFromInfo(animationInfo);
+var view = page.getViewById('view')
+var animationInfo = page.getKeyframeAnimationWithName('bounce')
+animationInfo.duration = 2000
+var animation = KeyframeAnimation.keyframeAnimationFromInfo(animationInfo)
 animation.play(view).then(() => {
-    console.log("Played with code!");
-});
+  console.log('Played with code!')
+})
 ```
 
-```TypeScript
-import { KeyframeAnimation, View } from "@nativescript/core";
+```typescript
+import { KeyframeAnimation, View } from '@nativescript/core'
 
-let view = page.getViewById<View>("view");
-let animationInfo = page.getKeyframeAnimationWithName("bounce");
-animationInfo.duration = 2000;
-let animation = KeyframeAnimation.keyframeAnimationFromInfo(animationInfo);
+let view = page.getViewById<View>('view')
+let animationInfo = page.getKeyframeAnimationWithName('bounce')
+animationInfo.duration = 2000
+let animation = KeyframeAnimation.keyframeAnimationFromInfo(animationInfo)
 animation.play(view).then(() => {
-    console.log("Played with code!");
-});
+  console.log('Played with code!')
+})
 ```
 
 ### Animations
@@ -834,20 +912,20 @@ In **Example 1** we will change the background color of a button from "red" to "
 
 ![hello-world](/assets/images/modules/animation/hello-world.gif 'Hello world')
 
-```JavaScript
+```javascript
 // Import color module
-import { Color } from "@nativescript/core";
+import { Color } from '@nativescript/core'
 
-view.backgroundColor = new Color("red");
-view.animate({ backgroundColor: new Color("green"), duration: 2000 });
+view.backgroundColor = new Color('red')
+view.animate({ backgroundColor: new Color('green'), duration: 2000 })
 ```
 
-```TypeScript
+```typescript
 // Import color module
-import { Color } from "@nativescript/core";
+import { Color } from '@nativescript/core'
 
-view.backgroundColor = new Color("red");
-view.animate({ backgroundColor: new Color("green"), duration: 2000 });
+view.backgroundColor = new Color('red')
+view.animate({ backgroundColor: new Color('green'), duration: 2000 })
 ```
 
 [Try this animation in the NativeScript Playground](https://play.nativescript.org/?template=play-tsc&id=h6g8J8)
@@ -856,21 +934,25 @@ As _Example 2_ shows, you can express the same animation in CSS with the followi
 
 **Example 2: Changing background color animation with CSS.**
 
-```CSS
+```css
 @keyframes example {
-    from { background-color: red; }
-    to { background-color: green; }
+  from {
+    background-color: red;
+  }
+  to {
+    background-color: green;
+  }
 }
 .view {
-    animation-name: example;
-    animation-duration: 2s;
-    animation-fill-mode: forwards;
+  animation-name: example;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
 }
 ```
 
-```XML
+```xml
 <!-- Apply CSS class to element to trigger CSS animation -->
-<Label class="view" text="{N}"></Label>
+<Label class="view" text="{N}" />
 ```
 
 > CSS animations apply with lower precedence, like any other CSS settings, so any local values set in your element will cancel the animation.
@@ -923,34 +1005,38 @@ In NativeScript, the animation curve is represented by the AnimationCurve enumer
 
 **Example 3: How to customize the animation timing function**
 
-```JavaScript
-import { Enums } from "@nativescript/core";
+```javascript
+import { Enums } from '@nativescript/core'
 view.animate({
-	translate: { x: 0, y: 100},
-	duration: 1000,
-	curve: Enums.AnimationCurve.easeIn
-});
+  translate: { x: 0, y: 100 },
+  duration: 1000,
+  curve: Enums.AnimationCurve.easeIn
+})
 ```
 
-```TypeScript
-import { Enums } from "@nativescript/core";
+```typescript
+import { Enums } from '@nativescript/core'
 view.animate({
-	translate: { x: 0, y: 100},
-	duration: 1000,
-	curve: Enums.AnimationCurve.easeIn
-});
+  translate: { x: 0, y: 100 },
+  duration: 1000,
+  curve: Enums.AnimationCurve.easeIn
+})
 ```
 
-```CSS
+```css
 .view {
-	animation-name: example;
-	animation-duration: 1;
-	animation-timing-function: ease-in;
-   animation-fill-mode: forwards;
+  animation-name: example;
+  animation-duration: 1;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
 }
 @keyframes example {
-	from { transform: translate(0, 0); }
-	to { transform: translate(0, 100); }
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(0, 100);
+  }
 }
 ```
 
@@ -964,31 +1050,31 @@ For help finding the `cubicBezier` values you need for your custom animation tim
 
 ![beziergraph](/assets/images/modules/animation/bezier-graph.png 'BezierGraph')
 
-```JavaScript
-import { Enums } from "@nativescript/core";
+```javascript
+import { Enums } from '@nativescript/core'
 
 view.animate({
-    translate: { x: 0, y: 100 },
-    duration: 1000,
-    curve: Enums.AnimationCurve.cubicBezier(0.1, 0.1, 0.1, 1)
-});
+  translate: { x: 0, y: 100 },
+  duration: 1000,
+  curve: Enums.AnimationCurve.cubicBezier(0.1, 0.1, 0.1, 1)
+})
 ```
 
-```TypeScript
-import { Enums } from "@nativescript/core";
+```typescript
+import { Enums } from '@nativescript/core'
 view.animate({
-    translate: { x: 0, y: 100 },
-    duration: 1000,
-    curve: Enums.AnimationCurve.cubicBezier(0.1, 0.1, 0.1, 1)
-});
+  translate: { x: 0, y: 100 },
+  duration: 1000,
+  curve: Enums.AnimationCurve.cubicBezier(0.1, 0.1, 0.1, 1)
+})
 ```
 
-```CSS
+```css
 .view {
-	animation-name: example;
-	animation-duration: 1;
-	animation-timing-function: cubicBezier(0.1, 0.1, 0.1, 1);
-	animation-fill-mode: forwards;
+  animation-name: example;
+  animation-duration: 1;
+  animation-timing-function: cubicBezier(0.1, 0.1, 0.1, 1);
+  animation-fill-mode: forwards;
 }
 ```
 
@@ -1002,22 +1088,22 @@ To create more complex animations, we might need to change the origin point arou
 
 **Example 5: Rotating a view around its center. Center of view is changed via `originX` and `originY` properties.**
 
-```JavaScript
-view.originX = 1; // default 0.5 (center), 0 is most left, 1 is most right
-view.originY = 0.5; // default 0.5 (middle), 0 is top, 1 is bottom
+```javascript
+view.originX = 1 // default 0.5 (center), 0 is most left, 1 is most right
+view.originY = 0.5 // default 0.5 (middle), 0 is top, 1 is bottom
 view.animate({
-	rotate: 360, // will take into account originX and originY
-    duration: 1000
-});
+  rotate: 360, // will take into account originX and originY
+  duration: 1000
+})
 ```
 
-```TypeScript
-view.originX = 1; // default 0.5 (center), 0 is most left, 1 is most right
-view.originY = 0.5; // default 0.5 (middle), 0 is top, 1 is bottom
+```typescript
+view.originX = 1 // default 0.5 (center), 0 is most left, 1 is most right
+view.originY = 0.5 // default 0.5 (middle), 0 is top, 1 is bottom
 view.animate({
-	rotate: 360, // will take into account originX and originY
-    duration: 1000
-});
+  rotate: 360, // will take into account originX and originY
+  duration: 1000
+})
 ```
 
 ::: warning Note
@@ -1038,28 +1124,32 @@ The full source code for all samples is located [here](https://github.com/Native
 
 ![opacity](/assets/images/modules/animation/opacity.gif 'Opacity')
 
-```JavaScript
+```javascript
 view.animate({
-    opacity: 0,
-    duration: 3000
-});
+  opacity: 0,
+  duration: 3000
+})
 ```
 
-```TypeScript
+```typescript
 view.animate({
-    opacity: 0,
-    duration: 3000
-});
+  opacity: 0,
+  duration: 3000
+})
 ```
 
-```CSS
+```css
 .view {
-	animation-name: opacity;
-	animation-duration: 3;
+  animation-name: opacity;
+  animation-duration: 3;
 }
 @keyframes opacity {
-	from { opacity: 1; }
-	to { opacity: 0; }
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
 ```
 
@@ -1069,28 +1159,32 @@ view.animate({
 
 ![background-color](/assets/images/modules/animation/background-color.gif 'Background Color')
 
-```JavaScript
+```javascript
 view.animate({
-    backgroundColor: new colorModule.Color("#3D5AFE"),
-    duration: 3000
-});
+  backgroundColor: new colorModule.Color('#3D5AFE'),
+  duration: 3000
+})
 ```
 
-```TypeScript
+```typescript
 view.animate({
-    backgroundColor: new colorModule.Color("#3D5AFE"),
-    duration: 3000
-});
+  backgroundColor: new colorModule.Color('#3D5AFE'),
+  duration: 3000
+})
 ```
 
-```CSS
+```css
 .view {
-	animation-name: backgroundColor;
-	animation-duration: 3;
+  animation-name: backgroundColor;
+  animation-duration: 3;
 }
 @keyframes backgroundColor {
-	from { background-color: white; }
-	to { background-color: #3D5AFE; }
+  from {
+    background-color: white;
+  }
+  to {
+    background-color: #3d5afe;
+  }
 }
 ```
 
@@ -1100,28 +1194,32 @@ view.animate({
 
 ![translate](/assets/images/modules/animation/translate.gif 'Translate')
 
-```JavaScript
+```javascript
 view.animate({
-    translate: { x: 100, y: 100},
-    duration: 3000
-});
+  translate: { x: 100, y: 100 },
+  duration: 3000
+})
 ```
 
-```TypeScript
+```typescript
 view.animate({
-    translate: { x: 100, y: 100},
-    duration: 3000
-});
+  translate: { x: 100, y: 100 },
+  duration: 3000
+})
 ```
 
-```CSS
+```css
 .view {
-	animation-name: translate;
-	animation-duration: 3;
+  animation-name: translate;
+  animation-duration: 3;
 }
 @keyframes translate {
-	from { transform: translate(0, 0); }
-	to { transform: translate(100, 100); }
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(100, 100);
+  }
 }
 ```
 
@@ -1131,28 +1229,32 @@ view.animate({
 
 ![scale](/assets/images/modules/animation/scale.gif 'Scale')
 
-```JavaScript
+```javascript
 view.animate({
-    scale: { x: 2, y: 2},
-    duration: 3000
-});
+  scale: { x: 2, y: 2 },
+  duration: 3000
+})
 ```
 
-```TypeScript
+```typescript
 view.animate({
-    scale: { x: 2, y: 2},
-    duration: 3000
-});
+  scale: { x: 2, y: 2 },
+  duration: 3000
+})
 ```
 
-```CSS
+```css
 .view {
-	animation-name: scale;
-	animation-duration: 3;
+  animation-name: scale;
+  animation-duration: 3;
 }
 @keyframes scale {
-	from { transform: scale(1, 1); }
-	to { transform: scale(2, 2); }
+  from {
+    transform: scale(1, 1);
+  }
+  to {
+    transform: scale(2, 2);
+  }
 }
 ```
 
@@ -1162,28 +1264,32 @@ view.animate({
 
 ![rotate](/assets/images/modules/animation/rotate.gif 'Rotate')
 
-```JavaScript
+```javascript
 view.animate({
-    rotate: 360,
-    duration: 3000
-});
+  rotate: 360,
+  duration: 3000
+})
 ```
 
-```TypeScript
+```typescript
 view.animate({
-    rotate: 360,
-    duration: 3000
-});
+  rotate: 360,
+  duration: 3000
+})
 ```
 
-```CSS
+```css
 .view {
-	animation-name: rotate;
-	animation-duration: 3;
+  animation-name: rotate;
+  animation-duration: 3;
 }
 @keyframes rotate {
-	from { transform: rotate(0deg); }
-	to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 ```
 
@@ -1193,115 +1299,123 @@ view.animate({
 
 ![chaining-with-animation-set](/assets/images/modules/animation/chaining-with-animation-set.gif 'Chaining with Animation Set')
 
-```JavaScript
-var definitions = new Array();
-definitions.push({ target: view1, translate: { x: 200, y: 0 }, duration: 3000 });
-definitions.push({ target: view2, translate: { x: 0, y: 200 }, duration: 3000 });
-definitions.push({ target: view3, translate: { x: -200, y: 0 }, duration: 3000 });
-definitions.push({ target: view4, translate: { x: 0, y: -200 }, duration: 3000 });
-var playSequentially = true;
-var animationSet = new animationModule.Animation(definitions, playSequentially);
-animationSet.play().then(function () {
-    console.log("Animation finished");
-})
-    .catch(function (e) {
-    console.log(e.message);
-});
+```javascript
+var definitions = new Array()
+definitions.push({ target: view1, translate: { x: 200, y: 0 }, duration: 3000 })
+definitions.push({ target: view2, translate: { x: 0, y: 200 }, duration: 3000 })
+definitions.push({ target: view3, translate: { x: -200, y: 0 }, duration: 3000 })
+definitions.push({ target: view4, translate: { x: 0, y: -200 }, duration: 3000 })
+var playSequentially = true
+var animationSet = new animationModule.Animation(definitions, playSequentially)
+animationSet
+  .play()
+  .then(function () {
+    console.log('Animation finished')
+  })
+  .catch(function (e) {
+    console.log(e.message)
+  })
 ```
 
-```TypeScript
-var definitions = new Array<animationModule.AnimationDefinition>();
-definitions.push({target: view1, translate: {x: 200, y: 0}, duration: 3000 });
-definitions.push({target: view2, translate: {x: 0, y: 200}, duration: 3000 });
-definitions.push({target: view3, translate: {x: -200, y: 0}, duration: 3000 });
-definitions.push({target: view4, translate: {x: 0, y: -200}, duration: 3000 });
-var playSequentially = true;
-var animationSet = new animationModule.Animation(definitions, playSequentially);
-animationSet.play().then(() => {
-    console.log("Animation finished");
-})
-.catch((e) => {
-    console.log(e.message);
-});
+```typescript
+var definitions = new Array<animationModule.AnimationDefinition>()
+definitions.push({ target: view1, translate: { x: 200, y: 0 }, duration: 3000 })
+definitions.push({ target: view2, translate: { x: 0, y: 200 }, duration: 3000 })
+definitions.push({ target: view3, translate: { x: -200, y: 0 }, duration: 3000 })
+definitions.push({ target: view4, translate: { x: 0, y: -200 }, duration: 3000 })
+var playSequentially = true
+var animationSet = new animationModule.Animation(definitions, playSequentially)
+animationSet
+  .play()
+  .then(() => {
+    console.log('Animation finished')
+  })
+  .catch(e => {
+    console.log(e.message)
+  })
 ```
 
 ### Animating multiple views
 
 ![multiple-views](/assets/images/modules/animation/multiple-views.gif 'Multiple Views')
 
-```JavaScript
-var definitions = new Array();
+```javascript
+var definitions = new Array()
 var a1 = {
-    target: view1,
-    translate: { x: 200, y: 0 },
-    duration: 3000
-};
-definitions.push(a1);
+  target: view1,
+  translate: { x: 200, y: 0 },
+  duration: 3000
+}
+definitions.push(a1)
 var a2 = {
-    target: view2,
-    translate: { x: 0, y: 200 },
-    duration: 3000
-};
-definitions.push(a2);
+  target: view2,
+  translate: { x: 0, y: 200 },
+  duration: 3000
+}
+definitions.push(a2)
 var a3 = {
-    target: view3,
-    translate: { x: -200, y: 0 },
-    duration: 3000
-};
-definitions.push(a3);
+  target: view3,
+  translate: { x: -200, y: 0 },
+  duration: 3000
+}
+definitions.push(a3)
 var a4 = {
-    target: view4,
-    translate: { x: 0, y: -200 },
-    duration: 3000
-};
-definitions.push(a4);
-var animationSet = new animationModule.Animation(definitions);
-animationSet.play().then(function () {
-    console.log("Animation finished");
-})
-    .catch(function (e) {
-    console.log(e.message);
-});
+  target: view4,
+  translate: { x: 0, y: -200 },
+  duration: 3000
+}
+definitions.push(a4)
+var animationSet = new animationModule.Animation(definitions)
+animationSet
+  .play()
+  .then(function () {
+    console.log('Animation finished')
+  })
+  .catch(function (e) {
+    console.log(e.message)
+  })
 ```
 
-```TypeScript
-var definitions = new Array<animationModule.AnimationDefinition>();
+```typescript
+var definitions = new Array<animationModule.AnimationDefinition>()
 var a1: animationModule.AnimationDefinition = {
-    target: view1,
-    translate: {x: 200, y: 0},
-    duration: 3000
-};
-definitions.push(a1);
+  target: view1,
+  translate: { x: 200, y: 0 },
+  duration: 3000
+}
+definitions.push(a1)
 
 var a2: animationModule.AnimationDefinition = {
-    target: view2,
-    translate: {x: 0, y: 200},
-    duration: 3000
-};
-definitions.push(a2);
+  target: view2,
+  translate: { x: 0, y: 200 },
+  duration: 3000
+}
+definitions.push(a2)
 
 var a3: animationModule.AnimationDefinition = {
-    target: view3,
-    translate: {x: -200, y: 0},
-    duration: 3000
-};
-definitions.push(a3);
+  target: view3,
+  translate: { x: -200, y: 0 },
+  duration: 3000
+}
+definitions.push(a3)
 
 var a4: animationModule.AnimationDefinition = {
-    target: view4,
-    translate: {x: 0, y: -200},
-    duration: 3000
-};
-definitions.push(a4);
+  target: view4,
+  translate: { x: 0, y: -200 },
+  duration: 3000
+}
+definitions.push(a4)
 
-var animationSet = new animationModule.Animation(definitions);
+var animationSet = new animationModule.Animation(definitions)
 
-animationSet.play().then(() => {
-    console.log("Animation finished");
-})
-.catch((e) => {
-    console.log(e.message);
-});
+animationSet
+  .play()
+  .then(() => {
+    console.log('Animation finished')
+  })
+  .catch(e => {
+    console.log(e.message)
+  })
 ```
 
 [Try this in the NativeScript Playground](https://play.nativescript.org/?template=play-tsc&id=rgm744)
@@ -1310,102 +1424,122 @@ animationSet.play().then(() => {
 
 ![reusing](/assets/images/modules/animation/reusing.gif 'Reusing Animations')
 
-```JavaScript
-var animation1 = view.createAnimation({ opacity: 0 });
-var animation2 = view.createAnimation({ opacity: 1 });
-animation1.play()
-    .then(function () { return animation2.play(); })
-    .then(function () { return animation1.play(); })
-    .then(function () { return animation2.play(); })
-    .then(function () { return animation1.play(); })
-    .then(function () { return animation2.play(); })
-    .then(function () {
-    console.log("Animation finished");
-})
-    .catch(function (e) {
-    console.log(e.message);
-});
+```javascript
+var animation1 = view.createAnimation({ opacity: 0 })
+var animation2 = view.createAnimation({ opacity: 1 })
+animation1
+  .play()
+  .then(function () {
+    return animation2.play()
+  })
+  .then(function () {
+    return animation1.play()
+  })
+  .then(function () {
+    return animation2.play()
+  })
+  .then(function () {
+    return animation1.play()
+  })
+  .then(function () {
+    return animation2.play()
+  })
+  .then(function () {
+    console.log('Animation finished')
+  })
+  .catch(function (e) {
+    console.log(e.message)
+  })
 ```
 
-```TypeScript
-var animation1 = view.createAnimation({opacity: 0});
-var animation2 = view.createAnimation({opacity: 1});
+```typescript
+var animation1 = view.createAnimation({ opacity: 0 })
+var animation2 = view.createAnimation({ opacity: 1 })
 
-animation1.play()
-.then(()=>animation2.play())
-.then(()=>animation1.play())
-.then(()=>animation2.play())
-.then(()=>animation1.play())
-.then(()=>animation2.play())
-.then(() => {
-    console.log("Animation finished");
-})
-.catch((e) => {
-    console.log(e.message);
-});
+animation1
+  .play()
+  .then(() => animation2.play())
+  .then(() => animation1.play())
+  .then(() => animation2.play())
+  .then(() => animation1.play())
+  .then(() => animation2.play())
+  .then(() => {
+    console.log('Animation finished')
+  })
+  .catch(e => {
+    console.log(e.message)
+  })
 ```
 
 ### Slide-in effect
 
 ![slide-in-effect](/assets/images/modules/animation/slide-in-effect.gif 'Slide-in Effect')
 
-```JavaScript
-var item = new imageModule.Image();
-item.src = "~/res/icon_100x100.png";
-item.width = 90;
-item.height = 90;
-item.style.margin = "5,5,5,5";
-item.translateX = -300;
-item.opacity = 0;
-item.on("loaded", function (args) {
-    args.object.animate({ translate: { x: 0, y: 0 }, opacity: 1 });
-});
-wrapLayout.addChild(item);
+```javascript
+var item = new imageModule.Image()
+item.src = '~/res/icon_100x100.png'
+item.width = 90
+item.height = 90
+item.style.margin = '5,5,5,5'
+item.translateX = -300
+item.opacity = 0
+item.on('loaded', function (args) {
+  args.object.animate({ translate: { x: 0, y: 0 }, opacity: 1 })
+})
+wrapLayout.addChild(item)
 ```
 
-```TypeScript
-var item = new imageModule.Image();
-item.src = "~/res/icon_100x100.png";
-item.width = 90;
-item.height = 90;
-item.style.margin = "5,5,5,5";
-item.translateX = -300;
-item.opacity = 0;
-item.on("loaded", (args: observable.EventData) => {
-    (<viewModule.View>args.object).animate({translate: { x: 0, y: 0 }, opacity: 1});
-});
-wrapLayout.addChild(item);
+```typescript
+var item = new imageModule.Image()
+item.src = '~/res/icon_100x100.png'
+item.width = 90
+item.height = 90
+item.style.margin = '5,5,5,5'
+item.translateX = -300
+item.opacity = 0
+item.on('loaded', (args: observable.EventData) => {
+  ;(<viewModule.View>args.object).animate({ translate: { x: 0, y: 0 }, opacity: 1 })
+})
+wrapLayout.addChild(item)
 ```
 
 ### Infinite animations
 
 ![infinite](/assets/images/modules/animation/infinite.gif 'Infinite')
 
-```JavaScript
-animationSet = new animationModule.Animation([{
-        target: view,
-        rotate: 360,
-        duration: 3000,
-        iterations: Number.POSITIVE_INFINITY,
-        curve: view.ios ? UIViewAnimationCurve.UIViewAnimationCurveLinear : new android.view.animation.LinearInterpolator
-    }]);
-animationSet.play().catch(function (e) {
-    console.log("Animation stopped!");
-});
-// Call animationSet.cancel() to stop it;
-```
-
-```TypeScript
-animationSet = new animationModule.Animation([{
+```javascript
+animationSet = new animationModule.Animation([
+  {
     target: view,
     rotate: 360,
     duration: 3000,
     iterations: Number.POSITIVE_INFINITY,
-    curve: view.ios ? UIViewAnimationCurve.UIViewAnimationCurveLinear : new android.view.animation.LinearInterpolator
-}]);
-animationSet.play().catch((e) => {
-    console.log("Animation stopped!");
-});
+    curve: view.ios
+      ? UIViewAnimationCurve.UIViewAnimationCurveLinear
+      : new android.view.animation.LinearInterpolator()
+  }
+])
+animationSet.play().catch(function (e) {
+  console.log('Animation stopped!')
+})
+// Call animationSet.cancel() to stop it;
+```
+
+```typescript
+animationSet = new animationModule.Animation([
+  {
+    target: view,
+    rotate: 360,
+    duration: 3000,
+    iterations: Number.POSITIVE_INFINITY,
+    curve: view.ios
+      ? UIViewAnimationCurve.UIViewAnimationCurveLinear
+      : new android.view.animation.LinearInterpolator()
+  }
+])
+animationSet.play().catch(e => {
+  console.log('Animation stopped!')
+})
 // Call animationSet.cancel() to stop it;
 ```
 
@@ -1415,44 +1549,48 @@ animationSet.play().catch((e) => {
 
 ![rotation_origin_x_y](/assets/images/modules/animation/rotation_origin_x_y.gif 'Rotation originX / originY')
 
-```JavaScript
-const view = page.getViewById("myView");
+```javascript
+const view = page.getViewById('myView')
 
-view.originX = 1; // default 0.5 (center), 0 is most left, 1 is most right
-view.originY = 0; // default 0.5 (middle), 0 is top, 1 is bottom
-view.animate({
-	rotate: 360, // will take into account originX and originY
+view.originX = 1 // default 0.5 (center), 0 is most left, 1 is most right
+view.originY = 0 // default 0.5 (middle), 0 is top, 1 is bottom
+view
+  .animate({
+    rotate: 360, // will take into account originX and originY
     duration: 1000
-}).then(() => {
-    view.originX = 0;
-    view.originY = 1;
-    view.rotate = 0;
+  })
+  .then(() => {
+    view.originX = 0
+    view.originY = 1
+    view.rotate = 0
 
     view.animate({
-        rotate: -360,
-        duration: 1000
+      rotate: -360,
+      duration: 1000
     })
-})
+  })
 ```
 
-```TypeScript
-const view = page.getViewById("myView");
+```typescript
+const view = page.getViewById('myView')
 
-view.originX = 1; // default 0.5 (center), 0 is most left, 1 is most right
-view.originY = 0; // default 0.5 (middle), 0 is top, 1 is bottom
-view.animate({
-	rotate: 360, // will take into account originX and originY
+view.originX = 1 // default 0.5 (center), 0 is most left, 1 is most right
+view.originY = 0 // default 0.5 (middle), 0 is top, 1 is bottom
+view
+  .animate({
+    rotate: 360, // will take into account originX and originY
     duration: 1000
-}).then(() => {
-    view.originX = 0;
-    view.originY = 1;
-    view.rotate = 0;
+  })
+  .then(() => {
+    view.originX = 0
+    view.originY = 1
+    view.rotate = 0
 
     view.animate({
-        rotate: -360,
-        duration: 1000
+      rotate: -360,
+      duration: 1000
     })
-})
+  })
 ```
 
 ### Animation - View's Width and Height
@@ -1461,69 +1599,65 @@ view.animate({
 
 ### Width
 
-```JavaScript
-let label = page.getViewById("lblNS");
+```javascript
+let label = page.getViewById('lblNS')
 let animation = new Animation([
-    {
-      width: 200,
-      duration: 2000,
-      target: label,
-      delay: 200
-    }
-
-  ]);
-animation.play();
+  {
+    width: 200,
+    duration: 2000,
+    target: label,
+    delay: 200
+  }
+])
+animation.play()
 ```
 
-```TypeScript
-let label: Label = <Label>page.getViewById("lblNS");
+```typescript
+let label: Label = <Label>page.getViewById('lblNS')
 let animation = new Animation([
-        {
-            width: 200,
-            duration: 2000,
-            target: label,
-            delay: 200
-        }
-
-    ]);
-animation.play();
+  {
+    width: 200,
+    duration: 2000,
+    target: label,
+    delay: 200
+  }
+])
+animation.play()
 ```
 
 ### Height
 
-```JavaScript
-let label = page.getViewById("lblNS");
+```javascript
+let label = page.getViewById('lblNS')
 let animation = new Animation([
-    {
-      height: 200,
-      duration: 2000,
-      target: label,
-      delay: 200
-    }
-
-  ]);
-animation.play();
+  {
+    height: 200,
+    duration: 2000,
+    target: label,
+    delay: 200
+  }
+])
+animation.play()
 ```
 
-```TypeScript
-let label: Label = <Label>page.getViewById("lblNS");
+```typescript
+let label: Label = <Label>page.getViewById('lblNS')
 let animation = new Animation([
-        {
-            height: 200,
-            duration: 2000,
-            target: label,
-            delay: 200
-        }
-
-    ]);
-animation.play();
+  {
+    height: 200,
+    duration: 2000,
+    target: label,
+    delay: 200
+  }
+])
+animation.play()
 ```
 
 [Demo JavaScript](https://play.nativescript.org/?template=play-js&id=mOZv68) [Demo TypeScript](https://play.nativescript.org/?template=play-tsc&id=ckdYDS) {% endnativescript %} {% angular %}
 
 ### Width
 
-```TypeScript
+```typescript
 @ViewChild("lblNS", { read: ElementRef, static: false }) labelRef: ElementRef;
 private label: Label;
 ...
@@ -1545,7 +1679,7 @@ animation.play();
 
 ### Height
 
-```TypeScript
+```typescript
 @ViewChild("lblNS", { read: ElementRef, static: false }) labelRef: ElementRef;
 private label: Label;
 ...

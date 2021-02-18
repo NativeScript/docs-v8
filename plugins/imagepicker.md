@@ -58,7 +58,7 @@ To request permissions for Android 6+ (API 23+) we use [nativescript-permissions
 ::: warning Note
 To be sure to have permissions add the following lines to AndroidManifest.xml in `App_Resources/Android/` in your application.
 
-```
+```xml
 <manifest ... >
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 

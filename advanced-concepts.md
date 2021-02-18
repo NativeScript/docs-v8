@@ -45,7 +45,6 @@ A minimal example for adding native Objective C source code to your NativeScript
 @implementation ExampleCrypto
 
 + (NSString *)generateHMACWithApiKey:(NSString *) apiKey andApiSecret:(NSString *) apiSecret {
-
     NSString *hmacData = [NSString stringWithFormat:@"%@%@%@%@%@",apiKey];
 
     // Make sure the HMAC hash is in hex
@@ -61,7 +60,6 @@ A minimal example for adding native Objective C source code to your NativeScript
     NSString* authorization = [[hmacHashHexString dataUsingEncoding:NSUTF8StringEncoding] base64EncodedStringWithOptions:0];
 
     return authorization;
-
 }
 
 @end
@@ -136,25 +134,25 @@ To illustrate:
 
 ```javascript
 var NSArray = {
-    __proto__: NSObject,
+  __proto__: NSObject,
 
-    arrayWithArray: function () {
-        [native code]
-    }
+  arrayWithArray: function () {
+    [native code]
+  }
 }
 
 NSArray.prototype = {
-    __proto__: NSObject.prototype,
+  __proto__: NSObject.prototype,
 
-    constructor: NSArray,
+  constructor: NSArray,
 
-    objectAtIndex: function () {
-        [native code]
-    },
+  objectAtIndex: function () {
+    [native code]
+  },
 
-    get count() {
-        [native code]
-    }
+  get count() {
+    [native code]
+  }
 }
 ```
 
@@ -220,11 +218,11 @@ array.setObjectAtIndex(button, 1)
 In the below-given code sample, you can see, how to convert a JavaScript array to a `CGFloat` array.
 In the tabs, you will find the Objective-C code for a function accepting a `CGFloat` array as an argument and the JavaScript code for calling this native function.
 
-```JavaScript
-const CGFloatArray = interop.sizeof(interop.types.id) == 4 ? Float32Array : Float64Array;
-const jsArray = [4.5, 0, 1e-5, -1242e10, -4.5, 34, -34, -1e-6];
+```javascript
+const CGFloatArray = interop.sizeof(interop.types.id) == 4 ? Float32Array : Float64Array
+const jsArray = [4.5, 0, 1e-5, -1242e10, -4.5, 34, -34, -1e-6]
 
-FloatArraySample.dumpFloats(CGFloatArray.from(jsArray), jsArray.length);
+FloatArraySample.dumpFloats(CGFloatArray.from(jsArray), jsArray.length)
 ```
 
 ```objc
@@ -236,7 +234,7 @@ FloatArraySample.dumpFloats(CGFloatArray.from(jsArray), jsArray.length);
 
 + (void)dumpFloats:(CGFloat*) arr withCount:(int)cnt {
     for(int i = 0; i < cnt; i++) {
-        NSLog(@"arr[%d] = %f", i, arr[i]);
+      NSLog(@"arr[%d] = %f", i, arr[i]);
     }
 }
 @end
@@ -331,14 +329,14 @@ NativeScript exposes Objective-C structures as JavaScript objects. The propertie
 
 ```objc
 CGRect rect = {
-    .origin = {
-        .x = 0,
-        .y = 0
-    },
-    .size = {
-        .width = 100,
-        .height = 100
-    }
+  .origin = {
+    .x = 0,
+    .y = 0
+  },
+  .size = {
+    .width = 100,
+    .height = 100
+  }
 };
 UIView *view = [[UIView alloc] initWithFrame:rect];
 ```
@@ -473,23 +471,23 @@ Java has several primitive numeric types while JavaScript has the [Number](http:
 
 ```java
 class MyObject extends java.lang.Object {
-    public void myMethod(byte value){
-    }
+  public void myMethod(byte value){
+  }
 
-    public void myMethod(short value){
-    }
+  public void myMethod(short value){
+  }
 
-    public void myMethod(int value){
-    }
+  public void myMethod(int value){
+  }
 
-    public void myMethod(long value){
-    }
+  public void myMethod(long value){
+  }
 
-    public void myMethod(float value){
-    }
+  public void myMethod(float value){
+  }
 
-    public void myMethod(double value){
-    }
+  public void myMethod(double value){
+  }
 }
 ```
 
@@ -522,23 +520,23 @@ If there is no myMethod(double) implementation, the Runtime will try to choose t
 - Explicitly call an overload: <br/>
   To enable developers call a specific method overload, the Runtime exposes the following functions directly in the global context:
 
-      * byte(number) → Java primitive byte
+         * byte(number) → Java primitive byte
 
-      > The number value will be truncated and only its first byte of the whole part will be used.
+         > The number value will be truncated and only its first byte of the whole part will be used.
 
-      * short(number) → Java primitive short
+         * short(number) → Java primitive short
 
-      > The number value will be truncated and only its first 2 bytes of the whole part will be used.
+         > The number value will be truncated and only its first 2 bytes of the whole part will be used.
 
-      * float(number) → Java primitive float
+         * float(number) → Java primitive float
 
-      > The number value will be converted (with a possible precision loss) to a 2^32 floating-point value.
+         > The number value will be converted (with a possible precision loss) to a 2^32 floating-point value.
 
-      * long(number) → Java primitive long (in case the number literal fits JavaScript 2^53 limit)
+         * long(number) → Java primitive long (in case the number literal fits JavaScript 2^53 limit)
 
-      > The number value's whole part will be taken only.
+         > The number value's whole part will be taken only.
 
-      * long("number") → Java primitive long (in case the number literal doesn't fit JavaScript 2^53 limit)
+         * long("number") → Java primitive long (in case the number literal doesn't fit JavaScript 2^53 limit)
 
 ```javascript
 myObject.myMethod(byte(10)) // will call myMethod(byte)
@@ -558,8 +556,8 @@ A JavaScript [Array](http://www.w3schools.com/jsref/jsref_obj_array.asp) is impl
 
 ```java
 class MyObject extends java.lang.Object {
-    public void myMethod(java.lang.String[] items){
-    }
+  public void myMethod(java.lang.String[] items){
+  }
 }
 ```
 
@@ -607,17 +605,17 @@ Kotlin has several numeric types while JavaScript has the [Number](http://www.w3
 
 ```kotlin
 class MyObject : Any() {
-    fun myMethod(value: Byte) {}
+  fun myMethod(value: Byte) {}
 
-    fun myMethod(value: Short) {}
+  fun myMethod(value: Short) {}
 
-    fun myMethod(value: Int) {}
+  fun myMethod(value: Int) {}
 
-    fun myMethod(value: Long) {}
+  fun myMethod(value: Long) {}
 
-    fun myMethod(value: Float) {}
+  fun myMethod(value: Float) {}
 
-    fun myMethod(value: Double) {}
+  fun myMethod(value: Double) {}
 }
 ```
 
@@ -650,23 +648,23 @@ If there is no myMethod(Double) implementation, the Runtime will try to choose t
 - Explicitly call an overload: <br/>
   To enable developers call a specific method overload, the Runtime exposes the following functions directly in the global context:
 
-      * byte(number) → Kotlin Byte
+         * byte(number) → Kotlin Byte
 
-      >The number value will be truncated and only its first byte of the whole part will be used.
+         >The number value will be truncated and only its first byte of the whole part will be used.
 
-      * short(number) → Kotlin Short
+         * short(number) → Kotlin Short
 
-      >The number value will be truncated and only its first 2 bytes of the whole part will be used.
+         >The number value will be truncated and only its first 2 bytes of the whole part will be used.
 
-      * float(number) → Kotlin Float
+         * float(number) → Kotlin Float
 
-      >The number value will be converted (with a possible precision loss) to a 2^32 floating-point value.
+         >The number value will be converted (with a possible precision loss) to a 2^32 floating-point value.
 
-      * long(number) → Kotlin Long (in case the number literal fits JavaScript 2^53 limit)
+         * long(number) → Kotlin Long (in case the number literal fits JavaScript 2^53 limit)
 
-      >The number value's whole part will be taken only.
+         >The number value's whole part will be taken only.
 
-      * long("number") → Kotlin Long (in case the number literal doesn't fit JavaScript 2^53 limit)
+         * long("number") → Kotlin Long (in case the number literal doesn't fit JavaScript 2^53 limit)
 
 ```javascript
 myObject.myMethod(byte(10)) // will call myMethod(Byte)
@@ -835,65 +833,65 @@ Array.create(javaClassCtorFunction, length)
 
 The first signature accepts `string` for `elementClassName`. This option is useful when you have to create Java array of primitive types (e.g. `char`, `boolean`, `byte`, `short`, `int`, `long`, `float` and `double`). It is also useful when you have to create Java jagged arrays. For this scenario `elementClassName` must be the standard JNI class notation. Here are some examples:
 
-```JavaScript
+```javascript
 // equivalent to int[][] jaggedIntArray2 = new int[10][];
-var jaggedIntArray2 = Array.create("[I", 10);
+var jaggedIntArray2 = Array.create('[I', 10)
 
 // equivalent to boolean[][][] jaggedBooleanArray3 = new boolean[10][][];
-var jaggedBooleanArray3 = Array.create("[[Z", 10);
+var jaggedBooleanArray3 = Array.create('[[Z', 10)
 
 // equivalent to Object[][][][] jaggedObjectArray4 = new Object[10][][][];
-var jaggedObjectArray4 = Array.create("[[[Ljava.lang.Object;", 10);
+var jaggedObjectArray4 = Array.create('[[[Ljava.lang.Object;', 10)
 ```
 
 The second signature uses `javaClassCtorFunction` which must the JavaScript constructor function for a given Java type. Here are some examples:
 
-```JavaScript
+```javascript
 // equivalent to String[] stringArr = new String[10];
-var stringArr = Array.create(java.lang.String, 10);
+var stringArr = Array.create(java.lang.String, 10)
 
 // equivalent to Object[] objectArr = new Object[10];
-var objectArr = Array.create(java.lang.Object, 10);
+var objectArr = Array.create(java.lang.Object, 10)
 ```
 
 #### Array of Primitive Types
 
 The automatic marshalling works only for cases with arrays of objects. In cases where you have a method that takes an array of primitive types, you need to convert it as follows:
 
-```Java
+```java
 public static void myMethod(int[] someParam)
 ```
 
 Then yoy need to invoke it as follows:
 
-```JavaScript
-let arr = Array.create("int", 3);
-arr[0] = 1;
-arr[1] = 2;
-arr[2] = 3;
+```javascript
+let arr = Array.create('int', 3)
+arr[0] = 1
+arr[1] = 2
+arr[2] = 3
 
-SomeObject.myMethod(arr); // assuming the method is accepting an array of primitive types
+SomeObject.myMethod(arr) // assuming the method is accepting an array of primitive types
 ```
 
 #### Two-Dimensional Arrays of Primitive Types
 
 The above scenario gets more tricky with two-dimensional arrays. Consider a Java method that accepts as an argument a two-dimensional array:
 
-```Java
+```java
 public static void myMethod(java.lang.Integer[][] someParam)
 ```
 
 The marshalled JavaScript code will look like this:
 
-```JavaScript
-let arr = Array.create("[Ljava.lang.Integer;", 2);
-let elements = Array.create("java.lang.Integer", 3);
-elements[0] = new java.lang.Integer(1);
-elements[1] = new java.lang.Integer(2);
-elements[2] = new java.lang.Integer(3);
-arr[0] = elements;
+```javascript
+let arr = Array.create('[Ljava.lang.Integer;', 2)
+let elements = Array.create('java.lang.Integer', 3)
+elements[0] = new java.lang.Integer(1)
+elements[1] = new java.lang.Integer(2)
+elements[2] = new java.lang.Integer(3)
+arr[0] = elements
 
-SomeObject.myMethod(arr); // assuming the method is accepting a two-dimensional array of primitive types
+SomeObject.myMethod(arr) // assuming the method is accepting a two-dimensional array of primitive types
 ```
 
 #### Null
@@ -944,8 +942,8 @@ var str2 = kotlinClass.getCharProperty() // returns kotlin.Char, converted to JS
 package com.example
 
 class KotlinClassWithStringAndCharProperty {
-    val stringProperty: String = "string property"
-    val charProperty: Char = 'c'
+  val stringProperty: String = "string property"
+  val charProperty: Char = 'c'
 }
 ```
 
@@ -962,7 +960,7 @@ var enabled = kotlinClass.getBooleanProperty() // returns Kotlin Boolean, conver
 package com.example
 
 class KotlinClassWithBooleanProperty {
-    val booleanProperty: Boolean = false
+  val booleanProperty: Boolean = false
 }
 ```
 
@@ -979,7 +977,7 @@ var jsByteValue = kotlinClass.getByteProperty() // returns Kotlin Byte, converte
 package com.example
 
 class KotlinClassWithByteProperty {
-    val byteProperty: Byte = 42
+  val byteProperty: Byte = 42
 }
 ```
 
@@ -996,7 +994,7 @@ var jsShortValue = kotlinClass.getShortProperty() // returns Kotlin Short, conve
 package com.example
 
 class KotlinClassWithShortProperty {
-    val shortProperty: Short = 42
+  val shortProperty: Short = 42
 }
 ```
 
@@ -1013,7 +1011,7 @@ var jsIntValue = kotlinClass.getIntProperty() // returns Kotlin Int, converted t
 package com.example
 
 class KotlinClassWithIntProperty {
-    val intProperty: Int = 42
+  val intProperty: Int = 42
 }
 ```
 
@@ -1030,7 +1028,7 @@ var jsFloatValue = kotlinClass.getFloatProperty() // returns Kotlin Float, conve
 package com.example
 
 class KotlinClassWithFloatProperty {
-    val floatProperty: Float = 42.0f
+  val floatProperty: Float = 42.0f
 }
 ```
 
@@ -1047,7 +1045,7 @@ var jsDoubleValue = kotlinClass.getDoubleProperty() // returns Kotlin double, co
 package com.example
 
 class KotlinClassWithDoubleProperty {
-    val doubleProperty: Double = 42.0
+  val doubleProperty: Double = 42.0
 }
 ```
 
@@ -1066,10 +1064,10 @@ Kotlin's long type [kotlin.Long](https://kotlinlang.org/api/latest/jvm/stdlib/ko
 package com.example
 
 class KotlinClassWithLongProperties {
-    val longNumber54Bits: Long
-        get() = (1 shl 54).toLong()
-    val longNumber53Bits: Long
-        get() = (1 shl 53).toLong()
+  val longNumber54Bits: Long
+    get() = (1 shl 54).toLong()
+  val longNumber53Bits: Long
+    get() = (1 shl 53).toLong()
 }
 ```
 
@@ -1098,7 +1096,7 @@ var firstStringElement = kotlinArray[0] // the indexed getter callback is trigge
 package com.example
 
 class KotlinClassWithStringArrayProperty {
-    val stringArrayProperty: Array<String> = arrayOf("element1", "element2", "element3")
+  val stringArrayProperty: Array<String> = arrayOf("element1", "element2", "element3")
 }
 ```
 
@@ -1123,7 +1121,7 @@ var nullableValue = kotlinClass.getNullableProperty() // if there is no value, t
 package com.example
 
 class KotlinClassWithNullableProperty() {
-    val nullableProperty: Any? = null
+  val nullableProperty: Any? = null
 }
 ```
 
@@ -1144,9 +1142,9 @@ var data = companion.getDataFromCompanion()
 package com.example
 
 class KotlinClassWithCompanion {
-    companion object {
-        fun getDataFromCompanion() = "some data"
-    }
+  companion object {
+    fun getDataFromCompanion() = "some data"
+  }
 }
 ```
 
@@ -1163,7 +1161,7 @@ var data = objectInstance.getDataFromObject()
 package com.example
 
 object KotlinObject {
-    fun getDataFromObject() = "some data"
+  fun getDataFromObject() = "some data"
 }
 ```
 
@@ -1231,9 +1229,9 @@ package com.example
 import java.util.ArrayList
 
 fun ArrayList<String>.switchPlaces(firstElementIndex: Int, secondElementIndex: Int) {
-    val temp = this[firstElementIndex]
-    this[firstElementIndex] = this[secondElementIndex]
-    this[secondElementIndex] = temp
+  val temp = this[firstElementIndex]
+  this[firstElementIndex] = this[secondElementIndex]
+  this[secondElementIndex] = temp
 }
 ```
 
@@ -1253,9 +1251,9 @@ package com.example
 import java.util.ArrayList
 
 fun ArrayList<String>.switchPlaces(firstElementIndex: Int, secondElementIndex: Int) {
-    val temp = this[firstElementIndex]
-    this[firstElementIndex] = this[secondElementIndex]
-    this[secondElementIndex] = temp
+  val temp = this[firstElementIndex]
+  this[firstElementIndex] = this[secondElementIndex]
+  this[secondElementIndex] = temp
 }
 ```
 
@@ -1309,69 +1307,69 @@ In order to use `console`'s methods, setTimeout/setInterval, or other functional
 
 main-view-model.js
 
-```JavaScript
-   ...
+```javascript
+...
 
-   const WorkerScript = require("nativescript-worker-loader!./worker-script.js");
-   const worker = new WorkerScript();
-   worker.postMessage({ src: imageSource, mode: 'scale', options: options });
+const WorkerScript = require("nativescript-worker-loader!./worker-script.js");
+const worker = new WorkerScript();
+worker.postMessage({ src: imageSource, mode: 'scale', options: options });
 
-   worker.onmessage = function(msg) {
-       if (msg.data.success) {
-           // Stop idle animation
-           // Update Image View
-           // Terminate worker or send another message
+worker.onmessage = function(msg) {
+  if (msg.data.success) {
+    // Stop idle animation
+    // Update Image View
+    // Terminate worker or send another message
 
-           worker.terminate();
-       } else {
-           // Stop idle animation
-           // Display meaningful message
-           // Terminate worker or send message with different parameters
-       }
-   }
+    worker.terminate();
+  } else {
+    // Stop idle animation
+    // Display meaningful message
+    // Terminate worker or send message with different parameters
+  }
+}
 
-   worker.onerror = function(err) {
-       console.log(`An unhandled error occurred in worker: ${err.filename}, line: ${err.lineno} :`);
-       console.log(err.message);
-   }
+worker.onerror = function(err) {
+  console.log(`An unhandled error occurred in worker: ${err.filename}, line: ${err.lineno} :`);
+  console.log(err.message);
+}
 
-   ...
+...
 ```
 
 workers/image-processor.js
 
-```JavaScript
-   require('globals'); // necessary to bootstrap tns modules on the new thread
+```javascript
+require('globals') // necessary to bootstrap tns modules on the new thread
 
-   global.onmessage = function(msg) {
-       const request = msg.data;
-       const src = request.src;
-       const mode = request.mode || 'noop'
-       const options = request.options;
+global.onmessage = function (msg) {
+  const request = msg.data
+  const src = request.src
+  const mode = request.mode || 'noop'
+  const options = request.options
 
-       const result = processImage(src, mode, options);
+  const result = processImage(src, mode, options)
 
-       const msg = result !== undefined ? { success: true, src: result } : { }
+  const msg = result !== undefined ? { success: true, src: result } : {}
 
-       global.postMessage(msg);
-   }
+  global.postMessage(msg)
+}
 
-   function processImage(src, mode, options) {
-       console.log(options); // will throw an exception if `globals` hasn't been imported before this call
+function processImage(src, mode, options) {
+  console.log(options) // will throw an exception if `globals` hasn't been imported before this call
 
-       // image processing logic
+  // image processing logic
 
-       // save image, retrieve location
+  // save image, retrieve location
 
-       // return source to processed image
-       return updatedImgSrc;
-   }
+  // return source to processed image
+  return updatedImgSrc
+}
 
-   // does not handle errors with an `onerror` handler
-   // errors will propagate directly to the main thread Worker instance
+// does not handle errors with an `onerror` handler
+// errors will propagate directly to the main thread Worker instance
 
-   // to handle errors implement the global.onerror handler:
-   // global.onerror = function(err) {}
+// to handle errors implement the global.onerror handler:
+// global.onerror = function(err) {}
 ```
 
 For details on the worker plugin check out the [nativescript-worker-loader](https://github.com/NativeScript/worker-loader) repository.
@@ -1412,7 +1410,7 @@ To allow JavaScript code to call into native iOS or Android code both NativeScri
 
 The NativeScript Metadata is the mapping between the JavaScript and the Android world. Besides a full list with all the available classes and methods, the metadata contains the [JNI](http://developer.android.com/training/articles/perf-jni.html) signature for each accessible Android method/field. It is pre-generated, in a binary format, and embedded in the application package (apk), storing the minimal required information thus providing small size and highly efficient read access. The generation process uses bytecode reading to parse all publicly available types in the Android libraries supplied to the NativeScript project. The generator works as part of the Android build process, meaning that no user interaction is required for it to work.
 
-![Metadata](metadata_diagram.png)
+![Metadata](/assets/images/metadata_diagram.png)
 
 ### Metadata API Level
 
@@ -1508,17 +1506,17 @@ Classes ([See OOP](https://docs.oracle.com/javase/tutorial/java/concepts/)) are 
 
 Accessing classes in Android you would normally add an `import` statement at the beginning of the Java/Kotlin file, to allow referring to the class only by its name. If the developer decides, they may be as expressive as possible by using the full class identifier too:
 
-```Java
+```java
 package my.awesome.application;
 
 import android.view.View;
 
 public class ... {
-    public static void staticMethod(context) {
-        View newView = new View(context);
-        // or
-        android.view.View newView2 = new android.view.View(context);
-    }
+  public static void staticMethod(context) {
+    View newView = new View(context);
+    // or
+    android.view.View newView2 = new android.view.View(context);
+  }
 }
 ```
 
@@ -1557,26 +1555,35 @@ Thanks to the 'proxying' system, Java/Kotlin methods and fields can be accessed 
 
 ```javascript
 const javaObj = new java.lang.Object()
-const javaObjHashCode = javaObj.hashCode() // result is `int` in Java, marshalled to a JavaScript number
 
-console.log(javaObjHashCode) // prints out the hashCode number
+// result is `int` in Java, marshalled to a JavaScript number
+const javaObjHashCode = javaObj.hashCode()
+
+// prints out the hashCode number
+console.log(javaObjHashCode)
 ```
 
 Public and private members, as well as static fields of an instance, or Java/Kotlin classes can also be accessed. The [android.view.View](https://developer.android.com/reference/android/view/View.html) class will be used below:
 
 ```javascript
-const context = ...; // retrieve context
+// retrieve context
+const context = ...;
 const newView = new android.view.View(context);
 
-newView.clearFocus(); // public member call to 'public void clearFocus()' as declared in Android
+// public member call to 'public void clearFocus()' as declared in Android
+newView.clearFocus();
 
-let newViewScaleX = newView.SCALE_X; // public static field access to 'public static final SCALE_X' as declared in Android
+// public static field access to 'public static final SCALE_X' as declared in Android
+let newViewScaleX = newView.SCALE_X;
 
-const focusUpDirection = android.view.View.FOCUS_UP; // public static field access to `FOCUS_UP` - represents an integer as declared in the Android source
+// public static field access to `FOCUS_UP` - represents an integer as declared in the Android source
+const focusUpDirection = android.view.View.FOCUS_UP;
 
-let foundView = newView.focusSearch(android.view.View.FOCUS_UP); // public member call to 'public View focusSearch(int direction)'
+// public member call to 'public View focusSearch(int direction)'
+let foundView = newView.focusSearch(android.view.View.FOCUS_UP);
 
-const randomViewId = android.view.View.generateViewId(); // static method call to 'public static int generateViewId()' - generates a random integer suitable for Android Views
+// static method call to 'public static int generateViewId()' - generates a random integer suitable for Android Views
+const randomViewId = android.view.View.generateViewId();
 ```
 
 #### Extend Classes and Interfaces
@@ -1589,95 +1596,112 @@ Let's take a sample Android code, and transcribe it to JavaScript/TypeScript.
 
 The following code (courtesy of [startandroid.ru](http://startandroid.ru/en/lessons/220-lesson-16-creating-layout-programmatically-layoutparams.html)) creates an Android layout, and adds a couple Button and TextView elements:
 
-```Java
+```java
 public class MainActivity extends Activity {
-    /** Called when the activity is first created. */
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // creating LinearLayout
-        LinearLayout linLayout = new LinearLayout(this);
-        // specifying vertical orientation
-        linLayout.setOrientation(LinearLayout.VERTICAL);
-        // creating LayoutParams
-        LayoutParams linLayoutParam = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
-        // set LinearLayout as a root element of the screen
-        setContentView(linLayout, linLayoutParam);
+  /** Called when the activity is first created. */
+  @Override
+  public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    // creating LinearLayout
+    LinearLayout linLayout = new LinearLayout(this);
+    // specifying vertical orientation
+    linLayout.setOrientation(LinearLayout.VERTICAL);
+    // creating LayoutParams
+    LayoutParams linLayoutParam = new LayoutParams(
+      LayoutParams.MATCH_PARENT,
+      LayoutParams.MATCH_PARENT
+    );
+    // set LinearLayout as a root element of the screen
+    setContentView(linLayout, linLayoutParam);
 
-        LayoutParams lpView = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+    LayoutParams lpView = new LayoutParams(
+      LayoutParams.WRAP_CONTENT,
+      LayoutParams.WRAP_CONTENT
+    );
 
-        TextView tv = new TextView(this);
-        tv.setText("TextView");
-        tv.setLayoutParams(lpView);
-        linLayout.addView(tv);
+    TextView tv = new TextView(this);
+    tv.setText("TextView");
+    tv.setLayoutParams(lpView);
+    linLayout.addView(tv);
 
-        Button btn = new Button(this);
-        btn.setText("Button");
-        linLayout.addView(btn, lpView);
-
-
-        LinearLayout.LayoutParams leftMarginParams = new LinearLayout.LayoutParams(
-                LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-        leftMarginParams.leftMargin = 50;
-
-        Button btn1 = new Button(this);
-        btn1.setText("Button1");
-        linLayout.addView(btn1, leftMarginParams);
+    Button btn = new Button(this);
+    btn.setText("Button");
+    linLayout.addView(btn, lpView);
 
 
-        LinearLayout.LayoutParams rightGravityParams = new LinearLayout.LayoutParams(
-                LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-        rightGravityParams.gravity = Gravity.RIGHT;
+    LinearLayout.LayoutParams leftMarginParams = new LinearLayout.LayoutParams(
+      LayoutParams.WRAP_CONTENT,
+      LayoutParams.WRAP_CONTENT
+    );
+    leftMarginParams.leftMargin = 50;
 
-        Button btn2 = new Button(this);
-        btn2.setText("Button2");
-        linLayout.addView(btn2, rightGravityParams);
-    }
+    Button btn1 = new Button(this);
+    btn1.setText("Button1");
+    linLayout.addView(btn1, leftMarginParams);
+
+
+    LinearLayout.LayoutParams rightGravityParams = new LinearLayout.LayoutParams(
+      LayoutParams.WRAP_CONTENT,
+      LayoutParams.WRAP_CONTENT
+    );
+    rightGravityParams.gravity = Gravity.RIGHT;
+
+    Button btn2 = new Button(this);
+    btn2.setText("Button2");
+    linLayout.addView(btn2, rightGravityParams);
+  }
 }
 ```
 
 ```kotlin
 class MainKotlinActivity: Activity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        // creating LinearLayout
-        val linLayout = LinearLayout(this)
-        // specifying vertical orientation
-        linLayout.orientation = LinearLayout.VERTICAL
-        // creating LayoutParams
-        val linLayoutParam = LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT)
-        // set LinearLayout as a root element of the screen
-        setContentView(linLayout, linLayoutParam)
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    // creating LinearLayout
+    val linLayout = LinearLayout(this)
+    // specifying vertical orientation
+    linLayout.orientation = LinearLayout.VERTICAL
+    // creating LayoutParams
+    val linLayoutParam = LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT)
+    // set LinearLayout as a root element of the screen
+    setContentView(linLayout, linLayoutParam)
 
-        val lpView = LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT)
+    val lpView = LayoutParams(
+      LayoutParams.WRAP_CONTENT,
+      LayoutParams.WRAP_CONTENT
+    )
 
-        val tv = TextView(this)
-        tv.text = "TextView"
-        tv.layoutParams = lpView
-        linLayout.addView(tv)
+    val tv = TextView(this)
+    tv.text = "TextView"
+    tv.layoutParams = lpView
+    linLayout.addView(tv)
 
-        val btn = Button(this)
-        btn.text = "Button"
-        linLayout.addView(btn, lpView)
-
-
-        val leftMarginParams = LayoutParams(
-                LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT)
-        leftMarginParams.leftMargin = 50
-
-        val btn1 = Button(this)
-        btn1.text = "Button1"
-        linLayout.addView(btn1, leftMarginParams)
+    val btn = Button(this)
+    btn.text = "Button"
+    linLayout.addView(btn, lpView)
 
 
-        val rightGravityParams = LayoutParams(
-                LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT)
-        rightGravityParams.gravity = Gravity.RIGHT
+    val leftMarginParams = LayoutParams(
+      LayoutParams.WRAP_CONTENT,
+      LayoutParams.WRAP_CONTENT
+    )
+    leftMarginParams.leftMargin = 50
 
-        val btn2 = Button(this)
-        btn2.text = "Button2"
-        linLayout.addView(btn2, rightGravityParams)
-    }
+    val btn1 = Button(this)
+    btn1.text = "Button1"
+    linLayout.addView(btn1, leftMarginParams)
+
+
+    val rightGravityParams = LayoutParams(
+      LayoutParams.WRAP_CONTENT,
+      LayoutParams.WRAP_CONTENT
+    )
+    rightGravityParams.gravity = Gravity.RIGHT
+
+    val btn2 = Button(this)
+    btn2.text = "Button2"
+    linLayout.addView(btn2, rightGravityParams)
+  }
 }
 ```
 
@@ -1738,53 +1762,63 @@ const MainActivity = android.app.Activity.extend('my.application.name.MainActivi
 ```typescript
 @JavaProxy("my.application.name.MainActivity");
 class MainActivity extends android.app.Activity {
-    constructor() {
-        super();
+  constructor() {
+    super();
 
-        return global.__native(this);
-    }
+    return global.__native(this);
+  }
 
-    onCreate(savedInstanceState) {
-        super.onCreate(savedInstance);
+  onCreate(savedInstanceState) {
+    super.onCreate(savedInstance);
 
-        // creating LinearLayout
-        let linLayout = new android.widget.LinearLayout(this);
-        // specifying vertical orientation
-        linLayout.setOrientation(android.widget.LinearLayout.VERTICAL);
-        // creating LayoutParams - accessing static class LayoutParams of LinearLayout
-        let linLayoutParam = new android.widget.LinearLayout.LayoutParams(android.widget.LinearLayout.LayoutParams.MATCH_PARENT, android.widget.LinearLayout.LayoutParams.MATCH_PARENT);
-        // set LinearLayout as a root element of the screen
-        this.setContentView(linLayout, linLayoutParam);
+    // creating LinearLayout
+    let linLayout = new android.widget.LinearLayout(this);
+    // specifying vertical orientation
+    linLayout.setOrientation(android.widget.LinearLayout.VERTICAL);
+    // creating LayoutParams - accessing static class LayoutParams of LinearLayout
+    let linLayoutParam = new android.widget.LinearLayout.LayoutParams(
+      android.widget.LinearLayout.LayoutParams.MATCH_PARENT,
+      android.widget.LinearLayout.LayoutParams.MATCH_PARENT
+    );
+    // set LinearLayout as a root element of the screen
+    this.setContentView(linLayout, linLayoutParam);
 
-        let lpView = new android.widget.LinearLayout.LayoutParams(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT, android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
+    let lpView = new android.widget.LinearLayout.LayoutParams(
+      android.widget.LinearLayout.LayoutParams.WRAP_CONTENT,
+      android.widget.LinearLayout.LayoutParams.WRAP_CONTENT
+    );
 
-        let tv = new android.widget.TextView(this);
-        tv.setText("TextView");
-        tv.setLayoutParams(lpView);
-        linLayout.addView(tv);
+    let tv = new android.widget.TextView(this);
+    tv.setText("TextView");
+    tv.setLayoutParams(lpView);
+    linLayout.addView(tv);
 
-        let btn = new android.widget.Button(this);
-        btn.setText("Button");
-        linLayout.addView(btn, lpView);
-
-
-        let leftMarginParams = new android.widget.LinearLayout.LayoutParams(
-                android.widget.LinearLayout.LayoutParams.WRAP_CONTENT, android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
-        leftMarginParams.leftMargin = 50;
-
-        let btn1 = new android.widget.Button(this);
-        btn1.setText("Button1");
-        linLayout.addView(btn1, leftMarginParams);
+    let btn = new android.widget.Button(this);
+    btn.setText("Button");
+    linLayout.addView(btn, lpView);
 
 
-        let rightGravityParams = new android.widget.LinearLayout.LayoutParams(
-                android.widget.LinearLayout.LayoutParams.WRAP_CONTENT, android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
-        rightGravityParams.gravity = android.view.Gravity.RIGHT;
+    let leftMarginParams = new android.widget.LinearLayout.LayoutParams(
+      android.widget.LinearLayout.LayoutParams.WRAP_CONTENT,
+      android.widget.LinearLayout.LayoutParams.WRAP_CONTENT
+    );
+    leftMarginParams.leftMargin = 50;
 
-        let btn2 = new android.widget.Button(this);
-        btn2.setText("Button2");
-        linLayout.addView(btn2, rightGravityParams);
-    }
+    let btn1 = new android.widget.Button(this);
+    btn1.setText("Button1");
+    linLayout.addView(btn1, leftMarginParams);
+
+
+    let rightGravityParams = new android.widget.LinearLayout.LayoutParams(
+      android.widget.LinearLayout.LayoutParams.WRAP_CONTENT,
+      android.widget.LinearLayout.LayoutParams.WRAP_CONTENT
+    );
+    rightGravityParams.gravity = android.view.Gravity.RIGHT;
+
+    let btn2 = new android.widget.Button(this);
+    btn2.setText("Button2");
+    linLayout.addView(btn2, rightGravityParams);
+  }
 };
 ```
 
@@ -1856,53 +1890,63 @@ const Gravity = android.view.Gravity;
 
 @JavaProxy("my.application.name.MainActivity");
 class MainActivity extends android.app.Activity {
-    constructor() {
-        super();
+  constructor() {
+    super();
 
-        return global.__native(this);
-    }
+    return global.__native(this);
+  }
 
-    onCreate: function (savedInstanceState) {
-        super.onCreate(savedInstance);
+  onCreate: function (savedInstanceState) {
+    super.onCreate(savedInstance);
 
-        // creating LinearLayout
-        let linLayout = new LinearLayout(this);
-        // specifying vertical orientation
-        linLayout.setOrientation(LinearLayout.VERTICAL);
-        // creating LayoutParams
-        let linLayoutParam = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
-        // set LinearLayout as a root element of the screen
-        setContentView(linLayout, linLayoutParam);
+    // creating LinearLayout
+    let linLayout = new LinearLayout(this);
+    // specifying vertical orientation
+    linLayout.setOrientation(LinearLayout.VERTICAL);
+    // creating LayoutParams
+    let linLayoutParam = new LayoutParams(
+      LayoutParams.MATCH_PARENT,
+      LayoutParams.MATCH_PARENT
+    );
+    // set LinearLayout as a root element of the screen
+    setContentView(linLayout, linLayoutParam);
 
-        let lpView = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+    let lpView = new LayoutParams(
+      LayoutParams.WRAP_CONTENT,
+      LayoutParams.WRAP_CONTENT
+    );
 
-        let tv = new TextView(this);
-        tv.setText("TextView");
-        tv.setLayoutParams(lpView);
-        linLayout.addView(tv);
+    let tv = new TextView(this);
+    tv.setText("TextView");
+    tv.setLayoutParams(lpView);
+    linLayout.addView(tv);
 
-        let btn = new Button(this);
-        btn.setText("Button");
-        linLayout.addView(btn, lpView);
-
-
-        let leftMarginParams = new LinearLayout.LayoutParams(
-                LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-        leftMarginParams.leftMargin = 50;
-
-        let btn1 = new Button(this);
-        btn1.setText("Button1");
-        linLayout.addView(btn1, leftMarginParams);
+    let btn = new Button(this);
+    btn.setText("Button");
+    linLayout.addView(btn, lpView);
 
 
-        let rightGravityParams = new LinearLayout.LayoutParams(
-                LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-        rightGravityParams.gravity = Gravity.RIGHT;
+    let leftMarginParams = new LinearLayout.LayoutParams(
+      LayoutParams.WRAP_CONTENT,
+      LayoutParams.WRAP_CONTENT
+    );
+    leftMarginParams.leftMargin = 50;
 
-        let btn2 = new Button(this);
-        btn2.setText("Button2");
-        linLayout.addView(btn2, rightGravityParams);
-    }
+    let btn1 = new Button(this);
+    btn1.setText("Button1");
+    linLayout.addView(btn1, leftMarginParams);
+
+
+    let rightGravityParams = new LinearLayout.LayoutParams(
+      LayoutParams.WRAP_CONTENT,
+      LayoutParams.WRAP_CONTENT
+    );
+    rightGravityParams.gravity = Gravity.RIGHT;
+
+    let btn2 = new Button(this);
+    btn2.setText("Button2");
+    linLayout.addView(btn2, rightGravityParams);
+  }
 });
 ```
 
@@ -1918,11 +1962,11 @@ To give developers control over what to be included or not in the generated meta
 
 Plugins can declare their list of APIs that are called from JavaScript using a file named `native-api-usage.json`, located in each of the platform directories (`platforms/android` or `platforms/ios`). Its format is similar to:
 
-```JavaScript
+```javascript
 {
-    "uses": [
-      "java.util:List"
-    ]
+  "uses": [
+    "java.util:List"
+  ]
 }
 ```
 
@@ -1930,7 +1974,7 @@ Plugins can declare their list of APIs that are called from JavaScript using a f
 
 Applications have the final word of what filtering will be applied to metadata. They provide similar `native-api-usage.json` files, located in `App_Resources/Android` and `App_Resources/iOS`, having the following format:
 
-```JavaScript
+```javascript
 {
     "whitelist-plugins-usages": true,
     "whitelist": [

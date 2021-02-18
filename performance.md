@@ -52,10 +52,15 @@ With [loadMode](/api-reference/modules/_ui_image_.html#loadmode) set to `async`,
 
 > **Tip**: Use `loadMode="async"` to prevent blocking of the UI while the image is loading.
 
-```XML
+```xml
 <StackLayout>
-    <Image src="{{ someExtremelyLargeImage }}" decodeWidth="400" decodeHeight="400" loadMode="async" />
-    <Label text="With loadMode set to async the UI won't be blocked" textWrap="true" />
+  <Image
+    src="{{ someExtremelyLargeImage }}"
+    decodeWidth="400"
+    decodeHeight="400"
+    loadMode="async"
+  />
+  <Label text="With loadMode set to async the UI won't be blocked" textWrap="true" />
 </StackLayout>
 ```
 

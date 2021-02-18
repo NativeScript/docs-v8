@@ -27,15 +27,19 @@ Utils.Accuracy // used to describe at what accuracy the location should be get
 
 ### Request permissions
 
-```
-geolocation.enableLocationRequest();
+```typescript
+geolocation.enableLocationRequest()
 ```
 
 ### Call plugin methods
 
-```
+```typescript
 // Get current location with high accuracy
-geolocation.getCurrentLocation({ desiredAccuracy: Accuracy.high, maximumAge: 5000, timeout: 20000 })
+geolocation.getCurrentLocation({
+  desiredAccuracy: Accuracy.high,
+  maximumAge: 5000,
+  timeout: 20000
+})
 ```
 
 ## API
@@ -70,7 +74,7 @@ geolocation.getCurrentLocation({ desiredAccuracy: Accuracy.high, maximumAge: 500
 ::: warning Note
 If iosAllowsBackgroundLocationUpdates is set to true, the following code is required in the info.plist file of your application inside App_Resources/iOS:
 
-```
+```xml
 <key>UIBackgroundModes</key>
 <array>
    <string>location</string>

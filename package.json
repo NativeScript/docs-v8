@@ -1,13 +1,15 @@
-{      "name": "nativescript-docs-new",
+{
+    "name": "nativescript-docs-new",
     "private": true,
     "scripts": {
         "start": "npm run dev",
         "dev": "vitepress dev .",
         "build": "vitepress build .",
-        "format": "prettier --loglevel warn --write \"**/*.{js,css,md}\"",
+        "format": "prettier --write \"**/*.{js,css,md}\"",
         "postinstall": "husky install"
     },
     "devDependencies": {
+        "@prettier/plugin-xml": "^0.13.0",
         "husky": "^5.0.9",
         "lint-staged": "^10.5.4",
         "prettier": "^2.2.1",

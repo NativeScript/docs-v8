@@ -9,9 +9,11 @@
       "options": {
         "printWidth": 90,
         "useTabs": false,
+        "tabWidth": 2,
         "trailingComma": "none",
         "arrowParens": "avoid",
-        "proseWrap": "preserve"
+        "proseWrap": "preserve",
+        "xmlWhitespaceSensitivity": "ignore"
       }
     },
     {

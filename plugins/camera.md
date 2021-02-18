@@ -45,19 +45,19 @@ The `saveToGallery` option might have unexpected behavior on Android! Some vendo
 
 Both Android and iOS require explicit permissions in order for the application to have access to the camera and save photos to the device. Once the user has granted permissions the camera module can be used.
 
-```TypeScript
-import { requestPermissions } from '@nativescript/camera';
+```typescript
+import { requestPermissions } from '@nativescript/camera'
 
 requestPermissions().then(
-    function success() {
-        // permission request accepted or already granted
-        // ... call camera.takePicture here ...
-    },
-    function failure() {
-        // permission request rejected
-        // ... tell the user ...
-    }
-);
+  function success() {
+    // permission request accepted or already granted
+    // ... call camera.takePicture here ...
+  },
+  function failure() {
+    // permission request rejected
+    // ... tell the user ...
+  }
+)
 ```
 
 ::: warning Note
@@ -84,46 +84,50 @@ In order to use the camera module, just require it, as shown in Example 1:
 
 > Example 1: Require camera module in the application
 
-```JavaScript
+```javascript
 // JavaScript
-const camera = require("@nativescript/camera");
+const camera = require('@nativescript/camera')
 ```
 
-```TypeScript
+```typescript
 // TypeScript
-import * as camera from "@nativescript/camera";
+import * as camera from '@nativescript/camera'
 ```
 
 Then you are ready to use it:
 
 > Example 2: How to take a picture and to receive image asset
 
-```JavaScript
+```javascript
 // JavaScript
-const { Image } = require("@nativescript/core");
+const { Image } = require('@nativescript/core')
 
-camera.takePicture()
-    .then(function (imageAsset) {
-        console.log("Result is an image asset instance");
-        var image = new Image();
-        image.src = imageAsset;
-    }).catch(function (err) {
-        console.log("Error -> " + err.message);
-    });
+camera
+  .takePicture()
+  .then(function (imageAsset) {
+    console.log('Result is an image asset instance')
+    var image = new Image()
+    image.src = imageAsset
+  })
+  .catch(function (err) {
+    console.log('Error -> ' + err.message)
+  })
 ```
 
-```TypeScript
+```typescript
 // TypeScript
-import { Image } from "@nativescript/core";
+import { Image } from '@nativescript/core'
 
-camera.takePicture()
-    .then((imageAsset) => {
-        console.log("Result is an image asset instance");
-        var image = new Image();
-        image.src = imageAsset;
-    }).catch((err) => {
-        console.log("Error -> " + err.message);
-    });
+camera
+  .takePicture()
+  .then(imageAsset => {
+    console.log('Result is an image asset instance')
+    var image = new Image()
+    image.src = imageAsset
+  })
+  .catch(err => {
+    console.log('Error -> ' + err.message)
+  })
 ```
 
 The code in **Example 2** will start the native platform camera application. After taking the picture and tapping the button `Save` (Android) or `use image` (iOS), the promise will resolve the `then` part and image asset will be set as `src` of the `ui/image` control.
@@ -145,69 +149,72 @@ What does `device independent pixels` mean? The NativeScript layout mechanism us
 
 > Example 3: How to setup `width`, `height`, `keepAspectRatio` and `saveToGallery` properties for the camera module
 
-```JavaScript
+```javascript
 // JavaScript
 
 const options = {
-    width: 300,
-    height: 300,
-    keepAspectRatio: false,
-    saveToGallery: true
-};
+  width: 300,
+  height: 300,
+  keepAspectRatio: false,
+  saveToGallery: true
+}
 
-camera.takePicture(options)
-    .then(function (imageAsset) {
-        console.log("Size: " + imageAsset.options.width + "x" + imageAsset.options.height);
-        console.log("keepAspectRatio: " + imageAsset.options.keepAspectRatio);
-        console.log("Photo saved in Photos/Gallery for Android or in Camera Roll for iOS");
-    }).catch(function (err) {
-        console.log("Error -> " + err.message);
-    });
+camera
+  .takePicture(options)
+  .then(function (imageAsset) {
+    console.log('Size: ' + imageAsset.options.width + 'x' + imageAsset.options.height)
+    console.log('keepAspectRatio: ' + imageAsset.options.keepAspectRatio)
+    console.log('Photo saved in Photos/Gallery for Android or in Camera Roll for iOS')
+  })
+  .catch(function (err) {
+    console.log('Error -> ' + err.message)
+  })
 ```
 
-```TypeScript
+```typescript
 // TypeScript
-import { Image } from "@nativescript/core";
+import { Image } from '@nativescript/core'
 
 const options = {
-    width: 300,
-    height: 300,
-    keepAspectRatio: false,
-    saveToGallery: true
-};
+  width: 300,
+  height: 300,
+  keepAspectRatio: false,
+  saveToGallery: true
+}
 
-camera.takePicture(options)
-    .then((imageAsset) => {
-        console.log("Size: " + imageAsset.options.width + "x" + imageAsset.options.height);
-        console.log("keepAspectRatio: " + imageAsset.options.keepAspectRatio);
-        console.log("Photo saved in Photos/Gallery for Android or in Camera Roll for iOS");
-    }).catch((err) => {
-        console.log("Error -> " + err.message);
-    });
+camera
+  .takePicture(options)
+  .then(imageAsset => {
+    console.log('Size: ' + imageAsset.options.width + 'x' + imageAsset.options.height)
+    console.log('keepAspectRatio: ' + imageAsset.options.keepAspectRatio)
+    console.log('Photo saved in Photos/Gallery for Android or in Camera Roll for iOS')
+  })
+  .catch(err => {
+    console.log('Error -> ' + err.message)
+  })
 ```
 
 ### Save a picture
 
 To save a picture with the width & height that you have defined you must use the `imageAsset` and save it to the file system like so:
 
-```TypeScript
-import { ImageSource, knownFolders, path } from '@nativescript/core';
+```typescript
+import { ImageSource, knownFolders, path } from '@nativescript/core'
 
-const source = new ImageSource();
+const source = new ImageSource()
 
-source.fromAsset(imageAsset)
-    .then((imageSource: ImageSource) => {
-        const folderPath: string = knownFolders.documents().path;
-        const fileName: string = "test.jpg";
-        const filePath: string = path.join(folderPath, fileName);
-        const saved: boolean = imageSource.saveToFile(filePath, "jpg");
+source.fromAsset(imageAsset).then((imageSource: ImageSource) => {
+  const folderPath: string = knownFolders.documents().path
+  const fileName: string = 'test.jpg'
+  const filePath: string = path.join(folderPath, fileName)
+  const saved: boolean = imageSource.saveToFile(filePath, 'jpg')
 
-        if (saved) {
-            console.log("Gallery: " + this._dataItem.picture_url);
-            console.log("Saved: " + filePath);
-            console.log("Image saved successfully!");
-        }
-    });
+  if (saved) {
+    console.log('Gallery: ' + this._dataItem.picture_url)
+    console.log('Saved: ' + filePath)
+    console.log('Image saved successfully!')
+  }
+})
 ```
 
 This could be used to create thumbnails for quick display within your application.

@@ -8,10 +8,11 @@ Then open `App_Resources/Android/AndroidManifest.xml` and look for `minSdkVersio
 If that's set to a version less than 23, add this `overrideLibrary` line:
 
 ```xml
-  <uses-sdk
-      android:minSdkVersion="17"
-      android:targetSdkVersion="__APILEVEL__"
-      tools:overrideLibrary="com.jesusm.kfingerprintmanager"/>
+<uses-sdk
+  android:minSdkVersion="17"
+  android:targetSdkVersion="__APILEVEL__"
+  tools:overrideLibrary="com.jesusm.kfingerprintmanager"
+/>
 ```
 
 ## API
@@ -96,7 +97,7 @@ If you are using Webpack with or without snapshot there are couple more changes 
 First you need to edit your `vendor-platform.android.ts` file and add `require("nativescript-fingerprint-auth/appcompat-activity");`. You can see the changed file in the demo app [here](https://github.com/EddyVerbruggen/nativescript-fingerprint-auth/blob/master/demo/app/vendor-platform.android.ts#L9).  
 The second change should be made in your `webpack.config.js` file. Find the place where the `NativeScriptSnapshotPlugin` is pushed to the webpack plugins and add `"nativescript-fingerprint-auth"` in the `tnsJavaClassesOptions.packages` array. The result should look something like:
 
-```js
+```javascript
 // ...
 if (snapshot) {
   config.plugins.push(

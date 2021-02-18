@@ -36,7 +36,7 @@ To use one of the UI elements `DatePickerField`, `TimePickerField` or `DateTimeP
 
 - If you are developing a NativeScript Angular app, you need to import the plugin module in the module of your component:
 
-```ts
+```typescript
 import { NativeScriptDateTimePickerModule } from "@nativescript/datetimepicker/angular";
 ...
 @NgModule({
@@ -61,7 +61,7 @@ Then you will be able to declare the fields in the html of your component:
 
 - If you are developing a NativeScript Vue app, you need to install the plugin in you app.js file:
 
-```js
+```javascript
 import Vue from 'nativescript-vue'
 import DateTimePicker from '@nativescript/datetimepicker/vue'
 Vue.use(DateTimePicker)

@@ -55,14 +55,23 @@ function getSidebar() {
 			text: 'Setup',
 			children: [
 				{ text: 'Introduction', link: '/introduction' },
-				{ text: 'Environment Setup', link: '/environment-setup' },
-				{ text: 'Development Workflow', link: '/development-workflow' },
+				{
+					text: 'Environment Setup',
+					link: '/environment-setup',
+				},
+				{
+					text: 'Development Workflow',
+					link: '/development-workflow',
+				},
 			],
 		},
 		{
 			text: 'UI & Styling',
 			children: [
-				{ text: 'UI & Styling', link: '/ui-and-styling' },
+				{
+					text: 'UI & Styling',
+					link: '/ui-and-styling',
+				},
 				{ text: 'Interaction', link: '/interaction' },
 			],
 		},
@@ -70,7 +79,10 @@ function getSidebar() {
 			text: 'Networking & Security',
 			children: [
 				{ text: 'Networking', link: '/networking' },
-				{ text: 'Security (Nathanael)', link: '/security' },
+				{
+					text: 'Security (Nathanael)',
+					link: '/security',
+				},
 			],
 		},
 		{
@@ -79,33 +91,69 @@ function getSidebar() {
 		},
 		{
 			text: 'Advanced Concepts',
-			children: [{ text: 'Advanced Concepts', link: '/advanced-concepts' }],
+			children: [
+				{
+					text: 'Advanced Concepts',
+					link: '/advanced-concepts',
+				},
+			],
 		},
 		{
 			text: 'Distribution',
-			children: [{ text: 'Releasing your app', link: '/releasing' }],
+			children: [
+				{
+					text: 'Releasing your app',
+					link: '/releasing',
+				},
+			],
 		},
 		{
 			text: 'Troubleshooting',
-			children: [{ text: 'Common Pitfalls', link: '/common-pitfalls' }],
+			children: [
+				{
+					text: 'Common Pitfalls',
+					link: '/common-pitfalls',
+				},
+			],
 		},
 	]
 }
 
 function getPluginsSidebar() {
 	return [
-		{ text: 'Developing Plugins', link: '/plugins/developing-plugins' },
+		{
+			text: 'Developing Plugins',
+			link: '/plugins/developing-plugins',
+		},
 		{
 			text: 'Official Plugins',
 			children: [
-				{ text: 'Background HTTP', link: '/plugins/background-http' },
-				{ text: 'Brightness', link: '/plugins/brightness' },
+				{
+					text: 'Background HTTP',
+					link: '/plugins/background-http',
+				},
+				{
+					text: 'Brightness',
+					link: '/plugins/brightness',
+				},
 				{ text: 'Camera', link: '/plugins/camera' },
-				{ text: 'DateTimePicker', link: '/plugins/datetimepicker' },
+				{
+					text: 'DateTimePicker',
+					link: '/plugins/datetimepicker',
+				},
 				{ text: 'Email', link: '/plugins/email' },
-				{ text: 'Fingerprint-Auth', link: '/plugins/fingerprint-auth' },
-				{ text: 'Geolocation', link: '/plugins/geolocation' },
-				{ text: 'Image Picker', link: '/plugins/imagepicker' },
+				{
+					text: 'Fingerprint-Auth',
+					link: '/plugins/fingerprint-auth',
+				},
+				{
+					text: 'Geolocation',
+					link: '/plugins/geolocation',
+				},
+				{
+					text: 'Image Picker',
+					link: '/plugins/imagepicker',
+				},
 			],
 		},
 	]
