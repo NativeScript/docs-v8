@@ -1,8 +1,12 @@
-* [REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/start/introduction.md
+---
+title: Introduction
+---
+
+- [REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/start/introduction.md
 
 The docs should not assume the experience level of the reader - clear examples and explanations.
 
-## How to use the docs 
+## How to use the docs
 
 A quick introduction of the docs, order things in a way that the docs can be read in a linear fashion like a book - but also allow taking shortcuts ie. jump to the relevant sections easily.
 
@@ -20,8 +24,8 @@ Flavor specific guide to building your first screen with a very simple example.
 
 ## Templates
 
-* [REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/app-templates/app-templates.md
-* [REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/app-templates/creating-custom-templates.md
+- [REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/app-templates/app-templates.md
+- [REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/app-templates/creating-custom-templates.md
 
 ## Versioning Scheme
 
