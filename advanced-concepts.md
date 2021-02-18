@@ -36,7 +36,7 @@ A minimal example for adding native Objective C source code to your NativeScript
 
 1. Create ExampleCrypto.m file with the following content:
 
-```smalltalk
+```objc
 // import required header files
 #import <CommonCrypto/CommonDigest.h>
 #import <CommonCrypto/CommonHMAC.h>
@@ -69,7 +69,7 @@ A minimal example for adding native Objective C source code to your NativeScript
 
 2. Create ExampleCrypto.h file with the following content:
 
-```smalltalk
+```objc
 #import <Foundation/Foundation.h>
 
 @interface ExampleCrypto : NSObject
@@ -81,7 +81,7 @@ A minimal example for adding native Objective C source code to your NativeScript
 
 3. Create the module.modulemap file with the following content:
 
-```smalltalk
+```objc
 module ExampleCrypto {
     header "ExampleCrypto.h"
     export *
@@ -122,7 +122,7 @@ The most common data type in Objective-C by far is the class. Classes can have i
 
 To illustrate:
 
-```smalltalk
+```objc
 @interface NSArray : NSObject
 
 + (instancetype)arrayWithArray:(NSArray *)anArray;
@@ -175,7 +175,7 @@ Calling native APIs that expect Objective-C classes or objects is easy - just pa
 
 If an API is declared as accepting a `Class` in Objective-C, the argument in JavaScript is the constructor function:
 
-```smalltalk
+```objc
 NSString *className = NSStringFromClass([NSArray class]);
 ```
 
@@ -185,7 +185,7 @@ const className = NSStringFromClass(NSArray)
 
 Conversely, if an API is declared as accepting an instance of a specific class such as `NSDate`, the argument is a wrapper around an object inheriting from that class.
 
-```smalltalk
+```objc
 NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
 NSDate *date = [NSDate date];
 NSString *formattedDate = [formatter stringFromDate:date];
@@ -199,7 +199,7 @@ const formattedDate = formatter.stringFromDate(date)
 
 An API expecting the `id` data type in Objective-C means it will any accept Objective-C class or object in JavaScript.
 
-```smalltalk
+```objc
 NSMutableArray *array = [[NSMutableArray alloc] init];
 Class buttonClass = [UIButton class];
 UIButton *button = [[buttonClass alloc] init];
@@ -227,7 +227,7 @@ const jsArray = [4.5, 0, 1e-5, -1242e10, -4.5, 34, -34, -1e-6];
 FloatArraySample.dumpFloats(CGFloatArray.from(jsArray), jsArray.length);
 ```
 
-```smalltalk
+```objc
 @interface FloatArraySample
 + (void)dumpFloats:(CGFloat*) arr withCount:(int)cnt;
 @end
@@ -258,7 +258,7 @@ More information on how NativeScript deals with Objective-C classes is available
 
 Protocols in Objective-C are like interfaces in other languages - they are blueprints of what members a class should contain, a sort of an API contract. Protocols are exposed as empty objects in JavaScript. Protocols are usually only referenced when [subclassing](../how-to/ObjC-Subclassing.md) an Objective-C class or when checking whether an object or class conforms to a protocol.
 
-```smalltalk
+```objc
 BOOL isCopying = [NSArray conformsToProtocol:@protocol(NSCopying)];
 ```
 
@@ -270,7 +270,7 @@ const isCopying = NSArray.conformsToProtocol(NSCopying)
 
 In Objective-C `SEL` is a data type that represents the name of a method of an Objective-C class. NativeScript exposes this data type as a JavaScript string. Whenever an API expects a selector value in Objective-C, it's JavaScript projection will expect a string with the method name.
 
-```smalltalk
+```objc
 NSMutableString *aString = [[NSMutableString alloc] init];
 BOOL hasAppend = [aString respondsToSelector:@selector(appendString:)];
 ```
@@ -284,7 +284,7 @@ const hasAppend = aString.respondsToSelector('appendString:')
 
 [Objective-C blocks](https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/Blocks/Articles/00_Introduction.html) are anonymous functions in Objective-C. They can be closures, just like JavaScript functions, and are often used as callbacks. NativeScript implicitly exposes an Objective-C block as a JavaScript function. Any API that accepts a block in Objective-C accepts a JavaScript function when called in JavaScript:
 
-```smalltalk
+```objc
 NSURL *url = [NSURL URLWithString:@"http://example.com"];
 NSURLRequest *request = [NSURLRequest requestWithURL:url];
 [NSURLConnection sendAsynchronousRequest:request queue:nil completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
@@ -329,7 +329,7 @@ Integer and floating point data types in Objective-C are converted to JavaScript
 
 NativeScript exposes Objective-C structures as JavaScript objects. The properties on such an object are the same as the fields on the structure it exposes. APIs that expect a struct type in Objective-C can be called with a JavaScript object with the same shape as the structure:
 
-```smalltalk
+```objc
 CGRect rect = {
     .origin = {
         .x = 0,
@@ -363,7 +363,7 @@ More information on how NativeScript deals with structures is available [here](.
 
 ### Native to JavaScript
 
-```smalltalk
+```objc
 @interface NSFileManager : NSObject
 + (NSFileManager *)defaultManager;
 - (NSArray *)contentsOfDirectoryAtPath:(NSString *)path error:(NSError **)error;
@@ -405,7 +405,7 @@ When overriding a method having **NSError ** out parameter in the end** any thro
 
 Languages in the C family have the notion of a pointer data type. A pointer is a value that points to another value, or, more accurately, to the location of that value in memory. JavaScript has no notion of pointers, but the pointer data type is used throughout the iOS SDK. To overcome this, NativeScript introduces the `Reference` object. References are special objects which allow JavaScript to reason about and access pointer values. Consider this example:
 
-```smalltalk
+```objc
 NSFileManager *fileManager = [NSFileManager defaultManager];
 BOOL isDirectory;
 BOOL exists = [fileManager fileExistsAtPath:@"/var/log" isDirectory:&isDirectory];
