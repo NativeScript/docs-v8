@@ -81,8 +81,8 @@ A minimal example for adding native Objective C source code to your NativeScript
 
 ```objc
 module ExampleCrypto {
-    header "ExampleCrypto.h"
-    export *
+  header "ExampleCrypto.h"
+  export *
 }
 ```
 
@@ -1962,11 +1962,9 @@ To give developers control over what to be included or not in the generated meta
 
 Plugins can declare their list of APIs that are called from JavaScript using a file named `native-api-usage.json`, located in each of the platform directories (`platforms/android` or `platforms/ios`). Its format is similar to:
 
-```javascript
+```json
 {
-  "uses": [
-    "java.util:List"
-  ]
+  "uses": ["java.util:List"]
 }
 ```
 
@@ -1974,15 +1972,11 @@ Plugins can declare their list of APIs that are called from JavaScript using a f
 
 Applications have the final word of what filtering will be applied to metadata. They provide similar `native-api-usage.json` files, located in `App_Resources/Android` and `App_Resources/iOS`, having the following format:
 
-```javascript
+```json
 {
-    "whitelist-plugins-usages": true,
-    "whitelist": [
-        "java.util:Base64*"
-    ],
-    "blacklist": [
-        "java.util:Locale*"
-    ]
+  "whitelist-plugins-usages": true,
+  "whitelist": ["java.util:Base64*"],
+  "blacklist": ["java.util:Locale*"]
 }
 ```
 
