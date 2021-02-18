@@ -154,6 +154,14 @@ function getPluginsSidebar() {
 					text: 'Image Picker',
 					link: '/plugins/imagepicker',
 				},
+        {
+					text: 'Local Notifications',
+					link: '/plugins/local-notifications',
+				},
+        {
+					text: 'Social Share',
+					link: '/plugins/social-share',
+				},
 			],
 		},
 	]

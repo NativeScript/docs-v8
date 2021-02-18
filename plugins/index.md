@@ -12,3 +12,5 @@ title: Plugins
 - [@nativescript/fingerprint-auth](fingerprint-auth)
 - [@nativescript/geolocation](geolocation)
 - [@nativescript/imagepicker](imagepicker)
+- [@nativescript/local-notifications](local-notifications)
+- [@nativescript/social-share](social-share)

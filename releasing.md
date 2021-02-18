@@ -6,6 +6,7 @@ I think having a very detailed guide on getting an app out into the app stores i
 
 - https://github.com/NativeScript/docs/tree/master/docs/tooling/publishing
 
-## Android
+# Android
 
-## iOS
+# iOS
+
