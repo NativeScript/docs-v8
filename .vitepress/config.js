@@ -47,6 +47,12 @@ module.exports = {
 			'/': getSidebar(),
 		},
 	},
+
+	markdown: {
+		config: (md) => {
+			md.use(...createFlavorContainer())
+		},
+	},
 }
 
 function getSidebar() {
@@ -154,15 +160,45 @@ function getPluginsSidebar() {
 					text: 'Image Picker',
 					link: '/plugins/imagepicker',
 				},
-        {
+				{
 					text: 'Local Notifications',
 					link: '/plugins/local-notifications',
 				},
-        {
+				{
 					text: 'Social Share',
 					link: '/plugins/social-share',
 				},
 			],
+		},
+	]
+}
+
+/**
+ * Adds flavor containers
+ *
+ * For example:
+ * /// flavor vue
+ * ...vue specific content...
+ * ///
+ */
+function createFlavorContainer() {
+	const container = require('markdown-it-container')
+	const klass = 'flavor'
+
+	return [
+		container,
+		klass,
+		{
+			marker: '/',
+			render(tokens, idx) {
+				const token = tokens[idx]
+				const info = token.info.trim().slice(klass.length).trim()
+				if (token.nesting === 1) {
+					return `<div class="${klass} ${info}">\n`
+				} else {
+					return `</div>\n`
+				}
+			},
 		},
 	]
 }

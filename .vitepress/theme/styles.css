@@ -97,3 +97,20 @@
 .container {
 	max-width: 60rem !important;
 }
+
+.flavor {
+	border-right: 5px solid;
+}
+
+.flavor.angular {
+	border-color: #dd0031;
+}
+.flavor.vue {
+	border-color: #42b983;
+}
+.flavor.react {
+	border-color: #61dbfb;
+}
+.flavor.svelte {
+	border-color: #ff3e00;
+}
