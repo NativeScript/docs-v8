@@ -3,7 +3,7 @@ module.exports = {
 	title: 'NativeScript',
 	description: 'NativeScript docs',
 
-	head: [['link', { rel: 'stylesheet', href: '/styles.css' }]],
+	// head: [['link', { rel: 'stylesheet', href: '/styles.css' }]],
 
 	themeConfig: {
 		repo: 'NativeScript/docs-new',
@@ -51,6 +51,7 @@ module.exports = {
 	markdown: {
 		config: (md) => {
 			md.use(...createFlavorContainer())
+			md.use(codeBlocksPlugin)
 		},
 	},
 }
@@ -201,4 +202,42 @@ function createFlavorContainer() {
 			},
 		},
 	]
+}
+
+/**
+ * Adds .code-block to highlighted code blocks
+ * Adds data-tab-title="<lang>" or looks for <!-- tab:CustomTabName --> comment above code block to override
+ * todo:
+ *   - group into tabs
+ *   - implement global selector to automatically switch all tabs
+ */
+function codeBlocksPlugin(md) {
+	const fence = md.renderer.rules.fence
+	md.renderer.rules.fence = (...args) => {
+		const rawCode = fence(...args)
+
+		const [tokens, idx] = args
+		const token = tokens[idx]
+		const prev = idx > 0 ? tokens[idx - 1] : null
+		// const next = idx < tokens.length - 1 ? tokens[idx+1] : null;
+		// if(prev && prev.type === 'fence') {
+		// }
+		// if(next && next.type === 'fence') {
+		// }
+
+		let tabTitle = token.info
+		if (prev && prev.type === 'html_block') {
+			// <!-- tab:CustomTabName -->\n
+			const matched = prev.content.match(/<!--\s*tab:(\w+)\s*-->/)
+			if (matched) {
+				tabTitle = matched[1]
+			}
+		}
+		const finalCode = rawCode.replace(
+			/"(language-\w+)"/,
+			`"$1 code-block" data-tab-title="${tabTitle}"`
+		)
+
+		return finalCode
+	}
 }

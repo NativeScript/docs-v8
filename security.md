@@ -31,3 +31,23 @@ This line should only be visible when either viewing all docs, or react speficic
 
 This line should only be visible when either viewing all docs, or svelte speficic docs.
 ///
+
+```javascript
+const foo = 'bar'
+```
+
+```typescript
+const foo: string = 'bar'
+```
+
+<!-- tab:CustomTabName -->
+
+```javascript
+const foo = 'bar'
+```
+
+<hr>
+
+```typescript
+const foo: string = 'bar'
+```

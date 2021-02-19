@@ -137,9 +137,9 @@ dependencies {
 - Create a file `facebooklogin.xml` in `App_Resources/Android/src/main/res/values/`. Add this to the file (replace the id):
 
 ```xml
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='utf-8' ?>
 <resources>
-    <string name="facebook_app_id">126035687816994</string>
+  <string name="facebook_app_id">126035687816994</string>
 </resources>
 ```
 

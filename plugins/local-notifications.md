@@ -26,12 +26,12 @@ You'll know you need this if on iOS 10+ notifications are not received by your a
 
 ```typescript
 // either
-import { LocalNotifications } from '@nativescript/local-notifications';
+import { LocalNotifications } from '@nativescript/local-notifications'
 // or (if that doesn't work for you)
-import * as LocalNotifications from '@nativescript/local-notifications';
+import * as LocalNotifications from '@nativescript/local-notifications'
 
 // then use it as:
-LocalNotifications.hasPermission();
+LocalNotifications.hasPermission()
 ```
 
 ### NativeScript-Angular
@@ -92,32 +92,32 @@ You can pass several options to this function, everything is optional:
 
 ```js
 LocalNotifications.schedule([
-	{
-		id: 1, // generated id if not set
-		title: 'The title',
-		body: 'Recurs every minute until cancelled',
-		ticker: 'The ticker',
-		color: new Color('red'),
-		badge: 1,
-		groupedMessages: ['The first', 'Second', 'Keep going', 'one more..', 'OK Stop'], //android only
-		groupSummary: 'Summary of the grouped messages above', //android only
-		ongoing: true, // makes the notification ongoing (Android only)
-		icon: 'res://heart',
-		image: 'https://cdn-images-1.medium.com/max/1200/1*c3cQvYJrVezv_Az0CoDcbA.jpeg',
-		thumbnail: true,
-		interval: 'minute',
-		channel: 'My Channel', // default: 'Channel'
-		sound: 'customsound-ios.wav', // falls back to the default sound on Android
-		at: new Date(new Date().getTime() + 10 * 1000), // 10 seconds from now
-	},
+  {
+    id: 1, // generated id if not set
+    title: 'The title',
+    body: 'Recurs every minute until cancelled',
+    ticker: 'The ticker',
+    color: new Color('red'),
+    badge: 1,
+    groupedMessages: ['The first', 'Second', 'Keep going', 'one more..', 'OK Stop'], //android only
+    groupSummary: 'Summary of the grouped messages above', //android only
+    ongoing: true, // makes the notification ongoing (Android only)
+    icon: 'res://heart',
+    image: 'https://cdn-images-1.medium.com/max/1200/1*c3cQvYJrVezv_Az0CoDcbA.jpeg',
+    thumbnail: true,
+    interval: 'minute',
+    channel: 'My Channel', // default: 'Channel'
+    sound: 'customsound-ios.wav', // falls back to the default sound on Android
+    at: new Date(new Date().getTime() + 10 * 1000) // 10 seconds from now
+  }
 ]).then(
-	(scheduledIds) => {
-		console.log('Notification id(s) scheduled: ' + JSON.stringify(scheduledIds));
-	},
-	(error) => {
-		console.log('scheduling error: ' + error);
-	}
-);
+  scheduledIds => {
+    console.log('Notification id(s) scheduled: ' + JSON.stringify(scheduledIds))
+  },
+  error => {
+    console.log('scheduling error: ' + error)
+  }
+)
 ```
 
 ### Notification icons (Android)
@@ -149,13 +149,13 @@ Use this function to have a callback invoked when a notification was used to lau
 Note that on iOS it will even be triggered when your app is in the foreground and a notification is received.
 
 ```js
-LocalNotifications.addOnMessageReceivedCallback((notification) => {
-	console.log('ID: ' + notification.id);
-	console.log('Title: ' + notification.title);
-	console.log('Body: ' + notification.body);
+LocalNotifications.addOnMessageReceivedCallback(notification => {
+  console.log('ID: ' + notification.id)
+  console.log('Title: ' + notification.title)
+  console.log('Body: ' + notification.body)
 }).then(() => {
-	console.log('Listener added');
-});
+  console.log('Listener added')
+})
 ```
 
 ### getScheduledIds
@@ -163,9 +163,9 @@ LocalNotifications.addOnMessageReceivedCallback((notification) => {
 If you want to know the ID's of all notifications which have been scheduled, do this:
 
 ```js
-LocalNotifications.getScheduledIds().then((ids) => {
-	console.log("ID's: " + ids);
-});
+LocalNotifications.getScheduledIds().then(ids => {
+  console.log("ID's: " + ids)
+})
 ```
 
 ### cancel
@@ -173,13 +173,13 @@ LocalNotifications.getScheduledIds().then((ids) => {
 If you want to cancel a previously scheduled notification (and you know its ID), you can cancel it:
 
 ```js
-LocalNotifications.cancel(5 /* the ID */).then((foundAndCanceled) => {
-	if (foundAndCanceled) {
-		console.log("OK, it's gone!");
-	} else {
-		console.log('No ID 5 was scheduled');
-	}
-});
+LocalNotifications.cancel(5 /* the ID */).then(foundAndCanceled => {
+  if (foundAndCanceled) {
+    console.log("OK, it's gone!")
+  } else {
+    console.log('No ID 5 was scheduled')
+  }
+})
 ```
 
 ### cancelAll
@@ -187,7 +187,7 @@ LocalNotifications.cancel(5 /* the ID */).then((foundAndCanceled) => {
 If you just want to cancel all previously scheduled notifications, do this:
 
 ```js
-LocalNotifications.cancelAll();
+LocalNotifications.cancelAll()
 ```
 
 ### requestPermission
@@ -200,9 +200,9 @@ since an iOS can only request permission once. In which case the user needs to g
 enable permissions for your app.
 
 ```js
-LocalNotifications.requestPermission().then((granted) => {
-	console.log('Permission granted? ' + granted);
-});
+LocalNotifications.requestPermission().then(granted => {
+  console.log('Permission granted? ' + granted)
+})
 ```
 
 ### hasPermission
@@ -212,7 +212,7 @@ On Android you don't need permission, but on iOS you do. Android will simply ret
 If the `requestPermission` or `schedule` functions previously ran you may want to check whether or not the user granted permission:
 
 ```js
-LocalNotifications.hasPermission().then((granted) => {
-	console.log('Permission granted? ' + granted);
-});
+LocalNotifications.hasPermission().then(granted => {
+  console.log('Permission granted? ' + granted)
+})
 ```

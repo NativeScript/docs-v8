@@ -9,4 +9,3 @@ I think having a very detailed guide on getting an app out into the app stores i
 # Android
 
 # iOS
-
