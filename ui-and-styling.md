@@ -721,10 +721,8 @@ When an element is a direct child of `<FlexboxLayout>`, you can work with the fo
 
 /// flavor plain
 
-#### Core
-
 ```xml
-<ActivityIndicator busy="{{ isBusy }}" busyChange="{{ onBusyChanged }} loaded="indicatorLoaded"/>
+<ActivityIndicator busy="{{ isBusy }}" busyChange="{{ onBusyChanged }} loaded="indicatorLoaded" />
 ```
 
 ```ts
@@ -740,8 +738,6 @@ onBusyChanged(args: EventData) {
 ///
 
 /// flavor angular
-
-#### Angular
 
 ```html
 <ActivityIndicator
@@ -763,8 +759,6 @@ import { ActivityIndicator } from '@nativescript/core'
 ///
 
 /// flavor vue
-
-#### Vue
 
 ```html
 <ActivityIndicator busy="true" @busyChange="onBusyChanged" />
@@ -798,8 +792,6 @@ For more information about the available gestures, see [Gestures in the official
 
 ---
 
-#### Core
-
 /// flavor core
 
 ```xml
@@ -817,8 +809,6 @@ export function onTap(args) {
 
 ///
 
-#### Angular
-
 /// flavor angular
 
 ```html
@@ -835,8 +825,6 @@ onTap(args: EventData) {
 ```
 
 ///
-
-#### Vue
 
 /// flavor vue
 
@@ -890,6 +878,46 @@ If you need to style parts of the text, you can use a combination of a `Formatte
 
 ---
 
+/// flavor core
+
+```xml
+<DatePicker year="1980" month="4" day="20" loaded="onDatePickerLoaded"
+date="{{ date }}" minDate="{{ minDate }}" maxDate="{{ maxDate }}"></DatePicker>
+```
+
+```ts
+import { DatePicker, EventData, Observable, Page } from '@nativescript/core'
+
+export function onNavigatingTo(args: EventData) {
+  const page = args.object as Page
+  const vm = new Observable()
+
+  // in the following example the DatePicker properties are binded via Observableproperties
+  vm.set('minDate', new Date(1975, 0, 29)) // the binded minDate property accepts Date object
+  vm.set('maxDate', new Date(2045, 4, 12)) // the binded maxDate property accepts Date object
+
+  page.bindingContext = vm
+}
+
+export function onDatePickerLoaded(data: EventData) {
+  const datePicker = data.object as DatePicker
+  datePicker.on('dateChange', args => {
+    console.dir(args)
+  })
+  datePicker.on('dayChange', args => {
+    console.dir(args)
+  })
+  datePicker.on('monthChange', args => {
+    console.dir(args)
+  })
+  datePicker.on('yearChange', args => {
+    console.dir(args)
+  })
+}
+```
+
+///
+
 /// flavor angular
 
 ```html
@@ -910,29 +938,41 @@ If you need to style parts of the text, you can use a combination of a `Formatte
 ```
 
 ```typescript
-    onDatePickerLoaded(args) {
-        // const datePicker = args.object as DatePicker;
-    }
+import { Component } from '@angular/core'
+import { DatePicker } from '@nativescript/core'
 
-    onDateChanged(args) {
-        console.log("Date New value: " + args.value)
-        console.log("Date value: " + args.oldValue)
-    }
+@Component({
+  moduleId: module.id,
+  templateUrl: './usage.component.html'
+})
+export class DatePickerUsageComponent {
+  minDate: Date = new Date(1975, 0, 29)
+  maxDate: Date = new Date(2045, 4, 12)
 
-    onDayChanged(args) {
-        console.log("Day New value: " + args.value)
-        console.log("Day Old value: " + args.oldValue)
-    }
+  onDatePickerLoaded(args) {
+    // const datePicker = args.object as DatePicker;
+  }
 
-    onMonthChanged(args) {
-        console.log("Month New value: " + args.value)
-        console.log("Month Old value: " + args.oldValue)
-    }
+  onDateChanged(args) {
+    console.log('Date New value: ' + args.value)
+    console.log('Date value: ' + args.oldValue)
+  }
 
-    onYearChanged(args) {
-        console.log("Year New value: " + args.value)
-        console.log("Year Old value: " + args.oldValue)
-    }
+  onDayChanged(args) {
+    console.log('Day New value: ' + args.value)
+    console.log('Day Old value: ' + args.oldValue)
+  }
+
+  onMonthChanged(args) {
+    console.log('Month New value: ' + args.value)
+    console.log('Month Old value: ' + args.oldValue)
+  }
+
+  onYearChanged(args) {
+    console.log('Year New value: ' + args.value)
+    console.log('Year Old value: ' + args.oldValue)
+  }
+}
 ```
 
 ///
@@ -943,13 +983,13 @@ If you need to style parts of the text, you can use a combination of a `Formatte
 <DatePicker :date="someDate" />
 ```
 
-///
-
 `<DatePicker>` provides two-way data binding using `v-model`.
 
 ```html
 <DatePicker v-model="selectedDate" />
 ```
+
+///
 
 #### Props
 
@@ -1048,9 +1088,58 @@ See also: [WebView](/en/docs/elements/components/web-view).
 
 ---
 
+/// flavor core
+
+```xml
+<HtmlView loaded="onHtmlLoaded"></HtmlView>
+```
+
+```ts
+import { HtmlView } from '@nativescript/core'
+
+export function onHtmlLoaded(args) {
+  const myHtmlView = args.object as HtmlView
+  myHtmlView.html = `<span>
+        <h1><font color=\"blue\">NativeScript HtmlView</font></h1></br>
+        <h3>This component accept simple HTML strings</h3></span>`
+}
+```
+
+///
+
+/// flavor angular
+
+```html
+<HtmlView [html]="htmlString"></HtmlView>
+```
+
+```ts
+import { Component } from '@angular/core'
+
+@Component({
+  moduleId: module.id,
+  templateUrl: './usage.component.html'
+})
+export class HtmlViewUsageComponent {
+  htmlString: string
+
+  constructor() {
+    this.htmlString = `<span>
+                          <h1>HtmlView demo in <font color="blue">NativeScript</font> App</h1>
+                        </span>`
+  }
+}
+```
+
+///
+
+/// flavor vue
+
 ```html
 <HtmlView html="<div><h1>HtmlView</h1></div>" />
 ```
+
+///
 
 #### Props
 
@@ -1068,42 +1157,77 @@ See also: [WebView](/en/docs/elements/components/web-view).
 
 `<Image>` is a UI component that shows an image from an [ImageSource](https://docs.nativescript.org/api-reference/modules/_image_source_) or from a URL.
 
+::: tip Tip
+When working with images following [the best practices](/performance.html#image-optimizations) is a must.
+:::
+
 ---
 
-#### Displaying an image relative to the `app` directory
+/// flavor core
 
-```html
-<image src="~/logo.png" stretch="none" />
+```xml
+<!-- Displaying an image from `App_Resources` -->
+<Image src="res://icon" stretch="aspectFill" />
+
+<!-- Displaying an image relative to the `app` directory -->
+<Image src="~/images/logo.png" stretch="aspectFill" />
+
+<!-- Displaying an image from a URL -->
+<Image src="https://www.nativescript.org/images/default-source/Blogs/ns-logo_share_600x315.png" stretch="aspectFill" />
+
+<!-- Displaying an image from a URL - Setting loadMode to async will prevent freezing the UI on Android when loading photos async (e.g. from online API) -->
+<Image src="https://nativescript.org/images/default-source/Blogs/ns-logo_share_600x315.png" loadMode="async" width="100" height="100" stretch="aspectFill" />
 ```
 
-#### Displaying an image from a URL
+///
+
+/// flavor angular
 
 ```html
+<!-- Displaying an image from `App_Resources` -->
+<image src="res://logo_white_bg" stretch="aspectFill"></image>
+
+<!-- Displaying an image relative to the `app` directory -->
+<image src="~/images/logo.png" stretch="aspectFit"></image>
+
+<!-- Displaying an image from a URL - Setting loadMode to async will prevent freezing the UI on Android when loading photos async (e.g. from online API) -->
+<image
+  src="https://nativescript.org/images/default-source/Blogs/ns-logo_share_600x315.png"
+  loadMode="async"
+  stretch="aspectFit"
+></image>
+
+<!-- Image with CSS and an icon fonts -->
+<image src="font://&#xF2b9;" class="fas t-36"></image>
+```
+
+///
+
+/// flavor vue
+
+```html
+<!-- Displaying an image from `App_Resources` -->
+<image src="res://icon" stretch="none" />
+
+<!-- Displaying an image relative to the `app` directory -->
+<image src="~/logo.png" stretch="none" />
+
+<!-- Displaying an image from a URL - Setting loadMode to async will prevent freezing the UI on Android when loading photos async (e.g. from online API) -->
 <image
   src="https://art.nativescript-vue.org/NativeScript-Vue-White-Green.png"
   stretch="none"
+  loadMode="async"
 />
-```
 
-#### Displaying an image from `App_Resources`
-
-```html
-<image src="res://icon" stretch="none" />
-```
-
-#### Displaying a `base64`-encoded image
-
-```html
+<!-- Displaying a `base64`-encoded image -->
 <image src="data:Image/png;base64,iVBORw..." stretch="none" />
-```
 
-#### Displaying an image with a font icon in {N} 6.2+
-
-In NativeScript-Vue, `.decode` is required for parsing properties that have HTML entities in them.
-
-```html
+<!-- Displaying an image with a font icon in {N} 6.2+ -->
+<!-- In NativeScript-Vue, `.decode` is required for parsing properties that have HTML entities in them. -->
 <image src.decode="font://&#xf004;" class="fas" />
 ```
+
+///
 
 #### Props
 
@@ -1125,13 +1249,54 @@ In NativeScript-Vue, `.decode` is required for parsing properties that have HTML
 
 `<Label>` is a UI component that displays read-only text.
 
-**IMPORTANT**: This `<Label>` is **not** the same as the HTML `<label>`.
+::: warning Note
+This `<Label>` is **not** the same as the HTML `<label>`.
+:::
 
 ---
 
-```html
-<label text="Label" />
+/// flavor core
+
+```xml
+<Label text="Lores Ipsum..."
+  textWrap="true"
+  textAlignment="center"
+  textDecoration="underline"
+  textTransform="capitalize"
+  whiteSpace="normal"/>
 ```
+
+///
+
+/// flavor angular
+
+```html
+<label
+  text="Lores Ipsum..."
+  textWrap="true"
+  textAlignment="center"
+  textDecoration="underline"
+  textTransform="capitalize"
+  whiteSpace="normal"
+></label>
+```
+
+///
+
+/// flavor vue
+
+```html
+<label
+  text="Label"
+  textWrap="true"
+  textAlignment="center"
+  textDecoration="underline"
+  textTransform="capitalize"
+  whiteSpace="normal"
+/>
+```
+
+///
 
 #### Styling the label
 
@@ -1155,6 +1320,12 @@ If you need to style parts of the text, you can use a combination of a [`Formatt
 | ---------- | --------- | ---------------------------------------------------------------------- |
 | `text`     | `String`  | Gets or sets the text of the label.                                    |
 | `textWrap` | `Boolean` | Gets or sets whether the label wraps text.<br/>Default value: `false`. |
+
+#### Events
+
+| Name         | Description                             |
+| ------------ | --------------------------------------- |
+| `textChange` | Emitted when the label text is changed. |
 
 #### Native component
 
