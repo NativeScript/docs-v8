@@ -1945,6 +1945,60 @@ The events loaded, unloaded and layoutChanged are UI component lifecycles events
 
 ---
 
+/// flavor core
+
+```xml
+    <Placeholder creatingView="creatingView" />
+```
+
+```ts
+import { Utils } from '@nativescript/core'
+
+export function creatingView(args) {
+  let nativeView
+  if (global.isIOS) {
+    nativeView = UITextView.new()
+    nativeView.text = 'Native View (iOS)'
+  } else if (global.isAndroid) {
+    nativeView = new android.widget.TextView(Utils.android.getApplicationContext())
+    nativeView.setText('Native View (Android)')
+  }
+
+  args.view = nativeView
+}
+```
+
+///
+
+/// flavor angular
+
+```html
+<Placeholder (creatingView)="creatingView($event)" />
+```
+
+```ts
+import { Utils, Placeholder } from '@nativescript/core'
+
+function creatingView(args) {
+  const placeholder = args.object as Placeholder
+
+  let nativeView
+  if (global.isIOS) {
+    nativeView = UITextView.new()
+    nativeView.text = 'Native View (iOS)'
+  } else if (global.isAndroid) {
+    nativeView = new android.widget.TextView(Utils.android.getApplicationContext())
+    nativeView.setText('Native View (Android)')
+  }
+
+  placeholder.view = nativeView
+}
+```
+
+///
+
+/// flavor vue
+
 ```html
 <Placeholder @creatingView="creatingView" />
 ```
@@ -1974,6 +2028,8 @@ methods: {
   }
 }
 ```
+
+///
 
 ### Progress
 

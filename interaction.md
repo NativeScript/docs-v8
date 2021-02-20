@@ -1618,8 +1618,8 @@ The result are received in the dialog resolved promise after the user closes or 
 
 ### API References
 
-| Name                                                                                                 | Type        | API Reference Link |
-| ---------------------------------------------------------------------------------------------------- | ----------- | ------------------ |
+| Name                                                                                                 | Type        |
+| ---------------------------------------------------------------------------------------------------- | ----------- |
 | [@nativescript/core/dialogs](https://docs.nativescript.org/api-reference/modules/_ui_dialogs_)       | `Module`    |
 | [action](https://docs.nativescript.org/api-reference/modules/_ui_dialogs_#action)                    | `function`  |
 | [ActionOptions](https://docs.nativescript.org/api-reference/interfaces/_ui_dialogs_.actionoptions)   | `interface` |
