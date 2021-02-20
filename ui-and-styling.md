@@ -2039,9 +2039,71 @@ See also: [ActivityIndicator](/en/docs/elements/components/activity-indicator).
 
 ---
 
+/// flavor core
+
+```xml
+    <Progress width="100%" value="{{ progressValue }}"  maxValue="{{ progressMaxValue }}" loaded="onProgressLoaded" />
+```
+
+```ts
+import { Observable, Page, Progress, PropertyChangeData } from '@nativescript/core'
+
+export function onNavigatingTo(args) {
+  const page = args.object as Page
+  const vm = new Observable()
+  vm.set('progressValue', 10) // Initial value
+  vm.set('progressMaxValue', 100) // Maximum value
+  // Forcing progress value change (for demonstration)
+  setInterval(() => {
+    const value = vm.get('progressValue')
+    vm.set('progressValue', value + 2)
+  }, 300)
+  page.bindingContext = vm
+}
+export function onProgressLoaded(args) {
+  const myProgressBar = args.object as Progress
+  myProgressBar.on('valueChange', (pargs: PropertyChangeData) => {
+    // TIP: args (for valueChange of Progress) is extending EventData with oldValue & value parameters
+    console.log(`Old Value: ${pargs.oldValue}`)
+    console.log(`New Value: ${pargs.value}`)
+  })
+}
+```
+
+///
+
+/// flavor angular
+
+```html
+<progress value="25" maxValue="100" (valueChanged)="onValueChanged($event)"></progress>
+```
+
+```ts
+import { Component, OnInit } from '@angular/core'
+
+@Component({
+  moduleId: module.id,
+  templateUrl: './styling.component.html',
+  styleUrls: ['./styling.component.css']
+})
+export class StylingComponent implements OnInit {
+  public progressValue: number
+
+  ngOnInit() {
+    this.progressValue = 25
+  }
+}
+```
+
+///
+
+/// flavor vue
+
 ```html
 <progress :value="currentProgress" />
 ```
+
+///
 
 #### Props
 
@@ -2055,6 +2117,13 @@ See also: [ActivityIndicator](/en/docs/elements/components/activity-indicator).
 | Name          | Description                                |
 | ------------- | ------------------------------------------ |
 | `valueChange` | Emitted when the `value` property changes. |
+
+## API References
+
+| Name                                                                                                    | Type     |
+| ------------------------------------------------------------------------------------------------------- | -------- |
+| [@nativescript/core/ui/progress](http://docs.nativescript.org/api-reference/modules/_ui_progress_.html) | `Module` |
+| [Progress](https://docs.nativescript.org/api-reference/classes/_ui_progress_.progress)                  | `Class`  |
 
 #### Native Component
 
@@ -2070,6 +2139,83 @@ It's important to note that `<ScrollView>` extends [`ContentView`](https://docs.
 
 ---
 
+/// flavor core
+
+```xml
+<!--
+    The default value of the orientation property is 'vertical'.
+    The ScrollView also supports 'horizontal' as orientation value
+-->
+<ScrollView scroll="onScroll">
+    <GridLayout rows="200 200 200 200 200 200 200 200 200 200">
+        <Label row="0" text="Some row content goes here..."/>
+        <Label row="1" text="Some row content goes here..."/>
+        <Label row="2" text="Some row content goes here..."/>
+        <Label row="3" text="Some row content goes here..."/>
+        <Label row="4" text="Some row content goes here..."/>
+        <Label row="5" text="Some row content goes here..."/>
+        <Label row="6" text="Some row content goes here..."/>
+        <Label row="7" text="Some row content goes here..."/>
+        <Label row="8" text="Some row content goes here..."/>
+        <Label row="9" text="Some row content goes here..."/>
+    </GridLayout>
+</ScrollView>
+```
+
+```ts
+import { Page, ScrollEventData, ScrollView } from '@nativescript/core'
+
+export function onScroll(args: ScrollEventData) {
+  const scrollView = args.object as ScrollView
+
+  console.log('scrollX: ' + args.scrollX)
+  console.log('scrollY: ' + args.scrollY)
+}
+```
+
+///
+
+/// flavor angular
+
+```html
+<ScrollView (scroll)="onScroll($event)">
+  <GridLayout rows="200 200 200 200 200 200 200 200 200 200">
+    <label row="0" text="Some row content goes here..."></label>
+    <label row="1" text="Some row content goes here..."></label>
+    <label row="2" text="Some row content goes here..."></label>
+    <label row="3" text="Some row content goes here..."></label>
+    <label row="4" text="Some row content goes here..."></label>
+    <label row="5" text="Some row content goes here..."></label>
+    <label row="6" text="Some row content goes here..."></label>
+    <label row="7" text="Some row content goes here..."></label>
+    <label row="8" text="Some row content goes here..."></label>
+    <label row="9" text="Some row content goes here..."></label>
+  </GridLayout>
+</ScrollView>
+```
+
+```ts
+import { Component } from '@angular/core'
+import { ScrollView, ScrollEventData } from '@nativescript/core'
+
+@Component({
+  moduleId: module.id,
+  templateUrl: './tips-and-tricks.component.html'
+})
+export class TipsAndTricksComponent {
+  onScroll(args: ScrollEventData) {
+    const scrollView = args.object as ScrollView
+
+    console.log('scrollX: ' + args.scrollX)
+    console.log('scrollY: ' + args.scrollY)
+  }
+}
+```
+
+///
+
+/// flavor vue
+
 ```html
 <ScrollView orientation="horizontal">
   <StackLayout orientation="horizontal">
@@ -2081,6 +2227,8 @@ It's important to note that `<ScrollView>` extends [`ContentView`](https://docs.
   </StackLayout>
 </ScrollView>
 ```
+
+///
 
 #### Props
 
@@ -2094,6 +2242,15 @@ It's important to note that `<ScrollView>` extends [`ContentView`](https://docs.
 | Name     | Description                         |
 | -------- | ----------------------------------- |
 | `scroll` | Emitted when a scroll event occurs. |
+
+## API References
+
+| Name                                                                                                          | Type        |
+| ------------------------------------------------------------------------------------------------------------- | ----------- |
+| [@nativescript/core/ui/scroll-view](http://docs.nativescript.org/api-reference/modules/_ui_scroll_view_.html) | `Module`    |
+| [ScrollView](https://docs.nativescript.org/api-reference/classes/_ui_scroll_view_.scrollview)                 | `Class`     |
+| [orientation](https://docs.nativescript.org/api-reference/classes/_ui_scroll_view_.scrollview#orientation)    | `Property`  |
+| [ScrollEventData](https://docs.nativescript.org/api-reference/interfaces/_ui_scroll_view_.scrolleventdata)    | `Interface` |
 
 #### Native component
 
