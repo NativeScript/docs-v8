@@ -719,9 +719,58 @@ When an element is a direct child of `<FlexboxLayout>`, you can work with the fo
 
 ---
 
+/// flavor plain
+
+#### Core
+
+```xml
+<ActivityIndicator busy="{{ isBusy }}" busyChange="{{ onBusyChanged }} loaded="indicatorLoaded"/>
+```
+
+```ts
+import { ActivityIndicator } from '@nativescript/core'
+
+onBusyChanged(args: EventData) {
+  const indicator: ActivityIndicator = args.object
+  console.log('indicator.busy changed to: ' + indicator.busy)
+}
+
+```
+
+///
+
+/// flavor angular
+
+#### Angular
+
+```html
+<ActivityIndicator
+  [busy]="isBusy"
+  (busyChange)="onBusyChanged($event)"
+></ActivityIndicator>
+```
+
+```typescript
+import { ActivityIndicator } from '@nativescript/core'
+
+  onBusyChanged(args: EventData) {
+    const indicator: ActivityIndicator = args.object
+    console.log('indicator.busy changed to: ' + indicator.busy)
+  }
+
+```
+
+///
+
+/// flavor vue
+
+#### Vue
+
 ```html
 <ActivityIndicator busy="true" @busyChange="onBusyChanged" />
 ```
+
+///
 
 #### Props
 
@@ -749,9 +798,67 @@ For more information about the available gestures, see [Gestures in the official
 
 ---
 
+#### Core
+
+/// flavor core
+
+```xml
+<Button text="Tap me!" tap="onTap"></Button>
+```
+
+```ts
+import { Button } from '@nativescript/core'
+
+export function onTap(args) {
+  const button = args.object as Button
+  console.log('Tapped button')
+}
+```
+
+///
+
+#### Angular
+
+/// flavor angular
+
+```html
+<button text="Tap me!" (tap)="onTap($event)"></button>
+```
+
+```ts
+import { Button } from '@nativescript/core'
+
+onTap(args: EventData) {
+    const button = args.object as Button
+    // execute your custom logic here...
+}
+```
+
+///
+
+#### Vue
+
+/// flavor vue
+
 ```html
 <button text="Button" @tap="onButtonTap" />
 ```
+
+///
+
+#### Props
+
+| Name         | Type      | Description                                                                                                      |
+| ------------ | --------- | ---------------------------------------------------------------------------------------------------------------- |
+| `text`       | `String`  | Sets the label of the button.                                                                                    |
+| `textWrap`   | `Boolean` | Gets or sets whether the widget wraps the text of the label. Useful for longer labels. Default value is `false`. |
+| `isEnabled ` | `Boolean` | Make the button disabled or enabled. A disabled button is unusable and un-clickable. Default value is `true`.    |
+
+#### Events
+
+| Name  | Description                        |
+| ----- | ---------------------------------- |
+| `tap` | Emitted when the button is tapped. |
 
 #### Styling the button
 
@@ -769,20 +876,6 @@ If you need to style parts of the text, you can use a combination of a `Formatte
 </button>
 ```
 
-#### Props
-
-| Name         | Type      | Description                                                                                                      |
-| ------------ | --------- | ---------------------------------------------------------------------------------------------------------------- |
-| `text`       | `String`  | Sets the label of the button.                                                                                    |
-| `textWrap`   | `Boolean` | Gets or sets whether the widget wraps the text of the label. Useful for longer labels. Default value is `false`. |
-| `isEnabled ` | `Boolean` | Make the button disabled or enabled. A disabled button is unusable and un-clickable. Default value is `true`.    |
-
-#### Events
-
-| Name  | Description                        |
-| ----- | ---------------------------------- |
-| `tap` | Emitted when the button is tapped. |
-
 #### Native component
 
 | Android                                                                                       | iOS                                                                    |
@@ -797,9 +890,60 @@ If you need to style parts of the text, you can use a combination of a `Formatte
 
 ---
 
+/// flavor angular
+
+```html
+<DatePicker
+  year="1980"
+  month="4"
+  day="20"
+  [minDate]="minDate"
+  [maxDate]="maxDate"
+  (dateChange)="onDateChanged($event)"
+  (dayChange)="onDayChanged($event)"
+  (monthChange)="onMonthChanged($event)"
+  (yearChange)="onYearChanged($event)"
+  (loaded)="onDatePickerLoaded($event)"
+  verticalAlignment="center"
+>
+</DatePicker>
+```
+
+```typescript
+    onDatePickerLoaded(args) {
+        // const datePicker = args.object as DatePicker;
+    }
+
+    onDateChanged(args) {
+        console.log("Date New value: " + args.value)
+        console.log("Date value: " + args.oldValue)
+    }
+
+    onDayChanged(args) {
+        console.log("Day New value: " + args.value)
+        console.log("Day Old value: " + args.oldValue)
+    }
+
+    onMonthChanged(args) {
+        console.log("Month New value: " + args.value)
+        console.log("Month Old value: " + args.oldValue)
+    }
+
+    onYearChanged(args) {
+        console.log("Year New value: " + args.value)
+        console.log("Year Old value: " + args.oldValue)
+    }
+```
+
+///
+
+/// flavor vue
+
 ```html
 <DatePicker :date="someDate" />
 ```
+
+///
 
 `<DatePicker>` provides two-way data binding using `v-model`.
 
