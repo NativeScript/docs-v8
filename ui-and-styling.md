@@ -1022,8 +1022,6 @@ export class DatePickerUsageComponent {
 
 #### A single root Frame
 
-If you are migrating from nativescript 3.x and want to preserve the old behavior, the following snippet in your entry file will create a root frame and render your default page.
-
 ```js
 new Vue({
   render: h => h('Frame', [h(HomePageComponent)])
@@ -2264,6 +2262,86 @@ export class TipsAndTricksComponent {
 
 ---
 
+/// flavor core
+
+```xml
+  <SearchBar id="searchBar" hint="Enter search term here ..." text="{{sbText}}" clear="onClear" submit="onSubmit" />
+```
+
+```ts
+import { Observable, Page, PropertyChangeData, SearchBar } from '@nativescript/core'
+
+export function onNavigatingTo(args) {
+  const page = args.object as Page
+  const vm = new Observable()
+  vm.set('sbText', '')
+  vm.on(Observable.propertyChangeEvent, (propertyChangeData: PropertyChangeData) => {
+    if (propertyChangeData.propertyName === 'sbText') {
+      const searchBar = propertyChangeData.object as SearchBar
+      console.log(`Input changed! New value: ${propertyChangeData.value}`)
+    }
+  })
+  page.bindingContext = vm
+}
+
+export function onSubmit(args) {
+  const searchBar = args.object as SearchBar
+  console.log(`Searching for ${searchBar.text}`)
+}
+
+export function onClear(args) {
+  const searchBar = args.object as SearchBar
+  console.log(`Clear event raised`)
+}
+```
+
+///
+
+/// flavor angular
+
+```html
+<SearchBar
+  hint="Enter search term here ..."
+  [text]="searchPhrase"
+  (textChange)="onTextChanged($event)"
+  (clear)="onClear($event)"
+  (submit)="onSubmit($event)"
+>
+</SearchBar>
+```
+
+```ts
+import { Component } from '@angular/core'
+import { SearchBar } from '@nativescript/core'
+
+@Component({
+  moduleId: module.id,
+  templateUrl: './usage.component.html'
+})
+export class UsageComponent {
+  searchPhrase: string
+
+  onSubmit(args) {
+    const searchBar = args.object as SearchBar
+    console.log(`Searching for ${searchBar.text}`)
+  }
+
+  onTextChanged(args) {
+    const searchBar = args.object as SearchBar
+    console.log(`Input changed! New value: ${searchBar.text}`)
+  }
+
+  onClear(args) {
+    const searchBar = args.object as SearchBar
+    console.log(`Clear event raised`)
+  }
+}
+```
+
+///
+
+/// flavor vue
+
 ```html
 <SearchBar
   hint="Search hint"
@@ -2278,6 +2356,8 @@ export class TipsAndTricksComponent {
 ```html
 <SearchBar v-model="searchQuery" />
 ```
+
+///
 
 #### Props
 
@@ -2296,6 +2376,13 @@ export class TipsAndTricksComponent {
 | `submit`     | Emitted when the search input is submitted.                                                  |
 | `clear`      | Emitted when the current search input is cleared through the **X** button in the input area. |
 
+#### API References
+
+| Name                                                                                                    | Type     |
+| ------------------------------------------------------------------------------------------------------- | -------- |
+| [@nativescript/core/ui/search-bar](https://docs.nativescript.org/api-reference/modules/_ui_search_bar_) | `Module` |
+| [SearchBar](https://docs.nativescript.org/api-reference/classes/_ui_search_bar_.searchbar)              | `Class`  |
+
 #### Native Component
 
 | Android                                                                                               | iOS                                                                          |
@@ -2313,6 +2400,86 @@ As opposed to `<TabView>`:
 - You need to handle the content shown after selection separately.
 
 ---
+
+/// flavor core
+
+```xml
+<SegmentedBar row="0"  class="m-5" selectedIndex="{{ sbSelectedIndex }}">
+    <SegmentedBar.items>
+        <SegmentedBarItem title="Item 1" />
+        <SegmentedBarItem title="Item 2" />
+        <SegmentedBarItem title="Item 3" />
+    </SegmentedBar.items>
+</SegmentedBar>
+```
+
+```ts
+import { Observable, Page, PropertyChangeData } from '@nativescript/core'
+
+export function onNavigatingTo(args) {
+  const page = args.object as Page
+  // set up the SegmentedBar selected index
+  const vm = new Observable()
+  vm.set('prop', 0)
+  vm.set('sbSelectedIndex', 0)
+  // handle selected index change
+  vm.on(Observable.propertyChangeEvent, (data: PropertyChangeData) => {
+    if (data.propertyName === 'sbSelectedIndex') {
+      vm.set('prop', data.value)
+    }
+  })
+  page.bindingContext = vm
+}
+```
+
+///
+
+/// flavor angular
+
+```html
+<SegmentedBar
+  [items]="mySegmentedBarItems"
+  selectedIndex="0"
+  (selectedIndexChange)="onSelectedIndexChange($event)"
+>
+</SegmentedBar>
+```
+
+```ts
+import { Component, ChangeDetectionStrategy } from '@angular/core'
+import {
+  SegmentedBar,
+  SegmentedBarItem,
+  SelectedIndexChangedEventData
+} from '@nativescript/core'
+
+@Component({
+  moduleId: module.id,
+  templateUrl: './usage.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
+})
+export class BasicSegmentedBarComponent {
+  mySegmentedBarItems: Array<SegmentedBarItem> = []
+
+  constructor() {
+    for (let i = 1; i < 5; i++) {
+      const item = new SegmentedBarItem()
+      item.title = 'Item ' + i
+      this.mySegmentedBarItems.push(item)
+    }
+  }
+
+  public onSelectedIndexChange(args: SelectedIndexChangedEventData) {
+    const segmentedBar = args.object as SegmentedBar
+    const oldIndex = args.oldIndex
+    const newIndex = args.newIndex
+  }
+}
+```
+
+///
+
+/// flavor vue
 
 ```html
 <SegmentedBar>
@@ -2336,6 +2503,8 @@ As opposed to `<TabView>`:
 <SegmentedBar :items="listOfItems" v-model="selectedItem" />
 ```
 
+///
+
 #### Props
 
 | Name                      | Type                      | Description                                                                                                                                                   |
@@ -2350,6 +2519,11 @@ As opposed to `<TabView>`:
 | --------------------- | -------------------------------------------------------- |
 | `selectedIndexChange` | Emitted when the an item on the segmented bar is tapped. |
 
+####
+
+API Reference
+[SegmentedBar](http://docs.nativescript.org/api-reference/modules/_ui_segmented_bar_.html)
+
 #### Native component
 
 | Android                                                                                         | iOS                                                                                        |
@@ -2362,6 +2536,57 @@ As opposed to `<TabView>`:
 
 ---
 
+/// flavor core
+
+```xml
+<Slider value="10" minValue="0" maxValue="100" loaded="onSliderLoaded" />
+```
+
+```ts
+import { Slider } from '@nativescript/core'
+
+export function onSliderLoaded(args) {
+  const sliderComponent = args.object as Slider
+  sliderComponent.on('valueChange', data => {
+    console.log(`Slider new value ${data.value}`)
+  })
+}
+```
+
+///
+
+/// flavor angular
+
+```html
+<Slider
+  value="10"
+  minValue="0"
+  maxValue="100"
+  (valueChange)="onSliderValueChange($event)"
+>
+</Slider>
+```
+
+```ts
+import { Component } from '@angular/core'
+import { Slider } from '@nativescript/core'
+
+@Component({
+  moduleId: module.id,
+  templateUrl: './usage.component.html'
+})
+export class UsageComponent {
+  onSliderValueChange(args) {
+    const slider = args.object as Slider
+    console.log(`Slider new value ${args.value}`)
+  }
+}
+```
+
+///
+
+/// flavor vue
+
 ```html
 <Slider value="80" @valueChange="onValueChanged" />
 ```
@@ -2371,6 +2596,8 @@ As opposed to `<TabView>`:
 ```html
 <Slider v-model="value" />
 ```
+
+///
 
 #### Props
 
@@ -2386,6 +2613,13 @@ As opposed to `<TabView>`:
 | ------------- | --------------------------------------------- |
 | `valueChange` | Emitted when the value of the slider changes. |
 
+#### API References
+
+| Name                                                                                                | Type     |
+| --------------------------------------------------------------------------------------------------- | -------- |
+| [@nativescript/core/ui/slider](http://docs.nativescript.org/api-reference/modules/_ui_slider_.html) | `Module` |
+| [Slider](https://docs.nativescript.org/api-reference/classes/_ui_slider_.slider)                    | `Class`  |
+
 #### Native component
 
 | Android                                                                                         | iOS                                                                    |
@@ -2400,6 +2634,53 @@ The default state is `false` or OFF.
 
 ---
 
+/// flavor core
+
+```xml
+<Switch checked="true" loaded="onSwitchLoaded"/>
+```
+
+```ts
+import { Switch } from '@nativescript/core'
+
+export function onSwitchLoaded(argsloaded) {
+  const mySwitch = argsloaded.object as Switch
+  mySwitch.on('checkedChange', args => {
+    const sw = args.object as Switch
+    const isChecked = sw.checked
+    console.log(`Switch new value ${isChecked}`)
+  })
+}
+```
+
+///
+
+/// flavor angular
+
+```html
+<Switch checked="true" (checkedChange)="onCheckedChange($event)"></Switch>
+```
+
+```ts
+import { Component } from '@angular/core'
+import { EventData, Switch } from '@nativescript/core'
+
+@Component({
+  moduleId: module.id,
+  templateUrl: './usage.component.html'
+})
+export class BasicSwitchComponent {
+  onCheckedChange(args: EventData) {
+    const sw = args.object as Switch
+    const isChecked = sw.checked // boolean
+  }
+}
+```
+
+///
+
+/// flavor vue
+
 ```html
 <Switch checked="true" />
 ```
@@ -2409,6 +2690,8 @@ The default state is `false` or OFF.
 ```html
 <Switch v-model="itemEnabled" />
 ```
+
+///
 
 #### Props
 
@@ -2422,6 +2705,13 @@ The default state is `false` or OFF.
 | --------------- | ------------------------------------------ |
 | `checkedChange` | Emitted when the switch selection changes. |
 
+#### API References
+
+| Name                                                                                                | Type     |
+| --------------------------------------------------------------------------------------------------- | -------- |
+| [@nativescript/core/ui/switch](http://docs.nativescript.org/api-reference/modules/_ui_switch_.html) | `Module` |
+| [Switch](https://docs.nativescript.org/api-reference/classes/_ui_switch_.switch)                    | `Class`  |
+
 #### Native component
 
 | Android                                                                                       | iOS                                                                    |
@@ -2430,13 +2720,123 @@ The default state is `false` or OFF.
 
 ### TabView
 
-::: warning Note
-NativeScript 6 introduced two new tab navigation components, `<BottomNavigation>` and `<Tabs>`. These are meant to be new and better alternatives to the existing `<TabView>` component. Read [the announcement blog post here](https://www.nativescript.org/blog/tabs-and-bottomnavigation-nativescripts-two-new-components).
-:::
-
 `<TabView>` is a navigation component that shows content grouped into tabs and lets users switch between tabs.
 
 ---
+
+/// flavor core
+
+```xml
+<TabView loaded="onLoaded" selectedIndex="{{tabSelectedIndex}}" selectedIndexChanged="onSelectedIndexChanged"
+androidTabsPosition="bottom" androidOffscreenTabLimit="0">
+    <TabViewItem title="Profile">
+        <StackLayout>
+            <Label text="{{ tabSelectedIndexResult }}" class="h2 m-t-16 text-center" textWrap="true" />
+            <Button text="Change Tab" tap="changeTab" class="btn btn-primary btn-active" />
+        </StackLayout>
+    </TabViewItem>
+    <TabViewItem title="Stats">
+        <StackLayout>
+            <Label text="{{ tabSelectedIndexResult }}" class="h2 m-t-16 text-center" textWrap="true" />
+            <Button text="Change Tab" tap="changeTab" class="btn btn-primary btn-active" />
+        </StackLayout>
+    </TabViewItem>
+    <TabViewItem title="Settings">
+        <StackLayout>
+            <Label text="{{ tabSelectedIndexResult }}" class="h2 m-t-16 text-center" textWrap="true" />
+            <Button text="Change Tab" tap="changeTab" class="btn btn-primary btn-active" />
+        </StackLayout>
+    </TabViewItem>
+</TabView>
+```
+
+```ts
+import {
+  Dialogs,
+  Observable,
+  TabView,
+  SelectedIndexChangedEventData
+} from '@nativescript/core'
+
+export function onLoaded(args) {
+  const tabView = args.object as TabView
+  const vm = new Observable()
+  vm.set('tabSelectedIndex', 0)
+  vm.set('tabSelectedIndexResult', 'Profile Tab (tabSelectedIndex = 0 )')
+
+  tabView.bindingContext = vm
+}
+
+export function changeTab(args) {
+  const vm = args.object.bindingContext
+  const tabSelectedIndex = vm.get('tabSelectedIndex')
+  if (tabSelectedIndex === 0) {
+    vm.set('tabSelectedIndex', 1)
+  } else if (tabSelectedIndex === 1) {
+    vm.set('tabSelectedIndex', 2)
+  } else if (tabSelectedIndex === 2) {
+    vm.set('tabSelectedIndex', 0)
+  }
+}
+// displaying the old and new TabView selectedIndex
+export function onSelectedIndexChanged(args: SelectedIndexChangedEventData) {
+  if (args.oldIndex !== -1) {
+    const newIndex = args.newIndex
+    const vm = (args.object as TabView).bindingContext
+    if (newIndex === 0) {
+      vm.set('tabSelectedIndexResult', 'Profile Tab (tabSelectedIndex = 0 )')
+    } else if (newIndex === 1) {
+      vm.set('tabSelectedIndexResult', 'Stats Tab (tabSelectedIndex = 1 )')
+    } else if (newIndex === 2) {
+      vm.set('tabSelectedIndexResult', 'Settings Tab (tabSelectedIndex = 2 )')
+    }
+    Dialogs.alert(
+      `Selected index has changed ( Old index: ${args.oldIndex} New index: ${args.newIndex} )`
+    ).then(() => {
+      console.log('Dialog closed!')
+    })
+  }
+}
+```
+
+///
+
+/// flavor angular
+
+Using a TabView inside an Angular app requires some special attention about how to provide title, iconSource and content (view) of the TabViewItem. In a pure NativeScript application TabView has an items property which could be set via XML to an array of TabViewItems (basically, an array of objects with title, view and iconSource properties). However, NativeScript-Angular does not support nested properties in its HTML template, so adding TabViewItem to TabView is a little bit different. NativeScript-Angular provides a custom Angular directive that simplifies the way native TabView should be used. The following example shows how to add a TabView to your page (with some clarifications later):
+
+```html
+<TabView selectedIndex="0" (selectedIndexChanged)="onSelectedIndexchanged($event)">
+  <StackLayout *tabItem="{title: 'First Tab', iconSource: 'res://icon'}">
+    <StackLayout>
+      <label
+        text="First Tab"
+        textWrap="true"
+        class="m-15 h2 text-left"
+        color="blue"
+      ></label>
+    </StackLayout>
+  </StackLayout>
+  <StackLayout *tabItem="{title: 'Second Tab', iconSource: 'res://icon'}">
+    <StackLayout>
+      <label
+        text="Second Tab"
+        textWrap="true"
+        class="m-15 h2 text-left"
+        color="blue"
+      ></label>
+    </StackLayout>
+  </StackLayout>
+</TabView>
+```
+
+::: warning Note
+If you have set the iconSource property on a TabViewItem, but are not seeing any icons next to the title, this might be because the icon is not present in your App_Resources folder. See the Working with Images article for information on how to add and reference your resource images.
+:::
+
+///
+
+/// flavor vue
 
 ```html
 <TabView :selectedIndex="selectedIndex" @selectedIndexChange="indexChange">
@@ -2458,8 +2858,14 @@ methods: {
 }
 ```
 
+///
+
 ::: warning Note
 Currently, `TabViewItem` expects a single child element. In most cases, you might want to wrap your content in a layout.
+:::
+
+::: tip Tip
+Consider using BottomNavigation component to create the same UI for both iOS and Android while having greater control over the funcionalities.
 :::
 
 #### Adding icons to tabs
@@ -2479,21 +2885,57 @@ Currently, `TabViewItem` expects a single child element. In most cases, you migh
 You can use images for tab icons instead of icon fonts. For more information about how to control the size of icons, see [Working with image from resource folders](https://docs.nativescript.org/ui/image-resources).
 :::
 
+#### Styling
+
+The `TabView` component has the following unique styling properties:
+
+- `tabTextColor` (corresponding CSS property `tab-text-color` ) - Changes the text color for the tabs.
+
+- `selectedTabTextColor` (corresponding CSS property `selected-tab-text-color` ) - Changes the color of the text for the selected tab.
+
+- `tabBackgroundColor` (corresponding CSS property `tab-background-color`) - Sets the background color of the tabs.
+
+- `tabTextFontSize` (corresponding CSS property `tab-text-font-size`) - Sets the font size of the tabs.
+
+- `textTransform` (corresponding CSS property `text-transform`) - Sets the text transform individually for every `TabViewItem`. Value options: `capitalize`, `lowercase`, `none`, and `uppercase`.
+
+- `androidSelectedTabHighlightColor`<sup>android specific property</sup> (corresponding CSS property `android-selected-tab-highlight-color`) - Sets the underline color of the tabs in Android.
+
 #### Props
 
-| Name                   | Type     | Description                                                                               |
-| ---------------------- | -------- | ----------------------------------------------------------------------------------------- |
-| `selectedIndex`        | `Number` | Gets or sets the currently selected tab. Default is `0`.                                  |
-| `tabTextColor`         | `Color`  | (Style property) Gets or sets the text color of the tabs titles.                          |
-| `tabBackgroundColor`   | `Color`  | (Style property) Gets or sets the background color of the tabs.                           |
-| `selectedTabTextColor` | `Color`  | (Style property) Gets or sets the text color of the selected tab title.                   |
-| `androidTabsPosition`  | `String` | Sets the position of the TabView in Android platform<br/>Valid values: `top` or `bottom`. |
+| Name                               | Type                                                  | Description                                                                                                                       |
+| ---------------------------------- | ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `selectedIndex`                    | `Number`                                              | Gets or sets the currently selected tab. Default is `0`.                                                                          |
+| `tabTextColor`                     | `Color`                                               | (Style property) Gets or sets the text color of the tabs titles.                                                                  |
+| `tabTextFontSize`                  | `Color`                                               | Gets or sets the font size of the tabs titles.                                                                                    |
+| `tabBackgroundColor`               | `Color`                                               | (Style property) Gets or sets the background color of the tabs.                                                                   |
+| `selectedTabTextColor`             | `Color`                                               | (Style property) Gets or sets the text color of the selected tab title.                                                           |
+| `androidTabsPosition`              | `String`                                              | Sets the position of the TabView in Android platform<br/>Valid values: `top` or `bottom`.                                         |
+| `androidOffscreenTabLimit`         | `number`                                              | Gets or sets the number of tabs that should be retained to either side of the current tab in the view hierarchy in an idle state. |
+| `androidSelectedTabHighlightColor` | `Color`                                               | Gets or sets the color of the horizontal line drawn below the currently selected tab on Android.                                  |
+| `iosIconRenderingMode`             | _"automatic"_, _"alwaysOriginal"_, _"alwaysTemplate"_ | Gets or sets the icon rendering mode on iOS.                                                                                      |
+
+#### TabViewItem Properties
+
+| Name         | Type     | Description                                                                                                                                  |
+| ------------ | -------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| `title`      | `string` | Gets or sets the title of the tab strip entry.                                                                                               |
+| `iconSource` | `string` | Gets or sets the icon source of the tab strip entry. Supports local image paths (`~`), resource images (`res://`) and icon fonts (`font://`) |
 
 #### Events
 
 | Name                  | Description                                                                                                                                                                                                                                                                 |
 | --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `selectedIndexChange` | Emits [an event object](https://docs.nativescript.org/api-reference/interfaces/_ui_tab_view_.selectedindexchangedeventdata) containing an `newIndex` property with the index of the tapped `<TabViewItem>` (and an `oldIndex` property with the index of the previous tab). |
+
+#### API References
+
+| Name                                                                                                                                | Type        |
+| ----------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| [@nativescript/core/ui/tab-view](http://docs.nativescript.org/api-reference/modules/_ui_tab_view_.html)                             | `Module`    |
+| [TabView](https://docs.nativescript.org/api-reference/classes/_ui_tab_view_.tabview)                                                | `Class`     |
+| [TabViewItem](https://docs.nativescript.org/api-reference/classes/_ui_tab_view_.tabviewitem)                                        | `Class`     |
+| [SelectedIndexChangedEventData](https://docs.nativescript.org/api-reference/interfaces/_ui_tab_view_.selectedindexchangedeventdata) | `Interface` |
 
 #### Native component
 
@@ -2509,6 +2951,91 @@ You can use images for tab icons instead of icon fonts. For more information abo
 
 ---
 
+/// flavor core
+
+```html
+<TextField hint="Enter text" color="orangered" backgroundColor="lightyellow" />
+```
+
+///
+
+/// flavor angular
+
+```html
+<TextField
+  hint="Enter Date"
+  secure="false"
+  keyboardType="datetime"
+  returnKeyType="done"
+  autocorrect="false"
+  maxLength="10"
+  [text]="name"
+  (returnPress)="onReturnPress($event)"
+  (focus)="onFocus($event)"
+  (blur)="onBlur($event)"
+>
+</TextField>
+```
+
+```ts
+import { Component } from '@angular/core'
+import { TextField, Utils } from '@nativescript/core'
+
+@Component({
+  moduleId: module.id,
+  templateUrl: './usage.component.html'
+})
+export class UsageComponent {
+  name = ''
+
+  onReturnPress(args) {
+    // returnPress event will be triggered when user submits a value
+    const textField = args.object as TextField
+
+    // Gets or sets the placeholder text.
+    console.log(textField.hint)
+    // Gets or sets the input text.
+    console.log(textField.text)
+    // Gets or sets the secure option (e.g. for passwords).
+    console.log(textField.secure)
+
+    // Gets or sets the soft keyboard type. Options: "datetime" | "phone" | "number" | "url" | "email"
+    console.log(textField.keyboardType)
+    // Gets or sets the soft keyboard return key flavor. Options: "done" | "next" | "go" | "search" | "send"
+    console.log(textField.returnKeyType)
+    // Gets or sets the autocapitalization type. Options: "none" | "words" | "sentences" | "allcharacters"
+    console.log(textField.autocapitalizationType)
+
+    // Gets or sets a value indicating when the text property will be updated.
+    console.log(textField.updateTextTrigger)
+    // Gets or sets whether the instance is editable.
+    console.log(textField.editable)
+    // Enables or disables autocorrection.
+    console.log(textField.autocorrect)
+    // Limits input to a certain number of characters.
+    console.log(textField.maxLength)
+
+    Utils.setTimeout(() => {
+      textField.dismissSoftInput() // Hides the soft input method, ususally a soft keyboard.
+    }, 100)
+  }
+
+  onFocus(args) {
+    // focus event will be triggered when the users enters the TextField
+    const textField = args.object as TextField
+  }
+
+  onBlur(args) {
+    // blur event will be triggered when the user leaves the TextField
+    const textField = args.object as TextField
+  }
+}
+```
+
+///
+
+/// flavor vue
+
 ```html
 <TextField :text="textFieldValue" hint="Enter text..." />
 ```
@@ -2519,19 +3046,28 @@ You can use images for tab icons instead of icon fonts. For more information abo
 <TextField v-model="textFieldValue" />
 ```
 
+///
+
 #### Props
 
-| Name            | Type            | Description                                                                                                        |
-| --------------- | --------------- | ------------------------------------------------------------------------------------------------------------------ |
-| `text`          | `String`        | Gets or sets the value of the field.                                                                               |
-| `hint`          | `String`        | Gets or sets the placeholder text.                                                                                 |
-| `isEnabled`     | `Boolean`       | Make the field disabled or enabled. Default value is `true`.                                                       |
-| `editable`      | `Boolean`       | When `true`, indicates that the user can edit the value of the field.                                              |
-| `maxLength`     | `Number`        | Limits input to the specified number of characters.                                                                |
-| `secure`        | `Boolean`       | Hides the entered text when `true`. Use this property to create password input fields.<br/>Default value: `false`. |
-| `keyboardType`  | `KeyboardType`  | Shows a custom keyboard for easier text input.<br/>Valid values: `datetime`, `phone`, `number`, `url`, or `email`. |
-| `returnKeyType` | `ReturnKeyType` | Gets or sets the label of the return key.<br/>Valid values: `done`, `next`, `go`, `search`, or `send`.             |
-| `autocorrect`   | `Boolean`       | Enables or disables autocorrect.                                                                                   |
+| Name                     | Type                                                                                                                         | Description                                                                                                        |
+| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| `text`                   | `String`                                                                                                                     | Gets or sets the value of the field.                                                                               |
+| `hint`                   | `String`                                                                                                                     | Gets or sets the placeholder text.                                                                                 |
+| `isEnabled`              | `Boolean`                                                                                                                    | Make the field disabled or enabled. Default value is `true`.                                                       |
+| `editable`               | `Boolean`                                                                                                                    | When `true`, indicates that the user can edit the value of the field.                                              |
+| `maxLength`              | `Number`                                                                                                                     | Limits input to the specified number of characters.                                                                |
+| `secure`                 | `Boolean`                                                                                                                    | Hides the entered text when `true`. Use this property to create password input fields.<br/>Default value: `false`. |
+| `keyboardType`           | `KeyboardType`                                                                                                               | Shows a custom keyboard for easier text input.<br/>Valid values: `datetime`, `phone`, `number`, `url`, or `email`. |
+| `returnKeyType`          | `ReturnKeyType`                                                                                                              | Gets or sets the label of the return key.<br/>Valid values: `done`, `next`, `go`, `search`, or `send`.             |
+| `autocorrect`            | `Boolean`                                                                                                                    | Enables or disables autocorrect.                                                                                   |
+| `autocapitalizationType` | [`AutocapitalizationType`](https://docs.nativescript.org/api-reference/modules/_ui_editor_text_base_#autocapitalizationtype) | Gets or sets the autocapitalization type.                                                                          |
+| `letterSpacing`          | `number`                                                                                                                     | Gets or sets letter space style property.                                                                          |
+| `lineHeight`             | `number`                                                                                                                     | Gets or sets line height style property.                                                                           |
+| `textAlignment`          | `TextAlignment`                                                                                                              | Gets or sets the text alignment.                                                                                   |
+| `textDecoration`         | `TextDecoration`                                                                                                             | Gets or sets the text decoration.                                                                                  |
+| `textTransform`          | `TextTransform`                                                                                                              | Gets or sets the text transform.                                                                                   |
+| `whiteSpace`             | `WhiteSpace`                                                                                                                 | Gets or sets white space style property.                                                                           |
 
 #### Events
 
@@ -2541,6 +3077,13 @@ You can use images for tab icons instead of icon fonts. For more information abo
 | `returnPress` | Emitted when the return key is pressed. |
 | `focus`       | Emitted when the field is in focus.     |
 | `blur`        | Emitted when the field loses focus.     |
+
+#### API References
+
+| Name                                                                                                        | Type     |
+| ----------------------------------------------------------------------------------------------------------- | -------- |
+| [@nativescript/core/ui/text-field](http://docs.nativescript.org/api-reference/modules/_ui_text_field_.html) | `Module` |
+| [TextField](https://docs.nativescript.org/api-reference/classes/_ui_text_field_.textfield)                  | `Class`  |
 
 #### Native component
 
@@ -2556,6 +3099,66 @@ You can use images for tab icons instead of icon fonts. For more information abo
 
 ---
 
+/// flavor core
+
+```xml
+<TextView loaded="onTextViewLoaded" hint="Enter Date" text="{{ viewDate }}" secure="false" keyboardType="datetime" returnKeyType="done" autocorrect="false" maxLength="10">
+</TextView>
+```
+
+```ts
+import { Observable, Page, TextView } from '@nativescript/core'
+
+export function onNavigatingTo(args) {
+  const page = args.object as Page
+  const vm = new Observable()
+  vm.set('viewDate', '')
+  page.bindingContext = vm
+}
+export function onTextViewLoaded(argsloaded) {
+  const textView = argsloaded.object as TextView
+  textView.on('focus', args => {
+    const view = args.object as TextView
+    console.log('On TextView focus')
+  })
+  textView.on('blur', args => {
+    const view = args.object as TextView
+    console.log('On TextView blur')
+  })
+}
+```
+
+///
+
+/// flavor angular
+
+```html
+<TextView hint="Enter some text..." [text]="tvtext" (textChange)="onTextChange($event)">
+</TextView>
+```
+
+```ts
+import { Component } from '@angular/core'
+import { EventData, TextView } from '@nativescript/core'
+
+@Component({
+  moduleId: module.id,
+  templateUrl: './usage.component.html'
+})
+export class UsageComponent {
+  tvtext = ''
+
+  onTextChange(args: EventData) {
+    const tv = args.object as TextView
+    console.log(tv.text)
+  }
+}
+```
+
+///
+
+/// flavor vue
+
 ```html
 <TextView text="Multi\nLine\nText" />
 ```
@@ -2565,6 +3168,8 @@ You can use images for tab icons instead of icon fonts. For more information abo
 ```html
 <TextView v-model="textViewValue" />
 ```
+
+///
 
 #### Displaying multi-style text
 
@@ -2603,6 +3208,13 @@ To apply multiple styles to the text in your `<TextView>`, you can use `<Formatt
 | `focus`       | Emitted when the container is in focus. |
 | `blur`        | Emitted when the container loses focus. |
 
+#### API References
+
+| Name                                                                                                      | Type     |
+| --------------------------------------------------------------------------------------------------------- | -------- |
+| [@nativescript/core/ui/text-view](http://docs.nativescript.org/api-reference/modules/_ui_text_view_.html) | `Module` |
+| [TextView](https://docs.nativescript.org/api-reference/classes/_ui_text_view_.textview)                   | `Class`  |
+
 #### Native component
 
 | Android                                                                                           | iOS                                                                        |
@@ -2617,6 +3229,81 @@ To apply multiple styles to the text in your `<TextView>`, you can use `<Formatt
 
 ---
 
+/// flavor core
+
+```xml
+<TimePicker hour="10" minute="25"
+            loaded="onPickerLoaded"
+            row="2" col="0" colSpan="2"
+            class="m-15" verticalAlignment="center">
+</TimePicker>
+```
+
+```ts
+import { TimePicker } from '@nativescript/core'
+
+export function onPickerLoaded(args) {
+  const timePicker = args.object as TimePicker
+
+  // Configurable properties of TimePicker
+  timePicker.hour = 10
+  timePicker.minute = 25
+  timePicker.minuteInterval = 5
+  timePicker.minHour = 7
+  timePicker.maxHour = 11
+  timePicker.minMinute = 10
+  timePicker.maxMinute = 45
+  timePicker.time = new Date()
+
+  // handling 'timeChange' event via code behind
+  timePicker.on('timeChange', (data: any) => {
+    // data is of type PropertyChangeData
+    console.log('Picked TIME: ', data.value)
+    console.log('Previous TIME: ', data.oldValue)
+  })
+}
+```
+
+///
+
+/// flavor angular
+
+```html
+<TimePicker
+  hour="9"
+  minute="25"
+  maxHour="23"
+  maxMinute="59"
+  minuteInterval="5"
+  (timeChange)="onTimeChanged($event)"
+>
+</TimePicker>
+```
+
+```ts
+import { Component } from '@angular/core'
+import { TimePicker } from '@nativescript/core'
+
+@Component({
+  moduleId: module.id,
+  templateUrl: './usage.component.html'
+})
+export class UsageComponent {
+  todayObj: Date = new Date()
+
+  onTimeChanged(args) {
+    const tp = args.object as TimePicker
+
+    const time = args.value
+    console.log(`Chosen time: ${time}`)
+  }
+}
+```
+
+///
+
+/// flavor vue
+
 ```html
 <TimePicker :hour="selectedHour" :minute="selectedMinute" />
 ```
@@ -2626,6 +3313,8 @@ To apply multiple styles to the text in your `<TextView>`, you can use `<Formatt
 ```html
 <TimePicker v-model="selectedTime" />
 ```
+
+///
 
 #### Props
 
@@ -2646,6 +3335,13 @@ To apply multiple styles to the text in your `<TextView>`, you can use `<Formatt
 | ------------ | --------------------------------------- |
 | `timeChange` | Emitted when the selected time changes. |
 
+#### API References
+
+| Name                                                                                                           | Type     |
+| -------------------------------------------------------------------------------------------------------------- | -------- |
+| [@nativescript/core/ui/time-picker](http://docs.nativescript.org/api-reference/modules/_ui_time_picker_.html)) | `Module` |
+| [TimePicker](https://docs.nativescript.org/api-reference/classes/_ui_time_picker_.timepicker)                  | `Class`  |
+
 #### Native component
 
 | Android                                                                                          | iOS                                                                            |
@@ -2660,6 +3356,29 @@ See also: [HtmlView](/en/docs/elements/components/html-view).
 
 ---
 
+/// flavor core
+
+```xml
+<WebView row="1" loaded="onWebViewLoaded" id="myWebView" src="{{ webViewSrc }}" />
+```
+
+///
+
+/// flavor angular
+
+```html
+<WebView
+  [src]="webViewSrc"
+  (loadStarted)="onLoadStarted($event)"
+  (loadFinished)="onLoadFinished($event)"
+>
+</WebView>
+```
+
+///
+
+/// flavor vue
+
 ```html
 <WebView src="http://nativescript-vue.org/" />
 
@@ -2667,6 +3386,12 @@ See also: [HtmlView](/en/docs/elements/components/html-view).
 
 <WebView src="<div><h1>Some static HTML</h1></div>" />
 ```
+
+///
+
+::: tip Tip
+To be able to use gestures in WebView component on Android, we should first disabled the zoom control. To do that we could access the android property and with the help of setDisplayZoomControls to set this control to false.
+:::
 
 #### Props
 
@@ -2680,6 +3405,15 @@ See also: [HtmlView](/en/docs/elements/components/html-view).
 | -------------- | -------------------------------------------------------------- |
 | `loadStarted`  | Emitted when the page has started loading in the `<WebView>`.  |
 | `loadFinished` | Emitted when the page has finished loading in the `<WebView>`. |
+
+#### API References
+
+| Name                                                                                                     | Type         |
+| -------------------------------------------------------------------------------------------------------- | ------------ |
+| [@nativescript/core/ui/web-view](http://docs.nativescript.org/api-reference/modules/_ui_web_view_.html)) | `Module`     |
+| [WebView](https://docs.nativescript.org/api-reference/classes/_ui_web_view_.webview)                     | `Class`      |
+| [LoadEventData](https://docs.nativescript.org/api-reference/interfaces/_ui_web_view_.loadeventdata)      | `Interface`  |
+| [NavigationType](https://docs.nativescript.org/api-reference/modules/_ui_web_view_#navigationtype)       | type aliases |
 
 #### Native component
 
