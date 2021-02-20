@@ -713,6 +713,195 @@ When an element is a direct child of `<FlexboxLayout>`, you can work with the fo
 
 ## Components
 
+### ActionBar
+
+The ActionBar is NativeScript’s abstraction over the Android ActionBar and iOS NavigationBar. It represents a toolbar at the top of the activity window, and can have a title, application-level navigation, as well as other custom interactive items.
+
+---
+
+/// flavor core
+
+The ActionBar provides a title property and can be extended by using one or more ActionItem components and a single NavigationButton.
+
+```xml
+
+<ActionBar title="ActionBar Title">
+    <NavigationButton icon="res://ic_arrow_back_black_24dp" (tap)="goBack()"></NavigationButton>
+    <ActionItem icon="font://&#xf013;" class="fas" ios.position="right" (tap)="openSettings()"></ActionItem>
+</ActionBar>
+```
+
+The ActionItem components are supporting the platform-specific position and systemIcon for iOS and Android.
+
+```xml
+<ActionBar title="Action Items">
+    <ActionItem (tap)="onShare()" ios.systemIcon="9" ios.position="left"
+                android.systemIcon="ic_menu_share" android.position="actionBar">
+    </ActionItem>
+    <ActionItem text="delete" (tap)="onDelete()"
+                ios.systemIcon="16" ios.position="right" android.position="popup">
+    </ActionItem>
+</ActionBar>
+```
+
+///
+
+/// flavor angular
+
+```html
+<ActionBar title="ActionBar Title">
+  <NavigationButton
+    icon="res://ic_arrow_back_black_24dp"
+    (tap)="goBack()"
+  ></NavigationButton>
+  <ActionItem
+    icon="font://&#xf013;"
+    class="fas"
+    ios.position="right"
+    (tap)="openSettings()"
+  ></ActionItem>
+</ActionBar>
+```
+
+```ts
+import { Component } from '@angular/core'
+import { RouterExtensions } from 'nativescript/angular'
+
+@Component({
+  moduleId: module.id,
+  templateUrl: './usage.component.html'
+})
+export class ActionBarUsageComponent {
+  constructor(private routerExtensions: RouterExtensions) {}
+
+  goBack() {
+    this.routerExtensions.backToPreviousPage()
+  }
+
+  openSettings() {
+    // implement the cusotm logic
+  }
+}
+```
+
+#### Styling
+
+To style the ActionBar, you can use only background-color and color properties. Alternatively, you can use @nativescript/theme and use the default styles for each different theme. The icon property of ActionItem can use Icon Fonts with the font:// prefix. By setting up this prefix, a new image will be generated, which will be set as an ActionItem's icon resource. While using this functionality, we need to specify the font-size, which will calculate the size of the generated image base on the device's dpi.
+
+```html
+<!-- The default background-color and color of ActionBar & ActionItem are set through nativescript-theme (if used)-->
+<ActionBar title="Styling">
+  <!-- Explicitly hiding the NavigationBar to prevent the default one on iOS-->
+  <NavigationButton visibility="collapsed"></NavigationButton>
+
+  <!-- Using the icon property and Icon Fonts -->
+  <ActionItem
+    position="left"
+    icon="font://&#xf0a8;"
+    class="fas"
+    (tap)="goBack()"
+  ></ActionItem>
+
+  <!-- Creating custom views for ActionItem-->
+  <ActionItem ios.position="right">
+    <GridLayout width="100">
+      <button text="Theme" class="-primary -rounded-lg"></button>
+    </GridLayout>
+  </ActionItem>
+</ActionBar>
+```
+
+///
+
+/// flavor vue
+
+```html
+<ActionBar>
+  <StackLayout orientation="horizontal">
+    <image src="res://icon" width="40" height="40" verticalAlignment="center" />
+    <label text="NativeScript" fontSize="24" verticalAlignment="center" />
+  </StackLayout>
+</ActionBar>
+```
+
+#### Setting an app icon for Android
+
+```html
+<ActionBar title="My App" android.icon="res://icon" android.iconVisibility="always" />
+```
+
+```html
+<ActionBar title="My App" flat="true" />
+```
+
+///
+
+::: tip Tip
+iOS Specifics: The default text of the navigation button is the title of the previous page. In iOS, the back button is used explicitly for navigation. It navigates to the previous page and you can't handle the tap event to override this behavior. If you want to place a button on the left side of the ActionBar and handle the tap event (e.g., show slide-out), you can use ActionItem with ios.position="left".
+
+Android Specifics: In Android, you can't set text inside the navigation button. You can use the icon property to set an image (e.g., ~\images\nav-image.png or res:\\ic_nav). You can use android.systemIcon to set one of the system icons available in Android. In this case, there is no default behaviour for NavigationButton tap event, and we should define manually the callback function, which will be executed.
+:::
+
+::: warning Note
+In iOS, the color property affects the color of the title and the action items. In Android, the color property affects only the title text. However, you can set the default color of the text in the action items by adding an actionMenuTextColor item in the Android theme (inside App_Resources\Android\values\styles.xml).
+:::
+
+#### Properties
+
+#### ActionBar Properties
+
+| Name        | Type                                                                            | Description                                                                          |
+| :---------- | :------------------------------------------------------------------------------ | :----------------------------------------------------------------------------------- |
+| `title`     | `string`                                                                        | Gets or sets the action bar title.                                                   |
+| `titleView` | [View](https://docs.nativescript.org/api-reference/classes/_ui_core_view_.view) | Gets or sets the title view. When set - replaces the title with a custom view.       |
+| `flat`      | `boolean`                                                                       | Removes the border on Android and the translucency on iOS. Default value is `false`. |
+
+#### ActionItem Properties
+
+| Name                 | Type                                                  | Description                                                                                                                                                           |
+| :------------------- | :---------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `text`               | `string`                                              | Gets or sets the text of the action item.                                                                                                                             |
+| `icon`               | `string`                                              | Gets or sets the icon of the action item. Supports local images (`~/`), resources (`res://`) and icon fonts (`fonts://`)                                              |
+| `ios.position`       | `enum`: _"left"_, _"right"_                           | Sets the position of the item (default value is `left`).                                                                                                              |
+| `android.position`   | `enum`: _"actionBar"_, _"popup"_, _"actionBarIfRoom"_ | Sets the position of the item (default value is `actionBar`).                                                                                                         |
+| `ios.systemIcon`     | `number`                                              | **iOS only** Sets the icon of the action item while using [UIBarButtonSystemIcon](https://developer.apple.com/documentation/uikit/uibarbuttonsystemitem) enumeration. |
+| `android.systemIcon` | `string`                                              | **Android only** Sets a path to a resource icon ( see the [list of Android system drawables](https://developer.android.com/reference/android/R.drawable))             |
+
+#### NavigationButton Properties
+
+| Name   | Type     | Description                               |
+| :----- | :------- | :---------------------------------------- |
+| `text` | `string` | Gets or sets the text of the action item. |
+| `icon` | `string` | Gets or sets the icon of the action item. |
+
+#### Events
+
+| Name            | Description                                                                |
+| :-------------- | :------------------------------------------------------------------------- |
+| `loaded`        | Emitted when the view is loaded.                                           |
+| `unloaded`      | Emitted when the view is unloaded.                                         |
+| `layoutChanged` | Emitted when the layout bounds of a view changes due to layout processing. |
+
+#### API References
+
+| Name                                                                                                     | Type     |
+| :------------------------------------------------------------------------------------------------------- | :------- |
+| [ActionBar](https://docs.nativescript.org/api-reference/modules/_ui_action_bar_)                         | `Module` |
+| [ActionBar](https://docs.nativescript.org/api-reference/classes/_ui_action_bar_.actionbar)               | `Class`  |
+| [ActionItem](https://docs.nativescript.org/api-reference/classes/_ui_action_bar_.actionitem)             | `Class`  |
+| [ActionItems](https://docs.nativescript.org/api-reference/classes/_ui_action_bar_.actionitems)           | `Class`  |
+| [NavigationButton](https://docs.nativescript.org/api-reference/classes/_ui_action_bar_.navigationbutton) | `Class`  |
+
+#### Native Component
+
+| Android                                                                                       | iOS                                                                                           |
+| :-------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------- |
+| [android.widget.Toolbar](https://developer.android.com/reference/android/widget/Toolbar.html) | [UIView](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIView_Class/) |
+
+#### See Also
+
+[Detailed documentation article about `ActionBar` functionalities.](https://docs.nativescript.org/angular/ui/action-bar)
+
 ### Activity-Indicator
 
 `<ActivityIndicator>` is a UI component that shows a progress indicator signaling to the user of an operation running in the background.
@@ -777,6 +966,13 @@ import { ActivityIndicator } from '@nativescript/core'
 | Name         | Description                                  |
 | ------------ | -------------------------------------------- |
 | `busyChange` | Emitted when the `busy` property is changed. |
+
+#### API References
+
+| Name                                                                                                               | Type     |
+| :----------------------------------------------------------------------------------------------------------------- | :------- |
+| [ActivityIndicator](http://docs.nativescript.org/api-reference/modules/_ui_activity_indicator_)                    | `Module` |
+| [ActivityIndicator](https://docs.nativescript.org/api-reference/classes/_ui_activity_indicator_.activityindicator) | `Class`  |
 
 #### Native component
 
@@ -863,6 +1059,13 @@ If you need to style parts of the text, you can use a combination of a `Formatte
   </FormattedString>
 </button>
 ```
+
+#### API References
+
+| Name                                                                                            | Type     |
+| ----------------------------------------------------------------------------------------------- | -------- |
+| [@nativescript/core/ui/button](https://docs.nativescript.org/api-reference/modules/_ui_button_) | `Module` |
+| [Button](http://docs.nativescript.org/api-reference/classes/_ui_button_.button.html)            | `Class`  |
 
 #### Native component
 
@@ -1008,6 +1211,13 @@ export class DatePickerUsageComponent {
 | ------------ | --------------------------------------- |
 | `dateChange` | Emitted when the selected date changes. |
 
+#### API References
+
+| Name                                                                                                      | Type     |
+| --------------------------------------------------------------------------------------------------------- | -------- |
+| [@nativescript/core/ui/date-picker](https://docs.nativescript.org/api-reference/modules/_ui_date_picker_) | `Module` |
+| [DatePicker](https://docs.nativescript.org/api-reference/classes/_ui_date_picker_.datepicker)             | `Class`  |
+
 #### Native component
 
 | Android                                                                                               | iOS                                                                            |
@@ -1145,6 +1355,13 @@ export class HtmlViewUsageComponent {
 | ------ | -------- | ----------------------------- |
 | `html` | `String` | The HTML content to be shown. |
 
+#### API References
+
+| Name                                                                                    | Type     | API Reference Link |
+| --------------------------------------------------------------------------------------- | -------- | ------------------ |
+| [HtmlView](https://docs.nativescript.org/api-reference/modules/_ui_html_view_)          | `Module` |
+| [HtmlView](https://docs.nativescript.org/api-reference/classes/_ui_html_view_.htmlview) | `Class`  |
+
 #### Native component
 
 | Android                                                                                           | iOS                                                                        |
@@ -1236,6 +1453,13 @@ When working with images following [the best practices](/performance.html#image-
 | `tintColor`   | `Color`                                                                                         | (Style property) Sets a color to tint template images.                                                                                                                                                                                                                   |
 | `stretch`     | `Stretch`                                                                                       | (Style property) Gets or sets the way the image is resized to fill its allocated space.<br/>Valid values: `none`, `aspectFill`, `aspectFit`, or `fill`.<br/>For more information, see [Stretch](https://docs.nativescript.org/api-reference/modules/_ui_enums_.stretch). |
 | `loadMode`    |                                                                                                 | Gets or sets the loading strategy for the images on the local file system.<br/>Valid values: `sync` or `async`.<br/>Default value: `async`.<br/>For more information, see [loadMode](https://docs.nativescript.org/api-reference/classes/_ui_image_.image#loadmode).     |
+
+#### API References
+
+| Name                                                                                              | Type     |
+| ------------------------------------------------------------------------------------------------- | -------- |
+| [@nativescript/core/ui/image](http://docs.nativescript.org/api-reference/modules/_ui_image_.html) | `Module` |
+| [Image](https://docs.nativescript.org/api-reference/classes/_ui_image_.image)                     | `Class`  |
 
 #### Native component
 
@@ -1331,6 +1555,13 @@ If you need to style parts of the text, you can use a combination of a [`Formatt
 | ------------ | --------------------------------------- |
 | `textChange` | Emitted when the label text is changed. |
 
+#### API References
+
+| Name                                                                                              | Type     |
+| ------------------------------------------------------------------------------------------------- | -------- |
+| [@nativescript/core/ui/label](http://docs.nativescript.org/api-reference/modules/_ui_label_.html) | `Module` |
+| [Label](https://docs.nativescript.org/api-reference/classes/_ui_label_.label)                     | `Class`  |
+
 #### Native component
 
 | Android                                                                                           | iOS                                                                  |
@@ -1418,6 +1649,13 @@ export function onListPickerLoaded(args) {
 | Name                  | Description                                                                                                    |
 | --------------------- | -------------------------------------------------------------------------------------------------------------- |
 | `selectedIndexChange` | Emitted when the currently selected option (index) changes. The new index can be retrieved via `$event.value`. |
+
+#### API References
+
+| Name                                                                                                          | Type     |
+| ------------------------------------------------------------------------------------------------------------- | -------- |
+| [@nativescript/core/ui/list-picker](http://docs.nativescript.org/api-reference/modules/_ui_list_picker_.html) | `Module` |
+| [ListPicker](https://docs.nativescript.org/api-reference/classes/_ui_list_picker_.listpicker)                 | `Class`  |
 
 #### Native component
 
@@ -1777,6 +2015,16 @@ Using the ListView component inside a ScrollView or ScrollView inside the ListVi
 | --------- | ------------------------------------------------------------------------------------------------ |
 | `itemTap` | Emitted when an item in the `<ListView>` is tapped. To access the tapped item, use `event.item`. |
 
+#### API References
+
+| Name                                                                                                 | Type        |
+| ---------------------------------------------------------------------------------------------------- | ----------- |
+| [@nativescript/core/ui/list-view](http://docs.nativescript.org/api-reference/modules/_ui_list_view_) | `Module`    |
+| [ListView](https://docs.nativescript.org/api-reference/classes/_ui_list_view_.listview)              | `Class`     |
+| [ItemEventData](https://docs.nativescript.org/api-reference/interfaces/_ui_list_view_.itemeventdata) | `Interface` |
+| [ItemsSource](https://docs.nativescript.org/api-reference/interfaces/_ui_list_view_.itemssource)     | `Interface` |
+| [KeyedTemplate](https://docs.nativescript.org/api-reference/interfaces/_ui_core_view_.keyedtemplate) | `Interface` |
+
 #### Methods
 
 | Name                                           | Description                                                     |
@@ -2026,6 +2274,10 @@ methods: {
   }
 }
 ```
+
+#### API Reference
+
+[Placeholder Class](https://docs.nativescript.org/api-reference/classes/_ui_placeholder_.placeholder)
 
 ///
 
