@@ -2118,7 +2118,7 @@ export class StylingComponent implements OnInit {
 | ------------- | ------------------------------------------ |
 | `valueChange` | Emitted when the `value` property changes. |
 
-## API References
+#### API References
 
 | Name                                                                                                    | Type     |
 | ------------------------------------------------------------------------------------------------------- | -------- |
@@ -2243,7 +2243,7 @@ export class TipsAndTricksComponent {
 | -------- | ----------------------------------- |
 | `scroll` | Emitted when a scroll event occurs. |
 
-## API References
+#### API References
 
 | Name                                                                                                          | Type        |
 | ------------------------------------------------------------------------------------------------------------- | ----------- |
