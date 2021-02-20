@@ -2,297 +2,6 @@
 title: Interaction
 ---
 
-## Gestures
-
-- [USED REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/ui/gestures.md
-
-Gestures, such as tap, slide and pinch, allow users to interact with your app by manipulating UI elements on the screen.
-
-In NativeScript, `View`&mdash;the base class for all NativeScript UI elements&mdash;has `on` and `off` methods that let you subscribe or unsubscribe to all events and gestures recognized by the UI element.
-
-As the first parameter, you pass an `on` or `off` method and the type of gesture you want to track. The second parameter is a function that is called each time the specified gesture is recognized. The function arguments contain additional information about the gesture, if applicable.
-
-- **on(** type _Number_ | name _String_ | names Comma separated _String_, callback _Function_... \*\*)
-
-  - **type** - _Number_ | **name** - _String_ | **names** - Comma separated _String_
-  - **callback** - _Function_(args _GestureEventData_)
-
-- **off(** type _Number_ | name _String_ | names Comma separated _String_, callback _Function_... \*\*)
-  - **type** - _Number_ | **name** - _String_ | **names** - Comma separated _String_
-  - **callback** - _Function_(args _GestureEventData_)
-
-### Tap
-
-**Action: Briefly touch the screen.**
-
-{% nativescript %}
-
-```typescript
-import { GestureTypes, GestureEventData, Label } from '@nativescript/core'
-var label = new Label()
-label.on(GestureTypes.tap, function (args: GestureEventData) {
-  console.log('Tap')
-})
-```
-
-{% endnativescript %} {% angular %}
-
-```typescript
-onTap(args: GestureEventData) {
-  console.log("Tap!");
-}
-```
-
-```html
-<label text="Tap here" (tap)="onTap($event)"></label>
-```
-
-{% endangular %}
-
-### Double Tap
-
-**Action: Two taps in a quick succession.**
-
-{% nativescript %}
-
-```typescript
-import { GestureTypes, GestureEventData, Label } from '@nativescript/core'
-var label = new Label()
-label.on(GestureTypes.doubleTap, function (args: GestureEventData) {
-  console.log('Double Tap')
-})
-```
-
-{% endnativescript %} {% angular %}
-
-```typescript
-onDoubleTap(args: GestureEventData) {
-  console.log("DoubleTap!");
-}
-```
-
-```html
-<label text="Double tap here" (doubleTap)="onDoubleTap($event)"></label>
-```
-
-{% endangular %} Possible implementation:
-
-- Scale up the object with a predefined percentage, centered around the double-tapped region. If a user keeps repeating the double tap gesture, continue to scale up until the maximum scale is reached.
-- Scale up the smallest targetable view or returns it to its original scale in nested views.
-- Select text.
-
-### Long Press
-
-**Action: Press your finger against the screen for a few moments.**
-
-{% nativescript %}
-
-```typescript
-import { GestureTypes, GestureEventData, Label } from '@nativescript/core'
-var label = new Label()
-label.on(GestureTypes.longPress, function (args: GestureEventData) {
-  console.log('Long Press')
-})
-```
-
-{% endnativescript %} {% angular %}
-
-```typescript
-onLongPress(args: GestureEventData) {
-  console.log("LongPress!");
-}
-```
-
-```html
-<label text="Long press here" (longPress)="onLongPress($event)"></label>
-```
-
-{% endangular %} Possible implementation: Select one or more items in a view and act upon the data using a contextual action bar. Enter data selection mode. Avoid using long press for displaying contextual menus.
-
-### Swipe
-
-**Action: Swiftly slide your finger across the screen. Swipes are quick and affect the screen even after the finger is lifted off the screen.**
-
-{% nativescript %}
-
-```typescript
-import { GestureTypes, SwipeGestureEventData, Label } from '@nativescript/core'
-
-var label = new Label()
-label.on(GestureTypes.swipe, function (args: SwipeGestureEventData) {
-  console.log('Swipe Direction: ' + args.direction)
-})
-```
-
-{% endnativescript %} {% angular %}
-
-```typescript
-onSwipe(args: SwipeGestureEventData) {
-  console.log("Swipe Direction: " + args.direction);
-}
-```
-
-```html
-<label text="Swipe here" (swipe)="onSwipe($event)"></label>
-```
-
-{% endangular %} Possible implementation: Navigate between views in the same hierarchy.
-
-### Pan
-
-**Action: Press your finger down and immediately start moving it around. Pans are executed more slowly and allow for more precision and the screen stops responding as soon as the finger is lifted off it.**
-
-{% nativescript %}
-
-```typescript
-import { GestureTypes, PanGestureEventData, Label } from '@nativescript/core'
-
-const label = new Label()
-label.on(GestureTypes.pan, function (args: PanGestureEventData) {
-  console.log('Pan deltaX:' + args.deltaX + '; deltaY:' + args.deltaY + ';')
-})
-```
-
-{% endnativescript %} {% angular %}
-
-```typescript
-onPan(args: PanGestureEventData) {
-  console.log("Pan delta: [" + args.deltaX + ", " + args.deltaY + "] state: " + args.state);
-}
-```
-
-```html
-<label text="Pan here" (pan)="onPan($event)"></label>
-```
-
-{% endangular %}
-
-### Pinch
-
-**Action: Touch the screen using two of your fingers, then move them towards each other or away from each other.**
-
-{% nativescript %}
-
-```typescript
-import { GestureTypes, PinchGestureEventData, Label } from '@nativescript/core'
-
-var label = new Label()
-label.on(GestureTypes.pinch, function (args: PinchGestureEventData) {
-  console.log('Pinch Scale: ' + args.scale)
-})
-```
-
-{% endnativescript %} {% angular %}
-
-```typescript
-onPinch(args: PinchGestureEventData) {
-  console.log("Pinch scale: " + args.scale + " state: " + args.state);
-}
-```
-
-```html
-<label text="Pinch here" (pinch)="onPinch($event)"></label>
-```
-
-{% endangular %} Possible implementation: Zoom into content or out of content.
-
-### Rotation
-
-**Action: Touch the screen using two of your fingers, then rotate them simultaneously left or right.**
-
-{% nativescript %}
-
-```typescript
-import { GestureTypes, RotationGestureEventData, Label } from '@nativescript/core'
-
-var label = new Label()
-label.on(GestureTypes.rotation, function (args: RotationGestureEventData) {
-  console.log('Rotation: ' + args.rotation)
-})
-```
-
-{% endnativescript %} {% angular %}
-
-```typescript
-onRotate(args: RotationGestureEventData) {
-  console.log("Rotate angle: " + args.rotation + " state: " + args.state);
-}
-```
-
-```html
-<label text="Rotate here" (rotation)="onRotate($event)"></label>
-```
-
-{% endangular %}
-
-### Touch
-
-**Action: A finger action was performed.**
-
-This is a general purpose gesture that is triggered whenever a pointer (usually a finger) has performed a touch action (up, down, move or cancel). `TouchGestureEventData` provides information about all the pointers currently on the screen and their position inside the view that triggered the event.
-
-{% nativescript %}
-
-```typescript
-import { GestureTypes, TouchGestureEventData, Label } from '@nativescript/core'
-
-var label = new Label()
-label.on(GestureTypes.touch, function (args: TouchGestureEventData) {
-  console.log('Touch: x: ' + args.getX() + ' y: ' + args.getY())
-})
-```
-
-{% endnativescript %} {% angular %}
-
-```typescript
-onTouch(args: TouchGestureEventData) {
-  console.log(
-    "Touch point: [" + args.getX() + ", " + args.getY() +
-    "] activePointers: " + args.getActivePointers().length);
-}
-```
-
-```html
-<label text="Touch here" (touch)="onTouch($event)"></label>
-```
-
-{% endangular %}
-
-{% nativescript %}
-
-### Subscribing to Multiple Gestures and Events
-
-Since the release of NativeScript 1.3, when subscribing you can use gestures names, comma separated gestures names and/or even mix with events.
-
-```typescript
-import { GestureEventData, Label } from '@nativescript/core'
-
-var label = new Label()
-label.on('loaded, tap, doubleTap, longPress', function (args: GestureEventData) {
-  console.log('Event: ' + args.eventName + ', sender: ' + args.object)
-})
-```
-
-{% endnativescript %}
-
-### Gesture Manipulations
-
-In some scenarios, you would want to disable the user interaction or to create more complex UI where some gestures are passing through the parents of the actual interactive zone. NativeScript provides some specific properties for handling similar cases as follows:
-
-- `isUserInteractionEnabled` - Gets or sets a boolean value indicating whether the user can interact with the view. Does not affect the appearance of the view. The default value is `true`.
-
-- `isEnabled` - Gets or sets a boolean value indicating whether the view is enabled. Affects the appearance of the view. The default value is `true`.
-
-- `isPassThroughParentEnabled` - Gets or sets a value indicating whether touch events should pass through to a parent view of the layout container in case an interactive child view did not handle the event. Does not affect the appearance of the view. The default value is `false`.
-
-::: warning Note
-There is a conceptual difference in how `isEnabled` is acting on Android and iOS. On Android, the `isEnabled` set to `false` (e.g., on Button) won't allow any events to pass through even when `isPassThroughParentEnabled` is set to `true` for its parent. On the contrary on iOS, the same setup will pass through the event to the parent.
-:::
-
-Playground application demonstrating the usage of the three properties can be found [here](https://play.nativescript.org/?template=play-tsc&id=6c9GA0).
-
-## Navigation
-
 ## Animations
 
 - [USED REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/ui/animation-code.md
@@ -856,12 +565,12 @@ The simplest way to trigger a CSS animation is by changing the element **classNa
 **Example 15: How to trigger CSS animation**
 
 ```js
-var view = page.getViewById('view')
+const view = page.getViewById('view')
 view.className = 'transparent'
 ```
 
-```typescript
-let view = page.getViewById<viewModule.View>('view')
+```ts
+const view = page.getViewById('view')
 view.className = 'transparent'
 ```
 
@@ -1700,5 +1409,525 @@ animation.play();
 ```
 
 [Demo](https://play.nativescript.org/?template=play-ng&id=cWAc2j) {% endangular %}
+
+## Dialogs
+
+NativeScript lets you create dialogs in a similar manner to the web browser. You can create alerts, confirmations, prompts, logins and dialogs that require action.
+
+---
+
+### Alert Dialog
+
+An Alert Dialog to notify the user of some event or action.
+
+```ts
+import { Dialogs } from '@nativescript/core'
+
+export function showAlertDialog() {
+  const alertOptions = {
+    title: 'Warning',
+    message: 'Something terrible has happened.',
+    okButtonText: 'Okay',
+    cancelable: false // [Android only] Gets or sets if the dialog can be canceled by taping outside of the dialog.
+  }
+
+  Dialogs.alert(alertOptions).then(() => {
+    console.log('Race chosen!')
+  })
+}
+```
+
+#### Alert Dialog Properties
+
+| Name           | Type      | Description                                                                                    |
+| -------------- | --------- | ---------------------------------------------------------------------------------------------- |
+| `title`        | `string`  | Gets or sets the dialog title.                                                                 |
+| `message`      | `string`  | Gets or sets the dialog message.                                                               |
+| `cancelable`   | `boolean` | _*[Android only]*_ Gets or sets if the dialog can be canceled by taping outside of the dialog. |
+| `okButtonText` | `string`  | Gets or sets the OK button text.                                                               |
+
+### Action Dialog
+
+An Action Dialog will require a particular activity from the user. The action method accepts multiple parameters or an ActionOptions object with keys title, message, cancelBUttonText, actions, and cancelable(Android only property).
+
+```ts
+import { Dialogs } from '@nativescript/core'
+
+export function showActionDialog() {
+  const actionOptions = {
+    title: 'Race selection',
+    message: 'Choose your race',
+    cancelButtonText: 'Cancel',
+    actions: ['Human', 'Elf', 'Dwarf', 'Orc', 'Unicorn'],
+    cancelable: true // Android only
+  }
+
+  Dialogs.action(actionOptions).then(result => {
+    console.log('Dialog result: ', result)
+    if (result === 'Options1') {
+      // Do action 1
+    } else if (result === 'Option2') {
+      // Do action 2
+    }
+  })
+}
+```
+
+#### Action Dialog Propeties
+
+| Name               | Type            | Description                                                                                    |
+| ------------------ | --------------- | ---------------------------------------------------------------------------------------------- |
+| `title`            | `string`        | Gets or sets the dialog title.                                                                 |
+| `message`          | `string`        | Gets or sets the dialog message.                                                               |
+| `cancelable`       | `boolean`       | _*[Android only]*_ Gets or sets if the dialog can be canceled by taping outside of the dialog. |
+| `actions`          | `Array<string>` | Gets or sets the list of available actions.                                                    |
+| `cancelButtonText` | `string`        | Gets or sets the Cancel button text.                                                           |
+
+### Confirm
+
+A Confirm Dialog will expect the user to accept or reject the action that is about the happen.
+
+```ts
+import { Dialogs } from '@nativescript/core'
+
+export function showConfirmDialog() {
+  const confirmOptions = {
+    title: 'Race selection',
+    message: 'Are you sure you want to be a Unicorn?',
+    okButtonText: 'Yes',
+    cancelButtonText: 'No',
+    neutralButtonText: 'Cancel'
+  }
+
+  Dialogs.confirm(confirmOptions).then(result => {
+    console.log(result)
+  })
+}
+```
+
+#### Confirm Dialog Properties
+
+| Name                | Type      | Description                                                                                    |
+| ------------------- | --------- | ---------------------------------------------------------------------------------------------- |
+| `title`             | `string`  | Gets or sets the dialog title.                                                                 |
+| `message`           | `string`  | Gets or sets the dialog message.                                                               |
+| `cancelable`        | `boolean` | _*[Android only]*_ Gets or sets if the dialog can be canceled by taping outside of the dialog. |
+| `cancelButtonText`  | `string`  | Gets or sets the Cancel button text.                                                           |
+| `okButtonText`      | `string`  | Gets or sets the OK button text.                                                               |
+| `neutralButtonText` | `string`  | Gets or sets the neutral button text.                                                          |
+
+### Login
+
+A Login Dialog will wait for the user to input their credentials.
+
+```ts
+import { Dialogs } from '@nativescript/core'
+
+export function showLoginDialog() {
+  const loginOptions = {
+    title: 'Login Form',
+    message: 'Enter your credentials',
+    okButtonText: 'Login',
+    cancelButtonText: 'Cancel',
+    neutralButtonText: 'Neutral',
+    userNameHint: 'Enter your username',
+    passwordHint: 'Enter your password',
+    userName: 'john_doe',
+    password: '123456'
+  }
+
+  Dialogs.login(loginOptions).then(loginResult => {
+    console.log(loginResult.result)
+  })
+}
+```
+
+#### Login Dialog Properties
+
+| Name                | Type      | Description                                                                                    |
+| ------------------- | --------- | ---------------------------------------------------------------------------------------------- |
+| `title`             | `string`  | Gets or sets the dialog title.                                                                 |
+| `message`           | `string`  | Gets or sets the dialog message.                                                               |
+| `cancelable`        | `boolean` | _*[Android only]*_ Gets or sets if the dialog can be canceled by taping outside of the dialog. |
+| `cancelButtonText`  | `string`  | Gets or sets the Cancel button text.                                                           |
+| `okButtonText`      | `string`  | Gets or sets the OK button text.                                                               |
+| `neutralButtonText` | `string`  | Gets or sets the neutral button text.                                                          |
+| `userName`          | `string`  | Gets or sets the default text to display in the username input box.                            |
+| `userNameHint`      | `string`  | Gets or sets the default text to display as hint in the username input box.                    |
+| `password`          | `string`  | Gets or sets the default text to display in the password input box.                            |
+| `passwordHint`      | `string`  | Gets or sets the default text to display as hint in the password input box.                    |
+
+#### Login Dialog Result Properties
+
+The result are received in the dialog resolved promise after the user closes or dismisses the dialog.
+
+| Name       | Type      | Description                                                            |
+| ---------- | --------- | ---------------------------------------------------------------------- |
+| `userName` | `string`  | Gets the username entered in the login dialog.                         |
+| `password` | `string`  | Gets the password entered in the login dialog.                         |
+| `result`   | `boolean` | Returns `false` when the dialog is dismissed. Otherwise returns `true` |
+
+### Prompt
+
+A Prompt Dialog will request for an input. A basic definition might be:
+
+```ts
+import { Dialogs, Enums, inputType } from '@nativescript/core'
+
+export function showPromptDialog() {
+  const promptOptions = {
+    title: 'Hey There',
+    defaultText: ' Enter your mood ',
+    message: "How you doin'",
+    okButtonText: 'OK',
+    cancelButtonText: 'Cancel',
+    neutralButtonText: 'Neutral',
+    cancelable: true,
+    inputType: inputType.text, // email, number, text, password, or email
+    capitalizationType: Enums.AutocapitalizationType.sentences // all. none, sentences or words
+  }
+
+  Dialogs.prompt(promptOptions).then(result => {
+    console.log('Hello, ' + result.text)
+  })
+}
+```
+
+#### Prompt Dialog Properties
+
+| Name                 | Type      | Description                                                                                    |
+| -------------------- | --------- | ---------------------------------------------------------------------------------------------- |
+| `title`              | `string`  | Gets or sets the dialog title.                                                                 |
+| `message`            | `string`  | Gets or sets the dialog message.                                                               |
+| `cancelable`         | `boolean` | _*[Android only]*_ Gets or sets if the dialog can be canceled by taping outside of the dialog. |
+| `cancelButtonText`   | `string`  | Gets or sets the Cancel button text.                                                           |
+| `okButtonText`       | `string`  | Gets or sets the OK button text.                                                               |
+| `neutralButtonText`  | `string`  | Gets or sets the neutral button text.                                                          |
+| `defaultText`        | `string`  | Gets or sets the default text to display in the input box.                                     |
+| `capitalizationType` | `string`  | Gets or sets the prompt capitalizationType (none, all, sentences, or words).                   |
+| `inputType`          | `string`  | Gets or sets the prompt input type (plain text, password, or email).                           |
+
+#### Prompt Dialog Result Properties
+
+The result are received in the dialog resolved promise after the user closes or dismisses the dialog.
+
+| Name     | Type      | Description                                                            |
+| -------- | --------- | ---------------------------------------------------------------------- |
+| `text`   | `string`  | Gets the text entered in the prompt dialog input field.                |
+| `result` | `boolean` | Returns `false` when the dialog is dismissed. Otherwise returns `true` |
+
+### API References
+
+| Name                                                                                                 | Type        | API Reference Link |
+| ---------------------------------------------------------------------------------------------------- | ----------- | ------------------ |
+| [@nativescript/core/dialogs](https://docs.nativescript.org/api-reference/modules/_ui_dialogs_)       | `Module`    |
+| [action](https://docs.nativescript.org/api-reference/modules/_ui_dialogs_#action)                    | `function`  |
+| [ActionOptions](https://docs.nativescript.org/api-reference/interfaces/_ui_dialogs_.actionoptions)   | `interface` |
+| [alert](https://docs.nativescript.org/api-reference/modules/_ui_dialogs_#alert)                      | `function`  |
+| [AlertOptions](https://docs.nativescript.org/api-reference/interfaces/_ui_dialogs_.alertoptions)     | `interface` |
+| [confirm](https://docs.nativescript.org/api-reference/modules/_ui_dialogs_#confirm)                  | `function`  |
+| [ConfirmOptions](https://docs.nativescript.org/api-reference/interfaces/_ui_dialogs_.confirmoptions) | `interface` |
+| [login](https://docs.nativescript.org/api-reference/modules/_ui_dialogs_#login)                      | `function`  |
+| [LoginOptions](https://docs.nativescript.org/api-reference/interfaces/_ui_dialogs_.loginoptions)     | `interface` |
+| [LoginResults](https://docs.nativescript.org/api-reference/interfaces/_ui_dialogs_.loginresult)      | `interface` |
+| [prompt](https://docs.nativescript.org/api-reference/modules/_ui_dialogs_#prompt)                    | `function`  |
+| [PromptOptions](https://docs.nativescript.org/api-reference/interfaces/_ui_dialogs_.promptoptions)   | `interface` |
+
+### Native Component
+
+| Android                                                                                                    | iOS                                                                                    |
+| :--------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------- |
+| [android.app.AlertDialog.Builder](https://developer.android.com/reference/android/app/AlertDialog.Builder) | [UIAlertController](https://developer.apple.com/documentation/uikit/uialertcontroller) |
+
+## Gestures
+
+- [USED REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/ui/gestures.md
+
+Gestures, such as tap, slide and pinch, allow users to interact with your app by manipulating UI elements on the screen.
+
+In NativeScript, `View`&mdash;the base class for all NativeScript UI elements&mdash;has `on` and `off` methods that let you subscribe or unsubscribe to all events and gestures recognized by the UI element.
+
+As the first parameter, you pass an `on` or `off` method and the type of gesture you want to track. The second parameter is a function that is called each time the specified gesture is recognized. The function arguments contain additional information about the gesture, if applicable.
+
+- **on(** type _Number_ | name _String_ | names Comma separated _String_, callback _Function_... \*\*)
+
+  - **type** - _Number_ | **name** - _String_ | **names** - Comma separated _String_
+  - **callback** - _Function_(args _GestureEventData_)
+
+- **off(** type _Number_ | name _String_ | names Comma separated _String_, callback _Function_... \*\*)
+  - **type** - _Number_ | **name** - _String_ | **names** - Comma separated _String_
+  - **callback** - _Function_(args _GestureEventData_)
+
+### Tap
+
+**Action: Briefly touch the screen.**
+
+{% nativescript %}
+
+```typescript
+import { GestureTypes, GestureEventData, Label } from '@nativescript/core'
+var label = new Label()
+label.on(GestureTypes.tap, function (args: GestureEventData) {
+  console.log('Tap')
+})
+```
+
+{% endnativescript %} {% angular %}
+
+```typescript
+onTap(args: GestureEventData) {
+  console.log("Tap!");
+}
+```
+
+```html
+<label text="Tap here" (tap)="onTap($event)"></label>
+```
+
+{% endangular %}
+
+### Double Tap
+
+**Action: Two taps in a quick succession.**
+
+{% nativescript %}
+
+```typescript
+import { GestureTypes, GestureEventData, Label } from '@nativescript/core'
+var label = new Label()
+label.on(GestureTypes.doubleTap, function (args: GestureEventData) {
+  console.log('Double Tap')
+})
+```
+
+{% endnativescript %} {% angular %}
+
+```typescript
+onDoubleTap(args: GestureEventData) {
+  console.log("DoubleTap!");
+}
+```
+
+```html
+<label text="Double tap here" (doubleTap)="onDoubleTap($event)"></label>
+```
+
+{% endangular %} Possible implementation:
+
+- Scale up the object with a predefined percentage, centered around the double-tapped region. If a user keeps repeating the double tap gesture, continue to scale up until the maximum scale is reached.
+- Scale up the smallest targetable view or returns it to its original scale in nested views.
+- Select text.
+
+### Long Press
+
+**Action: Press your finger against the screen for a few moments.**
+
+{% nativescript %}
+
+```typescript
+import { GestureTypes, GestureEventData, Label } from '@nativescript/core'
+var label = new Label()
+label.on(GestureTypes.longPress, function (args: GestureEventData) {
+  console.log('Long Press')
+})
+```
+
+{% endnativescript %} {% angular %}
+
+```typescript
+onLongPress(args: GestureEventData) {
+  console.log("LongPress!");
+}
+```
+
+```html
+<label text="Long press here" (longPress)="onLongPress($event)"></label>
+```
+
+{% endangular %} Possible implementation: Select one or more items in a view and act upon the data using a contextual action bar. Enter data selection mode. Avoid using long press for displaying contextual menus.
+
+### Swipe
+
+**Action: Swiftly slide your finger across the screen. Swipes are quick and affect the screen even after the finger is lifted off the screen.**
+
+{% nativescript %}
+
+```typescript
+import { GestureTypes, SwipeGestureEventData, Label } from '@nativescript/core'
+
+var label = new Label()
+label.on(GestureTypes.swipe, function (args: SwipeGestureEventData) {
+  console.log('Swipe Direction: ' + args.direction)
+})
+```
+
+{% endnativescript %} {% angular %}
+
+```typescript
+onSwipe(args: SwipeGestureEventData) {
+  console.log("Swipe Direction: " + args.direction);
+}
+```
+
+```html
+<label text="Swipe here" (swipe)="onSwipe($event)"></label>
+```
+
+{% endangular %} Possible implementation: Navigate between views in the same hierarchy.
+
+### Pan
+
+**Action: Press your finger down and immediately start moving it around. Pans are executed more slowly and allow for more precision and the screen stops responding as soon as the finger is lifted off it.**
+
+{% nativescript %}
+
+```typescript
+import { GestureTypes, PanGestureEventData, Label } from '@nativescript/core'
+
+const label = new Label()
+label.on(GestureTypes.pan, function (args: PanGestureEventData) {
+  console.log('Pan deltaX:' + args.deltaX + '; deltaY:' + args.deltaY + ';')
+})
+```
+
+{% endnativescript %} {% angular %}
+
+```typescript
+onPan(args: PanGestureEventData) {
+  console.log("Pan delta: [" + args.deltaX + ", " + args.deltaY + "] state: " + args.state);
+}
+```
+
+```html
+<label text="Pan here" (pan)="onPan($event)"></label>
+```
+
+{% endangular %}
+
+### Pinch
+
+**Action: Touch the screen using two of your fingers, then move them towards each other or away from each other.**
+
+{% nativescript %}
+
+```typescript
+import { GestureTypes, PinchGestureEventData, Label } from '@nativescript/core'
+
+var label = new Label()
+label.on(GestureTypes.pinch, function (args: PinchGestureEventData) {
+  console.log('Pinch Scale: ' + args.scale)
+})
+```
+
+{% endnativescript %} {% angular %}
+
+```typescript
+onPinch(args: PinchGestureEventData) {
+  console.log("Pinch scale: " + args.scale + " state: " + args.state);
+}
+```
+
+```html
+<label text="Pinch here" (pinch)="onPinch($event)"></label>
+```
+
+{% endangular %} Possible implementation: Zoom into content or out of content.
+
+### Rotation
+
+**Action: Touch the screen using two of your fingers, then rotate them simultaneously left or right.**
+
+{% nativescript %}
+
+```typescript
+import { GestureTypes, RotationGestureEventData, Label } from '@nativescript/core'
+
+var label = new Label()
+label.on(GestureTypes.rotation, function (args: RotationGestureEventData) {
+  console.log('Rotation: ' + args.rotation)
+})
+```
+
+{% endnativescript %} {% angular %}
+
+```typescript
+onRotate(args: RotationGestureEventData) {
+  console.log("Rotate angle: " + args.rotation + " state: " + args.state);
+}
+```
+
+```html
+<label text="Rotate here" (rotation)="onRotate($event)"></label>
+```
+
+{% endangular %}
+
+### Touch
+
+**Action: A finger action was performed.**
+
+This is a general purpose gesture that is triggered whenever a pointer (usually a finger) has performed a touch action (up, down, move or cancel). `TouchGestureEventData` provides information about all the pointers currently on the screen and their position inside the view that triggered the event.
+
+{% nativescript %}
+
+```typescript
+import { GestureTypes, TouchGestureEventData, Label } from '@nativescript/core'
+
+var label = new Label()
+label.on(GestureTypes.touch, function (args: TouchGestureEventData) {
+  console.log('Touch: x: ' + args.getX() + ' y: ' + args.getY())
+})
+```
+
+{% endnativescript %} {% angular %}
+
+```typescript
+onTouch(args: TouchGestureEventData) {
+  console.log(
+    "Touch point: [" + args.getX() + ", " + args.getY() +
+    "] activePointers: " + args.getActivePointers().length);
+}
+```
+
+```html
+<label text="Touch here" (touch)="onTouch($event)"></label>
+```
+
+{% endangular %}
+
+{% nativescript %}
+
+### Subscribing to Multiple Gestures and Events
+
+Since the release of NativeScript 1.3, when subscribing you can use gestures names, comma separated gestures names and/or even mix with events.
+
+```typescript
+import { GestureEventData, Label } from '@nativescript/core'
+
+var label = new Label()
+label.on('loaded, tap, doubleTap, longPress', function (args: GestureEventData) {
+  console.log('Event: ' + args.eventName + ', sender: ' + args.object)
+})
+```
+
+{% endnativescript %}
+
+### Gesture Manipulations
+
+In some scenarios, you would want to disable the user interaction or to create more complex UI where some gestures are passing through the parents of the actual interactive zone. NativeScript provides some specific properties for handling similar cases as follows:
+
+- `isUserInteractionEnabled` - Gets or sets a boolean value indicating whether the user can interact with the view. Does not affect the appearance of the view. The default value is `true`.
+
+- `isEnabled` - Gets or sets a boolean value indicating whether the view is enabled. Affects the appearance of the view. The default value is `true`.
+
+- `isPassThroughParentEnabled` - Gets or sets a value indicating whether touch events should pass through to a parent view of the layout container in case an interactive child view did not handle the event. Does not affect the appearance of the view. The default value is `false`.
+
+::: warning Note
+There is a conceptual difference in how `isEnabled` is acting on Android and iOS. On Android, the `isEnabled` set to `false` (e.g., on Button) won't allow any events to pass through even when `isPassThroughParentEnabled` is set to `true` for its parent. On the contrary on iOS, the same setup will pass through the event to the parent.
+:::
+
+Playground application demonstrating the usage of the three properties can be found [here](https://play.nativescript.org/?template=play-tsc&id=6c9GA0).
+
+## Navigation
 
 ## Accessibility
