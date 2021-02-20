@@ -2,7 +2,7 @@
 title: Background HTTP
 ---
 
-```javascript
+```js
 ns plugin add @nativescript/background-http
 ```
 
@@ -14,7 +14,7 @@ The below attached code snippets demonstrate how to use `@nativescript/backgroun
 
 Sample code for configuring the upload session. Each session must have a unique `id`, but it can have multiple tasks running simultaneously. The `id` is passed as a parameter when creating the session (the `image-upload` string in the code bellow):
 
-```javascript
+```js
 // file path and url
 var file = '/some/local/file/path/and/file/name.jpg'
 var url = 'https://some.remote.service.com/path'
@@ -35,13 +35,13 @@ var request = {
 
 For a single file upload, use the following code:
 
-```javascript
+```js
 var task = session.uploadFile(file, request)
 ```
 
 For multiple files or to pass additional data, use the multipart upload method. All parameter values must be strings:
 
-```javascript
+```js
 var params = [
   { name: 'test', value: 'value' },
   { name: 'fileToUpload', filename: file, mimeType: 'image/jpeg' }
@@ -87,7 +87,7 @@ The task object has the following properties and methods, that can be used to ge
 
 After the upload task is created you can monitor its progress using the following events:
 
-```javascript
+```js
 task.on('progress', progressHandler)
 task.on('error', errorHandler)
 task.on('responded', respondedHandler)
@@ -97,7 +97,7 @@ task.on('cancelled', cancelledHandler) // Android only
 
 Each event handler will receive a single parameter with event arguments:
 
-```javascript
+```js
 // event arguments:
 // task: Task
 // currentBytes: number

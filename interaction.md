@@ -306,7 +306,7 @@ The easiest way to animate a **single** [`View`](/api-reference/classes/_ui_core
 
 **Example 20: How to execute animation on single view.**
 
-```javascript
+```js
 view.animate({
   translate: { x: 0, y: 100 },
   duration: 1000,
@@ -370,7 +370,7 @@ It is easy to animate multiple properties at once; just pass the desired animata
 
 **Example 21: How to animate multiple properties.**
 
-```javascript
+```js
 view.animate({
   backgroundColor: new color.Color('#3D5AFE'),
   opacity: 0.5,
@@ -398,7 +398,7 @@ The animate method returns a promise that you can use to chain animations, as sh
 
 **Example 22: How to create chain animations.**
 
-```javascript
+```js
 view
   .animate({ opacity: 0 })
   .then(function () {
@@ -479,7 +479,7 @@ CSS animations consist of two components: a style describing the CSS animation a
 
 To get an animation to work, you must bind the animation to an element:
 
-```javascript
+```js
 view1.className = 'example'
 ```
 
@@ -855,7 +855,7 @@ The simplest way to trigger a CSS animation is by changing the element **classNa
 
 **Example 15: How to trigger CSS animation**
 
-```javascript
+```js
 var view = page.getViewById('view')
 view.className = 'transparent'
 ```
@@ -869,7 +869,7 @@ All keyframes defined in CSS can be accessed with code by using the **getKeyfram
 
 **Example 16: Accessing CSS defined keyframe in the code via **getKeyframeAnimationWithName** method**
 
-```javascript
+```js
 import { KeyframeAnimation } from '@nativescript/core'
 
 var view = page.getViewById('view')
@@ -912,7 +912,7 @@ In **Example 1** we will change the background color of a button from "red" to "
 
 ![hello-world](/assets/images/modules/animation/hello-world.gif 'Hello world')
 
-```javascript
+```js
 // Import color module
 import { Color } from '@nativescript/core'
 
@@ -1005,7 +1005,7 @@ In NativeScript, the animation curve is represented by the AnimationCurve enumer
 
 **Example 3: How to customize the animation timing function**
 
-```javascript
+```js
 import { Enums } from '@nativescript/core'
 view.animate({
   translate: { x: 0, y: 100 },
@@ -1050,7 +1050,7 @@ For help finding the `cubicBezier` values you need for your custom animation tim
 
 ![beziergraph](/assets/images/modules/animation/bezier-graph.png 'BezierGraph')
 
-```javascript
+```js
 import { Enums } from '@nativescript/core'
 
 view.animate({
@@ -1088,7 +1088,7 @@ To create more complex animations, we might need to change the origin point arou
 
 **Example 5: Rotating a view around its center. Center of view is changed via `originX` and `originY` properties.**
 
-```javascript
+```js
 view.originX = 1 // default 0.5 (center), 0 is most left, 1 is most right
 view.originY = 0.5 // default 0.5 (middle), 0 is top, 1 is bottom
 view.animate({
@@ -1124,7 +1124,7 @@ The full source code for all samples is located [here](https://github.com/Native
 
 ![opacity](/assets/images/modules/animation/opacity.gif 'Opacity')
 
-```javascript
+```js
 view.animate({
   opacity: 0,
   duration: 3000
@@ -1159,7 +1159,7 @@ view.animate({
 
 ![background-color](/assets/images/modules/animation/background-color.gif 'Background Color')
 
-```javascript
+```js
 view.animate({
   backgroundColor: new colorModule.Color('#3D5AFE'),
   duration: 3000
@@ -1194,7 +1194,7 @@ view.animate({
 
 ![translate](/assets/images/modules/animation/translate.gif 'Translate')
 
-```javascript
+```js
 view.animate({
   translate: { x: 100, y: 100 },
   duration: 3000
@@ -1229,7 +1229,7 @@ view.animate({
 
 ![scale](/assets/images/modules/animation/scale.gif 'Scale')
 
-```javascript
+```js
 view.animate({
   scale: { x: 2, y: 2 },
   duration: 3000
@@ -1264,7 +1264,7 @@ view.animate({
 
 ![rotate](/assets/images/modules/animation/rotate.gif 'Rotate')
 
-```javascript
+```js
 view.animate({
   rotate: 360,
   duration: 3000
@@ -1299,7 +1299,7 @@ view.animate({
 
 ![chaining-with-animation-set](/assets/images/modules/animation/chaining-with-animation-set.gif 'Chaining with Animation Set')
 
-```javascript
+```js
 var definitions = new Array()
 definitions.push({ target: view1, translate: { x: 200, y: 0 }, duration: 3000 })
 definitions.push({ target: view2, translate: { x: 0, y: 200 }, duration: 3000 })
@@ -1339,7 +1339,7 @@ animationSet
 
 ![multiple-views](/assets/images/modules/animation/multiple-views.gif 'Multiple Views')
 
-```javascript
+```js
 var definitions = new Array()
 var a1 = {
   target: view1,
@@ -1424,7 +1424,7 @@ animationSet
 
 ![reusing](/assets/images/modules/animation/reusing.gif 'Reusing Animations')
 
-```javascript
+```js
 var animation1 = view.createAnimation({ opacity: 0 })
 var animation2 = view.createAnimation({ opacity: 1 })
 animation1
@@ -1475,7 +1475,7 @@ animation1
 
 ![slide-in-effect](/assets/images/modules/animation/slide-in-effect.gif 'Slide-in Effect')
 
-```javascript
+```js
 var item = new imageModule.Image()
 item.src = '~/res/icon_100x100.png'
 item.width = 90
@@ -1507,7 +1507,7 @@ wrapLayout.addChild(item)
 
 ![infinite](/assets/images/modules/animation/infinite.gif 'Infinite')
 
-```javascript
+```js
 animationSet = new animationModule.Animation([
   {
     target: view,
@@ -1549,7 +1549,7 @@ animationSet.play().catch(e => {
 
 ![rotation_origin_x_y](/assets/images/modules/animation/rotation_origin_x_y.gif 'Rotation originX / originY')
 
-```javascript
+```js
 const view = page.getViewById('myView')
 
 view.originX = 1 // default 0.5 (center), 0 is most left, 1 is most right
@@ -1599,7 +1599,7 @@ view
 
 ### Width
 
-```javascript
+```js
 let label = page.getViewById('lblNS')
 let animation = new Animation([
   {
@@ -1627,7 +1627,7 @@ animation.play()
 
 ### Height
 
-```javascript
+```js
 let label = page.getViewById('lblNS')
 let animation = new Animation([
   {

@@ -10,7 +10,7 @@ A [NativeScript](https://www.nativescript.org) plugin that provides ui elements 
 
 <img alt="TimePickerField on iOS (left) and Android (right)" src="https://raw.githubusercontent.com/NativeScript/nativescript-datetimepicker/master/docs/time_picker_field.png" width="500px"/>
 
-```javascript
+```js
 ns plugin add @nativescript/datetimepicker
 ```
 
@@ -61,7 +61,7 @@ Then you will be able to declare the fields in the html of your component:
 
 - If you are developing a NativeScript Vue app, you need to install the plugin in you app.js file:
 
-```javascript
+```js
 import Vue from 'nativescript-vue'
 import DateTimePicker from '@nativescript/datetimepicker/vue'
 Vue.use(DateTimePicker)

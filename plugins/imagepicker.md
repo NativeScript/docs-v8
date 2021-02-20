@@ -9,7 +9,7 @@ Imagepicker plugin supporting both single and multiple selection.
 
 ## Install
 
-```javascript
+```js
 ns plugin add @nativescript/imagepicker
 ```
 

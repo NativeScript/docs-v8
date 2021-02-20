@@ -1,6 +1,6 @@
 # Nativescript social-share
 
-```javascript
+```js
 ns plugin add @nativescript/social-share
 ```
 

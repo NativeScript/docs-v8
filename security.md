@@ -32,7 +32,7 @@ This line should only be visible when either viewing all docs, or react speficic
 This line should only be visible when either viewing all docs, or svelte speficic docs.
 ///
 
-```javascript
+```js
 const foo = 'bar'
 ```
 
@@ -42,7 +42,7 @@ const foo: string = 'bar'
 
 <!-- tab:CustomTabName -->
 
-```javascript
+```js
 const foo = 'bar'
 ```
 

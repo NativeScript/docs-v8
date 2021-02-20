@@ -1,6 +1,6 @@
 # Nativescript Fingerprint-Auth
 
-```javascript
+```js
 ns plugin add @nativescript/fingerprint-auth
 ```
 
@@ -97,7 +97,7 @@ If you are using Webpack with or without snapshot there are couple more changes 
 First you need to edit your `vendor-platform.android.ts` file and add `require("nativescript-fingerprint-auth/appcompat-activity");`. You can see the changed file in the demo app [here](https://github.com/EddyVerbruggen/nativescript-fingerprint-auth/blob/master/demo/app/vendor-platform.android.ts#L9).  
 The second change should be made in your `webpack.config.js` file. Find the place where the `NativeScriptSnapshotPlugin` is pushed to the webpack plugins and add `"nativescript-fingerprint-auth"` in the `tnsJavaClassesOptions.packages` array. The result should look something like:
 
-```javascript
+```js
 // ...
 if (snapshot) {
   config.plugins.push(

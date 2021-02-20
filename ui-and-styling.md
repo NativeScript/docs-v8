@@ -840,7 +840,7 @@ If you need to style parts of the text, you can use a combination of a `Formatte
 
 If you are migrating from nativescript 3.x and want to preserve the old behavior, the following snippet in your entry file will create a root frame and render your default page.
 
-```javascript
+```js
 new Vue({
   render: h => h('Frame', [h(HomePageComponent)])
 })
@@ -880,7 +880,7 @@ If you need to create multiple frames, you can do so by wrapping them in a Layou
 </frame>
 ```
 
-```javascript
+```js
 import Home from './Home'
 
 export default {
@@ -1122,7 +1122,7 @@ To use multiple event listeners within a ListView, you can pass in the current i
 
 If you only need to handle taps on the whole cell, you can use the `itemTap` event which contains the index of the tapped item and the actual item from the list.
 
-```javascript
+```js
 onItemTap(event) {
   console.log(event.index)
   console.log(event.item)
@@ -1189,7 +1189,7 @@ A typical scenario is performing UI changes after the page is loaded. The recomm
 </Page>
 ```
 
-```javascript
+```js
 export default {
   methods: {
     greet() {
@@ -1243,7 +1243,7 @@ Developers coming from a web background would usually reach for the `mounted` li
 
 #### Example with TextView in Android
 
-```javascript
+```js
 methods: {
   creatingView: function(args) {
       const nativeView = new android.widget.TextView(args.context);
@@ -1257,7 +1257,7 @@ methods: {
 
 #### Example with UILabel in iOS
 
-```javascript
+```js
 methods: {
   creatingView: function(args) {
       const nativeView = new UILabel();
@@ -1528,7 +1528,7 @@ NativeScript 6 introduced two new tab navigation components, `<BottomNavigation>
 </TabView>
 ```
 
-```javascript
+```js
 methods: {
   indexChange: function(args) {
       let newIndex = args.value

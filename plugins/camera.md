@@ -84,7 +84,7 @@ In order to use the camera module, just require it, as shown in Example 1:
 
 > Example 1: Require camera module in the application
 
-```javascript
+```js
 // JavaScript
 const camera = require('@nativescript/camera')
 ```
@@ -98,7 +98,7 @@ Then you are ready to use it:
 
 > Example 2: How to take a picture and to receive image asset
 
-```javascript
+```js
 // JavaScript
 const { Image } = require('@nativescript/core')
 
@@ -149,7 +149,7 @@ What does `device independent pixels` mean? The NativeScript layout mechanism us
 
 > Example 3: How to setup `width`, `height`, `keepAspectRatio` and `saveToGallery` properties for the camera module
 
-```javascript
+```js
 // JavaScript
 
 const options = {
