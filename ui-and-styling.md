@@ -1316,10 +1316,16 @@ If you need to style parts of the text, you can use a combination of a [`Formatt
 
 #### Props
 
-| Name       | Type      | Description                                                            |
-| ---------- | --------- | ---------------------------------------------------------------------- |
-| `text`     | `String`  | Gets or sets the text of the label.                                    |
-| `textWrap` | `Boolean` | Gets or sets whether the label wraps text.<br/>Default value: `false`. |
+| Name             | Type                                                                                           | Description                                       |
+| ---------------- | ---------------------------------------------------------------------------------------------- | ------------------------------------------------- |
+| `letterSpacing`  | `number`                                                                                       | Gets or sets letterSpace style property.          |
+| `lineHeight`     | `number`                                                                                       | Gets or sets lineHeight style property.           |
+| `text`           | `string`                                                                                       | Gets or sets the Label text.                      |
+| `textAlignment`  | **_"initial"_**, **_"left"_**, **_"center"_**, **_"right"_**                                   | Gets or sets text-alignment style property.       |
+| `textDecoration` | **_"none"_**, **_"underline"_**, **_"line-through"_**, **_"underline"_**, **_"line-through"_** | Gets or sets text swcoration style property.      |
+| `textTransform`  | **_"initial"_**, **_"none"_**, **_"capitalize"_**, **_"uppercase"_**, **_"lowercase"_**        | Gets or sets text transform style property.       |
+| `textWrap`       | `boolean`                                                                                      | Gets or sets whether the Label wraps text or not. |
+| `whiteSpace`     | **_"initial"_**, **_"normal"_**, **_"nowrap"_**                                                | Gets or sets the white space style.               |
 
 #### Events
 
@@ -1346,6 +1352,46 @@ https://github.com/nativescript-vue/nativescript-vue.org/tree/master/content/doc
 
 ---
 
+/// flavor core
+
+```xml
+<ListPicker items="{{ years }}" selectedIndex="0" loaded="onListPickerLoaded" />
+```
+
+```ts
+import { EventData, fromObject, ListPicker, Page } from '@nativescript/core'
+
+const years = [1980, 1990, 2000, 2010, 2020]
+
+export function onNavigatingTo(args: EventData) {
+  const page = <Page>args.object
+  const vm = fromObject({
+    years: years
+  })
+  page.bindingContext = vm
+}
+
+export function onListPickerLoaded(args) {
+  const listPickerComponent = args.object
+  listPickerComponent.on('selectedIndexChange', (data: EventData) => {
+    const picker = data.object as ListPicker
+    console.log(`index: ${picker.selectedIndex}; item" ${years[picker.selectedIndex]}`)
+  })
+}
+```
+
+///
+
+/// flavor angular
+
+```html
+<ListPicker [items]="items" class="picker"></ListPicker>
+```
+
+///
+
+/// flavor vue
+
 ```html
 <ListPicker
   :items="listOfItems"
@@ -1359,6 +1405,8 @@ https://github.com/nativescript-vue/nativescript-vue.org/tree/master/content/doc
 ```html
 <ListPicker :items="listOfItems" v-model="selectedItem" />
 ```
+
+///
 
 #### Props
 
@@ -1381,7 +1429,259 @@ https://github.com/nativescript-vue/nativescript-vue.org/tree/master/content/doc
 
 ### ListView
 
-`<ListView>` is a UI component that shows items in a vertically scrolling list. To set how the list shows individual items, you can use the `<v-template>` component.
+`<ListView>` is a UI component that shows items in a vertically scrolling list. To set how the list shows individual items, you can use the `<v-template>` component. Using a ListView requires some special attention due to the complexity of the native implementations, with custom item templates, bindings and so on.
+
+The NativeScript modules provides a custom component which simplifies the way native ListView is used.
+
+---
+
+::: warning Note
+The ListView's item template can contain only a single root view container.
+:::
+
+/// flavor core
+
+```xml
+<ListView items="{{ titlesArray }}"
+          loaded="{{ onListViewLoaded }}"
+          itemTap="onItemTap"
+          loadMoreItems="onLoadMoreItems"
+          separatorColor="orangered"
+          rowHeight="50"
+          class="list-group" id="listView">
+    <ListView.itemTemplate>
+        <!-- The item template can only have a single root view container (e.g. GriLayout, StackLayout, etc.) -->
+        <StackLayout class="list-group-item">
+            <Label text="{{ title || 'Downloading...' }}" textWrap="true" class="title" />
+        </StackLayout>
+    </ListView.itemTemplate>
+</ListView>
+```
+
+```ts
+import {
+  EventData,
+  fromObject,
+  ListView,
+  ObservableArray,
+  ItemEventData,
+  Page
+} from '@nativescript/core'
+
+export function onNavigatingTo(args: EventData) {
+  const page = args.object as Page
+  const titlesArray = new ObservableArray([
+    { title: 'The Da Vinci Code' },
+    { title: 'Harry Potter and the Chamber of Secrets' },
+    { title: 'The Alchemist' },
+    { title: 'The Godfather' },
+    { title: 'Goodnight Moon' },
+    { title: 'The Hobbit' }
+  ])
+  const vm = Observable()
+  vm.titlesArray = titlesArray
+
+  page.bindingContext = vm
+}
+
+export function onListViewLoaded(args: EventData) {
+  const listView = args.object as ListView
+}
+
+// The event will be raise when an item inside the ListView is tapped.
+export function onItemTap(args: ItemEventData) {
+  const index = args.index
+  console.log(`Second ListView item tap ${index}`)
+}
+
+// The event will be raised when the ListView is scrolled so that the last item is visible.
+// This even is intended to be used to add additional data in the ListView.
+export function onLoadMoreItems(args: ItemEventData) {
+  if (loadMore) {
+    console.log('ListView -> LoadMoreItemsEvent')
+    setTimeout(() => {
+      listArray.push(
+        moreListItems.getItem(Math.floor(Math.random() * moreListItems.length))
+      )
+      listArray.push(
+        moreListItems.getItem(Math.floor(Math.random() * moreListItems.length))
+      )
+      listArray.push(
+        moreListItems.getItem(Math.floor(Math.random() * moreListItems.length))
+      )
+      listArray.push(
+        moreListItems.getItem(Math.floor(Math.random() * moreListItems.length))
+      )
+      listArray.push(
+        moreListItems.getItem(Math.floor(Math.random() * moreListItems.length))
+      )
+    }, 3000)
+
+    loadMore = false
+  }
+}
+```
+
+#### Properties
+
+| Name                    | Type                          | Description                                                                                                                                           |
+| ----------------------- | ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `items`                 | `Array<any>` \| `ItemsSource` | Gets or set the items collection of the `ListView`. The items property can be set to an array or an object defining length and getItem(index) method. |
+| `itemTemplateSelector`  | `function`                    | A function that returns the appropriate ket template based on the data item.                                                                          |
+| `itemTemplates`         | `Array<KeyedTemplate>`        | Gets or set the list of item templates for the item template selector.                                                                                |
+| `separatorColor`        | `string` \| `Color`           | Gets or set the items separator line color of the ListView.                                                                                           |
+| `rowHeight`             | `Length`                      | Gets or set row height of the ListView.                                                                                                               |
+| `iosEstimatedRowHeight` | `Length`                      | Gets or set the estimated height of rows in the ListView. Default value: **44px**                                                                     |
+
+///
+
+/// flavor angular
+
+```html
+<ListView [items]="items" (itemTap)="onItemTap($event)" class="list-group">
+  <ng-template let-item="item" let-i="index" let-odd="odd" let-even="even">
+    <!-- The item template can only have a single root view container (e.g. GridLayout, StackLayout, etc.)-->
+    <GridLayout>
+      <label [text]="item.name" class="list-group-item"></label>
+    </GridLayout>
+  </ng-template>
+</ListView>
+```
+
+```ts
+import { Component, Injectable, OnInit } from '@angular/core'
+import { ItemEventData } from '@nativescript/core'
+
+@Component({
+  moduleId: module.id,
+  templateUrl: './usage.component.html'
+})
+export class ListViewUsageComponent implements OnInit {
+  items: Array<Item>
+
+  constructor(private _itemService: ItemService) {}
+
+  ngOnInit(): void {
+    this.items = this._itemService.getItems()
+  }
+
+  onItemTap(args: ItemEventData) {
+    console.log(
+      `Index: ${args.index}; View: ${args.view} ; Item: ${this.items[args.index]}`
+    )
+  }
+}
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ItemService {
+  private items = new Array<Item>(
+    { id: 1, name: 'Ter Stegen', role: 'Goalkeeper' },
+    { id: 3, name: 'Piqué', role: 'Defender' },
+    { id: 4, name: 'I. Rakitic', role: 'Midfielder' },
+    { id: 5, name: 'Sergio', role: 'Midfielder' },
+    { id: 6, name: 'Denis Suárez', role: 'Midfielder' },
+    { id: 7, name: 'Arda', role: 'Midfielder' },
+    { id: 8, name: 'A. Iniesta', role: 'Midfielder' },
+    { id: 9, name: 'Suárez', role: 'Forward' },
+    { id: 10, name: 'Messi', role: 'Forward' },
+    { id: 11, name: 'Neymar', role: 'Forward' },
+    { id: 12, name: 'Rafinha', role: 'Midfielder' },
+    { id: 13, name: 'Cillessen', role: 'Goalkeeper' },
+    { id: 14, name: 'Mascherano', role: 'Defender' },
+    { id: 17, name: 'Paco Alcácer', role: 'Forward' },
+    { id: 18, name: 'Jordi Alba', role: 'Defender' },
+    { id: 19, name: 'Digne', role: 'Defender' },
+    { id: 20, name: 'Sergi Roberto', role: 'Midfielder' },
+    { id: 21, name: 'André Gomes', role: 'Midfielder' },
+    { id: 22, name: 'Aleix Vidal', role: 'Midfielder' },
+    { id: 23, name: 'Umtiti', role: 'Defender' },
+    { id: 24, name: 'Mathieu', role: 'Defender' },
+    { id: 25, name: 'Masip', role: 'Goalkeeper' }
+  )
+
+  getItems(): Array<Item> {
+    return this.items
+  }
+
+  getItem(id: number): Item {
+    return this.items.filter(item => item.id === id)[0]
+  }
+}
+
+export class Item {
+  constructor(public id: number, public name: string, public role: string) {}
+}
+```
+
+#### Item Templates
+
+```html
+<ListView
+  [items]="items"
+  class="list-group"
+  [itemTemplateSelector]="templateSelector"
+  row="0"
+>
+  <ng-template nsTemplateKey="red" let-item="item" let-i="index">
+    <GridLayout>
+      <label [text]="item.name" backgroundColor="red" color="white"></label>
+    </GridLayout>
+  </ng-template>
+
+  <ng-template nsTemplateKey="green" let-item="item" let-i="index">
+    <GridLayout>
+      <label [text]="item.name" backgroundColor="green" color="yellow"></label>
+    </GridLayout>
+  </ng-template>
+</ListView>
+```
+
+```ts
+import { Component, Input, OnChanges, SimpleChanges, OnInit } from '@angular/core'
+import { ItemService, Item } from '../usage/usage.service'
+import { ItemEventData } from 'tns-core-modules/ui/list-view'
+
+@Component({
+  moduleId: module.id,
+  templateUrl: './tips-and-tricks.component.html'
+})
+export class ListViewTipsComponent implements OnInit {
+  items: Array<Item>
+
+  constructor(private _itemService: ItemService) {}
+
+  ngOnInit(): void {
+    this.items = this._itemService.getItems()
+  }
+
+  onItemTap(args: ItemEventData) {
+    console.log(
+      `Index: ${args.index}; View: ${args.view} ; Name: ${this.items[args.index].name}`
+    )
+  }
+
+  templateSelector(item: Item, index: number, items: any) {
+    return index % 2 === 0 ? 'red' : 'green'
+  }
+}
+```
+
+#### Properties
+
+| Name                    | Type                   | Description                                                                       |
+| ----------------------- | ---------------------- | --------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `items`                 | `Array<any>`           | `ItemsSource`                                                                     | Gets or set the items collection of the `ListView`. The items property can be set to an array or an object defining length and getItem(index) method. |
+| `itemTemplateSelector`  | `function`             | A function that returns the appropriate key template based on the data item.      |
+| `itemTemplates`         | `Array<KeyedTemplate>` | Gets or set the list of item templates for the item template selector.            |
+| `separatorColor`        | `string`               | `Color`                                                                           | Gets or set the items separator line color of the ListView.                                                                                           |
+| `rowHeight`             | `Length`               | Gets or set row height of the ListView.                                           |
+| `iosEstimatedRowHeight` | `Length`               | Gets or set the estimated height of rows in the ListView. Default value: **44px** |
+
+///
+
+/// flavor vue
 
 ```html
 <ListView for="item in listOfItems" @itemTap="onItemTap">
@@ -1391,8 +1691,6 @@ https://github.com/nativescript-vue/nativescript-vue.org/tree/master/content/doc
   </v-template>
 </ListView>
 ```
-
----
 
 #### Using `<ListView>` with multiple `<v-template>` blocks
 
@@ -1456,6 +1754,25 @@ If a `v-for` is used on a `<ListView>` a warning will be printed to the console,
 | `items`          | `Array<any>` | An array of items to be shown in the `<ListView>`.<br/>**This property is only for advanced use. Use the `for` property instead.**                                                                                          |
 | `separatorColor` | `Color`      | Sets the separator line color. Set to `transparent` to remove it.                                                                                                                                                           |
 
+///
+
+::: tip Tip
+Instead of manually triggering the UI update with the help of ListView's refresh method, NativeScript provides the ObservableArray. Using an ObservableArray for your listview's items source will make its members an observable objects and adding/removing an array item will automatically update the UI.
+:::
+
+::: danger Important
+Using the ListView component inside a ScrollView or ScrollView inside the ListView's items can lead to poor performance and can reflect the user experience. To avoid this issue, we should specify the height explicitly for the ListView in the scenario when the ListView is nested in ScrollView and the ScrollView's height - when the component is used inside the ListView.
+
+```html
+<ScrollView>
+  <StackLayout>
+    <ListView height="150" [items]="countries"> ... </ListView>
+  </StackLayout>
+</ScrollView>
+```
+
+:::
+
 #### Events
 
 | Name      | Description                                                                                      |
@@ -1464,9 +1781,12 @@ If a `v-for` is used on a `<ListView>` a warning will be printed to the console,
 
 #### Methods
 
-| Name        | Description                                      |
-| ----------- | ------------------------------------------------ |
-| `refresh()` | Forces the `<ListView>` to reload all its items. |
+| Name                                           | Description                                                     |
+| ---------------------------------------------- | --------------------------------------------------------------- |
+| `refresh()`                                    | Forces the `<ListView>` to reload all its items.                |
+| `scrollToIndex(index: number)`                 | Scrolls the specified item with index into view.                |
+| `scrollToIndexAnimated(index: number)`         | Scrolls the specified item with index into view with animation. |
+| `isItemAtIndexVisible(index: number): boolean` | Checks if specified item with index is visible.                 |
 
 #### Native component
 
@@ -1479,6 +1799,74 @@ If a `v-for` is used on a `<ListView>` a warning will be printed to the console,
 `<Page>` is a UI component that represents an application screen. NativeScript apps typically consist of one or more `<Page>` that wrap content such as an [`<ActionBar>`](/en/docs/elements/action-bar/action-bar) and other UI widgets.
 
 ---
+
+/// flavor core
+
+```xml
+<Page loaded="onPageLoaded"
+      navigatedFrom="onNavigatedFrom"
+      navigatedTo="onNavigatedTo"
+      navigatingFrom="onNavigatingFrom"
+      navigatingTo="onNavigatingTo"
+      unloaded="onUnloaded"
+      layoutChanged="onLayoutChanged">
+    <Page.actionBar>
+        <ActionBar title="Page Creation"/>
+    </Page.actionBar>
+    <!-- Each page can have only a single root view -->
+    <StackLayout>
+        <!-- content here -->
+        <Label text="Hello, world!"/>
+    </StackLayout>
+</Page>
+```
+
+```ts
+import { EventData, Page } from '@nativescript/core'
+
+export function onPageLoaded(args: EventData): void {
+  console.log('Page Loaded')
+  const page = args.object as Page
+}
+export function onLayoutChanged(args: EventData) {
+  console.log(args.eventName)
+  console.log(args.object)
+}
+
+export function onNavigatedTo(args: NavigatedData) {
+  console.log(args.eventName)
+  console.log(args.object)
+  console.log(args.context)
+  console.log(args.isBackNavigation)
+}
+
+export function onNavigatingFrom(args: NavigatedData) {
+  console.log(args.eventName)
+  console.log(args.object)
+  console.log(args.context)
+  console.log(args.isBackNavigation)
+}
+
+export function onUnloaded(args: EventData) {
+  console.log(args.eventName)
+  console.log(args.object)
+}
+
+export function onNavigatedFrom(args: NavigatedData) {
+  console.log(args.eventName)
+  console.log(args.object)
+  console.log(args.context)
+  console.log(args.isBackNavigation)
+}
+```
+
+///
+
+/// flavor angular
+??? Page in Angular ??? Not a thing.
+///
+
+/// flavor vue
 
 #### A single page
 
@@ -1519,6 +1907,7 @@ export default {
 ::: warning Note
 Developers coming from a web background would usually reach for the `mounted` lifecycle hook Vue provides, however in NativeScript the application, and certain elements might not yet be loaded when the `mounted` hook is executed, thus certain actions such as alerts, dialogs, navigation etc. are not possible inside the `mounted` hook. To work around this limitation, the `loaded` event may be used, which only fires after the application is ready. In this case, we are using the `loaded` event of the [`<Page>`](/en/docs/elements/components/page) element, but this event is available for all NativeScript elements.
 :::
+///
 
 #### Props
 
@@ -1539,6 +1928,10 @@ Developers coming from a web background would usually reach for the `mounted` li
 | `navigatedTo`    | Emitted after the app has navigated to the current page.         |
 | `navigatingFrom` | Emitted before the app has navigated away from the current page. |
 | `navigatingTo`   | Emitted before the app has navigated to the current page.        |
+
+::: warning Note
+The events loaded, unloaded and layoutChanged are UI component lifecycles events and are universal for all classes that extend the View class (including Page). They can be used with all NativeScript elements (e.g. layouts, buttons, UI plugins, etc.).
+:::
 
 #### Native component
 
