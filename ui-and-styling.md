@@ -4463,7 +4463,7 @@ StackLayout {
 
 This feature is limited to properties with simple types like string, number and boolean, and will set a local property value similar to component markup declaration in your template markup via XML or HTML. CSS inheritance is not supported.
 
-### Using fonts
+### Using Fonts
 
 The `font-family` property can hold several values. The first supported font in the list will be used. There is also support for the following generic font-families:
 
