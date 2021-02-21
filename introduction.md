@@ -31,4 +31,4 @@ Flavor specific guide to building your first screen with a very simple example.
 
 `@nativescript/core` does not follow Semantic Versioning. Major framework releases are released every six months (~March and ~September), while minor and patch releases may be released as often as every week. Patch releases should never contain breaking changes, however minor, and major releases can. We strive to note any breaking changes in the Changelogs, to make upgrades as easy as possible.
 
-When referencing the the `@nativescript/core` package, you should use a fixed version constraint such as `7.0.11`, or alternatively `~7.0.11` to allow installing patch updates.
+When referencing the `@nativescript/core` package, you should use a fixed version constraint such as `7.0.11`, or alternatively `~7.0.11` to allow installing patch updates.
