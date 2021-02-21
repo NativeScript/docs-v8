@@ -227,6 +227,12 @@ When an element is a direct child of `<AbsoluteLayout>`, you can work with the f
 | `top`  | `Number` | Gets or sets the distance, in pixels, between the top edge of the child and the top edge of its parent.   |
 | `left` | `Number` | Gets or sets the distance, in pixels, between the left edge of the child and the left edge of its parent. |
 
+#### API Reference
+
+| Name                                                                                                    | Type     |
+| :------------------------------------------------------------------------------------------------------ | :------- |
+| [AbsoluteLayout](https://docs.nativescript.org/api-reference/modules/_ui_layouts_absolute_layout_.html) | `Module` |
+
 ### DockLayout
 
 `<DockLayout>` is a layout container that lets you dock child elements to the sides or the center of the layout.
@@ -311,6 +317,12 @@ When an element is a direct child of `<DockLayout>`, you can work with the follo
 | Name   | Type     | Description                                                                                         |
 | ------ | -------- | --------------------------------------------------------------------------------------------------- |
 | `dock` | `String` | Specifies which side to dock the element to.<br/>Valid values: `top`, `right`, `bottom`, or `left`. |
+
+#### API Reference
+
+| Name                                                                                            | Type     |
+| :---------------------------------------------------------------------------------------------- | :------- |
+| [DockLayout](https://docs.nativescript.org/api-reference/modules/_ui_layouts_dock_layout_.html) | `Module` |
 
 ### GridLayout
 
@@ -408,6 +420,12 @@ When an element is a direct child of `<GridLayout>`, you can work with the follo
 | `col`     | `Number` | Specifies the column for the element. Combined with a `row` property, specifies the cell coordinates of the element.<br/>The first column is indicated by `0`. |
 | `rowSpan` | `Number` | Specifies the number of rows which this element spans across.                                                                                                  |
 | `colSpan` | `Number` | Specifies the number of columns which this element spans across.                                                                                               |
+
+#### API Reference
+
+| Name                                                                                            | Type     |
+| :---------------------------------------------------------------------------------------------- | :------- |
+| [GridLayout](https://docs.nativescript.org/api-reference/modules/_ui_layouts_grid_layout_.html) | `Module` |
 
 ### StackLayout
 
@@ -533,6 +551,12 @@ The following example creates a diagonal stack of items with responsive sizes. I
 
 None.
 
+#### API Reference
+
+| Name                                                                                              | Type     |
+| :------------------------------------------------------------------------------------------------ | :------- |
+| [StackLayout](https://docs.nativescript.org/api-reference/modules/_ui_layouts_stack_layout_.html) | `Module` |
+
 ### WrapLayout
 
 `<WrapLayout>` is a layout container that lets you position items in rows or columns, based on the `orientation` property. When the space is filled, the container automatically wraps items onto a new row or column.
@@ -578,6 +602,12 @@ The following example creates a column of equally-sized items. When the row runs
 #### Additional children props
 
 None.
+
+#### API Reference
+
+| Name                                                                                            | Type     |
+| :---------------------------------------------------------------------------------------------- | :------- |
+| [WrapLayout](https://docs.nativescript.org/api-reference/modules/_ui_layouts_wrap_layout_.html) | `Module` |
 
 ### FlexboxLayout
 
@@ -711,6 +741,12 @@ When an element is a direct child of `<FlexboxLayout>`, you can work with the fo
 | `alignSelf`      | `String`  | (Android-only) Overrides the `alignItems` value for the child.<br/>Valid values:<br/>`flex-start` (cross-start margin edge of the item is placed on the cross-start line),<br/>`flex-end` (cross-end margin edge of the item is placed on the cross-end line),<br/>`center` (item is centered on the cross axis),<br/>`baseline` (the item baselines are aligned), and<br/>`stretch` (items is stretched to fill the container but respects `min-width` and `max-width`).<br/>Default value: `stretch`. |
 | `flexWrapBefore` | `Boolean` | When `true`, forces the item to wrap onto a new line. This property is not part of the official Flexbox specification.<br/>Default value: `false`.                                                                                                                                                                                                                                                                                                                                                      |
 
+#### API Reference
+
+| Name                                                                                                  | Type     |
+| :---------------------------------------------------------------------------------------------------- | :------- |
+| [FlexboxLayout](https://docs.nativescript.org/api-reference/modules/_ui_layouts_flexbox_layout_.html) | `Module` |
+
 ## Components
 
 ### ActionBar
@@ -719,7 +755,7 @@ The ActionBar is NativeScript’s abstraction over the Android ActionBar and iOS
 
 ---
 
-/// flavor core
+/// flavor plain
 
 The ActionBar provides a title property and can be extended by using one or more ActionItem components and a single NavigationButton.
 
@@ -839,7 +875,7 @@ To style the ActionBar, you can use only background-color and color properties. 
 ::: tip Tip
 iOS Specifics: The default text of the navigation button is the title of the previous page. In iOS, the back button is used explicitly for navigation. It navigates to the previous page and you can't handle the tap event to override this behavior. If you want to place a button on the left side of the ActionBar and handle the tap event (e.g., show slide-out), you can use ActionItem with ios.position="left".
 
-Android Specifics: In Android, you can't set text inside the navigation button. You can use the icon property to set an image (e.g., ~\images\nav-image.png or res:\\ic_nav). You can use android.systemIcon to set one of the system icons available in Android. In this case, there is no default behaviour for NavigationButton tap event, and we should define manually the callback function, which will be executed.
+Android Specifics: In Android, you can't set text inside the navigation button. You can use the icon property to set an image (e.g., ~\images\nav-image.png or res:\\ic_nav). You can use android.systemIcon to set one of the system icons available in Android. In this case, there is no default behaviour for NavigationButton tap event, and we should set the callback function, which will be executed.
 :::
 
 ::: warning Note
@@ -988,7 +1024,7 @@ For more information about the available gestures, see [Gestures in the official
 
 ---
 
-/// flavor core
+/// flavor plain
 
 ```xml
 <Button text="Tap me!" tap="onTap"></Button>
@@ -1081,7 +1117,7 @@ If you need to style parts of the text, you can use a combination of a `Formatte
 
 ---
 
-/// flavor core
+/// flavor plain
 
 ```xml
 <DatePicker year="1980" month="4" day="20" loaded="onDatePickerLoaded"
@@ -1296,7 +1332,7 @@ See also: [WebView](/en/docs/elements/components/web-view).
 
 ---
 
-/// flavor core
+/// flavor plain
 
 ```xml
 <HtmlView loaded="onHtmlLoaded"></HtmlView>
@@ -1378,7 +1414,7 @@ When working with images following [the best practices](/performance.html#image-
 
 ---
 
-/// flavor core
+/// flavor plain
 
 ```xml
 <!-- Displaying an image from `App_Resources` -->
@@ -1477,7 +1513,7 @@ This `<Label>` is **not** the same as the HTML `<label>`.
 
 ---
 
-/// flavor core
+/// flavor plain
 
 ```xml
 <Label text="Lores Ipsum..."
@@ -1581,7 +1617,7 @@ https://github.com/nativescript-vue/nativescript-vue.org/tree/master/content/doc
 
 ---
 
-/// flavor core
+/// flavor plain
 
 ```xml
 <ListPicker items="{{ years }}" selectedIndex="0" loaded="onListPickerLoaded" />
@@ -1675,7 +1711,7 @@ The NativeScript modules provides a custom component which simplifies the way na
 The ListView's item template can contain only a single root view container.
 :::
 
-/// flavor core
+/// flavor plain
 
 ```xml
 <ListView items="{{ titlesArray }}"
@@ -2015,6 +2051,15 @@ Using the ListView component inside a ScrollView or ScrollView inside the ListVi
 | --------- | ------------------------------------------------------------------------------------------------ |
 | `itemTap` | Emitted when an item in the `<ListView>` is tapped. To access the tapped item, use `event.item`. |
 
+#### Methods
+
+| Name                                           | Description                                                     |
+| ---------------------------------------------- | --------------------------------------------------------------- |
+| `refresh()`                                    | Forces the `<ListView>` to reload all its items.                |
+| `scrollToIndex(index: number)`                 | Scrolls the specified item with index into view.                |
+| `scrollToIndexAnimated(index: number)`         | Scrolls the specified item with index into view with animation. |
+| `isItemAtIndexVisible(index: number): boolean` | Checks if specified item with index is visible.                 |
+
 #### API References
 
 | Name                                                                                                 | Type        |
@@ -2024,15 +2069,6 @@ Using the ListView component inside a ScrollView or ScrollView inside the ListVi
 | [ItemEventData](https://docs.nativescript.org/api-reference/interfaces/_ui_list_view_.itemeventdata) | `Interface` |
 | [ItemsSource](https://docs.nativescript.org/api-reference/interfaces/_ui_list_view_.itemssource)     | `Interface` |
 | [KeyedTemplate](https://docs.nativescript.org/api-reference/interfaces/_ui_core_view_.keyedtemplate) | `Interface` |
-
-#### Methods
-
-| Name                                           | Description                                                     |
-| ---------------------------------------------- | --------------------------------------------------------------- |
-| `refresh()`                                    | Forces the `<ListView>` to reload all its items.                |
-| `scrollToIndex(index: number)`                 | Scrolls the specified item with index into view.                |
-| `scrollToIndexAnimated(index: number)`         | Scrolls the specified item with index into view with animation. |
-| `isItemAtIndexVisible(index: number): boolean` | Checks if specified item with index is visible.                 |
 
 #### Native component
 
@@ -2046,7 +2082,7 @@ Using the ListView component inside a ScrollView or ScrollView inside the ListVi
 
 ---
 
-/// flavor core
+/// flavor plain
 
 ```xml
 <Page loaded="onPageLoaded"
@@ -2179,6 +2215,13 @@ Developers coming from a web background would usually reach for the `mounted` li
 The events loaded, unloaded and layoutChanged are UI component lifecycles events and are universal for all classes that extend the View class (including Page). They can be used with all NativeScript elements (e.g. layouts, buttons, UI plugins, etc.).
 :::
 
+#### API References
+
+| Name                                                                       | Type     |
+| -------------------------------------------------------------------------- | -------- |
+| [Page](http://docs.nativescript.org/api-reference/modules/_ui_page_.html)  | `Module` |
+| [Page](https://docs.nativescript.org/api-reference/classes/_ui_page_.page) | `Class`  |
+
 #### Native component
 
 | Android                                                                                                                                                                              | iOS                                                                                    |
@@ -2191,7 +2234,7 @@ The events loaded, unloaded and layoutChanged are UI component lifecycles events
 
 ---
 
-/// flavor core
+/// flavor plain
 
 ```xml
     <Placeholder creatingView="creatingView" />
@@ -2275,9 +2318,12 @@ methods: {
 }
 ```
 
-#### API Reference
+#### API References
 
-[Placeholder Class](https://docs.nativescript.org/api-reference/classes/_ui_placeholder_.placeholder)
+| Name                                                                                            | Type     |
+| ----------------------------------------------------------------------------------------------- | -------- |
+| [Placeholder](http://docs.nativescript.org/api-reference/modules/_ui_placeholder_.html)         | `Module` |
+| [Placeholder](https://docs.nativescript.org/api-reference/classes/_ui_placeholder_.placeholder) | `Class`  |
 
 ///
 
@@ -2289,7 +2335,7 @@ See also: [ActivityIndicator](/en/docs/elements/components/activity-indicator).
 
 ---
 
-/// flavor core
+/// flavor plain
 
 ```xml
     <Progress width="100%" value="{{ progressValue }}"  maxValue="{{ progressMaxValue }}" loaded="onProgressLoaded" />
@@ -2370,16 +2416,75 @@ export class StylingComponent implements OnInit {
 
 #### API References
 
-| Name                                                                                                    | Type     |
-| ------------------------------------------------------------------------------------------------------- | -------- |
-| [@nativescript/core/ui/progress](http://docs.nativescript.org/api-reference/modules/_ui_progress_.html) | `Module` |
-| [Progress](https://docs.nativescript.org/api-reference/classes/_ui_progress_.progress)                  | `Class`  |
+| Name                                                                                   | Type     |
+| -------------------------------------------------------------------------------------- | -------- |
+| [Progress](http://docs.nativescript.org/api-reference/modules/_ui_progress_.html)      | `Module` |
+| [Progress](https://docs.nativescript.org/api-reference/classes/_ui_progress_.progress) | `Class`  |
 
 #### Native Component
 
 | Android                                                                                                                         | iOS                                                                                |
 | ------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
 | [`android.widget.ProgressBar` (indeterminate = false)](https://developer.android.com/reference/android/widget/ProgressBar.html) | [`UIProgressView`](https://developer.apple.com/documentation/uikit/uiprogressview) |
+
+/// flavor plain
+
+### Repeater
+
+The Repeater widget allows you to display a collection of data, which is present in an array.
+
+---
+
+```xml
+<Label row="0" text="Binding the Repeater items property to collection" textWrap="true" />
+<Button row="1" text="Add new item" tap="onTap" />
+<ScrollView row="2">
+    <Repeater  id="firstRepeater" items="{{ myItems }}" />
+</ScrollView>
+<Label row="3" text="Define the Repeater itemTemplate property" textWrap="true" />
+<Button row="4" text="Add new item (Second Repeater)" tap="onSecondTap" />
+<ScrollView row="5" orientation="horizontal">
+    <Repeater items="{{ mySecondItems }}">
+        <Repeater.itemsLayout>
+            <StackLayout orientation="horizontal" />
+        </Repeater.itemsLayout>
+        <Repeater.itemTemplate>
+            <Label text="{{ $value }}" margin="10" />
+        </Repeater.itemTemplate>
+    </Repeater>
+</ScrollView>
+```
+
+```ts
+import { Observable, ObservableArray, Page } from '@nativescript/core'
+
+const colors = ['red', 'green', 'blue']
+const secondColorsArray = new ObservableArray(['red', 'green', 'blue'])
+
+export function onNavigatingTo(args) {
+  const page = args.object as Page
+  const vm = new Observable()
+
+  vm.set('myItems', colors)
+  vm.set('mySecondItems', secondColorsArray)
+  page.bindingContext = vm
+}
+```
+
+::: tip Note
+Changing the array after the repeater is shown will not update the UI. You can force-update the UI using the refresh() method.
+
+When using ObservableArray the repeater will be automatically updated when items are added or removed form the array.
+:::
+
+#### API References
+
+| Name                                                                                   | Type     |
+| -------------------------------------------------------------------------------------- | -------- |
+| [Repeater](http://docs.nativescript.org/api-reference/modules/_ui_repeater_.html)      | `Module` |
+| [Repeater](https://docs.nativescript.org/api-reference/classes/_ui_repeater_.repeater) | `Class`  |
+
+///
 
 ### ScrollView
 
@@ -2389,7 +2494,7 @@ It's important to note that `<ScrollView>` extends [`ContentView`](https://docs.
 
 ---
 
-/// flavor core
+/// flavor plain
 
 ```xml
 <!--
@@ -2514,7 +2619,7 @@ export class TipsAndTricksComponent {
 
 ---
 
-/// flavor core
+/// flavor plain
 
 ```xml
   <SearchBar id="searchBar" hint="Enter search term here ..." text="{{sbText}}" clear="onClear" submit="onSubmit" />
@@ -2653,7 +2758,7 @@ As opposed to `<TabView>`:
 
 ---
 
-/// flavor core
+/// flavor plain
 
 ```xml
 <SegmentedBar row="0"  class="m-5" selectedIndex="{{ sbSelectedIndex }}">
@@ -2788,7 +2893,7 @@ API Reference
 
 ---
 
-/// flavor core
+/// flavor plain
 
 ```xml
 <Slider value="10" minValue="0" maxValue="100" loaded="onSliderLoaded" />
@@ -2886,7 +2991,7 @@ The default state is `false` or OFF.
 
 ---
 
-/// flavor core
+/// flavor plain
 
 ```xml
 <Switch checked="true" loaded="onSwitchLoaded"/>
@@ -2976,7 +3081,7 @@ export class BasicSwitchComponent {
 
 ---
 
-/// flavor core
+/// flavor plain
 
 ```xml
 <TabView loaded="onLoaded" selectedIndex="{{tabSelectedIndex}}" selectedIndexChanged="onSelectedIndexChanged"
@@ -3203,7 +3308,7 @@ The `TabView` component has the following unique styling properties:
 
 ---
 
-/// flavor core
+/// flavor plain
 
 ```html
 <TextField hint="Enter text" color="orangered" backgroundColor="lightyellow" />
@@ -3351,7 +3456,7 @@ export class UsageComponent {
 
 ---
 
-/// flavor core
+/// flavor plain
 
 ```xml
 <TextView loaded="onTextViewLoaded" hint="Enter Date" text="{{ viewDate }}" secure="false" keyboardType="datetime" returnKeyType="done" autocorrect="false" maxLength="10">
@@ -3481,7 +3586,7 @@ To apply multiple styles to the text in your `<TextView>`, you can use `<Formatt
 
 ---
 
-/// flavor core
+/// flavor plain
 
 ```xml
 <TimePicker hour="10" minute="25"
@@ -3608,7 +3713,7 @@ See also: [HtmlView](/en/docs/elements/components/html-view).
 
 ---
 
-/// flavor core
+/// flavor plain
 
 ```xml
 <WebView row="1" loaded="onWebViewLoaded" id="myWebView" src="{{ webViewSrc }}" />
