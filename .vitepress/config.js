@@ -30,6 +30,11 @@ module.exports = {
 				link: '/plugins/index',
 				activeMatch: '^/plugins',
 			},
+      {
+				text: 'Best Practices',
+				link: '/best-practices/index',
+				activeMatch: '^/best-practices',
+			},
 			{
 				text: 'Capacitor',
 				link: 'https://capacitor.nativescript.org',
@@ -41,6 +46,7 @@ module.exports = {
 		],
 
 		sidebar: {
+      '/best-practices/': getBestPracticeSidebar(),
 			'/plugins/': getPluginsSidebar(),
 
 			// fallback
@@ -172,6 +178,28 @@ function getPluginsSidebar() {
 			],
 		},
 	]
+}
+
+function getBestPracticeSidebar() {
+	return [
+		{
+			text: 'Best Practices',
+			children: [
+				{
+					text: 'Introduction',
+					link: '/best-practices/index',
+				},
+        {
+					text: 'View Bindings',
+					link: '/best-practices/view-bindings',
+				},
+        {
+					text: 'ListViews',
+					link: '/best-practices/listviews',
+				},
+      ]
+    }
+  ]
 }
 
 /**

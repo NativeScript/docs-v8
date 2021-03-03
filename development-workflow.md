@@ -23,6 +23,12 @@ title: Development Workflow
 - [REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/tooling/testing/testing.md
 - https://github.com/NativeScript/docs/tree/master/docs/tooling/testing/end-to-end-testing
 
+* `ns test ios`
+
+::: warning Note
+Be sure you have prepare/built/run the app at least once before starting the unit test runner.
+:::
+
 ## Using packages
 
 ## Updating
