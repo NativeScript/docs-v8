@@ -2,6 +2,7 @@
     "name": "nativescript-docs-new",
     "private": true,
     "scripts": {
+        "clean": "npx rimraf node_modules package-lock.json && yarn install",
         "start": "npm run dev",
         "dev": "vitepress dev .",
         "build": "vitepress build .",
