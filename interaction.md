@@ -2043,24 +2043,6 @@ Current value of an element.
 
 Whether elements contained within this accessibility element are hidden.
 
-#### onAccessibilityEscape (iOS only)
+#### Coming soon
 
-# TODO: This doesn't work yet, wip branch: https://github.com/NativeScript/NativeScript/tree/feat/a11y-polish
-
-This option can be assigned a method from the `ShowModalOptions.ios.onAccessibilityEscape` when opening a modal to provide control over anything specific your app needs to do if someone performs the "escape" gesture, which is a two finger Z shaped gesture. 
-
-```typescript
-view.showModal('modal-page', {
-  context: 'context',
-  ios: {
-    onAccessibilityEscape: (event: AccessibilityEventPerformEscape) => {
-      event.cancel = true;
-      confirm('Are you sure you want to dismiss without saving changes?').then(ok => {
-        if (ok) {
-          this.closeModal();
-        }
-      })
-    }
-  }
-});
-```
+`onAccessibilityEscape`, `onMagicTap` (iOS only).
