@@ -1027,7 +1027,7 @@ For more information about the available gestures, see [Gestures in the official
 /// flavor plain
 
 ```xml
-<Button text="Tap me!" tap="onTap"></Button>
+<Button text="Tap me!" tap="onTap" />
 ```
 
 ```ts
@@ -1120,8 +1120,15 @@ If you need to style parts of the text, you can use a combination of a `Formatte
 /// flavor plain
 
 ```xml
-<DatePicker year="1980" month="4" day="20" loaded="onDatePickerLoaded"
-date="{{ date }}" minDate="{{ minDate }}" maxDate="{{ maxDate }}"></DatePicker>
+<DatePicker
+  year="1980"
+  month="4"
+  day="20"
+  loaded="onDatePickerLoaded"
+  date="{{ date }}"
+  minDate="{{ minDate }}"
+  maxDate="{{ maxDate }}"
+/>
 ```
 
 ```ts
@@ -1335,7 +1342,7 @@ See also: [WebView](/en/docs/elements/components/web-view).
 /// flavor plain
 
 ```xml
-<HtmlView loaded="onHtmlLoaded"></HtmlView>
+<HtmlView loaded="onHtmlLoaded" />
 ```
 
 ```ts
@@ -1516,12 +1523,14 @@ This `<Label>` is **not** the same as the HTML `<label>`.
 /// flavor plain
 
 ```xml
-<Label text="Lores Ipsum..."
+<Label
+  text="Lores Ipsum..."
   textWrap="true"
   textAlignment="center"
   textDecoration="underline"
   textTransform="capitalize"
-  whiteSpace="normal"/>
+  whiteSpace="normal"
+/>
 ```
 
 ///
@@ -1714,19 +1723,22 @@ The ListView's item template can contain only a single root view container.
 /// flavor plain
 
 ```xml
-<ListView items="{{ titlesArray }}"
-          loaded="{{ onListViewLoaded }}"
-          itemTap="onItemTap"
-          loadMoreItems="onLoadMoreItems"
-          separatorColor="orangered"
-          rowHeight="50"
-          class="list-group" id="listView">
-    <ListView.itemTemplate>
-        <!-- The item template can only have a single root view container (e.g. GriLayout, StackLayout, etc.) -->
-        <StackLayout class="list-group-item">
-            <Label text="{{ title || 'Downloading...' }}" textWrap="true" class="title" />
-        </StackLayout>
-    </ListView.itemTemplate>
+<ListView
+  items="{{ titlesArray }}"
+  loaded="{{ onListViewLoaded }}"
+  itemTap="onItemTap"
+  loadMoreItems="onLoadMoreItems"
+  separatorColor="orangered"
+  rowHeight="50"
+  class="list-group"
+  id="listView"
+>
+  <ListView.itemTemplate>
+    <!-- The item template can only have a single root view container (e.g. GriLayout, StackLayout, etc.) -->
+    <StackLayout class="list-group-item">
+      <Label text="{{ title || 'Downloading...' }}" textWrap="true" class="title" />
+    </StackLayout>
+  </ListView.itemTemplate>
 </ListView>
 ```
 
@@ -2085,21 +2097,23 @@ Using the ListView component inside a ScrollView or ScrollView inside the ListVi
 /// flavor plain
 
 ```xml
-<Page loaded="onPageLoaded"
-      navigatedFrom="onNavigatedFrom"
-      navigatedTo="onNavigatedTo"
-      navigatingFrom="onNavigatingFrom"
-      navigatingTo="onNavigatingTo"
-      unloaded="onUnloaded"
-      layoutChanged="onLayoutChanged">
-    <Page.actionBar>
-        <ActionBar title="Page Creation"/>
-    </Page.actionBar>
-    <!-- Each page can have only a single root view -->
-    <StackLayout>
-        <!-- content here -->
-        <Label text="Hello, world!"/>
-    </StackLayout>
+<Page
+  loaded="onPageLoaded"
+  navigatedFrom="onNavigatedFrom"
+  navigatedTo="onNavigatedTo"
+  navigatingFrom="onNavigatingFrom"
+  navigatingTo="onNavigatingTo"
+  unloaded="onUnloaded"
+  layoutChanged="onLayoutChanged"
+>
+  <Page.actionBar>
+    <ActionBar title="Page Creation" />
+  </Page.actionBar>
+  <!-- Each page can have only a single root view -->
+  <StackLayout>
+    <!-- content here -->
+    <Label text="Hello, world!" />
+  </StackLayout>
 </Page>
 ```
 
@@ -2237,7 +2251,7 @@ The events loaded, unloaded and layoutChanged are UI component lifecycles events
 /// flavor plain
 
 ```xml
-    <Placeholder creatingView="creatingView" />
+<Placeholder creatingView="creatingView" />
 ```
 
 ```ts
@@ -2338,7 +2352,12 @@ See also: [ActivityIndicator](/en/docs/elements/components/activity-indicator).
 /// flavor plain
 
 ```xml
-    <Progress width="100%" value="{{ progressValue }}"  maxValue="{{ progressMaxValue }}" loaded="onProgressLoaded" />
+<Progress
+  width="100%"
+  value="{{ progressValue }}"
+  maxValue="{{ progressMaxValue }}"
+  loaded="onProgressLoaded"
+/>
 ```
 
 ```ts
@@ -2502,18 +2521,18 @@ It's important to note that `<ScrollView>` extends [`ContentView`](https://docs.
     The ScrollView also supports 'horizontal' as orientation value
 -->
 <ScrollView scroll="onScroll">
-    <GridLayout rows="200 200 200 200 200 200 200 200 200 200">
-        <Label row="0" text="Some row content goes here..."/>
-        <Label row="1" text="Some row content goes here..."/>
-        <Label row="2" text="Some row content goes here..."/>
-        <Label row="3" text="Some row content goes here..."/>
-        <Label row="4" text="Some row content goes here..."/>
-        <Label row="5" text="Some row content goes here..."/>
-        <Label row="6" text="Some row content goes here..."/>
-        <Label row="7" text="Some row content goes here..."/>
-        <Label row="8" text="Some row content goes here..."/>
-        <Label row="9" text="Some row content goes here..."/>
-    </GridLayout>
+  <GridLayout rows="200 200 200 200 200 200 200 200 200 200">
+    <Label row="0" text="Some row content goes here..." />
+    <Label row="1" text="Some row content goes here..." />
+    <Label row="2" text="Some row content goes here..." />
+    <Label row="3" text="Some row content goes here..." />
+    <Label row="4" text="Some row content goes here..." />
+    <Label row="5" text="Some row content goes here..." />
+    <Label row="6" text="Some row content goes here..." />
+    <Label row="7" text="Some row content goes here..." />
+    <Label row="8" text="Some row content goes here..." />
+    <Label row="9" text="Some row content goes here..." />
+  </GridLayout>
 </ScrollView>
 ```
 
@@ -2622,7 +2641,13 @@ export class TipsAndTricksComponent {
 /// flavor plain
 
 ```xml
-  <SearchBar id="searchBar" hint="Enter search term here ..." text="{{sbText}}" clear="onClear" submit="onSubmit" />
+<SearchBar
+  id="searchBar"
+  hint="Enter search term here ..."
+  text="{{sbText}}"
+  clear="onClear"
+  submit="onSubmit"
+/>
 ```
 
 ```ts
@@ -2761,12 +2786,12 @@ As opposed to `<TabView>`:
 /// flavor plain
 
 ```xml
-<SegmentedBar row="0"  class="m-5" selectedIndex="{{ sbSelectedIndex }}">
-    <SegmentedBar.items>
-        <SegmentedBarItem title="Item 1" />
-        <SegmentedBarItem title="Item 2" />
-        <SegmentedBarItem title="Item 3" />
-    </SegmentedBar.items>
+<SegmentedBar row="0" class="m-5" selectedIndex="{{ sbSelectedIndex }}">
+  <SegmentedBar.items>
+    <SegmentedBarItem title="Item 1" />
+    <SegmentedBarItem title="Item 2" />
+    <SegmentedBarItem title="Item 3" />
+  </SegmentedBar.items>
 </SegmentedBar>
 ```
 
@@ -2994,7 +3019,7 @@ The default state is `false` or OFF.
 /// flavor plain
 
 ```xml
-<Switch checked="true" loaded="onSwitchLoaded"/>
+<Switch checked="true" loaded="onSwitchLoaded" />
 ```
 
 ```ts
@@ -3084,26 +3109,43 @@ export class BasicSwitchComponent {
 /// flavor plain
 
 ```xml
-<TabView loaded="onLoaded" selectedIndex="{{tabSelectedIndex}}" selectedIndexChanged="onSelectedIndexChanged"
-androidTabsPosition="bottom" androidOffscreenTabLimit="0">
-    <TabViewItem title="Profile">
-        <StackLayout>
-            <Label text="{{ tabSelectedIndexResult }}" class="h2 m-t-16 text-center" textWrap="true" />
-            <Button text="Change Tab" tap="changeTab" class="btn btn-primary btn-active" />
-        </StackLayout>
-    </TabViewItem>
-    <TabViewItem title="Stats">
-        <StackLayout>
-            <Label text="{{ tabSelectedIndexResult }}" class="h2 m-t-16 text-center" textWrap="true" />
-            <Button text="Change Tab" tap="changeTab" class="btn btn-primary btn-active" />
-        </StackLayout>
-    </TabViewItem>
-    <TabViewItem title="Settings">
-        <StackLayout>
-            <Label text="{{ tabSelectedIndexResult }}" class="h2 m-t-16 text-center" textWrap="true" />
-            <Button text="Change Tab" tap="changeTab" class="btn btn-primary btn-active" />
-        </StackLayout>
-    </TabViewItem>
+<TabView
+  loaded="onLoaded"
+  selectedIndex="{{tabSelectedIndex}}"
+  selectedIndexChanged="onSelectedIndexChanged"
+  androidTabsPosition="bottom"
+  androidOffscreenTabLimit="0"
+>
+  <TabViewItem title="Profile">
+    <StackLayout>
+      <Label
+        text="{{ tabSelectedIndexResult }}"
+        class="h2 m-t-16 text-center"
+        textWrap="true"
+      />
+      <Button text="Change Tab" tap="changeTab" class="btn btn-primary btn-active" />
+    </StackLayout>
+  </TabViewItem>
+  <TabViewItem title="Stats">
+    <StackLayout>
+      <Label
+        text="{{ tabSelectedIndexResult }}"
+        class="h2 m-t-16 text-center"
+        textWrap="true"
+      />
+      <Button text="Change Tab" tap="changeTab" class="btn btn-primary btn-active" />
+    </StackLayout>
+  </TabViewItem>
+  <TabViewItem title="Settings">
+    <StackLayout>
+      <Label
+        text="{{ tabSelectedIndexResult }}"
+        class="h2 m-t-16 text-center"
+        textWrap="true"
+      />
+      <Button text="Change Tab" tap="changeTab" class="btn btn-primary btn-active" />
+    </StackLayout>
+  </TabViewItem>
 </TabView>
 ```
 
@@ -3459,8 +3501,16 @@ export class UsageComponent {
 /// flavor plain
 
 ```xml
-<TextView loaded="onTextViewLoaded" hint="Enter Date" text="{{ viewDate }}" secure="false" keyboardType="datetime" returnKeyType="done" autocorrect="false" maxLength="10">
-</TextView>
+<TextView
+  loaded="onTextViewLoaded"
+  hint="Enter Date"
+  text="{{ viewDate }}"
+  secure="false"
+  keyboardType="datetime"
+  returnKeyType="done"
+  autocorrect="false"
+  maxLength="10"
+/>
 ```
 
 ```ts
@@ -3589,11 +3639,16 @@ To apply multiple styles to the text in your `<TextView>`, you can use `<Formatt
 /// flavor plain
 
 ```xml
-<TimePicker hour="10" minute="25"
-            loaded="onPickerLoaded"
-            row="2" col="0" colSpan="2"
-            class="m-15" verticalAlignment="center">
-</TimePicker>
+<TimePicker
+  hour="10"
+  minute="25"
+  loaded="onPickerLoaded"
+  row="2"
+  col="0"
+  colSpan="2"
+  class="m-15"
+  verticalAlignment="center"
+/>
 ```
 
 ```ts
@@ -3850,7 +3905,7 @@ If you import any custom components on your page, the CSS from those components 
 
 ```xml
 <StackLayout class="mywidget">
-   <Label text="Custom component layout" class="label" />
+  <Label text="Custom component layout" class="label" />
 </StackLayout>
 ```
 
@@ -4491,6 +4546,58 @@ Since NativeScript 7.1, the CLI has the `ns fonts` command. Executing this comma
 On iOS your font file should be named **exactly** as the font name.
 If you have any doubt about the original font name, use the [Font Book](https://support.apple.com/en-us/HT201749) app to get the original font name, or try using `ns fonts` from your terminal using NS 7.1 or newer.
 :::
+
+### Using Icon Fonts in NativeScript
+
+While bitmap images are great, they present challenges in designing mobile applications. Images increase the size of the application if they are embedded in it. If not, they require additional http requests to be fetched. Images consume memory. Furthermore, bitmap images do not scale well. If scaled up, they lose quality. If scaled down, they waste space. On the other hand, fonts scale well, do not require additional http requests for each glyph and do not increase memory usage significantly. Icon fonts contain icons instead of alphabet characters and can be used instead of images in mobile applications.
+
+1. Choose or generate an icon font that best matches your needs. Two popular icon fonts are [IcoMoon](https://icomoon.io/) and [Font Awesome](https://fontawesome.com/how-to-use/on-the-web/setup/hosting-font-awesome-yourself).
+2. Once you have downloaded the icon font to your machine, locate the [TrueType](https://en.wikipedia.org/wiki/TrueType) font file with extension **.ttf**.
+3. In your root application folder (This is the **app** folder for NativeScript Core, and the **src** folder for Angular 6+), create a folder called **fonts** and place the **.ttf** there.
+4. Follow the instructions on the icon font webpage to determine the hex codes of each font glyph, i.e., icon. Add a **Label** component to your NativeScript app and bind the Label's **text** property to a one-letter string generated from the character code of the icon you want to show, i.e., `\ue903`. Prefix the character (in this example: e903) with a `\u`
+
+> **Note:** While this documentation article is focused on icon fonts, the above workflow is a hundred percent applicable for both **text fonts** and **icon fonts** (except that with text fonts step 4 as they don't include icons but only plain text).
+
+### Platform Specific Font Recognition
+
+There is a conceptual difference in how **.ttf** fonts are recognized on iOS and Android. On Android, the font is recognized by its **file name** while on iOS it is recognized by its **font name**. This means that fonts that are created with a font name which is different from the file name has to be registered with both names in your CSS rule.
+
+```CSS
+.fa-brands {
+    font-family: "Font Awesome 5 Brands", "fa-brands-400";
+}
+```
+
+In the above example, the `fa-brands-400.ttf` (as downloaded from the FontAwesome site) has a font name `Font Awesome 5 Brands`. With the above CSS, the font is recognized on both iOS (by the font name `Font Awesome 5 Brands`) and Android (by the file name `fa-brands-400`).
+
+> **Note:** There are specific scenarios where the creators of the fonts might have released two differently named `ttf` files but with the same **font** name (see the example below).
+
+| file name              | font name           |
+| ---------------------- | ------------------- |
+| **fa-solid-900.ttf**   | Font Awesome 5 Free |
+| **fa-regular-400.ttf** | Font Awesome 5 Free |
+
+Notice that in the above example the **file** names are different, but the registered **font** name is the same (use the **Font Book** application on Mac or the **Control Panel Fonts** section on Windows to see the actual font name). While this is no issue on Android, it renders the second font unusable on iOS. To handle similar cases additional CSS font properties, such as for example `font-weight`, must be added.
+
+```CSS
+/*
+    File name: fa-regular-400.ttf
+    Font name: Font Awesome 5 Free
+*/
+.far {
+    font-family: "Font Awesome 5 Free", "fa-regular-400";
+    font-weight: 400;
+}
+
+/*
+    File name: fa-solid-900.ttf
+    Font name: Font Awesome 5 Free
+*/
+.fas {
+    font-family: "Font Awesome 5 Free", "fa-solid-900";
+    font-weight: 900;
+}
+```
 
 ### Import CSS
 
