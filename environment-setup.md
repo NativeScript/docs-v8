@@ -190,7 +190,7 @@ You will need Node, NativeScript CLI (command line interface), XCode, xcodeproj,
 
 We recommend using [Howbrew](https://brew.sh/) to install the required dependencies &mdash; a popular package manager for macOS.
 
-:::warning
+:::warning Note
 When installing Homebrew, carefully follow their instructions to avoid configuration issues.
 :::
 
@@ -206,19 +206,50 @@ If you need to work with multiple versions of node, you may skip installing node
 
 Next you will need **XCode**. Open the **AppStore**, search for **XCode** and and install it.
 
-Once the installation is complete (this may take a while &mdash; brew a coffee and enjoy a little break), install the **<abbr title="CLI utility to interact with XCode projects">xcodeproj</abbr>** and **<abbr title="A package manager for managing 3rd party native dependencies">cocoapods</abbr>** gems by running the following commands:
+Once the installation is complete (this may take a while &mdash; brew a coffee and enjoy a little break), open **XCode** and if it prompts you to install the Command-Line-Tools make sure to say **Yes**.
+
+Open `XCode › Preferences › Locations` and make sure **Command Line Tools** is set
+
+![XCode Preferences, Locations](assets/environment-setup/xcode_command_line_tools.png)
+
+Install **ruby 2.7** and link it so it's available in your shell environment:
 
 ```bash
-sudo gem install xcodeproj
-sudo gem install cocoapods # todo: check what else needs to be done, since this fails on a fresh intel mac!
-pod setup
+brew install ruby@2.7
+brew link ruby@2.7
+```
+
+Add the following lines to your shell profile, usually `~/.bash_profile` or `~/.bashrc`, or if you are using `zsh` then `~/.zshrc` config file:
+
+```shell
+# Add rubygems to the path
+export PATH=/opt/homebrew/lib/ruby/gems/2.7.0/bin:$PATH
+```
+
+:::warning Important
+Make sure to open a new terminal window for the changes to take effect!
+:::
+
+In a new terminal window, install the **<abbr title="A package manager for managing 3rd party native dependencies">cocoapods</abbr>** and **<abbr title="CLI utility to interact with XCode projects">xcodeproj</abbr>** gems by running the following commands:
+
+<!-- Note: xcodeproj seems to be installed when installing cocoapods via brew -->
+<!-- brew install cocoapods # this will install both cocoapods and xcodeproj -->
+
+```bash
+gem install cocoapods
+gem install xcodeproj
 ```
 
 Next install **<abbr title="Python package manager">pip</abbr>** and **<abbr title="Python 2 & 3 compatibility package used by NativeScript">six</abbr>** by running the following:
 
 ```bash
-python -m pip install --upgrade pip six
+sudo easy_install pip==20.3.3
+python -m pip install six
 ```
+
+:::tip NOTE
+You may see a Deprecation warning when installing **six**, feel free to ignore it for now &mdash; NativeScript will update to Python 3.x in the near future.
+:::
 
 Install the **NativeScript CLI** globally:
 
@@ -226,13 +257,24 @@ Install the **NativeScript CLI** globally:
 npm install -g nativescript
 ```
 
+:::tip NOTE
+You may see Deprecation and security warnings from **npm**, these are safe to ignore.
+
+_**More details for those curious:** The NativeScript CLI relies on 3rd party packages that may have been deprecated over the past years. We are slowly replacing these dependencies with newer, supported alternatives to resolve these warnings, however they are generally safe to ignore, since the CLI is never exposed to the public and it's only used for local development, where most of the security concerns don't apply._
+:::
+
 To verify if the installation was successful, open a new Command Prompt window to ensure the new environment variables are loaded and run
 
 ```bash
 ns doctor
 ```
 
-If you see **No issues were detected** you have successfully set up your system.
+<!-- TODO: add ns doctor ios & ns doctor android! -->
+<!-- If you see **No issues were detected** you have successfully set up your system. -->
+
+If you see the following, you have successfully set up your system for iOS development. Select **Skip Step and Configure Manually** or hit `Ctrl+C` to exit.
+
+![ns doctor output](assets/environment-setup/ns_doctor_ios.png)
 
 <!-- 1. Node
 

@@ -30,7 +30,7 @@ module.exports = {
 				link: '/plugins/index',
 				activeMatch: '^/plugins',
 			},
-      {
+			{
 				text: 'Best Practices',
 				link: '/best-practices/index',
 				activeMatch: '^/best-practices',
@@ -46,7 +46,7 @@ module.exports = {
 		],
 
 		sidebar: {
-      '/best-practices/': getBestPracticeSidebar(),
+			'/best-practices/': getBestPracticeSidebar(),
 			'/plugins/': getPluginsSidebar(),
 
 			// fallback
@@ -124,6 +124,10 @@ function getSidebar() {
 			text: 'Troubleshooting',
 			children: [
 				{
+					text: 'Common Issues',
+					link: '/troubleshooting',
+				},
+				{
 					text: 'Common Pitfalls',
 					link: '/common-pitfalls',
 				},
@@ -189,17 +193,17 @@ function getBestPracticeSidebar() {
 					text: 'Introduction',
 					link: '/best-practices/index',
 				},
-        {
+				{
 					text: 'View Bindings',
 					link: '/best-practices/view-bindings',
 				},
-        {
+				{
 					text: 'ListViews',
 					link: '/best-practices/listviews',
 				},
-      ]
-    }
-  ]
+			],
+		},
+	]
 }
 
 /**
