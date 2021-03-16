@@ -276,6 +276,24 @@ If you see the following, you have successfully set up your system for iOS devel
 
 ![ns doctor output](assets/environment-setup/ns_doctor_ios.png)
 
+#### Additional notes for M1 based machines:
+
+:::danger TODO
+This section is temporary for now - we can consolidate & make sure it works on M1 as expected with the above flow. May need couple adjustments.
+:::
+
+You may need to install rosetta2, run:
+
+```bash
+softwareupdate --install-rosetta
+```
+
+May need to install `ffi`
+
+```
+gem install ffi
+```
+
 <!-- 1. Node
 
 We recommend using [Homebrew](https://brew.sh/) to install Node.
