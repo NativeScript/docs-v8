@@ -12,9 +12,7 @@ title: Environment Setup
 
 ---
 
-# End Prerequisites
-
-Interactive page where content is shown based on your selections:
+<!-- TODO: make interactive -->
 
 **Development OS**: macOS, Windows, Linux
 
@@ -108,41 +106,50 @@ To run a NativeScript app, you will need an Android device &mdash; either a phy
 
 ### Windows + iOS
 
-> **Unsupported** &mdash; A Mac is required to build projects that use native iOS code. Simpler apps can be tested using the NativeScript Playground.
+:::warning Unsupported
+A Mac is required to build projects that use native iOS code. Simpler apps can be tested using the NativeScript Playground.
+:::
 
 ### macOS + Android
 
-#### Dependency Installations
-
-1. Node
-
-We recommend using [Homebrew](https://brew.sh/) to install Node.
-
-After Homebrew installation, run the following commands to install **Node**:
-
-```powershell
-brew install node
-```
-
-```warning
-If you see a "Next steps:" Note about adding Homebrew to your **PATH**, follow those instructions to add to your profile.
-```
-
-```warning
-TODO: make note of node version managers maybe?
-```
+You will need Node, NativeScript CLI (command line interface), Android Studio and a JDK (java development kit).
 
 **Android Studio** is not strictly necessary &mdash; however it provides an easy to use interface for installing and managing the Android SDKs.
 
+We recommend using [Howbrew](https://brew.sh/) to install the required dependencies &mdash; a popular package manager for macOS.
+
+:::warning
+When installing Homebrew, carefully follow their instructions to avoid configuration issues.
+:::
+
+Once you have Homebrew installed, to install **Node** open a Terminal and run the following command:
+
+```bash
+brew install node
+```
+
+:::tip Pro tip!
+If you need to work with multiple versions of node, you may skip installing node via Homebrew, and use a node version manager: [nvm](https://github.com/nvm-sh/nvm), [n](https://npmjs.com/n) or any other node version manager you prefer.
+:::
+
 To install a **JDK** run the following command:
 
-```
-brew cask install adoptopenjdk/openjdk/adoptopenjdk8
+```bash
+brew install --cask adoptopenjdk # todo: check if it works with latest jdk
 ```
 
 Setting up the Android development environment can be daunting if you are new to Android development, however following the next steps carefully will get you up and running in no time.
 
-> !!! Same-ish as Windows + Android! Copy here once Windows version is finalized.
+[Download and install Android Studio](https://developer.android.com/studio). In the installation wizard make sure to have the following components selected:
+
+- Android SDK
+- Android SDK Platform
+- Android Virtual Device
+- Performance (Intel ® HAXM) &mdash; optional, learn more about [AMD Processor & Hyper-V support](https://android-developers.googleblog.com/2018/07/android-emulator-amd-processor-hyper-v.html)
+
+The setup may take a while, but once it has finished a welcome screen should appear.
+
+Android Studio installs the latest Android SDK by default, which in most cases should be all that's needed to build a NativeScript app.
 
 Configure the `ANDROID_HOME` environment variable for NativeScript to be able to find the Android SDK, and add the required tools to path.
 
@@ -153,15 +160,15 @@ export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 ```
 
-Install the NativeScript CLI globally:
+Install the **NativeScript CLI** globally:
 
-```
+```bash
 npm install -g nativescript
 ```
 
 To verify if the installation was successful, open a new Command Prompt window to ensure the new environment variables are loaded and run
 
-```
+```bash
 ns doctor
 ```
 
@@ -179,9 +186,55 @@ To run a NativeScript app, you will need an Android device &mdash; either a phy
 
 ### macOS + iOS
 
-#### Dependency Installations
+You will need Node, NativeScript CLI (command line interface), XCode, xcodeproj, cocoapods.
 
-1. Node
+We recommend using [Howbrew](https://brew.sh/) to install the required dependencies &mdash; a popular package manager for macOS.
+
+:::warning
+When installing Homebrew, carefully follow their instructions to avoid configuration issues.
+:::
+
+Once you have Homebrew installed, to install **Node** open a Terminal and run the following command:
+
+```bash
+brew install node
+```
+
+:::tip Pro tip!
+If you need to work with multiple versions of node, you may skip installing node via Homebrew, and use a node version manager: [nvm](https://github.com/nvm-sh/nvm), [n](https://npmjs.com/n) or any other node version manager you prefer.
+:::
+
+Next you will need **XCode**. Open the **AppStore**, search for **XCode** and and install it.
+
+Once the installation is complete (this may take a while &mdash; brew a coffee and enjoy a little break), install the **<abbr title="CLI utility to interact with XCode projects">xcodeproj</abbr>** and **<abbr title="A package manager for managing 3rd party native dependencies">cocoapods</abbr>** gems by running the following commands:
+
+```bash
+sudo gem install xcodeproj
+sudo gem install cocoapods # todo: check what else needs to be done, since this fails on a fresh intel mac!
+pod setup
+```
+
+Next install **<abbr title="Python package manager">pip</abbr>** and **<abbr title="Python 2 & 3 compatibility package used by NativeScript">six</abbr>** by running the following:
+
+```bash
+python -m pip install --upgrade pip six
+```
+
+Install the **NativeScript CLI** globally:
+
+```bash
+npm install -g nativescript
+```
+
+To verify if the installation was successful, open a new Command Prompt window to ensure the new environment variables are loaded and run
+
+```bash
+ns doctor
+```
+
+If you see **No issues were detected** you have successfully set up your system.
+
+<!-- 1. Node
 
 We recommend using [Homebrew](https://brew.sh/) to install Node.
 
@@ -199,7 +252,7 @@ If you see a "Next steps:" Note about adding Homebrew to your **PATH**, follow t
 TODO: make note of node version managers maybe?
 ```
 
-2. Install Xcode via App Store
+1. Install Xcode via App Store
 
 Open App Store from the Apple menu and search for 'Xcode' to install it.
 
@@ -227,7 +280,7 @@ python -m pip install --upgrade pip six
 
 ```
 npm install -g nativescript
-```
+``` -->
 
 ## Integrating with native apps
 
