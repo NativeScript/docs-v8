@@ -263,7 +263,7 @@ You may see Deprecation and security warnings from **npm**, these are safe to ig
 _**More details for those curious:** The NativeScript CLI relies on 3rd party packages that may have been deprecated over the past years. We are slowly replacing these dependencies with newer, supported alternatives to resolve these warnings, however they are generally safe to ignore, since the CLI is never exposed to the public and it's only used for local development, where most of the security concerns don't apply._
 :::
 
-To verify if the installation was successful, open a new Command Prompt window to ensure the new environment variables are loaded and run
+To verify if the installation was successful, open a new Terminal window to ensure the new environment variables are loaded and run
 
 ```bash
 ns doctor
