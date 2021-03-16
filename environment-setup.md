@@ -12,6 +12,8 @@ title: Environment Setup
 
 ---
 
+# End Prerequisites
+
 Interactive page where content is shown based on your selections:
 
 **Development OS**: macOS, Windows, Linux
@@ -110,17 +112,27 @@ To run a NativeScript app, you will need an Android device &mdash; either a phy
 
 ### macOS + Android
 
-You will need Node, NativeScript CLI (command line interface), Android Studio and a JDK (java development kit).
+#### Dependency Installations
 
-**Android Studio** is not strictly necessary &mdash; however it provides an easy to use interface for installing and managing the Android SDKs.
+1. Node
 
-We recommend using [Howbrew](https://brew.sh/) to install the required dependencies &mdash; a popular package manager for macOS.
+We recommend using [Homebrew](https://brew.sh/) to install Node.
 
-To install **Node** open a Terminal and run the following command:
+After Homebrew installation, run the following commands to install **Node**:
 
 ```powershell
 brew install node
 ```
+
+```warning
+If you see a "Next steps:" Note about adding Homebrew to your **PATH**, follow those instructions to add to your profile.
+```
+
+```warning
+TODO: make note of node version managers maybe?
+```
+
+**Android Studio** is not strictly necessary &mdash; however it provides an easy to use interface for installing and managing the Android SDKs.
 
 To install a **JDK** run the following command:
 
@@ -166,6 +178,56 @@ To run a NativeScript app, you will need an Android device &mdash; either a phy
   If the list of available Virtual Devices is empty, you will need to create a new AVD. Click on "**Create Virtual Device...**" then pick a phone from the list. You can select any phone from the list &mdash; for example "**Pixel 3 XL**" and then click "**Next**". For the System Image select the latest version (the highest API Level in the list). If the selection is greyed out, click the "Download" link next to the Release Name to download the System Image and then click "**Next**" and "**Finish**" to create the AVD. The newly created AVD should show up in the list, and you should be able to click the green "play" button to start the virtual device.
 
 ### macOS + iOS
+
+#### Dependency Installations
+
+1. Node
+
+We recommend using [Homebrew](https://brew.sh/) to install Node.
+
+After Homebrew installation, run the following commands to install **Node**:
+
+```powershell
+brew install node
+```
+
+```warning
+If you see a "Next steps:" Note about adding Homebrew to your **PATH**, follow those instructions to add to your profile.
+```
+
+```warning
+TODO: make note of node version managers maybe?
+```
+
+2. Install Xcode via App Store
+
+Open App Store from the Apple menu and search for 'Xcode' to install it.
+
+Wait for this installation to complete.
+
+3. Install Cocoapods and Xcodeproj
+
+```
+sudo gem install xcodeproj
+sudo gem install cocoapods
+pod setup
+```
+
+4. Install pip and six
+
+```
+python -m pip install --upgrade pip six
+```
+
+```warning Note
+`pip` is a python installation manager. `six` provides compatibility utilities for Python 2 and 3.
+```
+
+5. Install NativeScript CLI
+
+```
+npm install -g nativescript
+```
 
 ## Integrating with native apps
 
