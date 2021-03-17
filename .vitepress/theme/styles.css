@@ -115,7 +115,7 @@
 	border-color: #ff3e00;
 }
 
-.active-plain .flavor.angular,
+/* .active-plain .flavor.angular,
 .active-plain .flavor.vue,
 .active-plain .flavor.react,
 .active-plain .flavor.svelte {
@@ -148,7 +148,7 @@
 .active-svelte .flavor.vue,
 .active-svelte .flavor.react {
 	display: none;
-}
+} */
 
 @media (min-width: 768px) {
 	.md\:w-1\/2 {
