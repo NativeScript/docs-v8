@@ -114,3 +114,50 @@
 .flavor.svelte {
 	border-color: #ff3e00;
 }
+
+.active-plain .flavor.angular,
+.active-plain .flavor.vue,
+.active-plain .flavor.react,
+.active-plain .flavor.svelte {
+	display: none;
+}
+
+.active-angular .flavor.vue,
+.active-angular .flavor.plain,
+.active-angular .flavor.react,
+.active-angular .flavor.svelte {
+	display: none;
+}
+
+.active-vue .flavor.angular,
+.active-vue .flavor.plain,
+.active-vue .flavor.react,
+.active-vue .flavor.svelte {
+	display: none;
+}
+
+.active-react .flavor.angular,
+.active-react .flavor.plain,
+.active-react .flavor.vue,
+.active-react .flavor.svelte {
+	display: none;
+}
+
+.active-svelte .flavor.angular,
+.active-svelte .flavor.plain,
+.active-svelte .flavor.vue,
+.active-svelte .flavor.react {
+	display: none;
+}
+
+@media (min-width: 768px) {
+	.md\:w-1\/2 {
+		width: 50%;
+	}
+}
+
+@media (min-width: 1024px) {
+	.lg\:w-1\/3 {
+		width: 33.333333%;
+	}
+}

@@ -7,4 +7,3 @@ ListView, RadListView and really any view component that utilizes some form of r
 Setting them up wrong and you will run away crying.
 
 Setting them up correctly and you will be overjoyed with delight.
-

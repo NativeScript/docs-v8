@@ -2,44 +2,13 @@
 title: UI & Styling
 ---
 
-## Layouts
-
 - [USED REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/ui/layouts/layouts.md
 
-### User Interface Layout Process
-
-NativeScript provides a recursive layout system that sizes and positions views on the screen. Layout is the process of measuring and positioning of Layout containers and their child views. Layout is an intensive process whose speed and performance depend on the count of the children and the complexity of the layout container. For example, a simple layout container such as `AbsoluteLayout` might perform better than a more complex layout container, such as `GridLayout`.
-
-Layout completes in two passes&mdash;a measure pass and a layout pass. To this end, each `View` provides a `measure` and `layout` methods. Additionally, each layout container provides its own `onMeasure` and `onLayout` to achieve its own specific layout.
-
-> Looking for a fun and easy way to learn about NativeScript layout containers? Try the interactive tutorials available at [nslayouts.com](https://www.nslayouts.com/)!
-
-#### Measure Pass
-
-During the measure pass, each `View` is measured to retrieve its desired size. The measure pass evaluates the following properties:
-
-- width
-- height
-- minWidth
-- minHeight
-- visibility
-- marginTop
-- marginRight
-- marginBottom
-- marginLeft
-
-#### Layout Pass
-
-During the layout pass, each `View` is placed in a specific layout slot. This slot is determined by the desired size of the view (retrieved from the measure pass) and the following properties:
-
-- marginTop
-- marginRight
-- marginBottom
-- marginLeft
-- horizontalAlignment
-- verticalAlignment
-
 ### Layout Properties
+
+:::danger TODO
+Move this section to a better place.
+:::
 
 #### Margins
 
@@ -113,25 +82,6 @@ The above workflow can lead to containers being laid out with a bigger size than
 
 The above default behavior should provide good UX out of the box. Additionally, NativeScript 5.0 exposes a property `iosOverflowSafeArea` that can control how components handle the iOS `Safe Area`. Set this property value to `true` if you want the component to expand to the edges of the screen when it borders the safe area. Set it to `false` to explicitly prevent this behavior. The default value for container components is `true`. All other components are considered content that should be constrained to the safe area and default to `false`.
 
-### LayoutBase
-
-`LayoutBase` is the base class for all views that provide positioning of child elements.
-
-You can use the various layout containers to position elements. They evaluate the base properties of `View` such as `width`, `height`, `minWidth` and alignments, and expose additional specific properties for positioning child views.
-
-#### Predefined Layouts
-
-The following table shows predefined layouts that NativeScript provides.
-
-| Layouts                                                                                                    | Description                                                                                                                                                     | Screenshot                                                                                                |
-| ---------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| [FlexboxLayout](https://v6.docs.nativescript.org/api-reference/modules/_ui_layouts_flexbox_layout_.html)   | This layout is a non-conforming implementation of the [CSS Flexible Box Layout](https://www.w3.org/TR/css-flexbox-1/)                                           | ![FlexboxLayout android](/assets/images/gallery/android/flexboxLayoutPage.png 'FlexboxLayout android')    |
-| [AbsoluteLayout](https://v6.docs.nativescript.org/api-reference/modules/_ui_layouts_absolute_layout_.html) | This layout lets you set exact locations (left/top coordinates) for its children.                                                                               | ![AbsoluteLayout android](/assets/images/gallery/android/absoluteLayoutPage.png 'AbsoluteLayout android') |
-| [DockLayout](https://v6.docs.nativescript.org/api-reference/modules/_ui_layouts_dock_layout_.html)         | This layout arranges its children at its outer edges and allows its last child to take up the remaining space.                                                  | ![DockLayout android](/assets/images/gallery/android/dockLayoutPage.png 'DockLayout android')             |
-| [GridLayout](https://v6.docs.nativescript.org/api-reference/modules/_ui_layouts_grid_layout_.html)         | This layout defines a rectangular layout area that consists of columns and rows.                                                                                | ![GridLayout android](/assets/images/gallery/android/gridLayoutPage.png 'GridLayout android')             |
-| [StackLayout](https://v6.docs.nativescript.org/api-reference/modules/_ui_layouts_stack_layout_.html)       | This layout arranges its children horizontally or vertically. The direction is set with the orientation property.                                               | ![StackLayout android](/assets/images/gallery/android/stackLayoutPage.png 'StackLayout android')          |
-| [WrapLayout](https://v6.docs.nativescript.org/api-reference/modules/_ui_layouts_wrap_layout_.html)         | This layout positions its children in rows or columns, based on the orientation property, until the space is filled and then wraps them on a new row or column. | ![WrapLayout android](/assets/images/gallery/android/wrapLayoutPage.png 'WrapLayout android')             |
-
 ## Layout Containers
 
 ### AbsoluteLayout
@@ -144,7 +94,7 @@ The `<AbsoluteLayout>` container is the simplest layout container in NativeScrip
 - Doesn't enforce any layout constraints on its children.
 - Doesn't resize its children at runtime when its size changes.
 
-#### A grid-like layout
+#### Example: a grid-like layout
 
 The following example creates a simple grid. For more information about creating grid layouts, see [GridLayout](/en/docs/elements/layouts/grid-layout).
 
@@ -187,7 +137,7 @@ The following example creates a simple grid. For more information about creating
 
 <img class="md:w-1/2 lg:w-1/3" src="https://art.nativescript-vue.org/layouts/absolute_layout_grid.svg" />
 
-#### Overlapping elements
+#### Example: Overlapping elements
 
 The following example creates a group of overlapping items.
 
@@ -216,22 +166,19 @@ The following example creates a group of overlapping items.
 
 #### Props
 
-None.
+| Name           | Type        | Description                                                                                                                                                    |
+| -------------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `N/A`          | `N/A`       | None.                                                                                                                                                          |
+| `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.org/api-reference/modules/_ui_layouts_absolute_layout_.html) |
 
 #### Additional children props
 
-When an element is a direct child of `<AbsoluteLayout>`, you can work with the following additional properties.
+When an element is a direct child of `<AbsoluteLayout>`, you can set the following additional properties.
 
 | Name   | Type     | Description                                                                                               |
 | ------ | -------- | --------------------------------------------------------------------------------------------------------- |
 | `top`  | `Number` | Gets or sets the distance, in pixels, between the top edge of the child and the top edge of its parent.   |
 | `left` | `Number` | Gets or sets the distance, in pixels, between the left edge of the child and the left edge of its parent. |
-
-#### API Reference
-
-| Name                                                                                                    | Type     |
-| :------------------------------------------------------------------------------------------------------ | :------- |
-| [AbsoluteLayout](https://docs.nativescript.org/api-reference/modules/_ui_layouts_absolute_layout_.html) | `Module` |
 
 ### DockLayout
 
@@ -243,7 +190,7 @@ When an element is a direct child of `<AbsoluteLayout>`, you can work with the f
 - Enforces layout constraints to its children.
 - Resizes its children at runtime when its size changes.
 
-#### Dock to every side without stretching the last child
+#### Example: Dock to every side without stretching the last child
 
 The following example creates a frame-like layout consisting of 4 elements, position at the 4 edges of the screen.
 
@@ -258,7 +205,7 @@ The following example creates a frame-like layout consisting of 4 elements, posi
 
 <img class="md:w-1/2 lg:w-1/3" src="https://art.nativescript-vue.org/layouts/dock_layout_no_stretch.svg" />
 
-#### Dock to every side and stretch the last child
+#### Example: Dock to every side and stretch the last child
 
 The following example shows how `stretchLastChild` affects the positioning of child elements in a `DockLayout` container. The last child (`bottom`) is stretched to take up all the remaining space after positioning the first three elements.
 
@@ -273,7 +220,7 @@ The following example shows how `stretchLastChild` affects the positioning of ch
 
 <img class="md:w-1/2 lg:w-1/3" src="https://art.nativescript-vue.org/layouts/dock_layout_stretch.svg" />
 
-#### Dock to every side and the center
+#### Example: Dock to every side and the center
 
 The following example creates a `<DockLayout>` of 5 elements. The first four wrap the center element in a frame.
 
@@ -289,7 +236,7 @@ The following example creates a `<DockLayout>` of 5 elements. The first four wra
 
 <img class="md:w-1/2 lg:w-1/3" src="https://art.nativescript-vue.org/layouts/dock_layout_all_sides_and_stretch.svg" />
 
-#### Dock multiple children to the same side
+#### Example: Dock multiple children to the same side
 
 The following example creates a single line of 4 elements that stretch across the entire height and width of the screen.
 
@@ -306,23 +253,18 @@ The following example creates a single line of 4 elements that stretch across th
 
 #### Props
 
-| Name               | Type      | Description                                                               |
-| ------------------ | --------- | ------------------------------------------------------------------------- |
-| `stretchLastChild` | `Boolean` | Enables or disables stretching the last child to fit the remaining space. |
+| Name               | Type        | Description                                                                                                                                                |
+| ------------------ | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `stretchLastChild` | `Boolean`   | Enables or disables stretching the last child to fit the remaining space.                                                                                  |
+| `...Inherited`     | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.org/api-reference/modules/_ui_layouts_dock_layout_.html) |
 
 #### Additional children props
 
-When an element is a direct child of `<DockLayout>`, you can work with the following additional properties.
+When an element is a direct child of `<DockLayout>`, you can set the following additional properties.
 
 | Name   | Type     | Description                                                                                         |
 | ------ | -------- | --------------------------------------------------------------------------------------------------- |
 | `dock` | `String` | Specifies which side to dock the element to.<br/>Valid values: `top`, `right`, `bottom`, or `left`. |
-
-#### API Reference
-
-| Name                                                                                            | Type     |
-| :---------------------------------------------------------------------------------------------- | :------- |
-| [DockLayout](https://docs.nativescript.org/api-reference/modules/_ui_layouts_dock_layout_.html) | `Module` |
 
 ### GridLayout
 
@@ -338,9 +280,9 @@ You can set a fixed size for column width and row height or you can create them 
 - **auto:** Makes the column as wide as its widest child or makes the row as tall as its tallest child.
 - **\*:** Takes as much space as available after filling all auto and fixed size columns or rows.
 
-See [Props](#props) for more information.
+See **Props** for more information.
 
-#### Grid layout with fixed sizing
+#### Example: Grid layout with fixed sizing
 
 The following example creates a simple 2-by-2 grid with fixed column widths and row heights.
 
@@ -355,7 +297,7 @@ The following example creates a simple 2-by-2 grid with fixed column widths and 
 
 <img class="md:w-1/2 lg:w-1/3" src="https://art.nativescript-vue.org/layouts/grid_layout.svg" />
 
-#### Grid layout with star sizing
+#### Example: Grid layout with star sizing
 
 The following example creates a grid with responsive design, where space is allotted proportionally to child elements.
 
@@ -370,7 +312,7 @@ The following example creates a grid with responsive design, where space is allo
 
 <img class="md:w-1/2 lg:w-1/3" src="https://art.nativescript-vue.org/layouts/grid_layout_star_sizing.svg" />
 
-#### Grid layout with fixed and auto sizing
+#### Example: Grid layout with fixed and auto sizing
 
 The following example create a grid with one auto-sized column and one column with fixed size. Rows have a fixed height.
 
@@ -385,7 +327,7 @@ The following example create a grid with one auto-sized column and one column wi
 
 <img class="md:w-1/2 lg:w-1/3" src="https://art.nativescript-vue.org/layouts/grid_layout_fixed_auto.svg" />
 
-#### Grid layout with mixed sizing and merged cells
+#### Example: Grid layout with mixed sizing and merged cells
 
 The following example creates a complex grid with responsive design, mixed width and height settings, and some merged cells.
 
@@ -405,10 +347,11 @@ The following example creates a complex grid with responsive design, mixed width
 
 #### Props
 
-| Name      | Type     | Description                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| --------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `columns` | `String` | A string value representing column widths delimited with commas.<br/>Valid values: an absolute number, `auto`, or `*`.<br/>A number indicates an absolute column width. `auto` makes the column as wide as its widest child. `*` makes the column occupy all available horizontal space. The space is proportionally divided over all star-sized columns. You can set values such as `3*` and `5*` to indicate a ratio of 3:5 in sizes. |
-| `rows`    | `String` | A string value representing row heights delimited with commas.<br/>Valid values: an absolute number, `auto`, or `*`.<br/>A number indicates an absolute row height. `auto` makes the row as tall as its tallest child. `*` makes the row occupy all available vertical space. The space is proportionally divided over all star-sized rows. You can set values such as `3*` and `5*` to indicate a ratio of 3:5 in sizes.               |
+| Name           | Type        | Description                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| -------------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `columns`      | `String`    | A string value representing column widths delimited with commas.<br/>Valid values: an absolute number, `auto`, or `*`.<br/>A number indicates an absolute column width. `auto` makes the column as wide as its widest child. `*` makes the column occupy all available horizontal space. The space is proportionally divided over all star-sized columns. You can set values such as `3*` and `5*` to indicate a ratio of 3:5 in sizes. |
+| `rows`         | `String`    | A string value representing row heights delimited with commas.<br/>Valid values: an absolute number, `auto`, or `*`.<br/>A number indicates an absolute row height. `auto` makes the row as tall as its tallest child. `*` makes the row occupy all available vertical space. The space is proportionally divided over all star-sized rows. You can set values such as `3*` and `5*` to indicate a ratio of 3:5 in sizes.               |
+| `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.org/api-reference/modules/_ui_layouts_grid_layout_.html)                                                                                                                                                                                                                                                                              |
 
 #### Additional children props
 
@@ -421,25 +364,19 @@ When an element is a direct child of `<GridLayout>`, you can work with the follo
 | `rowSpan` | `Number` | Specifies the number of rows which this element spans across.                                                                                                  |
 | `colSpan` | `Number` | Specifies the number of columns which this element spans across.                                                                                               |
 
-#### API Reference
-
-| Name                                                                                            | Type     |
-| :---------------------------------------------------------------------------------------------- | :------- |
-| [GridLayout](https://docs.nativescript.org/api-reference/modules/_ui_layouts_grid_layout_.html) | `Module` |
-
 ### StackLayout
 
 `<StackLayout>` is a layout container that lets you stack the child elements vertically (default) or horizontally.
 
-#### Default stacking
-
-The following example creates a vertical stack of 3 equally-sized elements. Items are stretched to cover the entire width of the screen. Items are placed in the order they were declared in.
-
 ::: danger Important
-Try not to nest too many `<StackLayout/>` in your markup. If you find yourself nesting a lot of `<StackLayout/>`
-you will likely get better performance by switching to a `<GridLayout/>` or `<FlexboxLayout/>`.
+Try not to nest too many `<StackLayout/>` in your markup. If you find yourself nesting a lot of `<StackLayout>`
+you will likely get better performance by switching to a `<GridLayout>` or `<FlexboxLayout>`.
 See [Layout Nesting](/common-pitfalls.html#layout-nesting) for more information.
 :::
+
+#### Example: Default stacking
+
+The following example creates a vertical stack of 3 equally-sized elements. Items are stretched to cover the entire width of the screen. Items are placed in the order they were declared in.
 
 ```html
 <StackLayout backgroundColor="#3c495e">
@@ -451,7 +388,7 @@ See [Layout Nesting](/common-pitfalls.html#layout-nesting) for more information.
 
 <img class="md:w-1/2 lg:w-1/3" src="https://art.nativescript-vue.org/layouts/stack_layout_vertical.svg" />
 
-#### Horizontal stacking
+#### Example: Horizontal stacking
 
 The following example creates a horizontal stack of 3 equally-sized elements. Items are stretched to cover the entire height of the screen. Items are placed in the order they were declared in.
 
@@ -465,7 +402,7 @@ The following example creates a horizontal stack of 3 equally-sized elements. It
 
 <img class="md:w-1/2 lg:w-1/3" src="https://art.nativescript-vue.org/layouts/stack_layout_horizontal.svg" />
 
-#### Stack layout with horizontally aligned children
+#### Example: Stack layout with horizontally aligned children
 
 The following example creates a diagonal stack of items with responsive sizes. Items are vertically stacked.
 
@@ -503,7 +440,7 @@ The following example creates a diagonal stack of items with responsive sizes. I
 
 <img class="md:w-1/2 lg:w-1/3" src="https://art.nativescript-vue.org/layouts/stack_layout_vertical_align_children.svg" />
 
-#### Horizontal stack layout with vertically aligned children
+#### Example: Horizontal stack layout with vertically aligned children
 
 The following example creates a diagonal stack of items with responsive sizes. Items are horizontally stacked.
 
@@ -543,27 +480,22 @@ The following example creates a diagonal stack of items with responsive sizes. I
 
 #### Props
 
-| Name          | Type     | Description                                                                                                     |
-| ------------- | -------- | --------------------------------------------------------------------------------------------------------------- |
-| `orientation` | `String` | Specifies the stacking direction.<br/>Valid values: `vertical` and `horizontal`.<br/>Default value: `vertical`. |
+| Name           | Type        | Description                                                                                                                                                 |
+| -------------- | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `orientation`  | `String`    | Specifies the stacking direction.<br/>Valid values: `vertical` and `horizontal`.<br/>Default value: `vertical`.                                             |
+| `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.org/api-reference/modules/_ui_layouts_stack_layout_.html) |
 
 #### Additional children props
 
 None.
 
-#### API Reference
-
-| Name                                                                                              | Type     |
-| :------------------------------------------------------------------------------------------------ | :------- |
-| [StackLayout](https://docs.nativescript.org/api-reference/modules/_ui_layouts_stack_layout_.html) | `Module` |
-
 ### WrapLayout
 
 `<WrapLayout>` is a layout container that lets you position items in rows or columns, based on the `orientation` property. When the space is filled, the container automatically wraps items onto a new row or column.
 
-#### Default wrap layout
+#### Example: Default wrap layout
 
-The following example creates a row of equally-sized items. When the row runs out of space, the container wraps the last item on a new row.
+The following example creates a row of equally-sized items. When the row runs out of space, the container wraps the last item to a new row.
 
 ```html
 <WrapLayout backgroundColor="#3c495e">
@@ -576,9 +508,9 @@ The following example creates a row of equally-sized items. When the row runs ou
 
 <img class="md:w-1/2 lg:w-1/3" src="https://art.nativescript-vue.org/layouts/wrap_layout_horizontal.svg" />
 
-#### Vertical wrap layout
+#### Example: Vertical wrap layout
 
-The following example creates a column of equally-sized items. When the row runs out of space, the container wraps the last item on a new column.
+The following example creates a column of equally-sized items. When the row runs out of space, the container wraps the last item to a new column.
 
 ```html
 <WrapLayout orientation="vertical" backgroundColor="#3c495e">
@@ -593,27 +525,22 @@ The following example creates a column of equally-sized items. When the row runs
 
 #### Props
 
-| Name          | Type     | Description                                                                                                                                                            |
-| ------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `orientation` | `String` | Specifies the stacking direction.<br/>Valid values: `horizontal` (arranges items in rows) and `vertical` (arranges items in columns).<br/>Default value: `horizontal`. |
-| `itemWidth`   | `Number` | Sets the width used to measure and layout each child.<br/>Default value: `Number.NaN`, which does not restrict children.                                               |
-| `itemHeight`  | `Number` | Sets the height used to measure and layout each child.<br/>Default value is `Number.NaN`, which does not restrict children.                                            |
+| Name           | Type        | Description                                                                                                                                                            |
+| -------------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `orientation`  | `String`    | Specifies the stacking direction.<br/>Valid values: `horizontal` (arranges items in rows) and `vertical` (arranges items in columns).<br/>Default value: `horizontal`. |
+| `itemWidth`    | `Number`    | Sets the width used to measure and layout each child.<br/>Default value: `Number.NaN`, which does not restrict children.                                               |
+| `itemHeight`   | `Number`    | Sets the height used to measure and layout each child.<br/>Default value is `Number.NaN`, which does not restrict children.                                            |
+| `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.org/api-reference/modules/_ui_layouts_wrap_layout_.html)             |
 
 #### Additional children props
 
 None.
 
-#### API Reference
-
-| Name                                                                                            | Type     |
-| :---------------------------------------------------------------------------------------------- | :------- |
-| [WrapLayout](https://docs.nativescript.org/api-reference/modules/_ui_layouts_wrap_layout_.html) | `Module` |
-
 ### FlexboxLayout
 
 `<FlexboxLayout>` is a layout container that provides a non-exact implementation of the [CSS Flexbox layout](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox). This layout lets you arrange child components both horizontally and vertically.
 
-#### Default flex layout
+#### Example: Default flex layout
 
 The following example creates a row of three equally-sized elements that span across the entire height of the screen.
 
@@ -627,7 +554,7 @@ The following example creates a row of three equally-sized elements that span ac
 
 <img class="md:w-1/2 lg:w-1/3" src="https://art.nativescript-vue.org/layouts/flexbox_layout_row_stretch.svg" />
 
-#### Column flex layout
+#### Example: Column flex layout
 
 The following example creates a column of three equally-sized elements that span across the entire width of the screen.
 
@@ -641,7 +568,7 @@ The following example creates a column of three equally-sized elements that span
 
 <img class="md:w-1/2 lg:w-1/3" src="https://art.nativescript-vue.org/layouts/flexbox_layout_column_stretch.svg" />
 
-#### Row flex layout with items aligned to `flex-start`
+#### Example: Row flex layout with items aligned to `flex-start`
 
 The following example creates a row of three items placed at the top of the screen. Items are placed in the order they were declared in.
 
@@ -655,7 +582,7 @@ The following example creates a row of three items placed at the top of the scre
 
 <img class="md:w-1/2 lg:w-1/3" src="https://art.nativescript-vue.org/layouts/flexbox_layout_row_flex-start.svg" />
 
-#### Row flex layout with custom order
+#### Example: Row flex layout with custom order
 
 The following example creates a row of three items placed at the top of the screen. Items are placed in a customized order.
 
@@ -669,7 +596,7 @@ The following example creates a row of three items placed at the top of the scre
 
 <img class="md:w-1/2 lg:w-1/3" src="https://art.nativescript-vue.org/layouts/flexbox_layout_row_custom_order.svg" />
 
-#### Row flex layout with wrapping
+#### Example: Row flex layout with wrapping
 
 The following example creates four items with enabled line wrapping. When the row runs out of space, the container wraps the last item on a new line.
 
@@ -684,7 +611,7 @@ The following example creates four items with enabled line wrapping. When the ro
 
 <img class="md:w-1/2 lg:w-1/3" src="https://art.nativescript-vue.org/layouts/flexbox_layout_wrap.svg" />
 
-#### Column flex layout with reverse order and items with a different `alignSelf`
+#### Example: Column flex layout with reverse order and items with a different `alignSelf`
 
 The following example shows how to use:
 
@@ -721,13 +648,14 @@ The following example shows how to use:
 
 #### Props
 
-| Name             | Type     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| ---------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `flexDirection`  | `String` | Sets the direction for placing child elements in the flexbox container.<br/>Valid values:<br/>`row` (horizontal, left to right),<br/>`row-reverse` (horizontal, right to left),<br/>`column` (vertical, top to bottom), and<br/>`column-reverse` (vertical, bottom to top).<br/>Default value: `row`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| `flexWrap`       | `String` | Sets whether child elements are forced in a single line or can flow into multiple lines. If set to multiple lines, also defines the cross axis which determines the direction new lines are stacked in.<br/>Valid values:<br/>`nowrap` (single line which may cause the container to overflow),<br/>`wrap` (multiple lines, direction is defined by `flexDirection`),and<br/>`wrap-reverse` (multiple lines, opposite to the direction defined by `flexDirection`).<br/>Default value: `nowrap`.                                                                                                                                                                                                                                                                               |
-| `justifyContent` | `String` | Sets the alignment of child elements along the main axis. You can use it to distribute leftover space when all the child elements on a line are inflexible or are flexible but have reached their maximum size. You can also use it to control the alignment of items when they overflow the line.<br/>Valid values:<br/>`flex-start` (items are packed toward the start line),<br/>`flex-end` (items are packed toward the end line),<br/>`center` (items are centered along the line),<br/>`space-between` (items are evenly distributed on the line; first item is on the start line, last item on the end line), and<br/>`space-around` (items are evenly distributed on the line with equal space around them).<br/>Default value: `flex-start`.                          |
-| `alignItems`     | `String` | (Android-only) Sets the alignment of child elements along the cross axis on the current line. Acts as `justifyContent` for the cross axis.<br/>Valid values:<br/>`flex-start` (cross-start margin edge of the items is placed on the cross-start line),<br/>`flex-end` (cross-end margin edge of the items is placed on the cross-end line),<br/>`center` (items are centered оn the cross axis),<br/>`baseline` (the item baselines are aligned), and<br/>`stretch` (items are stretched to fill the container but respect `min-width` and `max-width`).<br/>Default value: `stretch`.                                                                                                                                                                                        |
-| `alignContent`   | `String` | Sets how lines are aligned in the flex container on the cross axis, similar to how `justifyContent` aligns individual items within the main axis.<br/> This property has no effect when the flex container has only one line.<br/>Valid values:<br/>`flex-start` (lines are packed to the start of the container),<br/>`flex-end` (lines are packed to the end of the container),<br/>`center` (lines are packed to the center of the container),<br/>`space-between` (lines are evenly distributed; the first line is at the start of the container while the last one is at the end),<br/>`space-around` (lines are evenly distributed with equal space between them), and<br/>`stretch` (lines are stretched to take up the remaining space).<br/>Default value: `stretch`. |
+| Name             | Type        | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| ---------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `flexDirection`  | `String`    | Sets the direction for placing child elements in the flexbox container.<br/>Valid values:<br/>`row` (horizontal, left to right),<br/>`row-reverse` (horizontal, right to left),<br/>`column` (vertical, top to bottom), and<br/>`column-reverse` (vertical, bottom to top).<br/>Default value: `row`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| `flexWrap`       | `String`    | Sets whether child elements are forced in a single line or can flow into multiple lines. If set to multiple lines, also defines the cross axis which determines the direction new lines are stacked in.<br/>Valid values:<br/>`nowrap` (single line which may cause the container to overflow),<br/>`wrap` (multiple lines, direction is defined by `flexDirection`),and<br/>`wrap-reverse` (multiple lines, opposite to the direction defined by `flexDirection`).<br/>Default value: `nowrap`.                                                                                                                                                                                                                                                                               |
+| `justifyContent` | `String`    | Sets the alignment of child elements along the main axis. You can use it to distribute leftover space when all the child elements on a line are inflexible or are flexible but have reached their maximum size. You can also use it to control the alignment of items when they overflow the line.<br/>Valid values:<br/>`flex-start` (items are packed toward the start line),<br/>`flex-end` (items are packed toward the end line),<br/>`center` (items are centered along the line),<br/>`space-between` (items are evenly distributed on the line; first item is on the start line, last item on the end line), and<br/>`space-around` (items are evenly distributed on the line with equal space around them).<br/>Default value: `flex-start`.                          |
+| `alignItems`     | `String`    | (Android-only) Sets the alignment of child elements along the cross axis on the current line. Acts as `justifyContent` for the cross axis.<br/>Valid values:<br/>`flex-start` (cross-start margin edge of the items is placed on the cross-start line),<br/>`flex-end` (cross-end margin edge of the items is placed on the cross-end line),<br/>`center` (items are centered оn the cross axis),<br/>`baseline` (the item baselines are aligned), and<br/>`stretch` (items are stretched to fill the container but respect `min-width` and `max-width`).<br/>Default value: `stretch`.                                                                                                                                                                                        |
+| `alignContent`   | `String`    | Sets how lines are aligned in the flex container on the cross axis, similar to how `justifyContent` aligns individual items within the main axis.<br/> This property has no effect when the flex container has only one line.<br/>Valid values:<br/>`flex-start` (lines are packed to the start of the container),<br/>`flex-end` (lines are packed to the end of the container),<br/>`center` (lines are packed to the center of the container),<br/>`space-between` (lines are evenly distributed; the first line is at the start of the container while the last one is at the end),<br/>`space-around` (lines are evenly distributed with equal space between them), and<br/>`stretch` (lines are stretched to take up the remaining space).<br/>Default value: `stretch`. |
+| `...Inherited`   | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.org/api-reference/modules/_ui_layouts_flexbox_layout_.html)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 
 #### Additional children props
 
@@ -740,12 +668,6 @@ When an element is a direct child of `<FlexboxLayout>`, you can work with the fo
 | `flexShrink`     | `Number`  | Indicates that the child should shrink when the row runs out of space. Sets how much the flex item will shrink in proportion to the rest of the child elements in the flex container. When not specified, its value is set to `1`.                                                                                                                                                                                                                                                                      |
 | `alignSelf`      | `String`  | (Android-only) Overrides the `alignItems` value for the child.<br/>Valid values:<br/>`flex-start` (cross-start margin edge of the item is placed on the cross-start line),<br/>`flex-end` (cross-end margin edge of the item is placed on the cross-end line),<br/>`center` (item is centered on the cross axis),<br/>`baseline` (the item baselines are aligned), and<br/>`stretch` (items is stretched to fill the container but respects `min-width` and `max-width`).<br/>Default value: `stretch`. |
 | `flexWrapBefore` | `Boolean` | When `true`, forces the item to wrap onto a new line. This property is not part of the official Flexbox specification.<br/>Default value: `false`.                                                                                                                                                                                                                                                                                                                                                      |
-
-#### API Reference
-
-| Name                                                                                                  | Type     |
-| :---------------------------------------------------------------------------------------------------- | :------- |
-| [FlexboxLayout](https://docs.nativescript.org/api-reference/modules/_ui_layouts_flexbox_layout_.html) | `Module` |
 
 ## Components
 
@@ -943,6 +865,12 @@ In iOS, the color property affects the color of the title and the action items. 
 `<ActivityIndicator>` is a UI component that shows a progress indicator signaling to the user of an operation running in the background.
 
 ---
+
+<script setup>
+import FlavorSwitcher from './test.vue'
+</script>
+
+<FlavorSwitcher/>
 
 /// flavor plain
 
