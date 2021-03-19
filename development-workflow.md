@@ -32,15 +32,11 @@ The `create` command will take a minute to complete, as the NativeScript CLI nee
 
 This command will clean your NativeScript project. It will delete the `node_modules`, `hooks`, and `platforms` directories from your project. These directories sometime need a clean slate during development of native applications. It is similar to running "Clean Build Folder" in XCode or other IDE environments.
 
-If you're having trouble running your application or you have added new dependencies, it's usually a good practice to start with `ns clean` before running to be sure you avoid any type of dependency issues or native project build issues.
-
-### `help`
-
-Executing the following command in your terminal will open the CLI's documentation in your web browser.
-
 ```shell
-ns help
+ns clean
 ```
+
+If you're having trouble running your application or you have added new dependencies, it's usually a good practice to start with `ns clean` before running to be sure you avoid any type of dependency issues or native project build issues.
 
 ### `preview`
 
@@ -77,7 +73,11 @@ This happens because the `ns preview` command is now watching your project for c
 
 Runs your project on all connected devices or in native emulators for the selected platform. The command will prepare, build and deploy the app when necessary. By default listens for changes in your code, synchronizes those changes and refreshes all selected devices.
 
-`ns run android` will launch the app on a connected Android device or Android emulator.
+```shell
+ns run android
+```
+
+Launches the app on a connected Android device or Android emulator.
 
 ::: warning Note
 If you get an error at this point you might not have completed the full NativeScript CLI setup.
@@ -86,7 +86,11 @@ You must have at least one AVD (Android Virtual Device) configured on your devel
 Or a connected Android device with debugging enabled.
 :::
 
-`ns run ios` will launch the app on a connected iOS device or iOS simulator.
+```shell
+ns run ios
+```
+
+Launches the app on a connected iOS device or iOS simulator.
 
 ::: tip Note
 NativeScript uses Xcode to build and run iOS apps, and Xcode is only available on macOS; therefore, you can only run iOS apps on macOS. There are VM and/or cloud services that allow you to build on a Mac from a PC.
@@ -143,6 +147,14 @@ For more information about Android debugging, run any of the following commands:
 For more information about iOS debugging, run any the following commands:
 
 `ns help debug ios` or `ns debug ios --help`
+
+### `help`
+
+Executing the following command in your terminal will open the CLI's documentation in your web browser.
+
+```shell
+ns help
+```
 
 ## Debugging
 
