@@ -6,9 +6,7 @@ title: Development Workflow
 - [REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/tooling/angular-cli.md
 - [REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/tooling/visual-studio-code-extension.md
 
-## Running on Virtual Devices
-
-### Android Emulators
+## Running your app on Android Emulators
 
 Apart from using real Android devices, a viable option is to download, install and use an Android emulator.
 In NativeScript, we can use all Android emulators that are connected and recognized by the `ns device` command.
@@ -50,11 +48,11 @@ You must provide a name for the AVD and specify the ID of the SDK package to use
 For example, the following command creates an AVD named `test` using the x86 system image for API level 25:
 
 ```Shell
-avdmanager create avd -n test -k "system-images;android-29;google_apis;x86"
+avdmanager create avd -n test -k "system-images;android-25;google_apis;x86"
 ```
 
 ::: warning Note
-The above command suggest that the system image is already downloaded. To download an image use the `sdkmanager`. For example `sdkmanager "system-images;android-29;google_apis;x86"`
+The above command suggest that the system image is already downloaded. To download an image use the `sdkmanager`. For example `sdkmanager "system-images;android-25;google_apis;x86"`
 :::
 
 The following describes the usages for the other options:
@@ -75,9 +73,7 @@ Visit the official sites for details on how to install and use these emulators.
 
 - [GenyMotion official site](https://www.genymotion.com)
 
-### iOS Simulators
-
----
+## Running your app on iOS Simulators
 
 #### Creating iOS Simulators
 
