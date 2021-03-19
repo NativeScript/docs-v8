@@ -6,7 +6,9 @@ title: Development Workflow
 - [REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/tooling/angular-cli.md
 - [REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/tooling/visual-studio-code-extension.md
 
-## Running your app on Android Emulators
+## Running on Virtual Device
+
+### Android Emulators
 
 Apart from using real Android devices, a viable option is to download, install and use an Android emulator.
 In NativeScript, we can use all Android emulators that are connected and recognized by the `ns device` command.
@@ -73,7 +75,7 @@ Visit the official sites for details on how to install and use these emulators.
 
 - [GenyMotion official site](https://www.genymotion.com)
 
-## Running your app on iOS Simulators
+### iOS Simulators
 
 #### Creating iOS Simulators
 
@@ -83,7 +85,11 @@ The iOS simulator emulates iOS devices on Macs. The following documentation is a
 
 On a mac if you have XCode installed with the proper tools, executing `ns run ios` from your terminal will launch the Simulator program with a default device. Alternatively, you can open the Simulator program on your mac, select which device(s) you want to open by navigating to `File -> Open Simulator` and choosing the device to launch. Then execute `ns run ios` and the NativeScript app will launch on the open simulator(s).
 
-## Running your app on Android devices
+## Running on Physical Device
+
+### Android Devices
+
+---
 
 #### Enable Debugging over USB
 
@@ -111,7 +117,9 @@ Type the following in your command prompt to install and launch your app on the 
 ns run android
 ```
 
-## Running your app on iOS devices
+### iOS Devices
+
+---
 
 #### Plug in your device via USB
 
