@@ -3666,428 +3666,11 @@ To be able to use gestures in WebView component on Android, we should first disa
 
 ## CSS
 
-You change the looks and appearance of views (elements) in a NativeScript application similarly to how you do it in a web application—using Cascading Style Sheets (CSS) or changing the style object of the elements in JavaScript. Only a subset of the CSS language is supported.
+You change the looks and appearance of views (elements) in a NativeScript application similarly to how you do it in a web application using Cascading Style Sheets (CSS) or changing the style object of the elements in JavaScript. Only a subset of the CSS language is supported.
 
 Similarly to the DOM Style Object, each View instance exposes a style property, which holds all the style properties for the view. When the view is displayed, all its style properties are applied to the underlying native widget.
 
 ---
-
-### Applying CSS Styles
-
-The CSS styles can be set on 3 different levels:
-
-- [Application-wide CSS](#application-wide-css): Applies to every application page
-  /// flavor plain
-- [Page-specific CSS](#page-specific-css): Applies to the page's UI views
-  ///
-  /// flavor angular
-- [Component-specific CSS](#component-specific-css): Applies for component only
-  ///
-- [Inline CSS](#inline-css): Applies directly to a UI view
-
-If there is CSS declared on different levels&mdash;all will be applied. The inline CSS will have the highest priority and the application CSS will have the lowest priority.
-
-It is also possible to apply [platform-specific CSS](#platform-specific-css).
-
-### Application Wide CSS
-
-When the application starts, NativeScript checks if the file app.css exists. If it does, any CSS styles that it contains are loaded and used across all application pages. This file is a convenient place to store styles that will be used on multiple pages.
-
-You can change the name of the file from which the application-wide CSS is loaded. You need to do the change before the application is started, usually in the app.js or app.ts file as shown below:
-
-/// flavor plain
-
-```ts
-import { Application } from '@nativescript/core'
-Application.setCssFileName('style.css')
-
-Application.run({ moduleName: 'main-page' })
-```
-
-///
-
-/// flavor angular
-
-```ts
-platformNativeScriptDynamic({ bootInExistingPage: false, cssFile: 'style.css' })
-```
-
-///
-
-::: tip Note
-The path to the CSS file is relative to the application root folder.
-:::
-
-You could also check the name of the application-wide CSS file by using getCssFileName() method as shown below:
-
-```ts
-import { Application } from '@nativescript/core'
-const fileName = Application.getCssFileName()
-console.log(`fileName ${fileName}`)
-```
-
-/// flavor plain
-
-### Page Specific CSS
-
-When the page's XML declaration file is loaded, NativeScript looks for a CSS file with the same name (if such exists), reads any CSS styles that it finds, and automatically loads and applies them to the page. For example, a page named mypage.xml will automatically load any CSS in mypage.css. The CSS file must exist in the same folder as the XML file to be automatically applied.
-
-If you import any custom components on your page, the CSS from those components will be applied to the page, too. As a best practice, scope the CSS of custom components so that component styles do not "leak" on to pages.
-
-```xml
-<StackLayout class="mywidget">
-  <Label text="Custom component layout" class="label" />
-</StackLayout>
-```
-
-```css
-/* GOOD: This will ONLY apply to the custom component */
-.mywidget .label {
-  color: blue;
-}
-
-/* BAD: This will apply to the custom component AND potentially to the page where the component is used */
-.label {
-  color: blue;
-}
-```
-
-You can also override CSS styles specified in the file by using the page's css property:
-
-```ts
-page.css = 'button { color: red }'
-```
-
-///
-
-/// flavor angular
-
-### Component Specific CSS
-
-In an Angular application everything is a component, therefore, it is a very common task to add some CSS code that should only apply to one component. Adding component-specific CSS in a NativeScript-Angular app involves using a component’s styles or styleUrls property.
-
-```ts
-@Component({
-    selector: 'list-test',
-    styleUrls: ['style.css'],
-    template: ...
-
-// Or
-
-@Component({
-    selector: 'list-test',
-    styles: ['.third { background-color: lime; }'],
-    template: ...
-```
-
-///
-
-### Adding CSS String
-
-This snippet adds a new style to the current set of styles. This is quite useful when you need to add a small CSS chunk to an element (for example, for testing purposes):
-
-```ts
-page.addCss('button {background-color: blue}')
-```
-
-### Adding CSS File
-
-This snippet adds new CSS styles to the current set. However, this method reads them from a file. It is useful for organizing styles in files and reusing them across multiple pages.
-
-```ts
-page.addCssFile(cssFileName)
-```
-
-### Inline CSS
-
-Similarly to HTML, CSS can be defined inline for a UI view in the XML markup:
-
-```html
-<button text="inline style" style="background-color: green;"></button>
-```
-
-### Platform-specific CSS
-
-NativeScript conventions make it easy to apply platform-specific CSS, either via separate stylesheets or via in-line declarations. For an overview of NativeScript's convention-based file name rules for targeting files at specific platforms and screen sizes, refer to this article in the docs.
-
-There are 4 primary ways to target styles at iOS or Android:
-
-/// flavor plain
-
-1. Platform-specific stylesheets (`styles.ios.css`, `styles.android.css`)
-2. Platform-specific markup blocks (`<ios> ... </ios>`, `<android> ... </android>`)
-3. Platform-specific attributes (`<Label ios:style="..." android:style="..."`)
-4. Platform-specific CSS rules (`.ns-ios .mystyle { ... }`, `.ns-android .mystyle { ... }`)
-
-///
-
-/// flavor angular
-
-1. Platform-specific stylesheets (`styles.component.ios.css`, `styles.component.android.css`)
-2. Platform-specific markup blocks (`<ios> ... </ios>`, `<android> ... </android>`)
-3. Platform-specific attributes (`<Label ios:style="..." android:style="..."`)
-4. Platform-specific CSS rules (`:host-content(.ns-ios) .mystyle { ... }`, `:host-context(.ns-android) .mystyle { ... }`)
-
-///
-
-The most common and maintainable pattern for managing platform-agnostic and platform-specific styles in NativeScript is with multiple stylesheets and CSS imports.
-
-/// flavor plain
-With this pattern, a page has 3 separate stylesheets: common, iOS and Android. For example, for page `myPage.xml` you would have 3 stylesheets:
-
-1. `myPage-common.css`
-2. `myPage.ios.css`
-3. `myPage.android.css`
-
-In both `myPage.ios.css` and `myPage.android.css` you then import the shared common styles from `myPage-common.css`:
-
-```CSS
-/* Import shared style rules */
-@import './myPage-common.css';
-
-/* Add iOS/Android specific rules (if any) */
-.mystyle { ... }
-```
-
-///
-
-/// flavor angular
-With this pattern, a page (or component) has 3 separate stylesheets: common, iOS and Android. For example, for page `home.component.html` you would have 3 stylesheets:
-
-1. `home-common.css`
-2. `home.component.ios.css`
-3. `home.component.android.css`
-
-In both `home.component.ios.css` and `home.component.android.css` you then import the shared common styles from `home-common.css`:
-
-```CSS
-/* Import shared style rules */
-@import './home-common.css';
-
-/* Add iOS/Android specific rules (if any) */
-.mystyle { ... }
-```
-
-///
-
-At build time, NativeScript will automatically import the common styles and choose the correct iOS or Android stylesheet depending on the target build platform.
-
-### Supported Selectors
-
-::: warning Note
-Currently the CSS support is limited only to the selectors and properties listed in the current documentation.
-:::
-
-NativeScript supports a subset of the [CSS selector syntax](http://www.w3schools.com/cssref/css_selectors.asp). Here is how to use the supported selectors:
-
-- [Type selector](#type-selector)
-- [Class selector](#class-selector)
-- [ID selector](#id-selector)
-- [Hierarchical selector](#hierarchical-selector-css-combinators)
-- [Attribute selector](#attribute-selector)
-- [Pseudo selector](#pseudo-selector)
-
-#### Type Selector
-
-Like [CSS element selectors](http://www.w3schools.com/cssref/sel_element.asp), type selectors in NativeScript select all views of a given type. Type selectors are case insensitive, so you can use both `button` and `Button`.
-
-```CSS
-button { background-color: gray }
-```
-
-#### Class Selector
-
-[Class selectors](http://www.w3schools.com/cssref/sel_class.asp) select all views with a given class.
-The class is set using the `className` property of the view.
-
-::: warning Note
-To use `className` in JS/TS to add a class to an element, the class rule must be in a CSS file that is higher up the component tree than the element, such as `app.css`.
-:::
-
-```html
-<label className="title"></label>
-```
-
-```css
-.title {
-  font-size: 32;
-}
-```
-
-```ts
-import { Label } from '@nativescript/core'
-const label = new Label()
-label.className = 'title'
-```
-
-#### ID Selector
-
-[Id selectors](http://www.w3schools.com/cssref/sel_id.asp) select all views with a given id. The `id` is set using the `id` property of the view.
-
-```html
-<button id="login-button"></button>
-```
-
-```css
-#login-button {
-  background-color: blue;
-}
-```
-
-```ts
-import { Button } from '@nativescript/core'
-const btn = new Button()
-btn.id = 'login-button'
-```
-
-#### Hierarchical Selector (CSS Combinators)
-
-A CSS selector could contain more than one simple selector, and between selectors a combinator symbol could be included.
-
-- (space) - Descendant selector. For example, the following code will select all buttons inside StackLayouts (no matter) at which level.
-
-```css
-StackLayout Button {
-  background-color: blue;
-}
-```
-
-- (>) - A direct child selector. Using the previous example, if the CSS is changed to:
-
-```css
-StackLayout > Button {
-  background-color: blue;
-}
-```
-
-The background-color rule will not be applied. In order to apply the selector, the WrapLayout element would need to be removed so that the Button is a direct child of the StackLayout.
-
-- (+) - An adjacent sibling selector, allows to select all elements, which are siblings of a specified element.
-
-##### Direct Sibling Test by Class
-
-```html
-<StackLayout class="layout-class">
-  <label text="Direct sibling test by id"></label>
-  <button class="test-child" text="First Button"></button>
-  <button class="test-child-2" text="Second Button"></button>
-</StackLayout>
-```
-
-```css
-.layout-class .test-child + .test-child-2 {
-  background-color: green;
-}
-```
-
-##### Direct Sibling Test by ID
-
-```html
-<StackLayout class="layout-class">
-  <label text="Direct sibling test by id"></label>
-  <button id="test-child" text="First Button"></button>
-  <button id="test-child-2" text="Second Button"></button>
-</StackLayout>
-```
-
-```css
-.layout-class #test-child + #test-child-2 {
-  background-color: green;
-}
-```
-
-##### Direct Sibling by Type
-
-```html
-<StackLayout class="direct-sibling--type">
-  <label text="Direct sibling by type"></label>
-  <button text="Test Button"></button>
-  <label text="Test Label"></label>
-  <button text="Test Button"></button>
-  <label text="Test Label"></label>
-  <button text="Test Button"></button>
-  <label text="Test Label"></label>
-</StackLayout>
-```
-
-```css
-StackLayout Button + Label {
-  background-color: green;
-  color: white;
-}
-```
-
-### Attribute Selector
-
-```html
-<button testAttr="flower"></button>
-```
-
-```css
-button[testAttr] {
-  background-color: blue;
-}
-```
-
-This selector will select all buttons that have the attribute `testAttr` with some value.
-
-Also, some more advanced scenarios are supported:
-
-- button[testAttr='flower'] {...} - Will apply CSS on every button that has the `testAttr` property set exactly to the value `flower`.
-- button[testAttr~='flower'] {...} - Selects all buttons with a `testAttr` property that contains a space-separated list of words, one of which is "flower".
-- button[testAttr|='flower'] {...} - Selects all buttons with a `testAttr` property value that begins with "flower". The value has to be a whole word, either alone like `btn['testAttr'] = 'flower'`, or followed by hyphen (-), like `btn['testAttr'] = 'flower-house'`.
-- button[testAttr^='flower'] {...} - Selects all buttons with a `testAttr` property value that begins with "flower". The value does not have to be a whole word.
-- button[testAttr$='flower'] {...} - Selects all buttons with a `testAttr` property value that ends with "flower". The value does not have to be a whole word.
-- button[testAttr*='flo'] {...} - Selects all buttons with a `testAttr` property value that contains "flo". The value does not have to be a whole word.
-
-Attribute selectors could be used alone or could be combined with all type of CSS selectors.
-
-```html
-<button id="login-button" testAttr="flower"></button>
-<label testAttr="some value"></label>
-```
-
-```css
-#login-button[testAttr='flower'] {
-  background-color: blue;
-}
-[testAttr] {
-  color: white;
-}
-```
-
-### Pseudo Selector
-
-A pseudo-selector or also pseudo-class is used to define a special state of an element. Currently, NativeScript supports only :highlighted pseudo-selector.
-
-```html
-<button testAttr="flower"></button>
-```
-
-```css
-button:highlighted {
-  background-color: red;
-  color: gray;
-}
-```
-
-### Root Views CSS Classes
-
-To allow flexible styling and theming, NativeScript adds a CSS class to the root views in the application for specific states.
-
-The deafult CSS classes are are:
-
-- `.ns-root` - a class assigned to the application root view
-- `.ns-modal` - a class assigned to the modal root view
-
-The CSS classes for each application and modal root view are:
-
-- `.ns-android`, `.ns-ios` - classes that specify the application platform
-- `.ns-phone`, `.ns-tablet` - classes that specify the device type
-- `.ns-portrait`, `.ns-landscape`, `.ns-unknown` - classes that specify the application orientation
-- `.ns-light`, `.ns-dark` - classes that specify the system appearance.
-
-For additional information on the Dark Mode support, refer to [this](https://docs.nativescript.org/ui/dark-mode) documentation article.
 
 ### Supported CSS Properties
 
@@ -4230,7 +3813,427 @@ Example:
 }
 ```
 
-### Supported Measurement Units
+### Supported Selectors
+
+::: warning Note
+Currently the CSS support is limited only to the selectors and properties listed in the current documentation.
+:::
+
+NativeScript supports a subset of the [CSS selector syntax](http://www.w3schools.com/cssref/css_selectors.asp). Here is how to use the supported selectors:
+
+- [Type selector](#type-selector)
+- [Class selector](#class-selector)
+- [ID selector](#id-selector)
+- [Hierarchical selector](#hierarchical-selector-css-combinators)
+- [Attribute selector](#attribute-selector)
+- [Pseudo selector](#pseudo-selector)
+
+#### Type Selector
+
+Like [CSS element selectors](http://www.w3schools.com/cssref/sel_element.asp), type selectors in NativeScript select all views of a given type. Type selectors are case insensitive, so you can use both `button` and `Button`.
+
+```CSS
+button { background-color: gray }
+```
+
+#### Class Selector
+
+[Class selectors](http://www.w3schools.com/cssref/sel_class.asp) select all views with a given class.
+The class is set using the `className` property of the view.
+
+::: warning Note
+To use `className` in JS/TS to add a class to an element, the class rule must be in a CSS file that is higher up the component tree than the element, such as `app.css`.
+:::
+
+```html
+<label className="title"></label>
+```
+
+```css
+.title {
+  font-size: 32;
+}
+```
+
+```ts
+import { Label } from '@nativescript/core'
+const label = new Label()
+label.className = 'title'
+```
+
+#### ID Selector
+
+[Id selectors](http://www.w3schools.com/cssref/sel_id.asp) select all views with a given id. The `id` is set using the `id` property of the view.
+
+```html
+<button id="login-button"></button>
+```
+
+```css
+#login-button {
+  background-color: blue;
+}
+```
+
+```ts
+import { Button } from '@nativescript/core'
+const btn = new Button()
+btn.id = 'login-button'
+```
+
+#### Attribute Selector
+
+```html
+<button testAttr="flower"></button>
+```
+
+```css
+button[testAttr] {
+  background-color: blue;
+}
+```
+
+This selector will select all buttons that have the attribute `testAttr` with some value.
+
+Also, some more advanced scenarios are supported:
+
+- button[testAttr='flower'] {...} - Will apply CSS on every button that has the `testAttr` property set exactly to the value `flower`.
+- button[testAttr~='flower'] {...} - Selects all buttons with a `testAttr` property that contains a space-separated list of words, one of which is "flower".
+- button[testAttr|='flower'] {...} - Selects all buttons with a `testAttr` property value that begins with "flower". The value has to be a whole word, either alone like `btn['testAttr'] = 'flower'`, or followed by hyphen (-), like `btn['testAttr'] = 'flower-house'`.
+- button[testAttr^='flower'] {...} - Selects all buttons with a `testAttr` property value that begins with "flower". The value does not have to be a whole word.
+- button[testAttr$='flower'] {...} - Selects all buttons with a `testAttr` property value that ends with "flower". The value does not have to be a whole word.
+- button[testAttr*='flo'] {...} - Selects all buttons with a `testAttr` property value that contains "flo". The value does not have to be a whole word.
+
+Attribute selectors could be used alone or could be combined with all type of CSS selectors.
+
+```html
+<button id="login-button" testAttr="flower"></button>
+<label testAttr="some value"></label>
+```
+
+```css
+#login-button[testAttr='flower'] {
+  background-color: blue;
+}
+[testAttr] {
+  color: white;
+}
+```
+
+#### Pseudo Selector
+
+A pseudo-selector or also pseudo-class is used to define a special state of an element. Currently, NativeScript supports only :highlighted pseudo-selector.
+
+```html
+<button testAttr="flower"></button>
+```
+
+```css
+button:highlighted {
+  background-color: red;
+  color: gray;
+}
+```
+
+#### Hierarchical Selector (CSS Combinators)
+
+A CSS selector could contain more than one simple selector, and between selectors a combinator symbol could be included.
+
+- (space) - Descendant selector. For example, the following code will select all buttons inside StackLayouts (no matter) at which level.
+
+```css
+StackLayout Button {
+  background-color: blue;
+}
+```
+
+- (>) - A direct child selector. Using the previous example, if the CSS is changed to:
+
+```css
+StackLayout > Button {
+  background-color: blue;
+}
+```
+
+The background-color rule will not be applied. In order to apply the selector, the WrapLayout element would need to be removed so that the Button is a direct child of the StackLayout.
+
+- (+) - An adjacent sibling selector, allows to select all elements, which are siblings of a specified element.
+
+##### Direct Sibling Test by Class
+
+```html
+<StackLayout class="layout-class">
+  <label text="Direct sibling test by id"></label>
+  <button class="test-child" text="First Button"></button>
+  <button class="test-child-2" text="Second Button"></button>
+</StackLayout>
+```
+
+```css
+.layout-class .test-child + .test-child-2 {
+  background-color: green;
+}
+```
+
+##### Direct Sibling Test by ID
+
+```html
+<StackLayout class="layout-class">
+  <label text="Direct sibling test by id"></label>
+  <button id="test-child" text="First Button"></button>
+  <button id="test-child-2" text="Second Button"></button>
+</StackLayout>
+```
+
+```css
+.layout-class #test-child + #test-child-2 {
+  background-color: green;
+}
+```
+
+##### Direct Sibling by Type
+
+```html
+<StackLayout class="direct-sibling--type">
+  <label text="Direct sibling by type"></label>
+  <button text="Test Button"></button>
+  <label text="Test Label"></label>
+  <button text="Test Button"></button>
+  <label text="Test Label"></label>
+  <button text="Test Button"></button>
+  <label text="Test Label"></label>
+</StackLayout>
+```
+
+```css
+StackLayout Button + Label {
+  background-color: green;
+  color: white;
+}
+```
+
+### CSS Overview
+
+--- 
+#### Applying CSS Styles
+
+The CSS styles can be set on 3 different levels:
+
+- [Application-wide CSS](#application-wide-css): Applies to every application page
+  /// flavor plain
+- [Page-specific CSS](#page-specific-css): Applies to the page's UI views
+  ///
+  /// flavor angular
+- [Component-specific CSS](#component-specific-css): Applies for component only
+  ///
+- [Inline CSS](#inline-css): Applies directly to a UI view
+
+If there is CSS declared on different levels&mdash;all will be applied. The inline CSS will have the highest priority and the application CSS will have the lowest priority.
+
+It is also possible to apply [platform-specific CSS](#platform-specific-css).
+
+#### Application Wide CSS
+
+When the application starts, NativeScript checks if the file app.css exists. If it does, any CSS styles that it contains are loaded and used across all application pages. This file is a convenient place to store styles that will be used on multiple pages.
+
+You can change the name of the file from which the application-wide CSS is loaded. You need to do the change before the application is started, usually in the app.js or app.ts file as shown below:
+
+/// flavor plain
+
+```ts
+import { Application } from '@nativescript/core'
+Application.setCssFileName('style.css')
+
+Application.run({ moduleName: 'main-page' })
+```
+
+///
+
+/// flavor angular
+
+```ts
+platformNativeScriptDynamic({ bootInExistingPage: false, cssFile: 'style.css' })
+```
+
+///
+
+::: tip Note
+The path to the CSS file is relative to the application root folder.
+:::
+
+You could also check the name of the application-wide CSS file by using getCssFileName() method as shown below:
+
+```ts
+import { Application } from '@nativescript/core'
+const fileName = Application.getCssFileName()
+console.log(`fileName ${fileName}`)
+```
+
+/// flavor plain
+
+#### Page Specific CSS
+
+When the page's XML declaration file is loaded, NativeScript looks for a CSS file with the same name (if such exists), reads any CSS styles that it finds, and automatically loads and applies them to the page. For example, a page named mypage.xml will automatically load any CSS in mypage.css. The CSS file must exist in the same folder as the XML file to be automatically applied.
+
+If you import any custom components on your page, the CSS from those components will be applied to the page, too. As a best practice, scope the CSS of custom components so that component styles do not "leak" on to pages.
+
+```xml
+<StackLayout class="mywidget">
+  <Label text="Custom component layout" class="label" />
+</StackLayout>
+```
+
+```css
+/* GOOD: This will ONLY apply to the custom component */
+.mywidget .label {
+  color: blue;
+}
+
+/* BAD: This will apply to the custom component AND potentially to the page where the component is used */
+.label {
+  color: blue;
+}
+```
+
+You can also override CSS styles specified in the file by using the page's css property:
+
+```ts
+page.css = 'button { color: red }'
+```
+
+///
+
+/// flavor angular
+
+#### Component Specific CSS
+
+In an Angular application everything is a component, therefore, it is a very common task to add some CSS code that should only apply to one component. Adding component-specific CSS in a NativeScript-Angular app involves using a component’s styles or styleUrls property.
+
+```ts
+@Component({
+    selector: 'list-test',
+    styleUrls: ['style.css'],
+    template: ...
+
+// Or
+
+@Component({
+    selector: 'list-test',
+    styles: ['.third { background-color: lime; }'],
+    template: ...
+```
+
+///
+
+#### Adding CSS String
+
+This snippet adds a new style to the current set of styles. This is quite useful when you need to add a small CSS chunk to an element (for example, for testing purposes):
+
+```ts
+page.addCss('button {background-color: blue}')
+```
+
+#### Adding CSS File
+
+This snippet adds new CSS styles to the current set. However, this method reads them from a file. It is useful for organizing styles in files and reusing them across multiple pages.
+
+```ts
+page.addCssFile(cssFileName)
+```
+
+#### Inline CSS
+
+Similarly to HTML, CSS can be defined inline for a UI view in the XML markup:
+
+```html
+<button text="inline style" style="background-color: green;"></button>
+```
+
+#### Platform-specific CSS
+
+NativeScript conventions make it easy to apply platform-specific CSS, either via separate stylesheets or via in-line declarations. For an overview of NativeScript's convention-based file name rules for targeting files at specific platforms and screen sizes, refer to this article in the docs.
+
+There are 4 primary ways to target styles at iOS or Android:
+
+/// flavor plain
+
+1. Platform-specific stylesheets (`styles.ios.css`, `styles.android.css`)
+2. Platform-specific markup blocks (`<ios> ... </ios>`, `<android> ... </android>`)
+3. Platform-specific attributes (`<Label ios:style="..." android:style="..."`)
+4. Platform-specific CSS rules (`.ns-ios .mystyle { ... }`, `.ns-android .mystyle { ... }`)
+
+///
+
+/// flavor angular
+
+1. Platform-specific stylesheets (`styles.component.ios.css`, `styles.component.android.css`)
+2. Platform-specific markup blocks (`<ios> ... </ios>`, `<android> ... </android>`)
+3. Platform-specific attributes (`<Label ios:style="..." android:style="..."`)
+4. Platform-specific CSS rules (`:host-content(.ns-ios) .mystyle { ... }`, `:host-context(.ns-android) .mystyle { ... }`)
+
+///
+
+The most common and maintainable pattern for managing platform-agnostic and platform-specific styles in NativeScript is with multiple stylesheets and CSS imports.
+
+/// flavor plain
+With this pattern, a page has 3 separate stylesheets: common, iOS and Android. For example, for page `myPage.xml` you would have 3 stylesheets:
+
+1. `myPage-common.css`
+2. `myPage.ios.css`
+3. `myPage.android.css`
+
+In both `myPage.ios.css` and `myPage.android.css` you then import the shared common styles from `myPage-common.css`:
+
+```CSS
+/* Import shared style rules */
+@import './myPage-common.css';
+
+/* Add iOS/Android specific rules (if any) */
+.mystyle { ... }
+```
+
+///
+
+/// flavor angular
+With this pattern, a page (or component) has 3 separate stylesheets: common, iOS and Android. For example, for page `home.component.html` you would have 3 stylesheets:
+
+1. `home-common.css`
+2. `home.component.ios.css`
+3. `home.component.android.css`
+
+In both `home.component.ios.css` and `home.component.android.css` you then import the shared common styles from `home-common.css`:
+
+```CSS
+/* Import shared style rules */
+@import './home-common.css';
+
+/* Add iOS/Android specific rules (if any) */
+.mystyle { ... }
+```
+
+///
+
+At build time, NativeScript will automatically import the common styles and choose the correct iOS or Android stylesheet depending on the target build platform.
+
+#### Root Views CSS Classes
+
+To allow flexible styling and theming, NativeScript adds a CSS class to the root views in the application for specific states.
+
+The deafult CSS classes are are:
+
+- `.ns-root` - a class assigned to the application root view
+- `.ns-modal` - a class assigned to the modal root view
+
+The CSS classes for each application and modal root view are:
+
+- `.ns-android`, `.ns-ios` - classes that specify the application platform
+- `.ns-phone`, `.ns-tablet` - classes that specify the device type
+- `.ns-portrait`, `.ns-landscape`, `.ns-unknown` - classes that specify the application orientation
+- `.ns-light`, `.ns-dark` - classes that specify the system appearance.
+
+For additional information on the Dark Mode support, refer to [this](https://docs.nativescript.org/ui/dark-mode) documentation article.
+
+#### Supported Measurement Units
 
 NativeScript supports DIPs (Device Independent Pixels), pixels (via postfix px) and percentages (partial support for width, height and margin) as measurement units.
 
@@ -4259,7 +4262,7 @@ const heightDIPs = Screen.mainScreen.heightDIPs
 
 NativeScript supports percentage values for width, height and margins. When a layout pass begins, first the percent values are calculated based on parent available size. This means that on vertical StackLayout if you place two Buttons with height='50%' they will get all the available height (e.g., they will fill the StackLayout vertically.). The same applies for margin properties. For example, if you set marginLeft = '5%', the element will have a margin that corresponds to 5% of the parent's available width.
 
-### Using CSS variables
+#### Using CSS variables
 
 NativeScript supports CSS variables (also known as custom properties or cascading variables) for reusable values through the CSS used in the app.
 
@@ -4316,7 +4319,7 @@ Using a nested fallback value:
 }
 ```
 
-### Using CSS calc()
+#### Using CSS calc()
 
 NativeScript supports CSS calc() functions for performing simple calculations on CSS values.
 
@@ -4337,7 +4340,7 @@ element {
 }
 ```
 
-### Accessing NativeScript component properties with CSS
+#### Accessing NativeScript component properties with CSS
 
 You can set NativeScript component properties value that are not part of the CSS specification. For example:
 
@@ -4349,7 +4352,7 @@ StackLayout {
 
 This feature is limited to properties with simple types like string, number and boolean, and will set a local property value similar to component markup declaration in your template markup via XML or HTML. CSS inheritance is not supported.
 
-### Using Fonts
+#### Using Fonts
 
 The `font-family` property can hold several values. The first supported font in the list will be used. There is also support for the following generic font-families:
 
@@ -4362,7 +4365,7 @@ Platform specifics:
 - Android: The supported fonts depend very much on the system, thus using the generic font-families or [custom-fonts](#custom-fonts) is recommended.
 - iOS: There are more than 30 default fonts available on iOS. You can check the [supported fonts for specific iOS versions and devices](http://iosfonts.com). To use a built-in font, simply specify the font name in the `font-family` property, such as `font-family: "American Typewriter";`. Adjust the font variant using the [`font-weight`](#supported-css-properties) property.
 
-#### Custom fonts
+##### Custom fonts
 
 You can use custom fonts in your app (in .TTF or .OTF format).
 The NativeScript runtime will look for the font files under the `app/fonts/` (or `src/fonts/` if you use Angular) directory and load them automatically.
@@ -4378,7 +4381,7 @@ On iOS your font file should be named **exactly** as the font name.
 If you have any doubt about the original font name, use the [Font Book](https://support.apple.com/en-us/HT201749) app to get the original font name, or try using `ns fonts` from your terminal using NS 7.1 or newer.
 :::
 
-### Using Icon Fonts in NativeScript
+#### Using Icon Fonts in NativeScript
 
 While bitmap images are great, they present challenges in designing mobile applications. Images increase the size of the application if they are embedded in it. If not, they require additional http requests to be fetched. Images consume memory. Furthermore, bitmap images do not scale well. If scaled up, they lose quality. If scaled down, they waste space. On the other hand, fonts scale well, do not require additional http requests for each glyph and do not increase memory usage significantly. Icon fonts contain icons instead of alphabet characters and can be used instead of images in mobile applications.
 
@@ -4389,7 +4392,7 @@ While bitmap images are great, they present challenges in designing mobile appli
 
 > **Note:** While this documentation article is focused on icon fonts, the above workflow is a hundred percent applicable for both **text fonts** and **icon fonts** (except that with text fonts step 4 as they don't include icons but only plain text).
 
-### Platform Specific Font Recognition
+#### Platform Specific Font Recognition
 
 There is a conceptual difference in how **.ttf** fonts are recognized on iOS and Android. On Android, the font is recognized by its **file name** while on iOS it is recognized by its **font name**. This means that fonts that are created with a font name which is different from the file name has to be registered with both names in your CSS rule.
 
@@ -4430,7 +4433,7 @@ Notice that in the above example the **file** names are different, but the regis
 }
 ```
 
-### Import CSS
+#### Import CSS
 
 The @import CSS rule allows you to import CSS from a local file. This rule must precede all other types of rules.
 
@@ -4438,7 +4441,7 @@ The @import CSS rule allows you to import CSS from a local file. This rule must 
 @import url('~/your-style.css');
 ```
 
-### Using SASS
+#### Using SASS
 
 With NativeScript, it is possible to manage your app styles using the SASS CSS pre-compiler instead of plain CSS files. Just as with web projects, SASS gives your stylesheets extra capabilities like shared variables, mixins and nested style tags.
 
