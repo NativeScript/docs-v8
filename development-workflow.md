@@ -28,6 +28,12 @@ For a full list of the templates you can use, see the [full list here](https://g
 
 The `create` command will take a minute to complete, as the NativeScript CLI needs to download a few dependencies while setting up your new app.
 
+### `clean`
+
+This command will clean your NativeScript project. It will delete the `node_modules`, `hooks`, and `platforms` directories from your project. These directories sometime need a clean slate during development of native applications. It is similar to running "Clean Build Folder" in XCode or other IDE environments.
+
+If you're having trouble running your application or you have added new dependencies, it's usually a good practice to start with `ns clean` before running to be sure you avoid any type of dependency issues or native project build issues.
+
 ### `help`
 
 Executing the following command in your terminal will open the CLI's documentation in your web browser.
@@ -69,7 +75,7 @@ This happens because the `ns preview` command is now watching your project for c
 
 ### `run`
 
-This command allows you to experience the full developer experience (building and deploying on local emulators and devices).
+Runs your project on all connected devices or in native emulators for the selected platform. The command will prepare, build and deploy the app when necessary. By default listens for changes in your code, synchronizes those changes and refreshes all selected devices.
 
 `ns run android` will launch the app on a connected Android device or Android emulator.
 
@@ -87,6 +93,13 @@ NativeScript uses Xcode to build and run iOS apps, and Xcode is only available o
 :::
 
 The `run` command will take a few seconds to complete, as the CLI will be building and deploying a native Android application. When the command finishes the native emulator will open, and launch your app on the local emulator (or connected device).
+
+You can customize the `ns run` command using any of the following options:
+
+- `--no-hmr` - Disables the webpack HMR option, so changes made during a session will restart the application.
+- `--emulator` - Specifies that you want to debug the app in an emulator.
+- `--timeout` - Sets the number of seconds that the NativeScript CLI will wait for the debugger to boot. If not set, the default timeout is 90 seconds.
+- `--clean` - If set forces rebuilding the native application.
 
 ### `debug`
 
