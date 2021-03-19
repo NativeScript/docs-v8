@@ -6,11 +6,7 @@ title: Development Workflow
 - [REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/tooling/angular-cli.md
 - [REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/tooling/visual-studio-code-extension.md
 
-## Running on virtual device
-
-- [REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/tooling/android-virtual-devices.md
-
----
+## Running on Virtual Devices
 
 ### Android Emulators
 
@@ -72,14 +68,78 @@ To list all the downloaded system images use the `list` command.
 avdmanager list
 ```
 
-## Using third-party emulators
+#### Using third-party emulators
 
 An applicable option is to use third-party emulators (like **GenyMotion**).
 Visit the official sites for details on how to install and use these emulators.
 
 - [GenyMotion official site](https://www.genymotion.com)
 
-## Running on physical device
+### iOS Simulators
+
+---
+
+#### Creating iOS Simulators
+
+The iOS simulator emulates iOS devices on Macs. The following documentation is a quick way to get the iOS simulator set up. For more information, see [Apple's documentation](https://developer.apple.com/library/archive/documentation/IDEs/Conceptual/simulator_help_topics/Chapter/Chapter.html).
+
+#### Running on iOS Simualators
+
+On a mac if you have XCode installed with the proper tools, executing `ns run ios` from your terminal will launch the Simulator program with a default device. Alternatively, you can open the Simulator program on your mac, select which device(s) you want to open by navigating to `File -> Open Simulator` and choosing the device to launch. Then execute `ns run ios` and the NativeScript app will launch on the open simulator(s).
+
+## Running your app on Android devices
+
+#### Enable Debugging over USB
+
+Most Android devices can only install and run apps downloaded from Google Play, by default. You will need to enable USB Debugging on your device in order to install your app during development.
+
+To enable USB debugging on your device, you will first need to enable the "Developer options" menu by going to Settings → About phone → Software information and then tapping the Build number row at the bottom seven times. You can then go back to Settings → Developer options to enable "USB debugging".
+
+#### Plug in your device via USB
+
+Let's now set up an Android device to run our NativeScript projects. Go ahead and plug in your device via USB to your development machine.
+
+Now check that your device is properly connecting to ADB, the Android Debug Bridge, by running adb devices.
+
+```shell
+adb devices
+```
+
+The device should be listed. See the full [adb documentation](https://developer.android.com/studio/command-line/adb) for troubleshooting and detailed information.
+
+#### Run your app
+
+Type the following in your command prompt to install and launch your app on the device:
+
+```shell
+ns run android
+```
+
+## Running your app on iOS devices
+
+#### Plug in your device via USB
+
+Connect your iOS device to your Mac using a USB to Lightning cable. Navigate to the `ios` folder in your project under `platforms`, then open the `.xcodeproj` file, or if you are using CocoaPods open `.xcworkspace`, within it using Xcode.
+
+If this is your first time running an app on your iOS device, you may need to register your device for development. Open the Product menu from Xcode's menubar, then go to Destination. Look for and select your device from the list. Xcode will then register your device for development.
+
+#### Configure code signing
+
+Register for an Apple developer account if you don't have one yet.
+
+Select your project in the Xcode Project Navigator, then select your main target (it should share the same name as your project). Look for the "General" tab. Go to "Signing" and make sure your Apple developer account or team is selected under the Team dropdown. Do the same for the tests target (it ends with Tests, and is below your main target).
+
+#### Run your app
+
+If the device is now registered with your developer account you should be able to run your NativeScript app on the device. Execute the following from your terminal to run the app from the CLI:
+
+```shell
+ns run ios
+```
+
+The app should install and launch on the connected iOS device.
+
+Alternatively, once you have the NativeScript project built, you can open open the native project inside XCode by opening the `.xcworkspace` or `.xcproject` file from XCode's menu and then running on a connected device or simulator.
 
 ## HMR
 
