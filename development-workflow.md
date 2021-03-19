@@ -2,9 +2,183 @@
 title: Development Workflow
 ---
 
-- [REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/start/cli-basics.md
-- [REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/tooling/angular-cli.md
-- [REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/tooling/visual-studio-code-extension.md
+## CLI Basics
+
+In this article, you’re going to learn the basics of the NativeScript command-line interface, including how to create new apps, how to get those apps running on devices, and how to set up a development workflow that lets you iterate fast.
+
+### `create`
+
+Open your terminal and run the following command to create a new NativeScript application:
+
+```shell
+ns create
+```
+
+The NS CLI will walk you through selecting a template using interactive prompts.
+
+You can also use the `--template` flag with the `ns create` command to target a specific template
+
+```
+ns create HelloWorld --template @nativescript/template-hello-world-ts
+```
+
+Here you’re passing two things to the `create` command: `HelloWorld` which determines the name of the app you are creating, and the `--template` option, which tells the NativeScript CLI to scaffold an app using a predefined template named “@nativescript/template-hello-world-ts” found [here](https://github.com/NativeScript/nativescript-app-templates/tree/master/packages/template-blank-ts)
+
+For a full list of the templates you can use, see the [full list here](https://github.com/NativeScript/nativescript-app-templates/tree/master/packages)
+
+The `create` command will take a minute to complete, as the NativeScript CLI needs to download a few dependencies while setting up your new app.
+
+### `help`
+
+Executing the following command in your terminal will open the CLI's documentation in your web browser.
+
+```shell
+ns help
+```
+
+### `preview`
+
+This command allows you to link the app you’re developing locally to the NativeScript Playground app for your iOS or Android device through the NativeScript Playground app. Although, this workflow is great for getting started, it does have limitations.
+
+```
+ns preview
+```
+
+You’ll see a QR code in your terminal that looks a little something like this.
+
+![](/img/start/cli-basics/terminal-0.png)
+
+Next, open the **NativeScript Playground** app on your iOS or Android device.
+
+::: tip Tip
+If you don’t already have the NativeScript Playground app installed on your device, go ahead and download it by searching for “NativeScript Playground” in the iOS App Store or Google Play.
+:::
+
+In the Playground app, tap the **Scan QR code** option, and scan the QR code that appears in your terminal or commands prompt.
+
+![](/img/start/cli-basics/scan-qr-code.png)
+
+After scanning, you should see your app on your device.
+
+![](/img/start/cli-basics/android/1.png)
+![](/img/start/cli-basics/ios/1.png)
+
+Now that you have the app on your device, you might notice that the `ns preview` command in your terminal or command prompt never finished. That is, you cannot type in your terminal.
+
+This happens because the `ns preview` command is now watching your project for changes. When the `ns preview` command detects a code change, the command automatically refreshes, or _livesyncs_, your app so you can see those changes immediately. Let’s make some updates to your code so you can see this in action.
+
+### `run`
+
+This command allows you to experience the full developer experience (building and deploying on local emulators and devices).
+
+`ns run android` will launch the app on a connected Android device or Android emulator.
+
+::: warning Note
+If you get an error at this point you might not have completed the full NativeScript CLI setup.
+
+You must have at least one AVD (Android Virtual Device) configured on your development machine for this command to run your app up on an Android emulator.
+Or a connected Android device with debugging enabled.
+:::
+
+`ns run ios` will launch the app on a connected iOS device or iOS simulator.
+
+::: tip Note
+NativeScript uses Xcode to build and run iOS apps, and Xcode is only available on macOS; therefore, you can only run iOS apps on macOS. There are VM and/or cloud services that allow you to build on a Mac from a PC.
+:::
+
+The `run` command will take a few seconds to complete, as the CLI will be building and deploying a native Android application. When the command finishes the native emulator will open, and launch your app on the local emulator (or connected device).
+
+### `debug`
+
+The `debug` command builds and deploys a new package on a connected device or emulator. By default, it also starts to track for changes the `app` folder, meaning that it will automatically livesync changes in code as soon as they are saved. In order to apply the changes, the CLI will automatically restart the application after each sync.
+
+::: tip Note
+Changes inside `App_Resources` folder (e.g. `AndroidManifest.xml`, `Info.plist` or any of the resources folders) trigger a rebuild after which live syncing is resumed.
+:::
+
+For security reasons, the debugging agent **can't be started automatically** from the command-line. That's why NativeScript CLI generates a URL which is printed on the screen instead. **You need to manually copy it in Google Chrome's address bar to start debugging.**
+
+To start the debugger for Android, run the following command:
+
+```shell
+ns debug android
+```
+
+To start the debugger for iOS, run the following command:
+
+```shell
+ns debug ios
+```
+
+You can customize the `ns debug` command using any of the following options:
+
+- `--debug-brk` - Prepares, builds and deploys the application package on a device or in an emulator, and stops at the first JavaScript line until either the debugger frontend connects or a 30 seconds timeout elapses.
+- `--start` - Attaches the debug tools to a deployed and running app.
+- `--emulator` - Specifies that you want to debug the app in an emulator.
+- `--timeout` - Sets the number of seconds that the NativeScript CLI will wait for the debugger to boot. If not set, the default timeout is 90 seconds.
+- `--no-watch` - If set, changes in your code will not be livesynced.
+- `--clean` - If set forces rebuilding the native application.
+
+#### iOS specific options
+
+- `--inspector` - Flag to use the embedded Webkit Web Inspector debugger (default is Chrome DevTools).
+
+For more information about Android debugging, run any of the following commands:
+
+`ns help debug android` or `ns debug android --help`
+
+For more information about iOS debugging, run any the following commands:
+
+`ns help debug ios` or `ns debug ios --help`
+
+## Debugging
+
+### Visual Studio Code
+
+To debug NativeScript applications in [Visual Studio Code](https://code.visualstudio.com/), you need the [NativeScript extension for VS Code](https://marketplace.visualstudio.com/items?itemName=Telerik.nativescript).
+
+### Chrome DevTools
+
+Debugging Android and iOS applications with Chrome by executing `ns debug <android | ios>`.
+
+<!-- ### iOS with WebKit Web Inspector
+
+To debug iOS applications using the WebKit Web Inspector debugger use the `--inspector` flag - `ns debug ios --inspector`. -->
+
+### console
+
+One of the most natural things you can do to debug apps in any environment is writing to the system’s log. In NativeScript logging works a lot as it does on the web, as most of the same `console` APIs that work on the web also work in NativeScript.
+
+The `console.log()` function is great for outputting primitive values such as strings, numbers, and booleans, but it doesn’t work so well for objects. For those situations you’ll want to use another of the `console` object’s methods intended for complex object output: `console.dir()`.
+
+To see this in action add a `console.log()` in your app code, which uses `console.log()` to log a simple object.
+
+```typescript
+export function pageLoaded = () => {
+    console.log({
+      type: "Apple",
+      color: "Red"
+    });
+};
+```
+
+If you look at your console, you’ll see the following not-very-helpful output.
+
+```shell
+JS: [object Object]
+```
+
+Now replace the `console.log` reference with `console.dir`. After the NativeScript CLI refreshes your app, you should see the full output of the object in your terminal or command prompt.
+
+```shell
+JS: === dump(): dumping members ===
+JS: {
+JS:     "type": "Apple",
+JS:     "color": "Red"
+JS: }
+JS: === dump(): dumping function and properties names ===
+JS: === dump(): finished ===
+```
 
 ## Running on Virtual Device
 
@@ -147,10 +321,6 @@ Alternatively, once you have the NativeScript project built, you can open open t
 
 ## HMR
 
-## Debugging
-
-- https://github.com/NativeScript/docs/tree/master/docs/tooling/debugging
-
 ## Testing
 
 - [REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/tooling/testing/testing.md
@@ -167,3 +337,46 @@ Be sure you have prepare/built/run the app at least once before starting the uni
 ## Updating
 
 - https://github.com/NativeScript/docs/tree/master/docs/releases
+
+## Choosing An Editor
+
+You can develop NativeScript apps in any text editor or IDE you prefer.
+
+#### VS Code
+
+Most of the NativeScript team prefers to use [VS Code from Microsoft](https://code.visualstudio.com/) as their editor for NativeScript apps. Some reasons we use VS Code:
+
+- Visual Studio Code has excellent support for [TypeScript](https://www.typescriptlang.org/).
+- Visual Studio Code gives you the ability to debug JavaScript and TypeScript code directly in your editor. The NativeScript team maintains an official [NativeScript Visual Studio Code extension](https://www.nativescript.org/nativescript-for-visual-studio-code) that enables step debugging for NativeScript apps.
+- Visual Studio Code is a fast, modern editor that Microsoft [updates frequently](https://code.visualstudio.com/updates/).
+- Visual Studio Code is available for Windows, macOS, and Linux.
+- Microsoft backs Visual Studio Code; therefore, you can feel confident that the editor will continue to be supported in the future.
+
+If you do choose to [try Visual Studio Code](https://code.visualstudio.com/), let’s look at one tip you might find useful as you develop NativeScript apps.
+
+- The `code` command
+
+After you install Visual Studio Code, you can open projects using the editor’s `File` → `Open` menu option, but there’s an alternative option that works far better for command-line-based projects like NativeScript: the `code` command.
+
+The `code` command runs in your command-line or terminal, and it works just like the `tns` command does for NativeScript apps. Visual Studio Code installs the `code` command by default on Windows on Linux, but on macOS, there’s [one manual step](https://code.visualstudio.com/docs/setup/mac) you must perform.
+
+Once set up, you can type `code .` in your terminal to open the files in your current folder for editing. For example, you could use the following sequence of command to create a new NativeScript app and open it for editing.
+
+```
+ns create MyNewApp
+cd MyNewApp
+code .
+```
+
+#### WebStorm
+
+If you’re a WebStorm user, check out this [popular community-written plugin](https://plugins.jetbrains.com/webstorm/plugin/8588-nativescript) that adds many NativeScript-related features.
+
+#### Next steps
+
+- [Code Samples](https://market.nativescript.org/?tab=samples&framework=all_frameworks&category=all_samples)
+  - The NativeScript team provides a collection of high-quality code samples you can add to your applications. Perusing the code samples is a great way to get familiar with what NativeScript can do, as well as find the code you can use on your next app.
+- [Books and Videos](https://www.nativescript.org/books-and-videos)
+  - Browse our collection of NativeScript books and videos, including the free-to-download NativeScript book by Nick and Mike Brainstein.
+- [NativeScripting](https://nativescripting.com/)
+  - The third-party NativeScripting site has many video courses to teach you everything you need to know about NativeScript, including a collection of free courses to help you get started.
