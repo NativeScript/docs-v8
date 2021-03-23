@@ -158,6 +158,10 @@ function getPluginsSidebar() {
 					text: 'DateTimePicker',
 					link: '/plugins/datetimepicker',
 				},
+				{
+					text: 'Detox',
+					link: '/plugins/detox',
+				},
 				{ text: 'Email', link: '/plugins/email' },
 				{
 					text: 'Fingerprint-Auth',

@@ -8,6 +8,7 @@ title: Plugins
 - [@nativescript/brightness](brightness)
 - [@nativescript/camera](camera)
 - [@nativescript/datetimepicker](datetimepicker)
+- [@nativescript/detox](detox)
 - [@nativescript/email](email)
 - [@nativescript/fingerprint-auth](fingerprint-auth)
 - [@nativescript/geolocation](geolocation)
