@@ -4,9 +4,508 @@ title: Performance
 
 ## Webpack/Bundle Optimisations
 
-- [REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/performance-optimizations/bundling-with-webpack.md
-- [REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/performance-optimizations/lazy-loading.md
-- [REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/performance-optimizations/startup-times.md
+- [USED REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/performance-optimizations/bundling-with-webpack.md
+
+### Using Webpack to Bundle Your Code
+
+JavaScript code and general asset bundling have been a member of the web developer toolbox for a long time. Tools like [Webpack](https://webpack.js.org) have been providing support for an enjoyable development experience that lets you assemble client-side code from various module sources and formats and then package it together. Most importantly, they allow for page load time optimizations that reduce or parallelize the number of requests a browser makes to the server.
+
+Why bundle scripts in a mobile app though? Aren't all files stored on the local device, so requesting them should be faster than an HTTP request? Yes, that is the case, but bundling still has an essential place in mobile app optimizations:
+
+- Fewer filesystem operations on app startup since all code is loaded from a single bundle file. Mobile file storage is not known for being very performant.
+- Smaller code size. Bundlers traverse the module import graph and do not bundle unused modules. Not using that obscure feature in module X? Don't make your users pay for it then.
+- Tree-shaking. With the advent of ECMAScript 2015 modules, we have new tools that allow stripping unused parts of big modules and further reduce our application size.
+
+With NativeScript 6 and above, Webpack is the primary developer workflow and can't be disabled.
+
+### Introducing Webpack
+
+Webpack works by traversing your source tree starting from some "entry" modules and navigating through module imports. This makes it possible to collect just modules that are used in your program. Webpack is very extensible - you can customize every step of the bundling process and add support for all sorts of asset generation and manipulation procedures.
+
+### Installation and Configuration
+
+With NativeScript 6 and above, the framework is automatically adding `@nativescript/webpack` (as a `devDependency`) and creating a default `webpack.config.js` configuration file. The Webpack application bundling and developer workflow are enabled by default, and no further setup steps are required.
+
+> **Note:** For projects created with an older version of NativeScript (version 5.x.x and prior), you can run the `ns migrate` command to add the Webpack dependencies and configuration files. Detailed instructions for installing, configuring and using Webpack with NativeScript CLI 5.x and below can be found [here](https://github.com/NativeScript/docs/blob/5.4/docs/performance-optimizations/bundling-with-webpack.md)
+
+### How @nativescript/webpack Works
+
+Installing the plugin adds a `webpack.config.js` file which contains sensible defaults, but it is designed to be as readable and easy to modify as possible.
+
+> **Note**: In case you need to update your project dependencies or regenerate the configuration file, you can do that by running the `update-ns-webpack` script that comes with the plugin:
+
+```
+$ ./node_modules/.bin/update-ns-webpack --configs --deps
+```
+
+The **--configs** flag will update the `webpack.config.js` and the **--deps** flag will update the related Webpack dependencies.
+
+### Webpack Resources
+
+Bundling JavaScript code can get complex quickly, and encountering Webpack for the first time can be daunting. A full introduction to webpack and related technologies is beyond the scope of this article, and we recommend the following resources:
+
+- [Introduction](https://webpack.js.org/guides/getting-started/)
+- [Tutorial](https://webpack.js.org/concepts/)
+- [Webpack CLI Reference](https://webpack.js.org/api/cli/#components/sidebar/sidebar.jsx)
+- [Using Webpack with older NativeScript versions (5 and below)](https://github.com/NativeScript/docs/blob/5.4/docs/performance-optimizations/bundling-with-webpack.md)
+
+### Usage
+
+#### NativeScript CLI commands
+
+- **Run with Webpack and HMR**
+
+The Webpack bundling and Hot Module Replacement are enabled by default. That means that the known CLI commands like `run` and `build` won't need any additional flags.
+
+```
+ns run
+```
+
+or
+
+```
+ns build
+```
+
+Both commands will execute your project with Webpack and HMR enabled.
+
+> **Note**: If you need to disable the HMR experience, you can achieve that by adding the `--no-hmr` flag. With NativeScript 6.0.0 and above, Webpack is the primary developer workflow and can't be disabled.
+
+- **Pass Environment Variables**
+
+You can also provide environmental variables to the Webpack build:
+
+```
+$ ns build android --env.development --env.property=value
+```
+
+They can be accessed through the `env` object in the Webpack configuration:
+
+```JavaScript
+// webpack.config.js
+module.exports = env => {
+    console.dir(env); // { development: true, property: 'value' }
+}
+```
+
+### Publishing Application
+
+Create a bundled version of the application for Android in release with the known release command - no additional flags are needed:
+
+```
+$ ns build android --release --keyStorePath ~/path/to/keystore --keyStorePassword your-pass --keyStoreAlias your-alias --keyStoreAliasPassword your-alias-pass
+```
+
+Once this is finished, proceed with uploading the output .apk file in the `<project>/platforms/android/app/build/outputs/apk` directory on Google Play store.
+
+You can build a bundled version of the application for iOS in release with this script:
+
+```
+$ ns build ios --release --forDevice --teamId TEAM_ID
+```
+
+Note that if `--teamId` flag is emitted, the NativeScript CLI will prompt for team ID during the build process.
+
+Once the release build is ready, you have two options:
+
+- Open `<project/platforms/ios/<project>.xcodeproj>` (or `<project/platforms/ios/<project>.xcworkspace>` if present) in Xcode to configure project signing and upload the archive to App Store. This is the recommended option.
+- Specify your development team in `<project>/app/App_Resources/iOS/build.xcconfig` from the command line and execute
+
+```
+$ ns publish ios --ipa ipa-file-path-here
+```
+
+More options for publishing an iOS application can be found in the ["Publishing for iOS article"](https://docs.nativescript.org/publishing/publishing-ios-apps) article.
+
+> If there are multiple mobile provisioning profiles for the selected development team available on the machine, it is not guaranteed that Xcode will choose the desired one and publishing using the command line will be successful. Therefore, in such cases, we recommend manually configuring and uploading the project from Xcode.
+
+## Optimizations
+
+### Uglify.js
+
+The Webpack configuration includes the [`uglifyjs-webpack-plugin`](https://github.com/webpack-contrib/uglifyjs-webpack-plugin). The plugin performs code minification and improves the size of the bundle.
+It is disabled by default because it slows down the building process. You can enable it by providing the `--env.uglify` flag:
+
+```
+$ ns build android|ios --env.uglify
+```
+
+### Angular and Ahead-of-Time Compilation
+
+The NativeScript Angular projects have the [`@ngtools/webpack`](https://www.npmjs.com/package/@ngtools/webpack) plugin added by the `@nativescript/webpack` plugin. The `@ngtools/webpack` plugin performs Ahead-of-Time compilation and code splitting for lazily loaded modules. If your application is Ahead-of-Time compiled, you don't need the Angular compiler included in your app bundle which results in smaller application size and improved startup time.
+
+To build with Ahead-of-Time compilation provide the `--env.aot` flag:
+
+```
+$ ns build android|ios --env.aot
+```
+
+### V8 Heap Snapshot
+
+The Webpack configuration also includes the [`NativeScriptSnapshotPlugin`](https://github.com/NativeScript/nativescript-dev-webpack/tree/master/plugins/NativeScriptSnapshotPlugin). The plugin loads a single Webpack bundle in an empty V8 context, a.k.a. snapshotted context, and after its execution captures a snapshot of the produced V8 heap and saves it in a `.blob` file. The `.blob` file is included in the `.apk` bundle and is loaded by the Android Runtime on app initialization. This prevents the need for loading, parsing, and executing the script on app startup, which can drastically decrease the starting time.
+
+You can use the snapshot plugin only for **release** builds. You need to provide the `--env.snapshot` flag along with the other release arguments:
+
+```
+$ ns build android --env.snapshot --release --keyStorePath ~/path/to/keystore --keyStorePassword your-pass --keyStoreAlias your-alias --keyStoreAliasPassword your-alias-pass
+```
+
+Known limitations:
+
+- No iOS support. Heap snapshot is a V8 feature which is the engine used in the Android Runtime. Providing `--env.snapshot` flag on the iOS bundling commands will not affect.
+
+<h3 id="snapshot-per-architecture">V8 Heap Snapshot per architecture</h3>
+
+The Android app size can be reduced by splitting the app per device architecture. However, the `blob` files generated by the `--env.snapshot` are just assets which cannot be split.
+
+In order to get a maximum app size reduction, you can pass an additional `--env.compileSnapshot` flag which compiles the static assets produced by `--env.snapshot` into `.so` files allowing the native build to split them per architecture. The snapshot compilation requires the Android NDK to be installed on your system. It is strongly recommended that the same version of the NDK is used to produce the snapshot file as the one used to compile the {N} runtime itself. The current NDK version used in the runtime can be found in [its settings.json file](https://github.com/NativeScript/android-runtime/blob/master/build-artifacts/project-template-gradle/settings.json#L3).
+
+> **NOTE**: Read more about reducing the Android app size in the [Android App Bundle article]({% slug android-app-bundle %})
+
+#### NativeScriptSnapshotPlugin configuration
+
+The `NativeScriptSnapshotPlugin` by default comes with the following configuration:
+
+```JavaScript
+if (snapshot) {
+    config.plugins.push(new nsWebpack.NativeScriptSnapshotPlugin({
+        chunk: "vendor",
+        requireModules: [
+            "@nativescript/core/bundle-entry-points",
+        ],
+        projectRoot,
+        webpackConfig: config,
+        snapshotInDocker,
+        skipSnapshotTools,
+        useLibs
+    }));
+}
+```
+
+- `chunk` - the name of the chunk to be snapshotted.
+- `requireModules` - modules in the snapshotted chunk that should be **executed** at build time. You shouldn't add modules that access directly native Android APIs here since they are available only at runtime.
+- `projectRoot` - path to the app root folder.
+- `webpackConfig` - Webpack configurations object. The snapshot generation modifies the Webpack config object to ensure that the specified bundle will be snapshotted successfully.
+
+<h4 id="other-options-target-archs">Other options</h4>
+* `targetArchs` - Since the serialization format of the V8 heap is architecture-specific, we need a different blob file for each V8 library target architecture. The Android Runtime library contains 4 architecture slices - `ia32` (`x86`), `ia64` (`x86_64`), `arm` (`armeabi-v7a`) and `arm64` (`arm64-v8a`).
+
+#### Snapshot compilation options:
+
+- `useLibs` - the option is configurable through `--env.compileSnapshot` and compiles the static assets produced by `--env.snapshot` into `.so` files allowing the native build to split them per architecture. This will reduce the app size when using the `--aab` option.
+- `androidNdkPath` - Path to a local installation of Android NDK. If not set, the plugin is looking for it in ANDROID_NDK_HOME, the global PATH or downloaded from Android Studio.
+
+> **Note:** The snapshot compilation is the recommended way of reducing the app size along with the [Android App bundle](../tooling/publishing/android-app-bundle.md).
+
+#### Advanced debugging - checking if the snapshot is enabled
+
+If you want to toggle whether specific logic is executed only in the snapshotted context you can use the `global.__snapshot` flag. Its value is `true` only if the current execution happens in the snapshotted context. Once the app is deployed on the device, the value of the flag is changed to `false`. There is also `global.__snapshotEnabled` flag. Its only difference compared to `global.__snapshot` is that its value is `true` in both snapshotted and runtime contexts, given that snapshot generation is enabled.
+
+```JavaScript
+function logMessage(message) {
+    if (global.__snapshotEnabled) {
+        if (!global.__snapshot) {
+            console.log("The current execution is happening in runtime context when we have all {N} APIs available, including console.log(), so this line of code won't fail.");
+        }
+        console.log("This will fail if logMessage is called in snapshotted context because console.log() is not available there.");
+    }
+}
+```
+
+## Custom Application and Activity
+
+NativeScript provides a way to create custom `android.app.Application` and `android.app.Activity` implementations. Please, refer to [this](../core-concepts/android-runtime/advanced-topics/extend-application-activity) documentation article for a detail description of how to achieve these as well as how to configure and bundle such a project.
+
+## Inspecting Bundles
+
+Bundles are generated in the platform output folders. Look for the `bundle.js` and `vendor.js` files in your `platforms/android/...` and `platforms/ios/...` "app" folders. You could change the destination directory by editing your configuration.
+
+## Generating Webpack Report
+
+The default webpack configuration includes the [webpack-bundle-analyzer](https://www.npmjs.com/package/webpack-bundle-analyzer) plugin. To generate a report provide the `--env.report` flag:
+
+```
+$ ns build android|ios --env.report
+```
+
+The report is generated inside `your-project/report`.
+The `report/report.html` page shows the application chunks.
+
+![Android report](https://github.com/NativeScript/docs/raw/master/docs/img/webpack/android-report.png)
+
+For analyzing the dependency graph between the modules, use [webpack.github.ui/analyze](http://webpack.github.io/analyse/) and open the `stats.json` file.
+
+## Recommendations for Plugin Authors
+
+Most third-party packages are problem-free and get picked up by Webpack without any issues. Some libraries though require a bit of tweaking. When you encounter a library that does not get recognized by your Webpack configuration, please open up an issue on that library's GitHub repository.
+
+### Referencing Platform-specific modules from "package.json"
+
+This is the most common problem with third-party plugins. Most plugins provide two platform-specific implementations stored in modules named like `my-plugin.android.js` and `my-plugin.ios.js`. The `package.json` file for the plugin looks like this:
+
+```JSON
+{
+    "main": "my-plugin.js"
+}
+```
+
+Webpack reads the `package.json` file and try to find a `my-plugin.js` module and fails. The correct way to reference a platform-specific module would be to remove the `.js` extension:
+
+```JSON
+{
+    "main": "my-plugin"
+}
+```
+
+That allows Webpack to reference `my-plugin.android.js` or `my-plugin.ios.js` correctly.
+
+## Emitting Helper Functions in TypeScript Plugins
+
+The TypeScript compiler implements class inheritance, decorators and other features using a set of helper functions that get emitted at compile time. NativeScript ships with its implementations of those helpers to allow features like extending platform native classes. That is why you need to configure the TypeScript compiler **NOT** to emit helpers. The easiest way is to edit the `tsconfig.json` file and set the `noEmitHelpers` option to `true`:
+
+```JSON
+{
+    "compilerOptions": {
+        ...
+        "noEmitHelpers": true,
+        ...
+    },
+    ...
+}
+```
+
+## Bundling Background Workers
+
+When the application is implementing workers, some additional steps are required to make the project Webpack compatible.
+Check out the [`nativescript-worker-loader`](https://github.com/nativescript/worker-loader) and the [detailed documentation article about using workers](../core-concepts/multithreading-model).
+
+## Lazy Loading
+
+### What is Lazy Loading (and why you should use it)?
+
+Lazy loading is an Angular technique that allows you to load feature components asynchronously when a specific route is activated. This can add some initial performance during application bootstrap, especially if you have many components with heavy UI and complex routing.
+
+Use lazy loading to decrease the startup time of your NativeScript application.
+
+### How does Lazy Loading work?
+
+With lazy loading, the application is split into multiple modules. There is the main module which in the context of NativeScript application will hold the root components (usually called `app.module.ts` located in the `app` folder) and the featured modules which will be loaded "on demand" after user interaction. Each module can define multiple components, services, and routes.
+
+<!-- TODO: make nicer images -->
+<img src="https://github.com/NativeScript/docs/raw/master/docs/img/performance/lazy.png">
+
+### Implementing Lazy Loading in NativeScript
+
+In the following sections, we will create a simple Angular application using the [Hello World template](https://github.com/NativeScript/nativescript-app-templates/tree/master/packages/template-hello-world-ng) which by default has no lazy loaded modules. Then, we will add the featured lazy loaded **HomeModule**.
+
+- Create the Hello World Angular template
+
+  ```Shell
+  ns create my-app --ng
+  cd my-app
+  ```
+
+- Add a new folder to hold your `FeatureModule` along with all the components, services, routing tables of the module.
+
+  A good practice is to use the name of the module as the name of the containing folder. For example, create a `feature` folder and add `feature.module.ts` and the needed components that will be part of the module (in our case `feature.component.ts` with the respective HTML and CSS files).
+
+  ```JS
+  my-app
+  --app
+  ----feature
+  ------feature.component.css
+  ------feature.component.html
+  ------feature.component.ts
+  ------feature.module.ts
+  ------feature.routing.ts
+  ------feature.service.ts
+  ```
+
+- Create the routing table and the lazily loaded module
+
+  _app/feature/feature.routing.ts_
+
+  ```TypeScript
+  // app/feature/feature.routing
+  import { NgModule } from "@angular/core";
+  import { Routes } from "@angular/router";
+  import { NativeScriptRouterModule } from "nativescript-angular/router";
+  import { FeatureComponent } from "./feature.component";
+
+  export const routes: Routes = [
+      {
+          path: "",
+          component: FeatureComponent
+      }
+  ];
+
+  @NgModule({
+      imports: [NativeScriptRouterModule.forChild(routes)],  // set the lazy loaded routes using forChild
+      exports: [NativeScriptRouterModule]
+  })
+  export class FeatureRoutingModule { }
+  ```
+
+  _app/feature/feature.module.ts_
+
+  ```TypeScript
+  // app/feature/feature.module.ts
+  import { NativeScriptCommonModule } from "nativescript-angular/common";
+  import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
+  import { FeatureComponent } from "./feature.component"; // Import all components that will be used in the lazy loaded module
+  import { FeatureService } from "./feature.service"; // Import all services that will be used in the lazy loaded module
+  import { FeatureRoutingModule } from "./feature.routing"; // import the routing module
+
+  @NgModule({
+      schemas: [NO_ERRORS_SCHEMA],
+      imports: [
+          NativeScriptCommonModule,
+          FeatureRoutingModule
+      ],
+      declarations: [FeatureComponent], // declare all components that will be used within the module
+      providers: [ FeatureService ] // provide all services that will be used within the module
+  })
+  export class FeatureModule { }
+  ```
+
+- Add the lazily loaded module to the application routing table
+
+  _app/app.routing.ts_
+
+  ```TypeScript
+  // app/app.routing.ts
+  import { NgModule } from "@angular/core";
+  import { NativeScriptRouterModule } from '@nativescript/angular';
+  import { Routes } from "@angular/router";
+
+  import { ItemsComponent } from "./item/items.component";
+  import { ItemDetailComponent } from "./item/item-detail.component";
+
+  const routes: Routes = [
+      { path: "", redirectTo: "/items", pathMatch: "full" },
+      { path: "items", component: ItemsComponent },
+      { path: "item/:id", component: ItemDetailComponent },
+      { path: "feature", loadChildren: () => import("./feature/feature.module").then(m => m.FeatureModule) }, // lazy loaded module
+  ];
+
+  @NgModule({
+      imports: [NativeScriptRouterModule.forRoot(routes)],
+      exports: [NativeScriptRouterModule]
+  })
+  export class AppRoutingModule { }
+  ```
+
+- Navigating to lazily loaded module
+
+  With all of the above steps implemented, you can start navigating to the default path of the lazily loaded module.
+
+  _app/item/items.component.html_
+
+  ```HTML
+  <!-- app/item/items.component.html -->
+  <StackLayout class="page">
+      <!-- navigate to the default path in the lazy loaded module -->
+      <Label text="Go to my Feature" [nsRouterLink]="['/feature']" class="h2 m-10"></Label>
+
+      <ListView [items]="items" class="list-group">
+          <ng-template let-item="item">
+              <Label [nsRouterLink]="['/item', item.id]" [text]="item.name"
+                  class="list-group-item"></Label>
+          </ng-template>
+      </ListView>
+  </StackLayout>
+  ```
+
+### Benefits from using Lazy Loading
+
+A real-life NativeScript application (like the [Angular SDK Examples](https://github.com/NativeScript/nativescript-sdk-examples-ng)) can have hundreds of different components. Each component may have its route, services, and multiple featured components. Using lazy loading modules improves the startup time dramatically (in the case of SDK Examples app with up-to 5x better startup timings). Instead of having to load the hundreds of components at the application bootstrap, you can load just the landing module and load all other submodules lazily.
+
+- [USED REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/performance-optimizations/startup-times.md
+
+# How to Build NativeScript Apps That Start Up Fast
+
+NativeScript allows you to write native iOS and Android applications using JavaScript. Although there are many advantages to taking this approach—using one language to write multiple apps, faster development times from using an interpreted language, and so forth—there is one fact NativeScript developers can’t avoid: NativeScript apps can take longer to start up than applications written with native development languages such as Objective-C and Java.
+
+Don’t worry though—with a few optimizations, NativeScript apps can startup fast enough for the overwhelming majority of app use cases. This article is a straight-to-the-point list of steps you can take to make sure your NativeScript apps start up as fast as possible.
+
+> **NOTE**: Jump to the [summary](#summary) if you want an explanation-free list of commands to run.
+
+- [Step 1: Add uglification](#step-1)
+- [Step 2: Perform heap snapshots](#step-2)
+- [Summary](#summary)
+
+<h2 id="step-1">Step 1: Add uglification</h2>
+
+Webpack has a number of plugins that extend its capabilities, but perhaps the most useful plugin is built right into webpack itself—[UglifyJS](https://github.com/mishoo/UglifyJS2). As its name implies, UglifyJS compresses and minifies your JavaScript code to reduce files sizes.
+
+For NativeScript apps there are two advantages to using UglifyJS. First, because UglifyJS reduces the file size of JavaScript files, it’ll also reduce the file size of your app as a whole. Second, because UglifyJS removes dead code as it minifies your code, your app will start up faster because there will be fewer JavaScript instructions for NativeScript to parse.
+
+Using UglifyJS is easy too. To use UglifyJS as part of your NativeScript builds, all you need to do is add a `--env.uglify` flag to the scripts you ran earlier. That is, run one of the following commands.
+
+```
+ns run android --env.uglify
+```
+
+Or
+
+```
+ns run ios --env.uglify
+```
+
+If you open your `vendor.js` and `bundle.js` files, you should now see compressed code that looks something like this.
+
+![](compressed-code.png)
+
+The more code you have, the more of a difference the UglifyJS optimization will make. Here’s what the NativeScript Groceries sample looks like with Uglify added to the webpack build process.
+
+<div style="display: flex; max-width: 100%;">
+  <img src="https://github.com/NativeScript/docs/raw/master/docs/img/best-practices/ios-start-up-2.gif" style="height: 450px;">
+  <img src="https://github.com/NativeScript/docs/raw/master/docs/img/best-practices/android-start-up-2.gif" style="height: 450px;">
+</div>
+
+To recap our steps so far, you enabled UglifyJS, which reduced the size of your app by removing dead code. Fewer lines of code meant less JavaScript for NativeScript to parse when your app started up, so your startup times improved again.
+
+As a next step you’re going to take things one step further, and register your JavaScript with the JavaScript virtual machine itself.
+
+<h2 id="step-2">Step 2: Perform heap snapshots</h2>
+
+NativeScript runs the JavaScript code you write through a [JavaScript virtual machine](http://developer.telerik.com/featured/a-guide-to-javascript-engines-for-idiots/), which is essentially a piece of software that’s specifically designed to interpret and execute JavaScript code.
+
+NativeScript Android apps run on top of Google’s V8 engine, and NativeScript iOS apps run on top of Apple’s JavaScriptCore engine. V8 has a [neat feature called heap snapshots](https://v8project.blogspot.bg/2015/09/custom-startup-snapshots.html), which NativeScript leverages to give a powerful boost to Android startup times.
+
+Here’s the basics of how heap snapshots work: when you start up your app, normally, the JavaScript VM has to fetch and parse every JavaScript file you use intend to use in your app. There is a cost to doing this, and that cost is one thing that can slow down the startup of your NativeScript apps.
+
+What V8 lets you do, however, is provide a so-called heap snapshot, or a previously prepared JavaScript context. In other words, instead of NativeScript fetching, parsing, and executing scripts on every startup, the NativeScript Android runtime can instead look for a previously prepared binary file that is the result of those tasks, and just use that instead—greatly reducing the amount of time it takes for your app to get up and running.
+
+In NativeScript we’re integrated this process directly within our webpack build process; therefore, running a build with V8 heap snapshots enabled is as simple as adding a `--env.snapshot` flag to the previous step.
+
+```
+ns run android --env.uglify --env.snapshot
+```
+
+> **Note:** Heap snapshots are a feature of V8 and you can only use this feature as part of your NativeScript Android builds. A similar feature is not available for NativeScript iOS builds.
+
+Because heap snapshots completely avoid the need to parse and execute the vast majority of your JavaScript on startup, they tend to speed up the startup times of NativeScript apps substantially. Here’s how the NativeScript Groceries app starts up on Android with heap snapshots enabled.
+
+<img src="https://github.com/NativeScript/docs/raw/master/docs/img/best-practices/android-start-up-3.gif" style="height: 450px;">
+
+> **NOTE**: For a far more technical explanation of how V8 heap snapshots work in NativeScript, and how you can configure and optimize the snapshots, check out [this article on the NativeScript blog](https://www.nativescript.org/blog/improving-app-startup-time-on-android-with-webpack-v8-heap-snapshot).
+
+<h2 id="summary">Summary</h2>
+
+By enabling webpack, using UglifyJS, and performing V8 heap snapshot builds, you have the ability to greatly improve the startup times of your NativeScript applications. As a reference, here is a brief summary of the commands you need to run to enable all optimizations.
+
+1. Run on iOS with, UglifyJS, and Angular Ahead-of-Time enabled.
+
+```
+ns run ios --env.uglify --env.aot
+```
+
+2. Run on Android with, UglifyJS, Angular Ahead-of-Time (if using Angular), and V8 heap snapshot builds enabled.
+
+```
+ns run android --env.uglify --env.aot --env.snapshot
+```
 
 ## Image Optimizations
 

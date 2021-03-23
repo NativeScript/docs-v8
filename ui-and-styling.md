@@ -1049,7 +1049,7 @@ If you need to style parts of the text, you can use a combination of a `Formatte
 
 `<DatePicker>` is a UI component that lets users select a date from a pre-configured range.
 
-> See also: [TimePicker](/en/docs/elements/components/time-picker).
+> See also: [TimePicker](/ui-and-styling.html#timepicker).
 
 ---
 
@@ -1265,7 +1265,7 @@ export default {
 
 `<HtmlView>` is a UI component that lets you show static HTML content.
 
-See also: [WebView](/en/docs/elements/components/web-view).
+See also: [WebView](#webview).
 
 ---
 
@@ -1884,7 +1884,7 @@ export class ListViewTipsComponent implements OnInit {
 
 #### Using `<ListView>` with multiple `<v-template>` blocks
 
-The [`v-template` component](/en/docs/utilities/v-template) is used to define how each list item is shown on the screen.
+The [`v-template` component](https://nativescript-vue.org/en/docs/utilities/v-template/) is used to define how each list item is shown on the screen.
 
 If you need to visualize one or more list items differently than the rest, you can enclose them in additional `<v-template>` blocks and use conditions. You can have as many `<v-template>` blocks as needed within one `<ListView>`.
 
@@ -3477,7 +3477,7 @@ To apply multiple styles to the text in your `<TextView>`, you can use `<Formatt
 
 `<TimePicker>` is a UI component that lets users select time.
 
-> See also: [DatePicker](/en/docs/elements/components/date-picker).
+> See also: [DatePicker](ui-and-styling.html#date-picker).
 
 ---
 
@@ -3603,7 +3603,7 @@ export class UsageComponent {
 
 `<WebView>` is a UI component that lets you show web content in your app. You can pull and show content from a URL or a local HTML file, or you can render static HTML content.
 
-See also: [HtmlView](/en/docs/elements/components/html-view).
+See also: [HtmlView](#htmlview).
 
 ---
 
@@ -4014,7 +4014,8 @@ StackLayout Button + Label {
 
 ### CSS Overview
 
---- 
+---
+
 #### Applying CSS Styles
 
 The CSS styles can be set on 3 different levels:
@@ -4370,7 +4371,7 @@ Platform specifics:
 You can use custom fonts in your app (in .TTF or .OTF format).
 The NativeScript runtime will look for the font files under the `app/fonts/` (or `src/fonts/` if you use Angular) directory and load them automatically.
 
-![Custom fonts setup"](../img/font-images/custom-fonts.png 'Custom fonts setup')
+![Custom fonts setup"](/assests/ui-and-styling/custom-fonts.png 'Custom fonts setup')
 
 ::: tip Tip
 Since NativeScript 7.1, the CLI has the `ns fonts` command. Executing this command will print out the css styles you need for any custom fonts found in your application.
@@ -4445,18 +4446,18 @@ The @import CSS rule allows you to import CSS from a local file. This rule must 
 
 With NativeScript, it is possible to manage your app styles using the SASS CSS pre-compiler instead of plain CSS files. Just as with web projects, SASS gives your stylesheets extra capabilities like shared variables, mixins and nested style tags.
 
-To use SASS with NativeScript, a SASS compiler like [`node-sass`](https://www.npmjs.com/package/node-sass?activeTab=versions) or [`sass`](https://www.npmjs.com/package/dart-sass) is required. This compiler will hook-in to the NativeScript build process and automatically convert `.scss/.sass` files to `.css` during `build` and `livesync` operations. Since SASS is compiled to CSS at build time, it does **not** require any changes to your stylesheet naming conventions for NativeScript's normal convention-based patterns to work. SASS files with the same name as a NativeScript page will still be automatically linked.
+To use SASS with NativeScript, a SASS compiler like [`sass`](https://www.npmjs.com/package/sass) is required. This compiler will hook-in to the NativeScript build process and automatically convert `.scss/.sass` files to `.css` during `build` and `livesync` operations. Since SASS is compiled to CSS at build time, it does **not** require any changes to your stylesheet naming conventions for NativeScript's normal convention-based patterns to work. SASS files with the same name as a NativeScript page will still be automatically linked.
 
 You can use SASS with either enabling it manually:
 
 ```Shell
-npm i node-sass --save-dev
+npm i sass --save-dev
 ```
 
 Or by using a template that has SASS already enabled. For example:
 
 ```Shell
-ns create my-sass-app --template --template tns-template-drawer-navigation-ts
+ns create  mySassApp --template @nativescript/template-drawer-navigation-ts
 ```
 
 For projects created with NativeScript 5.x and below (which are using the legacy `nativescript-dev-webpack`), you can run the `migrate` command to update the SASS compiler (and remove the legacy plugin). Note that the `migrate` command is available in NativeScript CLI 6 and above.
