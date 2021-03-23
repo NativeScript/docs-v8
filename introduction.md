@@ -108,12 +108,12 @@ The easiest and straight-forward way to create your customized template is to cl
 
 Here is the list of the six main blank templates depending on the coding language preferences.
 
-- Plain JavaScript template at [https://github.com/NativeScript/nativescript-app-templates/tree/master/packages/template-blank](https://github.com/NativeScript/nativescript-app-templates/tree/master/packages/template-blank)
-- TypeScript template at [https://github.com/NativeScript/nativescript-app-templates/tree/master/packages/template-blank-ts](https://github.com/NativeScript/nativescript-app-templates/tree/master/packages/template-blank-ts)
-- Angular template at [https://github.com/NativeScript/nativescript-app-templates/tree/master/packages/template-blank-ng](https://github.com/NativeScript/nativescript-app-templates/tree/master/packages/template-blank-ng)
-- Vue.js template at [https://github.com/NativeScript/nativescript-app-templates/tree/master/packages/template-blank-vue](https://github.com/NativeScript/nativescript-app-templates/tree/master/packages/template-blank-vue)
-- React template at [https://github.com/NativeScript/nativescript-app-templates/tree/master/packages/template-blank-react](https://github.com/NativeScript/nativescript-app-templates/tree/master/packages/template-blank-react)
-- Svelte template at [https://github.com/NativeScript/nativescript-app-templates/tree/master/packages/template-blank-svelte](https://github.com/NativeScript/nativescript-app-templates/tree/master/packages/template-blank-svelte)
+- [Blank Plain JavaScript template](https://github.com/NativeScript/nativescript-app-templates/tree/master/packages/template-blank)
+- [Blank TypeScript template](https://github.com/NativeScript/nativescript-app-templates/tree/master/packages/template-blank-ts)
+- [Blank Angular template](https://github.com/NativeScript/nativescript-app-templates/tree/master/packages/template-blank-ng)
+- [Blank Vue.js template](https://github.com/NativeScript/nativescript-app-templates/tree/master/packages/template-blank-vue)
+- [Blank React template](https://github.com/NativeScript/nativescript-app-templates/tree/master/packages/template-blank-react)
+- [Blank Svelte template](https://github.com/NativeScript/nativescript-app-templates/tree/master/packages/template-blank-svelte)
 
 Creating your template is as simple as cloning the wanted template repository and modifying the source code to satisfy your business logic.
 
@@ -130,15 +130,9 @@ ns run android
 // start making code changes
 ```
 
-## Versioning Scheme
+#### Guidelines
 
-`@nativescript/core` does not follow Semantic Versioning. Major framework releases are released every six months (~March and ~September), while minor and patch releases may be released as often as every week. Patch releases should never contain breaking changes, however minor, and major releases can. We strive to note any breaking changes in the Changelogs, to make upgrades as easy as possible.
-
-When referencing the `@nativescript/core` package, you should use a fixed version constraint such as `7.0.11`, or alternatively `~7.0.11` to allow installing patch updates.
-
-## Guidelines
-
-### Template Structure Guidelines
+##### Template Structure Guidelines
 
 - Create folders named for the feature area they represent. Each featured area should be placed in a separate folder in the template's folder structure.
 
@@ -148,7 +142,7 @@ When referencing the `@nativescript/core` package, you should use a fixed versio
 
 - Avoid putting all of your app template's code in a root folder named _app_. When the actual app is created from the template, all of the template's code will indeed go inside a root **app** folder, but you MUST NOT define this folder in the hierarchy of your template; otherwise, the `ns create` CLI command will not function properly.
 
-### Package.json Guidelines
+##### Package.json Guidelines
 
 - Place a `package.json` file in the root folder of your app template.  
   Note this is not the actual root package.json of the generated mobile app – it is only used by the `ns create` CLI command upon app creation. Do not expect that everything you place in your package.json will be transferred to the actual package.json file. Notably `scripts` property content is removed. However, if you provide preinstall / postinstall scripts, they will be executed before getting removed. You can use this mechanism to generate/move settings files to the root folder of the generated app and generate actual "scripts" content for the resulting app package.json – see [copying settings files](https://github.com/NativeScript/template-master-detail-ts/blob/master/tools/preinstall.js) and [generating `scripts` commands on-the-fly](https://github.com/NativeScript/template-master-detail-ts/blob/master/tools/postinstall.js) for concrete examples.
@@ -208,18 +202,18 @@ When referencing the `@nativescript/core` package, you should use a fixed versio
   - `category-general` - will show the template under the "General" tab in the ["Templates" page](https://market.nativescript.org/?tab=templates). This is the general or basic category, used to describe "generic" functionality.
   - `category-healthcare` - will show the template under the "Healthcare" tab in the ["Templates" page](https://market.nativescript.org/?tab=templates). This is a special category, used to describe a template with functionality related to the healthcare industry.
 
-### Marketplace Guidelines
+##### Marketplace Guidelines
 
 - Publish your app template to npm (https://www.npmjs.com/) using **ns-template-[custom-template-name-goes-here]-ts** format for the npm package name.
 
 - Provide a screenshot preview to be used in a future NativeScript Marketplace integration under **tools/assets/marketplace.png** in your app template folder structure.  
-  Check [tools/postinstall.js](https://github.com/NativeScript/template-master-detail-ts/blob/master/tools/postinstall.js) that implements a mechanism for removing the "tools" infrastructure folder from the generated app.
+  Check [tools/postinstall.js [NOT FOUND]](https://github.com/NativeScript/template-master-detail-ts/blob/master/tools/postinstall.js) that implements a mechanism for removing the "tools" infrastructure folder from the generated app.
 
 - Provide correct `repository` property value in the root package.json file of your app template (see the "Package.json guidelines" section above for additional package.json requirements).
 
 - [Read more](https://github.com/NativeScript/marketplace-feedback/blob/master/docs/template-submission.md) how to submit your app template to [NativeScript Marketplace](https://market.nativescript.org).
 
-### Styling Guidelines
+##### Styling Guidelines
 
 - Consider using the [NativeScript core theme](https://github.com/NativeScript/theme) for styling your app template.
 
@@ -347,8 +341,14 @@ NavigationButton {
 /* Place any CSS rules you want to apply only on iOS here */
 ```
 
-### More Guidelines
+##### More Guidelines
 
 - [Read JavaScript App Template Style Guide](https://github.com/NativeScript/nativescript-starter-kits-utils/blob/master/docs/style-guide-app-template.md)
 
 - [Read Angular App Template Style Guide](https://github.com/NativeScript/nativescript-starter-kits-utils/blob/master/docs/style-guide-app-template-ng.md)
+
+## Versioning Scheme
+
+`@nativescript/core` does not follow Semantic Versioning. Major framework releases are released every six months (~March and ~September), while minor and patch releases may be released as often as every week. Patch releases should never contain breaking changes, however minor, and major releases can. We strive to note any breaking changes in the Changelogs, to make upgrades as easy as possible.
+
+When referencing the `@nativescript/core` package, you should use a fixed version constraint such as `7.0.11`, or alternatively `~7.0.11` to allow installing patch updates.
