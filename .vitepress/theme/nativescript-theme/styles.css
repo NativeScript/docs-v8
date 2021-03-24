@@ -3382,10 +3382,10 @@ svg.DocSearch-Hit-Select-Icon {
 	--docsearch-container-background: rgba(15, 23, 42, 0.2);
 }
 
-.h-sidebar[data-v-78d98687] {
+.h-sidebar[data-v-bf615fe4] {
 	height: calc(100vh - 88px);
 }
-.sidebar-link.active[data-v-78d98687] {
+.sidebar-link.active[data-v-bf615fe4] {
 	font-weight: 700;
 	--tw-text-opacity: 1;
 	color: rgba(30, 41, 59, var(--tw-text-opacity));

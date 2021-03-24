@@ -8316,9 +8316,9 @@ var script$3 = defineComponent({
 	},
 })
 
-var _withId = /*#__PURE__*/ withScopeId('data-v-78d98687')
+var _withId = /*#__PURE__*/ withScopeId('data-v-bf615fe4')
 
-pushScopeId('data-v-78d98687')
+pushScopeId('data-v-bf615fe4')
 
 var _hoisted_1$3 = {
 	class: 'min-h-screen font-sans antialiased',
@@ -8348,7 +8348,7 @@ var _hoisted_9 = {
 	class: 'flex-auto min-w-0 px-6 pt-10 pb-16',
 }
 var _hoisted_10 = {
-	class: 'flex-none block pl-8',
+	class: 'flex-none block pl-8 w-96',
 }
 var _hoisted_11 = {
 	class: 'sticky h-sidebar top-[88px] h-sidebar',
@@ -8520,7 +8520,7 @@ var render$3 = /*#__PURE__*/ _withId(function (
 })
 
 script$3.render = render$3
-script$3.__scopeId = 'data-v-78d98687'
+script$3.__scopeId = 'data-v-bf615fe4'
 
 var _hoisted_1$2 = /*#__PURE__*/ createVNode(
 	'h2',
