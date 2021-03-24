@@ -876,12 +876,6 @@ In iOS, the color property affects the color of the title and the action items. 
 
 ---
 
-<script setup>
-import FlavorSwitcher from './test.vue'
-</script>
-
-<FlavorSwitcher/>
-
 /// flavor plain
 
 ```xml

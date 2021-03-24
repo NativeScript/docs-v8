@@ -2,8 +2,8 @@
     "name": "nativescript-docs-new",
     "private": true,
     "scripts": {
-        "clean": "npx rimraf node_modules package-lock.json && yarn install",
-        "start": "npm run dev",
+        "clean": "yarn rimraf node_modules package-lock.json yarn.lock .vitepress/dist",
+        "start": "yarn dev",
         "dev": "vitepress dev .",
         "build": "vitepress build .",
         "format": "prettier --write \"**/*.{js,css,md}\"",
@@ -14,6 +14,7 @@
         "husky": "^5.0.9",
         "lint-staged": "^10.5.4",
         "prettier": "^2.2.1",
+        "rimraf": "^3.0.2",
         "vitepress": "0.12.2"
     },
     "lint-staged": {

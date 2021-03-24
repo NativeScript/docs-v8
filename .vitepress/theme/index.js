@@ -1,6 +1,6 @@
-import DefaultTheme from 'vitepress/theme'
-import './styles.css'
+import Theme from './nativescript-theme'
+import './nativescript-theme/styles.css'
 
 export default {
-	...DefaultTheme,
+	...Theme(),
 }
