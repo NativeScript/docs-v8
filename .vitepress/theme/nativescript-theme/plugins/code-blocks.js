@@ -15,7 +15,6 @@ function processFenceContainers(state) {
 	let groupStart
 	let groups = []
 	for (let idx = 0; idx < tokens.length; idx++) {
-		console.log(`${idx}/${tokens.length}`)
 		const token = tokens[idx]
 		DEBUG &&
 			console.log(`${idx} | ${token.type} (LAST TYPE = ${lastTokenType})`)
