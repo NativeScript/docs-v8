@@ -2335,11 +2335,13 @@ export class StylingComponent implements OnInit {
 | ------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
 | [`android.widget.ProgressBar` (indeterminate = false)](https://developer.android.com/reference/android/widget/ProgressBar.html) | [`UIProgressView`](https://developer.apple.com/documentation/uikit/uiprogressview) |
 
-/// flavor plain
-
 ### Repeater
 
 The Repeater widget allows you to display a collection of data, which is present in an array.
+
+:::tip Note
+`<Repeater>` is only aplicable to plain NativeScript apps, most flavors provide directives to loop through arrays like `ngFor` and `v-for`.
+:::
 
 ---
 
@@ -2391,8 +2393,6 @@ When using ObservableArray the repeater will be automatically updated when items
 | -------------------------------------------------------------------------------------- | -------- |
 | [Repeater](http://docs.nativescript.org/api-reference/modules/_ui_repeater_.html)      | `Module` |
 | [Repeater](https://docs.nativescript.org/api-reference/classes/_ui_repeater_.repeater) | `Class`  |
-
-///
 
 ### ScrollView
 

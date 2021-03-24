@@ -37,6 +37,8 @@ Try to keep the view hierachy as flat as possible by utilizing different [Layout
 </StackLayout>
 ```
 
+<!--  -->
+
 ```html
 <GridLayout rows="auto, auto" colums="auto, auto">
   <SomeItem row="0" col="0" />
