@@ -14,7 +14,7 @@ ns plugin add @nativescript/local-notifications
 #### NativeScript prior to 7:
 
 ```bash
-tns plugin add nativescript-local-notifications@4.2.1
+ns plugin add nativescript-local-notifications@4.2.1
 ```
 
 ## Setup (since plugin version 3.0.0)

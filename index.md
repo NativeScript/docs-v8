@@ -22,3 +22,5 @@ actionLink: /introduction
 <div style="text-align:center;margin: 0 auto;">
   <img src="/assets/images/mobile.gif">
 </div>
+
+<a href="/introduction">Read the docs</a>

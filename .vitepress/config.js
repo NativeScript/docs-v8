@@ -1,3 +1,10 @@
+const {
+	createFlavorContainer,
+	codeBlocksPlugin,
+	markFlavorHeadings,
+	wrapFlavorContainersInTabs,
+} = require('./theme/nativescript-theme/plugins')
+
 module.exports = {
 	lang: 'en-US',
 	title: 'NativeScript',
@@ -56,7 +63,12 @@ module.exports = {
 
 	markdown: {
 		config: (md) => {
+			// Flavor related
 			md.use(...createFlavorContainer())
+			md.use(markFlavorHeadings)
+			md.use(wrapFlavorContainersInTabs)
+
+			// other.
 			md.use(codeBlocksPlugin)
 		},
 	},
@@ -208,72 +220,4 @@ function getBestPracticeSidebar() {
 			],
 		},
 	]
-}
-
-/**
- * Adds flavor containers
- *
- * For example:
- * /// flavor vue
- * ...vue specific content...
- * ///
- */
-function createFlavorContainer() {
-	const container = require('markdown-it-container')
-	const klass = 'flavor'
-
-	return [
-		container,
-		klass,
-		{
-			marker: '/',
-			render(tokens, idx) {
-				const token = tokens[idx]
-				const info = token.info.trim().slice(klass.length).trim()
-				if (token.nesting === 1) {
-					return `<div class="${klass} ${info}">\n`
-				} else {
-					return `</div>\n`
-				}
-			},
-		},
-	]
-}
-
-/**
- * Adds .code-block to highlighted code blocks
- * Adds data-tab-title="<lang>" or looks for <!-- tab:CustomTabName --> comment above code block to override
- * todo:
- *   - group into tabs
- *   - implement global selector to automatically switch all tabs
- */
-function codeBlocksPlugin(md) {
-	const fence = md.renderer.rules.fence
-	md.renderer.rules.fence = (...args) => {
-		const rawCode = fence(...args)
-
-		const [tokens, idx] = args
-		const token = tokens[idx]
-		const prev = idx > 0 ? tokens[idx - 1] : null
-		// const next = idx < tokens.length - 1 ? tokens[idx+1] : null;
-		// if(prev && prev.type === 'fence') {
-		// }
-		// if(next && next.type === 'fence') {
-		// }
-
-		let tabTitle = token.info
-		if (prev && prev.type === 'html_block') {
-			// <!-- tab:CustomTabName -->\n
-			const matched = prev.content.match(/<!--\s*tab:(\w+)\s*-->/)
-			if (matched) {
-				tabTitle = matched[1]
-			}
-		}
-		const finalCode = rawCode.replace(
-			/"(language-\w+)"/,
-			`"$1 code-block" data-tab-title="${tabTitle}"`
-		)
-
-		return finalCode
-	}
 }
