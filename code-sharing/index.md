@@ -2,8 +2,6 @@
 title: Code Sharing
 ---
 
-A mantra to live by: Code sharing should allow your code to be "free" and "unchained"
-
 **The NativeScript TSC's 5 fundamental lessons about good code sharing**
 
 1. If you can share your code easily with other paradigms, other disciplines, other runtimes even, then you have a good code sharing approach that will continue to provide you and your team joy. No developer or team willingly gets into code sharing hoping to find themselves in a corner later. You always want to share now to more easily maintain and scale the code later.
