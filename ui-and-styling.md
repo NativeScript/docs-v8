@@ -1251,9 +1251,9 @@ export default {
 
 #### Native component
 
-| Android                                                                                                                                                                                    | iOS                                                                                                |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------- |
-| [`org.nativescript.widgets.ContentLayout`](https://github.com/NativeScript/tns-core-modules-widgets/blob/master/android/widgets/src/main/java/org/nativescript/widgets/ContentLayout.java) | [`UINavigationController`](https://developer.apple.com/documentation/uikit/uinavigationcontroller) |
+| Android                                                                                                                                                                                                | iOS                                                                                                |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------- |
+| [`org.nativescript.widgets.ContentLayout`](https://github.com/NativeScript/NativeScript/blob/master/packages/ui-mobile-base/android/widgets/src/main/java/org/nativescript/widgets/ContentLayout.java) | [`UINavigationController`](https://developer.apple.com/documentation/uikit/uinavigationcontroller) |
 
 ### HtmlView
 
@@ -1825,7 +1825,7 @@ export class Item {
 ```ts
 import { Component, Input, OnChanges, SimpleChanges, OnInit } from '@angular/core'
 import { ItemService, Item } from '../usage/usage.service'
-import { ItemEventData } from 'tns-core-modules/ui/list-view'
+import { ItemEventData } from '@nativescript/core'
 
 @Component({
   moduleId: module.id,
@@ -2133,9 +2133,9 @@ The events loaded, unloaded and layoutChanged are UI component lifecycles events
 
 #### Native component
 
-| Android                                                                                                                                                                              | iOS                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------- |
-| [`org.nativescript.widgets.GridLayout`](https://github.com/NativeScript/tns-core-modules-widgets/blob/master/android/widgets/src/main/java/org/nativescript/widgets/GridLayout.java) | [`UIViewController`](https://developer.apple.com/documentation/uikit/uiviewcontroller) |
+| Android                                                                                                                                                                                          | iOS                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------- |
+| [`org.nativescript.widgets.GridLayout`](https://github.com/NativeScript/NativeScript/blob/master/packages/ui-mobile-base/android/widgets/src/main/java/org/nativescript/widgets/GridLayout.java) | [`UIViewController`](https://developer.apple.com/documentation/uikit/uiviewcontroller) |
 
 ### Placeholder
 

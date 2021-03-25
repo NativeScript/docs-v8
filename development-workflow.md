@@ -18,7 +18,7 @@ The NS CLI will walk you through selecting a template using interactive prompts.
 
 You can also use the `--template` flag with the `ns create` command to target a specific template
 
-```
+```shell
 ns create HelloWorld --template @nativescript/template-hello-world-ts
 ```
 
@@ -42,7 +42,7 @@ If you're having trouble running your application or you have added new dependen
 
 This command allows you to link the app you’re developing locally to the NativeScript Playground app for your iOS or Android device through the NativeScript Playground app. Although, this workflow is great for getting started, it does have limitations.
 
-```
+```shell
 ns preview
 ```
 
@@ -214,7 +214,7 @@ In NativeScript, we can use all Android emulators that are connected and recogni
 
 Example output from `ns device`
 
-```
+```shell
 $ ns device
 
 Connected devices & emulators
@@ -365,7 +365,7 @@ To run your unit tests, the NativeScript CLI uses [Karma](http://karma-runner.gi
 
 Before writing and running unit tests, verify that you have completed the following steps.
 
-1. [Install and configure the NativeScript CLI on your system.]({% slug quick-start %}#the-nativescript-cli)
+1. [Install and configure the NativeScript CLI on your system.](environment-setup)
 1. If you don't have any projects, create a new project and navigate to the directory of the newly created directory.
 
    ```Shell
@@ -400,15 +400,15 @@ This operation applies the following changes to your project.
 
 > **Note**: To enable and write unit tests for TypeScript or Angular project install the TypeScript typings for the selected testing framework.
 
-```Jasmine
+```shell
 npm i @types/jasmine --save-dev
 ```
 
-```Mocha
+```shell
 npm i @types/mocha --save-dev
 ```
 
-```QUnit
+```shell
 npm i @types/qunit --save-dev
 ```
 
@@ -431,60 +431,68 @@ When creating tests for a new or existing functionality, keep in mind the follow
 
 The following samples test the initial value of the counter and the message in the Hello World template. These tests show the specifics and limitations outlined above.
 
-```Jasmine
-var mainViewModel = require("../main-view-model"); //Require the main view model to expose the functionality inside it.
+```js
+var mainViewModel = require('../main-view-model') //Require the main view model to expose the functionality inside it.
 
-describe("Hello World Sample Test:", function() {
-  it("Check counter.", function() {
-    expect(mainViewModel.createViewModel().counter).toEqual(42); //Check if the counter equals 42.
-  });
-  it("Check message.", function () {
-  	expect(mainViewModel.createViewModel().message).toBe("42 taps left"); //Check if the message is "42 taps left".
-  });
-});
+describe('Hello World Sample Test:', function () {
+  it('Check counter.', function () {
+    expect(mainViewModel.createViewModel().counter).toEqual(42) //Check if the counter equals 42.
+  })
+  it('Check message.', function () {
+    expect(mainViewModel.createViewModel().message).toBe('42 taps left') //Check if the message is "42 taps left".
+  })
+})
 ```
 
-```Jasmine
+```js
 // (Angular w/TypeScript)
 // As our intention is to test an Angular component that contains annotations
 // we need to include the reflect-metadata dependency.
-import "reflect-metadata";
+import 'reflect-metadata'
 
 // A sample Jasmine test
-describe("A suite", function() {
-  it("contains spec with an expectation", function() {
-    expect(true).toBe(true);
-  });
-});
+describe('A suite', function () {
+  it('contains spec with an expectation', function () {
+    expect(true).toBe(true)
+  })
+})
 ```
 
-```Mocha
-var mainViewModel = require("../main-view-model"); //Require the main view model to expose the functionality inside it.
+```js
+var mainViewModel = require('../main-view-model') //Require the main view model to expose the functionality inside it.
 
 describe('Hello World Sample Test:', function () {
-	it('Counter should be 42 on start.', function () {
-		assert.equal(mainViewModel.createViewModel().counter, 42); //Assert that the counter equals 42.
-	});
-	it('Message should be "42 taps left" on start.', function () {
-		assert.equal(mainViewModel.createViewModel().message, "42 taps left"); //Assert that the message is "42 taps left".
-	});
-});
+  it('Counter should be 42 on start.', function () {
+    assert.equal(mainViewModel.createViewModel().counter, 42) //Assert that the counter equals 42.
+  })
+  it('Message should be "42 taps left" on start.', function () {
+    assert.equal(mainViewModel.createViewModel().message, '42 taps left') //Assert that the message is "42 taps left".
+  })
+})
 ```
 
-```QUnit
-var mainViewModel = require("../main-view-model"); //Require the main view model to expose the functionality inside it.
+```js
+var mainViewModel = require('../main-view-model') //Require the main view model to expose the functionality inside it.
 
-QUnit.test("Hello World Sample Test:", function (assert) {
-	assert.equal( mainViewModel.createViewModel().counter, 42, "Counter, 42; equal succeeds." ); //Assert that the counter equals 42.
-	assert.equal( mainViewModel.createViewModel().message, "42 taps left", "Message, 42 taps left; equal succeeds." ); //Assert that the message is "42 taps left".
-});
+QUnit.test('Hello World Sample Test:', function (assert) {
+  assert.equal(
+    mainViewModel.createViewModel().counter,
+    42,
+    'Counter, 42; equal succeeds.'
+  ) //Assert that the counter equals 42.
+  assert.equal(
+    mainViewModel.createViewModel().message,
+    '42 taps left',
+    'Message, 42 taps left; equal succeeds.'
+  ) //Assert that the message is "42 taps left".
+})
 ```
 
 ### Angular TestBed Integration
 
 To use TestBed you have to alter your `karma.conf.js` to:
 
-```
+```js
     // list of files / patterns to load in the browser
     files: [
       'src/tests/setup.ts',
@@ -495,25 +503,23 @@ To use TestBed you have to alter your `karma.conf.js` to:
 
 The file `src/tests/setup.ts` should look like this for jasmine:
 
-```
-import "nativescript-angular/zone-js/testing.jasmine";
-import {nsTestBedInit} from "nativescript-angular/testing";
-nsTestBedInit();
-
+```js
+import 'nativescript-angular/zone-js/testing.jasmine'
+import { nsTestBedInit } from 'nativescript-angular/testing'
+nsTestBedInit()
 ```
 
 or if using mocha:
 
-```
-import "nativescript-angular/zone-js/testing.mocha";
-import {nsTestBedInit} from "nativescript-angular/testing";
-nsTestBedInit();
-
+```js
+import 'nativescript-angular/zone-js/testing.mocha'
+import { nsTestBedInit } from 'nativescript-angular/testing'
+nsTestBedInit()
 ```
 
 Then you can use it within the spec files, e.g. `example.spec.ts`:
 
-```
+```js
 import { Component, ElementRef, NgZone, Renderer2 } from '@angular/core';
 import { ComponentFixture, async } from '@angular/core/testing';
 import { StackLayout } from '@nativescript/core';
@@ -665,21 +671,21 @@ Also, make sure to look through the [NativeScript core modules](https://docs.nat
 
 #### Installing Plugins
 
-Once you’ve found the plugin you need, install the plugin into your app using the `tns plugin add` command.
+Once you’ve found the plugin you need, install the plugin into your app using the `ns plugin add` command.
 
-```node
+```shell
 ns plugin add <plugin-name>
 ```
 
 For example, the following command installs the [NativeScript camera plugin](https://market.nativescript.org/plugins/@nativescript/camera).
 
-```node
+```shell
 ns plugin add @nativescript/camera
 ```
 
 If you prefer, you could use the NPM command `npm install` instead of the NativeScript CLI command `plugin add`.
 
-```node
+```shell
 npm i @nativescript/camera --save
 ```
 
@@ -715,13 +721,13 @@ requestPermissions()
 
 To remove a NativeScript plugin from your project, run the following command from your command line.
 
-```node
+```shell
 ns plugin remove <plugin-name>
 ```
 
 For example, the following command removes the NativeScript camera plugin.
 
-```node
+```shell
 ns plugin remove @nativescript/camera
 ```
 
@@ -741,11 +747,11 @@ NativeScript CLI supports three package managers:
 
 - `npm` - this is the default option
 - `yarn` - you can set it by calling `ns package-manager set yarn`. More information about `yarn` is available [here](https://yarnpkg.com/)
-- `pnpm` - from version 6.4, you can use `pnpm` to manage the dependencies of your application. You can use `pnpm` by calling `tns package-manager set pnpm`. NOTE: You will have to use `--shamefully-hoist` flag if you call `pnpm` on your own. CLI passes this flag when installing dependencies with `pnpm` and probably your application will not work if you omit it. More information about `pnpm` is available [here](https://pnpm.js.org/).
+- `pnpm` - from version 6.4, you can use `pnpm` to manage the dependencies of your application. You can use `pnpm` by calling `ns package-manager set pnpm`. NOTE: You will have to use `--shamefully-hoist` flag if you call `pnpm` on your own. CLI passes this flag when installing dependencies with `pnpm` and probably your application will not work if you omit it. More information about `pnpm` is available [here](https://pnpm.js.org/).
 
 In case you want to check what is the currently used package manager, you can use:
 
-```
+```shell
 $ ns package-manager get
 ```
 
@@ -758,7 +764,7 @@ To upgrade a NativeScript application you need to upgrade several things: Native
 The below command demonstrates how to upgrade your NativeScript tools known also as NativeScript CLI.
 You should first upgrade your `ns` (or `nativescript`) command, so go to a command prompt or bash/terminal prompt and type:
 
-```
+```shell
 npm install -g nativescript
 ```
 
@@ -769,7 +775,7 @@ You can type `ns --version` to verify that the new version is installed.
 
 To migrate an existing NativeScript project to 6.0, you need just to run:
 
-```node
+```shell
 ns migrate
 ```
 
@@ -811,19 +817,19 @@ You should execute the **update** command in the root folder of your project to 
 
 > The **update** command is introduced in version 2.4 of NativeScript CLI. You should update NativeScript CLI before using this command.
 
-```node
+```shell
 ns update
 ```
 
 In order to get the latest development release instead, pass **next** as argument:
 
-```node
+```shell
 ns update next
 ```
 
 You can also switch to specific version by passing it to the command:
 
-```node
+```shell
 ns update 8.0.0
 ```
 
@@ -832,7 +838,7 @@ The command `ns update` is updating the `@nativescript/core, `@nativescript/webp
 
 After updating the `@nativescript/webpack`, we must update our `webpack.config.js` as well. To do that we can execute the `update-ns-webpack` automated script with the following line:
 
-```node
+```shell
 ./node_modules/.bin/update-ns-webpack --deps --configs
 ```
 
@@ -846,14 +852,14 @@ When using the `--configs` flag, any previous configuration will be overwritten 
 
 Follow those steps in order to get the latest versions of Android and/or iOS runtimes. Navigate to the root level folder where your project is, and then if you are working on a Android project, type:
 
-```
+```shell
 ns platform remove android
 ns platform add android
 ```
 
 and/or (if you are working on a iOS version on a Mac):
 
-```
+```shell
 ns platform remove ios
 ns platform add ios
 ```
@@ -864,7 +870,7 @@ The cross-platform modules are available as a npm package named [@nativescript/c
 
 In order to use them in your project, you will have to explicitly install the package, for example (assuming you are still in your main app project folder from the steps above):
 
-```
+```shell
 npm install @nativescript/core@latest --save
 ```
 
@@ -880,7 +886,7 @@ Another place to find **@nativescript/core** package is [NativeScript Releases](
 
 The Webpack plugin is available as a npm package named [@nativescript/webpack](https://www.npmjs.com/package/@nativescript/webpack). To use the plugin in your project, you should explicitly install the package as `devDependency`.The initial installation of the plugin will install all related development dependencies and will create the default `webpack.config.js` file. If the `webpack.config.js` file is already existing it won't be overwritten by the installation of `@nativescript/webpack`.
 
-```node
+```shell
 npm i @nativescript/webpack --save-dev
 ```
 
@@ -895,7 +901,7 @@ When upgrading an existing version of the Webpack plugin, you should consider th
 - `--deps` - this flag will update all related development dependencies.
 - `--configs` - this flag will update the default `webpack.config.js` file.
 
-```node
+```shell
 npm i @nativescript/webpack@latest --save-dev
 ./node_modules/.bin/update-ns-webpack --deps --configs
 ```
@@ -908,7 +914,7 @@ When using the `--configs` flag, any previous configuration will be overwritten 
 
 The Angular plugin is available as an npm package named [@nativescript/angular](https://www.npmjs.com/package/@nativescript/angular). To update the version of the plugin and the related dependency, the package should be explicitly installed, and the related Angular dependencies should be updated accordingly. To ease the update process, the plugin comes with an automated script `update-app-ng-deps` located in `<project-folder/node_modules/.bin>` folder.
 
-```
+```shell
 npm i @nativescript/angular@latest --save
 ./node_modules/.bin/update-app-ng-deps
 npm i
@@ -947,7 +953,7 @@ npm uninstall -g nativescript
 npm install -g nativescript@next
 ```
 
-- Edit the package.json file in your project and replace @nativescript/core, tns-android and tns-ios versions with `next`:
+- Edit the package.json file in your project and replace @nativescript/core, @nativescript/android and @nativescript/ios versions with `next`:
 
 ```json
 {
@@ -965,9 +971,9 @@ npm install -g nativescript@next
 Instead of editing the package.json file by hand, you could run the following commands:
 
 ```shell
-tns platform add ios@next
-tns platform add android@next
-tns plugin add @nativescript/core@next
+ns platform add ios@next
+ns platform add android@next
+ns plugin add @nativescript/core@next
 ```
 
 - Run the `npm install` command to update the node modules:
@@ -988,7 +994,7 @@ Building the source code is essential when one wants to contribute to an open so
 #### Behind the curtains of running a NativeScript application
 
 1. `npm install nativescript -g` : Node Package Manager (npm) downloads and installs the [NativeScript CLI](https://www.npmjs.com/package/nativescript).
-2. `ns create [AppName]` : The NativeScript CLI downloads the [Hello-World template](https://www.npmjs.com/package/tns-template-hello-world) and unpacks it to a folder named after the app name you choose. At the same time, the CLI installs the [NativeScript cross-platform modules](https://www.npmjs.com/package/@nativescript/core). As a result, your application folder now contains an `app` folder, holding the files of your application ([source code](https://github.com/NativeScript/template-hello-world)) and a `node_modules` folder, having the cross-platform modules ([source code](https://github.com/NativeScript/NativeScript)).
+2. `ns create [AppName]` : The NativeScript CLI downloads the [Hello-World template](https://www.npmjs.com/package/@nativescript/template-hello-world) and unpacks it to a folder named after the app name you choose. At the same time, the CLI installs the [NativeScript cross-platform modules](https://www.npmjs.com/package/@nativescript/core). As a result, your application folder now contains an `app` folder, holding the files of your application ([source code](https://github.com/NativeScript/nativescript-app-templates/tree/master/packages/template-hello-world)) and a `node_modules` folder, having the cross-platform modules ([source code](https://github.com/NativeScript/NativeScript)).
 3. `ns platform add android/ios` : The NativeScript CLI downloads the latest SemVer-compatible version of the specified runtime, unpacks it and applies transformations to the native (Android Studio or xCode) project (e.g., changes the project name).
 4. `ns run android/ios` : The NativeScript CLI copies the files under the `app` folder to the `platforms/[android/ios]/.../app` folder following a specific logic so that these get used later by a native build tool (_gradle_/_xcode-build_). As a next step, the NativeScript CLI executes compilation, deployment and run commands of _gradle_ or _xcode-build_.
 5. Any JavaScript code gets executed in a V8 or JavaScriptCore engine and embedded in the NativeScript runtimes. Each call to an actual native object gets marshalled via the runtimes to the underlying platform and vice-versa. The runtimes provide JavaScript handles to the native objects.
@@ -1029,7 +1035,7 @@ To use the latest:
 It is possible that an internal breaking change gets introduced involving an update to both the runtimes and the modules. An internal breaking change would mean that the public API of the tns_modules does not get affected, but a work in progress change in the runtimes requires a change in the internal code of the tns_modules themselves.
 
 When such a case happens, the [ios](https://github.com/NativeScript/ns-v8ios-runtime) and [android](https://github.com/NativeScript/android-runtime) runtimes must be built separately and updated via the CLI command of:
-`tns platform update android/ios --frameworkPath=[Path-to-Runtime-Package]`
+`ns platform update android/ios --frameworkPath=[Path-to-Runtime-Package]`
 
 #### Building the runtimes
 
@@ -1041,17 +1047,17 @@ The [android runtime](https://github.com/NativeScript/android-runtime) depends o
 
 Provided you have all the dependencies set, the easiest way to have the Android runtime built is to clone the two repos to a single folder so that the two are sibling folders, `cd` into the `android-runtime` folder and run:
 
-```
+```shell
 gradle packar -PwidgetsPath=./widgets.jar
 ```
 
-The resulting tns-android-x.x.x.tgz package will get created in the `dist` folder.
+The resulting @nativescript/android-x.x.x.tgz package will get created in the `dist` folder.
 
 #### Building the iOS runtime
 
 Follow the instructions on setting up the dependencies for building the [ios runtime](https://github.com/NativeScript/ns-v8ios-runtime) in the repository README and then run `grunt package`.
 
-The build tns-ios-x.x.x.tgx package will get created in the `dist` folder.
+The build @nativescript/ios-x.x.x.tgx package will get created in the `dist` folder.
 
 ## Choosing An Editor
 
@@ -1077,7 +1083,7 @@ The `code` command runs in your command-line or terminal, and it works just like
 
 Once set up, you can type `code .` in your terminal to open the files in your current folder for editing. For example, you could use the following sequence of command to create a new NativeScript app and open it for editing.
 
-```
+```shell
 ns create MyNewApp
 cd MyNewApp
 code .

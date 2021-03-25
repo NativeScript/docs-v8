@@ -300,7 +300,7 @@ You can then use the produced `<apk-location>.apk` for upload to _Google Play_.
 
 ### APKs with ABI splits
 
-> **NOTE**: The recommended approach for reducing the app size by splitting it per architecture is the [Android App Bundle]({% slug android-app-bundle %}) which is supported out of the box through the `--aab` NativeScript CLI flag.
+> **NOTE**: The recommended approach for reducing the app size by splitting it per architecture is the [Android App Bundle](#android-app-bundle) which is supported out of the box through the `--aab` NativeScript CLI flag.
 
 #### Android ABI split
 
