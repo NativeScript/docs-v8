@@ -18,6 +18,7 @@ this.myTimeout = setTimeout(() => {
 cleanup() {
   if (typeof this.myTimeout === 'number') {
     clearTimeout(this.myTimeout);
+    this.myTimeout = null;
   }
 }
 
@@ -33,6 +34,7 @@ this.myInterval = setInterval(() => {
 cleanup() {
   if (typeof this.myInterval === 'number') {
     clearInterval(this.myInterval);
+    this.myInterval = null;
   }
 }
 ```
