@@ -2,7 +2,7 @@
 title: Best Practices with usages of the @NativeClass() decorator
 ---
 
-The @NativeClass() decorator was introduced in NativeScript 7 and offers a simple way to decorate any class intended to extend/customize platform native classes in the JavaScript ESM world.
+The `@NativeClass()` decorator was introduced in NativeScript 7 and offers a simple way to decorate any class intended to extend/customize platform native classes in the JavaScript ESM world.
 
 There's a couple things to note about it's usage.
 
