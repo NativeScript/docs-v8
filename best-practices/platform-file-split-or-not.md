@@ -10,6 +10,6 @@ The other aspect comes down to maintenance and clarity over time.
 
 When dealing with just a few lines of code for either platform, using a conditional is certainly highly maintainable and worry free.
 
-If you have more than 10 or so lines of code for a particular platform use case then splitting into separate `.ios` or `.android` files can certainly help make that code more maintainable and easier to scale over time.
+General advice is if you have more than 10 or so lines of code for a particular platform use case then splitting into separate `.ios` or `.android` files can certainly help make that code more maintainable and easier to scale over time.
 
-Bottom line is to not fret over these details too much. Conditionals can be tweaked with webpack to exclude certain conditions where you want to dial your distribution bundle in production to only include code applicable for the runtime platform.
+Bottom line is to not fret over these details too much. Conditionals can be tweaked with webpack to exclude certain conditions where you want to dial your distribution bundle in production to only include code applicable for the runtime platform. Outside of that your own preference is just fine.

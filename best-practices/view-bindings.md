@@ -9,10 +9,15 @@ You want fast view rendering and responsible view bindings are the first step to
 ### Bad:
 
 ```
+// view markup
 <Label text="{{getMyText}} />
 
-function getMyText() {
-  return 'label text';
+// view binding class
+export class ViewBinding extends Observable {
+
+  getMyText() {
+    return 'label text';
+  }
 }
 ```
 
@@ -21,9 +26,14 @@ This leads to developers doing logic in methods and can cause unnecessary view b
 ### Good:
 
 ```
+// view markup
 <Label text="{{myText}} />
 
-const myText = 'label text';
+// view binding class
+export class ViewBinding extends Observable {
+
+  myText = 'label text';
+}
 ```
 
-This is direct 1-1 data projection to view binding resulting in no further JavaScript event loop cycles to process your view rendering.
+This provides for **direct 1-1 data projection to view binding** resulting in no further JavaScript event loop cycles to process your view rendering.

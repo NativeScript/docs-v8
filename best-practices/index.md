@@ -21,6 +21,8 @@ Clone and see for yourself: https://github.com/NativeScript/examples-best-practi
 
 - [Various usages of @NativeClass() decorator](native-class.md)
 
-- [Navigation speed tips](navigation-speed.md)
+- [Android tips](android-tips.md)
+
+- [iOS tips](ios-tips.md)
 
 - [.ios and .android files or platform conditionals?](platform-file-split-or-not.md)

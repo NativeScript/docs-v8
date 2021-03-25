@@ -6,7 +6,7 @@ Quite possibly the _most_ important controls available on all mobile devices whi
 
 ListView, RadListView and really any view component that utilizes some form of row recyclying with view templates/components.
 
-- Bad setup
+## Bad setup
 
 Let's first look at a bad way to setup a ListView row template and why:
 
@@ -35,11 +35,11 @@ Let's first look at a bad way to setup a ListView row template and why:
 </ListView>
 ```
 
-This uses a custom `Render` component which **simulates** how various frontend framework integrations utilize `v-if` (Vue) and `ngIf` (Angular) and the problems when using such things in the context of view scrolling and recyclyable rows with ListView controls.
+This uses a custom `Render` component which **simulates** how various frontend framework integrations actually behave under the hood when `v-if` (Vue) and `ngIf` (Angular) are involved. The problems when using such things in the context of view scrolling and recyclyable rows with ListView controls can be devastating to user experience.
 
-This is bad because it causes the creation and destruction of view elements while the user scrolls which is not performant at all and can cause terrible user experiences.
+This is bad because it causes the creation and destruction of view elements while the user scrolls which is not performant at all.
 
-- Good setup
+## Good setup
 
 ```
 <ListView items="{{ myTitles }}" class="list-group" itemTemplateSelector="{{selectItemTemplate}}">
