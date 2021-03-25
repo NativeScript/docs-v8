@@ -8,7 +8,7 @@ title: Code Sharing
 
 2. A good code sharing approach should fit naturally in with well supported community standards and not require any extra build tooling just for the sharability to support itself. It should, in other words, stand firmly on it's own in scope of the language it is written in.
 
-3. A good code sharing approach should not have to introduce new file extensions purely for sake of sharability (outside of those naturally supported by the framework) to deal with and otherwise alter the way you think about your code in general. All team's organize code by folders naturally and the same should be matched with good code sharing approaches avoiding new file extensions and concepts that go beyond general code organization.
+3. A good code sharing approach should not have to introduce new file extensions purely for sake of sharability (outside of those naturally supported by the framework) to deal with. All team's organize code by folders naturally and the same should be matched with good code sharing approaches avoiding new file extensions and concepts that go beyond general code organization.
 
 4. A good code sharing approach should clearly identify deployment/distribution lines as well as distinct platform separation allowing various shared code segments to have clear designated deployment targets allowing teams to control their own sophisticated build pipelines as they desire. Further the shared code should live within a thoughtful organizational structure that supports the ability to scale and adapt to future needs aside from the deployment targets that use the shared code.
 
@@ -34,8 +34,8 @@ If a "code sharing solution" is maintained by a framework that can often mean th
 
   **Cons:**
 
-  - Some learning curve if not used to Nx practices in general
-  - Some learning curve if you have not developed applications in large codebases before
+  - Learning curve if not used to Nx practices in general
+  - Learning curve if you have not developed applications in large codebases before
   - Understanding the [basic fundamentals](https://nstudio.io/xplat/fundamentals/architecture) of the provided architecture
 
 - [Yarn workspaces](https://classic.yarnpkg.com/en/docs/workspaces/)
