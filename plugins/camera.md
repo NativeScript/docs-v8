@@ -1,6 +1,9 @@
 ---
 title: Camera
+link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/camera/README.md
 ---
+
+# @nativescript/camera
 
 ## Overview
 

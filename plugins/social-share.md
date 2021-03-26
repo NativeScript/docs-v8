@@ -1,4 +1,9 @@
-# Nativescript social-share
+---
+title: Social Share
+link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/social-share/README.md
+---
+
+# @nativescript/social-share
 
 ```js
 ns plugin add @nativescript/social-share

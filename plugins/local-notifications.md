@@ -1,3 +1,10 @@
+---
+title: Local Notifications
+link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/local-notifications/README.md
+---
+
+# @nativescript/local-notifications
+
 The Local Notifications plugin allows your app to show notifications when the app is not running.
 Just like remote push notifications, but a few orders of magnitude easier to set up.
 

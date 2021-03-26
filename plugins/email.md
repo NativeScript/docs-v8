@@ -1,11 +1,9 @@
-# NativeScript Email
+---
+title: Email
+link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/email/README.md
+---
 
-[![NPM version][npm-image]][npm-url]
-[![Downloads][downloads-image]][npm-url]
-
-[npm-image]: http://img.shields.io/npm/v/nativescript-email.svg
-[npm-url]: https://npmjs.org/package/nativescript-email
-[downloads-image]: http://img.shields.io/npm/dm/nativescript-email.svg
+# @nativescriot/email
 
 You can use this plugin to compose an e-mail, have the user edit the draft manually, and send it.
 

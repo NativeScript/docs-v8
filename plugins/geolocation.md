@@ -1,8 +1,11 @@
 ---
 title: GeoLocation
+link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/geolocation/README.md
 ---
 
-# Overview
+# @nativescript/geolocation
+
+## Overview
 
 Geolocation plugin to use for getting current location, monitor movement, etc.
 

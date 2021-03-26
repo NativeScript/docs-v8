@@ -1,7 +1,9 @@
-# Nativescript imagepicker
+---
+title: Image Picker
+link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/imagepicker/README.md
+---
 
-[![npm](https://img.shields.io/npm/v/nativescript-imagepicker.svg)](https://www.npmjs.com/package/nativescript-imagepicker)
-[![npm](https://img.shields.io/npm/dm/nativescript-imagepicker.svg)](https://www.npmjs.com/package/nativescript-imagepicker)
+# @nativescript/imagepicker
 
 Imagepicker plugin supporting both single and multiple selection.
 <br />Plugin supports **iOS8+** and uses [QBImagePicker](https://github.com/questbeat/QBImagePicker) cocoa pod.

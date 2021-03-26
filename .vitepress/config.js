@@ -158,6 +158,22 @@ function getPluginsSidebar() {
 			text: 'Official Plugins',
 			children: [
 				{
+					text: 'Animated Circle',
+					link: '/plugins/animated-circle',
+				},
+				{
+					text: 'App Availability',
+					link: '/plugins/app-availability',
+				},
+				{
+					text: 'Apple Pay',
+					link: '/plugins/apple-pay',
+				},
+				{
+					text: 'Auto Fit Text',
+					link: '/plugins/auto-fit-text',
+				},
+				{
 					text: 'Background HTTP',
 					link: '/plugins/background-http',
 				},
@@ -174,6 +190,10 @@ function getPluginsSidebar() {
 					text: 'Detox',
 					link: '/plugins/detox',
 				},
+				{
+					text: 'Directions',
+					link: '/plugins/directions',
+				},
 				{ text: 'Email', link: '/plugins/email' },
 				{
 					text: 'Fingerprint-Auth',
@@ -184,16 +204,40 @@ function getPluginsSidebar() {
 					link: '/plugins/geolocation',
 				},
 				{
+					text: 'Google Pay',
+					link: '/plugins/google-pay',
+				},
+				{
 					text: 'Image Picker',
 					link: '/plugins/imagepicker',
+				},
+				{
+					text: 'IQ Keyboard Manager',
+					link: '/plugins/iq-keyboard-manager',
 				},
 				{
 					text: 'Local Notifications',
 					link: '/plugins/local-notifications',
 				},
 				{
+					text: 'Localize',
+					link: '/plugins/localize',
+				},
+				{
+					text: 'Picker',
+					link: '/plugins/picker',
+				},
+				{
+					text: 'Shared Notification Delegate',
+					link: '/plugins/shared-notification-delegate',
+				},
+				{
 					text: 'Social Share',
 					link: '/plugins/social-share',
+				},
+				{
+					text: 'Zip',
+					link: '/plugins/zip',
 				},
 			],
 		},

@@ -1,6 +1,9 @@
 ---
 title: Background HTTP
+link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/background-http/README.md
 ---
+
+# @nativescript/background-http
 
 ```js
 ns plugin add @nativescript/background-http
