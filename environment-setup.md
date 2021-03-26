@@ -89,7 +89,7 @@ npm install -g nativescript
 To verify if the installation was successful, open a new Command Prompt window to ensure the new environment variables are loaded and run
 
 ```
-ns doctor
+ns doctor android
 ```
 
 If you see **No issues were detected** you have successfully set up your system.
@@ -169,7 +169,7 @@ npm install -g nativescript
 To verify if the installation was successful, open a new Command Prompt window to ensure the new environment variables are loaded and run
 
 ```bash
-ns doctor
+ns doctor android
 ```
 
 If you see **No issues were detected** you have successfully set up your system.
@@ -266,15 +266,14 @@ _**More details for those curious:** The NativeScript CLI relies on 3rd party pa
 To verify if the installation was successful, open a new Terminal window to ensure the new environment variables are loaded and run
 
 ```bash
-ns doctor
+ns doctor ios
 ```
 
-<!-- TODO: add ns doctor ios & ns doctor android! -->
-<!-- If you see **No issues were detected** you have successfully set up your system. -->
+If you see **No issues were detected** you have successfully set up your system.
 
-If you see the following, you have successfully set up your system for iOS development. Select **Skip Step and Configure Manually** or hit `Ctrl+C` to exit.
+<!-- If you see the following, you have successfully set up your system for iOS development. Select **Skip Step and Configure Manually** or hit `Ctrl+C` to exit.
 
-![ns doctor output](assets/environment-setup/ns_doctor_ios.png)
+![ns doctor output](assets/environment-setup/ns_doctor_ios.png) -->
 
 #### Additional notes for M1 based machines:
 
