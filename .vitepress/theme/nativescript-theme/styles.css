@@ -2469,6 +2469,15 @@ div[class*='language-'].line-numbers-mode {
 	color: #e2e8f0;
 }
 
+.token.visual {
+	color: #64748b;
+	pointer-events: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
 .token.tag,
 .token.namespace {
 	color: #e879f9;

@@ -5,7 +5,7 @@ link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/soc
 
 # @nativescript/social-share
 
-```js
+```cli
 ns plugin add @nativescript/social-share
 ```
 

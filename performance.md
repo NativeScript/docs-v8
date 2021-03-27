@@ -34,8 +34,8 @@ Installing the plugin adds a `webpack.config.js` file which contains sensible de
 
 > **Note**: In case you need to update your project dependencies or regenerate the configuration file, you can do that by running the `update-ns-webpack` script that comes with the plugin:
 
-```
-$ ./node_modules/.bin/update-ns-webpack --configs --deps
+```cli
+./node_modules/.bin/update-ns-webpack --configs --deps
 ```
 
 The **--configs** flag will update the `webpack.config.js` and the **--deps** flag will update the related Webpack dependencies.
@@ -57,14 +57,14 @@ Bundling JavaScript code can get complex quickly, and encountering Webpack for t
 
 The Webpack bundling and Hot Module Replacement are enabled by default. That means that the known CLI commands like `run` and `build` won't need any additional flags.
 
-```
-ns run
+```cli
+ns run <platform>
 ```
 
 or
 
-```
-ns build
+```cli
+ns build <platform>
 ```
 
 Both commands will execute your project with Webpack and HMR enabled.
@@ -75,8 +75,8 @@ Both commands will execute your project with Webpack and HMR enabled.
 
 You can also provide environmental variables to the Webpack build:
 
-```
-$ ns build android --env.development --env.property=value
+```cli
+ns build android --env.development --env.property=value
 ```
 
 They can be accessed through the `env` object in the Webpack configuration:
@@ -92,16 +92,20 @@ module.exports = env => {
 
 Create a bundled version of the application for Android in release with the known release command - no additional flags are needed:
 
-```
-$ ns build android --release --keyStorePath ~/path/to/keystore --keyStorePassword your-pass --keyStoreAlias your-alias --keyStoreAliasPassword your-alias-pass
+```cli
+ns build android --release \
+    --keyStorePath ~/path/to/keystore \
+    --keyStorePassword your-pass \
+    --keyStoreAlias your-alias \
+    --keyStoreAliasPassword your-alias-pass
 ```
 
 Once this is finished, proceed with uploading the output .apk file in the `<project>/platforms/android/app/build/outputs/apk` directory on Google Play store.
 
 You can build a bundled version of the application for iOS in release with this script:
 
-```
-$ ns build ios --release --forDevice --teamId TEAM_ID
+```cli
+ns build ios --release --forDevice --teamId TEAM_ID
 ```
 
 Note that if `--teamId` flag is emitted, the NativeScript CLI will prompt for team ID during the build process.
@@ -111,8 +115,8 @@ Once the release build is ready, you have two options:
 - Open `<project/platforms/ios/<project>.xcodeproj>` (or `<project/platforms/ios/<project>.xcworkspace>` if present) in Xcode to configure project signing and upload the archive to App Store. This is the recommended option.
 - Specify your development team in `<project>/app/App_Resources/iOS/build.xcconfig` from the command line and execute
 
-```
-$ ns publish ios --ipa ipa-file-path-here
+```cli
+ns publish ios --ipa ipa-file-path-here
 ```
 
 More options for publishing an iOS application can be found in the ["Publishing for iOS article"](https://docs.nativescript.org/publishing/publishing-ios-apps) article.
@@ -126,8 +130,8 @@ More options for publishing an iOS application can be found in the ["Publishing 
 The Webpack configuration includes the [`uglifyjs-webpack-plugin`](https://github.com/webpack-contrib/uglifyjs-webpack-plugin). The plugin performs code minification and improves the size of the bundle.
 It is disabled by default because it slows down the building process. You can enable it by providing the `--env.uglify` flag:
 
-```
-$ ns build android|ios --env.uglify
+```cli
+ns build android|ios --env.uglify
 ```
 
 ### Angular and Ahead-of-Time Compilation
@@ -136,8 +140,8 @@ The NativeScript Angular projects have the [`@ngtools/webpack`](https://www.npmj
 
 To build with Ahead-of-Time compilation provide the `--env.aot` flag:
 
-```
-$ ns build android|ios --env.aot
+```cli
+ns build android|ios --env.aot
 ```
 
 ### V8 Heap Snapshot
@@ -146,8 +150,12 @@ The Webpack configuration also includes the [`NativeScriptSnapshotPlugin`](https
 
 You can use the snapshot plugin only for **release** builds. You need to provide the `--env.snapshot` flag along with the other release arguments:
 
-```
-$ ns build android --env.snapshot --release --keyStorePath ~/path/to/keystore --keyStorePassword your-pass --keyStoreAlias your-alias --keyStoreAliasPassword your-alias-pass
+```cli
+ns build android --env.snapshot --release \
+    --keyStorePath ~/path/to/keystore \
+    --keyStorePassword your-pass \
+    --keyStoreAlias your-alias \
+    --keyStoreAliasPassword your-alias-pass
 ```
 
 Known limitations:
@@ -224,8 +232,8 @@ Bundles are generated in the platform output folders. Look for the `bundle.js` a
 
 The default webpack configuration includes the [webpack-bundle-analyzer](https://www.npmjs.com/package/webpack-bundle-analyzer) plugin. To generate a report provide the `--env.report` flag:
 
-```
-$ ns build android|ios --env.report
+```cli
+ns build android|ios --env.report
 ```
 
 The report is generated inside `your-project/report`.
@@ -300,7 +308,7 @@ In the following sections, we will create a simple Angular application using the
 
 - Create the Hello World Angular template
 
-  ```Shell
+  ```cli
   ns create my-app --ng
   cd my-app
   ```
@@ -309,7 +317,7 @@ In the following sections, we will create a simple Angular application using the
 
   A good practice is to use the name of the module as the name of the containing folder. For example, create a `feature` folder and add `feature.module.ts` and the needed components that will be part of the module (in our case `feature.component.ts` with the respective HTML and CSS files).
 
-  ```JS
+  ```
   my-app
   --app
   ----feature
@@ -442,13 +450,13 @@ For NativeScript apps there are two advantages to using UglifyJS. First, because
 
 Using UglifyJS is easy too. To use UglifyJS as part of your NativeScript builds, all you need to do is add a `--env.uglify` flag to the scripts you ran earlier. That is, run one of the following commands.
 
-```
+```cli
 ns run android --env.uglify
 ```
 
 Or
 
-```
+```cli
 ns run ios --env.uglify
 ```
 
@@ -479,7 +487,7 @@ What V8 lets you do, however, is provide a so-called heap snapshot, or a previou
 
 In NativeScript we’re integrated this process directly within our webpack build process; therefore, running a build with V8 heap snapshots enabled is as simple as adding a `--env.snapshot` flag to the previous step.
 
-```
+```cli
 ns run android --env.uglify --env.snapshot
 ```
 
@@ -497,13 +505,13 @@ By enabling webpack, using UglifyJS, and performing V8 heap snapshot builds, you
 
 1. Run on iOS with, UglifyJS, and Angular Ahead-of-Time enabled.
 
-```
+```cli
 ns run ios --env.uglify --env.aot
 ```
 
 2. Run on Android with, UglifyJS, Angular Ahead-of-Time (if using Angular), and V8 heap snapshot builds enabled.
 
-```
+```cli
 ns run android --env.uglify --env.aot --env.snapshot
 ```
 

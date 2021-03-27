@@ -29,7 +29,7 @@ A lot of thanks goes out to [Ludovic Fabrèges (@lfabreges)](https://github.com/
 
 ## Installation
 
-```shell
+```cli
 ns plugin add @nativescript/localize
 ```
 

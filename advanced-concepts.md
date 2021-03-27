@@ -155,8 +155,9 @@ function generateNativeIOSHMAC() {
 
 5. Build your NativeScript application by running the following and you should see the base64encryptedKey print in your terminal.
 
-```bash
-ns clean && ns run ios --no-hmr
+```cli
+ns clean
+ns run ios --no-hmr
 ```
 
 ## iOS Marshalling

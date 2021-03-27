@@ -10,13 +10,11 @@ There's a couple things to note about it's usage.
 
 When using the custom native class within the same file you can define it as follows:
 
-```
+```ts
 @NativeClass()
-class CustomClass extends NSObject {
+class CustomClass extends NSObject {}
 
-}
-
-const customClass = CustomClass.new();
+const customClass = CustomClass.new()
 ```
 
 This allows the code to be compiled naturally and will work as expected.
@@ -25,26 +23,22 @@ This allows the code to be compiled naturally and will work as expected.
 
 You can use setup methods in this case to mitigate any cross compilation issue, for example:
 
-```
-let customClass;
+```ts
+let customClass
 function setupCustomClass() {
   if (global.isAndroid) {
     @NativeClass()
-    class CustomClass extends android.view.View {
-
-    }
-    customClass = CustomClass;
+    class CustomClass extends android.view.View {}
+    customClass = CustomClass
   } else {
     @NativeClass()
-    class CustomClass extends NSObject {
-
-    }
-    customClass = CustomClass;
+    class CustomClass extends NSObject {}
+    customClass = CustomClass
   }
 }
 
-setupCustomClass();
-const myClass = new customClass(); // can handle different platform args with ternary if needed
+setupCustomClass()
+const myClass = new customClass() // can handle different platform args with ternary if needed
 ```
 
 The `global.isAndroid` conditional will get removed when building the app for iOS so your compiled code is clean and isolated while allowing you to handle in a single file.
@@ -53,15 +47,13 @@ The `global.isAndroid` conditional will get removed when building the app for iO
 
 Since the `@NativeClass()` decorator modifies the JS syntax to work with the NativeScript runtimes you want to ensure the symbol is exported properly when using that outside of the file it's defined. Here's how you can do that:
 
-```
+```ts
 // custom-class.ts
 @NativeClass()
-class CustomClass extends NSObject {
+class CustomClass extends NSObject {}
 
-}
-
-export { CustomClass };
+export { CustomClass }
 
 // usage.ts
-import { CustomClass } from './custom-class';
+import { CustomClass } from './custom-class'
 ```

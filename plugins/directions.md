@@ -5,7 +5,7 @@ link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/dir
 
 # @nativescriot/directions
 
-```javascript
+```cli
 ns plugin add @nativescript/directions
 ```
 

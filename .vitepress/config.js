@@ -3,7 +3,10 @@ const {
 	codeBlocksPlugin,
 	markFlavorHeadings,
 	wrapFlavorContainersInTabs,
+	setupPrismCLILang,
 } = require('./theme/nativescript-theme/plugins')
+
+setupPrismCLILang()
 
 module.exports = {
 	lang: 'en-US',

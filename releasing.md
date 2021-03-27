@@ -15,9 +15,13 @@ You can publish a NativeScript app in _Google Play_ the same way [you would rele
 1.  Make sure that you have a `.keystore` file to sign your app with. For more information, see [How to create a .keystore file](http://developer.android.com/tools/publishing/app-signing.html#signing-manually)?
 2.  Build your project in release mode by running the following command:
 
-        ```
-        ns build android --release --key-store-path <path-to-your-keystore> --key-store-password <your-key-store-password> --key-store-alias <your-alias-name> --key-store-alias-password <your-alias-password>
-        ```
+    ```cli
+    ns build android --release \
+      --key-store-path <path-to-your-keystore> \
+      --key-store-password <your-key-store-password> \
+      --key-store-alias <your-alias-name> \
+      --key-store-alias-password <your-alias-password>
+    ```
 
     > Note: At the end of `<path-to-your-keystore>` you should also add the exact name of your keystore.
 
@@ -118,15 +122,16 @@ and then look at the specific steps you’ll need to take to change them and con
   These folders will store your properly scaled images for your app icons, launch screens and in app images (optional).
   Here is the full list of your drawable resources folders.
 
-      * **drawable-ldpi**: Resources for low-density (ldpi) screens (~120dpi).
-      * **drawable-mdpi**: Resources for medium-density (mdpi) screens (~160dpi). (This is the baseline density.)
-      * **drawable-hdpi**: Resources for high-density (hdpi) screens (~240dpi).
-      * **drawable-nodpi**: Resources for all densities. These are density-independent resources. The system does not scale resources tagged with this qualifier, regardless of the current screen's density.
-          > **Important:** In NativeScript this is the folder that holds **splash_screen.xml** &ndash; the file that creates your launch screen.
+  - **drawable-ldpi**: Resources for low-density (ldpi) screens (~120dpi).
+  - **drawable-mdpi**: Resources for medium-density (mdpi) screens (~160dpi). (This is the baseline density.)
+  - **drawable-hdpi**: Resources for high-density (hdpi) screens (~240dpi).
+  - **drawable-nodpi**: Resources for all densities. These are density-independent resources. The system does not scale resources tagged with this qualifier, regardless of the current screen's density.
 
-      * **drawable-xdpi**: Resources for extra-high-density (xhdpi) screens (~320dpi).
-      * **drawable-xxdpi**: Resources for extra-extra-high-density (xxhdpi) screens (~480dpi).
-      * **drawable-xxxdpi**: Resources for extra-extra-extra-high-density (xxxhdpi) uses (~640dpi). Use this for the launcher icon only.
+    > **Important:** In NativeScript this is the folder that holds **splash_screen.xml** &ndash; the file that creates your launch screen.
+
+  - **drawable-xdpi**: Resources for extra-high-density (xhdpi) screens (~320dpi).
+  - **drawable-xxdpi**: Resources for extra-extra-high-density (xxhdpi) screens (~480dpi).
+  - **drawable-xxxdpi**: Resources for extra-extra-extra-high-density (xxxhdpi) uses (~640dpi). Use this for the launcher icon only.
 
 - **values** folder: XML files that contain simple values such as strings, integers, and colors.
   Here is the full list of the files that ship with the basic NativeScript template.
@@ -147,15 +152,15 @@ and then look at the specific steps you’ll need to take to change them and con
   In order to change your application icon file, you must modify the `android:icon` key in the `applcation` tag. <Comment: Please review to enure I did not create a technical error. The original text was sort of hard to understand.>
   The default app icon set up:
 
-      `android:icon="@drawable/icon"`
+  `android:icon="@drawable/icon"`
 
-      The code above will look for the file named __icon.png__ in the drawable folder and will load the properly scaled image for the current device. <Comment: Please review my rewrite of the sentence above to ensure I did not create an error. You had "drawables folders" but the command referred to a single folder (not plural).>
+  The code above will look for the file named **icon.png** in the drawable folder and will load the properly scaled image for the current device. <Comment: Please review my rewrite of the sentence above to ensure I did not create an error. You had "drawables folders" but the command referred to a single folder (not plural).>
 
-      > Note: In `AndroidManifest` you will find the following key:
-      >
-      >`<meta-data android:name="SET_THEME_ON_LAUNCH" android:resource="@style/AppTheme" />`
-      >
-      > This key is used by NativeScript to change your `LaunchScreenTheme` with `AppTheme` when your application is loading.
+  > Note: In `AndroidManifest` you will find the following key:
+  >
+  > `<meta-data android:name="SET_THEME_ON_LAUNCH" android:resource="@style/AppTheme" />`
+  >
+  > This key is used by NativeScript to change your `LaunchScreenTheme` with `AppTheme` when your application is loading.
 
 #### How to setup a custom launch screen
 
@@ -169,14 +174,17 @@ In order to change the default NativeScript launch screen (defined in `drawable-
 
 The default **splash_screen.xml** with centered `logo.png` and filled `background.png`.
 
-```
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android" android:gravity="fill">
-    <item>
-        <bitmap android:gravity="fill" android:src="@drawable/background" />
-    </item>
-    <item>
-        <bitmap android:gravity="center" android:src="@drawable/logo" />
-    </item>
+```xml
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:gravity="fill"
+>
+  <item>
+    <bitmap android:gravity="fill" android:src="@drawable/background" />
+  </item>
+  <item>
+    <bitmap android:gravity="center" android:src="@drawable/logo" />
+  </item>
 </layer-list>
 ```
 
@@ -209,9 +217,10 @@ Only folders that are required by the Android convention <Comment: convention se
 provided (e.g., **values**, **values-v21**, **drawable**). When adding new folders in your App_Resources you should reset your
 platform folder.
 
-`ns platform remove android`
-
-`ns platform add android`
+```cli
+ns platform remove android
+ns platform add android
+```
 
 Once your launch screen is fully set, rebuild your application and your launch screen is ready.
 On some occasions, you might need to reset your platform folder as mentioned above.
@@ -241,8 +250,13 @@ A few pitfalls are:
 
 You can generate a private key for a release certificate using the [keytool](http://docs.oracle.com/javase/6/docs/technotes/tools/solaris/keytool.html).
 
-```
-keytool -genkey -v -keystore <my-release-key>.keystore -alias <alias_name> -keyalg RSA -keysize 2048 -validity 10000
+```cli
+keytool -genkey -v \
+  -keystore <my-release-key>.keystore \
+  -alias <alias_name> \
+  -keyalg RSA \
+  -keysize 2048 \
+  -validity 10000
 ```
 
 This will run an interactive session collecting information about your name, organization and most importantly &mdash; keystore and alias passwords.
@@ -292,8 +306,13 @@ In the `app/App_Resources/Android/AndroidManifest.xml`, the _versionCode_ and _v
 
 You can perform a full build and produce a signed APK using the NativeScript CLI:
 
-```
-ns build android --release --key-store-path <path-to-your-keystore> --key-store-password <your-key-store-password> --key-store-alias <your-alias-name> --key-store-alias-password <your-alias-password> --copy-to <apk-location>.apk
+```cli
+ns build android --release \
+  --key-store-path <path-to-your-keystore> \
+  --key-store-password <your-key-store-password> \
+  --key-store-alias <your-alias-name> \
+  --key-store-alias-password <your-alias-password> \
+  --copy-to <apk-location>.apk
 ```
 
 You can then use the produced `<apk-location>.apk` for upload to _Google Play_.
@@ -368,8 +387,14 @@ Android App Bundle is a new publishing format that contains all the compiled cod
 
 You can perform a full build and produce a signed AAB using the NativeScript CLI:
 
-```
-ns build android --release --key-store-path <path-to-your-keystore> --key-store-password <your-key-store-password> --key-store-alias <your-alias-name> --key-store-alias-password <your-alias-password> --aab --copy-to <aab-location>.aab
+```cli
+ns build android --release \
+  --key-store-path <path-to-your-keystore> \
+  --key-store-password <your-key-store-password> \
+  --key-store-alias <your-alias-name> \
+  --key-store-alias-password <your-alias-password> \
+  --aab \
+  --copy-to <aab-location>.aab
 ```
 
 #### Changing the default target architectures
@@ -395,8 +420,13 @@ android {
 
 Starting from NativeScript CLI 6.2.0, the Android App Bundle is supported out of the box by the `ns run` command:
 
-```
-ns run android --key-store-path <path-to-your-keystore> --key-store-password <your-key-store-password> --key-store-alias <your-alias-name> --key-store-alias-password <your-alias-password> --aab
+```cli
+ns run android \
+  --key-store-path <path-to-your-keystore> \
+  --key-store-password <your-key-store-password> \
+  --key-store-alias <your-alias-name> \
+  --key-store-alias-password <your-alias-password> \
+  --aab
 ```
 
 #### Testing the produced `.aab` file before NativeScript 6.2
@@ -405,28 +435,38 @@ For older NativeScript version, in order to test the `apk` files that Google Pla
 
 If you use the `bundletool` you should first generate an `.apks` file that will later be used to deploy on a device.
 
-```
-java -jar <toolPath>/bundletool.jar build-apks --bundle=<somePath>/app.aab  --output="<somePath>/my_app.apks"
---ks=<path to keystore file>
---ks-pass=pass:<keystore pass>
---ks-key-alias=<key alias>
---key-pass=pass:<key pass>
+```cli
+java -jar <toolPath>/bundletool.jar build-apks \
+  --bundle=<somePath>/app.aab  \
+  --output="<somePath>/my_app.apks" \
+  --ks=<path-to-keystore-file> \
+  --ks-pass=pass:<keystore-pass> \
+  --ks-key-alias=<key-alias> \
+  --key-pass=pass:<key-pass> \
 ```
 
 Then you can install the application on a connected device by executing:
 
 > **Note:** Devices running Android 4.4 (API level 19) and lower don’t support downloading and installing split APKs. On such devices `bundletool` will not be able to deploy the application. When the bundle is released Google Play will serve a single multi-APK to such devices.
 
-```
-java -jar <toolPath>/bundletool.jar install-apks --apks="somePath/my_app.apks" --device-id=<deviceId>
+```cli
+java -jar <toolPath>/bundletool.jar install-apks \
+  --apks="somePath/my_app.apks" \
+  --device-id=<deviceId>
 ```
 
 You can find more information about using Android `bundletool` [here](https://developer.android.com/studio/command-line/bundletool).
 
 You can perform a full build and produce a signed AAB using the NativeScript CLI:
 
-```
-ns build android --release --key-store-path <path-to-your-keystore> --key-store-password <your-key-store-password> --key-store-alias <your-alias-name> --key-store-alias-password <your-alias-password> --aab --copy-to <aab-location>.aab
+```cli
+ns build android --release \
+  --key-store-path <path-to-your-keystore> \
+  --key-store-password <your-key-store-password> \
+  --key-store-alias <your-alias-name> \
+  --key-store-alias-password <your-alias-password> \
+  --aab \
+  --copy-to <aab-location>.aab
 ```
 
 Then you can use the produced file to upload it to Google Play Developer Console following the steps described in [Google Android Developer Documentation](https://developer.android.com/studio/publish/upload-bundle).
@@ -445,7 +485,7 @@ Once you successfully upload your APK, and it passes Google review, you will be 
 You can publish a NativeScript app in the _App Store_ the same way you would [release a purely native iOS app](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/Introduction/Introduction.html).
 
 1.  Verify that the iOS native project inside your app contains your latest changes and resources by running the following command.
-    ```
+    ```cli
     ns prepare ios --release
     ```
 2.  Open the iOS native project in Xcode. Your native project is located at: `{app-name}/platforms/ios/{app-name}.xcworkspace` (or in `{app-name}/platforms/ios/{app-name}.xcodeproj` if the project does not contain any native iOS libraries).
@@ -485,23 +525,24 @@ For example, listing icons using `CFBundleIconFiles`:
 
 #### Example 1: How to customise Info.plist.\_\_>
 
-```
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict>
+  <dict>
     <!-- The full content of the Info.plist still should be here. -->
-	<key>CFBundleIconFiles</key>
-	<array>
-		<string>Icon@2x.png</string>
-		<string>Icon.png</string>
-		<string>Icon-Small@3x.png</string>
-		<string>Icon-Small@2x.png</string>
-		<string>Icon-Small.png</string>
-		<string>Icon-Small-50@2x.png</string>
-        <!-- etc -->
-	</array>
-</dict>
+    <key>CFBundleIconFiles</key>
+    <array>
+      <string>Icon@2x.png</string>
+      <string>Icon.png</string>
+      <string>Icon-Small@3x.png</string>
+      <string>Icon-Small@2x.png</string>
+      <string>Icon-Small.png</string>
+      <string>Icon-Small-50@2x.png</string>
+      <!-- etc -->
+    </array>
+  </dict>
 </plist>
 ```
 
@@ -545,9 +586,9 @@ CLI rebuilds may overwrite it, so you will have to watch out for automatic chang
 
 To disable the default _Launch Screen Storyboard_, remove the `UILaunchStoryboardName` from the `app/App_Resources/iOS/Info.plist`:
 
-```
-	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
+```xml
+<key>UILaunchStoryboardName</key>
+<string>LaunchScreen</string>
 ```
 
 This will force all supported launch screens to use the _launch image_.
@@ -770,7 +811,7 @@ Go to [https://developer.apple.com/account/ios/device/deviceList.action](https:/
 
 To register a phone you will need its UDID. Connect it to the Mac and run in a terminal:
 
-```
+```cli
 instruments -s devices
 ```
 
@@ -863,11 +904,11 @@ Both values are stored in `app/App_Resources/iOS/Info.plist`:
 
 In the `app/App_Resources/iOS/Info.plist` they appear as:
 
-```
-	<key>CFBundleShortVersionString</key>
-	<string>2.1</string>
-	<key>CFBundleVersion</key>
-	<string>2.1.2</string>
+```xml
+<key>CFBundleShortVersionString</key>
+<string>2.1</string>
+<key>CFBundleVersion</key>
+<string>2.1.2</string>
 ```
 
 If you need to edit these from the command line, there is a handy tool called `PlistBuddy` that can read and write Plist files.
@@ -883,7 +924,7 @@ export CFBundleVersion=`/usr/libexec/PlistBuddy app/App_Resources/iOS/Info.plist
 
 You can execute the following command inside a NativeScript project using the CLI:
 
-```
+```cli
 ns publish ios
 ```
 
@@ -891,13 +932,13 @@ The command will prompt for your `Apple ID` and `Password` for authentication wi
 
 Alternatively, you can use an existing build by running the following command:
 
-```
-ns publish ios --ipa <Ipa File Path>
+```cli
+ns publish ios --ipa <path-to-ipa>
 ```
 
 For more information, run the following command:
 
-```
+```cli
 ns help publish ios
 ```
 
@@ -905,7 +946,7 @@ ns help publish ios
 
 You can execute the following command using the CLI:
 
-```
+```cli
 ns prepare ios
 ```
 
@@ -934,13 +975,13 @@ If you upload successfully, you should be able to log in at [https://appstorecon
 
 Automation can be achieved using the NativeScript CLI only. All of the parameters needed for publishing can be passed to the `publish` command directly:
 
-```
+```cli
 ns publish ios [<Apple ID> [<Password> [<Mobile Provisioning Profile Identifier> [<Code Sign Identity>]]]]]
 ```
 
 For example, assuming that you want to issue a build using a mobile provision with an identifier _d5d40f61-b303-4fc8-aea3-fbb229a8171c_, you could run:
 
-```
+```cli
 ns publish ios my-apple-id my-password d5d40f61-b303-4fc8-aea3-fbb229a8171c "iPhone Distribution"
 ```
 
@@ -948,7 +989,7 @@ Note that the `Code Sign Identity` can be set to something generic like _iPhone 
 
 You can also automate the uploads of already built packages:
 
-```
+```cli
 ns publish ios my-apple-id my-password --ipa /tmp/build/myIpa.ipa
 ```
 

@@ -10,7 +10,7 @@ In this article, you’re going to learn the basics of the NativeScript command-
 
 Open your terminal and run the following command to create a new NativeScript application:
 
-```shell
+```cli
 ns create
 ```
 
@@ -18,7 +18,7 @@ The NS CLI will walk you through selecting a template using interactive prompts.
 
 You can also use the `--template` flag with the `ns create` command to target a specific template
 
-```shell
+```cli
 ns create HelloWorld --template @nativescript/template-hello-world-ts
 ```
 
@@ -32,7 +32,7 @@ The `create` command will take a minute to complete, as the NativeScript CLI nee
 
 This command will clean your NativeScript project. It will delete the `node_modules`, `hooks`, and `platforms` directories from your project. These directories sometime need a clean slate during development of native applications. It is similar to running "Clean Build Folder" in XCode or other IDE environments.
 
-```shell
+```cli
 ns clean
 ```
 
@@ -42,7 +42,7 @@ If you're having trouble running your application or you have added new dependen
 
 This command allows you to link the app you’re developing locally to the NativeScript Playground app for your iOS or Android device through the NativeScript Playground app. Although, this workflow is great for getting started, it does have limitations.
 
-```shell
+```cli
 ns preview
 ```
 
@@ -73,7 +73,7 @@ This happens because the `ns preview` command is now watching your project for c
 
 Runs your project on all connected devices or in native emulators for the selected platform. The command will prepare, build and deploy the app when necessary. By default listens for changes in your code, synchronizes those changes and refreshes all selected devices.
 
-```shell
+```cli
 ns run android
 ```
 
@@ -86,7 +86,7 @@ You must have at least one AVD (Android Virtual Device) configured on your devel
 Or a connected Android device with debugging enabled.
 :::
 
-```shell
+```cli
 ns run ios
 ```
 
@@ -117,13 +117,13 @@ For security reasons, the debugging agent **can't be started automatically** fro
 
 To start the debugger for Android, run the following command:
 
-```shell
+```cli
 ns debug android
 ```
 
 To start the debugger for iOS, run the following command:
 
-```shell
+```cli
 ns debug ios
 ```
 
@@ -152,7 +152,7 @@ For more information about iOS debugging, run any the following commands:
 
 Executing the following command in your terminal will open the CLI's documentation in your web browser.
 
-```shell
+```cli
 ns help
 ```
 
@@ -214,9 +214,9 @@ In NativeScript, we can use all Android emulators that are connected and recogni
 
 Example output from `ns device`
 
-```shell
+```cli
 $ ns device
-
+$:
 Connected devices & emulators
 Searching for devices...
 ┌───┬─────────────────────────┬──────────┬───────────────────┬──────────┬───────────┐
@@ -240,15 +240,15 @@ The `avdmanager` is a tool that allows you to create and manage Android Virtual 
 
 Command syntax to create new AVD
 
-```Shell
-$ cd $ANDROID_HOME/tools/bin
-$ avdmanager create avd -n name -k "sdk_id" [-c {path|size}] [-f] [-p path]
+```cli
+cd $ANDROID_HOME/tools/bin
+avdmanager create avd -n name -k "sdk_id" [-c {path|size}] [-f] [-p path]
 ```
 
 You must provide a name for the AVD and specify the ID of the SDK package to use for the AVD using sdk_id wrapped in quotes.
 For example, the following command creates an AVD named `test` using the x86 system image for API level 25:
 
-```Shell
+```cli
 avdmanager create avd -n test -k "system-images;android-25;google_apis;x86"
 ```
 
@@ -263,7 +263,7 @@ The following describes the usages for the other options:
 
 To list all the downloaded system images use the `list` command.
 
-```Shell
+```cli
 avdmanager list
 ```
 
@@ -302,7 +302,7 @@ Let's now set up an Android device to run our NativeScript projects. Go ahead an
 
 Now check that your device is properly connecting to ADB, the Android Debug Bridge, by running adb devices.
 
-```shell
+```cli
 adb devices
 ```
 
@@ -312,7 +312,7 @@ The device should be listed. See the full [adb documentation](https://developer.
 
 Type the following in your command prompt to install and launch your app on the device:
 
-```shell
+```cli
 ns run android
 ```
 
@@ -336,7 +336,7 @@ Select your project in the Xcode Project Navigator, then select your main target
 
 If the device is now registered with your developer account you should be able to run your NativeScript app on the device. Execute the following from your terminal to run the app from the CLI:
 
-```shell
+```cli
 ns run ios
 ```
 
@@ -368,14 +368,14 @@ Before writing and running unit tests, verify that you have completed the follow
 1. [Install and configure the NativeScript CLI on your system.](environment-setup)
 1. If you don't have any projects, create a new project and navigate to the directory of the newly created directory.
 
-   ```Shell
+   ```cli
    ns create projectName
    cd projectName
    ```
 
 1. If you want to create tests for an existing directory, navigate to the directory of the project.
 
-   ```Shell
+   ```cli
    cd existingProjectDirectory
    ```
 
@@ -387,7 +387,7 @@ The NativeScript CLI lets you choose between three widely popular unit testing f
 
 To initialize your project for unit testing, run the following command and, when prompted, use the keyboard arrows to select the framework that you want to use.
 
-```Shell
+```cli
 ns test init
 ```
 
@@ -400,15 +400,21 @@ This operation applies the following changes to your project.
 
 > **Note**: To enable and write unit tests for TypeScript or Angular project install the TypeScript typings for the selected testing framework.
 
-```shell
+<!-- tab:Jasmine -->
+
+```cli
 npm i @types/jasmine --save-dev
 ```
 
-```shell
+<!-- tab:Mocha -->
+
+```cli
 npm i @types/mocha --save-dev
 ```
 
-```shell
+<!-- tab:QUnit -->
+
+```cli
 npm i @types/qunit --save-dev
 ```
 
@@ -444,6 +450,8 @@ describe('Hello World Sample Test:', function () {
 })
 ```
 
+<!--  -->
+
 ```js
 // (Angular w/TypeScript)
 // As our intention is to test an Angular component that contains annotations
@@ -458,6 +466,8 @@ describe('A suite', function () {
 })
 ```
 
+<!--  -->
+
 ```js
 var mainViewModel = require('../main-view-model') //Require the main view model to expose the functionality inside it.
 
@@ -470,6 +480,8 @@ describe('Hello World Sample Test:', function () {
   })
 })
 ```
+
+<!--  -->
 
 ```js
 var mainViewModel = require('../main-view-model') //Require the main view model to expose the functionality inside it.
@@ -579,13 +591,13 @@ Before running your tests, verify that your development machine and your testing
 
 - The Android native emulators on which you want to run your tests must be running on your development machine. To verify that your machine recognizes the devices, run the following command.
 
-  ```Shell
+  ```cli
   ns device
   ```
 
 - The physical devices on which you want to run your tests must be connected to your development machine. To verify that your machine recognizes the devices, run the following command.
 
-  ```Shell
+  ```cli
   ns device
   ```
 
@@ -596,29 +608,29 @@ Before running your tests, verify that your development machine and your testing
 
 To execute your test suite on any connected Android devices or running Android emulators, run the following command.
 
-```Shell
+```cli
 ns test android
 ```
 
 To execute your test suite on connected iOS devices, run the following command.
 
-```Shell
+```cli
 ns test ios
 ```
 
 To execute your test suite in the iOS Simulator, run the following command.
 
-```Shell
+```cli
 ns test ios --emulator
 ```
 
 To execute your test suite in CI make sure to add `--justlaunch`. This parameter will exit the simulator.
 
-```Shell
+```cli
 ns test ios --emulator --justlaunch
 ```
 
-Each execution of `$ ns test` consists of the following steps, performed automatically.
+Each execution of `ns test` consists of the following steps, performed automatically.
 
 1. The CLI starts a Karma server on the development machine.
 1. The CLI prepares, builds and deploys your project, if not already deployed. If already deployed, the CLI synchronizes changes to the application package.
@@ -633,9 +645,9 @@ Each execution of `$ ns test` consists of the following steps, performed automat
 
 The NativeScript can continuously monitor your code for changes and when such changes occur, it can deploy those changes to your testing devices and re-run your tests.
 
-To enable this behavior, run your `$ ns test` command with the `--watch` flag. For example:
+To enable this behavior, run your `ns test` command with the `--watch` flag. For example:
 
-```Shell
+```cli
 ns test android --watch
 ns test ios --watch
 ns test ios --emulator --watch
@@ -673,19 +685,19 @@ Also, make sure to look through the [NativeScript core modules](https://docs.nat
 
 Once you’ve found the plugin you need, install the plugin into your app using the `ns plugin add` command.
 
-```shell
+```cli
 ns plugin add <plugin-name>
 ```
 
 For example, the following command installs the [NativeScript camera plugin](https://market.nativescript.org/plugins/@nativescript/camera).
 
-```shell
+```cli
 ns plugin add @nativescript/camera
 ```
 
 If you prefer, you could use the NPM command `npm install` instead of the NativeScript CLI command `plugin add`.
 
-```shell
+```cli
 npm i @nativescript/camera --save
 ```
 
@@ -695,7 +707,7 @@ The installation of a NativeScript plugin mimics the installation of an npm pack
 
 As shown above the command **ns plugin add PLUGIN_NAME** is actually doing **npm i PLUGIN_NAME --save** behind the scenes. If you need to install a **developer dependency** in your project (e.g., like **@nativescript/types** or **@nativescript/webpack**) then you will need to explicitly save it as a **devDependency**. To achieve that, use the **npm install** command with **--save-dev** flag. For example:
 
-```shell
+```cli
 npm i @nativescript/types --save-dev
 ```
 
@@ -721,13 +733,13 @@ requestPermissions()
 
 To remove a NativeScript plugin from your project, run the following command from your command line.
 
-```shell
+```cli
 ns plugin remove <plugin-name>
 ```
 
 For example, the following command removes the NativeScript camera plugin.
 
-```shell
+```cli
 ns plugin remove @nativescript/camera
 ```
 
@@ -751,8 +763,8 @@ NativeScript CLI supports three package managers:
 
 In case you want to check what is the currently used package manager, you can use:
 
-```shell
-$ ns package-manager get
+```cli
+ns package-manager get
 ```
 
 ## Updating
@@ -764,7 +776,7 @@ To upgrade a NativeScript application you need to upgrade several things: Native
 The below command demonstrates how to upgrade your NativeScript tools known also as NativeScript CLI.
 You should first upgrade your `ns` (or `nativescript`) command, so go to a command prompt or bash/terminal prompt and type:
 
-```shell
+```cli
 npm install -g nativescript
 ```
 
@@ -775,7 +787,7 @@ You can type `ns --version` to verify that the new version is installed.
 
 To migrate an existing NativeScript project to 6.0, you need just to run:
 
-```shell
+```cli
 ns migrate
 ```
 
@@ -817,19 +829,19 @@ You should execute the **update** command in the root folder of your project to 
 
 > The **update** command is introduced in version 2.4 of NativeScript CLI. You should update NativeScript CLI before using this command.
 
-```shell
+```cli
 ns update
 ```
 
 In order to get the latest development release instead, pass **next** as argument:
 
-```shell
+```cli
 ns update next
 ```
 
 You can also switch to specific version by passing it to the command:
 
-```shell
+```cli
 ns update 8.0.0
 ```
 
@@ -838,7 +850,7 @@ The command `ns update` is updating the `@nativescript/core, `@nativescript/webp
 
 After updating the `@nativescript/webpack`, we must update our `webpack.config.js` as well. To do that we can execute the `update-ns-webpack` automated script with the following line:
 
-```shell
+```cli
 ./node_modules/.bin/update-ns-webpack --deps --configs
 ```
 
@@ -852,14 +864,14 @@ When using the `--configs` flag, any previous configuration will be overwritten 
 
 Follow those steps in order to get the latest versions of Android and/or iOS runtimes. Navigate to the root level folder where your project is, and then if you are working on a Android project, type:
 
-```shell
+```cli
 ns platform remove android
 ns platform add android
 ```
 
 and/or (if you are working on a iOS version on a Mac):
 
-```shell
+```cli
 ns platform remove ios
 ns platform add ios
 ```
@@ -870,7 +882,7 @@ The cross-platform modules are available as a npm package named [@nativescript/c
 
 In order to use them in your project, you will have to explicitly install the package, for example (assuming you are still in your main app project folder from the steps above):
 
-```shell
+```cli
 npm install @nativescript/core@latest --save
 ```
 
@@ -886,7 +898,7 @@ Another place to find **@nativescript/core** package is [NativeScript Releases](
 
 The Webpack plugin is available as a npm package named [@nativescript/webpack](https://www.npmjs.com/package/@nativescript/webpack). To use the plugin in your project, you should explicitly install the package as `devDependency`.The initial installation of the plugin will install all related development dependencies and will create the default `webpack.config.js` file. If the `webpack.config.js` file is already existing it won't be overwritten by the installation of `@nativescript/webpack`.
 
-```shell
+```cli
 npm i @nativescript/webpack --save-dev
 ```
 
@@ -901,7 +913,7 @@ When upgrading an existing version of the Webpack plugin, you should consider th
 - `--deps` - this flag will update all related development dependencies.
 - `--configs` - this flag will update the default `webpack.config.js` file.
 
-```shell
+```cli
 npm i @nativescript/webpack@latest --save-dev
 ./node_modules/.bin/update-ns-webpack --deps --configs
 ```
@@ -914,7 +926,7 @@ When using the `--configs` flag, any previous configuration will be overwritten 
 
 The Angular plugin is available as an npm package named [@nativescript/angular](https://www.npmjs.com/package/@nativescript/angular). To update the version of the plugin and the related dependency, the package should be explicitly installed, and the related Angular dependencies should be updated accordingly. To ease the update process, the plugin comes with an automated script `update-app-ng-deps` located in `<project-folder/node_modules/.bin>` folder.
 
-```shell
+```cli
 npm i @nativescript/angular@latest --save
 ./node_modules/.bin/update-app-ng-deps
 npm i
@@ -943,13 +955,13 @@ As an open-source project NativeScript keeps not only its source code but its bu
 
 - Uninstall any existing NativeScript versions:
 
-```shell
+```cli
 npm uninstall -g nativescript
 ```
 
 - Install the latest development version of NativeScript CLI:
 
-```shell
+```cli
 npm install -g nativescript@next
 ```
 
@@ -970,7 +982,7 @@ npm install -g nativescript@next
 
 Instead of editing the package.json file by hand, you could run the following commands:
 
-```shell
+```cli
 ns platform add ios@next
 ns platform add android@next
 ns plugin add @nativescript/core@next
@@ -978,7 +990,7 @@ ns plugin add @nativescript/core@next
 
 - Run the `npm install` command to update the node modules:
 
-```shell
+```cli
 cd <your-project-folder>
 npm install
 ```
@@ -1015,7 +1027,7 @@ When the repo gets built, it outputs a bunch of packages (stripping the version-
 
 The repo gets built via the commands:
 
-```shell
+```cli
 npm install -g grunt-cli
 npm install
 grunt
@@ -1047,7 +1059,7 @@ The [android runtime](https://github.com/NativeScript/android-runtime) depends o
 
 Provided you have all the dependencies set, the easiest way to have the Android runtime built is to clone the two repos to a single folder so that the two are sibling folders, `cd` into the `android-runtime` folder and run:
 
-```shell
+```cli
 gradle packar -PwidgetsPath=./widgets.jar
 ```
 
@@ -1083,7 +1095,7 @@ The `code` command runs in your command-line or terminal, and it works just like
 
 Once set up, you can type `code .` in your terminal to open the files in your current folder for editing. For example, you could use the following sequence of command to create a new NativeScript app and open it for editing.
 
-```shell
+```cli
 ns create MyNewApp
 cd MyNewApp
 code .

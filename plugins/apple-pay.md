@@ -5,7 +5,7 @@ link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/app
 
 # @nativescript/apple-pay
 
-```javascript
+```cli
 ns plugin add @nativescript/apple-pay
 ```
 

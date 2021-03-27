@@ -4444,18 +4444,18 @@ To use SASS with NativeScript, a SASS compiler like [`sass`](https://www.npmjs.c
 
 You can use SASS with either enabling it manually:
 
-```Shell
+```cli
 npm i sass --save-dev
 ```
 
 Or by using a template that has SASS already enabled. For example:
 
-```Shell
+```cli
 ns create  mySassApp --template @nativescript/template-drawer-navigation-ts
 ```
 
 For projects created with NativeScript 5.x and below (which are using the legacy `nativescript-dev-webpack`), you can run the `migrate` command to update the SASS compiler (and remove the legacy plugin). Note that the `migrate` command is available in NativeScript CLI 6 and above.
 
-```
+```cli
 ns migrate
 ```

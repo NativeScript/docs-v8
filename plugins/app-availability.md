@@ -7,7 +7,7 @@ link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/app
 
 A plugin to check for availability of other apps on the device.
 
-```javascript
+```cli
 ns plugin add @nativescript/appavailability
 ```
 

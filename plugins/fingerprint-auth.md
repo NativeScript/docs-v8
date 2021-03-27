@@ -5,7 +5,7 @@ link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/fin
 
 # @nativescript/fingerprint-auth
 
-```js
+```cli
 ns plugin add @nativescript/fingerprint-auth
 ```
 

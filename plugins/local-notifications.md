@@ -14,13 +14,13 @@ From the command prompt go to your app's root folder and execute:
 
 #### NativeScript 7+:
 
-```bash
+```cli
 ns plugin add @nativescript/local-notifications
 ```
 
 #### NativeScript prior to 7:
 
-```bash
+```cli
 ns plugin add nativescript-local-notifications@4.2.1
 ```
 

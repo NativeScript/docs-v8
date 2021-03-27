@@ -5,7 +5,7 @@ link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/bri
 
 # @nativescript/brightness
 
-```bash
+```cli
 ns plugin add @nativescript/brightness
 ```
 

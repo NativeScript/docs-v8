@@ -7,17 +7,21 @@ link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/pic
 
 A NativeScript plugin that provides ui element for picking an object/value from a list opened in a modal popup.
 
-```javascript
+```cli
 npm install @nativescript/picker
 ```
 
 ## Usage
 
-- [Configuration](#configuration)
-- [Usage](#usage)
-- [Features](#features)
-  - [PickerField](#PickerField)
-- [API](#api)
+- [@nativescript/picker](#nativescriptpicker)
+  - [Usage](#usage)
+  - [Screenshots](#screenshots)
+  - [Configuration](#configuration)
+  - [Usage](#usage-1)
+  - [Features](#features)
+    - [PickerField](#pickerfield)
+  - [API](#api)
+    - [PickerField](#pickerfield-1)
 
 ## Screenshots
 

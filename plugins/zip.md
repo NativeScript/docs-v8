@@ -5,7 +5,7 @@ link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/zip
 
 # @nativescript/zip
 
-```javascript
+```cli
 ns plugin add @nativescript/zip
 ```
 

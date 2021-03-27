@@ -34,7 +34,7 @@ We recommend using [Chocolatey](https://chocolatey.org/) to install the required
 
 To install **Node** and **JDK** open an Administrator Command Prompt (right click and select "Run as Administrator") and run the following command:
 
-```powershell
+```cli
 choco install -y nodejs.install openjdk8
 ```
 
@@ -82,13 +82,13 @@ The default location is inside the Android SDK's `platform-tools` folder:
 
 Install the NativeScript CLI globally:
 
-```
+```cli
 npm install -g nativescript
 ```
 
 To verify if the installation was successful, open a new Command Prompt window to ensure the new environment variables are loaded and run
 
-```
+```cli
 ns doctor android
 ```
 
@@ -124,7 +124,7 @@ When installing Homebrew, carefully follow their instructions to avoid configura
 
 Once you have Homebrew installed, to install **Node** open a Terminal and run the following command:
 
-```bash
+```cli
 brew install node
 ```
 
@@ -134,8 +134,9 @@ If you need to work with multiple versions of node, you may skip installing node
 
 To install a **JDK** run the following command:
 
-```bash
-brew install --cask adoptopenjdk # todo: check if it works with latest jdk
+```cli
+# todo: check if it works with latest jdk
+brew install --cask adoptopenjdk
 ```
 
 Setting up the Android development environment can be daunting if you are new to Android development, however following the next steps carefully will get you up and running in no time.
@@ -162,13 +163,13 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 Install the **NativeScript CLI** globally:
 
-```bash
+```cli
 npm install -g nativescript
 ```
 
 To verify if the installation was successful, open a new Command Prompt window to ensure the new environment variables are loaded and run
 
-```bash
+```cli
 ns doctor android
 ```
 
@@ -196,7 +197,7 @@ When installing Homebrew, carefully follow their instructions to avoid configura
 
 Once you have Homebrew installed, to install **Node** open a Terminal and run the following command:
 
-```bash
+```cli
 brew install node
 ```
 
@@ -214,7 +215,7 @@ Open `XCode › Preferences › Locations` and make sure **Command Line Tools** 
 
 Install **ruby 2.7** and link it so it's available in your shell environment:
 
-```bash
+```cli
 brew install ruby@2.7
 brew link ruby@2.7
 ```
@@ -235,14 +236,14 @@ In a new terminal window, install the **<abbr title="A package manager for manag
 <!-- Note: xcodeproj seems to be installed when installing cocoapods via brew -->
 <!-- brew install cocoapods # this will install both cocoapods and xcodeproj -->
 
-```bash
+```cli
 gem install cocoapods
 gem install xcodeproj
 ```
 
 Next install **<abbr title="Python package manager">pip</abbr>** and **<abbr title="Python 2 & 3 compatibility package used by NativeScript">six</abbr>** by running the following:
 
-```bash
+```cli
 sudo easy_install pip==20.3.3
 python -m pip install six
 ```
@@ -253,7 +254,7 @@ You may see a Deprecation warning when installing **six**, feel free to ignore i
 
 Install the **NativeScript CLI** globally:
 
-```bash
+```cli
 npm install -g nativescript
 ```
 
@@ -265,7 +266,7 @@ _**More details for those curious:** The NativeScript CLI relies on 3rd party pa
 
 To verify if the installation was successful, open a new Terminal window to ensure the new environment variables are loaded and run
 
-```bash
+```cli
 ns doctor ios
 ```
 
@@ -283,13 +284,13 @@ This section is temporary for now - we can consolidate & make sure it works on M
 
 You may need to install rosetta2, run:
 
-```bash
+```cli
 softwareupdate --install-rosetta
 ```
 
 May need to install `ffi`
 
-```
+```cli
 gem install ffi
 ```
 
@@ -319,7 +320,7 @@ Wait for this installation to complete.
 
 3. Install Cocoapods and Xcodeproj
 
-```
+```cli
 sudo gem install xcodeproj
 sudo gem install cocoapods
 pod setup
@@ -327,7 +328,7 @@ pod setup
 
 4. Install pip and six
 
-```
+```cli
 python -m pip install --upgrade pip six
 ```
 
@@ -337,7 +338,7 @@ python -m pip install --upgrade pip six
 
 5. Install NativeScript CLI
 
-```
+```cli
 npm install -g nativescript
 ``` -->
 
@@ -410,7 +411,7 @@ To integrate your existing WatchOS application into your NativeScript project, e
 
 9. Build & Run the NativeScript application.
 
-   ```Shell
+   ```cli
    ns run ios
    ```
 

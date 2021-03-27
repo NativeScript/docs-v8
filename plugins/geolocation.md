@@ -9,7 +9,7 @@ link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/geo
 
 Geolocation plugin to use for getting current location, monitor movement, etc.
 
-```bash
+```cli
 ns plugin add @nativescript/geolocation
 ```
 
@@ -109,7 +109,7 @@ Cannot enable the location service. Error: java.lang.NoClassDefFoundError: Faile
 
 In order to fix this you might pin the version number in your `app/App_Resources/Android/before-plugins.gradle` file (if the file does not exist, just create it):
 
-```bash
+```cli
 android {  
   // other stuff here
 

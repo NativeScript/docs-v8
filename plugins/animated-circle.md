@@ -5,7 +5,7 @@ link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/ani
 
 # @nativescript/animated-circle
 
-```bash
+```cli
 ns plugin add @nativescript/animated-circle
 ```
 

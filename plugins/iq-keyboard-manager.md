@@ -9,7 +9,7 @@ NativeScript wrapper for the popular [IQKeyboardManager](https://cocoapods.org/p
 
 ![Example of using the IQKeyBoardManager NativeScript plugin on an iOS device](https://raw.githubusercontent.com/NativeScript/nativescript-IQKeyboardManager/master/screenshot.gif)
 
-```javascript
+```cli
 ns plugin add @nativescript/iqkeyboardmanager
 ```
 
@@ -158,7 +158,7 @@ Vue.registerElement(
 
 Start by adding the following two paths into your app’s `references.d.ts` file. (See this repo’s demo app for a specific example.)
 
-```
+```ts
 /// <reference path="./node_modules/tns-platform-declarations/ios/ios.d.ts" />
 /// <reference path="./node_modules/@nativescript/iqkeyboardmanager/index.d.ts" />
 ```
@@ -223,7 +223,7 @@ For maintainer’s of this plugin’s source code: when the [IQKeyboardManager P
 
 To do so, execute these commands.
 
-```bash
+```cli
 cd demo
 TNS_DEBUG_METADATA_PATH="$(pwd)/metadata" tns build ios
 TNS_TYPESCRIPT_DECLARATIONS_PATH="$(pwd)/typings" tns build ios

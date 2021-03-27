@@ -11,7 +11,7 @@ You can use this plugin to compose an e-mail, have the user edit the draft manua
 
 ## Install
 
-```bash
+```cli
 ns plugin add @nativescript/email
 ```
 

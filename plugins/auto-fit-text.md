@@ -5,7 +5,7 @@ link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/aut
 
 # @nativescript/auto-fit-text
 
-```bash
+```cli
 ns plugin add @nativescript/auto-fit-text
 ```
 

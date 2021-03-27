@@ -29,14 +29,14 @@ Some of the templates are listed in the NativeScript CLI when creating a new pro
 
 To create a new project, run:
 
-```bash
+```cli
 ns create myCoolApp
 ```
 
 If you'd like to try one of the other templates not listed by `ns create` run:
 
-```bash
-ns create myCoolApp --template <template package name>
+```cli
+ns create myCoolApp --template <template-package-name>
 ```
 
 :::tip
@@ -55,7 +55,7 @@ A basic template with a single page and no custom styles.
 
 To use, run:
 
-```bash
+```cli
 ns create myCoolApp --template @nativescript/template-blank
 ```
 
@@ -69,7 +69,7 @@ A simple template with a side drawer.
 
 To use, run:
 
-```bash
+```cli
 ns create myCoolApp --template @nativescript/template-blank
 ```
 
@@ -83,7 +83,7 @@ A simple template with multiple tabs.
 
 To use, run:
 
-```bash
+```cli
 ns create myCoolApp --template @nativescript/template-tab-navigation
 ```
 
@@ -96,7 +96,7 @@ A simple template with a ListView and a details screen.
 
 To use, run:
 
-```bash
+```cli
 ns create myCoolApp --template @nativescript/template-master-detail
 ```
 
@@ -117,17 +117,17 @@ Here is the list of the six main blank templates depending on the coding languag
 
 Creating your template is as simple as cloning the wanted template repository and modifying the source code to satisfy your business logic.
 
-```Git
+```cli
 git clone https://github.com/NativeScript/template-blank-ts.git
 ```
 
 As of NativeScript 4.x.x the application templates have a mobile application structure so you could develop your template by following the standard developer workflow.
 
-```JS
+```cli
 cd template-blank-ts
 npm i
 ns run android
-// start making code changes
+# start making code changes
 ```
 
 #### Guidelines

@@ -5,7 +5,7 @@ link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/goo
 
 # @nativescript/google-pay
 
-```shell
+```cli
 ns plugin add @nativescript/google-pay
 ```
 

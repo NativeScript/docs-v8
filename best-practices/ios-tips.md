@@ -10,20 +10,28 @@ For example:
 
 - **BAD**
 
-```
-let applePayController: PKPaymentAuthorizationViewController;
+```ts
+let applePayController: PKPaymentAuthorizationViewController
 
-applePayController = PKPaymentAuthorizationViewController.alloc().initWithPaymentRequest(paymentRequest);
-applePayController.delegate = PKPaymentAuthorizationViewControllerDelegateImpl.initWithOwner(this);
+applePayController = PKPaymentAuthorizationViewController.alloc().initWithPaymentRequest(
+  paymentRequest
+)
+applePayController.delegate = PKPaymentAuthorizationViewControllerDelegateImpl.initWithOwner(
+  this
+)
 ```
 
 - **GOOD**
 
-```
-let applePayController: PKPaymentAuthorizationViewController;
-let applePayControllerDelegate: PKPaymentAuthorizationViewControllerDelegateImpl;
+```ts
+let applePayController: PKPaymentAuthorizationViewController
+let applePayControllerDelegate: PKPaymentAuthorizationViewControllerDelegateImpl
 
-applePayController = PKPaymentAuthorizationViewController.alloc().initWithPaymentRequest(paymentRequest);
-applePayControllerDelegate = PKPaymentAuthorizationViewControllerDelegateImpl.initWithOwner(this);
-applePayController.delegate = applePayControllerDelegate;
+applePayController = PKPaymentAuthorizationViewController.alloc().initWithPaymentRequest(
+  paymentRequest
+)
+applePayControllerDelegate = PKPaymentAuthorizationViewControllerDelegateImpl.initWithOwner(
+  this
+)
+applePayController.delegate = applePayControllerDelegate
 ```

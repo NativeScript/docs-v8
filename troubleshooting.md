@@ -11,7 +11,7 @@ Error: spawn /opt/homebrew/lib/node_modules/nativescript/node_modules/ios-device
     at processTicksAndRejections (node:internal/process/task_queues:81:21)
 ```
 
-```bash
+```cli
 cp -R /opt/homebrew/lib/node_modules/nativescript/node_modules/ios-device-lib/bin/darwin/x64 /opt/homebrew/lib/node_modules/nativescript/node_modules/ios-device-lib/bin/darwin/arm64
 ```
 

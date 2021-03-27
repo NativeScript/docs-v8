@@ -147,7 +147,7 @@ function cancelledHandler(e) {
 
 In order to test the plugin, you must have a server instance to accept the uploads. There are online services that can be used for small file uploads - e.g. `http://httpbin.org/post` However, these cannot be used for large files. The plugin repository comes with a simple server you can run locally. Here is how to start it:
 
-```bash
+```cli
 cd demo-server
 npm i
 node server 8080

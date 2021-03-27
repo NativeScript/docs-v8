@@ -10,28 +10,33 @@ ListView, RadListView and really any view component that utilizes some form of r
 
 Let's first look at a bad way to setup a ListView row template and why:
 
-```
+```xml
 <ListView items="{{ myTitles }}" class="list-group">
-    <ListView.itemTemplate>
-        <StackLayout>
-          <r:Render when="{{ !showSomethingElse }}">
-            <r:Render.template>
-              <StackLayout backgroundColor="lightblue">
-                <Label text="{{ title }}" textWrap="true" class="title" />
-              </StackLayout>
-            </r:Render.template>
-          </r:Render>
-          <r:Render when="{{ showSomethingElse }}">
-            <r:Render.template>
-              <GridLayout rows="auto,5,auto,5,auto" backgroundColor="red">
-                <Label text="{{ title }}" textWrap="true" class="title" />
-                <Label row="2" text="Something Else" textWrap="true" class="title" />
-                <Label row="4" text="Could show yet anything thing here" textWrap="true" class="title" />
-              </GridLayout>
-            </r:Render.template>
-          </r:Render>
-        </StackLayout>
-    </ListView.itemTemplate>
+  <ListView.itemTemplate>
+    <StackLayout>
+      <r:Render when="{{ !showSomethingElse }}">
+        <r:Render.template>
+          <StackLayout backgroundColor="lightblue">
+            <Label text="{{ title }}" textWrap="true" class="title" />
+          </StackLayout>
+        </r:Render.template>
+      </r:Render>
+      <r:Render when="{{ showSomethingElse }}">
+        <r:Render.template>
+          <GridLayout rows="auto,5,auto,5,auto" backgroundColor="red">
+            <Label text="{{ title }}" textWrap="true" class="title" />
+            <Label row="2" text="Something Else" textWrap="true" class="title" />
+            <Label
+              row="4"
+              text="Could show yet anything thing here"
+              textWrap="true"
+              class="title"
+            />
+          </GridLayout>
+        </r:Render.template>
+      </r:Render>
+    </StackLayout>
+  </ListView.itemTemplate>
 </ListView>
 ```
 
@@ -41,7 +46,7 @@ This is bad because it causes the creation and destruction of view elements whil
 
 ## Good setup
 
-```
+```xml
 <ListView items="{{ myTitles }}" class="list-group" itemTemplateSelector="{{selectItemTemplate}}">
   <ListView.itemTemplates>
     <template key="onelayout">

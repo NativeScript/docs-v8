@@ -11,7 +11,7 @@ Almost every mobile application needs the option to capture, save and share imag
 
 ## Installation
 
-```
+```cli
 npm install @nativescript/camera --save
 ```
 
@@ -70,7 +70,7 @@ Older versions of Android that don't use a request permissions popup won't be af
 ::: warning Note
 If the user rejects permissions from the iOS popup, the app is not allowed to ask again. You can instruct the user to go to app settings and enable the camera permission manually from there. Additionally, [App Store Guideline 5.1.1](https://developer.apple.com/app-store/review/guidelines/#data-collection-and-storage) requires apps to clarify the usage of the camera and photo library. To do so, edit your `app/App_Resources/iOS/Info.plist` and add the following clarifications:
 
-```
+```xml
 <key>NSCameraUsageDescription</key>
 <string>enter your camera permission request text here</string>
 <key>NSPhotoLibraryUsageDescription</key>
@@ -226,8 +226,8 @@ This could be used to create thumbnails for quick display within your applicatio
 
 The first thing that the developers should check if the device has an available camera. The method isAvaiable will return true if the camera hardware is ready to use or false if otherwise.
 
-```
-const isAvailable = camera.isAvailable();
+```ts
+const isAvailable = camera.isAvailable()
 ```
 
 ::: warning Note
