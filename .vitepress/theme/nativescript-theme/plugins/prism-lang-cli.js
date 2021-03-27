@@ -30,7 +30,7 @@ function setupPrismCLILang() {
 				'command-flag': {
 					pattern: /\s-\w\S*\s?/g,
 					inside: {
-						punctuation: /^-/,
+						punctuation: /^\s-/,
 						bold: /\S+/,
 					},
 				},
