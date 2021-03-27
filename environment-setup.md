@@ -303,13 +303,13 @@ You will need Node, NativeScript CLI (command line interface), Android Studio an
 To install **Node** follow the [instructions specific to your Linux distribution](https://nodejs.org/en/download/package-manager/). We recommend using the latest version, however anything above **Node 12** should be fine.
 
 :::warning Note
-We have gone through these steps on **Ubuntu 20.4** and noted commands we've used, however depending on your Linux distribution, the commands may be different. We cannot provide commands for all possible distributions, so please refer to the linked documentation to find the correct commands you need to run.
+We have gone through these steps on **Ubuntu 20.04** and noted commands we've used, however depending on your Linux distribution, the commands may be different. We cannot provide commands for all possible distributions, so please refer to the linked documentation to find the correct commands you need to run.
 :::
 
-<!-- tab:Ubuntu 20.4 -->
+<!-- tab:Ubuntu 20.04 -->
 
 ```cli
-# On Ubuntu 20.4, we used the following command to install latest node
+# On Ubuntu 20.04, we used the following command to install latest node
 $ curl -fsSL https://deb.nodesource.com/setup_15.x | sudo -E bash -
 $ sudo apt-get install -y nodejs
 ```
@@ -329,10 +329,10 @@ A **JDK version 8 or greater** is required, and you have a couple options:
 1. [OpenJDK](https://openjdk.java.net/) &mdash; can be downloaded from [AdoptOpenJDK](https://adoptopenjdk.net) or your system package manager.
 2. [Oracle JDK](https://www.oracle.com/java/technologies/javase-jdk14-downloads.html) &mdash; can be downloaded directly or through the system package manager.
 
-<!-- tab:Ubuntu 20.4 -->
+<!-- tab:Ubuntu 20.04 -->
 
 ```cli
-# On Ubuntu 20.4, we used the following command to install OpenJDK 14
+# On Ubuntu 20.04, we used the following command to install OpenJDK 14
 sudo apt-get install -y openjdk-14-jdk
 ```
 
