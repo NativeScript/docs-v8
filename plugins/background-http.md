@@ -5,7 +5,7 @@ link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/bac
 
 # @nativescript/background-http
 
-```js
+```cli
 ns plugin add @nativescript/background-http
 ```
 
