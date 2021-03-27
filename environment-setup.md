@@ -40,7 +40,7 @@ choco install -y nodejs.install openjdk8
 
 Setting up the Android development environment can be daunting if you are new to Android development, however following the next steps carefully will get you up and running in no time.
 
-[Download and install Android Studio](https://developer.android.com/studio). In the installation wizard make sure to have the following components selected:
+[Download and install Android Studio](https://developer.android.com/studio). In the installation wizard make sure to have the following components selected (the list should appear if you select **custom** options):
 
 - Android SDK
 - Android SDK Platform
@@ -141,7 +141,7 @@ brew install --cask adoptopenjdk
 
 Setting up the Android development environment can be daunting if you are new to Android development, however following the next steps carefully will get you up and running in no time.
 
-[Download and install Android Studio](https://developer.android.com/studio). In the installation wizard make sure to have the following components selected:
+[Download and install Android Studio](https://developer.android.com/studio). In the installation wizard make sure to have the following components selected (the list should appear if you select **custom** options):
 
 - Android SDK
 - Android SDK Platform
@@ -293,6 +293,116 @@ May need to install `ffi`
 ```cli
 gem install ffi
 ```
+
+### Linux + Android
+
+You will need Node, NativeScript CLI (command line interface), Android Studio and a JDK (java development kit).
+
+**Android Studio** is not strictly necessary &mdash; however it provides an easy to use interface for installing and managing the Android SDKs.
+
+To install **Node** follow the [instructions specific to your Linux distribution](https://nodejs.org/en/download/package-manager/). We recommend using the latest version, however anything above **Node 12** should be fine.
+
+:::warning Note
+We have gone through these steps on **Ubuntu 20.4** and noted commands we've used, however depending on your Linux distribution, the commands may be different. We cannot provide commands for all possible distributions, so please refer to the linked documentation to find the correct commands you need to run.
+:::
+
+<!-- tab:Ubuntu 20.4 -->
+
+```cli
+# On Ubuntu 20.4, we used the following command to install latest node
+$ curl -fsSL https://deb.nodesource.com/setup_15.x | sudo -E bash -
+$ sudo apt-get install -y nodejs
+```
+
+To confirm **Node** is installed correctly, run:
+
+```cli
+$ node -v
+$ npm -v
+# Should print something like
+$:v15.x.x
+7.x.x
+```
+
+A **JDK version 8 or greater** is required, and you have a couple options:
+
+1. [OpenJDK](https://openjdk.java.net/) &mdash; can be downloaded from [AdoptOpenJDK](https://adoptopenjdk.net) or your system package manager.
+2. [Oracle JDK](https://www.oracle.com/java/technologies/javase-jdk14-downloads.html) &mdash; can be downloaded directly or through the system package manager.
+
+<!-- tab:Ubuntu 20.4 -->
+
+```cli
+# On Ubuntu 20.4, we used the following command to install OpenJDK 14
+sudo apt-get install -y openjdk-14-jdk
+```
+
+To confirm **JDK** is installed correctly, run:
+
+```cli
+$ java --version
+$ javac --version
+# Should print something like
+$:openjdk 14.0.2 2020-07-14
+OpenJDK Runtime Environment (build 14.0.2+12-Ubuntu-120.04)
+OpenJDK 64-Bit Server VM (build 14.0.2+12-Ubuntu-120.04, mixed mode, sharing)
+
+javac 14.0.2
+```
+
+Setting up the Android development environment can be daunting if you are new to Android development, however following the next steps carefully will get you up and running in no time.
+
+[Download and install Android Studio](https://developer.android.com/studio). In the installation wizard make sure to have the following components selected (the list should appear if you select **custom** options):
+
+- Android SDK
+- Android SDK Platform
+- Android Virtual Device
+
+The setup may take a while, but once it has finished a welcome screen should appear.
+
+Android Studio installs the latest Android SDK by default, which in most cases should be all that's needed to build a NativeScript app.
+
+Configure the `ANDROID_HOME` environment variable for NativeScript to be able to find the Android SDK, and add the required tools to path.
+
+Add the following lines to your shell profile, usually `~/.bash_profile` or `~/.bashrc`, or if you are using `zsh` then `~/.zshrc` config file:
+
+```shell
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+```
+
+Install the NativeScript CLI globally:
+
+```cli
+npm install -g nativescript
+```
+
+:::tip Note
+Depending on how you installed **Node**, you may get an `EACCESS: permission denied` error when trying to install a global package. It's generally not recommended to run `npm` with `sudo`, see this guide for [Resolving EACCESS permissions errors](https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally).
+:::
+
+To verify if the installation was successful, open a new Command Prompt window to ensure the new environment variables are loaded and run
+
+```cli
+ns doctor android
+```
+
+If you see **No issues were detected** you have successfully set up your system.
+
+#### Preparing an Android device
+
+To run a NativeScript app, you will need an Android device &mdash; either a physical or a virtual device.
+
+- **Using a physical device**: Connect the device using a USB cable, and follow the instructions from [Running on a physical device](/development-workflow.md)
+
+- **Using a virtual device**: Open Android Studio, and open "AVD Manager" &mdash; If you are on the welcome screen, it's under the **Configure › AVD Manager** dropdown, otherwise under the **Tools › AVD Manager** menu.
+
+  If the list of available Virtual Devices is empty, you will need to create a new AVD. Click on "**Create Virtual Device...**" then pick a phone from the list. You can select any phone from the list &mdash; for example "**Pixel 3 XL**" and then click "**Next**". For the System Image select the latest version (the highest API Level in the list). If the selection is greyed out, click the "Download" link next to the Release Name to download the System Image and then click "**Next**" and "**Finish**" to create the AVD. The newly created AVD should show up in the list, and you should be able to click the green "play" button to start the virtual device.
+
+### Linux + iOS
+
+:::warning Unsupported
+A Mac is required to build projects that use native iOS code. Simpler apps can be tested using the NativeScript Playground.
+:::
 
 <!-- 1. Node
 
