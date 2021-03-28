@@ -264,6 +264,30 @@ function getBestPracticeSidebar() {
 					text: 'ListViews',
 					link: '/best-practices/listviews',
 				},
+				{
+					text: 'Hidden, Visibility, v-if, ngIf, etc.',
+					link: '/best-practices/if-things',
+				},
+				{
+					text: 'Rogue Timers',
+					link: '/best-practices/rogue-timers',
+				},
+				{
+					text: '@NativeClass() decorator',
+					link: '/best-practices/native-class',
+				},
+				{
+					text: 'Android',
+					link: '/best-practices/android-tips',
+				},
+				{
+					text: 'iOS',
+					link: '/best-practices/ios-tips',
+				},
+				{
+					text: 'Conditional or .ios/.android file',
+					link: '/best-practices/platform-file-split-or-not',
+				},
 			],
 		},
 	]

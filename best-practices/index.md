@@ -2,7 +2,7 @@
 title: Best Practices
 ---
 
-Let's face it, there are great and terrible ways to build apps.
+## NativeScript Best Practices
 
 Over the years several distinct best practices have emerged when working with NativeScript and we'd like to outline a few here for you in hopes that you can enjoy NativeScripting as much as we do. More importantly though, that your end product gives you all the right _feels_ you expect.
 

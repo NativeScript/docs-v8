@@ -2,7 +2,7 @@
 title: Best Practices with Timers and Intervals
 ---
 
-Oh! You just missed the bus! The dreaded aspect of dealing with time.
+## You just missed the bus! ...Dealing with time.
 
 Using `setTimeout` and `setInterval` can sometimes be the most dreaded unchecked item in an app's lifecycle.
 

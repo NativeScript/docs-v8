@@ -14,7 +14,7 @@ When using the custom native class within the same file you can define it as fol
 @NativeClass()
 class CustomClass extends NSObject {}
 
-const customClass = CustomClass.new()
+const customClassInstance = CustomClass.new()
 ```
 
 This allows the code to be compiled naturally and will work as expected.
@@ -38,7 +38,7 @@ function setupCustomClass() {
 }
 
 setupCustomClass()
-const myClass = new customClass() // can handle different platform args with ternary if needed
+const customClassInstance = new customClass() // can handle different platform args with ternary if needed
 ```
 
 The `global.isAndroid` conditional will get removed when building the app for iOS so your compiled code is clean and isolated while allowing you to handle in a single file.
