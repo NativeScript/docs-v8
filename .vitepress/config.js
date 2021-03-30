@@ -118,6 +118,10 @@ function getSidebar() {
 			children: [{ text: 'Performance', link: '/performance' }],
 		},
 		{
+			text: 'Scalability',
+			children: [{ text: 'Code Sharing', link: '/code-sharing/index' }],
+		},
+		{
 			text: 'Advanced Concepts',
 			children: [
 				{

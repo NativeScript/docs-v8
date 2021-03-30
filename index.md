@@ -19,8 +19,21 @@ actionLink: /introduction
 # footer: Copyright © 2021
 ---
 
-<div style="text-align:center;margin: 0 auto;">
-  <img src="/assets/images/mobile.gif">
+<div style="float:left; max-width:275px;">
+  <img src="/assets/images/ns-docs.gif">
 </div>
 
-<a href="/introduction">Read the docs</a>
+<div style="float:left">
+  <h3 id="table-of-contents"><a class="header-anchor" href="#table-of-contents" aria-hidden="true">#</a> Table of Contents</h3>
+
+  <ul style="list-style-type:none">
+  <li><a href="/introduction">Introduction</a></li>
+  <li><a href="/ui-and-styling">UI &amp; Styling</a></li>
+  <li><a href="/networking">Networking</a></li>
+  <li><a href="/performance">Performance</a></li>
+  <li><a href="/code-sharing/index">Scalability</a></li>
+  <li><a href="/advanced-concepts">Advanced Concepts</a></li>
+  <li><a href="/releasing">Distribution</a></li>
+  <li><a href="/troubleshooting">Troubleshooting</a></li>
+  </ul>
+</div>

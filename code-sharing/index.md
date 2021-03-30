@@ -2,6 +2,12 @@
 title: Code Sharing
 ---
 
+JavaScript provides opportunities of immense scalability if architectured properly.
+
+One key word that often comes up in this department is **"code sharing"**.
+
+Over the years, several lessons have emerged around scalability with JavaScript in lieu of NativeScript in particular.
+
 **The NativeScript TSC's 5 fundamental lessons about good code sharing**
 
 1. If you can share your code easily with other paradigms, other disciplines, other runtimes even, then you have a good code sharing approach that will continue to provide you and your team joy. No developer or team willingly gets into code sharing hoping to find themselves in a corner later. You always want to share now to more easily maintain and scale the code later.
@@ -22,46 +28,60 @@ If a "code sharing solution" is maintained by a framework that can often mean th
 
 ## Recommendations and Solutions
 
-- [Nx with xplat](https://nstudio.io/xplat)
+### [Nrwl Nx DevTools with @nativescript/nx](https://github.com/NativeScript/nx)
 
-  **Pros:**
+**Pros:**
 
-  - It's centered around JavaScript/TypeScript (lesson 1 and 5 above)
-  - Uses standard build tooling like typescript or webpack to build code (lesson 2 above)
-  - No custom file extensions to deal with (lesson 3 above)
-  - Nx splits up "apps" and "libs" clearly identifying deployment/distribution targets "apps" that consume shared code "libs" (lesson 4 above)
-  - Opinionated architecture is provided via xplat which helps to avoid common pitfalls from hard lessons learned in real world developments with cross platform mixtures
+- It's centered around JavaScript/TypeScript (lesson 1 and 5 above)
+- Uses standard build tooling like typescript or webpack to build code (lesson 2 above)
+- No custom file extensions to deal with (lesson 3 above)
+- Nx splits up "apps" and "libs" clearly identifying deployment/distribution targets "apps" that consume shared code "libs" (lesson 4 above)
 
-  **Cons:**
+**Cons:**
 
-  - Learning curve if not used to Nx practices in general
-  - Learning curve if you have not developed applications in large codebases before
-  - Understanding the [basic fundamentals](https://nstudio.io/xplat/fundamentals/architecture) of the provided architecture
+- Learning curve if not used to Nx practices in general
 
-- [Yarn workspaces](https://classic.yarnpkg.com/en/docs/workspaces/)
+### [Nrwl Nx DevTools with @nstudio/xplat](https://nstudio.io/xplat)
 
-  **Pros:**
+**Pros:**
 
-  - It's centered around JavaScript/TypeScript (lesson 1 and 5 above)
-  - Uses standard build tooling like typescript or webpack to build code (lesson 2 above)
-  - No custom file extensions to deal with (lesson 3 above)
-  - Can link/share dependencies
+- It's centered around JavaScript/TypeScript (lesson 1 and 5 above)
+- Uses standard build tooling like typescript or webpack to build code (lesson 2 above)
+- No custom file extensions to deal with (lesson 3 above)
+- Nx splits up "apps" and "libs" clearly identifying deployment/distribution targets "apps" that consume shared code "libs" (lesson 4 above)
+- It builds upon @nativescript/nx to further scale it across more paradigms so it's a natural extension when needed if already working in Nx with @nativescript/nx
+- Opinionated architecture is provided via xplat which helps to avoid common pitfalls from hard lessons learned in real world developments with cross platform mixtures
 
-  **Cons:**
+**Cons:**
 
-  - You are on your own with organizational structure which can lead to common pitfalls with cross platform mixtures
-  - No out of the box deployment/distribution target setup to identify app targets vs. shared code
+- Learning curve if not used to Nx practices in general
+- Learning curve if you have not developed applications in large codebases before
+- Understanding the [basic fundamentals](https://nstudio.io/xplat/fundamentals/architecture) of the provided architecture
 
-- [Lerna](https://github.com/lerna/lerna)
+### [Yarn workspaces](https://classic.yarnpkg.com/en/docs/workspaces/)
 
-  **Pros:**
+**Pros:**
 
-  - It's centered around JavaScript/TypeScript (lesson 1 and 5 above)
-  - Uses standard build tooling like typescript or webpack to build code (lesson 2 above)
-  - No custom file extensions to deal with (lesson 3 above)
+- It's centered around JavaScript/TypeScript (lesson 1 and 5 above)
+- Uses standard build tooling like typescript or webpack to build code (lesson 2 above)
+- No custom file extensions to deal with (lesson 3 above)
+- Can link/share dependencies
 
-  **Cons:**
+**Cons:**
 
-  - You are on your own with organizational structure which can lead to common pitfalls with cross platform mixtures
-  - No out of the box deployment/distribution target setup to identify app targets vs. shared code
-  - It's generally geared towards open source library management so no extra helpful tooling for "workspace management" in general
+- You are on your own with organizational structure which can lead to common pitfalls with cross platform mixtures
+- No out of the box deployment/distribution target setup to identify app targets vs. shared code
+
+### [Lerna](https://github.com/lerna/lerna)
+
+**Pros:**
+
+- It's centered around JavaScript/TypeScript (lesson 1 and 5 above)
+- Uses standard build tooling like typescript or webpack to build code (lesson 2 above)
+- No custom file extensions to deal with (lesson 3 above)
+
+**Cons:**
+
+- You are on your own with organizational structure which can lead to common pitfalls with cross platform mixtures
+- No out of the box deployment/distribution target setup to identify app targets vs. shared code
+- It's generally geared towards open source library management so no extra helpful tooling for "workspace management" in general
