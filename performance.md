@@ -155,14 +155,10 @@ export default {
     discardUncaughtJsExceptions: true,
     codeCache: true,
     v8Flags: '--nolazy --expose_gc',
-    markingMode: 'none',
+    markingMode: 'none'
   }
 } as NativeScriptConfig
 ```
-
-## Custom Application and Activity
-
-NativeScript provides a way to create custom `android.app.Application` and `android.app.Activity` implementations. Please, refer to [this](../core-concepts/android-runtime/advanced-topics/extend-application-activity) documentation article for a detail description of how to achieve these as well as how to configure and bundle such a project.
 
 ## Inspecting Bundles
 
