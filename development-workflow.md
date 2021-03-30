@@ -695,10 +695,10 @@ For example, the following command installs the [NativeScript camera plugin](htt
 ns plugin add @nativescript/camera
 ```
 
-If you prefer, you could use the NPM command `npm install` instead of the NativeScript CLI command `plugin add`.
+Instead of using `plugin add`, you can use your package manager as well (npm, yarn, pnpm...):
 
 ```cli
-npm i @nativescript/camera --save
+npm install --save @nativescript/camera
 ```
 
 The installation of a NativeScript plugin mimics the installation of an npm package. The NativeScript CLI downloads the plugin from npm and adds the plugin to the `node_modules` folder in the root of your project. During this process, the NativeScript CLI adds the plugin to your project’s root `package.json` file and also resolves the plugin’s dependencies (if any).
@@ -771,57 +771,9 @@ ns package-manager get
 
 To upgrade a NativeScript application you need to upgrade several things: NativeScript CLI Tooling, the iOS and Android runtimes and the `@nativescript/core` module. In the steps below you will see how to do this.
 
-#### Upgrading the NativeScript tools
-
-The below command demonstrates how to upgrade your NativeScript tools known also as NativeScript CLI.
-You should first upgrade your `ns` (or `nativescript`) command, so go to a command prompt or bash/terminal prompt and type:
-
 ```cli
 npm install -g nativescript
 ```
-
-This will automatically download needed files and will update your computer to the latest version of the NativeScript command line.
-You can type `ns --version` to verify that the new version is installed.
-
-#### Migrate an existing project to {N} 6.0
-
-To migrate an existing NativeScript project to 6.0, you need just to run:
-
-```cli
-ns migrate
-```
-
-This command will perform all the required updates of packages and changes in the project that are required to adjust a 6.0 project with the latest requirements.
-
-> Note: The migrate command will update {N} core packages and the below-listed plugins to their 6.0 compatible version:
-
-```
- node-sass
- typescript
- less
- nativescript-dev-sass
- nativescript-dev-typescript
- nativescript-dev-less
- nativescript-camera
- nativescript-geolocation
- nativescript-imagepicker
- nativescript-social-share
- nativescript-ui-chart
- nativescript-ui-dataform
- nativescript-ui-gauge
- nativescript-ui-listview
- nativescript-ui-sidedrawer
- nativescript-ui-calendar
- nativescript-ui-autocomplete
- nativescript-datetimepicker
- kinvey-nativescript-sdk
- nativescript-plugin-firebase
- nativescript-vue
- nativescript-permissions
- nativescript-cardview
-```
-
-> Note: As soon as you find a problem with the core dependencies - please open an issue in the respective GitHub repository. If unsure, you can open it in the [nativescript/nativescript](https://github.com/nativescript/nativescript/issues) repository. If the problem is related to some of the external plugins, please contact the author by opening a new issue in the plugin's repository.
 
 #### Upgrading the application
 
@@ -846,13 +798,7 @@ ns update 8.0.0
 ```
 
 ::: tip Note
-The command `ns update` is updating the `@nativescript/core, `@nativescript/webpack`, and the runtimes (`@nativescript/android`and`@nativescript/ios`). The command is combining the next three commands in this article (`ns platform add`, `npm i @nativescript/core`and`npm i @nativescript/webpack --save-dev`).
-
-After updating the `@nativescript/webpack`, we must update our `webpack.config.js` as well. To do that we can execute the `update-ns-webpack` automated script with the following line:
-
-```cli
-./node_modules/.bin/update-ns-webpack --deps --configs
-```
+The command `ns update` is updating the `@nativescript/core`, `@nativescript/webpack`, and the runtimes (`@nativescript/android`and`@nativescript/ios`). The command is combining the next three commands in this article (`ns platform add`, `npm i --save @nativescript/core`and`npm i @nativescript/webpack --save-dev`).
 
 :::
 
@@ -893,34 +839,6 @@ The `ns create` command will create a new project, add the **@nativescript/core*
 :::
 
 Another place to find **@nativescript/core** package is [NativeScript Releases](https://github.com/NativeScript/NativeScript/releases/), where you can find a collection of the available @nativescript/core-\*.tgz packages for every release. You can download a selected release and install it by running: `npm install <path to @nativescript/core-*.tgz> --save`.
-
-#### Upgrading Webpack
-
-The Webpack plugin is available as a npm package named [@nativescript/webpack](https://www.npmjs.com/package/@nativescript/webpack). To use the plugin in your project, you should explicitly install the package as `devDependency`.The initial installation of the plugin will install all related development dependencies and will create the default `webpack.config.js` file. If the `webpack.config.js` file is already existing it won't be overwritten by the installation of `@nativescript/webpack`.
-
-```cli
-npm i @nativescript/webpack --save-dev
-```
-
-::: tip Note
-From NativeScript 6.0, all project should be webpack compatible.
-:::
-
-#### Updating Webpack version and configuration
-
-When upgrading an existing version of the Webpack plugin, you should consider that the related development dependencies also have to be updated accordingly. To ease the process, the plugin provides an automated script for that purpose called `update-ns-webpack` located in `<project-folder>/node_modules/.bin` folder. The script comes with two flags:
-
-- `--deps` - this flag will update all related development dependencies.
-- `--configs` - this flag will update the default `webpack.config.js` file.
-
-```cli
-npm i @nativescript/webpack@latest --save-dev
-./node_modules/.bin/update-ns-webpack --deps --configs
-```
-
-::: tip Important
-When using the `--configs` flag, any previous configuration will be overwritten and lost. Consider saving any custom code that you have introduced in your `webpack.config.js` and reapplying the code after using the `--configs` flag.
-:::
 
 #### Upgrading Angular dependencies
 

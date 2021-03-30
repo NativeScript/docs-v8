@@ -80,7 +80,7 @@ module.exports = {
 function getSidebar() {
 	return [
 		{
-			text: 'Setup',
+			text: 'Basics',
 			children: [
 				{ text: 'Introduction', link: '/introduction' },
 				{
@@ -90,6 +90,10 @@ function getSidebar() {
 				{
 					text: 'Development Workflow',
 					link: '/development-workflow',
+				},
+				{
+					text: 'Webpack',
+					link: '/webpack',
 				},
 			],
 		},
