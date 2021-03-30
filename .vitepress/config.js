@@ -296,6 +296,10 @@ function getBestPracticeSidebar() {
 					text: 'Conditional or .ios/.android file',
 					link: '/best-practices/platform-file-split-or-not',
 				},
+				{
+					text: 'Optimizing Images',
+					link: '/best-practices/optimizing-images',
+				},
 			],
 		},
 	]

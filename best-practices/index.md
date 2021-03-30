@@ -28,3 +28,5 @@ Clone and see for yourself: https://github.com/NativeScript/examples-best-practi
 - [iOS tips](ios-tips.md)
 
 - [.ios and .android files or platform conditionals?](platform-file-split-or-not.md)
+
+- [Optimizing Images](optimizing-images.md)

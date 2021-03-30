@@ -53,8 +53,6 @@ One-offs are fine with the `<StackLayout>` approach, but building a whole app wi
 
 ## Adding ObjectiveC/Swift Code
 
-- [USED REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/guides/ios-source-code.md
-
 For the Objective-C/Swift symbols to be accessible by the Nativescript runtimes the following criteria should be met:
 
 **1)** They need to be compiled and linked
