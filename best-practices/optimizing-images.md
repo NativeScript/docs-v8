@@ -17,7 +17,6 @@ If you want to take it a step further and provide a better end user experience t
 In NativeScript, these images will be located in your `App_Resources/<platform>` directory for your application. The directory structure inside `App_Resources` mirrors that of a native Android and iOS project. These files are used during the native build of your application.
 
 For more on optimizing images for Android using the Android drawable directories, see the [Android Tips](android-tips.md#images-in-android-drawables) section of the docs.
-For more on optimizing images for iOS, see the [iOS Tips](ios-tips.md) section of the docs.
 
 ## Compression
 
