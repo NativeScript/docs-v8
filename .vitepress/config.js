@@ -91,6 +91,11 @@ function getSidebar() {
 					text: 'Development Workflow',
 					link: '/development-workflow',
 				},
+			],
+		},
+		{
+			text: 'Running & Building',
+			children: [
 				{
 					text: 'Webpack',
 					link: '/webpack',
