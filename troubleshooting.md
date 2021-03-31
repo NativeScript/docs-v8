@@ -2,6 +2,10 @@
 title: Troubleshooting Common Issues
 ---
 
+## Machine Setup Related
+
+If you had just followed the setup guide in the docs you may see something like this:
+
 ```
 sample % ns run ios
 Searching for devices...
@@ -22,4 +26,23 @@ Command failed: ruby -e "require 'xcodeproj'; Xcodeproj::Config.new('/Users/nstu
 	from -e:1:in `<main>'
 ```
 
-Open a new terminal window - and retry.
+**Common solution:** Open a new terminal window - and retry.
+
+## TypeScript related
+
+```
+ERROR: ../../node_modules/@nativescript/core/ui/proxy-view-container/index.d.ts:10:9 - error TS2611: 'ios' is defined as a property in class 'LayoutBase', but is overridden here in 'ProxyViewContainer' as an accessor.
+
+10     get ios(): any;
+           ~~~
+../../node_modules/@nativescript/core/ui/proxy-view-container/index.d.ts:11:9 - error TS2611: 'android' is defined as a property in class 'LayoutBase', but is overridden here in 'ProxyViewContainer' as an accessor.
+
+11     get android(): any;
+```
+
+**Common solution:** If run into this, you can add this to your tsconfig.json:
+
+```
+"skipDefaultLibCheck": true,
+"skipLibCheck": true,
+```
