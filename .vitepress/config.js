@@ -49,10 +49,10 @@ module.exports = {
 				text: 'Capacitor',
 				link: 'https://capacitor.nativescript.org',
 			},
-			{
-				text: 'Writing Guide',
-				link: 'https://v3.vuejs.org/guide/contributing/writing-guide.html',
-			},
+			// 	{
+			// 		text: 'Writing Guide',
+			// 		link: 'https://v3.vuejs.org/guide/contributing/writing-guide.html',
+			// 	},
 		],
 
 		sidebar: {
