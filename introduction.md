@@ -2,6 +2,15 @@
 title: Introduction
 ---
 
+:::tip 🚨 Note
+
+If you are looking for NS7 & NS6 docs, you can still find them here:
+
+- https://v7.docs.nativescript.org/
+- https://v6.docs.nativescript.org/
+
+:::
+
 ## Prerequisites
 
 The docs have been written with no assumtions of the readers experience, however it does assume knowledge of JavaScript fundamentals. If you are new to JavaScript, we recommend these resources from <abbr title="Mozilla Developer Network">MDN</abbr>:
