@@ -126,10 +126,10 @@ function getSidebar() {
 				},
 			],
 		},
-		{
-			text: 'Performance',
-			children: [{ text: 'Performance', link: '/performance' }],
-		},
+		// {
+		// 	text: 'Performance',
+		// 	children: [{ text: 'Webpack/Bundle Optimizations', link: '/performance' }],
+		// },
 		{
 			text: 'Scalability',
 			children: [{ text: 'Code Sharing', link: '/code-sharing/index' }],
@@ -201,6 +201,10 @@ function getPluginsSidebar() {
 				{
 					text: 'DateTimePicker',
 					link: '/plugins/datetimepicker',
+				},
+				{
+					text: 'Debug iOS',
+					link: '/plugins/debug-ios',
 				},
 				{
 					text: 'Detox',

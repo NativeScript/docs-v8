@@ -25,3 +25,7 @@ This provides TypeScript definitions for all iOS and Android APIs available to d
 - `@nativescript/webpack`
 
 This provides loaders, helpers and base configs for all fundamental NativeScript development to debug, run, build and release your apps.
+
+## Plugins
+
+There are also quite a number of plugins maitained and developed by the NativeScript TSC which you can find [documented here](plugins/index)

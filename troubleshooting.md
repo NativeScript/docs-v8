@@ -15,9 +15,13 @@ Error: spawn /opt/homebrew/lib/node_modules/nativescript/node_modules/ios-device
     at processTicksAndRejections (node:internal/process/task_queues:81:21)
 ```
 
+<!-- -->
+
 ```cli
 cp -R /opt/homebrew/lib/node_modules/nativescript/node_modules/ios-device-lib/bin/darwin/x64 /opt/homebrew/lib/node_modules/nativescript/node_modules/ios-device-lib/bin/darwin/arm64
 ```
+
+<!-- -->
 
 ```
 Command failed: ruby -e "require 'xcodeproj'; Xcodeproj::Config.new('/Users/nstudio/Documents/NativeScript/sample/platforms/ios/plugins-debug.xcconfig').merge(Xcodeproj::Config.new('/Users/nstudio/Documents/NativeScript/sample/App_Resources/iOS/build.xcconfig')).save_as(Pathname.new('/Users/nstudio/Documents/NativeScript/sample/platforms/ios/plugins-debug.xcconfig'))"

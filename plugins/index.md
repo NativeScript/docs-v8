@@ -12,6 +12,7 @@ title: Plugins
 - [@nativescript/brightness](brightness)
 - [@nativescript/camera](camera)
 - [@nativescript/datetimepicker](datetimepicker)
+- [@nativescript/debug-ios](debug-ios)
 - [@nativescript/detox](detox)
 - [@nativescript/directions](directions)
 - [@nativescript/email](email)

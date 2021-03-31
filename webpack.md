@@ -23,51 +23,51 @@ With version `5.0.0` of `@nativescript/webpack` our goal was to simplify mainten
 
 ### env flags
 
-// todo
+// example will be added in a few days
 
 ### CLI flags
 
-// todo
+// example will be added in a few days
 
 ## Examples of configurations
 
 ### Adding a copy rule
 
-// todo
+// example will be added in a few days
 
 ### Adding a plugin
 
-// todo
+// example will be added in a few days
 
 ### Adding a loader
 
-// todo
+// example will be added in a few days
 
 ### Changing an existing rule
 
-// todo
+// example will be added in a few days
 
 ### Changing an existing plugin configuration
 
-// todo
+// example will be added in a few days
 
 ### Explicitly set base config
 
-// todo
+// example will be added in a few days
 
 ### Suppressing warnings
 
-// todo
+// example will be added in a few days
 
 ### Merging options into the config
 
-// todo
+// example will be added in a few days
 
 ## Plugin API
 
 Document how plugins can make changes to the webpack config!
 
-// todo
+// example will be added in a few days
 
 ## API
 

@@ -19,7 +19,7 @@ actionLink: /introduction
 # footer: Copyright © 2021
 ---
 
-<div style="float:left; max-width:275px;">
+<!-- <div style="float:left; max-width:275px;">
   <img src="/assets/images/ns-docs.gif">
 </div>
 
@@ -36,4 +36,4 @@ actionLink: /introduction
   <li><a href="/releasing">Distribution</a></li>
   <li><a href="/troubleshooting">Troubleshooting</a></li>
   </ul>
-</div>
+</div> -->
