@@ -193,7 +193,7 @@ Once the installation is complete (this may take a while &mdash; brew a coffee a
 
 Open `XCode › Preferences › Locations` and make sure **Command Line Tools** is set
 
-![XCode Preferences, Locations](assets/environment-setup/xcode_command_line_tools.png)
+![XCode Preferences, Locations](/assets/environment-setup/xcode_command_line_tools.png)
 
 Install **ruby 2.7** and link it so it's available in your shell environment:
 

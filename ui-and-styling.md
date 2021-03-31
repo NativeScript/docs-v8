@@ -4470,7 +4470,7 @@ Platform specifics:
 You can use custom fonts in your app (in .TTF or .OTF format).
 The NativeScript runtime will look for the font files under the `app/fonts/` (or `src/fonts/` if you use Angular) directory and load them automatically.
 
-![Custom fonts setup"](/assests/ui-and-styling/custom-fonts.png 'Custom fonts setup')
+<!-- ![Custom fonts setup"](/assests/ui-and-styling/custom-fonts.png) -->
 
 ::: tip Tip
 Since NativeScript 7.1, the CLI has the `ns fonts` command. Executing this command will print out the css styles you need for any custom fonts found in your application.

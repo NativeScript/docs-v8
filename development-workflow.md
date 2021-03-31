@@ -48,9 +48,7 @@ This command allows you to link the app you’re developing locally to the Nativ
 ns preview
 ```
 
-You’ll see a QR code in your terminal that looks a little something like this.
-
-![](/img/start/cli-basics/terminal-0.png)
+You’ll see a QR code in your terminal.
 
 Next, open the **NativeScript Playground** app on your iOS or Android device.
 
@@ -60,12 +58,7 @@ If you don’t already have the NativeScript Playground app installed on your de
 
 In the Playground app, tap the **Scan QR code** option, and scan the QR code that appears in your terminal or commands prompt.
 
-![](/img/start/cli-basics/scan-qr-code.png)
-
 After scanning, you should see your app on your device.
-
-![](/img/start/cli-basics/android/1.png)
-![](/img/start/cli-basics/ios/1.png)
 
 Now that you have the app on your device, you might notice that the `ns preview` command in your terminal or command prompt never finished. That is, you cannot type in your terminal.
 

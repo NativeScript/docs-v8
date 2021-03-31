@@ -394,8 +394,6 @@ ns run ios --env.uglify
 
 If you open your `vendor.js` and `bundle.js` files, you should now see compressed code that looks something like this.
 
-![](compressed-code.png)
-
 The more code you have, the more of a difference the UglifyJS optimization will make. Here’s what the NativeScript Groceries sample looks like with Uglify added to the webpack build process.
 
 <div style="display: flex; max-width: 100%;">
