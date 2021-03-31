@@ -28,4 +28,4 @@ This provides loaders, helpers and base configs for all fundamental NativeScript
 
 ## Plugins
 
-There are also quite a number of plugins maitained and developed by the NativeScript TSC which you can find [documented here](plugins/index)
+There are also quite a number of plugins maintained and developed by the NativeScript TSC which you can find [documented here](plugins/index)
