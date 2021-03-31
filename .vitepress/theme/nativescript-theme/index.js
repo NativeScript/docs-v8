@@ -6580,7 +6580,7 @@ var _hoisted_9$1 = /*#__PURE__*/ createVNode(
 )
 
 var _hoisted_10$1 = {
-	class: 'hidden space-x-8 lg:mr-4 xl:mr-0 xl:flex xl:ml-2 xl:ml-10',
+	class: 'hidden ml-10 space-x-8 lg:flex',
 }
 var _hoisted_11$1 = {
 	class: 'flex justify-center flex-1 px-2 lg:justify-end',
@@ -6672,14 +6672,16 @@ var _hoisted_21 = {
 }
 
 var _hoisted_22 = /*#__PURE__*/ createStaticVNode(
-	'<div class="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5"><div class="relative grid gap-6 px-5 py-6 bg-white sm:gap-8 sm:p-8"><a href="#" class="block p-3 -m-3 transition duration-150 ease-in-out rounded-md hover:bg-gray-50"><p class="text-base font-medium text-gray-900">Blog</p><p class="mt-1 text-sm text-gray-500">Read about updates, tips &amp; tricks, guides from us and the community.</p></a><a href="https://play.nativescript.org/" target="_blank" class="block p-3 -m-3 transition duration-150 ease-in-out rounded-md hover:bg-gray-50"><p class="text-base font-medium text-gray-900">Playground</p><p class="mt-1 text-sm text-gray-500">Try out NativeScript in your browser and your phone.</p></a><a href="/partners" class="block p-3 -m-3 transition duration-150 ease-in-out rounded-md hover:bg-gray-50"><p class="text-base font-medium text-gray-900">Partners</p><p class="mt-1 text-sm text-gray-500">Find partners who can help you with your projects.</p></a><a href="#" class="block p-3 -m-3 transition duration-150 ease-in-out rounded-md hover:bg-gray-50"><p class="text-base font-medium text-gray-900">Governance</p><p class="mt-1 text-sm text-gray-500">Learn about the governance model and how you can be a part of it.</p></a></div></div>',
+	'<div class="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5"><div class="relative grid gap-6 px-5 py-6 bg-white sm:gap-8 sm:p-8"><a href="http://blog.nativescript.org/" class="block p-3 -m-3 transition duration-150 ease-in-out rounded-md hover:bg-gray-50"><p class="text-base font-medium text-gray-900">Blog</p><p class="mt-1 text-sm text-gray-500">Read about updates, tips &amp; tricks, guides from us and the community.</p></a><a href="https://play.nativescript.org/" target="_blank" class="block p-3 -m-3 transition duration-150 ease-in-out rounded-md hover:bg-gray-50"><p class="text-base font-medium text-gray-900">Playground</p><p class="mt-1 text-sm text-gray-500">Try out NativeScript in your browser and your phone.</p></a><a href="/partners" class="block p-3 -m-3 transition duration-150 ease-in-out rounded-md hover:bg-gray-50"><p class="text-base font-medium text-gray-900">Partners</p><p class="mt-1 text-sm text-gray-500">Find partners who can help you with your projects.</p></a><a href="https://github.com/NativeScript/management/blob/master/nativescript-governance.md" class="block p-3 -m-3 transition duration-150 ease-in-out rounded-md hover:bg-gray-50"><p class="text-base font-medium text-gray-900">Governance</p><p class="mt-1 text-sm text-gray-500">Learn about the governance model and how you can be a part of it.</p></a></div></div>',
 	1
 )
 
 var _hoisted_23 = /*#__PURE__*/ createVNode(
 	'a',
 	{
-		href: '#',
+		href: 'https://github.com/NativeScript/NativeScript',
+		target: '_blank',
+		rel: 'noopener noreferrer',
 		class:
 			'inline-flex items-center justify-center p-2 text-gray-900 transition-colors rounded-md hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-transparent',
 		'aria-expanded': 'false',
@@ -6768,7 +6770,7 @@ var _hoisted_31 = {
 var _hoisted_32 = /*#__PURE__*/ createVNode(
 	'a',
 	{
-		href: '#',
+		href: 'https://blog.nativescript.org/',
 		class:
 			'block px-3 py-2 text-base font-medium text-gray-900 rounded-md hover:bg-gray-50',
 	},
@@ -6790,18 +6792,8 @@ var _hoisted_33 = /*#__PURE__*/ createVNode(
 var _hoisted_34 = /*#__PURE__*/ createVNode(
 	'a',
 	{
-		href: '/partners',
-		class:
-			'block px-3 py-2 text-base font-medium text-gray-900 rounded-md hover:bg-gray-50',
-	},
-	'Partners',
-	-1
-)
-
-var _hoisted_35 = /*#__PURE__*/ createVNode(
-	'a',
-	{
-		href: '#',
+		href:
+			'https://github.com/NativeScript/management/blob/master/nativescript-governance.md',
 		class:
 			'block px-3 py-2 text-base font-medium text-gray-900 rounded-md hover:bg-gray-50',
 	},
@@ -6809,14 +6801,14 @@ var _hoisted_35 = /*#__PURE__*/ createVNode(
 	-1
 )
 
-var _hoisted_36 = {
+var _hoisted_35 = {
 	class: 'px-5 mt-6',
 }
-var _hoisted_37 = {
+var _hoisted_36 = {
 	class: 'w-full',
 }
 
-var _hoisted_38 = /*#__PURE__*/ createVNode(
+var _hoisted_37 = /*#__PURE__*/ createVNode(
 	'div',
 	{
 		class:
@@ -6845,7 +6837,7 @@ var _hoisted_38 = /*#__PURE__*/ createVNode(
 	-1
 )
 
-var _hoisted_39 = /*#__PURE__*/ createVNode(
+var _hoisted_38 = /*#__PURE__*/ createVNode(
 	'button',
 	{
 		class: 'block w-full py-3 pl-10 text-left rounded-md bg-ns-blue',
@@ -7107,10 +7099,9 @@ function render$9(_ctx, _cache, $props, $setup, $data, $options) {
 													_hoisted_32,
 													_hoisted_33,
 													_hoisted_34,
-													_hoisted_35,
 												]),
-												createVNode('div', _hoisted_36, [
-													createVNode('div', _hoisted_37, [
+												createVNode('div', _hoisted_35, [
+													createVNode('div', _hoisted_36, [
 														createVNode(
 															'div',
 															{
@@ -7124,7 +7115,7 @@ function render$9(_ctx, _cache, $props, $setup, $data, $options) {
 																	}),
 																class: 'relative text-white',
 															},
-															[_hoisted_38, _hoisted_39],
+															[_hoisted_37, _hoisted_38],
 															32
 														),
 													]),
@@ -7290,7 +7281,7 @@ var _hoisted_3$4 = /*#__PURE__*/ createVNode(
 		/*#__PURE__*/ createVNode(
 			'a',
 			{
-				href: 'https://discord.gg/RgmpGky9GR',
+				href: 'https://nativescript.org/discord',
 				target: '_blank',
 				rel: 'noopener noreferrer',
 				class: 'text-gray-400 hover:text-gray-500',
@@ -8324,17 +8315,6 @@ var _hoisted_14 = /*#__PURE__*/ createVNode(
 )
 
 var _hoisted_15 = /*#__PURE__*/ createVNode(
-	'a',
-	{
-		href: '#',
-		class:
-			'block px-4 py-2 text-sm text-center text-gray-700 bg-white border border-gray-400 rounded-md hover:bg-ns-blue hover:text-white hover:border-gray-600',
-	},
-	' Improve this page ',
-	-1
-)
-
-var _hoisted_16 = /*#__PURE__*/ createVNode(
 	'div',
 	{
 		class: 'pt-8',
@@ -8389,7 +8369,6 @@ function render$3(_ctx, _cache, $props, $setup, $data, $options) {
 										createVNode(_component_OnThisPage),
 										_hoisted_14,
 										_hoisted_15,
-										_hoisted_16,
 									]),
 								]),
 							]),
