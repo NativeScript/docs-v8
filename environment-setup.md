@@ -260,10 +260,6 @@ If you see **No issues were detected** you have successfully set up your system.
 
 #### Additional notes for M1 based machines:
 
-:::danger TODO
-This section is temporary for now - we can consolidate & make sure it works on M1 as expected with the above flow. May need couple adjustments.
-:::
-
 You may need to install rosetta2, run:
 
 ```cli
