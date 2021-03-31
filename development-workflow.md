@@ -2,6 +2,8 @@
 title: Development Workflow
 ---
 
+The development workflow starts with the [NativeScript CLI](https://www.npmjs.com/package/nativescript).
+
 ## CLI Basics
 
 In this article, you’re going to learn the basics of the NativeScript command-line interface, including how to create new apps, how to get those apps running on devices, and how to set up a development workflow that lets you iterate fast.
@@ -347,9 +349,6 @@ Alternatively, once you have the NativeScript project built, you can open open t
 ## HMR
 
 ## Testing
-
-- [USED REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/tooling/testing/testing.md
-- [REFERENCE] https://github.com/NativeScript/docs/tree/master/docs/tooling/testing/end-to-end-testing
 
 ::: warning Note
 Be sure you have prepare/built/run the app at least once before starting the unit test runner.

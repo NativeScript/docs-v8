@@ -2,13 +2,7 @@
 title: UI & Styling
 ---
 
-- [USED REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/ui/layouts/layouts.md
-
 ### Layout Properties
-
-:::danger TODO
-Move this section to a better place.
-:::
 
 #### Margins
 
@@ -1636,11 +1630,6 @@ If you need to style parts of the text, you can use a combination of a [`Formatt
 | [`android.widget.TextView`](https://developer.android.com/reference/android/widget/TextView.html) | [`UILabel`](https://developer.apple.com/documentation/uikit/uilabel) |
 
 https://github.com/nativescript-vue/nativescript-vue.org/tree/master/content/docs/en/elements/components
-
-- ng specific:
-  - [REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/cookbook/formatted-string-ng.md
-  - [REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/cookbook/tab-view-ng.md
-- https://github.com/NativeScript/docs/tree/master/docs/ui
 
 ### List Picker
 

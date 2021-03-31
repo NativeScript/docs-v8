@@ -4,11 +4,6 @@ title: Interaction
 
 ## Animations
 
-- [USED REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/ui/animation-code.md
-- [USED REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/ui/animation-css.md
-- [USED REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/ui/animation.md
-- [USED REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/ui/animation-examples.md
-
 ### Animations with code
 
 The easiest way to animate a **single** [`View`](/api-reference/classes/_ui_core_view_.view.html) is by using the `View.animate` method which accepts an [`AnimationDefinition`](/api-reference/interfaces/_ui_animation_.animationdefinition.html), immediately starts the animation and then returns its finished promise.
@@ -1640,8 +1635,6 @@ The result are received in the dialog resolved promise after the user closes or 
 | [android.app.AlertDialog.Builder](https://developer.android.com/reference/android/app/AlertDialog.Builder) | [UIAlertController](https://developer.apple.com/documentation/uikit/uialertcontroller) |
 
 ## Gestures
-
-- [USED REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/ui/gestures.md
 
 Gestures, such as tap, slide and pinch, allow users to interact with your app by manipulating UI elements on the screen.
 

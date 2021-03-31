@@ -2,9 +2,7 @@
 title: Performance
 ---
 
-## Webpack/Bundle Optimisations
-
-- [USED REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/performance-optimizations/bundling-with-webpack.md
+## Webpack/Bundle Optimizations
 
 ### Using Webpack to Bundle Your Code
 
@@ -364,8 +362,6 @@ In the following sections, we will create a simple Angular application using the
 
 A real-life NativeScript application (like the [Angular SDK Examples](https://github.com/NativeScript/nativescript-sdk-examples-ng)) can have hundreds of different components. Each component may have its route, services, and multiple featured components. Using lazy loading modules improves the startup time dramatically (in the case of SDK Examples app with up-to 5x better startup timings). Instead of having to load the hundreds of components at the application bootstrap, you can load just the landing module and load all other submodules lazily.
 
-- [USED REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/performance-optimizations/startup-times.md
-
 # How to Build NativeScript Apps That Start Up Fast
 
 NativeScript allows you to write native iOS and Android applications using JavaScript. Although there are many advantages to taking this approach—using one language to write multiple apps, faster development times from using an interpreted language, and so forth—there is one fact NativeScript developers can’t avoid: NativeScript apps can take longer to start up than applications written with native development languages such as Objective-C and Java.
@@ -452,8 +448,6 @@ ns run android --env.uglify --env.aot --env.snapshot
 ```
 
 ## Image Optimizations
-
-- [USED REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/performance-optimizations/images-optimisations.md
 
 ### Android Image Optimization
 

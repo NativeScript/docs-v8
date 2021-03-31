@@ -2,24 +2,12 @@
 title: Introduction
 ---
 
-- [USED REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/start/introduction.md
-- [USED REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/app-templates/app-templates.md
-- [USED REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/app-templates/creating-custom-templates.md
-
 ## Prerequisites
 
 The docs have been written with no assumtions of the readers experience, however it does assume knowledge of JavaScript fundamentals. If you are new to JavaScript, we recommend these resources from <abbr title="Mozilla Developer Network">MDN</abbr>:
 
 - [Introduction to JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 - [Re-Introduction to JavaScript to refresh your knowledge](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript)
-
-## Learn the basics
-
-Introduce the absolute basics of NativeScript, such as simple UI elements like Labels and buttons paired with fundamentals of layouts.
-
-Emphasize the importance of keeping layouts simple right from the start to avoid common pitfalls with performance
-
-Flavor specific guide to building your first screen with a very simple example.
 
 ## Templates
 
@@ -40,7 +28,7 @@ ns create myCoolApp --template <template-package-name>
 ```
 
 :::tip
-If you want to skip the interactive prompts, you can pass `--angular` `--vue` `--vue --ts` `--react` `--ts` `--js` or `--svelte` to create the app with the default template for the specified flavor.
+If you want to skip the interactive prompts, you can pass `--angular` (or `--ng` for short) `--vue` `--vue --ts` `--react` `--ts` `--js` or `--svelte` to create the app with the default template for the specified flavor.
 :::
 
 Here are some of the default templates you may want to try:
@@ -224,9 +212,9 @@ ns run android
 /*
     Import the theme's variables. If you're using a color scheme
     other than "light", switch the path to the alternative scheme,
-    for example '~nativescript-theme-core/scss/dark'.
+    for example 'nativescript-theme-core/scss/dark'.
 */
-@import '~nativescript-theme-core/scss/light';
+@import 'nativescript-theme-core/scss/light';
 
 /* Custom colors */
 $blue-dark: #022734 !default;
@@ -270,8 +258,8 @@ NavigationButton {
 @import 'app-variables';
 
 /* Import the theme's main ruleset - both index and platform specific. */
-@import '~nativescript-theme-core/scss/index';
-@import '~nativescript-theme-core/scss/platforms/index.android';
+@import 'nativescript-theme-core/scss/index';
+@import 'nativescript-theme-core/scss/platforms/index.android';
 
 /* Import common styles */
 @import 'app-common';
@@ -290,8 +278,8 @@ NavigationButton {
 @import 'app-variables';
 
 /* Import the theme’s main ruleset - both index and platform specific. */
-@import '~nativescript-theme-core/scss/index';
-@import '~nativescript-theme-core/scss/platforms/index.ios';
+@import 'nativescript-theme-core/scss/index';
+@import 'nativescript-theme-core/scss/platforms/index.ios';
 
 /* Import common styles */
 @import 'app-common';

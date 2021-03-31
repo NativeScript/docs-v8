@@ -91,6 +91,10 @@ function getSidebar() {
 					text: 'Development Workflow',
 					link: '/development-workflow',
 				},
+				{
+					text: 'Understanding @nativescript',
+					link: '/understanding-packages',
+				},
 			],
 		},
 		{
@@ -113,12 +117,12 @@ function getSidebar() {
 			],
 		},
 		{
-			text: 'Networking & Security',
+			text: 'Networking',
 			children: [
-				{ text: 'Networking', link: '/networking' },
+				{ text: 'Http', link: '/Http' },
 				{
-					text: 'Security (Nathanael)',
-					link: '/security',
+					text: 'Connectivity',
+					link: '/connectivity',
 				},
 			],
 		},
@@ -154,10 +158,6 @@ function getSidebar() {
 				{
 					text: 'Common Issues',
 					link: '/troubleshooting',
-				},
-				{
-					text: 'Common Pitfalls',
-					link: '/common-pitfalls',
 				},
 			],
 		},

@@ -4,24 +4,6 @@ title: Environment Setup
 
 ## Setting up your system
 
-- [USED REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/start/general-requirements.md
-- [REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/start/ns-setup-linux.md
-- [USED REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/start/ns-setup-os-x.md
-- [USED REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/start/ns-setup-win.md
-- [USED REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/start/quick-setup.md
-
----
-
-<!-- TODO: make interactive -->
-
-**Development OS**: macOS, Windows, Linux
-
-**Target OS**: Android, iOS
-
-Content dynamically changes based on the selection above to reduce the page complexity and hide irrelevant details.
-
----
-
 This page will walk through installing everything you need to build your first NativeScript app.
 
 ### Windows + Android
@@ -460,11 +442,7 @@ Talk about how NativeScript can be embedded into existing apps - clear and detai
 
 ## Building for Other Platforms/Devices
 
-### Building for TV devices
-
 ### Building for Smart Watches
-
-- [USED REFERENCE] https://github.com/NativeScript/docs/blob/master/docs/tooling/ios-watch-apps.md
 
 #### iOS WatchOS Applications
 
@@ -527,6 +505,4 @@ To integrate your existing WatchOS application into your NativeScript project, e
 
 10. The application will be deployed and started on your iOS device/simulator. Make sure that the test iPhone is already paired with the testing iWatch. Once the iOS app starts, the Watch app will be automatically deployed on the testing iWatch device.
 
-> **Note:** As of May 2019 the feature is still in _BETA_. Please report all issues, bugs and features related to the WatchOS functionality in [the tracking issue](https://github.com/NativeScript/nativescript-cli/issues/4541#issue-433686622).
-
-### Potentially desktop in the future?
+> **Note:** [See this tracking issue for more](https://github.com/NativeScript/nativescript-cli/issues/4541#issue-433686622).

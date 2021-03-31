@@ -3,7 +3,7 @@ title: Troubleshooting Common Issues
 ---
 
 ```
-nstudio@Teams-MacBook-Pro sample % ns run ios
+sample % ns run ios
 Searching for devices...
 Error: spawn /opt/homebrew/lib/node_modules/nativescript/node_modules/ios-device-lib/bin/darwin/arm64/ios-device-lib ENOENT
     at Process.ChildProcess._handle.onexit (node:internal/child_process:282:19)
