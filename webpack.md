@@ -51,6 +51,10 @@ When running a NativeScript app the following flags have an effect on the webpac
 
 ## Examples of configurations
 
+Here are some common examples of things you may want to do in your `webpack.config.js`.
+
+Note that the config is built using [webpack-chain](https://github.com/neutrinojs/webpack-chain), so the `config` variable in all the examples below are instances of a chainable config. You can find more examples in webpack-chain's documentation as well as read the [source of the base configs](https://github.com/NativeScript/NativeScript/tree/fb2c29106378f21583d890174f1c5a6bca6e6b8a/packages/webpack5/src/configuration) to see how we implemented them.
+
 ### Adding a copy rule
 
 ```js
