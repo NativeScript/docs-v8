@@ -166,10 +166,10 @@ function getSidebar() {
 
 function getPluginsSidebar() {
 	return [
-		{
-			text: 'Developing Plugins',
-			link: '/plugins/developing-plugins',
-		},
+		// {
+		// 	text: 'Developing Plugins',
+		// 	link: '/plugins/developing-plugins',
+		// },
 		{
 			text: 'Official Plugins',
 			children: [
