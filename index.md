@@ -13,7 +13,7 @@ If you are looking for NS7 & NS6 docs, you can still find them here:
 
 ## Prerequisites
 
-The docs have been written with no assumtions of the readers experience, however it does assume knowledge of JavaScript fundamentals. If you are new to JavaScript, we recommend these resources from <abbr title="Mozilla Developer Network">MDN</abbr>:
+The docs have been written with no assumptions of the readers experience, however it does assume knowledge of JavaScript fundamentals. If you are new to JavaScript, we recommend these resources from <abbr title="Mozilla Developer Network">MDN</abbr>:
 
 - [Introduction to JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 - [Re-Introduction to JavaScript to refresh your knowledge](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript)
