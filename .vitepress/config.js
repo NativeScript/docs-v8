@@ -117,6 +117,15 @@ function getSidebar() {
 			],
 		},
 		{
+			text: 'Native API Access',
+			children: [
+				{
+					text: 'Accessing Native Platform APIs',
+					link: '/native-api-access',
+				},
+			],
+		},
+		{
 			text: 'Networking',
 			children: [
 				{ text: 'Http', link: '/Http' },
