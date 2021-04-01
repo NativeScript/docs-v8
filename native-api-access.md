@@ -26,9 +26,9 @@ int batLevel = bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY);
 Now we need to take this and write javascript (typescript in this example) calling the same methods the java sample calls. Below is the working code to achieve the same end result that Java code would provide.
 
 ```ts
-import { Utils } from '@nativescript/core'
+import { Utils, Device } from '@nativescript/core'
 
-if (global.isAndroid) {
+if (global.isAndroid && Device.sdkVersion >= '21') {
   const bm = Utils.android
     .getApplicationContext()
     .getSystemService(android.content.Context.BATTERY_SERVICE)
@@ -38,6 +38,8 @@ if (global.isAndroid) {
 
 ::: warning Note
 The code block is wrapped with `global.isAndroid` so that it is only executed on Android. Otherwise, the app will crash on iOS when it tries to access APIs that are not part of the iOS platform.
+
+Since this code is only for Android API 21+ we have also included a sdk version check so that you can copy and paste this code in your application.
 :::
 
 Now for a short walk through of one way to go about translating Java to javascript.
