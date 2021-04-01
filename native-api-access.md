@@ -70,8 +70,14 @@ float batteryLevel = [[UIDevice currentDevice] batteryLevel];
 Now we convert this to javascript to execute in NativeScript to read the iOS device battery level.
 
 ```ts
-UIDevice.currentDevice.batteryLevel
+if (global.isIOS) {
+  UIDevice.currentDevice.batteryLevel
+}
 ```
+
+::: warning Note
+The code block is wrapped with `global.isIOS` so that it is only executed on Android. Otherwise, the app will crash on Android when it tries to access APIs that are not part of the Android platform.
+:::
 
 Now for a short walk through of one way to go about translating Objective-C to javascript.
 
