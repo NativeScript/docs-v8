@@ -51,11 +51,11 @@ Now for a short walk through of one way to go about translating Java to javascri
 
 3. The `getSystemService(java.lang.String)` method accepts a String. When programming in Android you can use `BATTERY_SERVICE` if the `import android.content.Context` is declared in the .java file. The compiler will know that `BATTERY_SERVICE` is the [static final string declared here](https://developer.android.com/reference/android/content/Context#BATTERY_SERVICE).
 
-   You could also write the `getSystemService("batterymanager")` using the statics constant value: "batterymanager". In your NativeScript code, you could do the same, but if you prefer to use the full namespace path to the static value, you can write it like the example does with `android.content. Context.BATTERY_SERVICE`.
+   You could also write the `getSystemService("batterymanager")` using the statics constant value: "batterymanager". In your NativeScript code, you could do the same, but if you prefer to use the full namespace path to the static value, you can write it like the example does with `android.content.Context.BATTERY_SERVICE`.
 
 4. Now we have an instance of the [Android BatteryManager](https://developer.android.com/reference/android/os/BatteryManager) which is what the [docs state as the return value](https://developer.android.com/reference/android/content/Context#BATTERY_SERVICE) for this system service.
 
-5. The next line we see [`getIntProperty()`](https://developer.android.com/reference/android/os/BatteryManager#getIntProperty method called on the BatteryManager instance we have from the first line.
+5. The next line we see [`getIntProperty() method`](https://developer.android.com/reference/android/os/BatteryManager#getIntProperty) called on the BatteryManager instance we have from the first line.
 
    We see that the method expects an `int id` as the argument and returns an `int`. Now we need to determine what the `BatteryManager.BATTERY_PROPERTY_CAPACITY` value is. You can see that `BatteryManager` is the class and what looks like a static value. Searching the Android BatteryManager docs for `BATTERY_PROPERTY_CAPACITY` you will find the constant value of the static final: `Constant Value: 4 (0x00000004)`.
 
