@@ -35,7 +35,7 @@ import { knownFolders } from '@nativescript/core'
 
 // let's first create a File object
 const appPath = knownFolders.currentApp().path
-const logoPath = appPath + '/res/telerik-logo.png'
+const logoPath = appPath + '/res/nativescript-logo.png'
 
 email
   .compose({
@@ -52,7 +52,7 @@ email
         mimeType: 'image/png'
       },
       {
-        fileName: 'telerik-logo.png',
+        fileName: 'nativescript-logo.png',
         path: logoPath,
         mimeType: 'image/png'
       }

@@ -21,9 +21,9 @@ You can publish a NativeScript app in _Google Play_ the same way [you would rele
 
     > Note: At the end of `<path-to-your-keystore>` you should also add the exact name of your keystore.
 
-> Example(Windows): `ns build android --release --key-store-path C:\keystore\Telerik.keystore --key-store-password sample_password --key-store-alias Telerik --key-store-alias-password sample_password` .
+> Example(Windows): `ns build android --release --key-store-path C:\keystore\NativeScriptApp.keystore --key-store-password sample_password --key-store-alias NativeScriptApp --key-store-alias-password sample_password` .
 
-> Example(Mac): `ns build android --release --key-store-path ~/Desktop/keystore/Telerik.keystore --key-store-password sample_password --key-store-alias Telerik --key-store-alias-password sample_password` .
+> Example(Mac): `ns build android --release --key-store-path ~/Desktop/keystore/NativeScriptApp.keystore --key-store-password sample_password --key-store-alias NativeScriptApp --key-store-alias-password sample_password` .
 
 4.  Obtain the release `.apk` located at `<app_name>/platforms/android/app/build/outputs/apk/<app_name>-release.apk`.
 5.  Publish your Android app by uploading the `.apk` file to the Google Developer Console. For more information, see [How to publish an Android app?](http://developer.android.com/distribute/googleplay/start.html)
