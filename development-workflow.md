@@ -697,7 +697,7 @@ The installation of a NativeScript plugin mimics the installation of an npm pack
 
 #### Installing Plugins as Developer Dependencies
 
-As shown above the command `ns plugin add @nativescript/camera` is actually doing **npm i PLUGIN_NAME --save** behind the scenes. If you need to install a **developer dependency** in your project (e.g., like **@nativescript/types** or **@nativescript/webpack**) then you will need to explicitly save it as a **devDependency**. To achieve that, use the **npm install** command with **--save-dev** flag. For example:
+As shown above the command `ns plugin add @nativescript/camera` is actually doing `npm i @nativescript/camera --save` behind the scenes. If you need to install a **developer dependency** in your project (e.g., like **@nativescript/types** or **@nativescript/webpack**) then you will need to explicitly save it as a **devDependency**. To achieve that, use the `npm install` command with `--save-dev` flag. For example:
 
 ```cli
 npm i @nativescript/types --save-dev
