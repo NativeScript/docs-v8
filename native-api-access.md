@@ -4,26 +4,26 @@ title: Accessing Native Platform APIs
 
 ## Introduction
 
-The most important feature of NativeScript is the ability to access native platform APIs directly from javascript. NativeScript was built with this as the single goal and it is still the driving force of NativeScript.
+The most important feature of NativeScript is the ability to access native platform APIs directly from JavaScript.
 
 ::: tip Note
 When trying to figure out how to execute some native Android or iOS code in your NativeScript app, you can search the Android & iOS documentation, StackOverflow or other resources.
 
-The key is knowing how to call those APIs from javascript instead of writing the code in Java, Objective-C, Kotlin, or Swift.
+The key is knowing how to call those APIs from JavaScript instead of writing the code in Java, Objective-C, Kotlin, or Swift.
 
-The core of NativeScript is all written in TypeScript and you can view the [source on Github](https://github.com/NativeScript/NativeScript/tree/master/packages/core) to see many examples of calling native APIs.
+The core of NativeScript is all written in TypeScript and you can view the [source on Github](https://github.com/NativeScript/NativeScript/tree/master/packages/core) for many examples of calling native platform APIs.
 :::
 
 ## Android Walk-Through
 
-The Java code below will get the Android device battery level. This example is only for Android API 21+. To get the battery level prior to Android 21 a different approach was necessary. The purpose of this example is to explain walking through an approach of converting Java to javascript.
+The Java code below will get the Android device battery level. This example is only for Android API 21+. To get the battery level prior to Android 21 a different approach was necessary. The purpose of this example is to explain walking through an approach of converting Java to JavaScript.
 
 ```java
 BatteryManager bm = (BatteryManager) context.getSystemService(BATTERY_SERVICE);
 int batLevel = bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY);
 ```
 
-Now we need to take this and write javascript (typescript in this example) calling the same methods the java sample calls. Below is the working code to achieve the same end result that Java code would provide.
+Now we need to take this and write JavaScript (TypeScript in this example) calling the same methods the java sample calls. Below is the working code to achieve the same end result that Java code would provide.
 
 ```ts
 import { Utils, Device } from '@nativescript/core'
@@ -42,7 +42,7 @@ The code block is wrapped with `global.isAndroid` so that it is only executed on
 Since this code is only for Android API 21+ we have also included a sdk version check so that you can copy and paste this code in your application.
 :::
 
-Now for a short walk through of one way to go about translating Java to javascript.
+Now for a short walk through of one way to go about translating Java to JavaScript.
 
 1. JavaScript uses `const, let, var` to declare variables. So we can not use the types to declare what variable in this way. Using TypeScript you can assign a variable a native type using the `@nativescript/types` developer dependency.
 2. Next we see the method `getSystemService(BATTERY_SERVICE)` is being executed. We can search the Android docs for this method. The [getSystemService method is documented here](https://developer.android.com/reference/android/content/Context#getSystemService).
@@ -63,13 +63,13 @@ Now for a short walk through of one way to go about translating Java to javascri
 
 ## iOS Walk-Through
 
-Here is the ObjectiveC code to get the current battery level of the iOS device.
+Here is the Objective-C code to get the current battery level of the iOS device.
 
 ```objc
 float batteryLevel = [[UIDevice currentDevice] batteryLevel];
 ```
 
-Now we convert this to javascript to execute in NativeScript to read the iOS device battery level.
+Now we convert this to JavaScript to execute in NativeScript to read the iOS device battery level.
 
 ```ts
 if (global.isIOS) {
@@ -81,17 +81,17 @@ if (global.isIOS) {
 The code block is wrapped with `global.isIOS` so that it is only executed on Android. Otherwise, the app will crash on Android when it tries to access APIs that are not part of the Android platform.
 :::
 
-Now for a short walk through of one way to go about translating Objective-C to javascript.
+Now for a short walk through of one way to go about translating Objective-C to JavaScript.
 
 1. In the Objective-C code we see `UIDevice`, so you can search for `UIDevice` on the [iOS Documentation](https://developer.apple.com/documentation/uikit/uidevice).
 
 2. Next we see `currentDevice` property being accessed. In the iOS documentation for `UIDevice` you will find the [`currentDevice property`](https://developer.apple.com/documentation/uikit/uidevice/1620014-currentdevice?language=objc) of the `UIDevice` class.
 
 ::: tip Note
-In NativeScript iOS code, the translating of Objective-C to javascript is not always 1:1, this is where using intellisense and the `@nativescript/types` package during development will help complete the native API calls where they may slightly differ.
+In NativeScript iOS code, the translating of Objective-C to JavaScript is not always 1:1, this is where using intellisense and the `@nativescript/types` package during development will help complete the native API calls where they may slightly differ.
 :::
 
-3. Last, the Objective-C code is accessing [`batteryLevel`](https://developer.apple.com/documentation/uikit/uidevice/1620042-batterylevel?language=objc) to get the value. So we can do the same direct call in our javascript code to read the battery level of the iOS device.
+3. Last, the Objective-C code is accessing [`batteryLevel`](https://developer.apple.com/documentation/uikit/uidevice/1620042-batterylevel?language=objc) to get the value. So we can do the same direct call in our JavaScript code to read the battery level of the iOS device.
 
 <!-- ## Android Examples
 
