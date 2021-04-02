@@ -114,7 +114,7 @@ android.app.Application.extend('org.myApp.Application', {
 <application
         android:name="org.myApp.Application"
         android:allowBackup="true"
-        android:icon="@drawable/icon"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
 ```
@@ -123,18 +123,31 @@ android.app.Application.extend('org.myApp.Application', {
 This modification is required by the native platform; it tells Android that your custom Application class will be used as the main entry point of the application.
 :::
 
-4. In order to build the app, the extended Android application should be added as an entry to the webpack.config.js file.
+4. In order to build the app, the extended Android application should be added to the webpack.config.js file.
 
 ```js
-entry: {
-        bundle: entryPath,
-        application: "./application.android",
-    },
+const webpack = require('@nativescript/webpack')
+
+module.exports = env => {
+  webpack.init(env)
+
+  webpack.chainWebpack(config => {
+    if (webpack.Utils.platform.getPlatformName() === 'android') {
+      // make sure the path to the applicatioon.android.(js|ts)
+      // is relative to the webpack.config.js
+      // you may need to use `./app/application.android if
+      // your app source is located inside the ./app folder.
+      config.entry('application').add('./src/application.android')
+    }
+  })
+
+  return webpack.resolveConfig()
+}
 ```
 
-The source code of application.android.ts is bundled separately as application.js file which is loaded from the native Application.java class on launch.
+The source code of `application.android.ts` is bundled separately as `application.js` file which is loaded from the native Application.java class on launch.
 
-The bundle.js and vendor.js files are not loaded early enough in the application launch. That's why the logic in application.android.ts is needed to be bundled separately in order to be loaded as early as needed in the application lifecycle.
+The `bundle.js` and `vendor.js` files are not loaded early enough in the application launch. That's why the logic in `application.android.ts` is needed to be bundled separately in order to be loaded as early as needed in the application lifecycle.
 
 ::: warning Note
 This approach will not work if aplication.android.ts requires external modules.
@@ -142,15 +155,15 @@ This approach will not work if aplication.android.ts requires external modules.
 
 ### Extending Android Activity
 
-The core modules ship with a default `androidx.appcompat.app.AppCompatActivity` implementation, which ensures they alone are sufficient to bootstrap an empty NativeScript application, without forcing users to declare their custom Activity in every project. When needed, however, users may still specify custom Activity implementation and use it to bootstrap the application. The following code demonstrates how this can be done:
+NativeScript Core ships with a default `androidx.appcompat.app.AppCompatActivity` implementation, that bootstraps the NativeScript application, without forcing users to declare their custom Activity in every project. In some cases you may need to implement a custom Android Activity. In this section we'll look at how to do that!
 
-1. Create a new TypeScript file in your app folder - name it `activity.android.ts` or `activity.android.js` if you are using plain JS.
+Create a new `activity.android.ts` or `activity.android.js` when using plain JS.
 
 ::: tip Note
-Note the \*.android suffix - we want this file packaged for Android only.
+Note the `.android.(js|ts)` suffix - we only want this file on Android.
 :::
 
-2. Copy the following code for the TypeScript file:
+A basic Activity looks as follows:
 
 ```ts
 import {
@@ -228,8 +241,6 @@ class Activity extends androidx.appcompat.app.AppCompatActivity {
 }
 ```
 
-Copy the following code for the JavaScript file:
-
 ```js
 import { Frame, Application, setActivityCallbacks } from '@nativescript/core'
 
@@ -303,27 +314,30 @@ androidx.appcompat.app.AppCompatActivity.extend('org.myApp.MainActivity', {
 })
 ```
 
-::: tip Note
-Notice the `this._callbacks` property. It is automatically assigned to your extended class by the frame.setActivityCallbacks method. It implements the [AndroidActivityCallbacks interface](https://docs.nativescript.org/core-concepts/application-lifecycle#android-activity-events) and allows the core modules to get notified for important Activity events. It is mandatory to call back to the modules through this interface, to ensure their proper initialization.
+:::warning Note
+The `this._callbacks` property is automatically assigned to your extended class by the `frame.setActivityCallbacks` method. It implements the [AndroidActivityCallbacks interface](https://docs.nativescript.org/core-concepts/application-lifecycle#android-activity-events) and allows the core modules to get notified for important Activity events. It is **important** to use these callbacks, as many parts of NativeScript rely on them!
 :::
 
-3. Modify the activity entry within the AndroidManifest.xml file found in the `<application-name>app/App_Resources/Android/` folder:
+Next, modify the activity in `App_Resources/Android/src/main/AndroidManifest.xml`
 
 ```xml
 <activity
-        android:name="org.myApp.MainActivity"
-        android:label="@string/title_activity_kimera"
-        android:configChanges="keyboardHidden|orientation|screenSize">
+  android:name="org.myApp.MainActivity"
+  android:label="@string/title_activity_kimera"
+  android:configChanges="keyboardHidden|orientation|screenSize">
 ```
 
-4. In order to build the app, the absolute path to the file where the Android activity is extended should be added to the appComponents array in the `webpack.config.js` file for your app.
+To include the new Activity in the build, it has to be added to the webpack compilation by editing the `webpack.config.js`:
 
 ```js
-const appComponents = [
-  '@nativescript/core/ui/frame',
-  '@nativescript/core/ui/frame/activity',
-  resolve(__dirname, 'app/activity.android')
-]
+const webpack = require('@nativescript/webpack')
+
+module.exports = env => {
+  env.appComponents = (env.appComponents || []).concat(['./src/activity.android'])
+  webpack.init(env)
+
+  return webpack.resolveConfig()
+}
 ```
 
 ## Adding ObjectiveC/Swift Code
