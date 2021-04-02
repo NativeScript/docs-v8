@@ -24,10 +24,10 @@ module.exports = {
 		editLinkText: 'Edit this page on GitHub',
 		lastUpdated: 'Last Updated',
 
-		//   algolia: {
-		//     apiKey: 'xxx',
-		//     indexName: 'xxx'
-		//   },
+		algolia: {
+			apiKey: '8d41b4ae92a02aea355e1dc8cfad1899',
+			indexName: 'nativescript',
+		},
 
 		nav: [
 			{
