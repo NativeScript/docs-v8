@@ -117,15 +117,6 @@ function getSidebar() {
 			],
 		},
 		{
-			text: 'Native API Access',
-			children: [
-				{
-					text: 'Accessing Native Platform APIs',
-					link: '/native-api-access',
-				},
-			],
-		},
-		{
 			text: 'Networking',
 			children: [
 				{ text: 'Http', link: '/Http' },
@@ -142,6 +133,15 @@ function getSidebar() {
 		{
 			text: 'Scalability',
 			children: [{ text: 'Code Sharing', link: '/code-sharing/index' }],
+		},
+		{
+			text: 'Native API Access',
+			children: [
+				{
+					text: 'How to access and use',
+					link: '/native-api-access',
+				},
+			],
 		},
 		{
 			text: 'Advanced Concepts',
