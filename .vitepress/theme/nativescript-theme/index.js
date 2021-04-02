@@ -6505,8 +6505,8 @@ var script$9 = defineComponent({
 			mobileMenuOpen: mobileMenuOpen,
 			flyoutMenuOpen: flyoutMenuOpen,
 			algoliaOptions: {
-				apiKey: 'your_api_key',
-				indexName: 'index_name',
+				apiKey: '8d41b4ae92a02aea355e1dc8cfad1899',
+				indexName: 'nativescript',
 				debug: true,
 			},
 			openSearch: openSearch,
