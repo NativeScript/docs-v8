@@ -20,6 +20,8 @@ module.exports = {
 		docsDir: '.',
 		logo: '/assets/images/NativeScript_Logo_Wide_White_Blue_Rounded_Blue.png',
 
+		mainURL: 'https://nativescript.org',
+
 		editLinks: true,
 		editLinkText: 'Edit this page on GitHub',
 		lastUpdated: 'Last Updated',
