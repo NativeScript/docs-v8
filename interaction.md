@@ -461,7 +461,9 @@ A pseudo selector is used to define a special state of an element. For example, 
 
 ### Animations - width and height
 
-**Example 14: How to animate view's width and height.** {% nativescript %}
+**Example 14: How to animate view's width and height.**
+
+/// flavor plain
 
 ```xml
 <GridLayout rows="* *" columns="*" class="home-panel">
@@ -506,7 +508,11 @@ A pseudo selector is used to define a special state of an element. For example, 
 }
 ```
 
-[Demo](https://play.nativescript.org/?template=play-js&id=xe3lMf) {% endnativescript %} {% angular %}
+[Demo](https://play.nativescript.org/?template=play-js&id=xe3lMf)
+
+///
+
+/// flavor angular
 
 ```html
 <GridLayout rows="* *" columns="*" class="home-panel">
@@ -551,7 +557,9 @@ A pseudo selector is used to define a special state of an element. For example, 
 }
 ```
 
-[Demo](https://play.nativescript.org/?template=play-ng&id=NMM4I5) {% endangular %}
+[Demo](https://play.nativescript.org/?template=play-ng&id=NMM4I5)
+
+///
 
 ### Access CSS animations from code
 
@@ -576,22 +584,24 @@ All keyframes defined in CSS can be accessed with code by using the **getKeyfram
 ```js
 import { KeyframeAnimation } from '@nativescript/core'
 
-var view = page.getViewById('view')
-var animationInfo = page.getKeyframeAnimationWithName('bounce')
+const view = page.getViewById('view')
+const animationInfo = page.getKeyframeAnimationWithName('bounce')
 animationInfo.duration = 2000
-var animation = KeyframeAnimation.keyframeAnimationFromInfo(animationInfo)
+
+const animation = KeyframeAnimation.keyframeAnimationFromInfo(animationInfo)
 animation.play(view).then(() => {
   console.log('Played with code!')
 })
 ```
 
-```typescript
+```ts
 import { KeyframeAnimation, View } from '@nativescript/core'
 
-let view = page.getViewById<View>('view')
-let animationInfo = page.getKeyframeAnimationWithName('bounce')
+const view = page.getViewById('view') as View
+const animationInfo = page.getKeyframeAnimationWithName('bounce')
 animationInfo.duration = 2000
-let animation = KeyframeAnimation.keyframeAnimationFromInfo(animationInfo)
+
+const animation = KeyframeAnimation.keyframeAnimationFromInfo(animationInfo)
 animation.play(view).then(() => {
   console.log('Played with code!')
 })
@@ -624,7 +634,7 @@ view.backgroundColor = new Color('red')
 view.animate({ backgroundColor: new Color('green'), duration: 2000 })
 ```
 
-```typescript
+```ts
 // Import color module
 import { Color } from '@nativescript/core'
 
@@ -711,6 +721,7 @@ In NativeScript, the animation curve is represented by the AnimationCurve enumer
 
 ```js
 import { Enums } from '@nativescript/core'
+
 view.animate({
   translate: { x: 0, y: 100 },
   duration: 1000,
@@ -718,8 +729,9 @@ view.animate({
 })
 ```
 
-```typescript
+```ts
 import { Enums } from '@nativescript/core'
+
 view.animate({
   translate: { x: 0, y: 100 },
   duration: 1000,
@@ -766,6 +778,7 @@ view.animate({
 
 ```typescript
 import { Enums } from '@nativescript/core'
+
 view.animate({
   translate: { x: 0, y: 100 },
   duration: 1000,
@@ -835,7 +848,7 @@ view.animate({
 })
 ```
 
-```typescript
+```ts
 view.animate({
   opacity: 0,
   duration: 3000
@@ -864,15 +877,19 @@ view.animate({
 ![background-color](/assets/images/modules/animation/background-color.gif 'Background Color')
 
 ```js
+import { Color } from '@nativescript/core'
+
 view.animate({
-  backgroundColor: new colorModule.Color('#3D5AFE'),
+  backgroundColor: new Color('#3D5AFE'),
   duration: 3000
 })
 ```
 
-```typescript
+```ts
+import { Color } from '@nativescript/core'
+
 view.animate({
-  backgroundColor: new colorModule.Color('#3D5AFE'),
+  backgroundColor: new Color('#3D5AFE'),
   duration: 3000
 })
 ```
@@ -905,7 +922,7 @@ view.animate({
 })
 ```
 
-```typescript
+```ts
 view.animate({
   translate: { x: 100, y: 100 },
   duration: 3000
@@ -940,7 +957,7 @@ view.animate({
 })
 ```
 
-```typescript
+```ts
 view.animate({
   scale: { x: 2, y: 2 },
   duration: 3000
@@ -975,7 +992,7 @@ view.animate({
 })
 ```
 
-```typescript
+```ts
 view.animate({
   rotate: 360,
   duration: 3000
@@ -1004,31 +1021,36 @@ view.animate({
 ![chaining-with-animation-set](/assets/images/modules/animation/chaining-with-animation-set.gif 'Chaining with Animation Set')
 
 ```js
-var definitions = new Array()
+import { Animation } from '@nativescript/core'
+
+const definitions = new Array()
 definitions.push({ target: view1, translate: { x: 200, y: 0 }, duration: 3000 })
 definitions.push({ target: view2, translate: { x: 0, y: 200 }, duration: 3000 })
 definitions.push({ target: view3, translate: { x: -200, y: 0 }, duration: 3000 })
 definitions.push({ target: view4, translate: { x: 0, y: -200 }, duration: 3000 })
-var playSequentially = true
-var animationSet = new animationModule.Animation(definitions, playSequentially)
+
+const playSequentially = true
+const animationSet = new Animation(definitions, playSequentially)
 animationSet
   .play()
-  .then(function () {
+  .then(() => {
     console.log('Animation finished')
   })
-  .catch(function (e) {
+  .catch(e => {
     console.log(e.message)
   })
 ```
 
-```typescript
-var definitions = new Array<animationModule.AnimationDefinition>()
+```ts
+import { Animation, AnimationDefinition } from '@nativescript/core'
+
+const definitions = new Array<AnimationDefinition>()
 definitions.push({ target: view1, translate: { x: 200, y: 0 }, duration: 3000 })
 definitions.push({ target: view2, translate: { x: 0, y: 200 }, duration: 3000 })
 definitions.push({ target: view3, translate: { x: -200, y: 0 }, duration: 3000 })
 definitions.push({ target: view4, translate: { x: 0, y: -200 }, duration: 3000 })
-var playSequentially = true
-var animationSet = new animationModule.Animation(definitions, playSequentially)
+const playSequentially = true
+const animationSet = new Animation(definitions, playSequentially)
 animationSet
   .play()
   .then(() => {
@@ -1044,73 +1066,81 @@ animationSet
 ![multiple-views](/assets/images/modules/animation/multiple-views.gif 'Multiple Views')
 
 ```js
-var definitions = new Array()
-var a1 = {
+import { Animation } from '@nativescript/core'
+
+const definitions = new Array()
+const a1 = {
   target: view1,
   translate: { x: 200, y: 0 },
   duration: 3000
 }
 definitions.push(a1)
-var a2 = {
+
+const a2 = {
   target: view2,
   translate: { x: 0, y: 200 },
   duration: 3000
 }
 definitions.push(a2)
-var a3 = {
+
+const a3 = {
   target: view3,
   translate: { x: -200, y: 0 },
   duration: 3000
 }
 definitions.push(a3)
-var a4 = {
+
+const a4 = {
   target: view4,
   translate: { x: 0, y: -200 },
   duration: 3000
 }
 definitions.push(a4)
-var animationSet = new animationModule.Animation(definitions)
+
+const animationSet = new Animation(definitions)
 animationSet
   .play()
-  .then(function () {
+  .then(() => {
     console.log('Animation finished')
   })
-  .catch(function (e) {
+  .catch(e => {
     console.log(e.message)
   })
 ```
 
-```typescript
-var definitions = new Array<animationModule.AnimationDefinition>()
-var a1: animationModule.AnimationDefinition = {
+```ts
+import { AnimationDefinition } from '@nativescript/core'
+
+const definitions = new Array<AnimationDefinition>()
+const a1: AnimationDefinition = {
   target: view1,
   translate: { x: 200, y: 0 },
   duration: 3000
 }
 definitions.push(a1)
 
-var a2: animationModule.AnimationDefinition = {
+const a2: AnimationDefinition = {
   target: view2,
   translate: { x: 0, y: 200 },
   duration: 3000
 }
 definitions.push(a2)
 
-var a3: animationModule.AnimationDefinition = {
+const a3: AnimationDefinition = {
   target: view3,
   translate: { x: -200, y: 0 },
   duration: 3000
 }
 definitions.push(a3)
 
-var a4: animationModule.AnimationDefinition = {
+const a4: AnimationDefinition = {
   target: view4,
   translate: { x: 0, y: -200 },
   duration: 3000
 }
 definitions.push(a4)
 
-var animationSet = new animationModule.Animation(definitions)
+const animationSet = new Animation(definitions)
 
 animationSet
   .play()
@@ -1129,36 +1159,36 @@ animationSet
 ![reusing](/assets/images/modules/animation/reusing.gif 'Reusing Animations')
 
 ```js
-var animation1 = view.createAnimation({ opacity: 0 })
-var animation2 = view.createAnimation({ opacity: 1 })
+const animation1 = view.createAnimation({ opacity: 0 })
+const animation2 = view.createAnimation({ opacity: 1 })
 animation1
   .play()
-  .then(function () {
+  .then(() => {
     return animation2.play()
   })
-  .then(function () {
+  .then(() => {
     return animation1.play()
   })
-  .then(function () {
+  .then(() => {
     return animation2.play()
   })
-  .then(function () {
+  .then(() => {
     return animation1.play()
   })
-  .then(function () {
+  .then(() => {
     return animation2.play()
   })
-  .then(function () {
+  .then(() => {
     console.log('Animation finished')
   })
-  .catch(function (e) {
+  .catch(e => {
     console.log(e.message)
   })
 ```
 
-```typescript
-var animation1 = view.createAnimation({ opacity: 0 })
-var animation2 = view.createAnimation({ opacity: 1 })
+```ts
+const animation1 = view.createAnimation({ opacity: 0 })
+const animation2 = view.createAnimation({ opacity: 1 })
 
 animation1
   .play()
@@ -1180,29 +1210,36 @@ animation1
 ![slide-in-effect](/assets/images/modules/animation/slide-in-effect.gif 'Slide-in Effect')
 
 ```js
-var item = new imageModule.Image()
+const item = new imageModule.Image()
 item.src = '~/res/icon_100x100.png'
 item.width = 90
 item.height = 90
 item.style.margin = '5,5,5,5'
 item.translateX = -300
 item.opacity = 0
-item.on('loaded', function (args) {
-  args.object.animate({ translate: { x: 0, y: 0 }, opacity: 1 })
+item.on('loaded', args => {
+  args.object.animate({
+    translate: { x: 0, y: 0 },
+    opacity: 1
+  })
 })
 wrapLayout.addChild(item)
 ```
 
-```typescript
-var item = new imageModule.Image()
+```ts
+import { EventData, View } from '@nativescript/core'
+const item = new imageModule.Image()
 item.src = '~/res/icon_100x100.png'
 item.width = 90
 item.height = 90
 item.style.margin = '5,5,5,5'
 item.translateX = -300
 item.opacity = 0
-item.on('loaded', (args: observable.EventData) => {
-  ;(<viewModule.View>args.object).animate({ translate: { x: 0, y: 0 }, opacity: 1 })
+item.on('loaded', (args: EventData) => {
+  ;(args.object as View).animate({
+    translate: { x: 0, y: 0 },
+    opacity: 1
+  })
 })
 wrapLayout.addChild(item)
 ```
@@ -1229,7 +1266,7 @@ animationSet.play().catch(function (e) {
 // Call animationSet.cancel() to stop it;
 ```
 
-```typescript
+```ts
 animationSet = new animationModule.Animation([
   {
     target: view,
@@ -1275,7 +1312,7 @@ view
   })
 ```
 
-```typescript
+```ts
 const view = page.getViewById('myView')
 
 view.originX = 1 // default 0.5 (center), 0 is most left, 1 is most right
@@ -1299,13 +1336,13 @@ view
 
 ### Animation - View's Width and Height
 
-{% nativescript %}
+/// flavor plain
 
 ### Width
 
 ```js
-let label = page.getViewById('lblNS')
-let animation = new Animation([
+const label = page.getViewById('lblNS')
+const animation = new Animation([
   {
     width: 200,
     duration: 2000,
@@ -1316,9 +1353,9 @@ let animation = new Animation([
 animation.play()
 ```
 
-```typescript
-let label: Label = <Label>page.getViewById('lblNS')
-let animation = new Animation([
+```ts
+const label: Label = page.getViewById('lblNS')
+const animation = new Animation([
   {
     width: 200,
     duration: 2000,
@@ -1332,8 +1369,8 @@ animation.play()
 ### Height
 
 ```js
-let label = page.getViewById('lblNS')
-let animation = new Animation([
+const label = page.getViewById('lblNS')
+const animation = new Animation([
   {
     height: 200,
     duration: 2000,
@@ -1344,9 +1381,9 @@ let animation = new Animation([
 animation.play()
 ```
 
-```typescript
-let label: Label = <Label>page.getViewById('lblNS')
-let animation = new Animation([
+```ts
+const label: Label = page.getViewById('lblNS')
+const animation = new Animation([
   {
     height: 200,
     duration: 2000,
@@ -1357,7 +1394,11 @@ let animation = new Animation([
 animation.play()
 ```
 
-[Demo JavaScript](https://play.nativescript.org/?template=play-js&id=mOZv68) [Demo TypeScript](https://play.nativescript.org/?template=play-tsc&id=ckdYDS) {% endnativescript %} {% angular %}
+[Demo JavaScript](https://play.nativescript.org/?template=play-js&id=mOZv68) [Demo TypeScript](https://play.nativescript.org/?template=play-tsc&id=ckdYDS)
+
+///
+
+/// flavor angular
 
 ### Width
 
