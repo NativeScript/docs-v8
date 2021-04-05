@@ -139,6 +139,28 @@ module.exports = env => {
 }
 ```
 
+### Adding Externals
+
+```js
+const webpack = require('@nativescript/webpack')
+
+module.exports = env => {
+  webpack.init(env)
+
+  webpack.chainWebpack(config => {
+    config.externals(
+      // make sure to keep pre-defined externals
+      config.get('externals').concat([
+        // add your own externals
+        'some-external-dependency'
+      ])
+    )
+  })
+
+  return webpack.resolveConfig()
+}
+```
+
 ### Changing an existing rule
 
 To change an existing rule, it's useful to know how it has been set up first:
@@ -256,7 +278,9 @@ module.exports = env => {
   webpack.chainWebpack(config => {
     config.set(
       'ignoreWarnings',
-      (config.get('ignoreWarnings') || []).concat([/a regex that matches the warning/])
+      (config.get('ignoreWarnings') || []).concat([
+        /a regex that matches the warning to suppress/
+      ])
     )
   })
 
