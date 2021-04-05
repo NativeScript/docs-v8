@@ -37,7 +37,18 @@ ns create myCoolApp --template <template-package-name>
 ```
 
 :::tip
-If you want to skip the interactive prompts, you can pass `--angular` (or `--ng` for short) `--vue` `--vue --ts` `--react` `--ts` `--js` or `--svelte` to create the app with the default template for the specified flavor.
+If you want to skip the interactive prompts, you can pass:
+
+```cli
+ns create myCoolApp --angular // or --ng for short
+ns create myCoolApp --vue
+ns create myCoolApp --vue --ts // for vue with typescript
+ns create myCoolApp --react
+ns create myCoolApp --js
+ns create myCoolApp --svelte
+```
+
+...to create the app with the default template for the specified flavor.
 :::
 
 Here are some of the default templates you may want to try:
