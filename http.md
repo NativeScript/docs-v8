@@ -10,6 +10,8 @@ The import for the Http module.
 import { Http } from '@nativescript/core'
 ```
 
+### getString
+
 The `getString` method allows us to make a request and get the response body as a string value.
 
 ```typescript
@@ -22,6 +24,8 @@ Http.getString('https://httpbin.org/get').then(
   e => {}
 )
 ```
+
+### getJSON
 
 The `getJSON` method gives us a simple way to get the response body as a JSON object.
 
@@ -36,10 +40,49 @@ Http.getJSON('https://httpbin.org/get').then(
 )
 ```
 
-The `getImage` method allows us to get an image from a specific URL. The returned object will be ImageSource and it could be used for direct displaying the source into Image view in your UI.
+### getFile
+
+The `getFile` method allows us to download a file.
 
 ```typescript
 import { Http } from '@nativescript/core'
+
+Http.getFile('https://d1lfyz5kwt8vu9.cloudfront.net/nativescript-logo-2021.png').then(
+  resultFile => {
+    // The returned result will be File object
+  },
+  e => {}
+)
+```
+
+::: warning Note
+By default the file will be saved in Documents folder.
+:::
+
+In the `getFile` method we could also specify the path, where the file to be saved. This scenario is demonstrated in the example below, where the image file will be kept in the current application folder.
+
+```typescript
+import { File, Http, knownFolders, path } from '@nativescript/core'
+
+const filePath: string = path.join(knownFolders.currentApp().path, 'test.png')
+
+Http.getFile(
+  'https://httpbin.org/image/png?testQuery=query&anotherParam=param',
+  filePath
+).then(
+  (resultFile: File) => {
+    // The returned result will be File object
+  },
+  e => {}
+)
+```
+
+### getImage
+
+The `getImage` method allows us to get an image from a specific URL. The returned object will be ImageSource and it could be used for direct displaying the source into Image view in your UI.
+
+```typescript
+import { Http, ImageSource } from '@nativescript/core'
 
 Http.getImage('https://httpbin.org/image/jpeg').then(
   (r: ImageSource) => {
@@ -49,10 +92,12 @@ Http.getImage('https://httpbin.org/image/jpeg').then(
 )
 ```
 
+### request
+
 This example `request` method demonstrates how we can access the response headers, content, and statusCode.
 
 ```typescript
-import { Http } from '@nativescript/core'
+import { Http, HttpResponse } from '@nativescript/core'
 
 Http.request({
   url: 'https://httpbin.org/get',
@@ -71,7 +116,7 @@ Http.request({
 This example demonstrates, how to get the request-response content and how to represent the received data as a `String` value or `JSON` object. We could also use `toImage` method when we download an image.
 
 ```typescript
-import { Http } from '@nativescript/core'
+import { Http, HttpResponse } from '@nativescript/core'
 
 Http.request({
   url: 'https://httpbin.org/get',
@@ -94,47 +139,12 @@ Http.request({
 )
 ```
 
-This example demonstrates how to download a file while using `getFile` method.
-
-```typescript
-import { Http } from '@nativescript/core'
-
-Http.getFile('https://d1lfyz5kwt8vu9.cloudfront.net/nativescript-logo-2021.png').then(
-  resultFile => {
-    // The returned result will be File object
-  },
-  e => {}
-)
-```
-
-::: warning Note
-By default the file will be saved in Documents folder.
-:::
-
-In the `getFile` method we could also specify the path, where the file to be saved. This scenario is demonstrated in the example below, where the image file will be kept in the current application folder.
-
-```typescript
-import { Http, knownFolders, path } from '@nativescript/core'
-
-const filePath: string = path.join(knownFolders.currentApp().path, 'test.png')
-
-Http.getFile(
-  'https://httpbin.org/image/png?testQuery=query&anotherParam=param',
-  filePath
-).then(
-  (resultFile: File) => {
-    // The returned result will be File object
-  },
-  e => {}
-)
-```
-
-#### Http Post
+#### Post
 
 The example demonstrates, how to make Http POST request and how to get request response.
 
 ```typescript
-import { Http } from "@nativescript/core";
+import { Http, HttpResponse } from "@nativescript/core";
 
 Http.request({
   url: "https://httpbin.org/post",
@@ -145,7 +155,7 @@ Http.request({
     password: "someEncryptedPasswordValue",
   }),
 }).then(
-  (response) => {
+  (response: HttpResponse) => {
     const result = response.content.toJSON();
     console.log(`Http POST Result: ${result}`)
   },
