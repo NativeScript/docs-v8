@@ -255,10 +255,9 @@ module.exports = env => {
 
   webpack.chainWebpack(config => {
     config.set(
-		'ignoreWarnings',
-		(config.get('ignoreWarnings') || []).concat([
-      /a regex that matches the warning/
-    ])
+      'ignoreWarnings',
+      (config.get('ignoreWarnings') || []).concat([/a regex that matches the warning/])
+    )
   })
 
   return webpack.resolveConfig()
