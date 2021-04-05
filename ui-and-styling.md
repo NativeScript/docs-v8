@@ -1066,7 +1066,7 @@ export default {
 
 `<Button>` is a UI component that displays a button which reacts to a user gesture.
 
-For more information about the available gestures, see [Gestures in the official NativeScript documentation](https://docs.nativescript.org/ui/gestures).
+For more information about the available gestures, see [Gestures in the documentation](/interaction.html#gestures).
 
 ---
 
