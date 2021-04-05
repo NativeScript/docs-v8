@@ -1336,9 +1336,9 @@ view
 
 ### Animation - View's Width and Height
 
-/// flavor plain
-
 ### Width
+
+/// flavor plain
 
 ```js
 const label = page.getViewById('lblNS')
@@ -1395,12 +1395,9 @@ animation.play()
 ```
 
 [Demo JavaScript](https://play.nativescript.org/?template=play-js&id=mOZv68) [Demo TypeScript](https://play.nativescript.org/?template=play-tsc&id=ckdYDS)
-
 ///
 
 /// flavor angular
-
-### Width
 
 ```typescript
 @ViewChild("lblNS", { read: ElementRef, static: false }) labelRef: ElementRef;
@@ -1421,6 +1418,8 @@ let animation = new Animation([
 ]);
 animation.play();
 ```
+
+///
 
 ### Height
 
@@ -1897,6 +1896,7 @@ onPinch(args: PinchGestureEventData) {
 ```
 
 ///
+
 Possible implementation: Zoom into content or out of content.
 
 ### Rotation

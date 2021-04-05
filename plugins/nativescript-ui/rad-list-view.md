@@ -72,7 +72,7 @@ Additionally, the value of the `multipleSelection` property determines which sel
 
 #### Enabling multiple selection on RadListView in XML
 
-<snippet id='listview-multiple-selection-xml'/>
+<!-- <snippet id='listview-multiple-selection-xml'/> -->
 
 #### Handling Selection Events
 
@@ -90,16 +90,23 @@ To notify you when the selection state of an item is changed, RadListView expose
 /// flavor plain
 
 ```xml
-<GridLayout orientation="vertical" rows="auto, *, auto" >
-    <lv:RadListView id="listView" items="{{ dataItems }}" row="1" selectionBehavior="Press" itemSelected="onItemSelected" itemDeselected="onItemDeselected">
-        <lv:RadListView.itemTemplate>
-            <StackLayout orientation="vertical" paddingLeft="16">
-                <Label fontSize="20" text="{{ itemName }}"/>
-                <Label fontSize="13" text="{{ itemEmail }}"/>
-            </StackLayout>
-        </lv:RadListView.itemTemplate>
-    </lv:RadListView>
-    <Label id="txtSelection" textWrap="true" row="2"/>
+<GridLayout orientation="vertical" rows="auto, *, auto">
+  <lv:RadListView
+    id="listView"
+    items="{{ dataItems }}"
+    row="1"
+    selectionBehavior="Press"
+    itemSelected="onItemSelected"
+    itemDeselected="onItemDeselected"
+  >
+    <lv:RadListView.itemTemplate>
+      <StackLayout orientation="vertical" paddingLeft="16">
+        <Label fontSize="20" text="{{ itemName }}" />
+        <Label fontSize="13" text="{{ itemEmail }}" />
+      </StackLayout>
+    </lv:RadListView.itemTemplate>
+  </lv:RadListView>
+  <Label id="txtSelection" textWrap="true" row="2" />
 </GridLayout>
 ```
 
@@ -140,14 +147,24 @@ export function onItemDeselected(args) {
 /// flavor plain
 
 ```xml
-<Page loaded="onPageLoaded" xmlns:lv="nativescript-ui-listview" xmlns="http://www.nativescript.org/tns.xsd">
-    <lv:RadListView id="listView" items="{{ dataItems }}" row="1" selectionBehavior="Press" multipleSelection="true">
-        <lv:RadListView.itemTemplate>
-            <StackLayout orientation="vertical" android:paddingLeft="16" ios:paddingLeft="50">
-                <Label fontSize="20" text="{{ name }}"/>
-            </StackLayout>
-        </lv:RadListView.itemTemplate>
-    </lv:RadListView>
+<Page
+  loaded="onPageLoaded"
+  xmlns:lv="nativescript-ui-listview"
+  xmlns="http://www.nativescript.org/tns.xsd"
+>
+  <lv:RadListView
+    id="listView"
+    items="{{ dataItems }}"
+    row="1"
+    selectionBehavior="Press"
+    multipleSelection="true"
+  >
+    <lv:RadListView.itemTemplate>
+      <StackLayout orientation="vertical" android:paddingLeft="16" ios:paddingLeft="50">
+        <Label fontSize="20" text="{{ name }}" />
+      </StackLayout>
+    </lv:RadListView.itemTemplate>
+  </lv:RadListView>
 </Page>
 ```
 
@@ -158,17 +175,27 @@ export function onItemDeselected(args) {
 /// flavor plain
 
 ```xml
-<Page loaded="onPageLoaded" xmlns:lv="nativescript-ui-listview" xmlns="http://www.nativescript.org/tns.xsd">
- <GridLayout orientation="vertical" rows="auto, *">
-        <lv:RadListView items="{{ dataItems }}" row="1" id="listView" multipleSelection="true" selectionBehavior="Press">
-            <lv:RadListView.itemTemplate>
-                <StackLayout orientation="vertical" ios:paddingLeft="50" android:paddingLeft="16">
-                    <Label fontSize="20" text="{{ itemName }}"/>
-                    <Label fontSize="14" text="{{ itemEmail }}"/>
-                </StackLayout>
-            </lv:RadListView.itemTemplate>
-        </lv:RadListView>
-    </GridLayout>
+<Page
+  loaded="onPageLoaded"
+  xmlns:lv="nativescript-ui-listview"
+  xmlns="http://www.nativescript.org/tns.xsd"
+>
+  <GridLayout orientation="vertical" rows="auto, *">
+    <lv:RadListView
+      items="{{ dataItems }}"
+      row="1"
+      id="listView"
+      multipleSelection="true"
+      selectionBehavior="Press"
+    >
+      <lv:RadListView.itemTemplate>
+        <StackLayout orientation="vertical" ios:paddingLeft="50" android:paddingLeft="16">
+          <Label fontSize="20" text="{{ itemName }}" />
+          <Label fontSize="14" text="{{ itemEmail }}" />
+        </StackLayout>
+      </lv:RadListView.itemTemplate>
+    </lv:RadListView>
+  </GridLayout>
 </Page>
 ```
 
@@ -226,17 +253,17 @@ export function getTheFirstVisiblePositionOfTheList() {
 /// flavor plain
 
 ```xml
-    <lv:RadListView items="{{ dataItems }}" horizontalAlignement="center">
-        <lv:RadListView.itemTemplate>
-            <StackLayout orientation="vertical">
-                <Label fontSize="20" text="{{ itemName }}" />
-                <Label fontSize="14" text="{{ itemDescription }}" textWrap="true"/>
-            </StackLayout>
-        </lv:RadListView.itemTemplate>
-        <lv:RadListView.listViewLayout>
-            <lv:ListViewLinearLayout scrollDirection="Horizontal" />
-        </lv:RadListView.listViewLayout>
-    </lv:RadListView>
+<lv:RadListView items="{{ dataItems }}" horizontalAlignement="center">
+  <lv:RadListView.itemTemplate>
+    <StackLayout orientation="vertical">
+      <Label fontSize="20" text="{{ itemName }}" />
+      <Label fontSize="14" text="{{ itemDescription }}" textWrap="true" />
+    </StackLayout>
+  </lv:RadListView.itemTemplate>
+  <lv:RadListView.listViewLayout>
+    <lv:ListViewLinearLayout scrollDirection="Horizontal" />
+  </lv:RadListView.listViewLayout>
+</lv:RadListView>
 ```
 
 ///
@@ -250,20 +277,37 @@ export function getTheFirstVisiblePositionOfTheList() {
 /// flavor plain
 
 ```xml
-   <lv:RadListView items="{{ dataItems }}" pullToRefresh="true" pullToRefreshInitiated="{{ onPullToRefreshInitiated }}">
-            <lv:RadListView.itemTemplate>
-              <StackLayout orientation="vertical" padding="5 10 5 10"  style="background-color: #7fff7f;">
-                <StackLayout orientation="horizontal" padding="10" style="background-color: #65a565;">
-                    <img:Img height="100" width="80" src="{{ image }}"/>
-                    <StackLayout orientation="vertical" marginLeft="15">
-                        <Label fontSize="20" text="{{ name }}" marginBottom="8"/>
-                        <Label fontSize="14" text="{{ title }}" style="font-weight: bold;" textWrap="true"/>
-                        <Label fontSize="12" text="{{ text }}" color="White" textWrap="true"/>
-                    </StackLayout>
-                </StackLayout>
-              </StackLayout>
-            </lv:RadListView.itemTemplate>
-        </lv:RadListView>
+<lv:RadListView
+  items="{{ dataItems }}"
+  pullToRefresh="true"
+  pullToRefreshInitiated="{{ onPullToRefreshInitiated }}"
+>
+  <lv:RadListView.itemTemplate>
+    <StackLayout
+      orientation="vertical"
+      padding="5 10 5 10"
+      style="background-color: #7fff7f;"
+    >
+      <StackLayout
+        orientation="horizontal"
+        padding="10"
+        style="background-color: #65a565;"
+      >
+        <img:Img height="100" width="80" src="{{ image }}" />
+        <StackLayout orientation="vertical" marginLeft="15">
+          <Label fontSize="20" text="{{ name }}" marginBottom="8" />
+          <Label
+            fontSize="14"
+            text="{{ title }}"
+            style="font-weight: bold;"
+            textWrap="true"
+          />
+          <Label fontSize="12" text="{{ text }}" color="White" textWrap="true" />
+        </StackLayout>
+      </StackLayout>
+    </StackLayout>
+  </lv:RadListView.itemTemplate>
+</lv:RadListView>
 ```
 
 ```ts
