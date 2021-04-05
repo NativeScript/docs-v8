@@ -1965,7 +1965,7 @@ It's recommended to always use an `accessibilityLabel` when marking a view as `a
 <label
   text="{N}"
   class="a11y"
-  accessibilityLabel="The the NativeScript logo in textual form"
+  accessibilityLabel="The NativeScript logo in textual form"
 ></label>
 ```
 
