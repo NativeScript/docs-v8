@@ -272,6 +272,15 @@ function getPluginsSidebar() {
 				},
 			],
 		},
+		{
+			text: 'NativeScript UI Plugins',
+			children: [
+				{
+					text: 'NativeScript-UI-ListView',
+					link: '/plugins/nativescript-ui/rad-list-view',
+				},
+			],
+		},
 	]
 }
 
