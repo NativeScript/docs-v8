@@ -19,14 +19,23 @@ You can publish a NativeScript app in _Google Play_ the same way [you would rele
       --key-store-alias-password <your-alias-password>
     ```
 
-    > Note: At the end of `<path-to-your-keystore>` you should also add the exact name of your keystore.
+:::tip Note
 
-> Example(Windows): `ns build android --release --key-store-path C:\keystore\NativeScriptApp.keystore --key-store-password sample_password --key-store-alias NativeScriptApp --key-store-alias-password sample_password` .
+At the end of `<path-to-your-keystore>` you should also add the exact name of your keystore.
 
-> Example(Mac): `ns build android --release --key-store-path ~/Desktop/keystore/NativeScriptApp.keystore --key-store-password sample_password --key-store-alias NativeScriptApp --key-store-alias-password sample_password` .
+:::
 
-4.  Obtain the release `.apk` located at `<app_name>/platforms/android/app/build/outputs/apk/<app_name>-release.apk`.
-5.  Publish your Android app by uploading the `.apk` file to the Google Developer Console. For more information, see [How to publish an Android app?](http://developer.android.com/distribute/googleplay/start.html)
+:::tip Example (Windows)
+
+`ns build android --release --key-store-path C:\keystore\NativeScriptApp.keystore --key-store-password sample_password --key-store-alias NativeScriptApp --key-store-alias-password sample_password` .
+
+:::
+
+:::tip Example (Mac)
+
+`ns build android --release --key-store-path ~/Desktop/keystore/NativeScriptApp.keystore --key-store-password sample_password --key-store-alias NativeScriptApp --key-store-alias-password sample_password` .
+
+::: 4. Obtain the release `.apk` located at `<app_name>/platforms/android/app/build/outputs/apk/<app_name>-release.apk`. 5. Publish your Android app by uploading the `.apk` file to the Google Developer Console. For more information, see [How to publish an Android app?](http://developer.android.com/distribute/googleplay/start.html)
 
 ### Application Id and Package Name
 
@@ -39,8 +48,12 @@ In the NativeScript framework, both are set to the `applicationId` in `app.gradl
 The NativeScript CLI build system will set them as the `package` attribute in the generated project in `platforms/android/src/main/AndroidManifest.xml`.
 In the `app/App_Resources/Android/AndroidManifest.xml` it will use a placeholder: `package="__PACKAGE__"`. Do **not** modify the `package` attribute there.
 
-> **NOTE:** To edit the _Package Name_ and the _Application Id_, modify the `package.json` of your app and set the `nativescript.id` key.
-> You may need to delete `platforms/android` and rebuild using the CLI command `ns prepare android`.
+:::tip Note
+
+To edit the _Package Name_ and the _Application Id_, modify the `package.json` of your app and set the `nativescript.id` key.
+You may need to delete `platforms/android` and rebuild using the CLI command `ns prepare android`.
+
+:::
 
 [Read more about "ApplicationId versus PackageName"](http://tools.android.com/tech-docs/new-build-system/applicationid-vs-packagename).
 
@@ -77,7 +90,10 @@ The actual .PNG icons stay at the Android resources in `app/App_Resource/Android
 | `drawable-xxhdpi`  | 480 | Extra-extra-high density screen       | 144px x 144px |
 | `drawable-xxxhdpi` | 640 | Extra-extra-extra-high density screen | 192px x 192px |
 
-> Note: NativeScript supports adaptive icons on Android 8 and above (API 26+). No code changes are required - follow the [Android guidelines for creating adaptive icons](https://developer.android.com/guide/practices/ui_guidelines/icon_design_adaptive) for your application.
+:::tip Note
+
+NativeScript supports adaptive icons on Android 8 and above (API 26+). No code changes are required - follow the [Android guidelines for creating adaptive icons](https://developer.android.com/guide/practices/ui_guidelines/icon_design_adaptive) for your application.
+:::
 
 ### Launch screen
 
@@ -123,7 +139,11 @@ and then look at the specific steps you’ll need to take to change them and con
   - **drawable-hdpi**: Resources for high-density (hdpi) screens (~240dpi).
   - **drawable-nodpi**: Resources for all densities. These are density-independent resources. The system does not scale resources tagged with this qualifier, regardless of the current screen's density.
 
-    > **Important:** In NativeScript this is the folder that holds **splash_screen.xml** &ndash; the file that creates your launch screen.
+    :::tip Important
+
+    In NativeScript this is the folder that holds **splash_screen.xml** &ndash; the file that creates your launch screen.
+
+    :::
 
   - **drawable-xdpi**: Resources for extra-high-density (xhdpi) screens (~320dpi).
   - **drawable-xxdpi**: Resources for extra-extra-high-density (xxhdpi) screens (~480dpi).
@@ -152,11 +172,13 @@ and then look at the specific steps you’ll need to take to change them and con
 
   The code above will look for the file named **icon.png** in the drawable folder and will load the properly scaled image for the current device. <Comment: Please review my rewrite of the sentence above to ensure I did not create an error. You had "drawables folders" but the command referred to a single folder (not plural).>
 
-  > Note: In `AndroidManifest` you will find the following key:
-  >
-  > `<meta-data android:name="SET_THEME_ON_LAUNCH" android:resource="@style/AppTheme" />`
-  >
-  > This key is used by NativeScript to change your `LaunchScreenTheme` with `AppTheme` when your application is loading.
+:::tip Note
+In `AndroidManifest` you will find the following key:
+
+`<meta-data android:name="SET_THEME_ON_LAUNCH" android:resource="@style/AppTheme" />`
+
+This key is used by NativeScript to change your `LaunchScreenTheme` with `AppTheme` when your application is loading.
+:::
 
 #### How to setup a custom launch screen
 
@@ -205,9 +227,11 @@ and `AppTheme` (used for your main application).
 
 ![Setting styles in values folders](/assets/releasing/launch-android-004.png 'Setting styles in values folders')
 
-> **Note:** If your project comes with no folders **values**, **values-v21** and/or **drawable-xxx**, you can create
-> them manually and add the files needed accordingly. Or you can use [the default set of styles and themes used in NativeScript](https://github.com/NativeScript/nativescript-marketplace-demo/tree/master/app/App_Resources/Android).
+:::tip Note
 
+If your project comes with no folders **values**, **values-v21** and/or **drawable-xxx**, you can create them manually and add the files needed accordingly. Or you can use [the default set of styles and themes used in NativeScript](https://github.com/NativeScript/nativescript-marketplace-demo/tree/master/app/App_Resources/Android).
+
+:::
 Notice that you can **NOT** have custom folders inside your App_Resources.
 Only folders that are required by the Android convention <Comment: convention seems like the wrong word. Do you mean operating system?> are allowed and they must be created with the exact names
 provided (e.g., **values**, **values-v21**, **drawable**). When adding new folders in your App_Resources you should reset your
@@ -285,9 +309,12 @@ The _versionCode_ is an integer so you should carefully consider a strategy for 
 
 Both values are stored in `app/App_Resources/Android/AndroidManifest.xml`.
 
-> **NOTE:** `android:versionName` is a string value, which is used to represent the application version to the user whereas `android:versionCode`, which is integer value showing version of the application code relative to the other versions.
-> You can read more about ["Versioning Your Applications"](http://developer.android.com/tools/publishing/versioning.html).
+:::tip Note
 
+`android:versionName` is a string value, which is used to represent the application version to the user whereas `android:versionCode`, which is integer value showing version of the application code relative to the other versions.
+You can read more about ["Versioning Your Applications"](http://developer.android.com/tools/publishing/versioning.html).
+
+:::
 In the `app/App_Resources/Android/AndroidManifest.xml`, the _versionCode_ and _versionName_ appear as:
 
 ```
@@ -315,7 +342,11 @@ You can then use the produced `<apk-location>.apk` for upload to _Google Play_.
 
 ### APKs with ABI splits
 
-> **NOTE**: The recommended approach for reducing the app size by splitting it per architecture is the [Android App Bundle](#android-app-bundle) which is supported out of the box through the `--aab` NativeScript CLI flag.
+:::tip Note
+
+The recommended approach for reducing the app size by splitting it per architecture is the [Android App Bundle](#android-app-bundle) which is supported out of the box through the `--aab` NativeScript CLI flag.
+
+:::
 
 #### Android ABI split
 
@@ -395,8 +426,11 @@ ns build android --release \
 
 #### Changing the default target architectures
 
-> **WARNING**: Filtering the target architectures does not reduce the app size, it just drops the support for the devices and emulators using the missing architecture.
+:::warning Warning
 
+Filtering the target architectures does not reduce the app size, it just drops the support for the devices and emulators using the missing architecture.
+
+:::
 By default, the generated `aab` file supports all of the available device architectures - `armeabi-v7a`, `arm64-v8a`, `x86` and `x86_64`. This behavior can be overridden from your `App_Resources/Android/app.gradle`'s `apiFilters` property:
 
 ```
@@ -442,8 +476,11 @@ java -jar <toolPath>/bundletool.jar build-apks \
 ```
 
 Then you can install the application on a connected device by executing:
+:::tip Note
 
-> **Note:** Devices running Android 4.4 (API level 19) and lower don’t support downloading and installing split APKs. On such devices `bundletool` will not be able to deploy the application. When the bundle is released Google Play will serve a single multi-APK to such devices.
+Devices running Android 4.4 (API level 19) and lower don’t support downloading and installing split APKs. On such devices `bundletool` will not be able to deploy the application. When the bundle is released Google Play will serve a single multi-APK to such devices.
+
+:::
 
 ```cli
 java -jar <toolPath>/bundletool.jar install-apks \
@@ -497,7 +534,11 @@ The _Bundle ID_ is a unique identifier, provided by you for your app. It uses re
 
 In iOS apps, the _Bundle ID_ is stored in the `CFBundleIdentifier` in the `Info.plist`, but the NativeScript CLI will explicitly set this to the value of the `nativescript.id` key stored in the `package.json` file in the root of your application.
 
-> **NOTE:** To edit the _Bundle ID_, edit the `package.json` of your app and set the `nativescript.id` key.
+:::tip Note
+
+To edit the _Bundle ID_, edit the `package.json` of your app and set the `nativescript.id` key.
+
+:::
 
 The _Bundle ID_ is used to precisely identify your app at various situations and plays an important role, when it is built and launched by the CLI, as well as when _Provisioning Profiles_ and certificates are created in the _Apple Member Center_.
 
@@ -552,7 +593,11 @@ The launch files are not a splash screen; instead, they are a way for the OS to 
 
 [For design guidelines you can consider the following article provided by Apple](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/LaunchImages.html).
 
-> **QUOTE:** If you think that following these guidelines will result in a plain, boring launch image, you’re right. Remember, the launch image doesn’t provide you with an opportunity for artistic expression. It’s solely intended to enhance the user’s perception of your app as quick to launch and immediately ready for use.
+:::tip Note
+
+If you think that following these guidelines will result in a plain, boring launch image, you’re right. Remember, the launch image doesn’t provide you with an opportunity for artistic expression. It’s solely intended to enhance the user’s perception of your app as quick to launch and immediately ready for use.
+
+:::
 
 _App Store_ submissions will be rejected if certain launch files are not present. Make sure that when new iOS versions and devices are released that you update your _launch files_ and accommodate the upcoming form factors.
 
@@ -602,7 +647,11 @@ As described in [iOS Human Interface Guidelines](https://developer.apple.com/lib
 In NativeScript, your application comes with predefined template settings and images for these steps.
 In this article, we are going to introduce the workflow to create your own launch screens.
 
-> **WARNING**: Occasionally, the iOS operating system caches your application’s icons and launch screens. If you’re updating icons or launch screens and not seeing your changes, delete the application from your device or emulator and redeploy. If on a real device: remove `platforms` folder from your project, delete app, restart device, redeploy.
+:::warning Warning
+
+Occasionally, the iOS operating system caches your application’s icons and launch screens. If you’re updating icons or launch screens and not seeing your changes, delete the application from your device or emulator and redeploy. If on a real device: remove `platforms` folder from your project, delete app, restart device, redeploy.
+
+:::
 
 #### Setting launch screen and App Icons
 
@@ -683,8 +732,10 @@ If your images have different file names then open Contents.json and change the 
 | iPad Retina             | 1536x2048        | `Default-Portrait@2x.png`  |
 | 12.9" iPad Pro          | 2048x1536        | `Default-Landscape@2x.png` |
 
-> **Note: ** For a better understanding of the supported image resolutions for the different iOS devices, refer to [iOS Human Interface Guidelines](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/IconMatrix.html#//apple_ref/doc/uid/TP40006556-CH27-SW1)
-> or check our reference table.
+:::tip Note
+
+For a better understanding of the supported image resolutions for the different iOS devices, refer to [iOS Human Interface Guidelines](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/IconMatrix.html#//apple_ref/doc/uid/TP40006556-CH27-SW1) or check our reference table.
+:::
 
 - Xcode WYSIWYG approach
 
@@ -694,7 +745,11 @@ Close Xcode and rebuild your NativeScript app to use the new launch images.
 
 ![LaunchImages setup in Xcode](/assets/releasing/launch-screen-howto-004.png 'LaunchImages setup in Xcode')
 
-> **Important:** Make sure you have provided all required images or your app wil be rejected from publishing in the App Store.
+:::tip Important
+
+Make sure you have provided all required images or your app wil be rejected from publishing in the App Store.
+
+:::
 
 #### Customizing LaunchScreen.storyboard
 
@@ -716,7 +771,11 @@ As this is an image that will be used in your LaunchScreen.storyboard, your actu
 The default NativeScript template ships a LaunchScreen-AspectFill.png and LaunchScreen-AspectFill@2x.png used as a sample background.
 If your images have different file names then open Contents.json and change the key `filename` for each image.
 
-> **Important:** After each file change in the **Assets.xcassets** folder you should rebuild your project and restart your emulator to avoid visualizing cached images.
+:::tip Important
+
+After each file change in the **Assets.xcassets** folder you should rebuild your project and restart your emulator to avoid visualizing cached images.
+
+:::
 
 - Xcode WYSIWYG approach
 
@@ -735,7 +794,11 @@ As this is an image that will be used in your LaunchScreen.storyboard, your actu
 The default NativeScript template ships a LaunchScreen-Center.png and LaunchScreen-Center@2x.png used as a sample center logo image.
 If your images have different file names then open Contents.json and change the key `filename` for each image.
 
-> **Important:** After each file change in the **Assets.xcassets** folder you should rebuild your project and restart your emulator to avoid visualizing cached images.
+:::tip Important
+
+After each file change in the **Assets.xcassets** folder you should rebuild your project and restart your emulator to avoid visualizing cached images.
+
+:::
 
 - Xcode WYSIWYG approach
 
@@ -770,7 +833,11 @@ A few pitfalls are:
 - Making a certificate requires a Mac. You use the Keychain Access tool to create a certificate request, generating a public and private keys at your side, then send the public key to Apple while storing the private key in your keychain.
 - If you follow the steps at the _Member Center_ to create a new _development certificate_, the certificate must be stored in your keychain. You can consider exporting it and backing it up.
 
-> **NOTE:** Go to [https://developer.apple.com/account/ios/certificate/certificateList.action?type=development](https://developer.apple.com/account/ios/certificate/certificateList.action?type=development) click the '+' (add) button and follow the instructions for making a new 'iOS App Development' certificate.
+:::tip Note
+
+Go to [https://developer.apple.com/account/ios/certificate/certificateList.action?type=development](https://developer.apple.com/account/ios/certificate/certificateList.action?type=development) click the '+' (add) button and follow the instructions for making a new 'iOS App Development' certificate.
+
+:::
 
 ### Production certificates
 
@@ -780,8 +847,12 @@ so Apple can verify the origin of submissions in _iTunes Connect_ using the publ
 This _production certificates_ is used to sign the application binary when it is prepared for submission.
 Usually when an app is built for a device, its IPA file is signed with the development certificate.
 
-> **Note** You can read more about IPA (file extension) [here](<https://en.wikipedia.org/wiki/.ipa_(file_extension)>)
-> Later, the tooling resigns the IPA with the _production certificate_ and appends the distribution provisioning profile when submitting to _iTunes Connect_.
+:::tip Note
+
+You can read more about IPA (file extension) [here](<https://en.wikipedia.org/wiki/.ipa_(file_extension)>)
+Later, the tooling resigns the IPA with the _production certificate_ and appends the distribution provisioning profile when submitting to _iTunes Connect_.
+
+:::
 
 A few pitfalls are:
 
@@ -874,7 +945,11 @@ At that point you have to fill in the App Information.
 There are various assets that you must provide such as screenshots, icons, description, etc.
 Failing to provide all necessary assets may prevent you from submitting your app, or result in app rejection.
 
-> Note: Screenshots not matching the actual app may result in rejection of a new version sent for approval.
+:::tip Note
+
+Screenshots not matching the actual app may result in rejection of a new version sent for approval.
+
+:::
 
 ### Builds
 
