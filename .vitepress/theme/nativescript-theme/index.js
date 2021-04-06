@@ -6389,7 +6389,7 @@ var _hoisted_2$9 = /*#__PURE__*/ createVNode(
 	-1
 )
 
-var _hoisted_3$6 = {
+var _hoisted_3$7 = {
 	key: 1,
 	viewBox: '0 0 532 100',
 	xmlns: 'http://www.w3.org/2000/svg',
@@ -6479,7 +6479,7 @@ var _hoisted_4$6 = /*#__PURE__*/ createVNode(
 function render$a(_ctx, _cache, $props, $setup, $data, $options) {
 	return _ctx.variant === 'blue'
 		? (openBlock(), createBlock('svg', _hoisted_1$a, [_hoisted_2$9]))
-		: (openBlock(), createBlock('svg', _hoisted_3$6, [_hoisted_4$6]))
+		: (openBlock(), createBlock('svg', _hoisted_3$7, [_hoisted_4$6]))
 }
 
 script$a.render = render$a
@@ -6524,7 +6524,7 @@ var _hoisted_1$9 = {
 var _hoisted_2$8 = {
 	class: 'pt-6 pb-6 bg-ns-blue',
 }
-var _hoisted_3$5 = {
+var _hoisted_3$6 = {
 	class:
 		'relative flex items-center justify-between px-4 mx-auto 2xl:container sm:px-6',
 	'aria-label': 'Global',
@@ -6857,7 +6857,7 @@ function render$9(_ctx, _cache, $props, $setup, $data, $options) {
 		openBlock(),
 		createBlock('header', _hoisted_1$9, [
 			createVNode('div', _hoisted_2$8, [
-				createVNode('nav', _hoisted_3$5, [
+				createVNode('nav', _hoisted_3$6, [
 					createVNode('div', _hoisted_4$5, [
 						createVNode('div', _hoisted_5$2, [
 							createVNode(
@@ -7239,7 +7239,7 @@ var _hoisted_2$6 = {
 		'px-4 pt-10 pb-4 mx-auto max-w-7xl sm:px-6 md:flex md:items-center md:justify-between lg:px-6',
 }
 
-var _hoisted_3$4 = /*#__PURE__*/ createVNode(
+var _hoisted_3$5 = /*#__PURE__*/ createVNode(
 	'div',
 	{
 		class: 'flex justify-center space-x-6 md:order-3',
@@ -7415,7 +7415,7 @@ function render$7(_ctx, _cache, $props, $setup, $data, $options) {
 		openBlock(),
 		createBlock('footer', _hoisted_1$7, [
 			createVNode('div', _hoisted_2$6, [
-				_hoisted_3$4,
+				_hoisted_3$5,
 				createVNode('div', _hoisted_4$4, [
 					createVNode('a', _hoisted_5$1, [
 						_hoisted_6$1,
@@ -7923,7 +7923,7 @@ var _hoisted_2$5 = {
 	class: 'container px-6 pb-2 mx-auto',
 }
 
-var _hoisted_3$3 = /*#__PURE__*/ createVNode(
+var _hoisted_3$4 = /*#__PURE__*/ createVNode(
 	'svg',
 	{
 		class: 'w-6 h-6',
@@ -7963,7 +7963,7 @@ function render$5(_ctx, _cache) {
 						href: _ctx.$themeConfig.mainURL,
 						class: 'flex items-center text-white',
 					},
-					[_hoisted_3$3, _hoisted_4$3],
+					[_hoisted_3$4, _hoisted_4$3],
 					8,
 					['href']
 				),
@@ -8259,7 +8259,7 @@ var _hoisted_1$3 = {
 var _hoisted_2$3 = {
 	class: 'mx-auto 2xl:container lg:px-8',
 }
-var _hoisted_3$2 = {
+var _hoisted_3$3 = {
 	class: 'flex',
 }
 var _hoisted_4$2 = {
@@ -8345,7 +8345,7 @@ function render$3(_ctx, _cache, $props, $setup, $data, $options) {
 				['nav', 'mainURL']
 			),
 			createVNode('div', _hoisted_2$3, [
-				createVNode('div', _hoisted_3$2, [
+				createVNode('div', _hoisted_3$3, [
 					createVNode('div', _hoisted_4$2, [
 						createVNode('div', _hoisted_5, [
 							createVNode('div', _hoisted_6, [createVNode(_component_SideBar)]),
@@ -8414,9 +8414,16 @@ var _hoisted_1$2 = /*#__PURE__*/ createVNode(
 )
 
 var _hoisted_2$2 = /*#__PURE__*/ createVNode(
-	'div',
+	'p',
 	null,
-	' The page may still be missign from the docs. We are working on improving the docs, but in the meantime here are some link that may be what you are looking for ',
+	'The page may still be missing from the docs.',
+	-1
+)
+
+var _hoisted_3$2 = /*#__PURE__*/ createVNode(
+	'p',
+	null,
+	'We are working on improving the docs, but in the meantime here are some links that may be what you are looking for:',
 	-1
 )
 
@@ -8425,37 +8432,40 @@ function render$2(_ctx, _cache, $props, $setup, $data, $options) {
 		openBlock(),
 		createBlock('div', null, [
 			_hoisted_1$2,
-			_hoisted_2$2,
-			createVNode('ul', null, [
-				(openBlock(true),
-				createBlock(
-					Fragment,
-					null,
-					renderList(_ctx.urlsToTry, function (url) {
-						return (
-							openBlock(),
-							createBlock(
-								'li',
-								{
-									key: url,
-								},
-								[
-									createVNode(
-										'a',
-										{
-											href: url,
-											target: '_blank',
-										},
-										toDisplayString(url),
-										9,
-										['href']
-									),
-								]
+			createVNode('div', null, [
+				_hoisted_2$2,
+				_hoisted_3$2,
+				createVNode('ul', null, [
+					(openBlock(true),
+					createBlock(
+						Fragment,
+						null,
+						renderList(_ctx.urlsToTry, function (url) {
+							return (
+								openBlock(),
+								createBlock(
+									'li',
+									{
+										key: url,
+									},
+									[
+										createVNode(
+											'a',
+											{
+												href: url,
+												target: '_blank',
+											},
+											toDisplayString(url),
+											9,
+											['href']
+										),
+									]
+								)
 							)
-						)
-					}),
-					128
-				)),
+						}),
+						128
+					)),
+				]),
 			]),
 		])
 	)
