@@ -5,4 +5,4 @@
 /app-templates/app-templates    /introduction.html#templates
 
 # fallback redirect to index.html
-/*                              /index.html
+/*                              /404.html?path=:splat
