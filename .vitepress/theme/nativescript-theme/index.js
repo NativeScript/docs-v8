@@ -6399,7 +6399,7 @@ var _hoisted_3$7 = {
 	'stroke-miterlimit': '2',
 }
 
-var _hoisted_4$6 = /*#__PURE__*/ createVNode(
+var _hoisted_4$7 = /*#__PURE__*/ createVNode(
 	'g',
 	{
 		transform: 'translate(-1641.886 -310)',
@@ -6479,7 +6479,7 @@ var _hoisted_4$6 = /*#__PURE__*/ createVNode(
 function render$a(_ctx, _cache, $props, $setup, $data, $options) {
 	return _ctx.variant === 'blue'
 		? (openBlock(), createBlock('svg', _hoisted_1$a, [_hoisted_2$9]))
-		: (openBlock(), createBlock('svg', _hoisted_3$7, [_hoisted_4$6]))
+		: (openBlock(), createBlock('svg', _hoisted_3$7, [_hoisted_4$7]))
 }
 
 script$a.render = render$a
@@ -6529,10 +6529,10 @@ var _hoisted_3$6 = {
 		'relative flex items-center justify-between px-4 mx-auto 2xl:container sm:px-6',
 	'aria-label': 'Global',
 }
-var _hoisted_4$5 = {
+var _hoisted_4$6 = {
 	class: 'flex items-center flex-1',
 }
-var _hoisted_5$2 = {
+var _hoisted_5$3 = {
 	class: 'flex items-center justify-between w-full lg:w-auto',
 }
 
@@ -6858,8 +6858,8 @@ function render$9(_ctx, _cache, $props, $setup, $data, $options) {
 		createBlock('header', _hoisted_1$9, [
 			createVNode('div', _hoisted_2$8, [
 				createVNode('nav', _hoisted_3$6, [
-					createVNode('div', _hoisted_4$5, [
-						createVNode('div', _hoisted_5$2, [
+					createVNode('div', _hoisted_4$6, [
+						createVNode('div', _hoisted_5$3, [
 							createVNode(
 								'a',
 								{
@@ -7383,10 +7383,10 @@ var _hoisted_3$5 = /*#__PURE__*/ createVNode(
 	-1
 )
 
-var _hoisted_4$4 = {
+var _hoisted_4$5 = {
 	class: 'order-1 mt-8 md:mt-0',
 }
-var _hoisted_5$1 = {
+var _hoisted_5$2 = {
 	href: 'https://openjsf.org/',
 	target: '_blank',
 	rel: 'noopener noreferrer',
@@ -7416,8 +7416,8 @@ function render$7(_ctx, _cache, $props, $setup, $data, $options) {
 		createBlock('footer', _hoisted_1$7, [
 			createVNode('div', _hoisted_2$6, [
 				_hoisted_3$5,
-				createVNode('div', _hoisted_4$4, [
-					createVNode('a', _hoisted_5$1, [
+				createVNode('div', _hoisted_4$5, [
+					createVNode('a', _hoisted_5$2, [
 						_hoisted_6$1,
 						createVNode(_component_OpenJSLogo, {
 							'aria-hidden': 'true',
@@ -7943,7 +7943,7 @@ var _hoisted_3$4 = /*#__PURE__*/ createVNode(
 	-1
 )
 
-var _hoisted_4$3 = /*#__PURE__*/ createVNode(
+var _hoisted_4$4 = /*#__PURE__*/ createVNode(
 	'span',
 	{
 		class: 'pl-2',
@@ -7963,7 +7963,7 @@ function render$5(_ctx, _cache) {
 						href: _ctx.$themeConfig.mainURL,
 						class: 'flex items-center text-white',
 					},
-					[_hoisted_3$4, _hoisted_4$3],
+					[_hoisted_3$4, _hoisted_4$4],
 					8,
 					['href']
 				),
@@ -8262,10 +8262,10 @@ var _hoisted_2$3 = {
 var _hoisted_3$3 = {
 	class: 'flex',
 }
-var _hoisted_4$2 = {
+var _hoisted_4$3 = {
 	class: 'hidden lg:block w-72 2xl:w-96',
 }
-var _hoisted_5 = {
+var _hoisted_5$1 = {
 	class: 'static h-full',
 }
 var _hoisted_6 = {
@@ -8346,8 +8346,8 @@ function render$3(_ctx, _cache, $props, $setup, $data, $options) {
 			),
 			createVNode('div', _hoisted_2$3, [
 				createVNode('div', _hoisted_3$3, [
-					createVNode('div', _hoisted_4$2, [
-						createVNode('div', _hoisted_5, [
+					createVNode('div', _hoisted_4$3, [
+						createVNode('div', _hoisted_5$1, [
 							createVNode('div', _hoisted_6, [createVNode(_component_SideBar)]),
 						]),
 					]),
@@ -8381,22 +8381,15 @@ script$3.render = render$3
 
 var script$2 = defineComponent({
 	setup: function setup() {
-		var urlsToTry = ref([
-			'https://v7.docs.nativescript.org',
-			'https://v6.docs.nativescript.org',
-		])
+		var urlsToTry = ref([])
 
 		if (typeof window !== 'undefined') {
 			var parms = new URLSearchParams(window.location.search)
 			var path = parms.get('path')
 
 			if (path) {
-				urlsToTry.value.unshift(
-					'https://v6.docs.nativescript.org/'.concat(path)
-				)
-				urlsToTry.value.unshift(
-					'https://v7.docs.nativescript.org/'.concat(path)
-				)
+				urlsToTry.value.push('https://v7.docs.nativescript.org/'.concat(path))
+				urlsToTry.value.push('https://v6.docs.nativescript.org/'.concat(path))
 			}
 		}
 
@@ -8427,7 +8420,39 @@ var _hoisted_3$2 = /*#__PURE__*/ createVNode(
 	-1
 )
 
+var _hoisted_4$2 = /*#__PURE__*/ createVNode(
+	'li',
+	null,
+	[
+		/*#__PURE__*/ createVNode(
+			'a',
+			{
+				href: 'https://v7.docs.nativescript.org',
+			},
+			'https://v7.docs.nativescript.org'
+		),
+	],
+	-1
+)
+
+var _hoisted_5 = /*#__PURE__*/ createVNode(
+	'li',
+	null,
+	[
+		/*#__PURE__*/ createVNode(
+			'a',
+			{
+				href: 'https://v6.docs.nativescript.org',
+			},
+			'https://v7.docs.nativescript.org'
+		),
+	],
+	-1
+)
+
 function render$2(_ctx, _cache, $props, $setup, $data, $options) {
+	var _component_ClientOnly = resolveComponent('ClientOnly')
+
 	return (
 		openBlock(),
 		createBlock('div', null, [
@@ -8436,35 +8461,44 @@ function render$2(_ctx, _cache, $props, $setup, $data, $options) {
 				_hoisted_2$2,
 				_hoisted_3$2,
 				createVNode('ul', null, [
-					(openBlock(true),
-					createBlock(
-						Fragment,
-						null,
-						renderList(_ctx.urlsToTry, function (url) {
-							return (
-								openBlock(),
+					createVNode(_component_ClientOnly, null, {
+						default: withCtx(function () {
+							return [
+								(openBlock(true),
 								createBlock(
-									'li',
-									{
-										key: url,
-									},
-									[
-										createVNode(
-											'a',
-											{
-												href: url,
-												target: '_blank',
-											},
-											toDisplayString(url),
-											9,
-											['href']
-										),
-									]
-								)
-							)
+									Fragment,
+									null,
+									renderList(_ctx.urlsToTry, function (url) {
+										return (
+											openBlock(),
+											createBlock(
+												'li',
+												{
+													key: url,
+												},
+												[
+													createVNode(
+														'a',
+														{
+															href: url,
+															target: '_blank',
+														},
+														toDisplayString(url),
+														9,
+														['href']
+													),
+												]
+											)
+										)
+									}),
+									128
+								)),
+							]
 						}),
-						128
-					)),
+						_: 1,
+					}),
+					_hoisted_4$2,
+					_hoisted_5,
 				]),
 			]),
 		])
