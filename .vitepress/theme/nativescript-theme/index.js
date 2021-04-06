@@ -613,6 +613,7 @@ function H(e, t, n, r, o, i, a, c, u) {
 				g && (f.__E = f.__ = null),
 				(f.__e = !1)
 		} else t.__e = M(n.__e, t, n, r, o, i, a, u)
+
 		;(l = s.diffed) && l(t)
 	} catch (e) {
 		s.__e(e, t, n)
@@ -6307,7 +6308,7 @@ var _hoisted_1$a = {
 	'stroke-miterlimit': '2',
 }
 
-var _hoisted_2$8 = /*#__PURE__*/ createVNode(
+var _hoisted_2$9 = /*#__PURE__*/ createVNode(
 	'g',
 	{
 		transform: 'translate(-362.21733 -1030)',
@@ -6477,7 +6478,7 @@ var _hoisted_4$6 = /*#__PURE__*/ createVNode(
 
 function render$a(_ctx, _cache, $props, $setup, $data, $options) {
 	return _ctx.variant === 'blue'
-		? (openBlock(), createBlock('svg', _hoisted_1$a, [_hoisted_2$8]))
+		? (openBlock(), createBlock('svg', _hoisted_1$a, [_hoisted_2$9]))
 		: (openBlock(), createBlock('svg', _hoisted_3$6, [_hoisted_4$6]))
 }
 
@@ -6520,7 +6521,7 @@ var script$9 = defineComponent({
 var _hoisted_1$9 = {
 	class: 'top-0 z-10 lg:sticky',
 }
-var _hoisted_2$7 = {
+var _hoisted_2$8 = {
 	class: 'pt-6 pb-6 bg-ns-blue',
 }
 var _hoisted_3$5 = {
@@ -6855,7 +6856,7 @@ function render$9(_ctx, _cache, $props, $setup, $data, $options) {
 	return (
 		openBlock(),
 		createBlock('header', _hoisted_1$9, [
-			createVNode('div', _hoisted_2$7, [
+			createVNode('div', _hoisted_2$8, [
 				createVNode('nav', _hoisted_3$5, [
 					createVNode('div', _hoisted_4$5, [
 						createVNode('div', _hoisted_5$2, [
@@ -7140,7 +7141,7 @@ var _hoisted_1$8 = {
 	fill: 'currentColor',
 }
 
-var _hoisted_2$6 = /*#__PURE__*/ createVNode(
+var _hoisted_2$7 = /*#__PURE__*/ createVNode(
 	'g',
 	null,
 	[
@@ -7217,7 +7218,7 @@ var _hoisted_2$6 = /*#__PURE__*/ createVNode(
 )
 
 function render$8(_ctx, _cache) {
-	return openBlock(), createBlock('svg', _hoisted_1$8, [_hoisted_2$6])
+	return openBlock(), createBlock('svg', _hoisted_1$8, [_hoisted_2$7])
 }
 
 var script$8 = {}
@@ -7233,7 +7234,7 @@ var script$7 = defineComponent({
 var _hoisted_1$7 = {
 	class: '',
 }
-var _hoisted_2$5 = {
+var _hoisted_2$6 = {
 	class:
 		'px-4 pt-10 pb-4 mx-auto max-w-7xl sm:px-6 md:flex md:items-center md:justify-between lg:px-6',
 }
@@ -7413,7 +7414,7 @@ function render$7(_ctx, _cache, $props, $setup, $data, $options) {
 	return (
 		openBlock(),
 		createBlock('footer', _hoisted_1$7, [
-			createVNode('div', _hoisted_2$5, [
+			createVNode('div', _hoisted_2$6, [
 				_hoisted_3$4,
 				createVNode('div', _hoisted_4$4, [
 					createVNode('a', _hoisted_5$1, [
@@ -7761,10 +7762,6 @@ function isActive(route, path) {
 
 	var routePath = normalize('/'.concat(route.data.relativePath))
 	var pagePath = normalize(path)
-	// console.log({
-	// 	routePath: routePath,
-	// 	pagePath: pagePath,
-	// })
 	return routePath === pagePath
 }
 function normalize(path) {
@@ -7922,7 +7919,7 @@ script$6.render = render$6
 var _hoisted_1$5 = {
 	class: 'bg-ns-blue',
 }
-var _hoisted_2$4 = {
+var _hoisted_2$5 = {
 	class: 'container px-6 pb-2 mx-auto',
 }
 
@@ -7959,7 +7956,7 @@ function render$5(_ctx, _cache) {
 	return (
 		openBlock(),
 		createBlock('div', _hoisted_1$5, [
-			createVNode('div', _hoisted_2$4, [
+			createVNode('div', _hoisted_2$5, [
 				createVNode(
 					'a',
 					{
@@ -8162,7 +8159,7 @@ var _hoisted_1$4 = /*#__PURE__*/ createVNode(
 	-1
 )
 
-var _hoisted_2$3 = {
+var _hoisted_2$4 = {
 	key: 0,
 	class: 'text-xs',
 }
@@ -8222,7 +8219,7 @@ var render$4 = /*#__PURE__*/ _withId(function (
 										? (openBlock(),
 										  createBlock(
 												'span',
-												_hoisted_2$3,
+												_hoisted_2$4,
 												' (not applicable to ' +
 													toDisplayString(_ctx.currentFlavor) +
 													') ',
@@ -8259,7 +8256,7 @@ var script$3 = defineComponent({
 var _hoisted_1$3 = {
 	class: 'min-h-screen font-sans antialiased',
 }
-var _hoisted_2$2 = {
+var _hoisted_2$3 = {
 	class: 'mx-auto 2xl:container lg:px-8',
 }
 var _hoisted_3$2 = {
@@ -8347,7 +8344,7 @@ function render$3(_ctx, _cache, $props, $setup, $data, $options) {
 				8,
 				['nav', 'mainURL']
 			),
-			createVNode('div', _hoisted_2$2, [
+			createVNode('div', _hoisted_2$3, [
 				createVNode('div', _hoisted_3$2, [
 					createVNode('div', _hoisted_4$2, [
 						createVNode('div', _hoisted_5, [
@@ -8382,6 +8379,28 @@ function render$3(_ctx, _cache, $props, $setup, $data, $options) {
 
 script$3.render = render$3
 
+var script$2 = defineComponent({
+	setup: function setup() {
+		var urlsToTry = ref(["https://v7.docs.nativescript.org", "https://v6.docs.nativescript.org"]); // prettier-ignore
+
+		;[
+			window.location.href.replace('://', '://v7.'),
+			window.location.href.replace('://', '://v6.'),
+		].forEach(function (url) {
+			fetch(url)
+				.then(function (res) {
+					if (res.ok) {
+						urlsToTry.value.unshift(url)
+					}
+				})
+				['catch']()
+		})
+		return {
+			urlsToTry: urlsToTry,
+		}
+	},
+})
+
 var _hoisted_1$2 = /*#__PURE__*/ createVNode(
 	'h2',
 	null,
@@ -8389,11 +8408,54 @@ var _hoisted_1$2 = /*#__PURE__*/ createVNode(
 	-1
 )
 
-function render$2(_ctx, _cache) {
-	return openBlock(), createBlock('div', null, [_hoisted_1$2])
+var _hoisted_2$2 = /*#__PURE__*/ createVNode(
+	'div',
+	null,
+	' The page may still be missign from the docs. We are working on improving the docs, but in the meantime here are some link that may be what you are looking for ',
+	-1
+)
+
+function render$2(_ctx, _cache, $props, $setup, $data, $options) {
+	return (
+		openBlock(),
+		createBlock('div', null, [
+			_hoisted_1$2,
+			_hoisted_2$2,
+			createVNode('ul', null, [
+				(openBlock(true),
+				createBlock(
+					Fragment,
+					null,
+					renderList(_ctx.urlsToTry, function (url) {
+						return (
+							openBlock(),
+							createBlock(
+								'li',
+								{
+									key: url,
+								},
+								[
+									createVNode(
+										'a',
+										{
+											href: url,
+											target: '_blank',
+										},
+										toDisplayString(url),
+										9,
+										['href']
+									),
+								]
+							)
+						)
+					}),
+					128
+				)),
+			]),
+		])
+	)
 }
 
-var script$2 = {}
 script$2.render = render$2
 
 var script$1 = defineComponent({
@@ -8573,6 +8635,7 @@ var script = defineComponent({
 		})
 		watch(currentTab, function (next, prev) {
 			var _tabContainer$value, _tabContainer$value2
+
 			;(_tabContainer$value = tabContainer.value) === null ||
 			_tabContainer$value === void 0
 				? void 0

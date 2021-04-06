@@ -1,1 +1,8 @@
 /index.html                     /introduction.html
+
+
+# Redirect old urls to their new location
+/app-templates/app-templates    /introduction.html#templates
+
+# fallback redirect to index.html
+/*                              /index.html
