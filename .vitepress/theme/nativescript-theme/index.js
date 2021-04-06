@@ -8381,20 +8381,29 @@ script$3.render = render$3
 
 var script$2 = defineComponent({
 	setup: function setup() {
-		var urlsToTry = ref(["https://v7.docs.nativescript.org", "https://v6.docs.nativescript.org"]); // prettier-ignore
+		var urlsToTry = ref([
+			'https://v7.docs.nativescript.org',
+			'https://v6.docs.nativescript.org',
+		])
+		var parms = new URLSearchParams(window.location.search)
+		var path = parms.get('path')
 
-		;[
-			window.location.href.replace('://', '://v7.'),
-			window.location.href.replace('://', '://v6.'),
-		].forEach(function (url) {
-			fetch(url)
-				.then(function (res) {
-					if (res.ok) {
-						urlsToTry.value.unshift(url)
-					}
-				})
-				['catch']()
-		})
+		if (path) {
+			;[
+				// prettier-ignore
+				"https://v7.docs.nativescript.org/".concat(path),
+				'https://v6.docs.nativescript.org/'.concat(path),
+			].forEach(function (url) {
+				fetch(url)
+					.then(function (res) {
+						if (res.ok) {
+							urlsToTry.value.unshift(url)
+						}
+					})
+					['catch']()
+			})
+		}
+
 		return {
 			urlsToTry: urlsToTry,
 		}
@@ -8736,7 +8745,8 @@ var theme = function theme(enhanceApp) {
 			ctx.siteData // global components
 
 			app.component('FlavorTabs', script$1)
-			app.component('CodeTabs', script) // provide globlal flavor value
+			app.component('CodeTabs', script)
+			app.component('NotFound', script$2) // provide globlal flavor value
 
 			app.provide(CurrentFlavorSymbol, createCurrentFlavor())
 
