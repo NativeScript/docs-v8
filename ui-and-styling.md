@@ -4490,7 +4490,11 @@ While bitmap images are great, they present challenges in designing mobile appli
 3. In your root application folder (This is the **app** folder for NativeScript Core, and the **src** folder for Angular 6+), create a folder called **fonts** and place the **.ttf** there.
 4. Follow the instructions on the icon font webpage to determine the hex codes of each font glyph, i.e., icon. Add a **Label** component to your NativeScript app and bind the Label's **text** property to a one-letter string generated from the character code of the icon you want to show, i.e., `\ue903`. Prefix the character (in this example: e903) with a `\u`
 
-> **Note:** While this documentation article is focused on icon fonts, the above workflow is a hundred percent applicable for both **text fonts** and **icon fonts** (except that with text fonts step 4 as they don't include icons but only plain text).
+:::tip Note
+
+While this documentation article is focused on icon fonts, the above workflow is a hundred percent applicable for both **text fonts** and **icon fonts** (except that with text fonts step 4 as they don't include icons but only plain text).
+
+:::
 
 #### Platform Specific Font Recognition
 
@@ -4504,7 +4508,11 @@ There is a conceptual difference in how **.ttf** fonts are recognized on iOS and
 
 In the above example, the `fa-brands-400.ttf` (as downloaded from the FontAwesome site) has a font name `Font Awesome 5 Brands`. With the above CSS, the font is recognized on both iOS (by the font name `Font Awesome 5 Brands`) and Android (by the file name `fa-brands-400`).
 
-> **Note:** There are specific scenarios where the creators of the fonts might have released two differently named `ttf` files but with the same **font** name (see the example below).
+:::tip Note
+
+There are specific scenarios where the creators of the fonts might have released two differently named `ttf` files but with the same **font** name (see the example below).
+
+:::
 
 | file name              | font name           |
 | ---------------------- | ------------------- |
