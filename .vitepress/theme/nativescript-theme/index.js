@@ -8381,27 +8381,16 @@ script$3.render = render$3
 
 var script$2 = defineComponent({
 	setup: function setup() {
+		var parms = new URLSearchParams(window.location.search)
+		var path = parms.get('path')
 		var urlsToTry = ref([
 			'https://v7.docs.nativescript.org',
 			'https://v6.docs.nativescript.org',
 		])
-		var parms = new URLSearchParams(window.location.search)
-		var path = parms.get('path')
 
 		if (path) {
-			;[
-				// prettier-ignore
-				"https://v7.docs.nativescript.org/".concat(path),
-				'https://v6.docs.nativescript.org/'.concat(path),
-			].forEach(function (url) {
-				fetch(url)
-					.then(function (res) {
-						if (res.ok) {
-							urlsToTry.value.unshift(url)
-						}
-					})
-					['catch']()
-			})
+			urlsToTry.value.unshift('https://v6.docs.nativescript.org/'.concat(path))
+			urlsToTry.value.unshift('https://v7.docs.nativescript.org/'.concat(path))
 		}
 
 		return {
