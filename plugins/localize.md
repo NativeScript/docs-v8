@@ -227,7 +227,11 @@ import { overrideLocale } from '@nativescript/localize'
 const localeOverriddenSuccessfully = overrideLocale('en-GB') // or "nl-NL", etc (or even just the part before the hyphen)
 ```
 
-> **Important:** In both cases, after calling override Locale, you must ask the user to restart the app
+:::tip Important
+
+In both cases, after calling override Locale, you must ask the user to restart the app
+
+:::
 
 For Example:
 
@@ -251,8 +255,11 @@ alert({
 })
 ```
 
-> **Important:** In case you are using [Android app bundle](https://docs.nativescript.org/tooling/publishing/android-app-bundle) to release your android app, add this to
-> App_Resources/Android/app.gradle to make sure all lanugages are bundled in the split apks
+:::tip Note
+
+In case you are using [Android app bundle](https://docs.nativescript.org/tooling/publishing/android-app-bundle) to release your android app, add this to `App_Resources/Android/app.gradle` to make sure all lanugages are bundled in the split apks
+
+:::
 
 ```groovy
 android {
@@ -267,7 +274,11 @@ android {
 }
 ```
 
-> **Tip:** you can get the default language on user's phone by using this
+:::tip Note
+
+You can get the default language on user's phone by using this
+
+:::
 
 ```ts
 import { Device } from '@nativescript/core'
@@ -275,8 +286,11 @@ import { Device } from '@nativescript/core'
 console.log("user's language is", Device.language.split('-')[0])
 ```
 
-> **Tip:** overrideLocale method stores the language in a special key in app-settings,
-> you can access it like this,
+:::tip Note
+
+`overrideLocale` method stores the language in a special key in app-settings, you can access it like this,
+
+:::
 
 ```ts
 import { ApplicationSettings } from '@nativescript/core'
