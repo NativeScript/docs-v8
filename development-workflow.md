@@ -371,7 +371,11 @@ Before writing and running unit tests, verify that you have completed the follow
    cd existingProjectDirectory
    ```
 
-> **TIP:** You don't need to explicitly add the platforms for which you want to test your project. The NativeScript CLI will configure your project when you begin to run your tests.
+:::tip Note
+
+You don't need to explicitly add the platforms for which you want to test your project. The NativeScript CLI will configure your project when you begin to run your tests.
+
+:::
 
 ### Configure Your Project
 
@@ -390,7 +394,11 @@ This operation applies the following changes to your project.
 - It installs the nativescript-unit-test-runner npm module for the selected framework and its dev dependencies in `node_modules`.
 - It creates `karma.conf.js` in the root of your project. This file contains the default configuration for the Karma server for the selected framework.
 
-> **Note**: To enable and write unit tests for TypeScript or Angular project install the TypeScript typings for the selected testing framework.
+:::tip Note
+
+To enable and write unit tests for TypeScript or Angular project install the TypeScript typings for the selected testing framework.
+
+:::
 
 <!-- tab:Jasmine -->
 
@@ -771,7 +779,11 @@ npm install -g nativescript
 
 You should execute the **update** command in the root folder of your project to upgrade it with the latest versions of iOS/Android runtimes and cross-platform modules.
 
-> The **update** command is introduced in version 2.4 of NativeScript CLI. You should update NativeScript CLI before using this command.
+:::tip Note
+
+The **update** command is introduced in version 2.4 of NativeScript CLI. You should update NativeScript CLI before using this command.
+
+:::
 
 ```cli
 ns update
