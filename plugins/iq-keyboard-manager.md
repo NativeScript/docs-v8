@@ -163,7 +163,11 @@ Start by adding the following two paths into your app’s `references.d.ts` file
 /// <reference path="./node_modules/@nativescript/iqkeyboardmanager/index.d.ts" />
 ```
 
-> **NOTE**: You might also need to `npm install --save-dev tns-platform-declarations` to bring in NativeScript’s TypeScript definitions for native iOS development.
+:::tip Note
+
+You might also need to `npm install --save-dev tns-platform-declarations` to bring in NativeScript’s TypeScript definitions for native iOS development.
+
+:::
 
 Next, initialize an instance of `IQKeyboardManager` with the following line of code.
 
