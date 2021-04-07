@@ -24,7 +24,7 @@ You can also use the `--template` flag with the `ns create` command to target a 
 ns create HelloWorld --template @nativescript/template-hello-world-ts
 ```
 
-Here you’re passing two things to the `create` command: `HelloWorld` which determines the name of the app you are creating, and the `--template` option, which tells the NativeScript CLI to scaffold an app using a predefined template named “@nativescript/template-hello-world-ts” found [here](https://github.com/NativeScript/nativescript-app-templates/tree/master/packages/template-blank-ts)
+Here you’re passing two things to the `create` command: `HelloWorld` which determines the name of the app you are creating, and the `--template` option, which tells the NativeScript CLI to scaffold an app using a predefined template named “@nativescript/template-hello-world-ts” found [here](https://github.com/NativeScript/nativescript-app-templates/tree/master/packages/template-hello-world-ts)
 
 For a full list of the templates you can use, see the [full list here](https://github.com/NativeScript/nativescript-app-templates/tree/master/packages)
 
@@ -347,7 +347,7 @@ Alternatively, once you have the NativeScript project built, you can open open t
 Be sure you have prepare/built/run the app at least once before starting the unit test runner.
 :::
 
-For more information about end-to-end testing, see [`@nativescript/detox` plugin](detox).
+For more information about end-to-end testing, see [`@nativescript/detox` plugin](/plugins/detox.html).
 
 When you develop new features inside your app, you can ensure that they are working properly and that past functionality has not regressed by writing and executing unit tests on a regular basis. With the NativeScript CLI, you can write and execute unit tests using [Jasmine](http://jasmine.github.io/), [Mocha](https://mochajs.org/) with [Chai](http://chaijs.com/) or [QUnit](https://qunitjs.com/).
 
@@ -679,6 +679,7 @@ Alternatively, since NativeScript plugins are npm packages, you can find NativeS
 
 If you can't find a plugin, try asking for help on [Stack Overflow](https://stackoverflow.com/questions/tagged/nativescript). The NativeScript team and community may be able to help find what you’re looking for.
 
+[//]: <> (TODO: fix links)
 Also, make sure to look through the [NativeScript core modules](https://docs.nativescript.org/core-concepts/modules), which ship as a dependency of every NativeScript app. There’s a chance that the functionality you need is built in. If you’re still not finding what you need, you can request the plugin as an idea on the [NativeScript community forum](https://discourse.nativescript.org/c/plugins), or you can take a stab at [building the plugin yourself](/plugins/building-plugins/).
 
 #### Installing Plugins
@@ -689,7 +690,7 @@ Once you’ve found the plugin you need, install the plugin into your app using 
 ns plugin add <plugin-name>
 ```
 
-For example, the following command installs the [NativeScript camera plugin](https://market.nativescript.org/plugins/@nativescript/camera).
+For example, the following command installs the [NativeScript camera plugin](plugins/camera).
 
 ```cli
 ns plugin add @nativescript/camera
@@ -923,7 +924,8 @@ You are now ready to use the latest development version of NativeScript.
 
 ##### Reasoning
 
-Building the source code is essential when one wants to contribute to an open source project. The statement is applicable for NativeScript as well. According to the [Contribution Guidelines](https://github.com/NativeScript/NativeScript/blob/master/CONTRIBUTING.md), suggesting a fix involves testing the latest code.
+[//]: <> (TODO: fix links)
+Building the source code is essential when one wants to contribute to an open source project. The statement is applicable for NativeScript as well. According to the [Contribution Guidelines](https://github.com/NativeScript/NativeScript/blob/master/tools/notes/CONTRIBUTING.md), suggesting a fix involves testing the latest code.
 
 #### Behind the curtains of running a NativeScript application
 
@@ -935,7 +937,7 @@ Building the source code is essential when one wants to contribute to an open so
 
 #### Contents of the NativeScript repo
 
-The [NativeScript framework](https://github.com/NativeScript/NativeScript) is built using TypeScript. For that, one of the build steps is TypeScript compilation, which uses TypeScript declarations of the underlying native objects. These are really large files ([android17.d.ts](https://github.com/NativeScript/NativeScript/blob/master/android17.d.ts) and [ios.d.ts](https://github.com/NativeScript/NativeScript/blob/master/ios.d.ts)). The TypeScript compilation with these two files loaded in memory takes a lot of time. To save development time and have as quick and stable feature output, the NativeScript team decided to keep several important applications inside the same repository so that all of them get compiled in a single pass.
+The [NativeScript framework](https://github.com/NativeScript/NativeScript) is built using TypeScript. For that, one of the build steps is TypeScript compilation, which uses TypeScript declarations of the underlying native objects. These are really large files ([android17.d.ts](https://github.com/NativeScript/NativeScript/blob/master/packages/types-android/src/lib/android-17.d.ts) and [ios.d.ts](https://github.com/NativeScript/NativeScript/blob/master/packages/types-ios/src/lib/ios/ios.d.ts)). The TypeScript compilation with these two files loaded in memory takes a lot of time. To save development time and have as quick and stable feature output, the NativeScript team decided to keep several important applications inside the same repository so that all of them get compiled in a single pass.
 
 Having said that, each subfolder of the [apps](https://github.com/NativeScript/NativeScript/tree/master/apps) subfolder of the repo represents a single application.
 
@@ -1002,7 +1004,7 @@ You can develop NativeScript apps in any text editor or IDE you prefer.
 Most of the NativeScript team prefers to use [VS Code from Microsoft](https://code.visualstudio.com/) as their editor for NativeScript apps. Some reasons we use VS Code:
 
 - Visual Studio Code has excellent support for [TypeScript](https://www.typescriptlang.org/).
-- Visual Studio Code gives you the ability to debug JavaScript and TypeScript code directly in your editor. The NativeScript team maintains an official [NativeScript Visual Studio Code extension](https://www.nativescript.org/nativescript-for-visual-studio-code) that enables step debugging for NativeScript apps.
+- Visual Studio Code gives you the ability to debug JavaScript and TypeScript code directly in your editor. The NativeScript team maintains an official [NativeScript Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=NativeScript.nativescript) that enables step debugging for NativeScript apps.
 - Visual Studio Code is a fast, modern editor that Microsoft [updates frequently](https://code.visualstudio.com/updates/).
 - Visual Studio Code is available for Windows, macOS, and Linux.
 - Microsoft backs Visual Studio Code; therefore, you can feel confident that the editor will continue to be supported in the future.
@@ -1028,6 +1030,8 @@ code .
 If you’re a WebStorm user, check out this [popular community-written plugin](https://plugins.jetbrains.com/webstorm/plugin/8588-nativescript) that adds many NativeScript-related features.
 
 #### Next steps
+
+[//]: <> (TODO: fix links)
 
 - [Code Samples](https://market.nativescript.org/?tab=samples&framework=all_frameworks&category=all_samples)
   - The NativeScript team provides a collection of high-quality code samples you can add to your applications. Perusing the code samples is a great way to get familiar with what NativeScript can do, as well as find the code you can use on your next app.
