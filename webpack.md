@@ -115,6 +115,23 @@ new webpack.BannerPlugin({
 })
 ```
 
+### Adding a resolver plugin
+
+```js
+const webpack = require('@nativescript/webpack')
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
+
+module.exports = env => {
+  webpack.init(env)
+
+  webpack.chainWebpack(config => {
+    config.resolve.plugin('TsconfigPathsPlugin').use(TsconfigPathsPlugin)
+  })
+
+  return webpack.resolveConfig()
+}
+```
+
 ### Adding a loader
 
 ```js
@@ -155,6 +172,28 @@ module.exports = env => {
         'some-external-dependency'
       ])
     )
+  })
+
+  return webpack.resolveConfig()
+}
+```
+
+### Extending the DefinePlugin options
+
+```js
+const webpack = require('@nativescript/webpack')
+
+module.exports = env => {
+  webpack.init(env)
+
+  webpack.chainWebpack(config => {
+    config.plugin('DefinePlugin').tap(args => {
+      Object.assign(args[0], {
+        'global.isProduction': !!env.production
+      })
+
+      return args
+    })
   })
 
   return webpack.resolveConfig()
@@ -207,6 +246,25 @@ module.exports = env => {
     config.module.rule('js').use('something-loader').loader('something-loader').options({
       example: true
     })
+  })
+
+  return webpack.resolveConfig()
+}
+```
+
+### Changing an existing loader options
+
+```js
+const webpack = require('@nativescript/webpack')
+
+module.exports = env => {
+  webpack.init(env)
+
+  webpack.chainWebpack(config => {
+    config.module
+      .rule('scss')
+      .use('sass-loader')
+      .options({ sassOptions: { indentedSyntax: true } })
   })
 
   return webpack.resolveConfig()
