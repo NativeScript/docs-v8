@@ -318,6 +318,8 @@ androidx.appcompat.app.AppCompatActivity.extend('org.myApp.MainActivity', {
 The `this._callbacks` property is automatically assigned to your extended class by the `frame.setActivityCallbacks` method. It implements the [AndroidActivityCallbacks interface](https://docs.nativescript.org/core-concepts/application-lifecycle#android-activity-events) and allows the core modules to get notified for important Activity events. It is **important** to use these callbacks, as many parts of NativeScript rely on them!
 :::
 
+[//]: <> (TODO: fix links)
+
 Next, modify the activity in `App_Resources/Android/src/main/AndroidManifest.xml`
 
 ```xml
@@ -589,7 +591,7 @@ NativeScript considers instances of `NSNull`, `NSNumber`, `NSString` and `NSDate
 
 On the other hand, any API that expects a `NSNull`, `NSNumber`, `NSString` or `NSDate` instance in Objective-C can be called either with a wrapper object or a JavaScript value - `null`, `number` or `boolean`, `string` or `Date`, in JavaScript. The conversion is automatically handled by NativeScript.
 
-More information on how NativeScript deals with Objective-C classes is available [here](types/ObjC-Classes.md).
+More information on how NativeScript deals with Objective-C classes is available [here](/advanced-concepts.html#objective-c-classes-and-objects).
 
 #### Objective-C Protocols
 
@@ -695,6 +697,8 @@ const view = UIView.alloc().initWithFrame(rect)
 ```
 
 More information on how NativeScript deals with structures is available [here](./types/C-Structures.md).
+
+[//]: <> (TODO: fix links)
 
 #### `NSError **` marshalling
 
@@ -1136,7 +1140,7 @@ Array in Java is a special [java.lang.Object](http://docs.oracle.com/javase/7/do
 - Has length property
 - Has registered indexed getter and setter callbacks, which:
   - If the array contains elements of type convertible to a JavaScript type, then accessing the i-th element will return a converted type
-  - If the array contains elements of type non-convertible to JavaScript, then accessing the i-th element will return a proxy object over the Java/Android type (see [Accessing APIs](../metadata/accessing-packages.md))
+  - If the array contains elements of type non-convertible to JavaScript, then accessing the i-th element will return a proxy object over the Java/Android type (see [Accessing APIs](#accessing-apis))
 
 ```js
 var directory = new java.io.File('path/to/myDir')
@@ -1245,7 +1249,7 @@ var background = button.getBackground(); // if there is no background drawable m
 
 ##### Android Types
 
-All Android-declared types are projected to JavaScript using the Package and Class proxies as described in [Accessing APIs](../metadata/accessing-packages.md)
+All Android-declared types are projected to JavaScript using the Package and Class proxies as described in [Accessing APIs](#accessing-apis)
 
 #### Kotlin to Javascript Conversion
 
@@ -1265,7 +1269,7 @@ Keep in mind that some of Kotlin's fundamental types are translated to a Java ty
 | kotlin.Long                  | long             | kotlin.Long?             | java.lang.Long      |
 | kotlin.Float                 | float            | kotlin.Float?            | java.lang.Float     |
 
-Although the conversion of Kotlin types in NativeScript is quite the same as the [Java conversion](./java-to-js.md), let's take a look at some examples.
+Although the conversion of Kotlin types in NativeScript is quite the same as the [Java conversion](#java-to-javascript-conversion), let's take a look at some examples.
 
 ##### String & Character
 
@@ -1423,7 +1427,7 @@ Array in Kotlin is a special object that has an implicit Class associated. A Kot
 - Has length property
 - Has registered indexed getter and setter callbacks, which:
   - If the array contains elements of type convertible to a JavaScript type, then accessing the n-th element will return a converted type
-  - If the array contains elements of type non-convertible to JavaScript, then accessing the n-th element will return a proxy object over the Kotlin type (see [Accessing APIs](../metadata/accessing-packages.md))
+  - If the array contains elements of type non-convertible to JavaScript, then accessing the n-th element will return a proxy object over the Kotlin type (see [Accessing APIs](#accessing-apis))
 
 ```js
 var kotlinClass = new com.example.KotlinClassWithStringArrayProperty()
@@ -1445,7 +1449,7 @@ A Kotlin Array is intentionally not converted to a JavaScript [Array](http://www
 
 ##### Creating arrays
 
-Occasionally you have to create Kotlin arrays from JavaScript. Because of the translation of the fundamental Kotlin types to Java types in Android, creating Kotlin array could be done the same way Java arrays are created. This is described in [Java to JavaScript](./java-to-js.md)
+Occasionally you have to create Kotlin arrays from JavaScript. Because of the translation of the fundamental Kotlin types to Java types in Android, creating Kotlin array could be done the same way Java arrays are created. This is described in [Java to JavaScript](#java-to-javascript-conversion)
 
 ##### Null
 
@@ -1466,7 +1470,7 @@ class KotlinClassWithNullableProperty() {
 
 ##### Kotlin Types
 
-All Kotlin types are projected to JavaScript using the Package and Class proxies as described in [Accessing APIs](../metadata/accessing-packages.md)
+All Kotlin types are projected to JavaScript using the Package and Class proxies as described in [Accessing APIs](#accessing-apis)
 
 ##### Kotlin Companion objects
 
@@ -1790,7 +1794,7 @@ if (android.os.Build.VERSION.SDK_INT >= 21) {
 
 ### Accessing APIs
 
-One of NativeScript's strongest capabilities is the access to Android (also referred to as **'Java/Kotlin'** or **'native'**) APIs inside JavaScript/TypeScript. That's possible thanks to build-time generated [Metadata](./overview.md) chunks which hold the information about the public classes from the Android SDK, Android support libraries, and any other Android libraries which may be imported into your Android NativeScript project.
+One of NativeScript's strongest capabilities is the access to Android (also referred to as **'Java/Kotlin'** or **'native'**) APIs inside JavaScript/TypeScript. That's possible thanks to build-time generated [Metadata](#metadata) chunks which hold the information about the public classes from the Android SDK, Android support libraries, and any other Android libraries which may be imported into your Android NativeScript project.
 
 ::: warning Note
 'Android classes' and 'Java/Kotlin classes' are used interchangeably throughout the article to refer to classes in the Java/Kotlin programming language.
@@ -1836,7 +1840,7 @@ To have access and Intellisense for the native APIs with **NativeScript + TypeSc
 :::
 
 ::: warning Note
-You cannot use APIs that are not present in the metadata. By default, if `--compileSdk` argument isn't provided while building, metadata will be built against the latest Android [Platform SDK](https://developer.android.com/about/versions/nougat/index.html) installed on the workstation. See [metadata limitations](./overview.md).
+You cannot use APIs that are not present in the metadata. By default, if `--compileSdk` argument isn't provided while building, metadata will be built against the latest Android [Platform SDK](https://developer.android.com/about/versions/nougat/index.html) installed on the workstation. See [metadata limitations](#metadata-limitations).
 :::
 
 #### Access Android Classes
@@ -1928,6 +1932,8 @@ const randomViewId = android.view.View.generateViewId();
 #### Extend Classes and Interfaces
 
 For a comprehensive guide on extending classes and implementing interfaces through JavaScript/TypeScript check out [the dedicated article](../binding-generator/extend-class-interface.md).
+
+[//]: <> (TODO: fix links)
 
 #### Full-fledged Example
 
@@ -2347,10 +2353,8 @@ These two lists unambigously determine how filtering is performed:
 
 Sample filtering specifications can be found in `@nativescript/core` plugin's repository:
 
-- [Plugin's Android API usage list](https://github.com/NativeScript/NativeScript/blob/master/nativescript-core/platforms/android/native-api-usage.json)
-- [Plugin's iOS API usage list](https://github.com/NativeScript/NativeScript/blob/master/nativescript-core/platforms/ios/native-api-usage.json)
-- [App's Andoroid API usage lists](https://github.com/NativeScript/NativeScript/blob/master/tests/app/App_Resources/Android/native-api-usage.json)
-- [App's iOS API usage lists](https://github.com/NativeScript/NativeScript/blob/master/tests/app/App_Resources/iOS/native-api-usage.json)
+- [Android API usage list](https://github.com/NativeScript/NativeScript/blob/master/packages/core/platforms/android/native-api-usage.json)
+- [iOS API usage list](https://github.com/NativeScript/NativeScript/blob/master/packages/core/platforms/ios/native-api-usage.json)
 
 ### Troubleshooting
 
@@ -2369,6 +2373,6 @@ For each global symbol that is discovered by the generator, there should be a li
 - `verbose: Exception [Name: 'vfwprintf', JsName: 'vfwprintf', Module: 'Darwin.C.wchar', File: '/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/usr/include/wchar.h'] : Can't create type dependency. --> [Type Decayed] : Can't create type dependency. --> [Type Typedef] : VaList type is not supported.` - if a symbol is not included because it isn't supported for some reason it will be stated in the logged exception. In this case the symbol cannot be used from JavaScript because {N} doesn't support calling functions with variable argument lists.
 - `verbose: Exception [Name: 'GLKVector3Make', JsName: 'GLKVector3Make', Module: 'GLKit.GLKVector3', File: '/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/System/Library/Frameworks/GLKit.framework/Headers/GLKVector3.h'] : Can't create type dependency. --> [Type Typedef] : Can't create type dependency. --> [Type Elaborated] : Can't create type dependency. --> [Type Record] : The record is an union.` - Another example of an unsupported symbol, this time the reason is that `union`s are unsupported
 
-# Code Sharing
+#### Code Sharing
 
 - [Code Sharing](code-sharing/index.md)
