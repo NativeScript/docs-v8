@@ -90,7 +90,7 @@ The `<AbsoluteLayout>` container is the simplest layout container in NativeScrip
 
 #### Example: a grid-like layout
 
-The following example creates a simple grid. For more information about creating grid layouts, see [GridLayout](/en/docs/elements/layouts/grid-layout).
+The following example creates a simple grid. For more information about creating grid layouts, see [GridLayout](/ui-and-styling.html#gridlayout).
 
 ```html
 <AbsoluteLayout backgroundColor="#3c495e">
@@ -164,6 +164,8 @@ The following example creates a group of overlapping items.
 | -------------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `N/A`          | `N/A`       | None.                                                                                                                                                          |
 | `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.org/api-reference/modules/_ui_layouts_absolute_layout_.html) |
+
+[//]: <> (TODO: fix links)
 
 #### Additional children props
 
@@ -251,6 +253,8 @@ The following example creates a single line of 4 elements that stretch across th
 | ------------------ | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `stretchLastChild` | `Boolean`   | Enables or disables stretching the last child to fit the remaining space.                                                                                  |
 | `...Inherited`     | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.org/api-reference/modules/_ui_layouts_dock_layout_.html) |
+
+[//]: <> (TODO: fix links)
 
 #### Additional children props
 
@@ -346,6 +350,8 @@ The following example creates a complex grid with responsive design, mixed width
 | `columns`      | `String`    | A string value representing column widths delimited with commas.<br/>Valid values: an absolute number, `auto`, or `*`.<br/>A number indicates an absolute column width. `auto` makes the column as wide as its widest child. `*` makes the column occupy all available horizontal space. The space is proportionally divided over all star-sized columns. You can set values such as `3*` and `5*` to indicate a ratio of 3:5 in sizes. |
 | `rows`         | `String`    | A string value representing row heights delimited with commas.<br/>Valid values: an absolute number, `auto`, or `*`.<br/>A number indicates an absolute row height. `auto` makes the row as tall as its tallest child. `*` makes the row occupy all available vertical space. The space is proportionally divided over all star-sized rows. You can set values such as `3*` and `5*` to indicate a ratio of 3:5 in sizes.               |
 | `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.org/api-reference/modules/_ui_layouts_grid_layout_.html)                                                                                                                                                                                                                                                                              |
+
+[//]: <> (TODO: fix links)
 
 #### Additional children props
 
@@ -478,6 +484,8 @@ The following example creates a diagonal stack of items with responsive sizes. I
 | -------------- | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `orientation`  | `String`    | Specifies the stacking direction.<br/>Valid values: `vertical` and `horizontal`.<br/>Default value: `vertical`.                                             |
 | `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.org/api-reference/modules/_ui_layouts_stack_layout_.html) |
+
+[//]: <> (TODO: fix links)
 
 #### Additional children props
 
@@ -642,6 +650,8 @@ The following example creates a column of equally-sized items. When the row runs
 | `itemHeight`   | `Number`    | Sets the height used to measure and layout each child.<br/>Default value is `Number.NaN`, which does not restrict children.                                            |
 | `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.org/api-reference/modules/_ui_layouts_wrap_layout_.html)             |
 
+[//]: <> (TODO: fix links)
+
 #### Additional children props
 
 None.
@@ -766,6 +776,8 @@ The following example shows how to use:
 | `alignItems`     | `String`    | (Android-only) Sets the alignment of child elements along the cross axis on the current line. Acts as `justifyContent` for the cross axis.<br/>Valid values:<br/>`flex-start` (cross-start margin edge of the items is placed on the cross-start line),<br/>`flex-end` (cross-end margin edge of the items is placed on the cross-end line),<br/>`center` (items are centered оn the cross axis),<br/>`baseline` (the item baselines are aligned), and<br/>`stretch` (items are stretched to fill the container but respect `min-width` and `max-width`).<br/>Default value: `stretch`.                                                                                                                                                                                        |
 | `alignContent`   | `String`    | Sets how lines are aligned in the flex container on the cross axis, similar to how `justifyContent` aligns individual items within the main axis.<br/> This property has no effect when the flex container has only one line.<br/>Valid values:<br/>`flex-start` (lines are packed to the start of the container),<br/>`flex-end` (lines are packed to the end of the container),<br/>`center` (lines are packed to the center of the container),<br/>`space-between` (lines are evenly distributed; the first line is at the start of the container while the last one is at the end),<br/>`space-around` (lines are evenly distributed with equal space between them), and<br/>`stretch` (lines are stretched to take up the remaining space).<br/>Default value: `stretch`. |
 | `...Inherited`   | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.org/api-reference/modules/_ui_layouts_flexbox_layout_.html)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+
+[//]: <> (TODO: fix links)
 
 #### Additional children props
 
@@ -934,6 +946,8 @@ In iOS, the color property affects the color of the title and the action items. 
 | `titleView` | [View](https://docs.nativescript.org/api-reference/classes/_ui_core_view_.view) | Gets or sets the title view. When set - replaces the title with a custom view.       |
 | `flat`      | `boolean`                                                                       | Removes the border on Android and the translucency on iOS. Default value is `false`. |
 
+[//]: <> (TODO: fix links)
+
 #### ActionItem Properties
 
 | Name                 | Type                                                  | Description                                                                                                                                                           |
@@ -970,6 +984,8 @@ In iOS, the color property affects the color of the title and the action items. 
 | [ActionItems](https://docs.nativescript.org/api-reference/classes/_ui_action_bar_.actionitems)           | `Class`  |
 | [NavigationButton](https://docs.nativescript.org/api-reference/classes/_ui_action_bar_.navigationbutton) | `Class`  |
 
+[//]: <> (TODO: fix links)
+
 #### Native Component
 
 | Android                                                                                       | iOS                                                                                           |
@@ -979,6 +995,8 @@ In iOS, the color property affects the color of the title and the action items. 
 #### See Also
 
 [Detailed documentation article about `ActionBar` functionalities.](https://docs.nativescript.org/angular/ui/action-bar)
+
+[//]: <> (TODO: fix links)
 
 ### Activity-Indicator
 
@@ -1121,6 +1139,8 @@ onTap(args: EventData) {
 | `isEnabled `   | `Boolean`   | Make the button disabled or enabled. A disabled button is unusable and un-clickable. Default value is `true`.                            |
 | `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.org/api-reference/modules/_ui_button_) |
 
+[//]: <> (TODO: fix links)
+
 #### Events
 
 | Name  | Description                        |
@@ -1153,7 +1173,7 @@ If you need to style parts of the text, you can use a combination of a `Formatte
 
 `<DatePicker>` is a UI component that lets users select a date from a pre-configured range.
 
-> See also: [TimePicker](/ui-and-styling.html#timepicker).
+See also: [TimePicker](/ui-and-styling.html#timepicker).
 
 ---
 
@@ -1289,6 +1309,8 @@ export class DatePickerUsageComponent {
 | `year`         | `Number`    | Gets or sets the year.                                                                                                                        |
 | `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.org/api-reference/modules/_ui_date_picker_) |
 
+[//]: <> (TODO: fix links)
+
 #### Events
 
 | Name         | Description                             |
@@ -1303,7 +1325,7 @@ export class DatePickerUsageComponent {
 
 ### Frame
 
-`<Frame>` is a UI component used to display [`<Page>`](/en/docs/elements/components/page) elements. Every app needs at least a single `<Frame>` element, usually set as the root element.
+`<Frame>` is a UI component used to display [`<Page>`](/ui-and-styling.html#page) elements. Every app needs at least a single `<Frame>` element, usually set as the root element.
 
 ---
 
@@ -1433,6 +1455,8 @@ export class HtmlViewUsageComponent {
 | `html`         | `String`    | The HTML content to be shown.                                                                                                               |
 | `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.org/api-reference/modules/_ui_html_view_) |
 
+[//]: <> (TODO: fix links)
+
 #### Native component
 
 | Android                                                                                           | iOS                                                                        |
@@ -1442,6 +1466,8 @@ export class HtmlViewUsageComponent {
 ### Image
 
 `<Image>` is a UI component that shows an image from an [ImageSource](https://docs.nativescript.org/api-reference/modules/_image_source_) or from a URL.
+
+[//]: <> (TODO: fix links)
 
 ::: tip Tip
 When working with images following [the best practices](/performance.html#image-optimizations) is a must.
@@ -1526,6 +1552,8 @@ When working with images following [the best practices](/performance.html#image-
 | `loadMode`     |                                                                                                 | Gets or sets the loading strategy for the images on the local file system.<br/>Valid values: `sync` or `async`.<br/>Default value: `async`.<br/>For more information, see [loadMode](https://docs.nativescript.org/api-reference/classes/_ui_image_.image#loadmode).     |
 | `...Inherited` | `Inherited`                                                                                     | Additional inherited properties not shown. Refer to the [API Reference](http://docs.nativescript.org/api-reference/modules/_ui_image_.html)                                                                                                                              |
 
+[//]: <> (TODO: fix links)
+
 #### Native component
 
 | Android                                                                                             | iOS                                                                          |
@@ -1591,6 +1619,8 @@ This `<Label>` is **not** the same as the HTML `<label>`.
 
 If you need to style parts of the text, you can use a combination of a [`FormattedString`](https://docs.nativescript.org/angular/ui/ng-ui-widgets/formatted-string) and [`Span`](https://docs.nativescript.org/api-reference/classes/_text_span_.span) elements.
 
+[//]: <> (TODO: fix links)
+
 ```html
 <label textWrap="true">
   <FormattedString>
@@ -1617,6 +1647,8 @@ If you need to style parts of the text, you can use a combination of a [`Formatt
 | `whiteSpace`     | **_"initial"_**, **_"normal"_**, **_"nowrap"_**                                                | Gets or sets the white space style.                                                                                                         |
 | `...Inherited`   | `Inherited`                                                                                    | Additional inherited properties not shown. Refer to the [API Reference](http://docs.nativescript.org/api-reference/modules/_ui_label_.html) |
 
+[//]: <> (TODO: fix links)
+
 #### Events
 
 | Name         | Description                             |
@@ -1629,7 +1661,7 @@ If you need to style parts of the text, you can use a combination of a [`Formatt
 | ------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
 | [`android.widget.TextView`](https://developer.android.com/reference/android/widget/TextView.html) | [`UILabel`](https://developer.apple.com/documentation/uikit/uilabel) |
 
-https://github.com/nativescript-vue/nativescript-vue.org/tree/master/content/docs/en/elements/components
+[//]: <> (TODO: reference link: https://github.com/nativescript-vue/nativescript-vue.org/tree/master/content/docs/en/elements/components)
 
 ### List Picker
 
@@ -1700,6 +1732,8 @@ export function onListPickerLoaded(args) {
 | `items`         | `Array<String>` | Gets or sets the items displayed as options in the list picker.                                                                                  |
 | `selectedIndex` | `Number`        | Gets or sets the index of the currently selected item.                                                                                           |
 | `...Inherited`  | `Inherited`     | Additional inherited properties not shown. Refer to the [API Reference](http://docs.nativescript.org/api-reference/modules/_ui_list_picker_.htm) |
+
+[//]: <> (TODO: fix links)
 
 #### Events
 
@@ -2046,6 +2080,8 @@ If a `v-for` is used on a `<ListView>` a warning will be printed to the console,
 
 #### todo: cleanup API References
 
+[//]: <> (TODO: fix links)
+
 | Name                                                                                                 | Type        |
 | ---------------------------------------------------------------------------------------------------- | ----------- |
 | [@nativescript/core/ui/list-view](http://docs.nativescript.org/api-reference/modules/_ui_list_view_) | `Module`    |
@@ -2096,7 +2132,7 @@ Using the ListView component inside a ScrollView or ScrollView inside the ListVi
 
 ### Page
 
-`<Page>` is a UI component that represents an application screen. NativeScript apps typically consist of one or more `<Page>` that wrap content such as an [`<ActionBar>`](/en/docs/elements/action-bar/action-bar) and other UI widgets.
+`<Page>` is a UI component that represents an application screen. NativeScript apps typically consist of one or more `<Page>` that wrap content such as an [`<ActionBar>`](#actionbar) and other UI widgets.
 
 ---
 
@@ -2222,6 +2258,8 @@ Developers coming from a web background would usually reach for the `mounted` li
 | `statusBarStyle`               | `String`    | Gets or sets the style of the status bar.<br/>Valid values:<br/>`light`,<br/>`dark`.                                                       |
 | `...Inherited`                 | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](http://docs.nativescript.org/api-reference/modules/_ui_page_.html) |
 
+[//]: <> (TODO: fix links)
+
 #### Events
 
 | Name             | Description                                                      |
@@ -2345,7 +2383,7 @@ methods: {
 
 `<Progress>` is a UI component that shows a bar to indicate the progress of a task.
 
-See also: [ActivityIndicator](/en/docs/elements/components/activity-indicator).
+See also: [ActivityIndicator](#activity-indicator).
 
 ---
 
@@ -2428,6 +2466,8 @@ export class StylingComponent implements OnInit {
 | `maxValue`     | `Number`    | Gets or sets the maximum value of the progress bar.<br/>Default value: `100`.                                                                  |
 | `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](http://docs.nativescript.org/api-reference/modules/_ui_progress_.html) |
 
+[//]: <> (TODO: fix links)
+
 #### Events
 
 | Name          | Description                                |
@@ -2499,11 +2539,15 @@ When using ObservableArray the repeater will be automatically updated when items
 | [Repeater](http://docs.nativescript.org/api-reference/modules/_ui_repeater_.html)      | `Module` |
 | [Repeater](https://docs.nativescript.org/api-reference/classes/_ui_repeater_.repeater) | `Class`  |
 
+[//]: <> (TODO: fix links)
+
 ### ScrollView
 
 `<ScrollView>` is a UI component that shows a scrollable content area. Content can be scrolled vertically or horizontally.
 
 It's important to note that `<ScrollView>` extends [`ContentView`](https://docs.nativescript.org/api-reference/classes/_ui_content_view_.contentview), so it can only have a single child element.
+
+[//]: <> (TODO: fix links)
 
 ---
 
@@ -2605,6 +2649,8 @@ export class TipsAndTricksComponent {
 | `orientation`               | `String`    | Gets or sets the direction in which the content can be scrolled: `horizontal` or `vertical`.<br/>Default value: `vertical`.                      |
 | `scrollBarIndicatorVisible` | `Boolean`   | Specifies if the scrollbar is visible.<br/>Default value: `true`.                                                                                |
 | `...Inherited`              | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](http://docs.nativescript.org/api-reference/modules/_ui_scroll_view_.htm) |
+
+[//]: <> (TODO: fix links)
 
 #### Events
 
@@ -2737,6 +2783,8 @@ export class UsageComponent {
 | `textFieldHintColor`       | `Color`     | Gets or sets the color of the placeholder text.                                                                                              |
 | `...Inherited`             | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.org/api-reference/modules/_ui_search_bar_) |
 
+[//]: <> (TODO: fix links)
+
 #### Events
 
 | name         | description                                                                                  |
@@ -2755,7 +2803,7 @@ export class UsageComponent {
 
 `<SegmentedBar>` is a UI bar component that displays a set of buttons for discrete selection. Can show text or images.
 
-As opposed to `<TabView>`:
+As opposed to [`<TabView>`](#tabview):
 
 - The position of `<SegmentedBar>` is not fixed.
 - You can place and style it as needed on the page or inside additional app elements such as hamburger menus.
@@ -2876,6 +2924,8 @@ export class BasicSegmentedBarComponent {
 | `selectedBackgroundColor` | `Color`                   | (Style property) Gets or sets the background color of the selected item. To set the background color of the entire bar, use `backgroundColor`.                |
 | `...Inherited`            | `Inherited`               | Additional inherited properties not shown. Refer to the [API Reference](http://docs.nativescript.org/api-reference/modules/_ui_segmented_bar_.html)           |
 
+[//]: <> (TODO: fix links)
+
 #### Events
 
 | Name                  | Description                                              |
@@ -2966,6 +3016,8 @@ export class UsageComponent {
 | `maxValue`     | `Number`    | Gets or sets the maximum value of the slider.<br/>Default value: `100`.                                                                      |
 | `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](http://docs.nativescript.org/api-reference/modules/_ui_slider_.html) |
 
+[//]: <> (TODO: fix links)
+
 #### Events
 
 | Name          | Description                                   |
@@ -3051,6 +3103,8 @@ export class BasicSwitchComponent {
 | -------------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
 | `checked`      | `Boolean`   | Gets or sets the value of the switch selection.<br/>Default value: `false`.                                                                  |
 | `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](http://docs.nativescript.org/api-reference/modules/_ui_switch_.html) |
+
+[//]: <> (TODO: fix links)
 
 #### Events
 
@@ -3248,6 +3302,8 @@ Consider using BottomNavigation component to create the same UI for both iOS and
 You can use images for tab icons instead of icon fonts. For more information about how to control the size of icons, see [Working with image from resource folders](https://docs.nativescript.org/ui/image-resources).
 :::
 
+[//]: <> (TODO: fix links)
+
 #### Styling
 
 The `TabView` component has the following unique styling properties:
@@ -3279,6 +3335,8 @@ The `TabView` component has the following unique styling properties:
 | `iosIconRenderingMode`             | _"automatic"_, _"alwaysOriginal"_, _"alwaysTemplate"_ | Gets or sets the icon rendering mode on iOS.                                                                                                   |
 | `...Inherited`                     | `Inherited`                                           | Additional inherited properties not shown. Refer to the [API Reference](http://docs.nativescript.org/api-reference/modules/_ui_tab_view_.html) |
 
+[//]: <> (TODO: fix links)
+
 #### TabViewItem Properties
 
 | Name         | Type     | Description                                                                                                                                  |
@@ -3292,6 +3350,8 @@ The `TabView` component has the following unique styling properties:
 | --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `selectedIndexChange` | Emits [an event object](https://docs.nativescript.org/api-reference/interfaces/_ui_tab_view_.selectedindexchangedeventdata) containing an `newIndex` property with the index of the tapped `<TabViewItem>` (and an `oldIndex` property with the index of the previous tab). |
 
+[//]: <> (TODO: fix links)
+
 #### Native component
 
 | Android                                                                                                               | iOS                                                                                        |
@@ -3303,6 +3363,8 @@ The `TabView` component has the following unique styling properties:
 `<TextField>` is an input component that creates an editable single-line box.
 
 `<TextField>` extends [`TextBase`](https://docs.nativescript.org/api-reference/classes/_ui_text_base_.textbase) and [`EditableTextBase`](https://docs.nativescript.org/api-reference/classes/_ui_editor_text_base_.editabletextbase) which provide additional properties and events.
+
+[//]: <> (TODO: fix links)
 
 ---
 
@@ -3425,6 +3487,8 @@ export class UsageComponent {
 | `whiteSpace`             | `WhiteSpace`                                                                                                                 | Gets or sets white space style property.                                                                                                         |
 | `...Inherited`           | `Inherited`                                                                                                                  | Additional inherited properties not shown. Refer to the [API Reference](http://docs.nativescript.org/api-reference/modules/_ui_text_field_.html) |
 
+[//]: <> (TODO: fix links)
+
 #### Events
 
 | Name          | Description                             |
@@ -3445,6 +3509,8 @@ export class UsageComponent {
 `<TextView>` is a UI component that shows an editable or a read-only multi-line text container. You can use it to let users type large text in your app or to show longer, multi-line text on the screen.
 
 `<TextView>` extends [`TextBase`](https://docs.nativescript.org/api-reference/classes/_ui_text_base_.textbase) and [`EditableTextBase`](https://docs.nativescript.org/api-reference/classes/_ui_editor_text_base_.editabletextbase) which provide additional properties and events.
+
+[//]: <> (TODO: fix links)
 
 ---
 
@@ -3557,6 +3623,8 @@ To apply multiple styles to the text in your `<TextView>`, you can use `<Formatt
 | `autocorrect`   | `Boolean`                                                                                                                               | Enables or disables autocorrect.                                                                                                                |
 | `...Inherited`  | `Inherited`                                                                                                                             | Additional inherited properties not shown. Refer to the [API Reference](http://docs.nativescript.org/api-reference/modules/_ui_text_view_.html) |
 
+[//]: <> (TODO: fix links)
+
 #### Events
 
 | Name          | Description                             |
@@ -3576,7 +3644,7 @@ To apply multiple styles to the text in your `<TextView>`, you can use `<Formatt
 
 `<TimePicker>` is a UI component that lets users select time.
 
-> See also: [DatePicker](ui-and-styling.html#date-picker).
+See also: [DatePicker](ui-and-styling.html#date-picker).
 
 ---
 
@@ -3686,6 +3754,8 @@ export class UsageComponent {
 | `minuteInterval` | `Number`    | Gets or sets the selectable minute interval. For example: 5 or 15 minutes.<br/>Default value: `1`.                                                |
 | `...Inherited`   | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](http://docs.nativescript.org/api-reference/modules/_ui_time_picker_.html) |
 
+[//]: <> (TODO: fix links)
+
 #### Events
 
 | Name         | Description                             |
@@ -3750,6 +3820,8 @@ To be able to use gestures in WebView component on Android, we should first disa
 | `src`          | `String`    | Gets or sets the displayed web content.<br/>Valid values: an absolute URL, the path to a local HTML file, or static HTML.                      |
 | `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](http://docs.nativescript.org/api-reference/modules/_ui_web_view_.html) |
 
+[//]: <> (TODO: fix links)
+
 #### Events
 
 | Name           | Description                                                    |
@@ -3774,6 +3846,8 @@ Similarly to the DOM Style Object, each View instance exposes a style property, 
 ### Supported CSS Properties
 
 This list of properties can be set in CSS or through the style property of each view:
+
+[//]: <> (TODO: fix links)
 
 | CSS Property          | JavaScript Property   | Description                                                                                                                                                                                                                               |
 | :-------------------- | :-------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -4120,12 +4194,8 @@ StackLayout Button + Label {
 The CSS styles can be set on 3 different levels:
 
 - [Application-wide CSS](#application-wide-css): Applies to every application page
-  /// flavor plain
 - [Page-specific CSS](#page-specific-css): Applies to the page's UI views
-  ///
-  /// flavor angular
 - [Component-specific CSS](#component-specific-css): Applies for component only
-  ///
 - [Inline CSS](#inline-css): Applies directly to a UI view
 
 If there is CSS declared on different levels&mdash;all will be applied. The inline CSS will have the highest priority and the application CSS will have the lowest priority.
@@ -4332,6 +4402,8 @@ The CSS classes for each application and modal root view are:
 - `.ns-light`, `.ns-dark` - classes that specify the system appearance.
 
 For additional information on the Dark Mode support, refer to [this](https://docs.nativescript.org/ui/dark-mode) documentation article.
+
+[//]: <> (TODO: fix links)
 
 #### Supported Measurement Units
 
