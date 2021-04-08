@@ -613,6 +613,7 @@ function H(e, t, n, r, o, i, a, c, u) {
 				g && (f.__E = f.__ = null),
 				(f.__e = !1)
 		} else t.__e = M(n.__e, t, n, r, o, i, a, u)
+
 		;(l = s.diffed) && l(t)
 	} catch (e) {
 		s.__e(e, t, n)
@@ -6307,7 +6308,7 @@ var _hoisted_1$a = {
 	'stroke-miterlimit': '2',
 }
 
-var _hoisted_2$8 = /*#__PURE__*/ createVNode(
+var _hoisted_2$9 = /*#__PURE__*/ createVNode(
 	'g',
 	{
 		transform: 'translate(-362.21733 -1030)',
@@ -6388,7 +6389,7 @@ var _hoisted_2$8 = /*#__PURE__*/ createVNode(
 	-1
 )
 
-var _hoisted_3$6 = {
+var _hoisted_3$7 = {
 	key: 1,
 	viewBox: '0 0 532 100',
 	xmlns: 'http://www.w3.org/2000/svg',
@@ -6398,7 +6399,7 @@ var _hoisted_3$6 = {
 	'stroke-miterlimit': '2',
 }
 
-var _hoisted_4$6 = /*#__PURE__*/ createVNode(
+var _hoisted_4$7 = /*#__PURE__*/ createVNode(
 	'g',
 	{
 		transform: 'translate(-1641.886 -310)',
@@ -6477,8 +6478,8 @@ var _hoisted_4$6 = /*#__PURE__*/ createVNode(
 
 function render$a(_ctx, _cache, $props, $setup, $data, $options) {
 	return _ctx.variant === 'blue'
-		? (openBlock(), createBlock('svg', _hoisted_1$a, [_hoisted_2$8]))
-		: (openBlock(), createBlock('svg', _hoisted_3$6, [_hoisted_4$6]))
+		? (openBlock(), createBlock('svg', _hoisted_1$a, [_hoisted_2$9]))
+		: (openBlock(), createBlock('svg', _hoisted_3$7, [_hoisted_4$7]))
 }
 
 script$a.render = render$a
@@ -6520,18 +6521,18 @@ var script$9 = defineComponent({
 var _hoisted_1$9 = {
 	class: 'top-0 z-10 lg:sticky',
 }
-var _hoisted_2$7 = {
+var _hoisted_2$8 = {
 	class: 'pt-6 pb-6 bg-ns-blue',
 }
-var _hoisted_3$5 = {
+var _hoisted_3$6 = {
 	class:
 		'relative flex items-center justify-between px-4 mx-auto 2xl:container sm:px-6',
 	'aria-label': 'Global',
 }
-var _hoisted_4$5 = {
+var _hoisted_4$6 = {
 	class: 'flex items-center flex-1',
 }
-var _hoisted_5$2 = {
+var _hoisted_5$3 = {
 	class: 'flex items-center justify-between w-full lg:w-auto',
 }
 
@@ -6855,10 +6856,10 @@ function render$9(_ctx, _cache, $props, $setup, $data, $options) {
 	return (
 		openBlock(),
 		createBlock('header', _hoisted_1$9, [
-			createVNode('div', _hoisted_2$7, [
-				createVNode('nav', _hoisted_3$5, [
-					createVNode('div', _hoisted_4$5, [
-						createVNode('div', _hoisted_5$2, [
+			createVNode('div', _hoisted_2$8, [
+				createVNode('nav', _hoisted_3$6, [
+					createVNode('div', _hoisted_4$6, [
+						createVNode('div', _hoisted_5$3, [
 							createVNode(
 								'a',
 								{
@@ -7140,7 +7141,7 @@ var _hoisted_1$8 = {
 	fill: 'currentColor',
 }
 
-var _hoisted_2$6 = /*#__PURE__*/ createVNode(
+var _hoisted_2$7 = /*#__PURE__*/ createVNode(
 	'g',
 	null,
 	[
@@ -7217,7 +7218,7 @@ var _hoisted_2$6 = /*#__PURE__*/ createVNode(
 )
 
 function render$8(_ctx, _cache) {
-	return openBlock(), createBlock('svg', _hoisted_1$8, [_hoisted_2$6])
+	return openBlock(), createBlock('svg', _hoisted_1$8, [_hoisted_2$7])
 }
 
 var script$8 = {}
@@ -7233,12 +7234,12 @@ var script$7 = defineComponent({
 var _hoisted_1$7 = {
 	class: '',
 }
-var _hoisted_2$5 = {
+var _hoisted_2$6 = {
 	class:
 		'px-4 pt-10 pb-4 mx-auto max-w-7xl sm:px-6 md:flex md:items-center md:justify-between lg:px-6',
 }
 
-var _hoisted_3$4 = /*#__PURE__*/ createVNode(
+var _hoisted_3$5 = /*#__PURE__*/ createVNode(
 	'div',
 	{
 		class: 'flex justify-center space-x-6 md:order-3',
@@ -7382,10 +7383,10 @@ var _hoisted_3$4 = /*#__PURE__*/ createVNode(
 	-1
 )
 
-var _hoisted_4$4 = {
+var _hoisted_4$5 = {
 	class: 'order-1 mt-8 md:mt-0',
 }
-var _hoisted_5$1 = {
+var _hoisted_5$2 = {
 	href: 'https://openjsf.org/',
 	target: '_blank',
 	rel: 'noopener noreferrer',
@@ -7413,10 +7414,10 @@ function render$7(_ctx, _cache, $props, $setup, $data, $options) {
 	return (
 		openBlock(),
 		createBlock('footer', _hoisted_1$7, [
-			createVNode('div', _hoisted_2$5, [
-				_hoisted_3$4,
-				createVNode('div', _hoisted_4$4, [
-					createVNode('a', _hoisted_5$1, [
+			createVNode('div', _hoisted_2$6, [
+				_hoisted_3$5,
+				createVNode('div', _hoisted_4$5, [
+					createVNode('a', _hoisted_5$2, [
 						_hoisted_6$1,
 						createVNode(_component_OpenJSLogo, {
 							'aria-hidden': 'true',
@@ -7761,10 +7762,6 @@ function isActive(route, path) {
 
 	var routePath = normalize('/'.concat(route.data.relativePath))
 	var pagePath = normalize(path)
-	// console.log({
-	// 	routePath: routePath,
-	// 	pagePath: pagePath,
-	// })
 	return routePath === pagePath
 }
 function normalize(path) {
@@ -7922,11 +7919,11 @@ script$6.render = render$6
 var _hoisted_1$5 = {
 	class: 'bg-ns-blue',
 }
-var _hoisted_2$4 = {
+var _hoisted_2$5 = {
 	class: 'container px-6 pb-2 mx-auto',
 }
 
-var _hoisted_3$3 = /*#__PURE__*/ createVNode(
+var _hoisted_3$4 = /*#__PURE__*/ createVNode(
 	'svg',
 	{
 		class: 'w-6 h-6',
@@ -7946,7 +7943,7 @@ var _hoisted_3$3 = /*#__PURE__*/ createVNode(
 	-1
 )
 
-var _hoisted_4$3 = /*#__PURE__*/ createVNode(
+var _hoisted_4$4 = /*#__PURE__*/ createVNode(
 	'span',
 	{
 		class: 'pl-2',
@@ -7959,14 +7956,14 @@ function render$5(_ctx, _cache) {
 	return (
 		openBlock(),
 		createBlock('div', _hoisted_1$5, [
-			createVNode('div', _hoisted_2$4, [
+			createVNode('div', _hoisted_2$5, [
 				createVNode(
 					'a',
 					{
 						href: _ctx.$themeConfig.mainURL,
 						class: 'flex items-center text-white',
 					},
-					[_hoisted_3$3, _hoisted_4$3],
+					[_hoisted_3$4, _hoisted_4$4],
 					8,
 					['href']
 				),
@@ -8162,7 +8159,7 @@ var _hoisted_1$4 = /*#__PURE__*/ createVNode(
 	-1
 )
 
-var _hoisted_2$3 = {
+var _hoisted_2$4 = {
 	key: 0,
 	class: 'text-xs',
 }
@@ -8222,7 +8219,7 @@ var render$4 = /*#__PURE__*/ _withId(function (
 										? (openBlock(),
 										  createBlock(
 												'span',
-												_hoisted_2$3,
+												_hoisted_2$4,
 												' (not applicable to ' +
 													toDisplayString(_ctx.currentFlavor) +
 													') ',
@@ -8259,16 +8256,16 @@ var script$3 = defineComponent({
 var _hoisted_1$3 = {
 	class: 'min-h-screen font-sans antialiased',
 }
-var _hoisted_2$2 = {
+var _hoisted_2$3 = {
 	class: 'mx-auto 2xl:container lg:px-8',
 }
-var _hoisted_3$2 = {
+var _hoisted_3$3 = {
 	class: 'flex',
 }
-var _hoisted_4$2 = {
+var _hoisted_4$3 = {
 	class: 'hidden lg:block w-72 2xl:w-96',
 }
-var _hoisted_5 = {
+var _hoisted_5$1 = {
 	class: 'static h-full',
 }
 var _hoisted_6 = {
@@ -8347,10 +8344,10 @@ function render$3(_ctx, _cache, $props, $setup, $data, $options) {
 				8,
 				['nav', 'mainURL']
 			),
-			createVNode('div', _hoisted_2$2, [
-				createVNode('div', _hoisted_3$2, [
-					createVNode('div', _hoisted_4$2, [
-						createVNode('div', _hoisted_5, [
+			createVNode('div', _hoisted_2$3, [
+				createVNode('div', _hoisted_3$3, [
+					createVNode('div', _hoisted_4$3, [
+						createVNode('div', _hoisted_5$1, [
 							createVNode('div', _hoisted_6, [createVNode(_component_SideBar)]),
 						]),
 					]),
@@ -8382,6 +8379,26 @@ function render$3(_ctx, _cache, $props, $setup, $data, $options) {
 
 script$3.render = render$3
 
+var script$2 = defineComponent({
+	setup: function setup() {
+		var urlsToTry = ref([])
+
+		if (typeof window !== 'undefined') {
+			var parms = new URLSearchParams(window.location.search)
+			var path = parms.get('path')
+
+			if (path) {
+				urlsToTry.value.push('https://v7.docs.nativescript.org/'.concat(path))
+				urlsToTry.value.push('https://v6.docs.nativescript.org/'.concat(path))
+			}
+		}
+
+		return {
+			urlsToTry: urlsToTry,
+		}
+	},
+})
+
 var _hoisted_1$2 = /*#__PURE__*/ createVNode(
 	'h2',
 	null,
@@ -8389,11 +8406,105 @@ var _hoisted_1$2 = /*#__PURE__*/ createVNode(
 	-1
 )
 
-function render$2(_ctx, _cache) {
-	return openBlock(), createBlock('div', null, [_hoisted_1$2])
+var _hoisted_2$2 = /*#__PURE__*/ createVNode(
+	'p',
+	null,
+	'The page may still be missing from the docs.',
+	-1
+)
+
+var _hoisted_3$2 = /*#__PURE__*/ createVNode(
+	'p',
+	null,
+	'We are working on improving the docs, but in the meantime here are some links that may be what you are looking for:',
+	-1
+)
+
+var _hoisted_4$2 = /*#__PURE__*/ createVNode(
+	'li',
+	null,
+	[
+		/*#__PURE__*/ createVNode(
+			'a',
+			{
+				href: 'https://v7.docs.nativescript.org',
+			},
+			'https://v7.docs.nativescript.org'
+		),
+	],
+	-1
+)
+
+var _hoisted_5 = /*#__PURE__*/ createVNode(
+	'li',
+	null,
+	[
+		/*#__PURE__*/ createVNode(
+			'a',
+			{
+				href: 'https://v6.docs.nativescript.org',
+			},
+			'https://v7.docs.nativescript.org'
+		),
+	],
+	-1
+)
+
+function render$2(_ctx, _cache, $props, $setup, $data, $options) {
+	var _component_ClientOnly = resolveComponent('ClientOnly')
+
+	return (
+		openBlock(),
+		createBlock('div', null, [
+			_hoisted_1$2,
+			createVNode('div', null, [
+				_hoisted_2$2,
+				_hoisted_3$2,
+				createVNode('ul', null, [
+					createVNode(_component_ClientOnly, null, {
+						default: withCtx(function () {
+							return [
+								(openBlock(true),
+								createBlock(
+									Fragment,
+									null,
+									renderList(_ctx.urlsToTry, function (url) {
+										return (
+											openBlock(),
+											createBlock(
+												'li',
+												{
+													key: url,
+												},
+												[
+													createVNode(
+														'a',
+														{
+															href: url,
+															target: '_blank',
+														},
+														toDisplayString(url),
+														9,
+														['href']
+													),
+												]
+											)
+										)
+									}),
+									128
+								)),
+							]
+						}),
+						_: 1,
+					}),
+					_hoisted_4$2,
+					_hoisted_5,
+				]),
+			]),
+		])
+	)
 }
 
-var script$2 = {}
 script$2.render = render$2
 
 var script$1 = defineComponent({
@@ -8573,6 +8684,7 @@ var script = defineComponent({
 		})
 		watch(currentTab, function (next, prev) {
 			var _tabContainer$value, _tabContainer$value2
+
 			;(_tabContainer$value = tabContainer.value) === null ||
 			_tabContainer$value === void 0
 				? void 0
@@ -8673,7 +8785,8 @@ var theme = function theme(enhanceApp) {
 			ctx.siteData // global components
 
 			app.component('FlavorTabs', script$1)
-			app.component('CodeTabs', script) // provide globlal flavor value
+			app.component('CodeTabs', script)
+			app.component('NotFound', script$2) // provide globlal flavor value
 
 			app.provide(CurrentFlavorSymbol, createCurrentFlavor())
 
