@@ -2,6 +2,8 @@
 title: Code Sharing
 ---
 
+## Code Sharing
+
 JavaScript provides opportunities of immense scalability if architectured properly.
 
 One key word that often comes up in this department is **"code sharing"**.
