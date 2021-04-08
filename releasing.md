@@ -25,17 +25,21 @@ At the end of `<path-to-your-keystore>` you should also add the exact name of yo
 
 :::
 
-:::tip Example (Windows)
+Example
 
-`ns build android --release --key-store-path C:\keystore\NativeScriptApp.keystore --key-store-password sample_password --key-store-alias NativeScriptApp --key-store-alias-password sample_password` .
+<!-- tab:Windows -->
 
-:::
+```cli
+ns build android --release --key-store-path C:\keystore\NativeScriptApp.keystore --key-store-password sample_password --key-store-alias NativeScriptApp --key-store-alias-password sample_password
+```
 
-:::tip Example (Mac)
+<!-- tab:Mac -->
 
-`ns build android --release --key-store-path ~/Desktop/keystore/NativeScriptApp.keystore --key-store-password sample_password --key-store-alias NativeScriptApp --key-store-alias-password sample_password` .
+```cli
+ns build android --release --key-store-path ~/Desktop/keystore/NativeScriptApp.keystore --key-store-password sample_password --key-store-alias NativeScriptApp --key-store-alias-password sample_password
+```
 
-::: 4. Obtain the release `.apk` located at `<app_name>/platforms/android/app/build/outputs/apk/<app_name>-release.apk`. 5. Publish your Android app by uploading the `.apk` file to the Google Developer Console. For more information, see [How to publish an Android app?](http://developer.android.com/distribute/googleplay/start.html)
+4. Obtain the release `.apk` located at `<app_name>/platforms/android/app/build/outputs/apk/<app_name>-release.apk`. 5. Publish your Android app by uploading the `.apk` file to the Google Developer Console. For more information, see [How to publish an Android app?](http://developer.android.com/distribute/googleplay/start.html)
 
 ### Application Id and Package Name
 
@@ -100,7 +104,7 @@ NativeScript supports adaptive icons on Android 8 and above (API 26+). No code c
 #### Creating Launch Screens for Android
 
 Launch screens are essential as they provide a user's first experience with your mobile application.
-Based on [Google's Material Design launch screens guidelines](https://material.google.com/patterns/launch-screens.html#launch-screens-branded-launch), there are two
+Based on [Google's Material Design launch screens guidelines](https://material.io/design/communication/launch-screen.html), there are two
 main types of launch screens:
 
 - Placeholder UI: A simple seamless transaction type screen
@@ -114,7 +118,7 @@ are good to follow to create a good first impression:
 - avoid using text (except for your logo and tagline)
 - avoid using animations (your launch should be as light as possible)
 - avoid reusing your launch screen inside your application
-- follow Google's [Material design](https://material.google.com) rules
+- follow Google's [Material design](https://material.io/) rules
 
 #### Setting launch screen and app icons
 
@@ -216,8 +220,7 @@ The default **splash_screen.xml** with centered `logo.png` and filled `backgroun
 3. Define the strings you want to use in **values/strings.xml** and in **values-v21/strings.xml**.
    You can set your own string here and reuse them in the **splash_screen.xml** file for your launch screen (or reuse them in your app).
 
-![Setting colors in values folders](/assets/releasing/launch-android-003.png 'Setting colors in values folders')
-<Comment: I think you mean for the previous link text to reference strings, not colors. Item 3 on this list is strings. The last item was colors.>
+![Setting strings in values folders](/assets/releasing/launch-android-003.png 'Setting strings in values folders')
 
 4. Define the styles and themes you want to use in **values/styles.xml** and in **values-v21/styles.xml**.
    Note that styles applied in the values-v21 folder will be applied only to devices with API 21+. <Comment: Did you mean DPI 21+>
@@ -686,13 +689,9 @@ In your **app/App_Resources/iOS/Assets.xcassets** you will find the following su
 
 - **AppIcon.appiconset**: The resource that holds the images for your AppIcons (all iOS versions).
 
-- **LaunchImage.launchimage**: The resource that holds the images for your launch screen images (for iOS 7 and lower versions).
+- **LaunchScreen.AspectFill.imageset**: The resource that holds the background image for your LaunchScreen.storyboard.
 
-- **LaunchScreen.AspectFill.imageset**: The resource that holds the background image for your LaunchScreen.storyboard (for iOS versions 8+).
-
-- **LaunchScreen.Center.imageset**: The resource that holds the centered image for your LaunchScreen.storyboard (for iOS versions 8+).
-
-![Default asset catalog](/assets/releasing/launch-screen-howto-001.png 'Default asset catalog')
+- **LaunchScreen.Center.imageset**: The resource that holds the centered image for your LaunchScreen.storyboard.
 
 #### Customizing App Icons
 
@@ -740,10 +739,8 @@ For a better understanding of the supported image resolutions for the different 
 - Xcode WYSIWYG approach
 
 Drag and drop your **Assets.xcassets** into Xcode (7.1 or newer version).
-In the opened window choose **LaunchImage** and add the proper image for each iOS version and device.
+In the opened window add the proper image for each iOS version and device.
 Close Xcode and rebuild your NativeScript app to use the new launch images.
-
-![LaunchImages setup in Xcode](/assets/releasing/launch-screen-howto-004.png 'LaunchImages setup in Xcode')
 
 :::tip Important
 
