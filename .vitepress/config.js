@@ -134,7 +134,7 @@ function getSidebar() {
 		// },
 		{
 			text: 'Scalability',
-			children: [{ text: 'Code Sharing', link: '/code-sharing/index' }],
+			children: [{ text: 'Code Sharing', link: '/code-sharing/index.html' }],
 		},
 		{
 			text: 'Native API Access',
