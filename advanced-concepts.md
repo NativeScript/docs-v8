@@ -318,7 +318,7 @@ androidx.appcompat.app.AppCompatActivity.extend('org.myApp.MainActivity', {
 The `this._callbacks` property is automatically assigned to your extended class by the `frame.setActivityCallbacks` method. It implements the [AndroidActivityCallbacks interface](https://docs.nativescript.org/core-concepts/application-lifecycle#android-activity-events) and allows the core modules to get notified for important Activity events. It is **important** to use these callbacks, as many parts of NativeScript rely on them!
 :::
 
-[//]: <> (TODO: fix links)
+<!-- TODO: fix links -->
 
 Next, modify the activity in `App_Resources/Android/src/main/AndroidManifest.xml`
 
@@ -597,7 +597,7 @@ More information on how NativeScript deals with Objective-C classes is available
 
 Protocols in Objective-C are like interfaces in other languages - they are blueprints of what members a class should contain, a sort of an API contract. Protocols are exposed as empty objects in JavaScript. Protocols are usually only referenced when [subclassing](#ObjC-Subclassing) an Objective-C class or when checking whether an object or class conforms to a protocol.
 
-[//]: <> (TODO: fix links)
+<!-- TODO: fix links -->
 
 ```objc
 BOOL isCopying = [NSArray conformsToProtocol:@protocol(NSCopying)];
@@ -700,7 +700,7 @@ const view = UIView.alloc().initWithFrame(rect)
 
 More information on how NativeScript deals with structures is available [here](#C-Structures).
 
-[//]: <> (TODO: fix links)
+<!-- TODO: fix links -->
 
 #### `NSError **` marshalling
 
@@ -1935,7 +1935,7 @@ const randomViewId = android.view.View.generateViewId();
 
 For a comprehensive guide on extending classes and implementing interfaces through JavaScript/TypeScript check out [the dedicated article](/binding-generator/extend-class-interface).
 
-[//]: <> (TODO: fix links)
+<!-- TODO: fix links -->
 
 #### Full-fledged Example
 

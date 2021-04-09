@@ -679,7 +679,8 @@ Alternatively, since NativeScript plugins are npm packages, you can find NativeS
 
 If you can't find a plugin, try asking for help on [Stack Overflow](https://stackoverflow.com/questions/tagged/nativescript). The NativeScript team and community may be able to help find what you’re looking for.
 
-[//]: <> (TODO: fix links)
+<!-- TODO: fix links -->
+
 Also, make sure to look through the [NativeScript core modules](https://docs.nativescript.org/core-concepts/modules), which ship as a dependency of every NativeScript app. There’s a chance that the functionality you need is built in. If you’re still not finding what you need, you can request the plugin as an idea on the [NativeScript community forum](https://discourse.nativescript.org/c/plugins), or you can take a stab at [building the plugin yourself](/plugins/building-plugins/).
 
 #### Installing Plugins
@@ -924,7 +925,8 @@ You are now ready to use the latest development version of NativeScript.
 
 ##### Reasoning
 
-[//]: <> (TODO: fix links)
+<!-- TODO: fix links -->
+
 Building the source code is essential when one wants to contribute to an open source project. The statement is applicable for NativeScript as well. According to the [Contribution Guidelines](https://github.com/NativeScript/NativeScript/blob/master/tools/notes/CONTRIBUTING.md), suggesting a fix involves testing the latest code.
 
 #### Behind the curtains of running a NativeScript application
@@ -1031,7 +1033,7 @@ If you’re a WebStorm user, check out this [popular community-written plugin](h
 
 #### Next steps
 
-[//]: <> (TODO: fix links)
+<!-- TODO: fix links -->
 
 - [Code Samples](https://market.nativescript.org/?tab=samples&framework=all_frameworks&category=all_samples)
   - The NativeScript team provides a collection of high-quality code samples you can add to your applications. Perusing the code samples is a great way to get familiar with what NativeScript can do, as well as find the code you can use on your next app.

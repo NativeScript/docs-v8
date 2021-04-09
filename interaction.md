@@ -628,7 +628,7 @@ For your convenience, we expose two ways of creating animations:
 - [Declarative]() - you will use the easy and familiar CSS3 animations API
 - [Imperative]() - take full control of any animation by calling animation methods directly with code
 
-[//]: <> (TODO: fix links)
+<!-- TODO: fix links -->
 
 Here you will find a detailed set of examples demonstrating the different animations that can be achieved with NativeScript.
 
