@@ -269,9 +269,12 @@ softwareupdate --install-rosetta
 May need to install `ffi`
 
 ```cli
-gem install ffi
+sudo arch -x86_64 gem install ffi
 ```
-
+Then
+```cli
+arch -x86_64 pod install
+```
 ### Linux + Android
 
 You will need Node, NativeScript CLI (command line interface), Android Studio and a JDK (java development kit).
