@@ -595,7 +595,9 @@ More information on how NativeScript deals with Objective-C classes is available
 
 #### Objective-C Protocols
 
-Protocols in Objective-C are like interfaces in other languages - they are blueprints of what members a class should contain, a sort of an API contract. Protocols are exposed as empty objects in JavaScript. Protocols are usually only referenced when [subclassing](../how-to/ObjC-Subclassing.md) an Objective-C class or when checking whether an object or class conforms to a protocol.
+Protocols in Objective-C are like interfaces in other languages - they are blueprints of what members a class should contain, a sort of an API contract. Protocols are exposed as empty objects in JavaScript. Protocols are usually only referenced when [subclassing](#ObjC-Subclassing) an Objective-C class or when checking whether an object or class conforms to a protocol.
+
+[//]: <> (TODO: fix links)
 
 ```objc
 BOOL isCopying = [NSArray conformsToProtocol:@protocol(NSCopying)];
@@ -696,7 +698,7 @@ const rect = {
 const view = UIView.alloc().initWithFrame(rect)
 ```
 
-More information on how NativeScript deals with structures is available [here](./types/C-Structures.md).
+More information on how NativeScript deals with structures is available [here](#C-Structures).
 
 [//]: <> (TODO: fix links)
 
@@ -1931,7 +1933,7 @@ const randomViewId = android.view.View.generateViewId();
 
 #### Extend Classes and Interfaces
 
-For a comprehensive guide on extending classes and implementing interfaces through JavaScript/TypeScript check out [the dedicated article](../binding-generator/extend-class-interface.md).
+For a comprehensive guide on extending classes and implementing interfaces through JavaScript/TypeScript check out [the dedicated article](/binding-generator/extend-class-interface).
 
 [//]: <> (TODO: fix links)
 

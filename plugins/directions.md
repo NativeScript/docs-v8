@@ -3,7 +3,7 @@ title: Directions
 link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/directions/README.md
 ---
 
-# @nativescriot/directions
+# @nativescript/directions
 
 ```cli
 ns plugin add @nativescript/directions
@@ -12,8 +12,6 @@ ns plugin add @nativescript/directions
 ## Usage
 
 ### Demo app (XML + TypeScript)
-
-Want to dive in quickly? Check out [the demo app](demo)! Otherwise, continue reading.
 
 You can run the demo app from the root of the project by typing `npm run demo.ios.device` or `npm run demo.android`.
 

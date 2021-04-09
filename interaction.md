@@ -625,10 +625,12 @@ One of the ways to improve the attractiveness of your application is by adding a
 
 For your convenience, we expose two ways of creating animations:
 
-- [Declarative](./animation-css.md) - you will use the easy and familiar CSS3 animations API
-- [Imperative](./animation-code.md) - take full control of any animation by calling animation methods directly with code
+- [Declarative]() - you will use the easy and familiar CSS3 animations API
+- [Imperative]() - take full control of any animation by calling animation methods directly with code
 
-[Here](./animation-examples.md) you will find a detailed set of examples demonstrating the different animations that can be achieved with NativeScript.
+[//]: <> (TODO: fix links)
+
+Here you will find a detailed set of examples demonstrating the different animations that can be achieved with NativeScript.
 
 #### Hello world example
 
@@ -817,7 +819,7 @@ view.animate({
 
 ![bezier](/assets/images/modules/animation/bezier.gif 'Bezier')
 
-More detailed examples are available on the [Animation Examples](./animation-examples.md) page.
+More detailed examples are available on the [Animation Examples](#animation-examples) page.
 
 ### Rotation using originX and originY
 
@@ -853,7 +855,7 @@ The properties `originX` and `originY` are JavaScript properties and can be assi
 
 ### Animation examples
 
-This article contains examples demonstrating how to animate the animatable view properties. A full list of all animatable properties and a detailed explanation of the animations API is presented [here](./animation.md).
+This article contains examples demonstrating how to animate the animatable view properties. A full list of all animatable properties and a detailed explanation of the animations API is presented [here](#animations).
 
 The full source code for all samples is located [here](https://github.com/NativeScript/animation-demo).
 
