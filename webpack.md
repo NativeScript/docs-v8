@@ -178,6 +178,28 @@ module.exports = env => {
 }
 ```
 
+### Adding path aliases
+
+You can define `import`-aliases for specific source directories.
+
+```js
+const webpack = require('@nativescript/webpack')
+const { resolve } = require("path");
+
+module.exports = env => {
+    webpack.init(env)
+
+    webpack.chainWebpack(config => {
+        const libraryPath = resolve(__dirname, 'app/libs');
+
+        // alias "@" is an alias for "app/libs"
+        config.resolve.alias.set('@', libraryPath);
+    });
+
+    return webpack.resolveConfig()
+}
+```
+
 ### Extending the DefinePlugin options
 
 ```js
