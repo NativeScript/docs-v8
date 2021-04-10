@@ -190,10 +190,8 @@ module.exports = env => {
     webpack.init(env)
 
     webpack.chainWebpack(config => {
-        const libraryPath = resolve(__dirname, 'app/libs');
-
-        // alias "@" is an alias for "app/libs"
-        config.resolve.alias.set('@', libraryPath);
+        // change the "@" alias to "app/libs"
+        config.resolve.alias.set('@', resolve(__dirname, 'app/libs'));
     });
 
     return webpack.resolveConfig()
