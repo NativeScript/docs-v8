@@ -454,7 +454,11 @@ With version 5.4 the NativeScript CLI introduces a Beta support for integrating 
 - **Xcode 10** and above.
 - Paired devices or simulators (**iPhone** and **iWatch** with **WatchOS 4.x/5.x** and above).
 
-  > **Note:** WatchOS 4.x won't work with the default Watch App created with Xcode. The user will have to manually set **_`WATCHOS_DEPLOYMENT_TARGET`_** in the configuration json (see below for details).
+  :::tip Note
+
+  WatchOS 4.x won't work with the default Watch App created with Xcode. The user will have to manually set **_`WATCHOS_DEPLOYMENT_TARGET`_** in the configuration json (see below for details).
+
+  :::
 
 - WatchOS app created with **Objective-C** (Swift code [is **not** supported yet](https://github.com/NativeScript/nativescript-cli/issues/4541#issuecomment-491202270)).
 
@@ -468,7 +472,11 @@ To integrate your existing WatchOS application into your NativeScript project, e
 
 3. Add a name to your watch app, for example, **_MyFirstWatchApp_**. In the same screen verify that **Objective-C** is selected as your language.
 
-> **Note** You can skip steps 1-3 if your Watch app is already created.
+:::tip Note
+
+You can skip steps 1-3 if your Watch app is already created.
+
+:::
 
 4. Copy the generated **_MyFirstWatchApp_** and **_MyFirstWatchAppExtension_** to **_.../apps/MyApp/app/App_Resources/iOS/watchapp/MyFirstWatchApp_** and **_.../apps/MyApp/app/App_Resources/iOS/watchextension/MyFirstWatchAppExtension_** respectively.
 
@@ -504,4 +512,8 @@ To integrate your existing WatchOS application into your NativeScript project, e
 
 10. The application will be deployed and started on your iOS device/simulator. Make sure that the test iPhone is already paired with the testing iWatch. Once the iOS app starts, the Watch app will be automatically deployed on the testing iWatch device.
 
-> **Note:** [See this tracking issue for more](https://github.com/NativeScript/nativescript-cli/issues/4541#issue-433686622).
+:::tip Note
+
+[See this tracking issue for more](https://github.com/NativeScript/nativescript-cli/issues/4541#issue-433686622).
+
+:::

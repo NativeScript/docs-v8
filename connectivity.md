@@ -86,8 +86,12 @@ export function onNavigatedTo(args) {
 | [@nativescript/core/connectivity](https://docs.nativescript.org/api-reference/modules/_connectivity_.html) | `Module` |
 | [connectionType](https://docs.nativescript.org/api-reference/enums/_connectivity_.connectiontype)          | `Enum`   |
 
+<!-- TODO: fix links -->
+
 #### Native Component
 
 | Android                                                                                                           | iOS                                                                                                              |
 | :---------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------- |
 | [CONNECTIVITY_SERVICE (android.content.Context)](https://developer.android.com/reference/android/content/Context) | [SCNetworkReachability](https://developer.apple.com/documentation/systemconfiguration/scnetworkreachability-g7d) |
+
+<!-- TODO: fix links -->

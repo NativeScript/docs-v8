@@ -183,10 +183,10 @@ ns run android
 ```JSON
 {
   "name": "@nativescript/template-master-detail-ts",
-  "displayName": "Master-Detail with Firebase",
-  "main": "app.js",
-  "version": "7.0.4",
-  "description": "Master-detail interface to display collection of items from Firebase and inspect and edit selected item properties. ",
+  "displayName": "Master-Detail",
+  "main": "app/app.ts",
+  "version": "8.0.0",
+  "description": "Master-detail interface to display collection of items from json collection and inspect and edit selected item properties. ",
   "license": "Apache-2.0",
   "readme": "NativeScript Application",
   "repository": {
@@ -215,7 +215,7 @@ ns run android
 - Publish your app template to npm (https://www.npmjs.com/) using **ns-template-[custom-template-name-goes-here]-ts** format for the npm package name.
 
 - Provide a screenshot preview to be used in a future NativeScript Marketplace integration under **tools/assets/marketplace.png** in your app template folder structure.  
-  Check [tools/postinstall.js [NOT FOUND]](https://github.com/NativeScript/template-master-detail-ts/blob/master/tools/postinstall.js) that implements a mechanism for removing the "tools" infrastructure folder from the generated app.
+  Check [tools/postinstall.js](https://github.com/NativeScript/template-master-detail-ts/blob/master/tools/postinstall.js) that implements a mechanism for removing the "tools" infrastructure folder from the generated app.
 
 - Provide correct `repository` property value in the root package.json file of your app template (see the "Package.json guidelines" section above for additional package.json requirements).
 

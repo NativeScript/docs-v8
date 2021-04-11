@@ -26,7 +26,11 @@ view.animate({
 })
 ```
 
-> You should create an [`Animation`](/api-reference/classes/_ui_animation_.animation.html) class in order to be able to **cancel** the animation. This is demonstrated below.
+:::tip Note
+
+You should create an [`Animation`](/api-reference/classes/_ui_animation_.animation.html) class in order to be able to **cancel** the animation. This is demonstrated below.
+
+:::
 
 ### The AnimationDefinition interface
 
@@ -195,7 +199,11 @@ view1.className = 'example'
 <Button id="myButton" text="{N}" class="example" />
 ```
 
-> If the **animation-duration** property is not specified, the animation will use a default value - 0.3 seconds.
+:::tip Note
+
+If the **animation-duration** property is not specified, the animation will use a default value - 0.3 seconds.
+
+:::
 
 ### Animatable properties
 
@@ -207,7 +215,11 @@ CSS animations support the same animatable properties used in code-based animati
 - **transform: scale**: Corresponds with scaleX and scaleY properties.
 - **transform: rotate**: Corresponds with the rotate property.
 
-> You cannot set a single x or y field in scale and translate. If you set only x in translate, y will be assumed 0; If you set only y in scale, x will be assumed 1.
+:::tip Note
+
+You cannot set a single x or y field in scale and translate. If you set only x in translate, y will be assumed 0; If you set only y in scale, x will be assumed 1.
+
+:::
 
 ### Animation properties
 
@@ -613,12 +625,14 @@ One of the ways to improve the attractiveness of your application is by adding a
 
 For your convenience, we expose two ways of creating animations:
 
-- [Declarative](./animation-css.md) - you will use the easy and familiar CSS3 animations API
-- [Imperative](./animation-code.md) - take full control of any animation by calling animation methods directly with code
+- [Declarative]() - you will use the easy and familiar CSS3 animations API
+- [Imperative]() - take full control of any animation by calling animation methods directly with code
 
-[Here](./animation-examples.md) you will find a detailed set of examples demonstrating the different animations that can be achieved with NativeScript.
+<!-- TODO: fix links -->
 
-##Hello world example
+Here you will find a detailed set of examples demonstrating the different animations that can be achieved with NativeScript.
+
+#### Hello world example
 
 In **Example 1** we will change the background color of a button from "red" to "green". You can use JavaScript or TypeScript code to do the following:
 
@@ -669,7 +683,11 @@ As _Example 2_ shows, you can express the same animation in CSS with the followi
 <Label class="view" text="{N}" />
 ```
 
-> CSS animations apply with lower precedence, like any other CSS settings, so any local values set in your element will cancel the animation.
+:::tip Note
+
+CSS animations apply with lower precedence, like any other CSS settings, so any local values set in your element will cancel the animation.
+
+:::
 
 [Try this animation in the NativeScript Playground](https://play.nativescript.org/?template=play-tsc&id=tQRe9Q)
 
@@ -681,7 +699,11 @@ NativeScript lets you animate the following properties:
 - **scale**
 - **rotate**
 
-> To use `translate` or `scale` you must preceed with an object declaring both x and y values, for example `translate: { x: 100, y: 250 }` or `scale: { x: 1.5, y: 0 }`.
+:::tip Note
+
+To use `translate` or `scale` you must preceed with an object declaring both x and y values, for example `translate: { x: 100, y: 250 }` or `scale: { x: 1.5, y: 0 }`.
+
+:::
 
 In every animation, you can control the following properties:
 
@@ -797,7 +819,7 @@ view.animate({
 
 ![bezier](/assets/images/modules/animation/bezier.gif 'Bezier')
 
-More detailed examples are available on the [Animation Examples](./animation-examples.md) page.
+More detailed examples are available on the [Animation Examples](#animation-examples) page.
 
 ### Rotation using originX and originY
 
@@ -833,7 +855,7 @@ The properties `originX` and `originY` are JavaScript properties and can be assi
 
 ### Animation examples
 
-This article contains examples demonstrating how to animate the animatable view properties. A full list of all animatable properties and a detailed explanation of the animations API is presented [here](./animation.md).
+This article contains examples demonstrating how to animate the animatable view properties. A full list of all animatable properties and a detailed explanation of the animations API is presented [here](#animations).
 
 The full source code for all samples is located [here](https://github.com/NativeScript/animation-demo).
 

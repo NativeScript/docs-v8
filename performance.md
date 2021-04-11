@@ -219,7 +219,7 @@ The TypeScript compiler implements class inheritance, decorators and other featu
 ## Bundling Background Workers
 
 When the application is implementing workers, some additional steps are required to make the project Webpack compatible.
-Check out the [`nativescript-worker-loader`](https://github.com/nativescript/worker-loader) and the [detailed documentation article about using workers](../core-concepts/multithreading-model).
+Check out the [`nativescript-worker-loader`](https://github.com/nativescript/worker-loader) and the [detailed documentation article about using workers](advanced-concepts.html#multithreading-model).
 
 ## Lazy Loading
 
