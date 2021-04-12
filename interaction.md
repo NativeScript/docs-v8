@@ -14,7 +14,7 @@ The easiest way to animate a **single** [`View`](/api-reference/classes/_ui_core
 view.animate({
   translate: { x: 0, y: 100 },
   duration: 1000,
-  curve: enums.AnimationCurve.easeIn
+  curve: CoreTypes.AnimationCurve.easeIn
 })
 ```
 
@@ -22,7 +22,7 @@ view.animate({
 view.animate({
   translate: { x: 0, y: 100 },
   duration: 1000,
-  curve: enums.AnimationCurve.easeIn
+  curve: CoreTypes.AnimationCurve.easeIn
 })
 ```
 
@@ -742,22 +742,22 @@ In NativeScript, the animation curve is represented by the AnimationCurve enumer
 **Example 3: How to customize the animation timing function**
 
 ```js
-import { Enums } from '@nativescript/core'
+import { CoreTypes } from '@nativescript/core'
 
 view.animate({
   translate: { x: 0, y: 100 },
   duration: 1000,
-  curve: Enums.AnimationCurve.easeIn
+  curve: CoreTypes.AnimationCurve.easeIn
 })
 ```
 
 ```ts
-import { Enums } from '@nativescript/core'
+import { CoreTypes } from '@nativescript/core'
 
 view.animate({
   translate: { x: 0, y: 100 },
   duration: 1000,
-  curve: Enums.AnimationCurve.easeIn
+  curve: CoreTypes.AnimationCurve.easeIn
 })
 ```
 
