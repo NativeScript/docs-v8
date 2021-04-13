@@ -121,7 +121,7 @@ brew install --cask adoptopenjdk
 ```
 
 :::warning Note
-Later when run `ns run android` or `ns debug android`, you may have encountered the error [General error during semantic analysis: Unsupported class file major version 60](https://github.com/gradle/gradle/issues/13629), install `adoptopenjdk8` with `brew install --cask adoptopenjdk8` to resolve it.
+Later when run `ns run android` or `ns debug android`, you may have encountered the error "[General error during semantic analysis: Unsupported class file major version 60](https://github.com/gradle/gradle/issues/13629)", install `adoptopenjdk8` with `brew install --cask adoptopenjdk8` to resolve it.
 :::
 
 Setting up the Android development environment can be daunting if you are new to Android development, however following the next steps carefully will get you up and running in no time.
