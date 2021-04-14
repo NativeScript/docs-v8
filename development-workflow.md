@@ -79,6 +79,8 @@ If you get an error at this point you might not have completed the full NativeSc
 
 You must have at least one AVD (Android Virtual Device) configured on your development machine for this command to run your app up on an Android emulator.
 Or a connected Android device with debugging enabled.
+
+Check the `devDependencies` of your `package.json` file. `@nativescript/android` must be installed to avoid the "[Unable to apply changes on device: emulator-5554. Error is: Invalid Version: null.](https://github.com/NativeScript/nativescript-cli/issues/4451)" error.
 :::
 
 ```cli
