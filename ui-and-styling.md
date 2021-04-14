@@ -1716,6 +1716,7 @@ export class DatePickerUsageComponent {
 
 ```tsx
 import { EventData } from '@nativescript/core'
+
 ;<datePicker
   date={new Date()}
   onDateChange={(args: EventData) => {
@@ -1989,6 +1990,22 @@ export class HtmlViewUsageComponent {
 
 ///
 
+/// flavor react
+
+```tsx
+<htmlView html="<div><h1>HtmlView</h1></div>" />
+```
+
+///
+
+/// flavor svelte
+
+```html
+<htmlView html="<div><h1>HtmlView</h1></div>" />
+```
+
+///
+
 #### Props
 
 | Name           | Type        | Description                                                                                                                                 |
@@ -2016,20 +2033,12 @@ When working with images following [the best practices](/performance.html#image-
 
 ---
 
+#### Example: Displaying an image from `App_Resources`
+
 /// flavor plain
 
 ```xml
-<!-- Displaying an image from `App_Resources` -->
 <Image src="res://icon" stretch="aspectFill" />
-
-<!-- Displaying an image relative to the `app` directory -->
-<Image src="~/images/logo.png" stretch="aspectFill" />
-
-<!-- Displaying an image from a URL -->
-<Image src="https://www.nativescript.org/images/default-source/Blogs/ns-logo_share_600x315.png" stretch="aspectFill" />
-
-<!-- Displaying an image from a URL - Setting loadMode to async will prevent freezing the UI on Android when loading photos async (e.g. from online API) -->
-<Image src="https://nativescript.org/images/default-source/Blogs/ns-logo_share_600x315.png" loadMode="async" width="100" height="100" stretch="aspectFill" />
 ```
 
 ///
@@ -2037,21 +2046,15 @@ When working with images following [the best practices](/performance.html#image-
 /// flavor angular
 
 ```html
-<!-- Displaying an image from `App_Resources` -->
-<image src="res://logo_white_bg" stretch="aspectFill"></image>
+<image src="res://icon" stretch="aspectFill"> </image>
+```
 
-<!-- Displaying an image relative to the `app` directory -->
-<image src="~/images/logo.png" stretch="aspectFit"></image>
+///
 
-<!-- Displaying an image from a URL - Setting loadMode to async will prevent freezing the UI on Android when loading photos async (e.g. from online API) -->
-<image
-  src="https://nativescript.org/images/default-source/Blogs/ns-logo_share_600x315.png"
-  loadMode="async"
-  stretch="aspectFit"
-></image>
+/// flavor react
 
-<!-- Image with CSS and an icon fonts -->
-<image src="font://&#xF2b9;" class="fas t-36"></image>
+```tsx
+<image src="res://icon" stretch="aspectFill" />
 ```
 
 ///
@@ -2059,25 +2062,207 @@ When working with images following [the best practices](/performance.html#image-
 /// flavor vue
 
 ```html
-<!-- Displaying an image from `App_Resources` -->
-<image src="res://icon" stretch="none" />
+<image src="res://icon" stretch="aspectFill" />
+```
 
-<!-- Displaying an image relative to the `app` directory -->
-<image src="~/logo.png" stretch="none" />
+///
 
-<!-- Displaying an image from a URL - Setting loadMode to async will prevent freezing the UI on Android when loading photos async (e.g. from online API) -->
-<image
-  src="https://art.nativescript-vue.org/NativeScript-Vue-White-Green.png"
-  stretch="none"
-  loadMode="async"
+/// flavor svelte
+
+```html
+<image src="res://icon" stretch="aspectFill" />
+```
+
+///
+
+#### Example: Displaying an image relative to the `app` directory
+
+/// flavor plain
+
+```xml
+<Image src="~/logo.png" stretch="aspectFill" />
+```
+
+///
+
+/// flavor angular
+
+```html
+<image src="~/logo.png" stretch="aspectFill"></image>
+```
+
+///
+
+/// flavor react
+
+```tsx
+<image src="~/logo.png" stretch="aspectFill" />
+```
+
+///
+
+/// flavor vue
+
+```html
+<image src="~/logo.png" stretch="aspectFill" />
+```
+
+///
+
+/// flavor svelte
+
+```html
+<image src="~/logo.png" stretch="aspectFill" />
+```
+
+///
+
+#### Example: Displaying an image from a URL
+
+:::tip Note
+
+Setting `loadMode` to `async` will prevent freezing the UI on Android when loading photos async (e.g. from online API)
+
+:::
+
+/// flavor plain
+
+```xml
+<Image
+  src="https://art.nativescript.org/logo/export/NativeScript_Logo_Blue_White.svg"
+  stretch="aspectFill"
 />
+```
 
-<!-- Displaying a `base64`-encoded image -->
-<image src="data:Image/png;base64,iVBORw..." stretch="none" />
+///
 
+/// flavor angular
+
+```html
+<image
+  src="https://art.nativescript.org/logo/export/NativeScript_Logo_Blue_White.svg"
+  stretch="aspectFill"
+>
+</image>
+```
+
+///
+
+/// flavor react
+
+```tsx
+<image
+  src="https://art.nativescript.org/logo/export/NativeScript_Logo_Blue_White.svg"
+  stretch="aspectFill"
+/>
+```
+
+///
+
+/// flavor vue
+
+```html
+<image
+  src="https://art.nativescript.org/logo/export/NativeScript_Logo_Blue_White.svg"
+  stretch="aspectFill"
+/>
+```
+
+///
+
+/// flavor svelte
+
+```html
+<image
+  src="https://art.nativescript.org/logo/export/NativeScript_Logo_Blue_White.svg"
+  stretch="aspectFill"
+/>
+```
+
+///
+
+#### Example: Displaying a `base64`-encoded image
+
+/// flavor plain
+
+```xml
+<Image src="data:Image/png;base64,iVBORw..." stretch="aspectFill" />
+```
+
+///
+
+/// flavor angular
+
+```html
+<image src="data:Image/png;base64,iVBORw..." stretch="aspectFill"></image>
+```
+
+///
+
+/// flavor react
+
+```tsx
+<image src="data:Image/png;base64,iVBORw..." stretch="aspectFill" />
+```
+
+///
+
+/// flavor vue
+
+```html
+<image src="data:Image/png;base64,iVBORw..." stretch="aspectFill" />
+```
+
+///
+
+/// flavor svelte
+
+```html
+<image src="data:Image/png;base64,iVBORw..." stretch="aspectFill" />
+```
+
+///
+
+#### Example: Image with CSS and an icon fonts
+
+/// flavor plain
+
+```xml
+<Image src="font://&#xf004;" class="fas" />
+```
+
+///
+
+/// flavor angular
+
+```html
+<image src="font://&#xf004;" class="fas"></image>
+```
+
+///
+
+/// flavor react
+
+```tsx
+<image src="font://&#xf004;" class="fas" />
+```
+
+///
+
+/// flavor vue
+
+```html
 <!-- Displaying an image with a font icon in {N} 6.2+ -->
 <!-- In NativeScript-Vue, `.decode` is required for parsing properties that have HTML entities in them. -->
 <image src.decode="font://&#xf004;" class="fas" />
+```
+
+///
+
+/// flavor svelte
+
+```html
+<image src="font://&#xf004;" class="fas" />
 ```
 
 ///
