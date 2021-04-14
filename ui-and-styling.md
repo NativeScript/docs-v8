@@ -1535,7 +1535,6 @@ onTap(args: EventData) {
 
 ```tsx
 import { EventData } from '@nativescript/core'
-
 ;<button
   text="Button"
   onTap={(args: EventData) => {
@@ -1717,7 +1716,6 @@ export class DatePickerUsageComponent {
 
 ```tsx
 import { EventData } from '@nativescript/core'
-
 ;<datePicker
   date={new Date()}
   onDateChange={(args: EventData) => {
@@ -1776,15 +1774,21 @@ import { EventData } from '@nativescript/core'
 
 #### A single root Frame
 
+/// flavor
+
 ```js
 new Vue({
   render: h => h('Frame', [h(HomePageComponent)])
 })
 ```
 
+///
+
 #### Multiple Frames
 
 If you need to create multiple frames, you can do so by wrapping them in a Layout, for example if you want to have 2 frames side-by-side
+
+/// flavor vue
 
 ```html
 <GridLayout columns="*, *">
@@ -1793,7 +1797,33 @@ If you need to create multiple frames, you can do so by wrapping them in a Layou
 </GridLayout>
 ```
 
-#### A frame with a default page
+///
+
+/// flavor react
+
+```tsx
+<gridLayout columns={'* *'} rows={[]}>
+  <frame col={0} />
+  <frame col={1} />
+</gridLayout>
+```
+
+///
+
+/// flavor svelte
+
+```html
+<gridLayout columns="*, *">
+  <frame col="0" />
+  <frame col="1" />
+</gridLayout>
+```
+
+///
+
+#### Example: A frame with a default page
+
+/// flavor vue
 
 ```html
 <frame>
@@ -1806,7 +1836,41 @@ If you need to create multiple frames, you can do so by wrapping them in a Layou
 </frame>
 ```
 
-#### A frame with a default page from an external component
+///
+
+/// flavor react
+
+```tsx
+<frame>
+  <page>
+    <actionBar title="Default Page Title" />
+    <gridLayout>
+      <label text="Default Page Content" />
+    </gridLayout>
+  </page>
+</frame>
+```
+
+///
+
+/// flavor svelte
+
+```html
+<frame>
+  <page>
+    <actionBar title="Default Page Title" />
+    <gridLayout>
+      <label text="Default Page Content" />
+    </gridLayout>
+  </page>
+</frame>
+```
+
+///
+
+#### Example: A frame with a default page from an external component
+
+/// flavor vue
 
 ```html
 <frame>
@@ -1825,6 +1889,38 @@ export default {
   }
 }
 ```
+
+///
+
+/// flavor svelte
+
+```html
+<frame>
+  <Home />
+</frame>
+```
+
+```js
+import Home from './Home.svelte'
+```
+
+///
+
+/// flavor react
+
+```tsx
+import HomePage from './HomePage'
+
+function AppContainer() {
+  return (
+    <frame>
+      <HomePage />
+    </frame>
+  )
+}
+```
+
+///
 
 #### Native component
 
