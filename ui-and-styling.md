@@ -1393,7 +1393,8 @@ onBusyChanged(args: EventData) {
 /// flavor angular
 
 ```html
-<ActivityIndicator [busy]="isBusy" (busyChange)="onBusyChanged($event)" />
+<ActivityIndicator [busy]="isBusy" (busyChange)="onBusyChanged($event)">
+</ActivityIndicator>
 ```
 
 ```ts
@@ -1411,6 +1412,33 @@ onBusyChanged(args: EventData) {
 
 ```html
 <ActivityIndicator busy="true" @busyChange="onBusyChanged" />
+```
+
+```js
+export default {
+  methods: {
+    onBusyChanged(args) {
+      const indicator = args.object // ActivityIndicator
+      console.log(`indicator.busy changed to: ${indicator.busy}`)
+    }
+  }
+}
+```
+
+///
+
+/// flavor react
+
+```tsx
+<activityIndicator busy={true} />
+```
+
+///
+
+/// flavor svelte
+
+```html
+<activityIndicator busy="{true}" on:busyChange="{onBusyChanged}" />
 ```
 
 ```js
@@ -1464,7 +1492,7 @@ import { Button } from '@nativescript/core'
 
 export function onTap(args) {
   const button = args.object as Button
-  console.log('Tapped button')
+  // execute your custom logic here...
 }
 ```
 
@@ -1477,7 +1505,7 @@ export function onTap(args) {
 ```
 
 ```ts
-import { Button } from '@nativescript/core'
+import { Button, EventData } from '@nativescript/core'
 
 onTap(args: EventData) {
     const button = args.object as Button
@@ -1491,6 +1519,29 @@ onTap(args: EventData) {
 
 ```html
 <button text="Button" @tap="onButtonTap" />
+```
+
+///
+
+/// flavor svelte
+
+```html
+<button text="Button" on:tap="{onButtonTap}" />
+```
+
+///
+
+/// flavor react
+
+```tsx
+import { EventData } from '@nativescript/core'
+
+;<button
+  text="Button"
+  onTap={(args: EventData) => {
+    const button = args.object
+  }}
+/>
 ```
 
 ///
@@ -1658,6 +1709,35 @@ export class DatePickerUsageComponent {
 
 ```html
 <DatePicker v-model="selectedDate" />
+```
+
+///
+
+/// flavor react
+
+```tsx
+import { EventData } from '@nativescript/core'
+
+;<datePicker
+  date={new Date()}
+  onDateChange={(args: EventData) => {
+    const datePicker = args.object
+  }}
+/>
+```
+
+///
+
+/// flavor svelte
+
+```html
+<datePicker date="{someDate}" />
+```
+
+`<DatePicker>` provides two-way data binding using `bind`.
+
+```html
+<datePicker bind:date="{selectedDate}" />
 ```
 
 ///
