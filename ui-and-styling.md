@@ -3846,6 +3846,70 @@ As opposed to [`<TabView>`](#tabview):
 
 ---
 
+#### Example: SegmentedBar with `SegmentedBarItem`
+
+/// flavor plain
+
+```xml
+<SegmentedBar>
+  <SegmentedBarItem title="First" />
+  <SegmentedBarItem title="Second" />
+  <SegmentedBarItem title="Third" />
+</SegmentedBar>
+```
+
+///
+
+/// flavor angular
+
+```html
+<SegmentedBar>
+  <SegmentedBarItem title="First"></SegmentedBarItem>
+  <SegmentedBarItem title="Second"></SegmentedBarItem>
+  <SegmentedBarItem title="Third"></SegmentedBarItem>
+</SegmentedBar>
+```
+
+///
+
+/// flavor svelte
+
+```html
+<segmentedBar>
+  <segmentedBarItem title="First" />
+  <segmentedBarItem title="Second" />
+  <segmentedBarItem title="Third" />
+</segmentedBar>
+```
+
+///
+
+/// flavor react
+
+```tsx
+<segmentedBar>
+  <segmentedBarItem title="First" />
+  <segmentedBarItem title="Second" />
+  <segmentedBarItem title="Third" />
+</segmentedBar>
+```
+
+///
+
+/// flavor vue
+
+```html
+<SegmentedBar>
+  <SegmentedBarItem title="First" />
+  <SegmentedBarItem title="Second" />
+  <SegmentedBarItem title="Third" />
+</SegmentedBar>
+```
+
+///
+
+#### Example: SegmentedBar with `selectedIndex`
+
 /// flavor plain
 
 ```xml
@@ -3927,14 +3991,6 @@ export class BasicSegmentedBarComponent {
 /// flavor vue
 
 ```html
-<SegmentedBar>
-  <SegmentedBarItem title="First" />
-  <SegmentedBarItem title="Second" />
-  <SegmentedBarItem title="Third" />
-</SegmentedBar>
-```
-
-```html
 <SegmentedBar
   :items="listOfItems"
   selectedIndex="0"
@@ -3946,6 +4002,46 @@ export class BasicSegmentedBarComponent {
 
 ```html
 <SegmentedBar :items="listOfItems" v-model="selectedItem" />
+```
+
+///
+
+/// flavor svelte
+
+```html
+<segmentedBar selectedIndex="0" on:selectedIndexChange="{onSelectedIndexChange}" />
+```
+
+`<segmentedBar>` can be populated with `{each}` block.
+
+```html
+<segmentedBar>
+  {#each listOfItems as item}
+  <segmentedBarItem title="{item}" />
+  {/each}
+</segmentedBar>
+```
+
+```js
+let listOfItems = ['First', 'Second', 'Third']
+```
+
+`<segmentedBar>` provides two-way data binding of `selectedIndex`.
+
+```tsx
+<segmentedBar bind:selectedIndex="{selectedItem}" >
+```
+
+///
+
+/// flavor react
+
+```tsx
+<segmentedBar
+  items={listOfItems}
+  selectedIndex={0}
+  selectedIndexChange={onSelectedIndexChange}
+/>
 ```
 
 ///
