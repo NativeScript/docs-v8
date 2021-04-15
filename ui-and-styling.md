@@ -5116,6 +5116,28 @@ export class UsageComponent {
 
 ///
 
+/// flavor svelte
+
+```tsx
+<timePicker hour="{selectedHour}" minute="{selectedMinute}" />
+```
+
+`<timePicker>` provides two-way data binding using `bind`.
+
+```html
+<timePicker bind:time="{selectedTime}" />
+```
+
+///
+
+/// flavor react
+
+```tsx
+<timePicker hour={selectedHour} minute={selectedMinute} />
+```
+
+///
+
 #### Props
 
 | Name             | Type        | Description                                                                                                                                       |
