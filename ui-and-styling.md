@@ -4075,6 +4075,8 @@ let listOfItems = ['First', 'Second', 'Third']
 
 ---
 
+#### Example: Simple Slider
+
 /// flavor plain
 
 ```xml
@@ -4134,6 +4136,31 @@ export class UsageComponent {
 
 ```html
 <Slider v-model="value" />
+```
+
+///
+
+/// flavor svelte
+
+```tsx
+<slider
+  value="80"
+  on:valueChange="{onValueChanged}"
+/>
+```
+
+`<Slider>` provides two-way data binding using `v-model`:
+
+```html
+<slider bind:value="{value}" />
+```
+
+///
+
+/// flavor react
+
+```tsx
+<slider value={0} onValueChange={onValueChange} />
 ```
 
 ///
