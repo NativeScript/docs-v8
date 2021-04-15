@@ -4306,6 +4306,8 @@ export class BasicSwitchComponent {
 
 ---
 
+#### Example: Simple TabView
+
 /// flavor plain
 
 ```xml
@@ -4402,7 +4404,7 @@ export function onSelectedIndexChanged(args: SelectedIndexChangedEventData) {
 
 /// flavor angular
 
-Using a TabView inside an Angular app requires some special attention about how to provide title, iconSource and content (view) of the TabViewItem. In a pure NativeScript application TabView has an items property which could be set via XML to an array of TabViewItems (basically, an array of objects with title, view and iconSource properties). However, NativeScript-Angular does not support nested properties in its HTML template, so adding TabViewItem to TabView is a little bit different. NativeScript-Angular provides a custom Angular directive that simplifies the way native TabView should be used. The following example shows how to add a TabView to your page (with some clarifications later):
+Using a `<TabView>` inside an `Angular` app requires some special attention about how to provide title, iconSource and content (view) of the `TabViewItem`. In a pure NativeScript application TabView has an items property which could be set via XML to an array of `<TabViewItem>`s (basically, an array of objects with title, view and iconSource properties). However, NativeScript-Angular does not support nested properties in its HTML template, so adding `<TabViewItem>` to `<TabView`> is a little bit different. NativeScript-Angular provides a custom Angular directive that simplifies the way native `<TabView>` should be used. The following example shows how to add a `<TabView>` to your page (with some clarifications later):
 
 ```html
 <TabView selectedIndex="0" (selectedIndexChanged)="onSelectedIndexchanged($event)">
@@ -4430,8 +4432,33 @@ Using a TabView inside an Angular app requires some special attention about how 
 ```
 
 ::: warning Note
-If you have set the iconSource property on a TabViewItem, but are not seeing any icons next to the title, this might be because the icon is not present in your App_Resources folder. See the Working with Images article for information on how to add and reference your resource images.
+If you have set the iconSource property on a `<TabViewItem>`, but are not seeing any icons next to the title, this might be because the icon is not present in your `App_Resources` folder. See the Working with Images article for information on how to add and reference your resource images.
 :::
+
+///
+
+/// flavor svelte
+
+```tsx
+<tabView selectedIndex="{selectedIndex}" on:selectedIndexChange="{indexChange}">
+
+	<tabViewItem title="Tab 1">
+		<label text="Content for Tab 1" />
+	</tabViewItem>
+
+	<tabViewItem title="Tab 2">
+		<label text="Content for Tab 2" />
+	</tabViewItem>
+
+</tabView>
+```
+
+```js
+function indexChange(event) {
+  let newIndex = event.value
+  console.log('Current tab index: ' + newIndex)
+}
+```
 
 ///
 
@@ -4459,15 +4486,36 @@ methods: {
 
 ///
 
+/// flavor react
+
+```tsx
+import { SelectedIndexChangedEventData } from '@nativescript/core'
+
+;<tabView
+  selectedIndex={selectedIndex}
+  onSelectedIndexChange={(args: SelectedIndexChangedEventData) => {
+    const { oldIndex, newIndex } = args
+    console.log(`Changed from tab index ${oldIndex} -> ${newIndex}.`)
+  }}
+>
+  <tabViewItem nodeRole="items" title="Tab 1">
+    <label text="Content for Tab 1" />
+  </tabViewItem>
+  <tabViewItem nodeRole="items" title="Tab 2">
+    <label text="Content for Tab 2" />
+  </tabViewItem>
+</tabView>
+```
+
+///
+
 ::: warning Note
 Currently, `TabViewItem` expects a single child element. In most cases, you might want to wrap your content in a layout.
 :::
 
-::: tip Tip
-Consider using BottomNavigation component to create the same UI for both iOS and Android while having greater control over the funcionalities.
-:::
+#### Example: Adding icons to tabs
 
-#### Adding icons to tabs
+/// flavor vue
 
 ```html
 <TabView :selectedIndex="selectedIndex" iosIconRenderingMode="alwaysOriginal">
@@ -4479,6 +4527,40 @@ Consider using BottomNavigation component to create the same UI for both iOS and
   </TabViewItem>
 </TabView>
 ```
+
+///
+
+/// flavor svelte
+
+```tsx
+<tabView selectedIndex="{selectedIndex}" iosIconRenderingMode="alwaysOriginal">
+  <tabViewItem title="Tab 1" iconSource="~/images/icon.png">
+    <label text="Content for Tab 1" />
+  </tabViewItem>
+  <tabViewItem title="Tab 2" iconSource="~/images/icon.png">
+    <label text="Content for Tab 2" />
+  </tabViewItem>
+</tabView>
+```
+
+///
+
+/// flavor react
+
+```tsx
+<tabView selectedIndex={selectedIndex} iosIconRenderingMode="alwaysOriginal">
+  <tabViewItem nodeRole="items" title="Tab 1" iconSource="~/images/icon.png">
+    <label text="Content for Tab 1" />
+  </tabViewItem>
+  <tabViewItem nodeRole="items" title="Tab 2" iconSource="~/images/icon.png">
+    <label text="Content for Tab 2" />
+  </tabViewItem>
+</tabView>
+```
+
+///
+
+<!-- TODO: examples in all flavors -->
 
 ::: tip Tip
 You can use images for tab icons instead of icon fonts. For more information about how to control the size of icons, see [Working with image from resource folders](https://docs.nativescript.org/ui/image-resources).
@@ -4504,18 +4586,18 @@ The `TabView` component has the following unique styling properties:
 
 #### Props
 
-| Name                               | Type                                                  | Description                                                                                                                                    |
-| ---------------------------------- | ----------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| `selectedIndex`                    | `Number`                                              | Gets or sets the currently selected tab. Default is `0`.                                                                                       |
-| `tabTextColor`                     | `Color`                                               | (Style property) Gets or sets the text color of the tabs titles.                                                                               |
-| `tabTextFontSize`                  | `Color`                                               | Gets or sets the font size of the tabs titles.                                                                                                 |
-| `tabBackgroundColor`               | `Color`                                               | (Style property) Gets or sets the background color of the tabs.                                                                                |
-| `selectedTabTextColor`             | `Color`                                               | (Style property) Gets or sets the text color of the selected tab title.                                                                        |
-| `androidTabsPosition`              | `String`                                              | Sets the position of the TabView in Android platform<br/>Valid values: `top` or `bottom`.                                                      |
-| `androidOffscreenTabLimit`         | `number`                                              | Gets or sets the number of tabs that should be retained to either side of the current tab in the view hierarchy in an idle state.              |
-| `androidSelectedTabHighlightColor` | `Color`                                               | Gets or sets the color of the horizontal line drawn below the currently selected tab on Android.                                               |
-| `iosIconRenderingMode`             | _"automatic"_, _"alwaysOriginal"_, _"alwaysTemplate"_ | Gets or sets the icon rendering mode on iOS.                                                                                                   |
-| `...Inherited`                     | `Inherited`                                           | Additional inherited properties not shown. Refer to the [API Reference](http://docs.nativescript.org/api-reference/modules/_ui_tab_view_.html) |
+| Name                               | Type                                            | Description                                                                                                                                    |
+| ---------------------------------- | ----------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| `selectedIndex`                    | `Number`                                        | Gets or sets the currently selected tab. Default is `0`.                                                                                       |
+| `tabTextColor`                     | `Color`                                         | (Style property) Gets or sets the text color of the tabs titles.                                                                               |
+| `tabTextFontSize`                  | `Color`                                         | Gets or sets the font size of the tabs titles.                                                                                                 |
+| `tabBackgroundColor`               | `Color`                                         | (Style property) Gets or sets the background color of the tabs.                                                                                |
+| `selectedTabTextColor`             | `Color`                                         | (Style property) Gets or sets the text color of the selected tab title.                                                                        |
+| `androidTabsPosition`              | `String`                                        | Sets the position of the TabView in Android platform<br/>Valid values: `top` or `bottom`.                                                      |
+| `androidOffscreenTabLimit`         | `number`                                        | Gets or sets the number of tabs that should be retained to either side of the current tab in the view hierarchy in an idle state.              |
+| `androidSelectedTabHighlightColor` | `Color`                                         | Gets or sets the color of the horizontal line drawn below the currently selected tab on Android.                                               |
+| `iosIconRenderingMode`             | `automatic`, `alwaysOriginal`, `alwaysTemplate` | Gets or sets the icon rendering mode on iOS.                                                                                                   |
+| `...Inherited`                     | `Inherited`                                     | Additional inherited properties not shown. Refer to the [API Reference](http://docs.nativescript.org/api-reference/modules/_ui_tab_view_.html) |
 
 <!-- TODO: fix links -->
 
