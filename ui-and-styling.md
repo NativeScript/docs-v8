@@ -4490,7 +4490,6 @@ methods: {
 
 ```tsx
 import { SelectedIndexChangedEventData } from '@nativescript/core'
-
 ;<tabView
   selectedIndex={selectedIndex}
   onSelectedIndexChange={(args: SelectedIndexChangedEventData) => {
@@ -4725,6 +4724,28 @@ export class UsageComponent {
 
 ```html
 <TextField v-model="textFieldValue" />
+```
+
+///
+
+/// flavor svelte
+
+```tsx
+<textField text="{textFieldValue}" hint="Enter text..." />
+```
+
+`<textField>` provides two-way data binding using `bind`.
+
+```html
+<textField bind:text="{textFieldValue}" />
+```
+
+///
+
+/// flavor react
+
+```tsx
+<textField text={textFieldValue} hint="Enter text..." />
 ```
 
 ///
