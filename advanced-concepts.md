@@ -2,6 +2,8 @@
 title: Advanced Concepts
 ---
 
+# Advanced Concepts
+
 ## The Layout process
 
 Getting views to render with the right dimensions and positions requires a run of the layout process. When rendering, a recursive process runs through every view in the **view hiearchy** in two passes &mdash; a measure pass and a layout pass.

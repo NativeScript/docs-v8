@@ -2,6 +2,8 @@
 title: Webpack
 ---
 
+## Webpack
+
 :::warning Note
 This section is only aplicable to `@nativescript/webpack` version `5.0.0` and above.
 If you are using an older version, consider upgrading. This is compatible with webpack version 5.x.
@@ -184,17 +186,17 @@ You can define `import`-aliases for specific source directories.
 
 ```js
 const webpack = require('@nativescript/webpack')
-const { resolve } = require("path");
+const { resolve } = require('path')
 
 module.exports = env => {
-    webpack.init(env)
+  webpack.init(env)
 
-    webpack.chainWebpack(config => {
-        // change the "@" alias to "app/libs"
-        config.resolve.alias.set('@', resolve(__dirname, 'app/libs'));
-    });
+  webpack.chainWebpack(config => {
+    // change the "@" alias to "app/libs"
+    config.resolve.alias.set('@', resolve(__dirname, 'app/libs'))
+  })
 
-    return webpack.resolveConfig()
+  return webpack.resolveConfig()
 }
 ```
 

@@ -2,7 +2,7 @@
 title: Accessing Native Platform APIs
 ---
 
-## Introduction
+## Native API Access
 
 The most important feature of NativeScript is the ability to access native platform APIs directly from JavaScript.
 

@@ -2,6 +2,8 @@
 title: Troubleshooting Common Issues
 ---
 
+# Troubleshooting Common Issues
+
 ## Machine Setup Related
 
 If you had just followed the setup guide in the docs you may see something like this:
