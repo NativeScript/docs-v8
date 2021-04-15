@@ -4879,9 +4879,33 @@ export class UsageComponent {
 
 ///
 
+/// flavor svelte
+
+```html
+<textView text="Multi\nLine\nText" />
+```
+
+`<textView>` provides two-way data binding using `bind`.
+
+```html
+<textView bind:text="{textViewValue}" />
+```
+
+///
+
+/// flavor react
+
+```tsx
+<textView text={'Multi\nLine\nText'} />
+```
+
+///
+
 #### Displaying multi-style text
 
 To apply multiple styles to the text in your `<TextView>`, you can use `<FormattedString>`
+
+/// flavor vue
 
 ```html
 <TextView editable="false">
@@ -4894,6 +4918,73 @@ To apply multiple styles to the text in your `<TextView>`, you can use `<Formatt
   </FormattedString>
 </TextView>
 ```
+
+///
+
+/// flavor svelte
+
+```tsx
+<textView editable="{false}">
+  <formattedString>
+    <span text="You can use text attributes such as " />
+    <span text="bold, " fontWeight="Bold" />
+    <span text="italic " fontStyle="Italic" />
+    <span text="and " />
+    <span text="underline." textDecoration="Underline" />
+  </formattedString>
+</textView>
+```
+
+///
+
+/// flavor plain
+
+```html
+<TextView editable="false">
+  <FormattedString>
+    <span text="You can use text attributes such as " />
+    <span text="bold, " fontWeight="Bold" />
+    <span text="italic " fontStyle="Italic" />
+    <span text="and " />
+    <span text="underline." textDecoration="Underline" />
+  </FormattedString>
+</TextView>
+```
+
+///
+
+/// flavor angular
+
+```html
+<TextView editable="false">
+  <FormattedString>
+    <span text="You can use text attributes such as "></span>
+    <span text="bold, " fontWeight="Bold"></span>
+    <span text="italic " fontStyle="Italic"></span>
+    <span text="and "></span>
+    <span text="underline." textDecoration="Underline"></span>
+  </FormattedString>
+</TextView>
+```
+
+///
+
+/// flavor react
+
+```tsx
+<textView editable={false}>
+  <formattedString>
+    <span text="You can use text attributes such as " />
+    <span text="bold, " fontWeight="bold" />
+    <span text="italic " fontStyle="italic" />
+    <span text="and " />
+    <span text="underline." textDecoration="underline" />
+    <!-- To set text on the <span> element, please do use the `text` prop; it can't safely take text nodes as children! -->
+  </formattedString>
+</textView>
+```
+
+///
 
 #### Props
 
