@@ -2546,7 +2546,6 @@ const selectedIndexChanged = e => console.log(e.index)
 
 ```tsx
 import { EventData, ListPicker } from '@nativescript/core'
-
 ;<listPicker
   items={listOfItems}
   selectedIndex={0}
@@ -2589,6 +2588,8 @@ import { EventData, ListPicker } from '@nativescript/core'
 The NativeScript modules provides a custom component which simplifies the way native ListView is used.
 
 ---
+
+<!-- TODO: examples in all flavors -->
 
 ::: warning Note
 The ListView's item template can contain only a single root view container.
@@ -2971,6 +2972,78 @@ Using the ListView component inside a ScrollView or ScrollView inside the ListVi
 
 ---
 
+#### Example: Simple Page
+
+/// flavor svelte
+
+```html
+<page>
+  <actionBar title="My App" />
+  <gridLayout>
+    <label text="My Content" />
+  </gridLayout>
+</page>
+```
+
+///
+
+/// flavor vue
+
+```html
+<Page>
+  <ActionBar title="My App" />
+  <GridLayout>
+    <label text="My Content" />
+  </GridLayout>
+</Page>
+```
+
+///
+
+/// flavor react
+
+```tsx
+<page>
+  <actionBar title="My App" />
+  <gridLayout>
+    <label>My Content</label>
+  </gridLayout>
+</page>
+```
+
+#### The special case of the ActionBar child
+
+It doesn't matter whether the `<actionBar>` is a first child, last child, or middle child of `<page>`.
+React NativeScript will automatically detect it using an `child instanceof Page` check, and set it as the `ActionBar` for the Page.
+
+:::tip Note
+You can skip this check by explicitly setting `<actionBar nodeRole="actionBar">`, but it's not a major performance concern.
+:::
+Any non-ActionBar child will be handled as the content view. Page only supports a single child, so if you want to insert multiple children on the Page (which is normally the case!), you should use a LayoutBase such as GridLayout to enscapsulate them.
+
+:::tip Out of interest
+You'd expect to be able to set ActionBar as the content view by specifying `<actionBar nodeRole="content">`, but it's not supported in NativeScript Core, so React NativeScript doesn't support it either!
+:::
+
+///
+
+/// flavor plain
+
+```html
+<Page>
+  <ActionBar title="My App" />
+  <GridLayout>
+    <label text="My Content" />
+  </GridLayout>
+</Page>
+```
+
+///
+
+#### Example: Using the `loaded` event for triggering UI changes
+
+A typical scenario is performing UI changes after the page is loaded. The recommended way to do it is by using the `loaded` event, triggered by NativeScript when the page is fully loaded:
+
 /// flavor plain
 
 ```xml
@@ -3035,26 +3108,7 @@ export function onNavigatedFrom(args: NavigatedData) {
 
 ///
 
-/// flavor angular
-??? Page in Angular ??? Not a thing.
-///
-
 /// flavor vue
-
-#### A single page
-
-```html
-<Page>
-  <ActionBar title="My App" />
-  <GridLayout>
-    <label text="My Content" />
-  </GridLayout>
-</Page>
-```
-
-#### Using the `loaded` event for triggering UI changes
-
-A typical scenario is performing UI changes after the page is loaded. The recommended way to do it is by using the `loaded` event, triggered by NativeScript when the page is fully loaded:
 
 ```html
 <Page @loaded="greet">
@@ -3080,7 +3134,10 @@ export default {
 ::: warning Note
 Developers coming from a web background would usually reach for the `mounted` lifecycle hook Vue provides, however in NativeScript the application, and certain elements might not yet be loaded when the `mounted` hook is executed, thus certain actions such as alerts, dialogs, navigation etc. are not possible inside the `mounted` hook. To work around this limitation, the `loaded` event may be used, which only fires after the application is ready. In this case, we are using the `loaded` event of the [`<Page>`](#page) element, but this event is available for all NativeScript elements.
 :::
+
 ///
+
+<!-- TODO: examples in all flavors -->
 
 #### Props
 
@@ -3121,6 +3178,8 @@ The events loaded, unloaded and layoutChanged are UI component lifecycles events
 
 ---
 
+#### Example: Simple Placeholder
+
 /// flavor plain
 
 ```xml
@@ -3133,15 +3192,47 @@ import { Utils } from '@nativescript/core'
 export function creatingView(args) {
   let nativeView
   if (global.isIOS) {
+    // Example with UITextView in iOS
     nativeView = UITextView.new()
     nativeView.text = 'Native View (iOS)'
   } else if (global.isAndroid) {
+    // Example with TextView in Android
     nativeView = new android.widget.TextView(Utils.android.getApplicationContext())
     nativeView.setText('Native View (Android)')
   }
 
   args.view = nativeView
 }
+```
+
+///
+
+/// flavor react
+
+```tsx
+import { isIOS, isAndroid } from '@nativescript/core'
+
+;<placeholder
+  onCreatingView={() => {
+    if (isIOS) {
+      // Example with UILabel in iOS
+      const nativeView = new UILabel()
+      nativeView.text = 'Native View - iOS'
+      args.view = nativeView
+    } else if (isAndroid) {
+      // Example with TextView in Android
+      const nativeView = new android.widget.TextView(args.context)
+      nativeView.setSingleLine(true)
+      nativeView.setEllipsize(android.text.TextUtils.TruncateAt.END)
+      nativeView.setText('Native View - Android')
+      args.view = nativeView
+    } else {
+      console.warn(
+        'Unsupported platform! Did they finally make NativeScript for desktop?'
+      )
+    }
+  }}
+/>
 ```
 
 ///
@@ -3160,9 +3251,11 @@ function creatingView(args) {
 
   let nativeView
   if (global.isIOS) {
+    // Example with UITextView in iOS
     nativeView = UITextView.new()
     nativeView.text = 'Native View (iOS)'
   } else if (global.isAndroid) {
+    // Example with TextView in Android
     nativeView = new android.widget.TextView(Utils.android.getApplicationContext())
     nativeView.setText('Native View (Android)')
   }
@@ -3179,9 +3272,8 @@ function creatingView(args) {
 <Placeholder @creatingView="creatingView" />
 ```
 
-#### Example with TextView in Android
-
 ```js
+// Example with TextView in Android
 methods: {
   creatingView: function(args) {
       const nativeView = new android.widget.TextView(args.context);
@@ -3191,11 +3283,7 @@ methods: {
       args.view = nativeView;
   }
 }
-```
-
-#### Example with UILabel in iOS
-
-```js
+// Example with UILabel in iOS
 methods: {
   creatingView: function(args) {
       const nativeView = new UILabel();
@@ -3204,6 +3292,8 @@ methods: {
   }
 }
 ```
+
+///
 
 #### Props
 
