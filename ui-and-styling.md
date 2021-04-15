@@ -3612,6 +3612,38 @@ export class TipsAndTricksComponent {
 
 ///
 
+/// flavor svelte
+
+```html
+<scrollView orientation="horizontal">
+  <stackLayout orientation="horizontal">
+    <label text="this" />
+    <label text="text" />
+    <label text="scrolls" />
+    <label text="horizontally" />
+    <label text="if necessary" />
+  </stackLayout>
+</scrollView>
+```
+
+///
+
+/// flavor react
+
+```html
+<scrollView orientation="horizontal">
+  <stackLayout orientation="horizontal">
+    <label text="this" />
+    <label text="text" />
+    <label text="scrolls" />
+    <label text="horizontally" />
+    <label text="if necessary" />
+  </stackLayout>
+</scrollView>
+```
+
+///
+
 #### Props
 
 | name                        | type        | description                                                                                                                                      |
