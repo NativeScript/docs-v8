@@ -5207,6 +5207,30 @@ See also: [HtmlView](#htmlview).
 
 ///
 
+/// flavor svelte
+
+```html
+<webView src="http://nativescript.org/" />
+
+<webView src="~/html/index.html" />
+
+<webView src="<div><h1>Some static HTML</h1></div>" />
+```
+
+///
+
+/// flavor react
+
+```tsx
+<webView src="http://nativescript.org/" />
+
+<webView src="~/html/index.html" />
+
+<webView src="<div><h1>Some static HTML</h1></div>" />
+```
+
+///
+
 ::: tip Tip
 To be able to use gestures in WebView component on Android, we should first disabled the zoom control. To do that we could access the android property and with the help of setDisplayZoomControls to set this control to false.
 :::
