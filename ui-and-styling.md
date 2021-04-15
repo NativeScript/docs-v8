@@ -4149,7 +4149,7 @@ export class UsageComponent {
 />
 ```
 
-`<Slider>` provides two-way data binding of `value`:
+`<slider>` provides two-way data binding of `value`:
 
 ```html
 <slider bind:value="{value}" />
@@ -4195,6 +4195,8 @@ export class UsageComponent {
 The default state is `false` or OFF.
 
 ---
+
+#### Example: Simple Switch
 
 /// flavor plain
 
@@ -4251,6 +4253,28 @@ export class BasicSwitchComponent {
 
 ```html
 <Switch v-model="itemEnabled" />
+```
+
+///
+
+/// flavor svelte
+
+```tsx
+<switch checked="{true}" on:checkedChange="{onCheckedChange}" />
+```
+
+`<switch>`provides two-way data binding for `checked`.
+
+```tsx
+<switch bind:checked="{switchEnabled}" />
+```
+
+///
+
+/// flavor react
+
+```tsx
+<switch checked={true} />
 ```
 
 ///
