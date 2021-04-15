@@ -4149,7 +4149,7 @@ export class UsageComponent {
 />
 ```
 
-`<Slider>` provides two-way data binding using `v-model`:
+`<Slider>` provides two-way data binding of `value`:
 
 ```html
 <slider bind:value="{value}" />
