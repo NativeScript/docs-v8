@@ -3211,7 +3211,6 @@ export function creatingView(args) {
 
 ```tsx
 import { isIOS, isAndroid } from '@nativescript/core'
-
 ;<placeholder
   onCreatingView={() => {
     if (isIOS) {
@@ -3302,8 +3301,6 @@ methods: {
 | `N/A`          | `N/A`       | None.                                                                                                                                             |
 | `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](http://docs.nativescript.org/api-reference/modules/_ui_placeholder_.html) |
 
-///
-
 ### Progress
 
 `<Progress>` is a UI component that shows a bar to indicate the progress of a task.
@@ -3311,6 +3308,8 @@ methods: {
 See also: [ActivityIndicator](#activity-indicator).
 
 ---
+
+#### Example: Simple Progress
 
 /// flavor plain
 
@@ -3375,6 +3374,19 @@ export class StylingComponent implements OnInit {
 
 ///
 
+/// flavor react
+
+```tsx
+function getTaskCompletionPercent() {
+  // Just a stub method to illustrate the concept.
+  return 10
+}
+
+;<progress value={getTaskCompletionPercent()} maxValue={100} />
+```
+
+///
+
 /// flavor vue
 
 ```html
@@ -3382,6 +3394,35 @@ export class StylingComponent implements OnInit {
 ```
 
 ///
+
+/// flavor svelte
+
+```html
+<progress value="{currentProgress}" />
+```
+
+///
+
+#### Example: Styling Progress
+
+Using `backgroundColor` (**CSS**: `background-color`) & color to change the Progress style.
+
+:::tip Note
+`backgroundColor` will work only on `iOS`; on `Android` the background will be the color with applied opacity.
+:::
+
+```html
+<progress value="50" maxValue="100" backgroundColor="red" color="green"></progress>
+<!-- Using the @nativescript/theme CSS class to change the Progress style -->
+<progress value="25" maxValue="100" class="progress"></progress>
+```
+
+```css
+Progress {
+  color: cyan;
+  background-color: green;
+}
+```
 
 #### Props
 
