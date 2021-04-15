@@ -1315,14 +1315,14 @@ In iOS, the color property affects the color of the title and the action items. 
 
 #### ActionItem Properties
 
-| Name                 | Type                                                  | Description                                                                                                                                                           |
-| :------------------- | :---------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `text`               | `string`                                              | Gets or sets the text of the action item.                                                                                                                             |
-| `icon`               | `string`                                              | Gets or sets the icon of the action item. Supports local images (`~/`), resources (`res://`) and icon fonts (`fonts://`)                                              |
-| `ios.position`       | `enum`: _"left"_, _"right"_                           | Sets the position of the item (default value is `left`).                                                                                                              |
-| `android.position`   | `enum`: _"actionBar"_, _"popup"_, _"actionBarIfRoom"_ | Sets the position of the item (default value is `actionBar`).                                                                                                         |
-| `ios.systemIcon`     | `number`                                              | **iOS only** Sets the icon of the action item while using [UIBarButtonSystemIcon](https://developer.apple.com/documentation/uikit/uibarbuttonsystemitem) enumeration. |
-| `android.systemIcon` | `string`                                              | **Android only** Sets a path to a resource icon ( see the [list of Android system drawables](https://developer.android.com/reference/android/R.drawable))             |
+| Name                 | Type                                            | Description                                                                                                                                                           |
+| :------------------- | :---------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `text`               | `string`                                        | Gets or sets the text of the action item.                                                                                                                             |
+| `icon`               | `string`                                        | Gets or sets the icon of the action item. Supports local images (`~/`), resources (`res://`) and icon fonts (`fonts://`)                                              |
+| `ios.position`       | `enum`: `left`, `right`                         | Sets the position of the item (default value is `left`).                                                                                                              |
+| `android.position`   | `enum`: `actionBar`, `popup`, `actionBarIfRoom` | Sets the position of the item (default value is `actionBar`).                                                                                                         |
+| `ios.systemIcon`     | `number`                                        | **iOS only** Sets the icon of the action item while using [UIBarButtonSystemIcon](https://developer.apple.com/documentation/uikit/uibarbuttonsystemitem) enumeration. |
+| `android.systemIcon` | `string`                                        | **Android only** Sets a path to a resource icon ( see the [list of Android system drawables](https://developer.android.com/reference/android/R.drawable))             |
 
 #### NavigationButton Properties
 
@@ -1732,7 +1732,7 @@ import { EventData } from '@nativescript/core'
 <datePicker date="{someDate}" />
 ```
 
-`<DatePicker>` provides two-way data binding using `bind`.
+`<datePicker>` provides two-way data binding using `bind`.
 
 ```html
 <datePicker bind:date="{selectedDate}" />
@@ -2251,10 +2251,14 @@ Setting `loadMode` to `async` will prevent freezing the UI on Android when loadi
 /// flavor vue
 
 ```html
-<!-- Displaying an image with a font icon in {N} 6.2+ -->
-<!-- In NativeScript-Vue, `.decode` is required for parsing properties that have HTML entities in them. -->
 <image src.decode="font://&#xf004;" class="fas" />
 ```
+
+:::warning Note
+
+In NativeScript-Vue, `.decode` is required for parsing properties that have HTML entities in them.
+
+:::
 
 ///
 
@@ -4222,7 +4226,7 @@ export function onSwitchLoaded(argsloaded) {
 /// flavor angular
 
 ```html
-<Switch checked="true" (checkedChange)="onCheckedChange($event)"></Switch>
+<Switch checked="true" (checkedChange)="onCheckedChange($event)"> </Switch>
 ```
 
 ```ts
@@ -4260,7 +4264,10 @@ export class BasicSwitchComponent {
 /// flavor svelte
 
 ```tsx
-<switch checked="{true}" on:checkedChange="{onCheckedChange}" />
+<switch
+  checked="{true}"
+  on:checkedChange="{onCheckedChange}"
+/>
 ```
 
 `<switch>`provides two-way data binding for `checked`.
@@ -5280,7 +5287,7 @@ This list of properties can be set in CSS or through the style property of each 
 | `background-image`    | `backgroundImage`     | Sets a image url to the matched view’s background image.                                                                                                                                                                                  |
 | `background-repeat`   | `backgroundRepeat`    | Sets if/how the background image should be repeated. Possible values: `repeat`, `repeat-x`, `repeat-y`, `no-repeat`                                                                                                                       |
 | `background-position` | `backgroundPosition`  | Sets the starting position of the background image. You can set the position with absolute, percent or alignment values. More info [here](http://www.w3schools.com/cssref/pr_background-position.asp).                                    |
-| `background-size`     | `backgroundSize`      | Sets the size of the background image. Possible values: "_length length_", "_percent% percent%_", "cover" or "contain".                                                                                                                   |
+| `background-size`     | `backgroundSize`      | Sets the size of the background image. Possible values: `length length`, `percent% percent%`, `cover` or `contain`.                                                                                                                       |
 | `border-color`        | `borderColor`         | Sets border colors to the matched view’s.                                                                                                                                                                                                 |
 | `border-top-color`    | `borderTopColor`      | Sets a top border color to the matched view’s.                                                                                                                                                                                            |
 | `border-right-color`  | `borderRightColor`    | Sets a right border color to the matched view’s.                                                                                                                                                                                          |
