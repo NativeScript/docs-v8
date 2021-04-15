@@ -2377,7 +2377,6 @@ If you need to style parts of the text, you can use a combination of a `Formatte
 
 ```tsx
 import { Color } from '@nativescript/core'
-
 ;<label textWrap={true}>
   <formattedString>
     <span>This text has a </span>
@@ -2459,6 +2458,8 @@ import { Color } from '@nativescript/core'
 
 ---
 
+#### Example: Simple List Picker
+
 /// flavor plain
 
 ```xml
@@ -2492,7 +2493,7 @@ export function onListPickerLoaded(args) {
 /// flavor angular
 
 ```html
-<ListPicker [items]="items" class="picker"></ListPicker>
+<ListPicker [items]="items" class="picker"> </ListPicker>
 ```
 
 ///
@@ -2511,6 +2512,50 @@ export function onListPickerLoaded(args) {
 
 ```html
 <ListPicker :items="listOfItems" v-model="selectedItem" />
+```
+
+///
+
+/// flavor svelte
+
+```tsx
+<listPicker
+  items="{listOfItems}"
+  selectedIndex="0"
+  on:selectedIndexChange="{selectedIndexChanged}"
+/>
+```
+
+```js
+let listOfItems = ['one', 'two', 'three']
+const selectedIndexChanged = e => console.log(e.index)
+```
+
+`<ListPicker>` provides two-way data binding for `selectedIndex`.
+
+```tsx
+<listPicker
+  items="{listOfItems}"
+  bind:selectedIndex="{selectedItem}"
+/>
+```
+
+///
+
+/// flavor react
+
+```tsx
+import { EventData, ListPicker } from '@nativescript/core'
+
+;<listPicker
+  items={listOfItems}
+  selectedIndex={0}
+  onSelectedIndexChange={(args: EventData) => {
+    const listPicker: ListPicker = args.object as ListPicker
+    const index: number = listPicker.selectedIndex
+    const item = listPicker.items[index]
+  }}
+/>
 ```
 
 ///
