@@ -3451,10 +3451,12 @@ Progress {
 The Repeater widget allows you to display a collection of data, which is present in an array.
 
 :::tip Note
-`<Repeater>` is only aplicable to plain NativeScript apps, most flavors provide directives to loop through arrays like `ngFor` and `v-for`.
+`<Repeater>` is only applicable to plain NativeScript apps, most flavors provide directives to loop through arrays like `ngFor` and `v-for`.
 :::
 
 ---
+
+/// flavor plain
 
 ```xml
 <Label row="0" text="Binding the Repeater items property to collection" textWrap="true" />
@@ -3492,10 +3494,12 @@ export function onNavigatingTo(args) {
 }
 ```
 
-::: tip Note
-Changing the array after the repeater is shown will not update the UI. You can force-update the UI using the refresh() method.
+///
 
-When using ObservableArray the repeater will be automatically updated when items are added or removed form the array.
+::: tip Note
+Changing the array after the repeater is shown will not update the UI. You can force-update the UI using the `refresh()` method.
+
+When using `ObservableArray` the repeater will be automatically updated when items are added or removed form the array.
 :::
 
 #### API References
