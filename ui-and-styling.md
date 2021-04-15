@@ -3775,6 +3775,39 @@ export class UsageComponent {
 
 ///
 
+/// flavor svelte
+
+```tsx
+<searchBar
+  hint="Search hint"
+  text="{searchQuery}"
+  on:textChange="{onTextChanged}"
+  on:submit="{onSubmit}"
+/>
+```
+
+`<SearchBar>` provides two-way data binding for `text`.
+
+```html
+<searchBar bind:text="{searchQuery}" />
+```
+
+///
+
+/// flavor react
+
+```tsx
+<searchBar
+  hint="Search hint"
+  text="searchPhrase"
+  onTextChange={onTextChanged}
+  onSubmit={onSubmit}
+  onClose={onClose}
+/>
+```
+
+///
+
 #### Props
 
 | Name                       | Type        | Description                                                                                                                                  |
