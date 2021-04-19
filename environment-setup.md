@@ -187,7 +187,8 @@ brew install node
 If you need to work with multiple versions of node, you may skip installing node via Homebrew, and use a node version manager: [nvm](https://github.com/nvm-sh/nvm), [n](https://npmjs.com/n) or any other node version manager you prefer.
 :::
 
-Next you will need **XCode**. Open the **AppStore**, search for **XCode** and and install it.
+Next you will need **XCode**. XCode will install on macOS 10.15.7 Catalina or later. It will need about 50G Disk space for installation.
+Open the **AppStore**, search for **XCode** and and install it.
 
 Once the installation is complete (this may take a while &mdash; brew a coffee and enjoy a little break), open **XCode** and if it prompts you to install the Command-Line-Tools make sure to say **Yes**.
 
