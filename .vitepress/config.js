@@ -4,6 +4,7 @@ const {
 	markFlavorHeadings,
 	wrapFlavorContainersInTabs,
 	setupPrismCLILang,
+	createDeviceFrameContainer,
 } = require('./theme/nativescript-theme/plugins')
 
 setupPrismCLILang()
@@ -72,6 +73,9 @@ module.exports = {
 			md.use(...createFlavorContainer())
 			md.use(markFlavorHeadings)
 			md.use(wrapFlavorContainersInTabs)
+
+			// DeviceFrame related
+			md.use(...createDeviceFrameContainer())
 
 			// other.
 			md.use(codeBlocksPlugin)
