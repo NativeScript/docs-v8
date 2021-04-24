@@ -208,6 +208,8 @@ Add the following lines to your shell profile, usually `~/.bash_profile` or `~/.
 ```shell
 # Add rubygems to the path
 export PATH=/opt/homebrew/lib/ruby/gems/2.7.0/bin:$PATH
+# or
+export PATH=/usr/local/lib/ruby/gems/2.7.0/bin:$PATH
 ```
 
 :::warning Important
@@ -218,11 +220,15 @@ In a new terminal window, install the **<abbr title="A package manager for manag
 
 <!-- Note: xcodeproj seems to be installed when installing cocoapods via brew -->
 <!-- brew install cocoapods # this will install both cocoapods and xcodeproj -->
+<!-- gem install ... # requires root privileges on macOS. sudo works. -->
 
 ```cli
-gem install cocoapods
-gem install xcodeproj
+sudo gem install cocoapods
+sudo gem install xcodeproj
 ```
+
+Depending on installation methods, the location of ruby gems may vary. Make sure you have the right folder in your `$PATH` by running `which pod`.
+If the binary is not found run `gem env` to examine your folders, and update your `$PATH` in the login profile file.
 
 Next install **<abbr title="Python package manager">pip</abbr>** and **<abbr title="Python 2 & 3 compatibility package used by NativeScript">six</abbr>** by running the following:
 
