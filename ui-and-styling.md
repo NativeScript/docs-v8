@@ -795,32 +795,312 @@ When an element is a direct child of `<FlexboxLayout>`, you can work with the fo
 
 ### ActionBar
 
-The ActionBar is NativeScript’s abstraction over the Android ActionBar and iOS NavigationBar. It represents a toolbar at the top of the activity window, and can have a title, application-level navigation, as well as other custom interactive items.
+The ActionBar is NativeScript’s abstraction over the Android [ActionBar](https://developer.android.com/training/appbar/) and iOS [NavigationBar](https://developer.apple.com/design/human-interface-guidelines/ios/bars/navigation-bars/). It represents a toolbar at the top of the activity window, and can have a title, application-level navigation, as well as other custom interactive items.
 
 ---
 
+#### Example: Simple ActionBar with title
+
+/// flavor vue
+
+```html
+<ActionBar title="ActionBar Title" />
+```
+
+///
+
+/// flavor svelte
+
+```html
+<actionBar title="ActionBar Title" />
+```
+
+///
+
 /// flavor plain
 
-The ActionBar provides a title property and can be extended by using one or more ActionItem components and a single NavigationButton.
+```html
+<ActionBar title="ActionBar Title" />
+```
 
-```xml
+///
 
-<ActionBar title="ActionBar Title">
-    <NavigationButton icon="res://ic_arrow_back_black_24dp" (tap)="goBack()"></NavigationButton>
-    <ActionItem icon="font://&#xf013;" class="fas" ios.position="right" (tap)="openSettings()"></ActionItem>
+/// flavor angular
+
+```html
+<ActionBar title="ActionBar Title"> </ActionBar>
+```
+
+///
+
+/// flavor react
+
+```html
+<actionBar title="ActionBar Title" />
+```
+
+///
+
+<!-- -->
+
+#### Example: ActionBar with custom title view
+
+/// flavor react
+
+```tsx
+<actionBar>
+  <stackLayout nodeRole="titleView" orientation="horizontal">
+    <image src="res://icon" width={40} height={40} verticalAlignment="center" />
+    <label text="NativeScript" fontSize={24} verticalAlignment="center" />
+  </stackLayout>
+</actionBar>
+```
+
+///
+
+/// flavor vue
+
+```html
+<ActionBar>
+  <StackLayout orientation="horizontal">
+    <image src="res://icon" width="40" height="40" verticalAlignment="center" />
+    <label text="ActionBar Title" fontSize="24" verticalAlignment="center" />
+  </StackLayout>
 </ActionBar>
 ```
 
-The ActionItem components are supporting the platform-specific position and systemIcon for iOS and Android.
+///
+
+/// flavor plain
 
 ```xml
-<ActionBar title="Action Items">
-    <ActionItem (tap)="onShare()" ios.systemIcon="9" ios.position="left"
-                android.systemIcon="ic_menu_share" android.position="actionBar">
-    </ActionItem>
-    <ActionItem text="delete" (tap)="onDelete()"
-                ios.systemIcon="16" ios.position="right" android.position="popup">
-    </ActionItem>
+<ActionBar>
+  <StackLayout orientation="horizontal">
+    <Image src="res://icon" width="40" height="40" verticalAlignment="center" />
+    <Label text="ActionBar Title" fontSize="24" verticalAlignment="center" />
+  </StackLayout>
+</ActionBar>
+```
+
+///
+
+/// flavor angular
+
+```html
+<ActionBar>
+  <StackLayout orientation="horizontal">
+    <image src="res://icon" width="40" height="40" verticalAlignment="center"></image>
+    <label text="ActionBar Title" fontSize="24" verticalAlignment="center"></label>
+  </StackLayout>
+</ActionBar>
+```
+
+///
+
+/// flavor svelte
+
+```html
+<actionBar>
+  <stackLayout orientation="horizontal">
+    <image src="res://icon" width="40" height="40" verticalAlignment="center" />
+    <label text="ActionBar Title" fontSize="24" verticalAlignment="center" />
+  </stackLayout>
+</actionBar>
+```
+
+///
+
+#### Example: ActionBar with ActionItem
+
+The `<ActionItem>` components are supporting the platform-specific position and systemIcon for iOS and Android.
+
+- Android sets position via `android.position`:
+
+  - `actionBar`: Puts the item in the ActionBar. Action item can be rendered both as text or icon.
+  - `popup`: Puts the item in the options menu. Items will be rendered as text.
+  - `actionBarIfRoom`: Puts the item in the ActionBar if there is room for it. Otherwise, puts it in the options menu.
+
+- iOS sets position via ios.position:
+
+  - `left`: Puts the item on the left side of the ActionBar.
+  - `right`: Puts the item on the right side of the ActionBar.
+
+/// flavor svelte
+
+```html
+<actionBar title="ActionBar Title">
+  <actionItem
+    on:tap="{onTapShare}"
+    ios.systemIcon="9"
+    ios.position="left"
+    android.systemIcon="ic_menu_share"
+    android.position="actionBar"
+  />
+  <actionItem
+    on:tap="{onTapDelete}"
+    ios.systemIcon="16"
+    ios.position="right"
+    text="delete"
+    android.position="popup"
+  />
+</actionBar>
+```
+
+///
+
+/// flavor vue
+
+```html
+<ActionBar title="ActionBar Title">
+  <ActionItem
+    @tap="onTapShare"
+    ios.systemIcon="9"
+    ios.position="left"
+    android.systemIcon="ic_menu_share"
+    android.position="actionBar"
+  />
+  <ActionItem
+    @tap="onTapDelete"
+    ios.systemIcon="16"
+    ios.position="right"
+    text="delete"
+    android.position="popup"
+  />
+</ActionBar>
+```
+
+///
+
+/// flavor react
+
+```tsx
+<actionBar title="ActionBar Title">
+  <actionItem
+    nodeRole="actionItems"
+    onTap={onTapShare}
+    ios={{
+      systemIcon: 9,
+      position: 'left' as const
+    }}
+    android={{
+      systemIcon: 'ic_menu_share' as const,
+      position: 'actionBar' as const
+    }}
+  />
+  <actionItem
+    nodeRole="actionItems"
+    onTap={onTapDelete}
+    ios={{
+      systemIcon: 16,
+      position: 'right' as const
+    }}
+    android={{
+      position: 'popup' as const
+    }}
+    text="delete"
+  />
+</actionBar>
+```
+
+///
+
+/// flavor plain
+
+```html
+<ActionBar title="ActionBar Title">
+  <ActionItem
+    tap="onShare()"
+    ios.systemIcon="9"
+    ios.position="left"
+    android.systemIcon="ic_menu_share"
+    android.position="actionBar"
+  >
+  </ActionItem>
+  <ActionItem
+    text="delete"
+    tap="onDelete()"
+    ios.systemIcon="16"
+    ios.position="right"
+    android.position="popup"
+  >
+  </ActionItem>
+</ActionBar>
+```
+
+///
+
+/// flavor angular
+
+```html
+<ActionBar title="ActionBar Title">
+  <ActionItem
+    (tap)="onShare()"
+    ios.systemIcon="9"
+    ios.position="left"
+    android.systemIcon="ic_menu_share"
+    android.position="actionBar"
+  >
+  </ActionItem>
+  <ActionItem
+    text="delete"
+    (tap)="onDelete()"
+    ios.systemIcon="16"
+    ios.position="right"
+    android.position="popup"
+  >
+  </ActionItem>
+</ActionBar>
+```
+
+///
+
+#### Example: ActionBar with NavigationButton
+
+`<NavigationButton>` is a UI component that provides an abstraction for the Android navigation button and the iOS back button.
+
+/// flavor vue
+
+```html
+<ActionBar title="ActionBar Title">
+  <NavigationButton text="Go back" android.systemIcon="ic_menu_back" @tap="goBack" />
+</ActionBar>
+```
+
+///
+
+/// flavor react
+
+```tsx
+<actionBar title="ActionBar Title">
+  <navigationButton
+    nodeRole="navigationButton"
+    text="Go back"
+    android={{
+      position: undefined,
+      systemIcon: 'ic_menu_back'
+    }}
+    onTap={goBack}
+  />
+</actionBar>
+```
+
+///
+
+/// flavor svelte
+
+```html
+<actionBar title="ActionBar Title">
+  <navigationButton text="Go back" android.systemIcon="ic_menu_back" on:tap="{goBack}" />
+</actionBar>
+```
+
+///
+
+/// flavor plain
+
+```html
+<ActionBar title="ActionBar Title">
+  <NavigationButton text="Go back" android.systemIcon="ic_menu_back" tap="goBack" />
 </ActionBar>
 ```
 
@@ -831,46 +1111,148 @@ The ActionItem components are supporting the platform-specific position and syst
 ```html
 <ActionBar title="ActionBar Title">
   <NavigationButton
-    icon="res://ic_arrow_back_black_24dp"
+    text="Go back"
+    android.systemIcon="ic_menu_back"
     (tap)="goBack()"
   ></NavigationButton>
-  <ActionItem
-    icon="font://&#xf013;"
-    class="fas"
-    ios.position="right"
-    (tap)="openSettings()"
-  ></ActionItem>
 </ActionBar>
 ```
 
-```ts
-import { Component } from '@angular/core'
-import { RouterExtensions } from 'nativescript/angular'
+///
 
-@Component({
-  moduleId: module.id,
-  templateUrl: './usage.component.html'
-})
-export class ActionBarUsageComponent {
-  constructor(private routerExtensions: RouterExtensions) {}
+:::tip Platform specific behavior
 
-  goBack() {
-    this.routerExtensions.backToPreviousPage()
-  }
+**iOS Specific**
 
-  openSettings() {
-    // implement the cusotm logic
-  }
-}
+On iOS the default text of the navigation button is the title of the previous page and the back button is used explicitly for navigation.
+It navigates to the previous page and does not allow overriding this behavior.
+If you need to place a custom button on the left side of the `<ActionBar>` (e.g., to show a Drawer button), you can use an `<ActionItem>` with `ios.position="left"`.
+
+**Android Specific**
+
+On Android, you can't add text inside the navigation button.
+You can use the icon property to set an image (e.g., `~/images/nav-image.png` or `res:\\ic_nav`).
+You can use `android.systemIcon` to set one of the system icons available in Android.
+In this case, there is no default behaviour for NavigationButton tap event, and we should set the callback function, which will be executed.
+:::
+
+#### Example: Setting an app icon for Android in ActionBar
+
+/// flavor vue
+
+```html
+<ActionBar
+  title="ActionBar Title"
+  android.icon="res://icon"
+  android.iconVisibility="always"
+/>
 ```
 
-#### Styling
+///
 
-To style the ActionBar, you can use only background-color and color properties. Alternatively, you can use @nativescript/theme and use the default styles for each different theme. The icon property of ActionItem can use Icon Fonts with the font:// prefix. By setting up this prefix, a new image will be generated, which will be set as an ActionItem's icon resource. While using this functionality, we need to specify the font-size, which will calculate the size of the generated image base on the device's dpi.
+/// flavor svelte
+
+```html
+<actionBar
+  title="ActionBar Title"
+  android.icon="res://icon"
+  android.iconVisibility="always"
+/>
+```
+
+///
+
+/// flavor react
+
+```tsx
+<actionBar
+  title="ActionBar Title"
+  android={{ icon: 'res://icon', iconVisibility: 'always' }}
+/>
+```
+
+///
+
+/// flavor plain
+
+```html
+<ActionBar
+  title="ActionBar Title"
+  android.icon="res://icon"
+  android.iconVisibility="always"
+/>
+```
+
+///
+
+/// flavor angular
+
+```html
+<ActionBar
+  title="ActionBar Title"
+  android.icon="res://icon"
+  android.iconVisibility="always"
+>
+</ActionBar>
+```
+
+///
+
+#### Example: Removing the border from ActionBar
+
+By default, a border is drawn at the bottom of the `<ActionBar>`. In addition to the border, on iOS devices a translucency filter is also applied over the `<ActionBar>`.
+
+To remove this styling from your app, you can set the `flat` property to `true`.
+
+/// flavor vue
+
+```html
+<ActionBar title="ActionBar Title" flat="true" />
+```
+
+///
+
+/// flavor svelte
+
+```html
+<actionBar title="ActionBar Title" flat="true" />
+```
+
+///
+
+/// flavor react
+
+```tsx
+<actionBar title="ActionBar Title" flat={true} />
+```
+
+///
+
+/// flavor plain
+
+```html
+<ActionBar title="ActionBar Title" flat="true" />
+```
+
+///
+
+/// flavor angular
+
+```html
+<ActionBar title="ActionBar Title" flat="true"> </ActionBar>
+```
+
+///
+
+#### Example: Styling ActionBar
+
+To style the `<ActionBar>`, you can use only `background-color` and `color` properties. Alternatively, you can use `@nativescript/theme` and use the default styles for each different theme. The icon property of `ActionItem` can use Icon Fonts with the `font://` prefix. By setting up this prefix, a new image will be generated, which will be set as an `<ActionItem>`'s icon resource. While using this functionality, we need to specify the font-size, which will calculate the size of the generated image base on the device's dpi.
+
+/// flavor angular
 
 ```html
 <!-- The default background-color and color of ActionBar & ActionItem are set through nativescript-theme (if used)-->
-<ActionBar title="Styling">
+<ActionBar title="ActionBar Title">
   <!-- Explicitly hiding the NavigationBar to prevent the default one on iOS-->
   <NavigationButton visibility="collapsed"></NavigationButton>
 
@@ -893,47 +1275,30 @@ To style the ActionBar, you can use only background-color and color properties. 
 
 ///
 
-/// flavor vue
+/// flavor plain
 
 ```html
-<ActionBar>
-  <StackLayout orientation="horizontal">
-    <image src="res://icon" width="40" height="40" verticalAlignment="center" />
-    <label text="NativeScript" fontSize="24" verticalAlignment="center" />
-  </StackLayout>
+<!-- The default background-color and color of ActionBar & ActionItem are set through nativescript-theme (if used)-->
+<ActionBar title="ActionBar Title">
+  <!-- Explicitly hiding the NavigationBar to prevent the default one on iOS-->
+  <NavigationButton visibility="collapsed" />
+
+  <!-- Using the icon property and Icon Fonts -->
+  <ActionItem position="left" icon="font://&#xf0a8;" class="fas" tap="goBack" />
+
+  <!-- Creating custom views for ActionItem-->
+  <ActionItem ios.position="right">
+    <GridLayout width="100">
+      <button text="Theme" class="-primary -rounded-lg" />
+    </GridLayout>
+  </ActionItem>
 </ActionBar>
-```
-
-#### Setting an app icon for Android
-
-```html
-<ActionBar title="My App" android.icon="res://icon" android.iconVisibility="always" />
-```
-
-```html
-<ActionBar title="My App" flat="true" />
 ```
 
 ///
 
-:::tip Platform specific behavior
-
-**iOS Specific**
-
-On iOS the default text of the navigation button is the title of the previous page and the back button is used explicitly for navigation.
-It navigates to the previous page and does not allow overriding this behavior.
-If you need to place a custom button on the left side of the `<ActionBar>` (e.g., to show a Drawer button), you can use an `<ActionItem>` with `ios.position="left"`.
-
-**Android Specific**
-
-On Android, you can't add text inside the navigation button.
-You can use the icon property to set an image (e.g., `~/images/nav-image.png` or `res:\\ic_nav`).
-You can use `android.systemIcon` to set one of the system icons available in Android.
-In this case, there is no default behaviour for NavigationButton tap event, and we should set the callback function, which will be executed.
-:::
-
 :::warning Note
-In iOS, the color property affects the color of the title and the action items. In Android, the color property affects only the title text. However, you can set the default color of the text in the action items by adding an actionMenuTextColor item in the Android theme (inside App_Resources\Android\values\styles.xml).
+In iOS, the color property affects the color of the title and the action items. In Android, the color property affects only the title text. However, you can set the default color of the text in the action items by adding an `actionMenuTextColor` item in the Android theme (inside `App_Resources\Android\values\styles.xml`).
 :::
 
 #### Properties
@@ -950,14 +1315,14 @@ In iOS, the color property affects the color of the title and the action items. 
 
 #### ActionItem Properties
 
-| Name                 | Type                                                  | Description                                                                                                                                                           |
-| :------------------- | :---------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `text`               | `string`                                              | Gets or sets the text of the action item.                                                                                                                             |
-| `icon`               | `string`                                              | Gets or sets the icon of the action item. Supports local images (`~/`), resources (`res://`) and icon fonts (`fonts://`)                                              |
-| `ios.position`       | `enum`: _"left"_, _"right"_                           | Sets the position of the item (default value is `left`).                                                                                                              |
-| `android.position`   | `enum`: _"actionBar"_, _"popup"_, _"actionBarIfRoom"_ | Sets the position of the item (default value is `actionBar`).                                                                                                         |
-| `ios.systemIcon`     | `number`                                              | **iOS only** Sets the icon of the action item while using [UIBarButtonSystemIcon](https://developer.apple.com/documentation/uikit/uibarbuttonsystemitem) enumeration. |
-| `android.systemIcon` | `string`                                              | **Android only** Sets a path to a resource icon ( see the [list of Android system drawables](https://developer.android.com/reference/android/R.drawable))             |
+| Name                 | Type                                            | Description                                                                                                                                                           |
+| :------------------- | :---------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `text`               | `string`                                        | Gets or sets the text of the action item.                                                                                                                             |
+| `icon`               | `string`                                        | Gets or sets the icon of the action item. Supports local images (`~/`), resources (`res://`) and icon fonts (`fonts://`)                                              |
+| `ios.position`       | `enum`: `left`, `right`                         | Sets the position of the item (default value is `left`).                                                                                                              |
+| `android.position`   | `enum`: `actionBar`, `popup`, `actionBarIfRoom` | Sets the position of the item (default value is `actionBar`).                                                                                                         |
+| `ios.systemIcon`     | `number`                                        | **iOS only** Sets the icon of the action item while using [UIBarButtonSystemIcon](https://developer.apple.com/documentation/uikit/uibarbuttonsystemitem) enumeration. |
+| `android.systemIcon` | `string`                                        | **Android only** Sets a path to a resource icon ( see the [list of Android system drawables](https://developer.android.com/reference/android/R.drawable))             |
 
 #### NavigationButton Properties
 
@@ -1028,7 +1393,8 @@ onBusyChanged(args: EventData) {
 /// flavor angular
 
 ```html
-<ActivityIndicator [busy]="isBusy" (busyChange)="onBusyChanged($event)" />
+<ActivityIndicator [busy]="isBusy" (busyChange)="onBusyChanged($event)">
+</ActivityIndicator>
 ```
 
 ```ts
@@ -1046,6 +1412,33 @@ onBusyChanged(args: EventData) {
 
 ```html
 <ActivityIndicator busy="true" @busyChange="onBusyChanged" />
+```
+
+```js
+export default {
+  methods: {
+    onBusyChanged(args) {
+      const indicator = args.object // ActivityIndicator
+      console.log(`indicator.busy changed to: ${indicator.busy}`)
+    }
+  }
+}
+```
+
+///
+
+/// flavor react
+
+```tsx
+<activityIndicator busy={true} />
+```
+
+///
+
+/// flavor svelte
+
+```html
+<activityIndicator busy="{true}" on:busyChange="{onBusyChanged}" />
 ```
 
 ```js
@@ -1099,7 +1492,7 @@ import { Button } from '@nativescript/core'
 
 export function onTap(args) {
   const button = args.object as Button
-  console.log('Tapped button')
+  // execute your custom logic here...
 }
 ```
 
@@ -1112,7 +1505,7 @@ export function onTap(args) {
 ```
 
 ```ts
-import { Button } from '@nativescript/core'
+import { Button, EventData } from '@nativescript/core'
 
 onTap(args: EventData) {
     const button = args.object as Button
@@ -1126,6 +1519,28 @@ onTap(args: EventData) {
 
 ```html
 <button text="Button" @tap="onButtonTap" />
+```
+
+///
+
+/// flavor svelte
+
+```html
+<button text="Button" on:tap="{onButtonTap}" />
+```
+
+///
+
+/// flavor react
+
+```tsx
+import { EventData } from '@nativescript/core'
+;<button
+  text="Button"
+  onTap={(args: EventData) => {
+    const button = args.object
+  }}
+/>
 ```
 
 ///
@@ -1297,6 +1712,34 @@ export class DatePickerUsageComponent {
 
 ///
 
+/// flavor react
+
+```tsx
+import { EventData } from '@nativescript/core'
+;<datePicker
+  date={new Date()}
+  onDateChange={(args: EventData) => {
+    const datePicker = args.object
+  }}
+/>
+```
+
+///
+
+/// flavor svelte
+
+```html
+<datePicker date="{someDate}" />
+```
+
+`<datePicker>` provides two-way data binding using `bind`.
+
+```html
+<datePicker bind:date="{selectedDate}" />
+```
+
+///
+
 #### Props
 
 | Name           | Type        | Description                                                                                                                                   |
@@ -1331,15 +1774,21 @@ export class DatePickerUsageComponent {
 
 #### A single root Frame
 
+/// flavor
+
 ```js
 new Vue({
   render: h => h('Frame', [h(HomePageComponent)])
 })
 ```
 
+///
+
 #### Multiple Frames
 
 If you need to create multiple frames, you can do so by wrapping them in a Layout, for example if you want to have 2 frames side-by-side
+
+/// flavor vue
 
 ```html
 <GridLayout columns="*, *">
@@ -1348,7 +1797,33 @@ If you need to create multiple frames, you can do so by wrapping them in a Layou
 </GridLayout>
 ```
 
-#### A frame with a default page
+///
+
+/// flavor react
+
+```tsx
+<gridLayout columns={'* *'} rows={[]}>
+  <frame col={0} />
+  <frame col={1} />
+</gridLayout>
+```
+
+///
+
+/// flavor svelte
+
+```html
+<gridLayout columns="*, *">
+  <frame col="0" />
+  <frame col="1" />
+</gridLayout>
+```
+
+///
+
+#### Example: A frame with a default page
+
+/// flavor vue
 
 ```html
 <frame>
@@ -1361,7 +1836,41 @@ If you need to create multiple frames, you can do so by wrapping them in a Layou
 </frame>
 ```
 
-#### A frame with a default page from an external component
+///
+
+/// flavor react
+
+```tsx
+<frame>
+  <page>
+    <actionBar title="Default Page Title" />
+    <gridLayout>
+      <label text="Default Page Content" />
+    </gridLayout>
+  </page>
+</frame>
+```
+
+///
+
+/// flavor svelte
+
+```html
+<frame>
+  <page>
+    <actionBar title="Default Page Title" />
+    <gridLayout>
+      <label text="Default Page Content" />
+    </gridLayout>
+  </page>
+</frame>
+```
+
+///
+
+#### Example: A frame with a default page from an external component
+
+/// flavor vue
 
 ```html
 <frame>
@@ -1380,6 +1889,38 @@ export default {
   }
 }
 ```
+
+///
+
+/// flavor svelte
+
+```html
+<frame>
+  <Home />
+</frame>
+```
+
+```js
+import Home from './Home.svelte'
+```
+
+///
+
+/// flavor react
+
+```tsx
+import HomePage from './HomePage'
+
+function AppContainer() {
+  return (
+    <frame>
+      <HomePage />
+    </frame>
+  )
+}
+```
+
+///
 
 #### Native component
 
@@ -1448,6 +1989,22 @@ export class HtmlViewUsageComponent {
 
 ///
 
+/// flavor react
+
+```tsx
+<htmlView html="<div><h1>HtmlView</h1></div>" />
+```
+
+///
+
+/// flavor svelte
+
+```html
+<htmlView html="<div><h1>HtmlView</h1></div>" />
+```
+
+///
+
 #### Props
 
 | Name           | Type        | Description                                                                                                                                 |
@@ -1475,20 +2032,12 @@ When working with images following [the best practices](/performance.html#image-
 
 ---
 
+#### Example: Displaying an image from `App_Resources`
+
 /// flavor plain
 
 ```xml
-<!-- Displaying an image from `App_Resources` -->
 <Image src="res://icon" stretch="aspectFill" />
-
-<!-- Displaying an image relative to the `app` directory -->
-<Image src="~/images/logo.png" stretch="aspectFill" />
-
-<!-- Displaying an image from a URL -->
-<Image src="https://www.nativescript.org/images/default-source/Blogs/ns-logo_share_600x315.png" stretch="aspectFill" />
-
-<!-- Displaying an image from a URL - Setting loadMode to async will prevent freezing the UI on Android when loading photos async (e.g. from online API) -->
-<Image src="https://nativescript.org/images/default-source/Blogs/ns-logo_share_600x315.png" loadMode="async" width="100" height="100" stretch="aspectFill" />
 ```
 
 ///
@@ -1496,21 +2045,15 @@ When working with images following [the best practices](/performance.html#image-
 /// flavor angular
 
 ```html
-<!-- Displaying an image from `App_Resources` -->
-<image src="res://logo_white_bg" stretch="aspectFill"></image>
+<image src="res://icon" stretch="aspectFill"> </image>
+```
 
-<!-- Displaying an image relative to the `app` directory -->
-<image src="~/images/logo.png" stretch="aspectFit"></image>
+///
 
-<!-- Displaying an image from a URL - Setting loadMode to async will prevent freezing the UI on Android when loading photos async (e.g. from online API) -->
-<image
-  src="https://nativescript.org/images/default-source/Blogs/ns-logo_share_600x315.png"
-  loadMode="async"
-  stretch="aspectFit"
-></image>
+/// flavor react
 
-<!-- Image with CSS and an icon fonts -->
-<image src="font://&#xF2b9;" class="fas t-36"></image>
+```tsx
+<image src="res://icon" stretch="aspectFill" />
 ```
 
 ///
@@ -1518,25 +2061,211 @@ When working with images following [the best practices](/performance.html#image-
 /// flavor vue
 
 ```html
-<!-- Displaying an image from `App_Resources` -->
-<image src="res://icon" stretch="none" />
+<image src="res://icon" stretch="aspectFill" />
+```
 
-<!-- Displaying an image relative to the `app` directory -->
-<image src="~/logo.png" stretch="none" />
+///
 
-<!-- Displaying an image from a URL - Setting loadMode to async will prevent freezing the UI on Android when loading photos async (e.g. from online API) -->
-<image
-  src="https://art.nativescript-vue.org/NativeScript-Vue-White-Green.png"
-  stretch="none"
-  loadMode="async"
+/// flavor svelte
+
+```html
+<image src="res://icon" stretch="aspectFill" />
+```
+
+///
+
+#### Example: Displaying an image relative to the `app` directory
+
+/// flavor plain
+
+```xml
+<Image src="~/logo.png" stretch="aspectFill" />
+```
+
+///
+
+/// flavor angular
+
+```html
+<image src="~/logo.png" stretch="aspectFill"></image>
+```
+
+///
+
+/// flavor react
+
+```tsx
+<image src="~/logo.png" stretch="aspectFill" />
+```
+
+///
+
+/// flavor vue
+
+```html
+<image src="~/logo.png" stretch="aspectFill" />
+```
+
+///
+
+/// flavor svelte
+
+```html
+<image src="~/logo.png" stretch="aspectFill" />
+```
+
+///
+
+#### Example: Displaying an image from a URL
+
+:::tip Note
+
+Setting `loadMode` to `async` will prevent freezing the UI on Android when loading photos async (e.g. from online API)
+
+:::
+
+/// flavor plain
+
+```xml
+<Image
+  src="https://art.nativescript.org/logo/export/NativeScript_Logo_Blue_White.svg"
+  stretch="aspectFill"
 />
+```
 
-<!-- Displaying a `base64`-encoded image -->
-<image src="data:Image/png;base64,iVBORw..." stretch="none" />
+///
 
-<!-- Displaying an image with a font icon in {N} 6.2+ -->
-<!-- In NativeScript-Vue, `.decode` is required for parsing properties that have HTML entities in them. -->
+/// flavor angular
+
+```html
+<image
+  src="https://art.nativescript.org/logo/export/NativeScript_Logo_Blue_White.svg"
+  stretch="aspectFill"
+>
+</image>
+```
+
+///
+
+/// flavor react
+
+```tsx
+<image
+  src="https://art.nativescript.org/logo/export/NativeScript_Logo_Blue_White.svg"
+  stretch="aspectFill"
+/>
+```
+
+///
+
+/// flavor vue
+
+```html
+<image
+  src="https://art.nativescript.org/logo/export/NativeScript_Logo_Blue_White.svg"
+  stretch="aspectFill"
+/>
+```
+
+///
+
+/// flavor svelte
+
+```html
+<image
+  src="https://art.nativescript.org/logo/export/NativeScript_Logo_Blue_White.svg"
+  stretch="aspectFill"
+/>
+```
+
+///
+
+#### Example: Displaying a `base64`-encoded image
+
+/// flavor plain
+
+```xml
+<Image src="data:Image/png;base64,iVBORw..." stretch="aspectFill" />
+```
+
+///
+
+/// flavor angular
+
+```html
+<image src="data:Image/png;base64,iVBORw..." stretch="aspectFill"></image>
+```
+
+///
+
+/// flavor react
+
+```tsx
+<image src="data:Image/png;base64,iVBORw..." stretch="aspectFill" />
+```
+
+///
+
+/// flavor vue
+
+```html
+<image src="data:Image/png;base64,iVBORw..." stretch="aspectFill" />
+```
+
+///
+
+/// flavor svelte
+
+```html
+<image src="data:Image/png;base64,iVBORw..." stretch="aspectFill" />
+```
+
+///
+
+#### Example: Image with CSS and an icon fonts
+
+/// flavor plain
+
+```xml
+<Image src="font://&#xf004;" class="fas" />
+```
+
+///
+
+/// flavor angular
+
+```html
+<image src="font://&#xf004;" class="fas"></image>
+```
+
+///
+
+/// flavor react
+
+```tsx
+<image src="font://&#xf004;" class="fas" />
+```
+
+///
+
+/// flavor vue
+
+```html
 <image src.decode="font://&#xf004;" class="fas" />
+```
+
+:::warning Note
+
+In NativeScript-Vue, `.decode` is required for parsing properties that have HTML entities in them.
+
+:::
+
+///
+
+/// flavor svelte
+
+```html
+<image src="font://&#xf004;" class="fas" />
 ```
 
 ///
@@ -1570,17 +2299,12 @@ This `<Label>` is **not** the same as the HTML `<label>`.
 
 ---
 
+#### Example: Simple label
+
 /// flavor plain
 
 ```xml
-<Label
-  text="Lores Ipsum..."
-  textWrap="true"
-  textAlignment="center"
-  textDecoration="underline"
-  textTransform="capitalize"
-  whiteSpace="normal"
-/>
+<Label text="Label" />
 ```
 
 ///
@@ -1588,14 +2312,15 @@ This `<Label>` is **not** the same as the HTML `<label>`.
 /// flavor angular
 
 ```html
-<label
-  text="Lores Ipsum..."
-  textWrap="true"
-  textAlignment="center"
-  textDecoration="underline"
-  textTransform="capitalize"
-  whiteSpace="normal"
-></label>
+<label text="Label"></label>
+```
+
+///
+
+/// flavor react
+
+```tsx
+<label>Label</label>
 ```
 
 ///
@@ -1603,23 +2328,73 @@ This `<Label>` is **not** the same as the HTML `<label>`.
 /// flavor vue
 
 ```html
-<label
-  text="Label"
-  textWrap="true"
-  textAlignment="center"
-  textDecoration="underline"
-  textTransform="capitalize"
-  whiteSpace="normal"
-/>
+<label text="Label" />
 ```
 
 ///
 
-#### Styling the label
+/// flavor svelte
 
-If you need to style parts of the text, you can use a combination of a [`FormattedString`](https://docs.nativescript.org/angular/ui/ng-ui-widgets/formatted-string) and [`Span`](https://docs.nativescript.org/api-reference/classes/_text_span_.span) elements.
+```html
+<label text="Label" />
+```
 
-<!-- TODO: fix links -->
+///
+
+#### Example: Styling the label
+
+If you need to style parts of the text, you can use a combination of a `FormattedString` and `Span` elements.
+
+/// flavor plain
+
+```xml
+<Label textWrap="true">
+  <FormattedString>
+    <Span text="This text has a " />
+    <Span text="red " style="color: red" />
+    <Span text="piece of text. " />
+    <Span text="Also, this bit is italic, " fontStyle="italic" />
+    <Span text="and this bit is bold." fontWeight="bold" />
+  </FormattedString>
+</Label>
+```
+
+///
+
+/// flavor angular
+
+```html
+<label textWrap="true">
+  <FormattedString>
+    <span text="This text has a "></span>
+    <span text="red " style="color: red"></span>
+    <span text="piece of text. "></span>
+    <span text="Also, this bit is italic, " fontStyle="italic"></span>
+    <span text="and this bit is bold." fontWeight="bold"></span>
+  </FormattedString>
+</label>
+```
+
+///
+
+/// flavor react
+
+```tsx
+import { Color } from '@nativescript/core'
+;<label textWrap={true}>
+  <formattedString>
+    <span>This text has a </span>
+    <span color={new Color('red')}>red </span>
+    <span>piece of text. </span>
+    <span fontStyle="italic">Also, this bit is italic, </span>
+    <span fontWeight="bold">and this bit is bold.</span>
+  </formattedString>
+</label>
+```
+
+///
+
+/// flavor vue
 
 ```html
 <label textWrap="true">
@@ -1633,19 +2408,37 @@ If you need to style parts of the text, you can use a combination of a [`Formatt
 </label>
 ```
 
+///
+
+/// flavor svelte
+
+```html
+<label textWrap="{true}">
+  <formattedString>
+    <span text="This text has a " />
+    <span text="red " style="color: red" />
+    <span text="piece of text. " />
+    <span text="Also, this bit is italic, " fontStyle="italic" />
+    <span text="and this bit is bold." fontWeight="bold" />
+  </formattedString>
+</label>
+```
+
+///
+
 #### Props
 
-| Name             | Type                                                                                           | Description                                                                                                                                 |
-| ---------------- | ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| `letterSpacing`  | `number`                                                                                       | Gets or sets letterSpace style property.                                                                                                    |
-| `lineHeight`     | `number`                                                                                       | Gets or sets lineHeight style property.                                                                                                     |
-| `text`           | `string`                                                                                       | Gets or sets the Label text.                                                                                                                |
-| `textAlignment`  | **_"initial"_**, **_"left"_**, **_"center"_**, **_"right"_**                                   | Gets or sets text-alignment style property.                                                                                                 |
-| `textDecoration` | **_"none"_**, **_"underline"_**, **_"line-through"_**, **_"underline"_**, **_"line-through"_** | Gets or sets text swcoration style property.                                                                                                |
-| `textTransform`  | **_"initial"_**, **_"none"_**, **_"capitalize"_**, **_"uppercase"_**, **_"lowercase"_**        | Gets or sets text transform style property.                                                                                                 |
-| `textWrap`       | `boolean`                                                                                      | Gets or sets whether the Label wraps text or not.                                                                                           |
-| `whiteSpace`     | **_"initial"_**, **_"normal"_**, **_"nowrap"_**                                                | Gets or sets the white space style.                                                                                                         |
-| `...Inherited`   | `Inherited`                                                                                    | Additional inherited properties not shown. Refer to the [API Reference](http://docs.nativescript.org/api-reference/modules/_ui_label_.html) |
+| Name             | Type                                                             | Description                                                                                                                                 |
+| ---------------- | ---------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| `letterSpacing`  | `number`                                                         | Gets or sets letterSpace style property.                                                                                                    |
+| `lineHeight`     | `number`                                                         | Gets or sets lineHeight style property.                                                                                                     |
+| `text`           | `string`                                                         | Gets or sets the Label text.                                                                                                                |
+| `textAlignment`  | `initial`, `left`, `center`, `right`                             | Gets or sets text-alignment style property.                                                                                                 |
+| `textDecoration` | `none`, `underline`, `line-through`, `underline`, `line-through` | Gets or sets text swcoration style property.                                                                                                |
+| `textTransform`  | `initial`, `none`, `capitalize`, `uppercase`, `lowercase`        | Gets or sets text transform style property.                                                                                                 |
+| `textWrap`       | `boolean`                                                        | Gets or sets whether the Label wraps text or not.                                                                                           |
+| `whiteSpace`     | `initial`, `normal`, `nowrap`                                    | Gets or sets the white space style.                                                                                                         |
+| `...Inherited`   | `Inherited`                                                      | Additional inherited properties not shown. Refer to the [API Reference](http://docs.nativescript.org/api-reference/modules/_ui_label_.html) |
 
 <!-- TODO: fix links -->
 
@@ -1668,6 +2461,8 @@ If you need to style parts of the text, you can use a combination of a [`Formatt
 `<ListPicker>` is a UI component that lets the user select a value from a pre-configured list.
 
 ---
+
+#### Example: Simple List Picker
 
 /// flavor plain
 
@@ -1702,7 +2497,7 @@ export function onListPickerLoaded(args) {
 /// flavor angular
 
 ```html
-<ListPicker [items]="items" class="picker"></ListPicker>
+<ListPicker [items]="items" class="picker"> </ListPicker>
 ```
 
 ///
@@ -1721,6 +2516,49 @@ export function onListPickerLoaded(args) {
 
 ```html
 <ListPicker :items="listOfItems" v-model="selectedItem" />
+```
+
+///
+
+/// flavor svelte
+
+```tsx
+<listPicker
+  items="{listOfItems}"
+  selectedIndex="0"
+  on:selectedIndexChange="{selectedIndexChanged}"
+/>
+```
+
+```js
+let listOfItems = ['one', 'two', 'three']
+const selectedIndexChanged = e => console.log(e.index)
+```
+
+`<ListPicker>` provides two-way data binding for `selectedIndex`.
+
+```tsx
+<listPicker
+  items="{listOfItems}"
+  bind:selectedIndex="{selectedItem}"
+/>
+```
+
+///
+
+/// flavor react
+
+```tsx
+import { EventData, ListPicker } from '@nativescript/core'
+;<listPicker
+  items={listOfItems}
+  selectedIndex={0}
+  onSelectedIndexChange={(args: EventData) => {
+    const listPicker: ListPicker = args.object as ListPicker
+    const index: number = listPicker.selectedIndex
+    const item = listPicker.items[index]
+  }}
+/>
 ```
 
 ///
@@ -1754,6 +2592,8 @@ export function onListPickerLoaded(args) {
 The NativeScript modules provides a custom component which simplifies the way native ListView is used.
 
 ---
+
+<!-- TODO: examples in all flavors -->
 
 ::: warning Note
 The ListView's item template can contain only a single root view container.
@@ -2136,6 +2976,78 @@ Using the ListView component inside a ScrollView or ScrollView inside the ListVi
 
 ---
 
+#### Example: Simple Page
+
+/// flavor svelte
+
+```html
+<page>
+  <actionBar title="My App" />
+  <gridLayout>
+    <label text="My Content" />
+  </gridLayout>
+</page>
+```
+
+///
+
+/// flavor vue
+
+```html
+<Page>
+  <ActionBar title="My App" />
+  <GridLayout>
+    <label text="My Content" />
+  </GridLayout>
+</Page>
+```
+
+///
+
+/// flavor react
+
+```tsx
+<page>
+  <actionBar title="My App" />
+  <gridLayout>
+    <label>My Content</label>
+  </gridLayout>
+</page>
+```
+
+#### The special case of the ActionBar child
+
+It doesn't matter whether the `<actionBar>` is a first child, last child, or middle child of `<page>`.
+React NativeScript will automatically detect it using an `child instanceof Page` check, and set it as the `ActionBar` for the Page.
+
+:::tip Note
+You can skip this check by explicitly setting `<actionBar nodeRole="actionBar">`, but it's not a major performance concern.
+:::
+Any non-ActionBar child will be handled as the content view. Page only supports a single child, so if you want to insert multiple children on the Page (which is normally the case!), you should use a LayoutBase such as GridLayout to enscapsulate them.
+
+:::tip Out of interest
+You'd expect to be able to set ActionBar as the content view by specifying `<actionBar nodeRole="content">`, but it's not supported in NativeScript Core, so React NativeScript doesn't support it either!
+:::
+
+///
+
+/// flavor plain
+
+```html
+<Page>
+  <ActionBar title="My App" />
+  <GridLayout>
+    <label text="My Content" />
+  </GridLayout>
+</Page>
+```
+
+///
+
+#### Example: Using the `loaded` event for triggering UI changes
+
+A typical scenario is performing UI changes after the page is loaded. The recommended way to do it is by using the `loaded` event, triggered by NativeScript when the page is fully loaded:
+
 /// flavor plain
 
 ```xml
@@ -2200,26 +3112,7 @@ export function onNavigatedFrom(args: NavigatedData) {
 
 ///
 
-/// flavor angular
-??? Page in Angular ??? Not a thing.
-///
-
 /// flavor vue
-
-#### A single page
-
-```html
-<Page>
-  <ActionBar title="My App" />
-  <GridLayout>
-    <label text="My Content" />
-  </GridLayout>
-</Page>
-```
-
-#### Using the `loaded` event for triggering UI changes
-
-A typical scenario is performing UI changes after the page is loaded. The recommended way to do it is by using the `loaded` event, triggered by NativeScript when the page is fully loaded:
 
 ```html
 <Page @loaded="greet">
@@ -2245,7 +3138,10 @@ export default {
 ::: warning Note
 Developers coming from a web background would usually reach for the `mounted` lifecycle hook Vue provides, however in NativeScript the application, and certain elements might not yet be loaded when the `mounted` hook is executed, thus certain actions such as alerts, dialogs, navigation etc. are not possible inside the `mounted` hook. To work around this limitation, the `loaded` event may be used, which only fires after the application is ready. In this case, we are using the `loaded` event of the [`<Page>`](#page) element, but this event is available for all NativeScript elements.
 :::
+
 ///
+
+<!-- TODO: examples in all flavors -->
 
 #### Props
 
@@ -2286,6 +3182,8 @@ The events loaded, unloaded and layoutChanged are UI component lifecycles events
 
 ---
 
+#### Example: Simple Placeholder
+
 /// flavor plain
 
 ```xml
@@ -2298,15 +3196,46 @@ import { Utils } from '@nativescript/core'
 export function creatingView(args) {
   let nativeView
   if (global.isIOS) {
+    // Example with UITextView in iOS
     nativeView = UITextView.new()
     nativeView.text = 'Native View (iOS)'
   } else if (global.isAndroid) {
+    // Example with TextView in Android
     nativeView = new android.widget.TextView(Utils.android.getApplicationContext())
     nativeView.setText('Native View (Android)')
   }
 
   args.view = nativeView
 }
+```
+
+///
+
+/// flavor react
+
+```tsx
+import { isIOS, isAndroid } from '@nativescript/core'
+;<placeholder
+  onCreatingView={() => {
+    if (isIOS) {
+      // Example with UILabel in iOS
+      const nativeView = new UILabel()
+      nativeView.text = 'Native View - iOS'
+      args.view = nativeView
+    } else if (isAndroid) {
+      // Example with TextView in Android
+      const nativeView = new android.widget.TextView(args.context)
+      nativeView.setSingleLine(true)
+      nativeView.setEllipsize(android.text.TextUtils.TruncateAt.END)
+      nativeView.setText('Native View - Android')
+      args.view = nativeView
+    } else {
+      console.warn(
+        'Unsupported platform! Did they finally make NativeScript for desktop?'
+      )
+    }
+  }}
+/>
 ```
 
 ///
@@ -2325,9 +3254,11 @@ function creatingView(args) {
 
   let nativeView
   if (global.isIOS) {
+    // Example with UITextView in iOS
     nativeView = UITextView.new()
     nativeView.text = 'Native View (iOS)'
   } else if (global.isAndroid) {
+    // Example with TextView in Android
     nativeView = new android.widget.TextView(Utils.android.getApplicationContext())
     nativeView.setText('Native View (Android)')
   }
@@ -2344,9 +3275,8 @@ function creatingView(args) {
 <Placeholder @creatingView="creatingView" />
 ```
 
-#### Example with TextView in Android
-
 ```js
+// Example with TextView in Android
 methods: {
   creatingView: function(args) {
       const nativeView = new android.widget.TextView(args.context);
@@ -2356,11 +3286,7 @@ methods: {
       args.view = nativeView;
   }
 }
-```
-
-#### Example with UILabel in iOS
-
-```js
+// Example with UILabel in iOS
 methods: {
   creatingView: function(args) {
       const nativeView = new UILabel();
@@ -2370,14 +3296,14 @@ methods: {
 }
 ```
 
+///
+
 #### Props
 
 | Name           | Type        | Description                                                                                                                                       |
 | -------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `N/A`          | `N/A`       | None.                                                                                                                                             |
 | `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](http://docs.nativescript.org/api-reference/modules/_ui_placeholder_.html) |
-
-///
 
 ### Progress
 
@@ -2386,6 +3312,8 @@ methods: {
 See also: [ActivityIndicator](#activity-indicator).
 
 ---
+
+#### Example: Simple Progress
 
 /// flavor plain
 
@@ -2450,6 +3378,19 @@ export class StylingComponent implements OnInit {
 
 ///
 
+/// flavor react
+
+```tsx
+function getTaskCompletionPercent() {
+  // Just a stub method to illustrate the concept.
+  return 10
+}
+
+;<progress value={getTaskCompletionPercent()} maxValue={100} />
+```
+
+///
+
 /// flavor vue
 
 ```html
@@ -2457,6 +3398,35 @@ export class StylingComponent implements OnInit {
 ```
 
 ///
+
+/// flavor svelte
+
+```html
+<progress value="{currentProgress}" />
+```
+
+///
+
+#### Example: Styling Progress
+
+Using `backgroundColor` (**CSS**: `background-color`) & color to change the Progress style.
+
+:::tip Note
+`backgroundColor` will work only on `iOS`; on `Android` the background will be the color with applied opacity.
+:::
+
+```html
+<progress value="50" maxValue="100" backgroundColor="red" color="green"></progress>
+<!-- Using the @nativescript/theme CSS class to change the Progress style -->
+<progress value="25" maxValue="100" class="progress"></progress>
+```
+
+```css
+Progress {
+  color: cyan;
+  background-color: green;
+}
+```
 
 #### Props
 
@@ -2485,10 +3455,12 @@ export class StylingComponent implements OnInit {
 The Repeater widget allows you to display a collection of data, which is present in an array.
 
 :::tip Note
-`<Repeater>` is only aplicable to plain NativeScript apps, most flavors provide directives to loop through arrays like `ngFor` and `v-for`.
+`<Repeater>` is only applicable to plain NativeScript apps, most flavors provide directives to loop through arrays like `ngFor` and `v-for`.
 :::
 
 ---
+
+/// flavor plain
 
 ```xml
 <Label row="0" text="Binding the Repeater items property to collection" textWrap="true" />
@@ -2526,10 +3498,12 @@ export function onNavigatingTo(args) {
 }
 ```
 
-::: tip Note
-Changing the array after the repeater is shown will not update the UI. You can force-update the UI using the refresh() method.
+///
 
-When using ObservableArray the repeater will be automatically updated when items are added or removed form the array.
+::: tip Note
+Changing the array after the repeater is shown will not update the UI. You can force-update the UI using the `refresh()` method.
+
+When using `ObservableArray` the repeater will be automatically updated when items are added or removed form the array.
 :::
 
 #### API References
@@ -2638,6 +3612,38 @@ export class TipsAndTricksComponent {
     <label text="if necessary" />
   </StackLayout>
 </ScrollView>
+```
+
+///
+
+/// flavor svelte
+
+```html
+<scrollView orientation="horizontal">
+  <stackLayout orientation="horizontal">
+    <label text="this" />
+    <label text="text" />
+    <label text="scrolls" />
+    <label text="horizontally" />
+    <label text="if necessary" />
+  </stackLayout>
+</scrollView>
+```
+
+///
+
+/// flavor react
+
+```html
+<scrollView orientation="horizontal">
+  <stackLayout orientation="horizontal">
+    <label text="this" />
+    <label text="text" />
+    <label text="scrolls" />
+    <label text="horizontally" />
+    <label text="if necessary" />
+  </stackLayout>
+</scrollView>
 ```
 
 ///
@@ -2773,6 +3779,39 @@ export class UsageComponent {
 
 ///
 
+/// flavor svelte
+
+```tsx
+<searchBar
+  hint="Search hint"
+  text="{searchQuery}"
+  on:textChange="{onTextChanged}"
+  on:submit="{onSubmit}"
+/>
+```
+
+`<SearchBar>` provides two-way data binding for `text`.
+
+```html
+<searchBar bind:text="{searchQuery}" />
+```
+
+///
+
+/// flavor react
+
+```tsx
+<searchBar
+  hint="Search hint"
+  text="searchPhrase"
+  onTextChange={onTextChanged}
+  onSubmit={onSubmit}
+  onClose={onClose}
+/>
+```
+
+///
+
 #### Props
 
 | Name                       | Type        | Description                                                                                                                                  |
@@ -2810,6 +3849,70 @@ As opposed to [`<TabView>`](#tabview):
 - You need to handle the content shown after selection separately.
 
 ---
+
+#### Example: SegmentedBar with `SegmentedBarItem`
+
+/// flavor plain
+
+```xml
+<SegmentedBar>
+  <SegmentedBarItem title="First" />
+  <SegmentedBarItem title="Second" />
+  <SegmentedBarItem title="Third" />
+</SegmentedBar>
+```
+
+///
+
+/// flavor angular
+
+```html
+<SegmentedBar>
+  <SegmentedBarItem title="First"></SegmentedBarItem>
+  <SegmentedBarItem title="Second"></SegmentedBarItem>
+  <SegmentedBarItem title="Third"></SegmentedBarItem>
+</SegmentedBar>
+```
+
+///
+
+/// flavor svelte
+
+```html
+<segmentedBar>
+  <segmentedBarItem title="First" />
+  <segmentedBarItem title="Second" />
+  <segmentedBarItem title="Third" />
+</segmentedBar>
+```
+
+///
+
+/// flavor react
+
+```tsx
+<segmentedBar>
+  <segmentedBarItem title="First" />
+  <segmentedBarItem title="Second" />
+  <segmentedBarItem title="Third" />
+</segmentedBar>
+```
+
+///
+
+/// flavor vue
+
+```html
+<SegmentedBar>
+  <SegmentedBarItem title="First" />
+  <SegmentedBarItem title="Second" />
+  <SegmentedBarItem title="Third" />
+</SegmentedBar>
+```
+
+///
+
+#### Example: SegmentedBar with `selectedIndex`
 
 /// flavor plain
 
@@ -2892,14 +3995,6 @@ export class BasicSegmentedBarComponent {
 /// flavor vue
 
 ```html
-<SegmentedBar>
-  <SegmentedBarItem title="First" />
-  <SegmentedBarItem title="Second" />
-  <SegmentedBarItem title="Third" />
-</SegmentedBar>
-```
-
-```html
 <SegmentedBar
   :items="listOfItems"
   selectedIndex="0"
@@ -2911,6 +4006,46 @@ export class BasicSegmentedBarComponent {
 
 ```html
 <SegmentedBar :items="listOfItems" v-model="selectedItem" />
+```
+
+///
+
+/// flavor svelte
+
+```html
+<segmentedBar selectedIndex="0" on:selectedIndexChange="{onSelectedIndexChange}" />
+```
+
+`<segmentedBar>` can be populated with `{each}` block.
+
+```html
+<segmentedBar>
+  {#each listOfItems as item}
+  <segmentedBarItem title="{item}" />
+  {/each}
+</segmentedBar>
+```
+
+```js
+let listOfItems = ['First', 'Second', 'Third']
+```
+
+`<segmentedBar>` provides two-way data binding of `selectedIndex`.
+
+```tsx
+<segmentedBar bind:selectedIndex="{selectedItem}" >
+```
+
+///
+
+/// flavor react
+
+```tsx
+<segmentedBar
+  items={listOfItems}
+  selectedIndex={0}
+  selectedIndexChange={onSelectedIndexChange}
+/>
 ```
 
 ///
@@ -2943,6 +4078,8 @@ export class BasicSegmentedBarComponent {
 `<Slider>` is a UI component that provides a slider control for picking values within a specified numeric range.
 
 ---
+
+#### Example: Simple Slider
 
 /// flavor plain
 
@@ -3007,6 +4144,31 @@ export class UsageComponent {
 
 ///
 
+/// flavor svelte
+
+```tsx
+<slider
+  value="80"
+  on:valueChange="{onValueChanged}"
+/>
+```
+
+`<slider>` provides two-way data binding of `value`:
+
+```html
+<slider bind:value="{value}" />
+```
+
+///
+
+/// flavor react
+
+```tsx
+<slider value={0} onValueChange={onValueChange} />
+```
+
+///
+
 #### Props
 
 | Name           | Type        | Description                                                                                                                                  |
@@ -3038,6 +4200,8 @@ The default state is `false` or OFF.
 
 ---
 
+#### Example: Simple Switch
+
 /// flavor plain
 
 ```xml
@@ -3062,7 +4226,7 @@ export function onSwitchLoaded(argsloaded) {
 /// flavor angular
 
 ```html
-<Switch checked="true" (checkedChange)="onCheckedChange($event)"></Switch>
+<Switch checked="true" (checkedChange)="onCheckedChange($event)"> </Switch>
 ```
 
 ```ts
@@ -3097,6 +4261,31 @@ export class BasicSwitchComponent {
 
 ///
 
+/// flavor svelte
+
+```tsx
+<switch
+  checked="{true}"
+  on:checkedChange="{onCheckedChange}"
+/>
+```
+
+`<switch>`provides two-way data binding for `checked`.
+
+```tsx
+<switch bind:checked="{switchEnabled}" />
+```
+
+///
+
+/// flavor react
+
+```tsx
+<switch checked={true} />
+```
+
+///
+
 #### Props
 
 | Name           | Type        | Description                                                                                                                                  |
@@ -3123,6 +4312,8 @@ export class BasicSwitchComponent {
 `<TabView>` is a navigation component that shows content grouped into tabs and lets users switch between tabs.
 
 ---
+
+#### Example: Simple TabView
 
 /// flavor plain
 
@@ -3220,7 +4411,7 @@ export function onSelectedIndexChanged(args: SelectedIndexChangedEventData) {
 
 /// flavor angular
 
-Using a TabView inside an Angular app requires some special attention about how to provide title, iconSource and content (view) of the TabViewItem. In a pure NativeScript application TabView has an items property which could be set via XML to an array of TabViewItems (basically, an array of objects with title, view and iconSource properties). However, NativeScript-Angular does not support nested properties in its HTML template, so adding TabViewItem to TabView is a little bit different. NativeScript-Angular provides a custom Angular directive that simplifies the way native TabView should be used. The following example shows how to add a TabView to your page (with some clarifications later):
+Using a `<TabView>` inside an `Angular` app requires some special attention about how to provide title, iconSource and content (view) of the `TabViewItem`. In a pure NativeScript application TabView has an items property which could be set via XML to an array of `<TabViewItem>`s (basically, an array of objects with title, view and iconSource properties). However, NativeScript-Angular does not support nested properties in its HTML template, so adding `<TabViewItem>` to `<TabView`> is a little bit different. NativeScript-Angular provides a custom Angular directive that simplifies the way native `<TabView>` should be used. The following example shows how to add a `<TabView>` to your page (with some clarifications later):
 
 ```html
 <TabView selectedIndex="0" (selectedIndexChanged)="onSelectedIndexchanged($event)">
@@ -3248,8 +4439,33 @@ Using a TabView inside an Angular app requires some special attention about how 
 ```
 
 ::: warning Note
-If you have set the iconSource property on a TabViewItem, but are not seeing any icons next to the title, this might be because the icon is not present in your App_Resources folder. See the Working with Images article for information on how to add and reference your resource images.
+If you have set the iconSource property on a `<TabViewItem>`, but are not seeing any icons next to the title, this might be because the icon is not present in your `App_Resources` folder. See the Working with Images article for information on how to add and reference your resource images.
 :::
+
+///
+
+/// flavor svelte
+
+```tsx
+<tabView selectedIndex="{selectedIndex}" on:selectedIndexChange="{indexChange}">
+
+	<tabViewItem title="Tab 1">
+		<label text="Content for Tab 1" />
+	</tabViewItem>
+
+	<tabViewItem title="Tab 2">
+		<label text="Content for Tab 2" />
+	</tabViewItem>
+
+</tabView>
+```
+
+```js
+function indexChange(event) {
+  let newIndex = event.value
+  console.log('Current tab index: ' + newIndex)
+}
+```
 
 ///
 
@@ -3277,15 +4493,35 @@ methods: {
 
 ///
 
+/// flavor react
+
+```tsx
+import { SelectedIndexChangedEventData } from '@nativescript/core'
+;<tabView
+  selectedIndex={selectedIndex}
+  onSelectedIndexChange={(args: SelectedIndexChangedEventData) => {
+    const { oldIndex, newIndex } = args
+    console.log(`Changed from tab index ${oldIndex} -> ${newIndex}.`)
+  }}
+>
+  <tabViewItem nodeRole="items" title="Tab 1">
+    <label text="Content for Tab 1" />
+  </tabViewItem>
+  <tabViewItem nodeRole="items" title="Tab 2">
+    <label text="Content for Tab 2" />
+  </tabViewItem>
+</tabView>
+```
+
+///
+
 ::: warning Note
 Currently, `TabViewItem` expects a single child element. In most cases, you might want to wrap your content in a layout.
 :::
 
-::: tip Tip
-Consider using BottomNavigation component to create the same UI for both iOS and Android while having greater control over the funcionalities.
-:::
+#### Example: Adding icons to tabs
 
-#### Adding icons to tabs
+/// flavor vue
 
 ```html
 <TabView :selectedIndex="selectedIndex" iosIconRenderingMode="alwaysOriginal">
@@ -3297,6 +4533,40 @@ Consider using BottomNavigation component to create the same UI for both iOS and
   </TabViewItem>
 </TabView>
 ```
+
+///
+
+/// flavor svelte
+
+```tsx
+<tabView selectedIndex="{selectedIndex}" iosIconRenderingMode="alwaysOriginal">
+  <tabViewItem title="Tab 1" iconSource="~/images/icon.png">
+    <label text="Content for Tab 1" />
+  </tabViewItem>
+  <tabViewItem title="Tab 2" iconSource="~/images/icon.png">
+    <label text="Content for Tab 2" />
+  </tabViewItem>
+</tabView>
+```
+
+///
+
+/// flavor react
+
+```tsx
+<tabView selectedIndex={selectedIndex} iosIconRenderingMode="alwaysOriginal">
+  <tabViewItem nodeRole="items" title="Tab 1" iconSource="~/images/icon.png">
+    <label text="Content for Tab 1" />
+  </tabViewItem>
+  <tabViewItem nodeRole="items" title="Tab 2" iconSource="~/images/icon.png">
+    <label text="Content for Tab 2" />
+  </tabViewItem>
+</tabView>
+```
+
+///
+
+<!-- TODO: examples in all flavors -->
 
 ::: tip Tip
 You can use images for tab icons instead of icon fonts. For more information about how to control the size of icons, see [Working with image from resource folders](https://docs.nativescript.org/ui/image-resources).
@@ -3322,18 +4592,18 @@ The `TabView` component has the following unique styling properties:
 
 #### Props
 
-| Name                               | Type                                                  | Description                                                                                                                                    |
-| ---------------------------------- | ----------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| `selectedIndex`                    | `Number`                                              | Gets or sets the currently selected tab. Default is `0`.                                                                                       |
-| `tabTextColor`                     | `Color`                                               | (Style property) Gets or sets the text color of the tabs titles.                                                                               |
-| `tabTextFontSize`                  | `Color`                                               | Gets or sets the font size of the tabs titles.                                                                                                 |
-| `tabBackgroundColor`               | `Color`                                               | (Style property) Gets or sets the background color of the tabs.                                                                                |
-| `selectedTabTextColor`             | `Color`                                               | (Style property) Gets or sets the text color of the selected tab title.                                                                        |
-| `androidTabsPosition`              | `String`                                              | Sets the position of the TabView in Android platform<br/>Valid values: `top` or `bottom`.                                                      |
-| `androidOffscreenTabLimit`         | `number`                                              | Gets or sets the number of tabs that should be retained to either side of the current tab in the view hierarchy in an idle state.              |
-| `androidSelectedTabHighlightColor` | `Color`                                               | Gets or sets the color of the horizontal line drawn below the currently selected tab on Android.                                               |
-| `iosIconRenderingMode`             | _"automatic"_, _"alwaysOriginal"_, _"alwaysTemplate"_ | Gets or sets the icon rendering mode on iOS.                                                                                                   |
-| `...Inherited`                     | `Inherited`                                           | Additional inherited properties not shown. Refer to the [API Reference](http://docs.nativescript.org/api-reference/modules/_ui_tab_view_.html) |
+| Name                               | Type                                            | Description                                                                                                                                    |
+| ---------------------------------- | ----------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| `selectedIndex`                    | `Number`                                        | Gets or sets the currently selected tab. Default is `0`.                                                                                       |
+| `tabTextColor`                     | `Color`                                         | (Style property) Gets or sets the text color of the tabs titles.                                                                               |
+| `tabTextFontSize`                  | `Color`                                         | Gets or sets the font size of the tabs titles.                                                                                                 |
+| `tabBackgroundColor`               | `Color`                                         | (Style property) Gets or sets the background color of the tabs.                                                                                |
+| `selectedTabTextColor`             | `Color`                                         | (Style property) Gets or sets the text color of the selected tab title.                                                                        |
+| `androidTabsPosition`              | `String`                                        | Sets the position of the TabView in Android platform<br/>Valid values: `top` or `bottom`.                                                      |
+| `androidOffscreenTabLimit`         | `number`                                        | Gets or sets the number of tabs that should be retained to either side of the current tab in the view hierarchy in an idle state.              |
+| `androidSelectedTabHighlightColor` | `Color`                                         | Gets or sets the color of the horizontal line drawn below the currently selected tab on Android.                                               |
+| `iosIconRenderingMode`             | `automatic`, `alwaysOriginal`, `alwaysTemplate` | Gets or sets the icon rendering mode on iOS.                                                                                                   |
+| `...Inherited`                     | `Inherited`                                     | Additional inherited properties not shown. Refer to the [API Reference](http://docs.nativescript.org/api-reference/modules/_ui_tab_view_.html) |
 
 <!-- TODO: fix links -->
 
@@ -3461,6 +4731,28 @@ export class UsageComponent {
 
 ```html
 <TextField v-model="textFieldValue" />
+```
+
+///
+
+/// flavor svelte
+
+```tsx
+<textField text="{textFieldValue}" hint="Enter text..." />
+```
+
+`<textField>` provides two-way data binding using `bind`.
+
+```html
+<textField bind:text="{textFieldValue}" />
+```
+
+///
+
+/// flavor react
+
+```tsx
+<textField text={textFieldValue} hint="Enter text..." />
 ```
 
 ///
@@ -3594,9 +4886,33 @@ export class UsageComponent {
 
 ///
 
+/// flavor svelte
+
+```html
+<textView text="Multi\nLine\nText" />
+```
+
+`<textView>` provides two-way data binding using `bind`.
+
+```html
+<textView bind:text="{textViewValue}" />
+```
+
+///
+
+/// flavor react
+
+```tsx
+<textView text={'Multi\nLine\nText'} />
+```
+
+///
+
 #### Displaying multi-style text
 
 To apply multiple styles to the text in your `<TextView>`, you can use `<FormattedString>`
+
+/// flavor vue
 
 ```html
 <TextView editable="false">
@@ -3609,6 +4925,73 @@ To apply multiple styles to the text in your `<TextView>`, you can use `<Formatt
   </FormattedString>
 </TextView>
 ```
+
+///
+
+/// flavor svelte
+
+```tsx
+<textView editable="{false}">
+  <formattedString>
+    <span text="You can use text attributes such as " />
+    <span text="bold, " fontWeight="Bold" />
+    <span text="italic " fontStyle="Italic" />
+    <span text="and " />
+    <span text="underline." textDecoration="Underline" />
+  </formattedString>
+</textView>
+```
+
+///
+
+/// flavor plain
+
+```html
+<TextView editable="false">
+  <FormattedString>
+    <span text="You can use text attributes such as " />
+    <span text="bold, " fontWeight="Bold" />
+    <span text="italic " fontStyle="Italic" />
+    <span text="and " />
+    <span text="underline." textDecoration="Underline" />
+  </FormattedString>
+</TextView>
+```
+
+///
+
+/// flavor angular
+
+```html
+<TextView editable="false">
+  <FormattedString>
+    <span text="You can use text attributes such as "></span>
+    <span text="bold, " fontWeight="Bold"></span>
+    <span text="italic " fontStyle="Italic"></span>
+    <span text="and "></span>
+    <span text="underline." textDecoration="Underline"></span>
+  </FormattedString>
+</TextView>
+```
+
+///
+
+/// flavor react
+
+```tsx
+<textView editable={false}>
+  <formattedString>
+    <span text="You can use text attributes such as " />
+    <span text="bold, " fontWeight="bold" />
+    <span text="italic " fontStyle="italic" />
+    <span text="and " />
+    <span text="underline." textDecoration="underline" />
+    <!-- To set text on the <span> element, please do use the `text` prop; it can't safely take text nodes as children! -->
+  </formattedString>
+</textView>
+```
+
+///
 
 #### Props
 
@@ -3740,6 +5123,28 @@ export class UsageComponent {
 
 ///
 
+/// flavor svelte
+
+```tsx
+<timePicker hour="{selectedHour}" minute="{selectedMinute}" />
+```
+
+`<timePicker>` provides two-way data binding using `bind`.
+
+```html
+<timePicker bind:time="{selectedTime}" />
+```
+
+///
+
+/// flavor react
+
+```tsx
+<timePicker hour={selectedHour} minute={selectedMinute} />
+```
+
+///
+
 #### Props
 
 | Name             | Type        | Description                                                                                                                                       |
@@ -3809,6 +5214,30 @@ See also: [HtmlView](#htmlview).
 
 ///
 
+/// flavor svelte
+
+```html
+<webView src="http://nativescript.org/" />
+
+<webView src="~/html/index.html" />
+
+<webView src="<div><h1>Some static HTML</h1></div>" />
+```
+
+///
+
+/// flavor react
+
+```tsx
+<webView src="http://nativescript.org/" />
+
+<webView src="~/html/index.html" />
+
+<webView src="<div><h1>Some static HTML</h1></div>" />
+```
+
+///
+
 ::: tip Tip
 To be able to use gestures in WebView component on Android, we should first disabled the zoom control. To do that we could access the android property and with the help of setDisplayZoomControls to set this control to false.
 :::
@@ -3858,7 +5287,7 @@ This list of properties can be set in CSS or through the style property of each 
 | `background-image`    | `backgroundImage`     | Sets a image url to the matched view’s background image.                                                                                                                                                                                  |
 | `background-repeat`   | `backgroundRepeat`    | Sets if/how the background image should be repeated. Possible values: `repeat`, `repeat-x`, `repeat-y`, `no-repeat`                                                                                                                       |
 | `background-position` | `backgroundPosition`  | Sets the starting position of the background image. You can set the position with absolute, percent or alignment values. More info [here](http://www.w3schools.com/cssref/pr_background-position.asp).                                    |
-| `background-size`     | `backgroundSize`      | Sets the size of the background image. Possible values: "_length length_", "_percent% percent%_", "cover" or "contain".                                                                                                                   |
+| `background-size`     | `backgroundSize`      | Sets the size of the background image. Possible values: `length length`, `percent% percent%`, `cover` or `contain`.                                                                                                                       |
 | `border-color`        | `borderColor`         | Sets border colors to the matched view’s.                                                                                                                                                                                                 |
 | `border-top-color`    | `borderTopColor`      | Sets a top border color to the matched view’s.                                                                                                                                                                                            |
 | `border-right-color`  | `borderRightColor`    | Sets a right border color to the matched view’s.                                                                                                                                                                                          |
