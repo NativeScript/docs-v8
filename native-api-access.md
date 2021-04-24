@@ -78,7 +78,7 @@ if (global.isIOS) {
 ```
 
 ::: warning Note
-The code block is wrapped with `global.isIOS` so that it is only executed on Android. Otherwise, the app will crash on Android when it tries to access APIs that are not part of the Android platform.
+The code block is wrapped with `global.isIOS` so that it is only executed on iOS. Otherwise, the app will crash on Android when it tries to access APIs that are not part of the Android platform itself.
 :::
 
 Now for a short walk through of one way to go about translating Objective-C to JavaScript.
