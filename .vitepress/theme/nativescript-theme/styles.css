@@ -3434,3 +3434,102 @@ svg.DocSearch-Hit-Select-Icon {
 .code-tab-container [class*='language-'] pre {
 	margin: 0px;
 }
+
+.ios.device-frame {
+	display: inline-block;
+	margin: 30px;
+	background-color: #f8fafc;
+	border: 1px solid #bae6fd;
+	padding: 0 10px 0 10px;
+	border-radius: 25px;
+	max-width: 100% !important;
+}
+
+.ios.device-frame > .screenshot > img {
+	max-width: 200px;
+	border: 1px solid #bae6fd;
+}
+
+.ios.device-frame > .small-round-top {
+	margin: 10px auto;
+	width: 5px;
+	height: 5px;
+	background-color: #bae6fd;
+	border-radius: 50%;
+}
+
+.ios.device-frame > .round-top-left {
+	float: left;
+	margin-left: 65px;
+	margin-top: -2px;
+	width: 9px;
+	height: 9px;
+	background-color: #bae6fd;
+	border-radius: 50%;
+}
+
+.ios.device-frame > .speaker {
+	margin: 15px auto;
+	margin-top: 10px;
+	width: 30px;
+	height: 5px;
+	background-color: #bae6fd;
+	border-radius: 3px;
+	margin-bottom: -0.5em;
+}
+
+.ios.device-frame > .button {
+	border-radius: 50%;
+	margin: 10px auto;
+	width: 30px;
+	height: 30px;
+	border: 2px solid #bae6fd;
+	background: none !important;
+	margin-top: -1em;
+}
+
+.android.device-frame {
+	display: inline-block;
+	margin: 30px;
+	background-color: #f8fafc;
+	border: 1px solid #bae6fd;
+	padding: 0 10px 0 10px;
+	border-radius: 12px;
+	max-width: 100% !important;
+}
+
+.android.device-frame > .screenshot > img {
+	max-width: 223px;
+	border: 1px solid #bae6fd;
+}
+
+.android.device-frame > .small-round-top {
+	margin: 10px auto;
+	width: 0px;
+	height: 0px;
+	background-color: #bae6fd;
+	border-radius: 50%;
+}
+
+.android.device-frame > .round-top-left {
+	float: right;
+	margin-right: 10px;
+	margin-top: 3px;
+	width: 9px;
+	height: 9px;
+	background-color: #bae6fd;
+	border-radius: 50%;
+}
+
+.android.device-frame > .speaker {
+	margin: 15px auto;
+	width: 30px;
+	height: 5px;
+	background-color: #bae6fd;
+	border-radius: 3px;
+	margin-bottom: -1em;
+}
+
+.android.device-frame > .button {
+	display: none;
+}
