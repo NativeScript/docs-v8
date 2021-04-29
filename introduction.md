@@ -88,7 +88,7 @@ A simple template with a side drawer.
 To use, run:
 
 ```cli
-ns create myCoolApp --template @nativescript/template-blank
+ns create myCoolApp --template @nativescript/template-drawer-navigation
 ```
 
 ### Tabs
