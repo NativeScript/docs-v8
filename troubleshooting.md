@@ -34,6 +34,25 @@ Command failed: ruby -e "require 'xcodeproj'; Xcodeproj::Config.new('/Users/nstu
 
 **Common solution:** Open a new terminal window - and retry.
 
+### EMFILE: too many open files 'FILE_PATH'
+
+```
+Webpack compilation complete. Watching for file changes.
+Watchpack Error (watcher): Error: EMFILE: too many open files 'FILE_PATH'
+Watchpack Error (watcher): Error: EMFILE: too many open files 'FILE_PATH'
+Watchpack Error (watcher): Error: EMFILE: too many open files 'FILE_PATH' <-- This repeats many times
+```
+
+**Solution**:
+
+Try adding this to your `~/.bash_profile` if you have one or `~/.zshenv` if using Zsh:
+
+```
+export NODE_OPTIONS="--max-old-space-size=6096"
+```
+
+Then open a new terminal window and run your app.
+
 ## TypeScript related
 
 ```

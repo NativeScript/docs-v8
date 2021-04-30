@@ -102,6 +102,29 @@ You can customize the `ns run` command using any of the following options:
 - `--timeout` - Sets the number of seconds that the NativeScript CLI will wait for the debugger to boot. If not set, the default timeout is 90 seconds.
 - `--clean` - If set forces rebuilding the native application.
 
+::: tip Note
+If you see this output in the terminal:
+
+```
+Webpack compilation complete. Watching for file changes.
+Watchpack Error (watcher): Error: EMFILE: too many open files 'FILE_PATH'
+Watchpack Error (watcher): Error: EMFILE: too many open files 'FILE_PATH'
+Watchpack Error (watcher): Error: EMFILE: too many open files 'FILE_PATH' <-- This repeats many times
+```
+
+This is related to node configuration options on your machine.
+
+**Solution**:
+
+Try adding this to your `~/.bash_profile` if you have one or `~/.zshenv` if using Zsh:
+
+```
+export NODE_OPTIONS="--max-old-space-size=6096"
+```
+
+Then open a new terminal window and run your app.
+:::
+
 ### `debug`
 
 The `debug` command builds and deploys a new package on a connected device or emulator. By default, it also starts to track for changes the `app` folder, meaning that it will automatically livesync changes in code as soon as they are saved. In order to apply the changes, the CLI will automatically restart the application after each sync.
