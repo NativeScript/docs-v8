@@ -18,7 +18,15 @@ The docs have been written with no assumtions of the readers experience, however
 - [Introduction to JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 - [Re-Introduction to JavaScript to refresh your knowledge](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript)
 
-## Templates
+## [Environment Setup](environment-setup)
+
+You will want to setup your development machine using the [Environment Setup guide here](environment-setup) which involves preparing your machine for iOS and Android development as well as installing the [NativeScript CLI](https://www.npmjs.com/package/nativescript) via `npm install -g nativescript`
+
+## Overview of NativeScript development
+
+:::warning Note
+The following is a general overview of NativeScript development. To try any of the commands mentioned be sure you have a proper environment setup first.
+:::
 
 NativeScript allows scaffolding projects with various templates to kickstart your app development. Official templates can be found in the [Templates GitHub repository](https://github.com/NativeScript/nativescript-app-templates/tree/master/packages) and on [NPM](https://www.npmjs.com/search?q=%40nativescript%20template).
 
@@ -372,9 +380,3 @@ NavigationButton {
 - [Read JavaScript App Template Style Guide](https://github.com/NativeScript/nativescript-starter-kits-utils/blob/master/docs/style-guide-app-template.md)
 
 - [Read Angular App Template Style Guide](https://github.com/NativeScript/nativescript-starter-kits-utils/blob/master/docs/style-guide-app-template-ng.md)
-
-## Versioning Scheme
-
-`@nativescript/core` does not follow Semantic Versioning. Major framework releases are released every six months (~March and ~September), while minor and patch releases may be released as often as every week. Patch releases should never contain breaking changes, however minor, and major releases can. We strive to note any breaking changes in the Changelogs, to make upgrades as easy as possible.
-
-When referencing the `@nativescript/core` package, you should use a fixed version constraint such as `7.0.11`, or alternatively `~7.0.11` to allow installing patch updates.
