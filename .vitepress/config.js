@@ -39,6 +39,11 @@ module.exports = {
 				activeMatch: '^/(?!plugins)',
 			},
 			{
+				text: 'API',
+				link: 'https://docs.nativescript.org/api-reference/',
+				activeMatch: '^/api-reference',
+			},
+			{
 				text: 'Plugins',
 				link: '/plugins/index',
 				activeMatch: '^/plugins',
