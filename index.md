@@ -13,12 +13,20 @@ If you are looking for NS7 & NS6 docs, you can still find them here:
 
 ## Prerequisites
 
-The docs have been written with no assumptions of the readers experience, however it does assume knowledge of JavaScript fundamentals. If you are new to JavaScript, we recommend these resources from <abbr title="Mozilla Developer Network">MDN</abbr>:
+The docs have been written with no assumtions of the readers experience, however it does assume knowledge of JavaScript fundamentals. If you are new to JavaScript, we recommend these resources from <abbr title="Mozilla Developer Network">MDN</abbr>:
 
 - [Introduction to JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 - [Re-Introduction to JavaScript to refresh your knowledge](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript)
 
-## Templates
+## [Environment Setup](environment-setup)
+
+You will want to setup your development machine using the [Environment Setup guide here](environment-setup) which involves preparing your machine for iOS and Android development as well as installing the [NativeScript CLI](https://www.npmjs.com/package/nativescript) via `npm install -g nativescript`
+
+## Overview of NativeScript development
+
+:::warning Note
+The following is a general overview of NativeScript development. To try any of the commands mentioned be sure you have a proper environment setup first.
+:::
 
 NativeScript allows scaffolding projects with various templates to kickstart your app development. Official templates can be found in the [Templates GitHub repository](https://github.com/NativeScript/nativescript-app-templates/tree/master/packages) and on [NPM](https://www.npmjs.com/search?q=%40nativescript%20template).
 
@@ -58,8 +66,13 @@ Here are some of the default templates you may want to try:
 A basic template with a single page and no custom styles.
 
 <!-- TODO: make nicer images -->
-<img src="https://raw.githubusercontent.com/NativeScript/nativescript-app-templates/master/packages/template-blank/tools/assets/appTemplate-ios.png" style="height:400px;">
-<img src="https://raw.githubusercontent.com/NativeScript/nativescript-app-templates/master/packages/template-blank/tools/assets/appTemplate-android.png" style="height:400px;">
+
+/// frame ios
+<img src="https://raw.githubusercontent.com/NativeScript/nativescript-app-templates/master/packages/template-blank/tools/assets/appTemplate-ios.png">
+///
+/// frame android
+<img src="https://raw.githubusercontent.com/NativeScript/nativescript-app-templates/master/packages/template-blank/tools/assets/appTemplate-android.png">
+///
 
 To use, run:
 
@@ -72,8 +85,13 @@ ns create myCoolApp --template @nativescript/template-blank
 A simple template with a side drawer.
 
 <!-- TODO: make nicer images -->
-<img src="https://raw.githubusercontent.com/NativeScript/nativescript-app-templates/master/packages/template-drawer-navigation/tools/assets/appTemplate-ios.png" style="height:400px">
-<img src="https://raw.githubusercontent.com/NativeScript/nativescript-app-templates/master/packages/template-drawer-navigation/tools/assets/appTemplate-android.png" style="height:400px">
+
+/// frame ios
+<img src="https://raw.githubusercontent.com/NativeScript/nativescript-app-templates/master/packages/template-drawer-navigation/tools/assets/appTemplate-ios.png">
+///
+/// frame android
+<img src="https://raw.githubusercontent.com/NativeScript/nativescript-app-templates/master/packages/template-drawer-navigation/tools/assets/appTemplate-android.png">
+///
 
 To use, run:
 
@@ -86,8 +104,13 @@ ns create myCoolApp --template @nativescript/template-drawer-navigation
 A simple template with multiple tabs.
 
 <!-- TODO: make nicer images -->
-<img src="https://raw.githubusercontent.com/NativeScript/nativescript-app-templates/master/packages/template-tab-navigation/tools/assets/phone-tab-ios.png" style="height:400px">
-<img src="https://raw.githubusercontent.com/NativeScript/nativescript-app-templates/master/packages/template-tab-navigation/tools/assets/phone-tab-android.png" style="height:400px">
+
+/// frame ios
+<img src="https://raw.githubusercontent.com/NativeScript/nativescript-app-templates/master/packages/template-tab-navigation/tools/assets/appTemplate-ios.png">
+///
+/// frame android
+<img src="https://raw.githubusercontent.com/NativeScript/nativescript-app-templates/master/packages/template-tab-navigation/tools/assets/appTemplate-android.png">
+///
 
 To use, run:
 
@@ -98,9 +121,12 @@ ns create myCoolApp --template @nativescript/template-tab-navigation
 ### List and Details
 
 A simple template with a ListView and a details screen.
-
-<img src="https://raw.githubusercontent.com/NativeScript/nativescript-app-templates/master/packages/template-master-detail/tools/assets/phone-masterDetail-ios.png" style="height:400px">
-<img src="https://raw.githubusercontent.com/NativeScript/nativescript-app-templates/master/packages/template-master-detail/tools/assets/phone-masterDetail-detail-ios.png" style="height:400px">
+/// frame ios
+<img src="https://raw.githubusercontent.com/NativeScript/nativescript-app-templates/master/packages/template-master-detail/tools/assets/appTemplate-ios.png">
+///
+/// frame android
+<img src="https://raw.githubusercontent.com/NativeScript/nativescript-app-templates/master/packages/template-master-detail/tools/assets/appTemplate-android.png">
+///
 
 To use, run:
 
@@ -183,10 +209,10 @@ ns run android
 ```JSON
 {
   "name": "@nativescript/template-master-detail-ts",
-  "displayName": "Master-Detail with Firebase",
-  "main": "app.js",
-  "version": "7.0.4",
-  "description": "Master-detail interface to display collection of items from Firebase and inspect and edit selected item properties. ",
+  "displayName": "Master-Detail",
+  "main": "app/app.ts",
+  "version": "8.0.0",
+  "description": "Master-detail interface to display collection of items from json collection and inspect and edit selected item properties. ",
   "license": "Apache-2.0",
   "readme": "NativeScript Application",
   "repository": {
@@ -215,7 +241,7 @@ ns run android
 - Publish your app template to npm (https://www.npmjs.com/) using **ns-template-[custom-template-name-goes-here]-ts** format for the npm package name.
 
 - Provide a screenshot preview to be used in a future NativeScript Marketplace integration under **tools/assets/marketplace.png** in your app template folder structure.  
-  Check [tools/postinstall.js [NOT FOUND]](https://github.com/NativeScript/template-master-detail-ts/blob/master/tools/postinstall.js) that implements a mechanism for removing the "tools" infrastructure folder from the generated app.
+  Check [tools/postinstall.js](https://github.com/NativeScript/template-master-detail-ts/blob/master/tools/postinstall.js) that implements a mechanism for removing the "tools" infrastructure folder from the generated app.
 
 - Provide correct `repository` property value in the root package.json file of your app template (see the "Package.json guidelines" section above for additional package.json requirements).
 
@@ -354,9 +380,3 @@ NavigationButton {
 - [Read JavaScript App Template Style Guide](https://github.com/NativeScript/nativescript-starter-kits-utils/blob/master/docs/style-guide-app-template.md)
 
 - [Read Angular App Template Style Guide](https://github.com/NativeScript/nativescript-starter-kits-utils/blob/master/docs/style-guide-app-template-ng.md)
-
-## Versioning Scheme
-
-`@nativescript/core` does not follow Semantic Versioning. Major framework releases are released every six months (~March and ~September), while minor and patch releases may be released as often as every week. Patch releases should never contain breaking changes, however minor, and major releases can. We strive to note any breaking changes in the Changelogs, to make upgrades as easy as possible.
-
-When referencing the `@nativescript/core` package, you should use a fixed version constraint such as `7.0.11`, or alternatively `~7.0.11` to allow installing patch updates.
