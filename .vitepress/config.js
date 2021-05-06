@@ -40,7 +40,7 @@ module.exports = {
 			},
 			{
 				text: 'API',
-				link: 'https://docs.nativescript.org/api-reference/',
+				link: 'https://docs.nativescript.org/api-reference/index.html',
 				activeMatch: '^/api-reference',
 			},
 			{
