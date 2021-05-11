@@ -6521,22 +6521,50 @@ var script$9 = defineComponent({
 var _hoisted_1$9 = {
 	class: 'top-0 z-10 lg:sticky',
 }
-var _hoisted_2$8 = {
+
+var _hoisted_2$8 = /*#__PURE__*/ createVNode(
+	'a',
+	{
+		href: 'https://nativescript.org/professional-services-summit-2021',
+		class:
+			'flex flex-col md:flex-row justify-center content-center items-center p-1 bg-white',
+	},
+	[
+		/*#__PURE__*/ createVNode(
+			'span',
+			{
+				class: 'font-medium text-xs text-gray-600',
+			},
+			'Are you passionate about professional NativeScript solutions for your customers?'
+		),
+		/*#__PURE__*/ createVNode(
+			'div',
+			{
+				class:
+					'transition-colors font-medium text-sm text-white bg-ns-blue px-2 ml-4 rounded hover:hover:bg-blue-300',
+			},
+			'Join Professional Summit 2021'
+		),
+	],
+	-1
+)
+
+var _hoisted_3$6 = {
 	class: 'pt-6 pb-6 bg-ns-blue',
 }
-var _hoisted_3$6 = {
+var _hoisted_4$6 = {
 	class:
 		'relative flex items-center justify-between px-4 mx-auto 2xl:container sm:px-6',
 	'aria-label': 'Global',
 }
-var _hoisted_4$6 = {
+var _hoisted_5$3 = {
 	class: 'flex items-center flex-1',
 }
-var _hoisted_5$3 = {
+var _hoisted_6$2 = {
 	class: 'flex items-center justify-between w-full lg:w-auto',
 }
 
-var _hoisted_6$2 = /*#__PURE__*/ createVNode(
+var _hoisted_7$2 = /*#__PURE__*/ createVNode(
 	'span',
 	{
 		class: 'sr-only',
@@ -6545,11 +6573,11 @@ var _hoisted_6$2 = /*#__PURE__*/ createVNode(
 	-1
 )
 
-var _hoisted_7$2 = {
+var _hoisted_8$2 = {
 	class: 'flex items-center -mr-1 lg:hidden',
 }
 
-var _hoisted_8$2 = /*#__PURE__*/ createVNode(
+var _hoisted_9$2 = /*#__PURE__*/ createVNode(
 	'span',
 	{
 		class: 'sr-only',
@@ -6558,7 +6586,7 @@ var _hoisted_8$2 = /*#__PURE__*/ createVNode(
 	-1
 )
 
-var _hoisted_9$1 = /*#__PURE__*/ createVNode(
+var _hoisted_10$1 = /*#__PURE__*/ createVNode(
 	'svg',
 	{
 		class: 'w-6 h-6',
@@ -6579,21 +6607,21 @@ var _hoisted_9$1 = /*#__PURE__*/ createVNode(
 	-1
 )
 
-var _hoisted_10$1 = {
+var _hoisted_11$1 = {
 	class: 'hidden ml-10 space-x-8 lg:flex',
 }
-var _hoisted_11$1 = {
+var _hoisted_12$1 = {
 	class: 'flex justify-center flex-1 px-2 lg:justify-end',
 }
-var _hoisted_12$1 = {
+var _hoisted_13$1 = {
 	class: 'w-full max-w-xl xl:max-w-xs',
 }
-var _hoisted_13$1 = {
+var _hoisted_14$1 = {
 	class:
 		'relative text-white rounded-md focus-within:ring-2 ring-offset-2 ring-offset-transparent',
 }
 
-var _hoisted_14$1 = /*#__PURE__*/ createVNode(
+var _hoisted_15$1 = /*#__PURE__*/ createVNode(
 	'div',
 	{
 		class:
@@ -6622,19 +6650,19 @@ var _hoisted_14$1 = /*#__PURE__*/ createVNode(
 	-1
 )
 
-var _hoisted_15$1 = /*#__PURE__*/ createStaticVNode(
+var _hoisted_16 = /*#__PURE__*/ createStaticVNode(
 	'<input aria-hidden="true" id="search" name="search" disabled class="block w-full py-2 pl-10 pr-3 leading-5 bg-white border border-transparent rounded-md placeholder-blue-50 text-blue-50 bg-opacity-20 focus:outline-none focus:bg-white focus:ring-0 focus:placeholder-gray-400 focus:text-gray-900 sm:text-sm" placeholder="Search Anything" type="search"><div class="absolute inset-y-0 right-0 items-center hidden pr-3 pointer-events-none xl:flex"><div class="px-2 py-1 text-xs text-white bg-white border border-white border-opacity-50 rounded bg-opacity-30"><span class="sr-only">Press Ctrl+K to open quick search</span><span aria-hidden="true">Ctrl K</span></div></div>',
 	2
 )
 
-var _hoisted_17 = {
+var _hoisted_18 = {
 	class: 'hidden lg:flex lg:items-center lg:space-x-6',
 }
-var _hoisted_18 = {
+var _hoisted_19 = {
 	class: 'relative',
 }
 
-var _hoisted_19 = /*#__PURE__*/ createVNode(
+var _hoisted_20 = /*#__PURE__*/ createVNode(
 	'span',
 	{
 		class: 'sr-only',
@@ -6643,7 +6671,7 @@ var _hoisted_19 = /*#__PURE__*/ createVNode(
 	-1
 )
 
-var _hoisted_20 = /*#__PURE__*/ createVNode(
+var _hoisted_21 = /*#__PURE__*/ createVNode(
 	'svg',
 	{
 		class: 'w-6 h-6',
@@ -6665,18 +6693,18 @@ var _hoisted_20 = /*#__PURE__*/ createVNode(
 	-1
 )
 
-var _hoisted_21 = {
+var _hoisted_22 = {
 	key: 0,
 	class:
 		'absolute z-10 w-screen max-w-xs px-2 mt-3 transform -translate-x-full left-24 sm:px-0',
 }
 
-var _hoisted_22 = /*#__PURE__*/ createStaticVNode(
-	'<div class="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5"><div class="relative grid gap-6 px-5 py-6 bg-white sm:gap-8 sm:p-8"><a href="http://blog.nativescript.org/" class="block p-3 -m-3 transition duration-150 ease-in-out rounded-md hover:bg-gray-50"><p class="text-base font-medium text-gray-900">Blog</p><p class="mt-1 text-sm text-gray-500">Read about updates, tips &amp; tricks, guides from us and the community.</p></a><a href="https://play.nativescript.org/" target="_blank" class="block p-3 -m-3 transition duration-150 ease-in-out rounded-md hover:bg-gray-50"><p class="text-base font-medium text-gray-900">Playground</p><p class="mt-1 text-sm text-gray-500">Try out NativeScript in your browser and your phone.</p></a><a href="https://github.com/NativeScript/management/blob/master/nativescript-governance.md" class="block p-3 -m-3 transition duration-150 ease-in-out rounded-md hover:bg-gray-50"><p class="text-base font-medium text-gray-900">Governance</p><p class="mt-1 text-sm text-gray-500">Learn about the governance model and how you can be a part of it.</p></a></div></div>',
+var _hoisted_23 = /*#__PURE__*/ createStaticVNode(
+	'<div class="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5"><div class="relative grid gap-6 px-5 py-6 bg-white sm:gap-8 sm:p-8"><a href="http://blog.nativescript.org/" class="block p-3 -m-3 transition duration-150 ease-in-out rounded-md hover:bg-gray-50"><p class="text-base font-medium text-gray-900">Blog</p><p class="mt-1 text-sm text-gray-500">Read about updates, tips &amp; tricks, guides from us and the community.</p></a><a href="/partners" class="block p-3 -m-3 transition duration-150 ease-in-out rounded-md hover:bg-gray-50"><p class="text-base font-medium text-gray-900">Partners</p><p class="mt-1 text-sm text-gray-500">Find partners who can help you with your projects.</p></a><a href="https://play.nativescript.org/" target="_blank" class="block p-3 -m-3 transition duration-150 ease-in-out rounded-md hover:bg-gray-50"><p class="text-base font-medium text-gray-900">Playground</p><p class="mt-1 text-sm text-gray-500">Try out NativeScript in your browser and your phone.</p></a><a href="https://github.com/NativeScript/management/blob/master/nativescript-governance.md" class="block p-3 -m-3 transition duration-150 ease-in-out rounded-md hover:bg-gray-50"><p class="text-base font-medium text-gray-900">Governance</p><p class="mt-1 text-sm text-gray-500">Learn about the governance model and how you can be a part of it.</p></a></div></div>',
 	1
 )
 
-var _hoisted_23 = /*#__PURE__*/ createVNode(
+var _hoisted_24 = /*#__PURE__*/ createVNode(
 	'a',
 	{
 		href: 'https://github.com/NativeScript/NativeScript',
@@ -6714,23 +6742,23 @@ var _hoisted_23 = /*#__PURE__*/ createVNode(
 	-1
 )
 
-var _hoisted_24 = {
+var _hoisted_25 = {
 	key: 0,
 	class:
 		'absolute inset-x-0 top-0 z-20 p-2 transition origin-top transform lg:hidden',
 }
-var _hoisted_25 = {
+var _hoisted_26 = {
 	class:
 		'overflow-hidden bg-white rounded-lg shadow-md ring-1 ring-black ring-opacity-5',
 }
-var _hoisted_26 = {
+var _hoisted_27 = {
 	class: 'flex items-center justify-between px-5 pt-4',
 }
-var _hoisted_27 = {
+var _hoisted_28 = {
 	class: '-mr-3',
 }
 
-var _hoisted_28 = /*#__PURE__*/ createVNode(
+var _hoisted_29 = /*#__PURE__*/ createVNode(
 	'span',
 	{
 		class: 'sr-only',
@@ -6739,7 +6767,7 @@ var _hoisted_28 = /*#__PURE__*/ createVNode(
 	-1
 )
 
-var _hoisted_29 = /*#__PURE__*/ createVNode(
+var _hoisted_30 = /*#__PURE__*/ createVNode(
 	'svg',
 	{
 		class: 'w-6 h-6',
@@ -6760,14 +6788,14 @@ var _hoisted_29 = /*#__PURE__*/ createVNode(
 	-1
 )
 
-var _hoisted_30 = {
+var _hoisted_31 = {
 	class: 'pt-5 pb-6',
 }
-var _hoisted_31 = {
+var _hoisted_32 = {
 	class: 'px-2 space-y-1',
 }
 
-var _hoisted_32 = /*#__PURE__*/ createVNode(
+var _hoisted_33 = /*#__PURE__*/ createVNode(
 	'a',
 	{
 		href: 'https://blog.nativescript.org/',
@@ -6778,7 +6806,7 @@ var _hoisted_32 = /*#__PURE__*/ createVNode(
 	-1
 )
 
-var _hoisted_33 = /*#__PURE__*/ createVNode(
+var _hoisted_34 = /*#__PURE__*/ createVNode(
 	'a',
 	{
 		href: 'https://play.nativescript.org/',
@@ -6789,7 +6817,7 @@ var _hoisted_33 = /*#__PURE__*/ createVNode(
 	-1
 )
 
-var _hoisted_34 = /*#__PURE__*/ createVNode(
+var _hoisted_35 = /*#__PURE__*/ createVNode(
 	'a',
 	{
 		href:
@@ -6801,14 +6829,14 @@ var _hoisted_34 = /*#__PURE__*/ createVNode(
 	-1
 )
 
-var _hoisted_35 = {
+var _hoisted_36 = {
 	class: 'px-5 mt-6',
 }
-var _hoisted_36 = {
+var _hoisted_37 = {
 	class: 'w-full',
 }
 
-var _hoisted_37 = /*#__PURE__*/ createVNode(
+var _hoisted_38 = /*#__PURE__*/ createVNode(
 	'div',
 	{
 		class:
@@ -6837,7 +6865,7 @@ var _hoisted_37 = /*#__PURE__*/ createVNode(
 	-1
 )
 
-var _hoisted_38 = /*#__PURE__*/ createVNode(
+var _hoisted_39 = /*#__PURE__*/ createVNode(
 	'button',
 	{
 		class: 'block w-full py-3 pl-10 text-left rounded-md bg-ns-blue',
@@ -6856,17 +6884,18 @@ function render$9(_ctx, _cache, $props, $setup, $data, $options) {
 	return (
 		openBlock(),
 		createBlock('header', _hoisted_1$9, [
-			createVNode('div', _hoisted_2$8, [
-				createVNode('nav', _hoisted_3$6, [
-					createVNode('div', _hoisted_4$6, [
-						createVNode('div', _hoisted_5$3, [
+			_hoisted_2$8,
+			createVNode('div', _hoisted_3$6, [
+				createVNode('nav', _hoisted_4$6, [
+					createVNode('div', _hoisted_5$3, [
+						createVNode('div', _hoisted_6$2, [
 							createVNode(
 								'a',
 								{
 									href: _ctx.mainURL,
 								},
 								[
-									_hoisted_6$2,
+									_hoisted_7$2,
 									createVNode(_component_NativeScriptLogo, {
 										class: 'w-auto h-8 sm:h-10',
 										'aria-hidden': 'true',
@@ -6875,7 +6904,7 @@ function render$9(_ctx, _cache, $props, $setup, $data, $options) {
 								8,
 								['href']
 							),
-							createVNode('div', _hoisted_7$2, [
+							createVNode('div', _hoisted_8$2, [
 								createVNode(
 									'button',
 									{
@@ -6889,14 +6918,14 @@ function render$9(_ctx, _cache, $props, $setup, $data, $options) {
 											'inline-flex items-center justify-center p-2 text-gray-900 bg-white rounded-md hover:bg-gray-800 hover:text-white focus:outline-none focus:ring-2 focus-ring-inset focus:ring-white',
 										'aria-expanded': 'false',
 									},
-									[_hoisted_8$2, _hoisted_9$1]
+									[_hoisted_9$2, _hoisted_10$1]
 								),
 							]),
 						]),
-						createVNode('div', _hoisted_10$1, [
-							createVNode('div', _hoisted_11$1, [
-								createVNode('div', _hoisted_12$1, [
-									createVNode('div', _hoisted_13$1, [
+						createVNode('div', _hoisted_11$1, [
+							createVNode('div', _hoisted_12$1, [
+								createVNode('div', _hoisted_13$1, [
+									createVNode('div', _hoisted_14$1, [
 										createVNode(_component_ClientOnly, null, {
 											default: withCtx(function () {
 												return [
@@ -6913,14 +6942,14 @@ function render$9(_ctx, _cache, $props, $setup, $data, $options) {
 											}),
 											_: 1,
 										}),
-										_hoisted_14$1,
 										_hoisted_15$1,
+										_hoisted_16,
 									]),
 								]),
 							]),
 						]),
 					]),
-					createVNode('div', _hoisted_17, [
+					createVNode('div', _hoisted_18, [
 						(openBlock(true),
 						createBlock(
 							Fragment,
@@ -6945,7 +6974,7 @@ function render$9(_ctx, _cache, $props, $setup, $data, $options) {
 							}),
 							128
 						)),
-						createVNode('div', _hoisted_18, [
+						createVNode('div', _hoisted_19, [
 							createVNode(
 								'button',
 								{
@@ -6967,7 +6996,7 @@ function render$9(_ctx, _cache, $props, $setup, $data, $options) {
 									role: 'button',
 									'aria-expanded': _ctx.flyoutMenuOpen,
 								},
-								[_hoisted_19, _hoisted_20],
+								[_hoisted_20, _hoisted_21],
 								10,
 								['aria-expanded']
 							),
@@ -7016,7 +7045,7 @@ function render$9(_ctx, _cache, $props, $setup, $data, $options) {
 										return [
 											_ctx.flyoutMenuOpen
 												? (openBlock(),
-												  createBlock('div', _hoisted_21, [_hoisted_22]))
+												  createBlock('div', _hoisted_22, [_hoisted_23]))
 												: createCommentVNode('', true),
 										]
 									}),
@@ -7024,7 +7053,7 @@ function render$9(_ctx, _cache, $props, $setup, $data, $options) {
 								}
 							),
 						]),
-						_hoisted_23,
+						_hoisted_24,
 					]),
 				]),
 			]),
@@ -7043,9 +7072,9 @@ function render$9(_ctx, _cache, $props, $setup, $data, $options) {
 						return [
 							_ctx.mobileMenuOpen
 								? (openBlock(),
-								  createBlock('div', _hoisted_24, [
-										createVNode('div', _hoisted_25, [
-											createVNode('div', _hoisted_26, [
+								  createBlock('div', _hoisted_25, [
+										createVNode('div', _hoisted_26, [
+											createVNode('div', _hoisted_27, [
 												createVNode('div', null, [
 													createVNode(_component_NativeScriptLogo, {
 														class: 'w-auto h-8',
@@ -7053,7 +7082,7 @@ function render$9(_ctx, _cache, $props, $setup, $data, $options) {
 														'aria-hidden': 'true',
 													}),
 												]),
-												createVNode('div', _hoisted_27, [
+												createVNode('div', _hoisted_28, [
 													createVNode(
 														'button',
 														{
@@ -7066,12 +7095,12 @@ function render$9(_ctx, _cache, $props, $setup, $data, $options) {
 															class:
 																'inline-flex items-center justify-center p-2 text-gray-400 bg-white rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600',
 														},
-														[_hoisted_28, _hoisted_29]
+														[_hoisted_29, _hoisted_30]
 													),
 												]),
 											]),
-											createVNode('div', _hoisted_30, [
-												createVNode('div', _hoisted_31, [
+											createVNode('div', _hoisted_31, [
+												createVNode('div', _hoisted_32, [
 													(openBlock(true),
 													createBlock(
 														Fragment,
@@ -7096,12 +7125,12 @@ function render$9(_ctx, _cache, $props, $setup, $data, $options) {
 														}),
 														128
 													)),
-													_hoisted_32,
 													_hoisted_33,
 													_hoisted_34,
+													_hoisted_35,
 												]),
-												createVNode('div', _hoisted_35, [
-													createVNode('div', _hoisted_36, [
+												createVNode('div', _hoisted_36, [
+													createVNode('div', _hoisted_37, [
 														createVNode(
 															'div',
 															{
@@ -7115,7 +7144,7 @@ function render$9(_ctx, _cache, $props, $setup, $data, $options) {
 																	}),
 																class: 'relative text-white',
 															},
-															[_hoisted_37, _hoisted_38],
+															[_hoisted_38, _hoisted_39],
 															32
 														),
 													]),
@@ -7408,6 +7437,12 @@ var _hoisted_7$1 = {
 var _hoisted_8$1 = {
 	class: 'text-base text-center text-gray-500',
 }
+
+var _hoisted_9$1 = /*#__PURE__*/ createStaticVNode(
+	'<div class="mt-10 text-sm"><div class="px-4 mx-auto max-w-7xl sm:px-6"><p class="text-gray-500"> Copyright <a class="font-medium text-gray-600 hover:text-gray-900" target="_blank" href="https://openjsf.org">OpenJS Foundation</a> and NativeScript contributors. All rights reserved. The <a class="font-medium text-gray-600 hover:text-gray-900" target="_blank" href="https://openjsf.org">OpenJS Foundation</a> has registered trademarks and uses trademarks. For a list of trademarks of the <a class="font-medium text-gray-600 hover:text-gray-900" target="_blank" href="https://openjsf.org">OpenJS Foundation</a>, please see our <a class="font-medium text-gray-600 hover:text-gray-900" target="_blank" href="https://trademark-policy.openjsf.org">Trademark Policy</a> and <a class="font-medium text-gray-600 hover:text-gray-900" target="_blank" href="https://trademark-list.openjsf.org">Trademark List</a>. Trademarks and logos not indicated on the <a class="font-medium text-gray-600 hover:text-gray-900" target="_blank" href="https://trademark-list.openjsf.org"> list of OpenJS Foundation trademarks </a> are trademarks™ or registered® trademarks of their respective holders. Use of them does not imply any affiliation with or endorsement by them. </p></div><div class="flex flex-col justify-center pb-10 mt-6 space-y-4 divide-gray-300 sm:px-3 lg:space-y-0 lg:px-0 lg:divide-x lg:flex-row"><a class="px-3 text-gray-500 hover:text-gray-800" target="_blank" href="https://openjsf.org">The OpenJS Foundation</a><a class="px-3 text-gray-500 hover:text-gray-800" target="_blank" href="https://terms-of-use.openjsf.org">Terms of Use</a><a class="px-3 text-gray-500 hover:text-gray-800" target="_blank" href="https://privacy-policy.openjsf.org">Privacy Policy</a><a class="px-3 text-gray-500 hover:text-gray-800" target="_blank" href="https://bylaws.openjsf.org">OpenJS Foundation Bylaws</a><a class="px-3 text-gray-500 hover:text-gray-800" target="_blank" href="https://trademark-policy.openjsf.org">Trademark Policy</a><a class="px-3 text-gray-500 hover:text-gray-800" target="_blank" href="https://trademark-list.openjsf.org">Trademark List</a><a class="px-3 text-gray-500 hover:text-gray-800" target="_blank" href="https://www.linuxfoundation.org/cookies">Cookie Policy</a></div></div>',
+	1
+)
+
 function render$7(_ctx, _cache, $props, $setup, $data, $options) {
 	var _component_OpenJSLogo = resolveComponent('OpenJSLogo')
 
@@ -7429,13 +7464,12 @@ function render$7(_ctx, _cache, $props, $setup, $data, $options) {
 					createVNode(
 						'p',
 						_hoisted_8$1,
-						'© ' +
-							toDisplayString(new Date().getFullYear()) +
-							' All rights reserved.',
+						'© ' + toDisplayString(new Date().getFullYear()),
 						1
 					),
 				]),
 			]),
+			_hoisted_9$1,
 		])
 	)
 }
