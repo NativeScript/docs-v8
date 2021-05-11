@@ -2128,7 +2128,7 @@ Setting `loadMode` to `async` will prevent freezing the UI on Android when loadi
 
 ```xml
 <Image
-  src="https://art.nativescript.org/logo/export/NativeScript_Logo_Blue_White.svg"
+  src="https://art.nativescript.org/logo/export/NativeScript_Logo_Blue_White.png"
   stretch="aspectFill"
 />
 ```
@@ -2139,7 +2139,7 @@ Setting `loadMode` to `async` will prevent freezing the UI on Android when loadi
 
 ```html
 <image
-  src="https://art.nativescript.org/logo/export/NativeScript_Logo_Blue_White.svg"
+  src="https://art.nativescript.org/logo/export/NativeScript_Logo_Blue_White.png"
   stretch="aspectFill"
 >
 </image>
@@ -2151,7 +2151,7 @@ Setting `loadMode` to `async` will prevent freezing the UI on Android when loadi
 
 ```tsx
 <image
-  src="https://art.nativescript.org/logo/export/NativeScript_Logo_Blue_White.svg"
+  src="https://art.nativescript.org/logo/export/NativeScript_Logo_Blue_White.png"
   stretch="aspectFill"
 />
 ```
@@ -2162,7 +2162,7 @@ Setting `loadMode` to `async` will prevent freezing the UI on Android when loadi
 
 ```html
 <image
-  src="https://art.nativescript.org/logo/export/NativeScript_Logo_Blue_White.svg"
+  src="https://art.nativescript.org/logo/export/NativeScript_Logo_Blue_White.png"
   stretch="aspectFill"
 />
 ```
@@ -2173,7 +2173,7 @@ Setting `loadMode` to `async` will prevent freezing the UI on Android when loadi
 
 ```html
 <image
-  src="https://art.nativescript.org/logo/export/NativeScript_Logo_Blue_White.svg"
+  src="https://art.nativescript.org/logo/export/NativeScript_Logo_Blue_White.png"
   stretch="aspectFill"
 />
 ```
