@@ -14,7 +14,41 @@ module.exports = {
 	title: 'NativeScript',
 	description: 'NativeScript docs',
 
-	// head: [['link', { rel: 'stylesheet', href: '/styles.css' }]],
+	head: [
+		['link', { rel: 'stylesheet', href: 'https://rsms.me/inter/inter.css' }],
+		['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com' }],
+
+		[
+			'link',
+			{
+				rel: 'apple-touch-icon',
+				sizes: '180x180',
+				href: 'https://nativescript.org/apple-touch-icon.png',
+			},
+		],
+		[
+			'link',
+			{
+				rel: 'icon',
+				type: 'image/png',
+				sizes: '32x32',
+				href: 'https://nativescript.org/favicon-32x32.png',
+			},
+		],
+		[
+			'link',
+			{
+				rel: 'icon',
+				type: 'image/png',
+				sizes: '16x16',
+				href: 'https://nativescript.org/favicon-16x16.png',
+			},
+		],
+		[
+			'link',
+			{ rel: 'manifest', href: 'https://nativescript.org/site.webmanifest' },
+		],
+	],
 
 	themeConfig: {
 		repo: 'NativeScript/docs-new',
