@@ -6714,7 +6714,7 @@ var _hoisted_23 = /*#__PURE__*/ createVNode(
 				/*#__PURE__*/ createVNode(
 					'a',
 					{
-						href: 'http://blog.nativescript.org/',
+						href: 'https://blog.nativescript.org/',
 						class:
 							'block p-3 -m-3 transition duration-150 ease-in-out rounded-md hover:bg-gray-50',
 					},
@@ -6738,7 +6738,7 @@ var _hoisted_23 = /*#__PURE__*/ createVNode(
 				/*#__PURE__*/ createVNode(
 					'a',
 					{
-						href: '/partners',
+						href: 'https://nativescript.org/partners',
 						class:
 							'block p-3 -m-3 transition duration-150 ease-in-out rounded-md hover:bg-gray-50',
 					},
