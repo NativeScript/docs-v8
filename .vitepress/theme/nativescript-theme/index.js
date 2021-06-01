@@ -6546,7 +6546,7 @@ var _hoisted_1$9 = /*#__PURE__*/ createVNode(
 )
 
 var _hoisted_2$8 = {
-	class: 'top-0 z-10 lg:sticky',
+	class: 'top-0 z-10 lg:sticky nav-bar',
 }
 var _hoisted_3$6 = {
 	class: 'pt-6 pb-6 bg-ns-blue',
@@ -8490,7 +8490,6 @@ function render$3(_ctx, _cache, $props, $setup, $data, $options) {
 			createVNode(
 				_component_Header,
 				{
-					class: 'nav-bar',
 					nav: _ctx.$themeConfig.nav,
 					mainURL: _ctx.$themeConfig.mainURL,
 				},
