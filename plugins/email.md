@@ -3,7 +3,7 @@ title: Email
 link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/email/README.md
 ---
 
-# @nativescriot/email
+# @nativescript/email
 
 You can use this plugin to compose an e-mail, have the user edit the draft manually, and send it.
 
