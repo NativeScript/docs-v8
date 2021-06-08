@@ -5832,6 +5832,11 @@ The CSS classes for each application and modal root view are:
 - `.ns-portrait`, `.ns-landscape`, `.ns-unknown` - classes that specify the application orientation
 - `.ns-light`, `.ns-dark` - classes that specify the system appearance.
 
+::: tip Note
+In native modals in Angular, the classes are applied to the first layout view in your modal component's HTML. If you are targeting a class that is applied to the root layout in your modal, you would target it with `.ns-dark.your-class`.
+:::
+
+
 For additional information on the Dark Mode support, refer to [this](https://docs.nativescript.org/ui/dark-mode) documentation article.
 
 <!-- TODO: fix links -->
