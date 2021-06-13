@@ -118,8 +118,12 @@ To install a **JDK** run the following command:
 
 ```cli
 brew tap AdoptOpenJDK/openjdk
-brew install --cask adoptopenjdk14
+brew install --cask adoptopenjdk15
 ```
+
+:::warning Note
+An older jdk should work, however the default `adoptopenjdk16` does not currently work with the gradle plugin version NativeScript uses, so we recommend sticking with the older version for now.
+:::
 
 Setting up the Android development environment can be daunting if you are new to Android development, however following the next steps carefully will get you up and running in no time.
 
