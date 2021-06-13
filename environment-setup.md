@@ -117,7 +117,8 @@ If you need to work with multiple versions of node, you may skip installing node
 To install a **JDK** run the following command:
 
 ```cli
-brew install --cask adoptopenjdk
+brew tap AdoptOpenJDK/openjdk
+brew install --cask adoptopenjdk14
 ```
 
 :::warning Note
