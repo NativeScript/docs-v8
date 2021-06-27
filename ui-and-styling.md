@@ -3953,7 +3953,7 @@ export function onNavigatingTo(args) {
 <SegmentedBar
   [items]="mySegmentedBarItems"
   selectedIndex="0"
-  (selectedIndexChange)="onSelectedIndexChange($event)"
+  (selectedIndexChanged)="onSelectedIndexChanged($event)"
 >
 </SegmentedBar>
 ```
@@ -3982,7 +3982,7 @@ export class BasicSegmentedBarComponent {
     }
   }
 
-  public onSelectedIndexChange(args: SelectedIndexChangedEventData) {
+  public onSelectedIndexChanged(args: SelectedIndexChangedEventData) {
     const segmentedBar = args.object as SegmentedBar
     const oldIndex = args.oldIndex
     const newIndex = args.newIndex
@@ -3998,7 +3998,7 @@ export class BasicSegmentedBarComponent {
 <SegmentedBar
   :items="listOfItems"
   selectedIndex="0"
-  @selectedIndexChange="onSelectedIndexChange"
+  @selectedIndexChanged="onSelectedIndexChange"
 />
 ```
 
@@ -4013,7 +4013,7 @@ export class BasicSegmentedBarComponent {
 /// flavor svelte
 
 ```html
-<segmentedBar selectedIndex="0" on:selectedIndexChange="{onSelectedIndexChange}" />
+<segmentedBar selectedIndex="0" on:selectedIndexChanged="{onSelectedIndexChange}" />
 ```
 
 `<segmentedBar>` can be populated with `{each}` block.
@@ -4044,7 +4044,7 @@ let listOfItems = ['First', 'Second', 'Third']
 <segmentedBar
   items={listOfItems}
   selectedIndex={0}
-  selectedIndexChange={onSelectedIndexChange}
+  selectedIndexChanged={onSelectedIndexChange}
 />
 ```
 
@@ -4065,7 +4065,7 @@ let listOfItems = ['First', 'Second', 'Third']
 
 | Name                  | Description                                              |
 | --------------------- | -------------------------------------------------------- |
-| `selectedIndexChange` | Emitted when the an item on the segmented bar is tapped. |
+| `selectedIndexChanged` | Emitted when the an item on the segmented bar is tapped. |
 
 #### Native component
 
