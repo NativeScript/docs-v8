@@ -6552,7 +6552,7 @@ var _hoisted_1$a = /*#__PURE__*/ createVNode(
 )
 
 var _hoisted_2$9 = {
-	class: 'top-0 z-10 lg:sticky',
+	class: 'top-0 z-10 lg:sticky nav-bar',
 }
 var _hoisted_3$6 = {
 	class: 'pt-6 pb-6 bg-ns-blue',
@@ -8101,7 +8101,7 @@ var _hoisted_1$6 = {
 	class: 'bg-blue-50 lg:hidden',
 }
 var _hoisted_2$6 = {
-	class: 'mx-auto p-4 px-6',
+	class: 'p-4 px-6 mx-auto',
 }
 function render$6(_ctx, _cache, $props, $setup, $data, $options) {
 	return (
@@ -8146,12 +8146,11 @@ function render$6(_ctx, _cache, $props, $setup, $data, $options) {
 															{
 																key: child,
 																value: child.link,
-																text: child.text,
 																selected: _ctx.isSelected(child.link),
 															},
-															null,
-															8,
-															['value', 'text', 'selected']
+															toDisplayString(child.text),
+															9,
+															['value', 'selected']
 														)
 													)
 												}),
@@ -8598,7 +8597,6 @@ function render$3(_ctx, _cache, $props, $setup, $data, $options) {
 			createVNode(
 				_component_Header,
 				{
-					class: 'nav-bar',
 					nav: _ctx.$themeConfig.nav,
 					mainURL: _ctx.$themeConfig.mainURL,
 				},
