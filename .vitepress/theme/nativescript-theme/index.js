@@ -28,7 +28,13 @@ import {
 	nextTick,
 	renderSlot,
 } from 'vue'
-import { useRoute, useSiteDataByRoute, useSiteData, inBrowser } from 'vitepress'
+import {
+	useRoute,
+	useSiteDataByRoute,
+	useSiteData,
+	useRouter,
+	inBrowser,
+} from 'vitepress'
 
 /*! @docsearch/js 1.0.0-alpha.28 (UNRELEASED 0a58769) | MIT License | © Algolia, Inc. and contributors | https://github.com/francoischalifour/autocomplete.js */
 function e(e, t, n) {
@@ -6212,11 +6218,11 @@ function docsearch(e) {
 	)
 }
 
-var _hoisted_1$b = {
+var _hoisted_1$c = {
 	class: 'algolia-search-box',
 	id: 'docsearch',
 }
-var script$b = defineComponent({
+var script$c = defineComponent({
 	expose: [],
 	props: {
 		options: {
@@ -6287,18 +6293,18 @@ var script$b = defineComponent({
 		}
 
 		return function (_ctx, _cache) {
-			return openBlock(), createBlock('div', _hoisted_1$b)
+			return openBlock(), createBlock('div', _hoisted_1$c)
 		}
 	},
 })
 
-var script$a = defineComponent({
+var script$b = defineComponent({
 	props: {
 		variant: String,
 	},
 })
 
-var _hoisted_1$a = {
+var _hoisted_1$b = {
 	key: 0,
 	viewBox: '0 0 532 100',
 	xmlns: 'http://www.w3.org/2000/svg',
@@ -6308,7 +6314,7 @@ var _hoisted_1$a = {
 	'stroke-miterlimit': '2',
 }
 
-var _hoisted_2$9 = /*#__PURE__*/ createVNode(
+var _hoisted_2$a = /*#__PURE__*/ createVNode(
 	'g',
 	{
 		transform: 'translate(-362.21733 -1030)',
@@ -6476,15 +6482,15 @@ var _hoisted_4$7 = /*#__PURE__*/ createVNode(
 	-1
 )
 
-function render$a(_ctx, _cache, $props, $setup, $data, $options) {
+function render$b(_ctx, _cache, $props, $setup, $data, $options) {
 	return _ctx.variant === 'blue'
-		? (openBlock(), createBlock('svg', _hoisted_1$a, [_hoisted_2$9]))
+		? (openBlock(), createBlock('svg', _hoisted_1$b, [_hoisted_2$a]))
 		: (openBlock(), createBlock('svg', _hoisted_3$7, [_hoisted_4$7]))
 }
 
-script$a.render = render$a
+script$b.render = render$b
 
-var script$9 = defineComponent({
+var script$a = defineComponent({
 	props: {
 		nav: Array,
 		mainURL: {
@@ -6513,12 +6519,12 @@ var script$9 = defineComponent({
 		}
 	},
 	components: {
-		AlgoliaSearchBox: script$b,
-		NativeScriptLogo: script$a,
+		AlgoliaSearchBox: script$c,
+		NativeScriptLogo: script$b,
 	},
 })
 
-var _hoisted_1$9 = /*#__PURE__*/ createVNode(
+var _hoisted_1$a = /*#__PURE__*/ createVNode(
 	'a',
 	{
 		href: '/professional-services-summit-2021',
@@ -6545,8 +6551,8 @@ var _hoisted_1$9 = /*#__PURE__*/ createVNode(
 	-1
 )
 
-var _hoisted_2$8 = {
-	class: 'top-0 z-10 lg:sticky nav-bar',
+var _hoisted_2$9 = {
+	class: 'top-0 z-10 lg:sticky',
 }
 var _hoisted_3$6 = {
 	class: 'pt-6 pb-6 bg-ns-blue',
@@ -6985,7 +6991,7 @@ var _hoisted_39 = /*#__PURE__*/ createVNode(
 	-1
 )
 
-function render$9(_ctx, _cache, $props, $setup, $data, $options) {
+function render$a(_ctx, _cache, $props, $setup, $data, $options) {
 	var _component_NativeScriptLogo = resolveComponent('NativeScriptLogo')
 
 	var _component_AlgoliaSearchBox = resolveComponent('AlgoliaSearchBox')
@@ -6998,8 +7004,8 @@ function render$9(_ctx, _cache, $props, $setup, $data, $options) {
 			Fragment,
 			null,
 			[
-				_hoisted_1$9,
-				createVNode('header', _hoisted_2$8, [
+				_hoisted_1$a,
+				createVNode('header', _hoisted_2$9, [
 					createVNode('div', _hoisted_3$6, [
 						createVNode('nav', _hoisted_4$6, [
 							createVNode('div', _hoisted_5$3, [
@@ -7280,15 +7286,15 @@ function render$9(_ctx, _cache, $props, $setup, $data, $options) {
 	)
 }
 
-script$9.render = render$9
+script$a.render = render$a
 
-var _hoisted_1$8 = {
+var _hoisted_1$9 = {
 	xmlns: 'http://www.w3.org/2000/svg',
 	viewBox: '0 0 1000 320',
 	fill: 'currentColor',
 }
 
-var _hoisted_2$7 = /*#__PURE__*/ createVNode(
+var _hoisted_2$8 = /*#__PURE__*/ createVNode(
 	'g',
 	null,
 	[
@@ -7364,24 +7370,24 @@ var _hoisted_2$7 = /*#__PURE__*/ createVNode(
 	-1
 )
 
-function render$8(_ctx, _cache) {
-	return openBlock(), createBlock('svg', _hoisted_1$8, [_hoisted_2$7])
+function render$9(_ctx, _cache) {
+	return openBlock(), createBlock('svg', _hoisted_1$9, [_hoisted_2$8])
 }
 
-var script$8 = {}
-script$8.render = render$8
+var script$9 = {}
+script$9.render = render$9
 
-var script$7 = defineComponent({
+var script$8 = defineComponent({
 	setup: function setup() {},
 	components: {
-		OpenJSLogo: script$8,
+		OpenJSLogo: script$9,
 	},
 })
 
-var _hoisted_1$7 = {
+var _hoisted_1$8 = {
 	class: '',
 }
-var _hoisted_2$6 = {
+var _hoisted_2$7 = {
 	class:
 		'px-4 pt-10 pb-4 mx-auto max-w-7xl sm:px-6 md:flex md:items-center md:justify-between lg:px-6',
 }
@@ -7561,13 +7567,13 @@ var _hoisted_9$1 = /*#__PURE__*/ createStaticVNode(
 	1
 )
 
-function render$7(_ctx, _cache, $props, $setup, $data, $options) {
+function render$8(_ctx, _cache, $props, $setup, $data, $options) {
 	var _component_OpenJSLogo = resolveComponent('OpenJSLogo')
 
 	return (
 		openBlock(),
-		createBlock('footer', _hoisted_1$7, [
-			createVNode('div', _hoisted_2$6, [
+		createBlock('footer', _hoisted_1$8, [
+			createVNode('div', _hoisted_2$7, [
 				_hoisted_3$5,
 				createVNode('div', _hoisted_4$5, [
 					createVNode('a', _hoisted_5$2, [
@@ -7592,7 +7598,7 @@ function render$7(_ctx, _cache, $props, $setup, $data, $options) {
 	)
 }
 
-script$7.render = render$7
+script$8.render = render$8
 
 function _defineProperty(obj, key, value) {
 	if (key in obj) {
@@ -8021,7 +8027,7 @@ function createChildren(children) {
 //   }))
 // }
 
-var script$6 = defineComponent({
+var script$7 = defineComponent({
 	setup: function setup() {
 		var items = useSideBar()
 		return {
@@ -8033,16 +8039,16 @@ var script$6 = defineComponent({
 	},
 })
 
-var _hoisted_1$6 = {
+var _hoisted_1$7 = {
 	key: 0,
 	class: '',
 }
-function render$6(_ctx, _cache, $props, $setup, $data, $options) {
+function render$7(_ctx, _cache, $props, $setup, $data, $options) {
 	var _component_SideBarLink = resolveComponent('SideBarLink')
 
 	return _ctx.items.length > 0
 		? (openBlock(),
-		  createBlock('ul', _hoisted_1$6, [
+		  createBlock('ul', _hoisted_1$7, [
 				(openBlock(true),
 				createBlock(
 					Fragment,
@@ -8066,6 +8072,105 @@ function render$6(_ctx, _cache, $props, $setup, $data, $options) {
 				)),
 		  ]))
 		: createCommentVNode('', true)
+}
+
+script$7.render = render$7
+
+var script$6 = defineComponent({
+	setup: function setup() {
+		var items = useSideBar()
+		var route = useRoute()
+		var router = useRouter()
+		var isSelected = computed(function () {
+			return function (link) {
+				return route.path.includes(link)
+			}
+		})
+		return {
+			items: items,
+			route: route,
+			isSelected: isSelected,
+			onChange: function onChange(event) {
+				router.go(event.target.value)
+			},
+		}
+	},
+})
+
+var _hoisted_1$6 = {
+	class: 'bg-blue-50 lg:hidden',
+}
+var _hoisted_2$6 = {
+	class: 'mx-auto p-4 px-6',
+}
+function render$6(_ctx, _cache, $props, $setup, $data, $options) {
+	return (
+		openBlock(),
+		createBlock('div', _hoisted_1$6, [
+			createVNode('div', _hoisted_2$6, [
+				createVNode(
+					'select',
+					{
+						onChange:
+							_cache[1] ||
+							(_cache[1] = function () {
+								return _ctx.onChange && _ctx.onChange.apply(_ctx, arguments)
+							}),
+						class: 'w-full p-2',
+						title: 'Navigation',
+					},
+					[
+						(openBlock(true),
+						createBlock(
+							Fragment,
+							null,
+							renderList(_ctx.items, function (item) {
+								return (
+									openBlock(),
+									createBlock(
+										'optgroup',
+										{
+											label: item.text,
+											key: item.text,
+										},
+										[
+											(openBlock(true),
+											createBlock(
+												Fragment,
+												null,
+												renderList(item.children, function (child) {
+													return (
+														openBlock(),
+														createBlock(
+															'option',
+															{
+																key: child,
+																value: child.link,
+																text: child.text,
+																selected: _ctx.isSelected(child.link),
+															},
+															null,
+															8,
+															['value', 'text', 'selected']
+														)
+													)
+												}),
+												128
+											)),
+										],
+										8,
+										['label']
+									)
+								)
+							}),
+							128
+						)),
+					],
+					32
+				),
+			]),
+		])
+	)
 }
 
 script$6.render = render$6
@@ -8400,8 +8505,9 @@ script$4.__scopeId = 'data-v-2dcc8330'
 var script$3 = defineComponent({
 	setup: function setup() {},
 	components: {
-		Header: script$9,
-		SideBar: script$6,
+		Header: script$a,
+		SideBar: script$7,
+		MobileNavigation: script$6,
 		SubHeader: script$5,
 		OnThisPage: script$4,
 	},
@@ -8476,6 +8582,8 @@ var _hoisted_15 = /*#__PURE__*/ createVNode(
 function render$3(_ctx, _cache, $props, $setup, $data, $options) {
 	var _component_Header = resolveComponent('Header')
 
+	var _component_MobileNavigation = resolveComponent('MobileNavigation')
+
 	var _component_SideBar = resolveComponent('SideBar')
 
 	var _component_Content = resolveComponent('Content')
@@ -8490,6 +8598,7 @@ function render$3(_ctx, _cache, $props, $setup, $data, $options) {
 			createVNode(
 				_component_Header,
 				{
+					class: 'nav-bar',
 					nav: _ctx.$themeConfig.nav,
 					mainURL: _ctx.$themeConfig.mainURL,
 				},
@@ -8497,6 +8606,7 @@ function render$3(_ctx, _cache, $props, $setup, $data, $options) {
 				8,
 				['nav', 'mainURL']
 			),
+			createVNode(_component_MobileNavigation),
 			createVNode('div', _hoisted_2$3, [
 				createVNode('div', _hoisted_3$3, [
 					createVNode('div', _hoisted_4$3, [

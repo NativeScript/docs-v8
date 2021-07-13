@@ -1461,6 +1461,10 @@ select {
 	--tw-bg-opacity: 1;
 	background-color: rgba(15, 23, 42, var(--tw-bg-opacity));
 }
+.bg-blue-50 {
+	--tw-bg-opacity: 1;
+	background-color: rgba(239, 246, 255, var(--tw-bg-opacity));
+}
 .bg-ns-blue {
 	--tw-bg-opacity: 1;
 	background-color: rgba(101, 173, 241, var(--tw-bg-opacity));
@@ -1483,14 +1487,17 @@ select {
 	--tw-gradient-stops: var(--tw-gradient-from),
 		var(--tw-gradient-to, rgba(255, 255, 255, 0));
 }
+.p-4 {
+	padding: 1rem;
+}
+.p-2 {
+	padding: 0.5rem;
+}
 .p-0\.5 {
 	padding: 0.125rem;
 }
 .p-0 {
 	padding: 0px;
-}
-.p-2 {
-	padding: 0.5rem;
 }
 .p-3 {
 	padding: 0.75rem;
