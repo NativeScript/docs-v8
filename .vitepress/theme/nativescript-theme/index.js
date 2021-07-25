@@ -6527,7 +6527,7 @@ var script$a = defineComponent({
 var _hoisted_1$a = /*#__PURE__*/ createVNode(
 	'a',
 	{
-		href: '/professional-services-summit-2021',
+		href: 'https://nativescript.org/professional-services-summit-2021',
 		class:
 			'flex flex-col items-center content-center justify-center px-4 py-2 text-white bg-gray-800 md:flex-row',
 	},
@@ -6537,16 +6537,16 @@ var _hoisted_1$a = /*#__PURE__*/ createVNode(
 			{
 				class: 'text-sm font-medium',
 			},
-			'Are you passionate about professional NativeScript solutions for your customers?'
+			'Professional Summit 2021 going on this week!'
 		),
-		/*#__PURE__*/ createVNode(
-			'div',
-			{
-				class:
-					'px-2 py-1 ml-4 text-sm font-medium leading-snug text-white transition-colors rounded bg-ns-blue hover:hover:bg-blue-300',
-			},
-			' Join Professional Summit 2021 '
-		),
+		// /*#__PURE__*/ createVNode(
+		// 	'div',
+		// 	{
+		// 		class:
+		// 			'px-2 py-1 ml-4 text-sm font-medium leading-snug text-white transition-colors rounded bg-ns-blue hover:hover:bg-blue-300',
+		// 	},
+		// 	' Join Professional Summit 2021 '
+		// ),
 	],
 	-1
 )
