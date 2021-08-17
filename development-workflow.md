@@ -40,30 +40,6 @@ ns clean
 
 If you're having trouble running your application or you have added new dependencies, it's usually a good practice to start with `ns clean` before running to be sure you avoid any type of dependency issues or native project build issues.
 
-### `preview`
-
-This command allows you to link the app you’re developing locally to the NativeScript Playground app for your iOS or Android device through the NativeScript Playground app. Although, this workflow is great for getting started, it does have limitations.
-
-```cli
-ns preview
-```
-
-You’ll see a QR code in your terminal.
-
-Next, open the **NativeScript Playground** app on your iOS or Android device.
-
-::: tip Tip
-If you don’t already have the NativeScript Playground app installed on your device, go ahead and download it by searching for “NativeScript Playground” in the iOS App Store or Google Play.
-:::
-
-In the Playground app, tap the **Scan QR code** option, and scan the QR code that appears in your terminal or commands prompt.
-
-After scanning, you should see your app on your device.
-
-Now that you have the app on your device, you might notice that the `ns preview` command in your terminal or command prompt never finished. That is, you cannot type in your terminal.
-
-This happens because the `ns preview` command is now watching your project for changes. When the `ns preview` command detects a code change, the command automatically refreshes, or _livesyncs_, your app so you can see those changes immediately. Let’s make some updates to your code so you can see this in action.
-
 ### `run`
 
 Runs your project on all connected devices or in native emulators for the selected platform. The command will prepare, build and deploy the app when necessary. By default listens for changes in your code, synchronizes those changes and refreshes all selected devices.
