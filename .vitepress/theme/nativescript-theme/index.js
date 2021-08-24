@@ -6290,7 +6290,7 @@ var script$c = defineComponent({
 				return url
 			}
 
-			if (url.startsWith('http')) {
+			if (url.startsWith(window.location.origin)) {
 				return getRelativePath(url)
 			}
 
