@@ -6286,15 +6286,20 @@ var script$c = defineComponent({
 		}
 
 		function getTargetUrl(url) {
-			if (url.includes('api-reference')) {
+			var res = (function () {
+				if (url.includes('api-reference')) {
+					return url
+				}
+
+				if (url.startsWith('http')) {
+					return getRelativePath(url)
+				}
+
 				return url
-			}
+			})()
 
-			if (url.startsWith(window.location.origin)) {
-				return getRelativePath(url)
-			}
-
-			return url
+			console.log("getTargetUrl('".concat(url, "') -> ").concat(res))
+			return res
 		}
 
 		function initialize(userOptions) {
@@ -6314,6 +6319,13 @@ var script$c = defineComponent({
 
 							router.go(targetUrl)
 						},
+					},
+					transformItems: function transformItems(items) {
+						return items.map(function (item) {
+							return Object.assign({}, item, {
+								url: getTargetUrl(item.url),
+							})
+						})
 					},
 					hitComponent: function hitComponent(_ref2) {
 						var hit = _ref2.hit,
