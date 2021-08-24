@@ -1,5 +1,13 @@
 import {
+	useRoute,
+	useSiteDataByRoute,
+	useSiteData,
+	useRouter,
+	inBrowser,
+} from 'vitepress'
+import {
 	defineComponent,
+	inject,
 	getCurrentInstance,
 	watch,
 	onMounted,
@@ -20,7 +28,6 @@ import {
 	onUnmounted,
 	computed,
 	h as h$1,
-	inject,
 	pushScopeId,
 	popScopeId,
 	createTextVNode,
@@ -28,13 +35,6 @@ import {
 	nextTick,
 	renderSlot,
 } from 'vue'
-import {
-	useRoute,
-	useRouter,
-	useSiteDataByRoute,
-	useSiteData,
-	inBrowser,
-} from 'vitepress'
 
 /*! @docsearch/js 1.0.0-alpha.28 (UNRELEASED 0a58769) | MIT License | © Algolia, Inc. and contributors | https://github.com/francoischalifour/autocomplete.js */
 function e(e, t, n) {
@@ -6231,10 +6231,14 @@ var script$c = defineComponent({
 		},
 	},
 	setup: function setup(__props) {
-		var props = __props
+		var props = __props // Important: we use injection because this component is used in both Vitepress & non-Vitepress contexts
+		// these contexts must provide the useRouter/useRoute functions that we inject here.
+
+		var useRouter = inject('useRouter')
+		var useRoute = inject('useRoute')
 		var vm = getCurrentInstance()
-		var route = useRoute()
 		var router = useRouter()
+		var route = useRoute()
 		watch(
 			function () {
 				return props.options
@@ -9084,7 +9088,10 @@ var theme = function theme(enhanceApp) {
 
 			app.component('FlavorTabs', script$1)
 			app.component('CodeTabs', script)
-			app.component('NotFound', script$2) // provide globlal flavor value
+			app.component('NotFound', script$2) // Important! Provide useRouter/useRouter injections
+
+			app.provide('useRouter', useRouter)
+			app.provide('useRoute', useRoute) // provide globlal flavor value
 
 			app.provide(CurrentFlavorSymbol, createCurrentFlavor())
 
