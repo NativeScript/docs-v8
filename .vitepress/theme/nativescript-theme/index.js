@@ -6353,6 +6353,7 @@ var script$c = defineComponent({
 									}
 
 									if (targetUrl.startsWith('http')) {
+										event.stopImmediatePropagation()
 										return _navigate(targetUrl)
 									} // we rely on the native link scrolling when user is already on
 									// the right anchor because Router doesn't support duplicated
