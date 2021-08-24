@@ -6283,11 +6283,17 @@ var script$c = defineComponent({
 			}
 
 			window.location.assign(window.location.origin + to)
-		}
+		} // todo: clean this up, really hacky!!!
 
 		function getTargetUrl(url) {
+			var _window
+
 			var res = (function () {
 				if (url.includes('api-reference')) {
+					return url
+				} // docs pages but current page isn't a docs page (ie. homepage)
+
+				if (url.includes('docs.') && !url.startsWith(window.location.origin)) {
 					return url
 				}
 
@@ -6296,9 +6302,12 @@ var script$c = defineComponent({
 				}
 
 				return url
-			})()
+			})() // @ts-ignore
 
-			console.log("getTargetUrl('".concat(url, "') -> ").concat(res))
+			;((_window = window) === null || _window === void 0
+				? void 0
+				: _window.__DEBUG) &&
+				console.log("getTargetUrl('".concat(url, "') -> ").concat(res))
 			return res
 		}
 
