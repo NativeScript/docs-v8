@@ -30,9 +30,9 @@ import {
 } from 'vue'
 import {
 	useRoute,
+	useRouter,
 	useSiteDataByRoute,
 	useSiteData,
-	useRouter,
 	inBrowser,
 } from 'vitepress'
 
@@ -6233,6 +6233,8 @@ var script$c = defineComponent({
 	setup: function setup(__props) {
 		var props = __props
 		var vm = getCurrentInstance()
+		var route = useRoute()
+		var router = useRouter()
 		watch(
 			function () {
 				return props.options
@@ -6245,6 +6247,24 @@ var script$c = defineComponent({
 			initialize(props.options)
 		})
 
+		function isSpecialClick(event) {
+			return (
+				event.button === 1 ||
+				event.altKey ||
+				event.ctrlKey ||
+				event.metaKey ||
+				event.shiftKey
+			)
+		}
+
+		function getRelativePath(absoluteUrl) {
+			var _URL = new URL(absoluteUrl),
+				pathname = _URL.pathname,
+				hash = _URL.hash
+
+			return pathname + hash
+		}
+
 		function update(options) {
 			if (vm && vm.vnode.el) {
 				vm.vnode.el.innerHTML =
@@ -6253,41 +6273,81 @@ var script$c = defineComponent({
 			}
 		}
 
+		function _navigate(to) {
+			if (to.startsWith('http')) {
+				return window.location.assign(to)
+			}
+
+			window.location.assign(window.location.origin + to)
+		}
+
+		function getTargetUrl(url) {
+			if (url.includes('api-reference')) {
+				return url
+			}
+
+			if (url.startsWith('http')) {
+				return getRelativePath(url)
+			}
+
+			return url
+		}
+
 		function initialize(userOptions) {
 			docsearch(
 				Object.assign({}, userOptions, {
 					container: '#docsearch',
-					searchParameters: Object.assign({}, userOptions.searchParameters), //   navigator: {
-					//     navigate: ({ suggestionUrl }: { suggestionUrl: string }) => {
-					//       navigate(suggestionUrl)
-					//     },
-					//   },
-					//   transformItems: (items: DocSearchHit[]) => {
-					//     return items.map((item) => {
-					//       return Object.assign({}, item, {
-					//         url: getRelativePath(item.url),
-					//       });
-					//     });
-					//   },
-					//   hitComponent: ({ hit, children }: { hit: DocSearchHit; children: any }) => {
-					//     // const relativeHit = hit.url.startsWith("http") ? getRelativePath(hit.url as string) : hit.url;
-					//     return {
-					//       type: "a",
-					//       ref: undefined,
-					//       constructor: undefined,
-					//       key: undefined,
-					//       props: {
-					//         href: hit.url,
-					//         onClick: (event: MouseEvent) => {
-					//           if (isSpecialClick(event)) {
-					//             return;
-					//           }
-					//           navigate(hit.url)
-					//         },
-					//         children,
-					//       },
-					//     };
-					//   },
+					searchParameters: Object.assign({}, userOptions.searchParameters),
+					navigator: {
+						navigate: function navigate(_ref) {
+							var suggestionUrl = _ref.suggestionUrl
+							var targetUrl = getTargetUrl(suggestionUrl) // Router doesn't handle same-page navigation so we use the native
+							// browser location API for anchor navigation
+
+							if (targetUrl.startsWith('http') || route.path === targetUrl) {
+								return _navigate(targetUrl)
+							}
+
+							router.go(targetUrl)
+						},
+					},
+					hitComponent: function hitComponent(_ref2) {
+						var hit = _ref2.hit,
+							children = _ref2.children
+						var targetUrl = getTargetUrl(hit.url)
+						return {
+							type: 'a',
+							ref: undefined,
+							constructor: undefined,
+							key: undefined,
+							props: {
+								href: hit.url,
+								onClick: function onClick(event) {
+									if (isSpecialClick(event)) {
+										return
+									}
+
+									if (targetUrl.startsWith('http')) {
+										return _navigate(targetUrl)
+									} // we rely on the native link scrolling when user is already on
+									// the right anchor because Router doesn't support duplicated
+									// history entries
+
+									if (route.path === targetUrl) {
+										return
+									} // if the hits goes to another page, we prevent the native link
+									// behavior to leverage the Router loading feature
+
+									if (route.path !== targetUrl) {
+										event.preventDefault()
+									}
+
+									router.go(targetUrl)
+								},
+								children: children,
+							},
+						}
+					},
 				})
 			)
 		}
