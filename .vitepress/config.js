@@ -129,6 +129,7 @@ function getSidebar() {
 			text: 'Basics',
 			children: [
 				{ text: 'Introduction', link: '/introduction' },
+				{ text: 'Tutorial', link: '/tutorial' },
 				{
 					text: 'Environment Setup',
 					link: '/environment-setup',
