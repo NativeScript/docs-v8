@@ -45,16 +45,26 @@ More env flags that are usually passed by the CLI automatically:
 - `--env.platform=<platform>` - for specifying the platform to use. Can be `android` or `ios`, or a custom platform in the future.
 - `--env.hmr` - `true` if building with HMR enabled
 
-#### Using flags at runtime
+<!-- #### Using flags at runtime -->
 
-In your app logic you can access `env` variables like the following:
+<!-- In your app logic you can access `env` variables like the following: -->
 
-```js
+<!-- ```js
 if (process.env.production) {
   // this is a build executed with the `--env.production` flag
   // typically this would be your release build
 } else {
   // this is a debug/dev build
+}
+``` -->
+
+#### Using a .env file
+
+You can add a `.env` file to your project root and add any values to it and access those at runtime.
+
+```js
+if (process.env.VAR_NAME) {
+  // do work here if the variable is true
 }
 ```
 
@@ -68,16 +78,6 @@ if (__DEV__) {
 ```
 
 :::
-
-#### Using a .env file
-
-You can add a `.env` file to your project root and add any values to it and access those at runtime.
-
-```js
-if (process.env.VAR_NAME) {
-  // do work here if the variable is true
-}
-```
 
 ### CLI flags
 
