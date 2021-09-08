@@ -3624,7 +3624,12 @@ svg.DocSearch-Hit-Select-Icon {
 	--docsearch-container-background: rgba(15, 23, 42, 0.2);
 }
 
-.sidebar-link.active[data-v-2dcc8330] {
+/* offset any elements with an id by the header height */
+[id] {
+	scroll-margin-top: 88px;
+}
+
+.sidebar-link.active[data-v-4c604f93] {
 	font-weight: 700;
 	--tw-text-opacity: 1;
 	color: rgba(30, 41, 59, var(--tw-text-opacity));

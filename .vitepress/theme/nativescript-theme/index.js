@@ -6715,7 +6715,7 @@ var _hoisted_14$1 = /*#__PURE__*/ createVNode(
 )
 
 var _hoisted_15$1 = /*#__PURE__*/ createStaticVNode(
-	'<input aria-hidden="true" id="search" name="search" disabled class="block w-full py-2 pl-10 pr-3 leading-5 bg-white border border-transparent rounded-md placeholder-blue-50 text-blue-50 bg-opacity-20 focus:outline-none focus:bg-white focus:ring-0 focus:placeholder-gray-400 focus:text-gray-900 sm:text-sm" placeholder="Search Anything" type="search"><div class="absolute inset-y-0 right-0 items-center hidden pr-3 pointer-events-none xl:flex"><div class="px-2 py-1 text-xs text-white bg-white border border-white border-opacity-50 rounded bg-opacity-30"><span class="sr-only">Press Ctrl+K to open quick search</span><span aria-hidden="true">Ctrl K</span></div></div>',
+	'<input aria-hidden="true" id="search" name="search" disabled class="\n                      block\n                      w-full\n                      py-2\n                      pl-10\n                      pr-3\n                      leading-5\n                      bg-white\n                      border border-transparent\n                      rounded-md\n                      placeholder-blue-50\n                      text-blue-50\n                      bg-opacity-20\n                      focus:outline-none focus:bg-white focus:ring-0 focus:placeholder-gray-400 focus:text-gray-900\n                      sm:text-sm\n                    " placeholder="Search Anything" type="search"><div class="absolute inset-y-0 right-0 items-center hidden pr-3 pointer-events-none xl:flex"><div class="px-2 py-1 text-xs text-white bg-white border border-white border-opacity-50 rounded bg-opacity-30"><span class="sr-only">Press Ctrl+K to open quick search</span><span aria-hidden="true">Ctrl K</span></div></div>',
 	2
 )
 
@@ -6887,7 +6887,7 @@ var _hoisted_23 = /*#__PURE__*/ createVNode(
 		target: '_blank',
 		rel: 'noopener noreferrer',
 		class:
-			'inline-flex items-center justify-center p-2 text-gray-900 transition-colors rounded-md hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-transparent',
+			'\n              inline-flex\n              items-center\n              justify-center\n              p-2\n              text-gray-900\n              transition-colors\n              rounded-md\n              hover:text-white\n              focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-transparent\n            ',
 		'aria-expanded': 'false',
 	},
 	[
@@ -7101,7 +7101,7 @@ function render$a(_ctx, _cache, $props, $setup, $data, $options) {
 											}),
 										type: 'button',
 										class:
-											'inline-flex items-center justify-center p-2 text-gray-900 bg-white rounded-md hover:bg-gray-800 hover:text-white focus:outline-none focus:ring-2 focus-ring-inset focus:ring-white',
+											'\n                  inline-flex\n                  items-center\n                  justify-center\n                  p-2\n                  text-gray-900\n                  bg-white\n                  rounded-md\n                  hover:bg-gray-800 hover:text-white\n                  focus:outline-none focus:ring-2 focus-ring-inset focus:ring-white\n                ',
 										'aria-expanded': 'false',
 									},
 									[_hoisted_8$2, _hoisted_9$2]
@@ -7173,7 +7173,7 @@ function render$a(_ctx, _cache, $props, $setup, $data, $options) {
 											['prevent']
 										)),
 									class: [
-										'relative z-20 inline-flex items-center justify-center p-2 transition-colors rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-transparent',
+										'\n                relative\n                z-20\n                inline-flex\n                items-center\n                justify-center\n                p-2\n                transition-colors\n                rounded-md\n                focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-transparent\n              ',
 										{
 											'bg-white text-gray-900': _ctx.flyoutMenuOpen,
 											'text-white hover:text-gray-900': !_ctx.flyoutMenuOpen,
@@ -7279,7 +7279,7 @@ function render$a(_ctx, _cache, $props, $setup, $data, $options) {
 																}),
 															type: 'button',
 															class:
-																'inline-flex items-center justify-center p-2 text-gray-400 bg-white rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600',
+																'\n                  inline-flex\n                  items-center\n                  justify-center\n                  p-2\n                  text-gray-400\n                  bg-white\n                  rounded-md\n                  hover:bg-gray-100\n                  focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600\n                ',
 														},
 														[_hoisted_28, _hoisted_29]
 													),
@@ -8467,9 +8467,9 @@ var script$4 = defineComponent({
 	},
 })
 
-var _withId = /*#__PURE__*/ withScopeId('data-v-2dcc8330')
+var _withId = /*#__PURE__*/ withScopeId('data-v-4c604f93')
 
-pushScopeId('data-v-2dcc8330')
+pushScopeId('data-v-4c604f93')
 
 var _hoisted_1$4 = /*#__PURE__*/ createVNode(
 	'div',
@@ -8562,7 +8562,7 @@ var render$4 = /*#__PURE__*/ _withId(function (
 })
 
 script$4.render = render$4
-script$4.__scopeId = 'data-v-2dcc8330'
+script$4.__scopeId = 'data-v-4c604f93'
 
 var script$3 = defineComponent({
 	setup: function setup() {},
