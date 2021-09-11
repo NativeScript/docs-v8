@@ -138,7 +138,7 @@ function getSidebar() {
 					link: '/development-workflow',
 				},
 				{
-					text: 'Understanding @nativescript',
+					text: '@nativescript',
 					link: '/understanding-packages',
 				},
 			],
