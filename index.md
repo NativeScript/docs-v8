@@ -18,7 +18,7 @@ The docs have been written with no assumptions of the readers experience, howeve
 - [Introduction to JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 - [Re-Introduction to JavaScript to refresh your knowledge](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript)
 
-## [Environment Setup](environment-setup)
+## Environment Setup :warning:
 
 You will want to setup your development machine using the [Environment Setup guide here](environment-setup) which involves preparing your machine for iOS and Android development as well as installing the [NativeScript CLI](https://www.npmjs.com/package/nativescript) via `npm install -g nativescript`
 

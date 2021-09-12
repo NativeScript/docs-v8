@@ -36,6 +36,84 @@ import {
 	renderSlot,
 } from 'vue'
 
+var mainURL = function mainURL() {
+	var path =
+		arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : ''
+	return 'https://nativescript.org' + path
+}
+
+var docsURL = function docsURL() {
+	var path =
+		arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : ''
+	return 'https://docs.nativescript.org' + path
+}
+
+var blogURL = function blogURL() {
+	var path =
+		arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : ''
+	return 'https://blog.nativescript.org' + path
+}
+
+var config = {
+	nav: [
+		{
+			text: 'Docs',
+			link: docsURL(),
+		},
+		{
+			text: 'Community',
+			link: 'https://nativescript.org/discord',
+			target: 'blank',
+		},
+		{
+			text: 'Support',
+			link: mainURL('/support'),
+		},
+	],
+	flyoutNav: [
+		{
+			text: 'Blog',
+			link: blogURL(),
+			description:
+				'Read about updates, tips & tricks, guides from us and the community.',
+		},
+		{
+			text: 'Partners',
+			link: mainURL('/partners'),
+			description: 'Find partners who can help you with your projects.',
+		},
+		{
+			text: 'Samples',
+			link: mainURL('/samples'),
+			description: 'Browse creative samples of NativeScript user experiences.',
+		},
+		{
+			text: 'Showcase',
+			link: mainURL('/showcase'),
+			description: 'Browse a few production apps submitted by the community.',
+		},
+		{
+			text: 'Mentoring',
+			link: mainURL('/mentoring-free-for-beginners'),
+			description: 'Starting a career in tech?',
+		},
+		{
+			text: 'Playground',
+			link: 'https://play.nativescript.org/',
+			target: 'blank',
+			description: 'A browser based IDE for playing around with samples.',
+		},
+		{
+			text: 'Governance',
+			link:
+				'https://github.com/NativeScript/management/blob/master/nativescript-governance.md',
+			target: 'blank',
+			description:
+				'Learn about the governance model and how you can be a part of it.',
+		},
+	],
+}
+
 /*! @docsearch/js 1.0.0-alpha.28 (UNRELEASED 0a58769) | MIT License | © Algolia, Inc. and contributors | https://github.com/francoischalifour/autocomplete.js */
 function e(e, t, n) {
 	return (
@@ -6578,7 +6656,18 @@ script$b.render = render$b
 
 var script$a = defineComponent({
 	props: {
-		nav: Array,
+		nav: {
+			type: Array,
+			default: function _default() {
+				return config.nav
+			},
+		},
+		flyoutNav: {
+			type: Array,
+			default: function _default() {
+				return config.flyoutNav
+			},
+		},
 		mainURL: {
 			default: '/',
 			type: String,
@@ -6762,125 +6851,21 @@ var _hoisted_21 = {
 	class:
 		'absolute z-10 w-screen max-w-xs px-2 mt-3 transform -translate-x-full left-24 sm:px-0',
 }
+var _hoisted_22 = {
+	class:
+		'overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5',
+}
+var _hoisted_23 = {
+	class: 'relative grid gap-6 px-5 py-6 bg-white sm:gap-8 sm:p-8',
+}
+var _hoisted_24 = {
+	class: 'text-base font-medium text-gray-900',
+}
+var _hoisted_25 = {
+	class: 'mt-1 text-sm text-gray-500',
+}
 
-var _hoisted_22 = /*#__PURE__*/ createVNode(
-	'div',
-	{
-		class:
-			'overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5',
-	},
-	[
-		/*#__PURE__*/ createVNode(
-			'div',
-			{
-				class: 'relative grid gap-6 px-5 py-6 bg-white sm:gap-8 sm:p-8',
-			},
-			[
-				/*#__PURE__*/ createVNode(
-					'a',
-					{
-						href: 'https://blog.nativescript.org/',
-						class:
-							'block p-3 -m-3 transition duration-150 ease-in-out rounded-md hover:bg-gray-50',
-					},
-					[
-						/*#__PURE__*/ createVNode(
-							'p',
-							{
-								class: 'text-base font-medium text-gray-900',
-							},
-							'Blog'
-						),
-						/*#__PURE__*/ createVNode(
-							'p',
-							{
-								class: 'mt-1 text-sm text-gray-500',
-							},
-							'Read about updates, tips & tricks, guides from us and the community.'
-						),
-					]
-				),
-				/*#__PURE__*/ createVNode(
-					'a',
-					{
-						href: 'https://nativescript.org/partners',
-						class:
-							'block p-3 -m-3 transition duration-150 ease-in-out rounded-md hover:bg-gray-50',
-					},
-					[
-						/*#__PURE__*/ createVNode(
-							'p',
-							{
-								class: 'text-base font-medium text-gray-900',
-							},
-							'Partners'
-						),
-						/*#__PURE__*/ createVNode(
-							'p',
-							{
-								class: 'mt-1 text-sm text-gray-500',
-							},
-							'Find partners who can help you with your projects.'
-						),
-					]
-				),
-				/*#__PURE__*/ createVNode(
-					'a',
-					{
-						href: 'https://play.nativescript.org/',
-						target: '_blank',
-						class:
-							'block p-3 -m-3 transition duration-150 ease-in-out rounded-md hover:bg-gray-50',
-					},
-					[
-						/*#__PURE__*/ createVNode(
-							'p',
-							{
-								class: 'text-base font-medium text-gray-900',
-							},
-							'Playground'
-						),
-						/*#__PURE__*/ createVNode(
-							'p',
-							{
-								class: 'mt-1 text-sm text-gray-500',
-							},
-							'Try out NativeScript in your browser and your phone.'
-						),
-					]
-				),
-				/*#__PURE__*/ createVNode(
-					'a',
-					{
-						href:
-							'https://github.com/NativeScript/management/blob/master/nativescript-governance.md',
-						class:
-							'block p-3 -m-3 transition duration-150 ease-in-out rounded-md hover:bg-gray-50',
-					},
-					[
-						/*#__PURE__*/ createVNode(
-							'p',
-							{
-								class: 'text-base font-medium text-gray-900',
-							},
-							'Governance'
-						),
-						/*#__PURE__*/ createVNode(
-							'p',
-							{
-								class: 'mt-1 text-sm text-gray-500',
-							},
-							'Learn about the governance model and how you can be a part of it.'
-						),
-					]
-				),
-			]
-		),
-	],
-	-1
-)
-
-var _hoisted_23 = /*#__PURE__*/ createVNode(
+var _hoisted_26 = /*#__PURE__*/ createVNode(
 	'a',
 	{
 		href: 'https://github.com/NativeScript/NativeScript',
@@ -6918,23 +6903,23 @@ var _hoisted_23 = /*#__PURE__*/ createVNode(
 	-1
 )
 
-var _hoisted_24 = {
+var _hoisted_27 = {
 	key: 0,
 	class:
 		'absolute inset-x-0 top-0 z-20 p-2 transition origin-top transform lg:hidden',
 }
-var _hoisted_25 = {
+var _hoisted_28 = {
 	class:
 		'overflow-hidden bg-white rounded-lg shadow-md ring-1 ring-black ring-opacity-5',
 }
-var _hoisted_26 = {
+var _hoisted_29 = {
 	class: 'flex items-center justify-between px-5 pt-4',
 }
-var _hoisted_27 = {
+var _hoisted_30 = {
 	class: '-mr-3',
 }
 
-var _hoisted_28 = /*#__PURE__*/ createVNode(
+var _hoisted_31 = /*#__PURE__*/ createVNode(
 	'span',
 	{
 		class: 'sr-only',
@@ -6943,7 +6928,7 @@ var _hoisted_28 = /*#__PURE__*/ createVNode(
 	-1
 )
 
-var _hoisted_29 = /*#__PURE__*/ createVNode(
+var _hoisted_32 = /*#__PURE__*/ createVNode(
 	'svg',
 	{
 		class: 'w-6 h-6',
@@ -6964,66 +6949,20 @@ var _hoisted_29 = /*#__PURE__*/ createVNode(
 	-1
 )
 
-var _hoisted_30 = {
+var _hoisted_33 = {
 	class: 'pt-5 pb-6',
 }
-var _hoisted_31 = {
+var _hoisted_34 = {
 	class: 'px-2 space-y-1',
 }
-
-var _hoisted_32 = /*#__PURE__*/ createVNode(
-	'a',
-	{
-		href: 'https://blog.nativescript.org/',
-		class:
-			'block px-3 py-2 text-base font-medium text-gray-900 rounded-md hover:bg-gray-50',
-	},
-	'Blog',
-	-1
-)
-
-var _hoisted_33 = /*#__PURE__*/ createVNode(
-	'a',
-	{
-		href: 'https://play.nativescript.org/',
-		class:
-			'block px-3 py-2 text-base font-medium text-gray-900 rounded-md hover:bg-gray-50',
-	},
-	'Playground',
-	-1
-)
-
-var _hoisted_34 = /*#__PURE__*/ createVNode(
-	'a',
-	{
-		href: 'https://nativescript.org/partners',
-		class:
-			'block px-3 py-2 text-base font-medium text-gray-900 rounded-md hover:bg-gray-50',
-	},
-	'Partners',
-	-1
-)
-
-var _hoisted_35 = /*#__PURE__*/ createVNode(
-	'a',
-	{
-		href:
-			'https://github.com/NativeScript/management/blob/master/nativescript-governance.md',
-		class:
-			'block px-3 py-2 text-base font-medium text-gray-900 rounded-md hover:bg-gray-50',
-	},
-	'Governance',
-	-1
-)
-
-var _hoisted_36 = {
+var _hoisted_35 = {
 	class: 'px-5 mt-6',
 }
-var _hoisted_37 = {
+var _hoisted_36 = {
 	class: 'w-full',
 }
 
-var _hoisted_38 = /*#__PURE__*/ createVNode(
+var _hoisted_37 = /*#__PURE__*/ createVNode(
 	'div',
 	{
 		class:
@@ -7052,7 +6991,7 @@ var _hoisted_38 = /*#__PURE__*/ createVNode(
 	-1
 )
 
-var _hoisted_39 = /*#__PURE__*/ createVNode(
+var _hoisted_38 = /*#__PURE__*/ createVNode(
 	'button',
 	{
 		class: 'block w-full py-3 pl-10 text-left rounded-md bg-ns-blue',
@@ -7231,7 +7170,54 @@ function render$a(_ctx, _cache, $props, $setup, $data, $options) {
 										return [
 											_ctx.flyoutMenuOpen
 												? (openBlock(),
-												  createBlock('div', _hoisted_21, [_hoisted_22]))
+												  createBlock('div', _hoisted_21, [
+														createVNode('div', _hoisted_22, [
+															createVNode('div', _hoisted_23, [
+																(openBlock(true),
+																createBlock(
+																	Fragment,
+																	null,
+																	renderList(
+																		_ctx.flyoutNav,
+																		function (navItem, index) {
+																			return (
+																				openBlock(),
+																				createBlock(
+																					'a',
+																					{
+																						key: index,
+																						href: navItem.link,
+																						target: navItem.target,
+																						class:
+																							'block p-3 -m-3 transition duration-150 ease-in-out rounded-md hover:bg-gray-50',
+																					},
+																					[
+																						createVNode(
+																							'p',
+																							_hoisted_24,
+																							toDisplayString(navItem.text),
+																							1
+																						),
+																						createVNode(
+																							'p',
+																							_hoisted_25,
+																							toDisplayString(
+																								navItem.description
+																							),
+																							1
+																						),
+																					],
+																					8,
+																					['href', 'target']
+																				)
+																			)
+																		}
+																	),
+																	128
+																)),
+															]),
+														]),
+												  ]))
 												: createCommentVNode('', true),
 										]
 									}),
@@ -7239,7 +7225,7 @@ function render$a(_ctx, _cache, $props, $setup, $data, $options) {
 								}
 							),
 						]),
-						_hoisted_23,
+						_hoisted_26,
 					]),
 				]),
 			]),
@@ -7258,9 +7244,9 @@ function render$a(_ctx, _cache, $props, $setup, $data, $options) {
 						return [
 							_ctx.mobileMenuOpen
 								? (openBlock(),
-								  createBlock('div', _hoisted_24, [
-										createVNode('div', _hoisted_25, [
-											createVNode('div', _hoisted_26, [
+								  createBlock('div', _hoisted_27, [
+										createVNode('div', _hoisted_28, [
+											createVNode('div', _hoisted_29, [
 												createVNode('div', null, [
 													createVNode(_component_NativeScriptLogo, {
 														class: 'w-auto h-8',
@@ -7268,7 +7254,7 @@ function render$a(_ctx, _cache, $props, $setup, $data, $options) {
 														'aria-hidden': 'true',
 													}),
 												]),
-												createVNode('div', _hoisted_27, [
+												createVNode('div', _hoisted_30, [
 													createVNode(
 														'button',
 														{
@@ -7281,12 +7267,12 @@ function render$a(_ctx, _cache, $props, $setup, $data, $options) {
 															class:
 																'\n                  inline-flex\n                  items-center\n                  justify-center\n                  p-2\n                  text-gray-400\n                  bg-white\n                  rounded-md\n                  hover:bg-gray-100\n                  focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600\n                ',
 														},
-														[_hoisted_28, _hoisted_29]
+														[_hoisted_31, _hoisted_32]
 													),
 												]),
 											]),
-											createVNode('div', _hoisted_30, [
-												createVNode('div', _hoisted_31, [
+											createVNode('div', _hoisted_33, [
+												createVNode('div', _hoisted_34, [
 													(openBlock(true),
 													createBlock(
 														Fragment,
@@ -7311,13 +7297,36 @@ function render$a(_ctx, _cache, $props, $setup, $data, $options) {
 														}),
 														128
 													)),
-													_hoisted_32,
-													_hoisted_33,
-													_hoisted_34,
-													_hoisted_35,
+													(openBlock(true),
+													createBlock(
+														Fragment,
+														null,
+														renderList(
+															_ctx.flyoutNav,
+															function (navItem, index) {
+																return (
+																	openBlock(),
+																	createBlock(
+																		'a',
+																		{
+																			key: index,
+																			href: navItem.link,
+																			target: navItem.target,
+																			class:
+																				'block px-3 py-2 text-base font-medium text-gray-900 rounded-md hover:bg-gray-50',
+																		},
+																		toDisplayString(navItem.text),
+																		9,
+																		['href', 'target']
+																	)
+																)
+															}
+														),
+														128
+													)),
 												]),
-												createVNode('div', _hoisted_36, [
-													createVNode('div', _hoisted_37, [
+												createVNode('div', _hoisted_35, [
+													createVNode('div', _hoisted_36, [
 														createVNode(
 															'div',
 															{
@@ -7331,7 +7340,7 @@ function render$a(_ctx, _cache, $props, $setup, $data, $options) {
 																	}),
 																class: 'relative text-white',
 															},
-															[_hoisted_38, _hoisted_39],
+															[_hoisted_37, _hoisted_38],
 															32
 														),
 													]),
@@ -8467,9 +8476,9 @@ var script$4 = defineComponent({
 	},
 })
 
-var _withId = /*#__PURE__*/ withScopeId('data-v-4c604f93')
+var _withId = /*#__PURE__*/ withScopeId('data-v-481dd16a')
 
-pushScopeId('data-v-4c604f93')
+pushScopeId('data-v-481dd16a')
 
 var _hoisted_1$4 = /*#__PURE__*/ createVNode(
 	'div',
@@ -8562,7 +8571,7 @@ var render$4 = /*#__PURE__*/ _withId(function (
 })
 
 script$4.render = render$4
-script$4.__scopeId = 'data-v-4c604f93'
+script$4.__scopeId = 'data-v-481dd16a'
 
 var script$3 = defineComponent({
 	setup: function setup() {},
@@ -8661,11 +8670,12 @@ function render$3(_ctx, _cache, $props, $setup, $data, $options) {
 				_component_Header,
 				{
 					nav: _ctx.$themeConfig.nav,
+					flyoutNav: _ctx.$themeConfig.flyoutNav,
 					mainURL: _ctx.$themeConfig.mainURL,
 				},
 				null,
 				8,
-				['nav', 'mainURL']
+				['nav', 'flyoutNav', 'mainURL']
 			),
 			createVNode(_component_MobileNavigation),
 			createVNode('div', _hoisted_2$3, [

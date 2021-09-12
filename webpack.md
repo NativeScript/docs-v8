@@ -27,6 +27,12 @@ With version `5.0.0` of `@nativescript/webpack` our goal was to simplify mainten
 
 ## Flags & their usage
 
+### CLI flags
+
+When running a NativeScript app the following flags have an effect on the webpack config:
+
+- `--no-hmr` - disable HMR (enabled by default)
+
 ### env flags
 
 - `--env.verbose` - prints verbose logs and the internal config before building
@@ -78,12 +84,6 @@ if (__DEV__) {
 ```
 
 :::
-
-### CLI flags
-
-When running a NativeScript app the following flags have an effect on the webpack config:
-
-- `--no-hmr` - disable HMR (enabled by default)
 
 ## Examples of configurations
 
