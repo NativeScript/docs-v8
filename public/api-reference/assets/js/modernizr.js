@@ -166,8 +166,10 @@
 			}
 			var c = '3.7.0',
 				d = a.html5 || {},
-				e = /^<|^(?:button|map|select|textarea|object|iframe|option|optgroup)$/i,
-				f = /^(?:a|b|code|div|fieldset|h1|h2|h3|h4|h5|h6|i|label|li|ol|p|q|span|strong|style|table|tbody|td|th|tr|ul)$/i,
+				e =
+					/^<|^(?:button|map|select|textarea|object|iframe|option|optgroup)$/i,
+				f =
+					/^(?:a|b|code|div|fieldset|h1|h2|h3|h4|h5|h6|i|label|li|ol|p|q|span|strong|style|table|tbody|td|th|tr|ul)$/i,
 				g,
 				h = '_html5shiv',
 				i = 0,
@@ -265,9 +267,12 @@
 			1 === y[c] && ((r = 1), (y[c] = [])),
 				'object' == a ? (l.data = c) : ((l.src = c), (l.type = a)),
 				(l.width = l.height = '0'),
-				(l.onerror = l.onload = l.onreadystatechange = function () {
-					k.call(this, r)
-				}),
+				(l.onerror =
+					l.onload =
+					l.onreadystatechange =
+						function () {
+							k.call(this, r)
+						}),
 				p.splice(e, 0, u),
 				'img' != a &&
 					(r || 2 === y[c]
@@ -443,11 +448,12 @@
 				k.src = a
 				for (o in d) k.setAttribute(o, d[o])
 				;(c = j ? h : c || f),
-					(k.onreadystatechange = k.onload = function () {
-						!l &&
-							g(k.readyState) &&
-							((l = 1), c(), (k.onload = k.onreadystatechange = null))
-					}),
+					(k.onreadystatechange = k.onload =
+						function () {
+							!l &&
+								g(k.readyState) &&
+								((l = 1), c(), (k.onload = k.onreadystatechange = null))
+						}),
 					m(function () {
 						l || ((l = 1), c(1))
 					}, e),
