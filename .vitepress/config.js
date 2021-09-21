@@ -317,6 +317,71 @@ function getPluginsSidebar() {
 			],
 		},
 		{
+			text: 'NativeScript Firebase Plugins',
+			children: [
+				{
+					text: 'Analytics',
+					link: '/plugins/firebase/analytics',
+				},
+				{
+					text: 'App Check',
+					link: '/plugins/firebase/app-check',
+				},
+				{
+					text: 'Auth',
+					link: '/plugins/firebase/auth',
+				},
+				{
+					text: 'Core',
+					link: '/plugins/firebase/core',
+				},
+				{
+					text: 'Crashlytics',
+					link: '/plugins/firebase/crashlytics',
+				},
+				{
+					text: 'Database',
+					link: '/plugins/firebase/database',
+				},
+				{
+					text: 'Dynamic Links',
+					link: '/plugins/firebase/dynamic-links',
+				},
+				{
+					text: 'Firestore',
+					link: '/plugins/firebase/firestore',
+				},
+				{
+					text: 'Functions',
+					link: '/plugins/firebase/functions',
+				},
+				{
+					text: 'In-App Messaging',
+					link: '/plugins/firebase/in-app-messaging',
+				},
+				{
+					text: 'Installations',
+					link: '/plugins/firebase/installations',
+				},
+				{
+					text: 'Messaging',
+					link: '/plugins/firebase/messaging',
+				},
+				{
+					text: 'Performance',
+					link: '/plugins/firebase/performance',
+				},
+				{
+					text: 'Remote Config',
+					link: '/plugins/firebase/remote-config',
+				},
+				{
+					text: 'Storage',
+					link: '/plugins/firebase/storage',
+				},
+			],
+		},
+		{
 			text: 'NativeScript UI Plugins',
 			children: [
 				{
