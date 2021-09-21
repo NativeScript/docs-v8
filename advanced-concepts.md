@@ -1671,7 +1671,7 @@ main-view-model.js
 ```js
 ...
 
-const worker = new Worker("./image-processor");
+const worker = new Worker("./workers/image-processor");
 worker.postMessage({ src: imageSource, mode: 'scale', options: options });
 
 worker.onmessage = function(msg) {
