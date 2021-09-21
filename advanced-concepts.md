@@ -1699,7 +1699,7 @@ worker.onerror = function(err) {
 workers/image-processor.js
 
 ```js
-require('globals') // necessary to bootstrap ns modules on the new thread
+require('@nativescript/core/globals') // necessary to bootstrap ns modules on the new thread
 
 global.onmessage = function (msg) {
   const request = msg.data
