@@ -1671,7 +1671,7 @@ main-view-model.js
 ```js
 ...
 
-const WorkerScript = require("nativescript-worker-loader!./worker-script.js");
+const WorkerScript = require("nativescript-worker-loader!./image-processor.js");
 const worker = new WorkerScript();
 worker.postMessage({ src: imageSource, mode: 'scale', options: options });
 
