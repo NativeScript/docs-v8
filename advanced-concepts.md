@@ -1671,8 +1671,7 @@ main-view-model.js
 ```js
 ...
 
-const WorkerScript = require("nativescript-worker-loader!./worker-script.js");
-const worker = new WorkerScript();
+const worker = new Worker("./workers/image-processor");
 worker.postMessage({ src: imageSource, mode: 'scale', options: options });
 
 worker.onmessage = function(msg) {
@@ -1700,7 +1699,7 @@ worker.onerror = function(err) {
 workers/image-processor.js
 
 ```js
-require('globals') // necessary to bootstrap ns modules on the new thread
+require('@nativescript/core/globals') // necessary to bootstrap ns modules on the new thread
 
 global.onmessage = function (msg) {
   const request = msg.data
@@ -1732,8 +1731,6 @@ function processImage(src, mode, options) {
 // to handle errors implement the global.onerror handler:
 // global.onerror = function(err) {}
 ```
-
-For details on the worker plugin check out the [nativescript-worker-loader](https://github.com/NativeScript/worker-loader) repository.
 
 ### General Guidelines
 
