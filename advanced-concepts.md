@@ -1732,8 +1732,6 @@ function processImage(src, mode, options) {
 // global.onerror = function(err) {}
 ```
 
-For details on the worker plugin check out the [nativescript-worker-loader](https://github.com/NativeScript/worker-loader) repository.
-
 ### General Guidelines
 
 For optimal results when using the Workers API, follow these guidelines:
