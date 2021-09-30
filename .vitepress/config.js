@@ -346,7 +346,7 @@ function getBestPracticeSidebar() {
 					link: '/best-practices/listviews',
 				},
 				{
-					text: 'Hidden, Visibility, v-if, ngIf, etc.',
+					text: 'Hidden/Visibility/if',
 					link: '/best-practices/if-things',
 				},
 				{
@@ -366,7 +366,7 @@ function getBestPracticeSidebar() {
 					link: '/best-practices/ios-tips',
 				},
 				{
-					text: 'Conditional or .ios/.android file',
+					text: 'file.{ios,android}?',
 					link: '/best-practices/platform-file-split-or-not',
 				},
 				{
