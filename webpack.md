@@ -245,7 +245,9 @@ module.exports = env => {
   webpack.chainWebpack(config => {
     config.plugin('DefinePlugin').tap(args => {
       Object.assign(args[0], {
-        'global.isProduction': !!env.production
+        'global.isProduction': !!env.production,
+        'global.someNumber': 42,
+        'global.someString': JSON.stringify('some string value')
       })
 
       return args
