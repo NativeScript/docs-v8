@@ -76,7 +76,7 @@ There should also be a file called `.detoxrc.json` in your project root.
 
 ### Configure Detox
 
-Detox must be configued to know the location of the iOS and Android app binary as well as what emulator/simulator to use.
+Detox must be configured to know the location of the iOS and Android app binary as well as what emulator/simulator to use.
 
 Open `.detoxrc.json` and make the following modifications under `configurations` for iOS and Android.
 
@@ -177,7 +177,7 @@ detox build -c ios|android
 
 ### Testing
 
-Run your tests with the folling command:
+Run your tests with the following command:
 
 ```cli
 detox test -c ios|android

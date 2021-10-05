@@ -20,13 +20,13 @@ Over the years, several lessons have emerged around scalability with JavaScript 
 
 4. A good code sharing approach should clearly identify deployment/distribution lines as well as distinct platform separation allowing various shared code segments to have clear designated deployment targets allowing teams to control their own sophisticated build pipelines as they desire. Further the shared code should live within a thoughtful organizational structure that supports the ability to scale and adapt to future needs aside from the deployment targets that use the shared code.
 
-5. Within the specific scope of NativeScript's viewpoint, JavaScript is the universal langugage which provides the opportunity to share code effectively and responsibly. An approach that is based fundamentally on the strengths of JavaScript (and inherently TypeScript) is a good code sharing approach.
+5. Within the specific scope of NativeScript's viewpoint, JavaScript is the universal language which provides the opportunity to share code effectively and responsibly. An approach that is based fundamentally on the strengths of JavaScript (and inherently TypeScript) is a good code sharing approach.
 
 Notes:
 
 Framework's are often "domain specific in nature". Programming languages are often the opposite or at least more broadly applicable to a wider set of domain problems. A good code sharing approach centers itself around the programming language and not the framework.
 
-If a "code sharing solution" is maintained by a framework that can often mean there are inherent biases that interlock it's "sharable nature" with the framework, even if not intentional, it is somewhat inevitable. This breaks the first rule of a good code sharing approach.
+If a "code sharing solution" is maintained by a framework that can often mean there are inherent biases that interlock it's "shareable nature" with the framework, even if not intentional, it is somewhat inevitable. This breaks the first rule of a good code sharing approach.
 
 ## Recommendations and Solutions
 

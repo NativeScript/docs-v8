@@ -133,7 +133,7 @@ The `DateTimePickerFields` has a `date` property which can be used to get its cu
 
 - Orientation
 
-The `DateTimePickerFields` have an `orientation` property which allows changing the way the fields are laid out. If the orientation is `horizontal` (the default), the fields are on the same row, if the orienation is `vertical`, the fields will be on separate rows. Here's an example in the [demo](https://github.com/NativeScript/nativescript-datetimepicker/blob/master/demo/app/home/home-page.xml#L160), [demo-angular](https://github.com/NativeScript/nativescript-datetimepicker/blob/master/demo-angular/src/app/home/home.component.html#L155) and [demo-vue](https://github.com/NativeScript/nativescript-datetimepicker/blob/master/demo-vue/app/components/Home.vue#L157) applications.
+The `DateTimePickerFields` have an `orientation` property which allows changing the way the fields are laid out. If the orientation is `horizontal` (the default), the fields are on the same row, if the orientation is `vertical`, the fields will be on separate rows. Here's an example in the [demo](https://github.com/NativeScript/nativescript-datetimepicker/blob/master/demo/app/home/home-page.xml#L160), [demo-angular](https://github.com/NativeScript/nativescript-datetimepicker/blob/master/demo-angular/src/app/home/home.component.html#L155) and [demo-vue](https://github.com/NativeScript/nativescript-datetimepicker/blob/master/demo-vue/app/components/Home.vue#L157) applications.
 
 - Auto Pick Time
 

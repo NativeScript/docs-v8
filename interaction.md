@@ -701,7 +701,7 @@ NativeScript lets you animate the following properties:
 
 :::tip Note
 
-To use `translate` or `scale` you must preceed with an object declaring both x and y values, for example `translate: { x: 100, y: 250 }` or `scale: { x: 1.5, y: 0 }`.
+To use `translate` or `scale` you must proceed with an object declaring both x and y values, for example `translate: { x: 100, y: 250 }` or `scale: { x: 1.5, y: 0 }`.
 
 :::
 
@@ -1530,7 +1530,7 @@ export function showActionDialog() {
 }
 ```
 
-#### Action Dialog Propeties
+#### Action Dialog Properties
 
 | Name               | Type            | Description                                                                                    |
 | ------------------ | --------------- | ---------------------------------------------------------------------------------------------- |

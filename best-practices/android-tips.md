@@ -10,7 +10,7 @@ On Android images inside the various drawable directories are used to serve the 
 
 Google provides a great resource to learn more about [supporting different pixel densities](https://developer.android.com/training/multiscreen/screendensities).
 
-In our NativeScript project, you will have the `App_Resources/Android` directory. Everything in here will mirror a standard Android project. Inside the `App_Resources/Android/src/main` directory you shuld have a `res` directory which contains many `drawable-...` directories. This is where you should place images that have been resized for the different device displays. To read more on this topic you can read [the Android documentation for alternative bitmaps](https://developer.android.com/training/multiscreen/screendensities#TaskProvideAltBmp).
+In our NativeScript project, you will have the `App_Resources/Android` directory. Everything in here will mirror a standard Android project. Inside the `App_Resources/Android/src/main` directory you should have a `res` directory which contains many `drawable-...` directories. This is where you should place images that have been resized for the different device displays. To read more on this topic you can read [the Android documentation for alternative bitmaps](https://developer.android.com/training/multiscreen/screendensities#TaskProvideAltBmp).
 
 There are many approaches to resizing your images for the different drawable folders. You could use Android Studio or other third party tools. For this example we will look at a tool specifically built to help NativeScript developers resize their images, [images.nativescript.rocks](https://images.nativescript.rocks/).
 

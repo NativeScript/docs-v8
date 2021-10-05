@@ -66,7 +66,7 @@ You may need to delete `platforms/android` and rebuild using the CLI command `ns
 ### App name
 
 This is the display name for your app. It is purely cosmetic but highly important. For example, it appears under the app icon.
-The value can be set via the `App_Resources/Android/src/main/res/values/strings.xml` file. Creating your own `strings.xml` will require population of the `app_name` and `title_activity_kimera` attributes explictly, like so:
+The value can be set via the `App_Resources/Android/src/main/res/values/strings.xml` file. Creating your own `strings.xml` will require population of the `app_name` and `title_activity_kimera` attributes explicitly, like so:
 
 ```XML
 <?xml version="1.0" encoding="utf-8"?>
@@ -684,7 +684,7 @@ To modify that template and create your own launch screen using your own assets 
 
 - Xcode 7.1 or newer version (optional: needed only if you prefer WYSIWYG workflow for changing your images).
 
-The workflow for creating your own launch screen can be handled from Xcode or manually in the NativeScript enviroment.
+The workflow for creating your own launch screen can be handled from Xcode or manually in the NativeScript environment.
 In this article we are going to cover both the manual and the Xcode WYSIWYG approach.
 
 In your **app/App_Resources/iOS/Assets.xcassets** you will find the following sub-folders:
@@ -746,7 +746,7 @@ Close Xcode and rebuild your NativeScript app to use the new launch images.
 
 :::tip Important
 
-Make sure you have provided all required images or your app wil be rejected from publishing in the App Store.
+Make sure you have provided all required images or your app will be rejected from publishing in the App Store.
 
 :::
 

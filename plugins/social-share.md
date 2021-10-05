@@ -116,7 +116,7 @@ dependencies {
 }
 ```
 
-- Add a `meta-data` section and `provider` section ot your `AndroidManifest.xml` so it becomes similar to this:
+- Add a `meta-data` section and `provider` section of your `AndroidManifest.xml` so it becomes similar to this:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
