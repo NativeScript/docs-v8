@@ -1,13 +1,13 @@
 ---
-title: App Availability
-link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/appavailability/README.md
+	title: appavailability
+	link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/appavailability/README.md
 ---
 
-# @nativescript/appavailability
+# Nativescript appavailability
 
 A plugin to check for availability of other apps on the device.
 
-```cli
+```javascript
 ns plugin add @nativescript/appavailability
 ```
 

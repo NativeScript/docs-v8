@@ -1,17 +1,19 @@
 ---
-title: Image Picker
-link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/imagepicker/README.md
+	title: imagepicker
+	link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/imagepicker/README.md
 ---
 
-# @nativescript/imagepicker
+# Nativescript imagepicker ![apple](https://cdn3.iconfinder.com/data/icons/picons-social/57/16-apple-32.png) ![android](https://cdn4.iconfinder.com/data/icons/logos-3/228/android-32.png)
+
+[![npm](https://img.shields.io/npm/v/nativescript-imagepicker.svg)](https://www.npmjs.com/package/nativescript-imagepicker)
+[![npm](https://img.shields.io/npm/dm/nativescript-imagepicker.svg)](https://www.npmjs.com/package/nativescript-imagepicker)
+[![Build Status](https://travis-ci.org/NativeScript/nativescript-imagepicker.svg?branch=master)](https://travis-ci.org/NativeScript/nativescript-imagepicker)
 
 Imagepicker plugin supporting both single and multiple selection.
 <br />Plugin supports **iOS8+** and uses [QBImagePicker](https://github.com/questbeat/QBImagePicker) cocoa pod.
 <br />For **Android** it uses Intents to open the stock images or file pickers. For Android 6 (API 23) and above the permissions to read file storage should be explicitly required. See demo for implementation details.
 
-## Install
-
-```cli
+```javascript
 ns plugin add @nativescript/imagepicker
 ```
 
@@ -21,46 +23,65 @@ The best way to explore the usage of the plugin is to inspect both demo apps in 
 In `demo` folder you can find the usage of the plugin for TypeScript non-Angular application. Refer to `demo/app/main-page.ts`.
 In `demo-angular` is the usage in an Angular app. Refer to `demo-angular/app/app.component.ts`.
 
+In addition to the plugin usage, both apps are webpack configured.
+
 In short here are the steps:
 
-### Example
+### Import the plugin
+
+_TypeScript_
+
+```
+import * as imagepicker from "@nativescript/imagepicker";
+```
+
+_Javascript_
+
+```
+var imagepicker = require("@nativescript/imagepicker");
+```
+
+### Create imagepicker
 
 Create imagepicker in `single` or `multiple` mode to specifiy if the imagepicker will be used for single or multiple selection of images
 
-```typescript
-import * as imagepicker from '@nativescript/imagepicker'
+_TypeScript_
 
-const context = imagepicker.create({
-  mode: 'single' // use "multiple" for multiple selection
-})
-
-// Request permissions, show the images list and process the selection
-context
-  .authorize()
-  .then(() => {
-    return context.present()
-  })
-  .then(selection => {
-    selection.forEach(selected => {
-      // process the selected image
-    })
-    list.items = selection
-  })
-  .catch(e => {
-    // process error
-  })
+```
+let context = imagepicker.create({
+    mode: "single" // use "multiple" for multiple selection
+});
 ```
 
-### Permissions
+_Javascript_
 
-::: warning Note
-To request permissions for Android 6+ (API 23+) we use [nativescript-permissions](https://www.npmjs.com/package/nativescript-permissions).
-:::
+```
+var context = imagepicker.create({ mode: "single" }); // use "multiple" for multiple selection
+```
 
-::: warning Note
-To be sure to have permissions add the following lines to AndroidManifest.xml in `App_Resources/Android/` in your application.
+### Request permissions, show the images list and process the selection
 
-```xml
+```
+context
+    .authorize()
+    .then(function() {
+        return context.present();
+    })
+    .then(function(selection) {
+        selection.forEach(function(selected) {
+            // process the selected image
+        });
+        list.items = selection;
+    }).catch(function (e) {
+        // process error
+    });
+```
+
+> **NOTE**: To request permissions for Android 6+ (API 23+) we use [nativescript-permissions](https://www.npmjs.com/package/nativescript-permissions).
+
+> **NOTE**: To be sure to have permissions add the following lines in AndroidManifest.xml
+
+```
 <manifest ... >
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
@@ -70,17 +91,12 @@ To be sure to have permissions add the following lines to AndroidManifest.xml in
 </manifest>
 ```
 
-:::
-
-::: warning Note
-Using the plugin on iOS requres photo library permission. Your app might be rejected from the Apple App Store if you do not provide a description about why you need this permission. The default message "Requires access to photo library." might not be enough for the App Store reviewers. You can customize it by editing the `app/App_Resources/iOS/Info.plist` file in your app and adding the following key:
+> **NOTE**: Using the plugin on iOS requres photo library permission. Your app might be rejected from the Apple App Store if you do not provide a description about why you need this permission. The default message "Requires access to photo library." might not be enough for the App Store reviewers. You can customize it by editing the `app/App_Resources/iOS/Info.plist` file in your app and adding the following key:
 
 ```xml
 <key>NSPhotoLibraryUsageDescription</key>
 <string>Description text goes here</string>
 ```
-
-:::
 
 ## API
 

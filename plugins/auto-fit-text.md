@@ -1,11 +1,11 @@
 ---
-title: Auto Fit Text
-link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/auto-fit-text/README.md
+	title: auto-fit-text
+	link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/auto-fit-text/README.md
 ---
 
-# @nativescript/auto-fit-text
+# Nativescript auto-fit-text
 
-```cli
+```bash
 ns plugin add @nativescript/auto-fit-text
 ```
 

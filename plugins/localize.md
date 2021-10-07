@@ -1,9 +1,9 @@
 ---
-title: Localize
-link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/localize/README.md
+	title: localize
+	link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/localize/README.md
 ---
 
-# @nativescript/localize
+# Nativescript localize
 
 This is a plugin for NativeScript that implements internationalization (i18n) using the native capabilities of each platform. It is inspired from [nativescript-i18n](https://github.com/rborn/nativescript-i18n)
 
@@ -29,8 +29,8 @@ A lot of thanks goes out to [Ludovic Fabrèges (@lfabreges)](https://github.com/
 
 ## Installation
 
-```cli
-ns plugin add @nativescript/localize
+```shell
+tns plugin add @nativescript/localize
 ```
 
 ## Usage
@@ -42,7 +42,7 @@ src
   | i18n
       | en.json           <-- english language
       | fr.default.json   <-- french language (default)
-      | es.js
+      | es.js
 ```
 
 You need to [set the default langage](#how-to-set-the-default-language) and make sure it contains
@@ -227,11 +227,7 @@ import { overrideLocale } from '@nativescript/localize'
 const localeOverriddenSuccessfully = overrideLocale('en-GB') // or "nl-NL", etc (or even just the part before the hyphen)
 ```
 
-:::tip Important
-
-In both cases, after calling override Locale, you must ask the user to restart the app
-
-:::
+> **Important:** In both cases, after calling override Locale, you must ask the user to restart the app
 
 For Example:
 
@@ -255,11 +251,8 @@ alert({
 })
 ```
 
-:::tip Note
-
-In case you are using [Android app bundle](https://docs.nativescript.org/tooling/publishing/android-app-bundle) to release your android app, add this to `App_Resources/Android/app.gradle` to make sure all lanugages are bundled in the split apks
-
-:::
+> **Important:** In case you are using [Android app bundle](https://docs.nativescript.org/tooling/publishing/android-app-bundle) to release your android app, add this to
+> App_Resources/Android/app.gradle to make sure all lanugages are bundled in the split apks
 
 ```groovy
 android {
@@ -274,11 +267,7 @@ android {
 }
 ```
 
-:::tip Note
-
-You can get the default language on user's phone by using this
-
-:::
+> **Tip:** you can get the default language on user's phone by using this
 
 ```ts
 import { Device } from '@nativescript/core'
@@ -286,11 +275,8 @@ import { Device } from '@nativescript/core'
 console.log("user's language is", Device.language.split('-')[0])
 ```
 
-:::tip Note
-
-`overrideLocale` method stores the language in a special key in app-settings, you can access it like this,
-
-:::
+> **Tip:** overrideLocale method stores the language in a special key in app-settings,
+> you can access it like this,
 
 ```ts
 import { ApplicationSettings } from '@nativescript/core'

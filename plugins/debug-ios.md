@@ -1,6 +1,6 @@
 ---
-title: NativeScriptDebugIOS
-link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/debug-ios/README.md
+	title: debug-ios
+	link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/debug-ios/README.md
 ---
 
 # @nativescript/debug-ios
@@ -18,3 +18,7 @@ import { NativeScriptDebugIOS } from '@nativescript/debug-ios';
 
 NativeScriptDebugIOS.show();
 ```
+
+## License
+
+Apache License Version 2.0

@@ -1,11 +1,11 @@
 ---
-title: Social Share
-link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/social-share/README.md
+	title: social-share
+	link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/social-share/README.md
 ---
 
-# @nativescript/social-share
+# Nativescript social-share
 
-```cli
+```javascript
 ns plugin add @nativescript/social-share
 ```
 
@@ -25,7 +25,7 @@ import * as SocialShare from "@nativescript/social-share";
 
 ### shareImage(ImageSource image, [optional] String subject)
 
-The `shareImage()` method expects an [`ImageSource`](https://docs.nativescript.org/api-reference/classes/imagesource.html) object. The code below loads an image from the app and invokes the share widget with it:
+The `shareImage()` method expects an [`ImageSource`](http://docs.nativescript.org/ApiReference/image-source/ImageSource.html) object. The code below loads an image from the app and invokes the share widget with it:
 
 ```JavaScript
 // ------------ JavaScript ------------------
@@ -81,7 +81,7 @@ SocialShare.shareUrl(
 )
 ```
 
-### shareViaTwitter(text?: string, url?: string): `Promise<void>`;
+### shareViaTwitter(text?: string, url?: string): Promise<void>;
 
 Share text or url via Twitter.
 
@@ -96,7 +96,7 @@ Share text or url via Twitter.
 SocialShare.shareViaTwitter('Home of NativeScript', 'https://www.nativescript.org/')
 ```
 
-### shareViaFacebook(text?: string, url?: string): `Promise<void>`;
+### shareViaFacebook(text?: string, url?: string): Promise<void>;
 
 Share url via Facebook. Note that `text` will usually be suppressed due to Facebook security/abuse prevention, but the url will come through.
 

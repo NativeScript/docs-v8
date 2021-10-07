@@ -5,8 +5,8 @@ title: Plugins
 # Plugins are sweet!
 
 - [@nativescript/animated-circle](animated-circle)
-- [@nativescript/app-availability](app-availability)
-- [@nativescript/apple-pay](apple-pay)
+- [@nativescript/appavailability](app-availability)
+<!-- - [@nativescript/apple-pay](apple-pay) -->
 - [@nativescript/auto-fit-text](auto-fit-text)
 - [@nativescript/background-http](background-http)
 - [@nativescript/brightness](brightness)
@@ -18,9 +18,9 @@ title: Plugins
 - [@nativescript/email](email)
 - [@nativescript/fingerprint-auth](fingerprint-auth)
 - [@nativescript/geolocation](geolocation)
-- [@nativescript/google-pay](google-pay)
+<!-- - [@nativescript/google-pay](google-pay) -->
 - [@nativescript/imagepicker](imagepicker)
-- [@nativescript/iq-keyboard-manager](iq-keyboard-manager)
+- [@nativescript/iqkeyboardmanager](iq-keyboard-manager)
 - [@nativescript/local-notifications](local-notifications)
 - [@nativescript/localize](localize)
 - [@nativescript/picker](picker)

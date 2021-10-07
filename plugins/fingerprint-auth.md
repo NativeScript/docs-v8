@@ -1,11 +1,11 @@
 ---
-title: Fingerprint Auth
-link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/fingerprint-auth/README.md
+	title: fingerprint-auth
+	link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/fingerprint-auth/README.md
 ---
 
-# @nativescript/fingerprint-auth
+# Nativescript fingerprint-auth
 
-```cli
+```javascript
 ns plugin add @nativescript/fingerprint-auth
 ```
 
@@ -25,6 +25,19 @@ If that's set to a version less than 23, add this `overrideLibrary` line:
 Want a nicer guide than these raw code samples? Read [Nic Raboy's blog post about this plugin](https://www.thepolyglotdeveloper.com/2016/03/add-touch-id-authentication-support-to-your-nativescript-app/).
 
 ### `available`
+
+#### JavaScript
+
+```js
+var fingerprintAuthPlugin = require('@nativescript/fingerprint-auth')
+var fingerprintAuth = new fingerprintAuthPlugin.FingerprintAuth()
+
+fingerprintAuth.available().then(function (avail) {
+  console.log('Available? ' + avail)
+})
+```
+
+#### TypeScript
 
 ```typescript
 import { FingerprintAuth, BiometricIDAvailableResult } from "@nativescript/fingerprint-auth";
@@ -46,13 +59,9 @@ class MyClass {
 
 ### `verifyFingerprint`
 
-::: warning Note
-On the iOS simulator this will just `resolve()`.
-:::
+Note that on the iOS simulator this will just `resolve()`.
 
 ```typescript
-import { FingerprintAuth } from '@nativescript/fingerprint-auth'
-
 fingerprintAuth
   .verifyFingerprint({
     title: 'Android title', // optional title (used only on Android)
