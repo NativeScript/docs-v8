@@ -3,9 +3,9 @@
 	link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/auto-fit-text/README.md
 ---
 
-# Nativescript auto-fit-text
+# @nativescript/auto-fit-text
 
-```bash
+```cli
 ns plugin add @nativescript/auto-fit-text
 ```
 

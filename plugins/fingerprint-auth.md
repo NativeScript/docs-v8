@@ -3,9 +3,9 @@
 	link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/fingerprint-auth/README.md
 ---
 
-# Nativescript fingerprint-auth
+# @nativescript/fingerprint-auth
 
-```javascript
+```cli
 ns plugin add @nativescript/fingerprint-auth
 ```
 

@@ -3,13 +3,13 @@
 	link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/shared-notification-delegate/README.md
 ---
 
-# Nativescript Shared Notification Delegate
+# @nativescript/shared-notification-delegate
 
 This project aims to prevent the shortcomings that come from the iOS implementation of only allowing a single delegate.
 
 ## Installation
 
-```javascript
+```cli
 ns plugin add @nativescript/shared-notification-delegate
 ```
 

@@ -3,7 +3,7 @@
 	link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/camera/README.md
 ---
 
-# NativeScript Camera
+# @nativescript/camera
 
 # Working with the camera plugin
 
@@ -14,7 +14,7 @@ The NativeScript camera plugin was designed for the first two parts of the job (
 
 ## Installation
 
-```
+```cli
 npm install @nativescript/camera --save
 ```
 

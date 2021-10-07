@@ -3,7 +3,7 @@
 	link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/detox/README.md
 ---
 
-# NativeScript Detox
+# @nativescript/detox
 
 Easily add [Detox](https://github.com/wix/Detox) end-to-end testing to your NativeScript apps!
 
@@ -24,7 +24,7 @@ Easily add [Detox](https://github.com/wix/Detox) end-to-end testing to your Nati
 
 ## Installation
 
-```bash
+```cli
 ns plugin add @nativescript/detox
 ```
 

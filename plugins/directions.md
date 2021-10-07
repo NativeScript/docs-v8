@@ -3,9 +3,9 @@
 	link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/directions/README.md
 ---
 
-# Nativescript directions
+# @nativescript/directions
 
-```javascript
+```cli
 ns plugin add @nativescript/directions
 ```
 

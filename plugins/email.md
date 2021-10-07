@@ -3,7 +3,7 @@
 	link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/email/README.md
 ---
 
-# NativeScript Email
+# @nativescript/Email
 
 [![NPM version][npm-image]][npm-url]
 [![Downloads][downloads-image]][npm-url]
@@ -19,7 +19,7 @@ You can use this plugin to compose an e-mail, have the user edit the draft manua
 
 > Note that this plugin depends on the default mail app. If you want a fallback to a third party client app like Gmail or Outlook, then check for availability, and if not available use a solution like [the Social Share plugin](https://github.com/tjvantoll/nativescript-social-share).
 
-```javascript
+```cli
 ns plugin add @nativescript/email
 ```
 

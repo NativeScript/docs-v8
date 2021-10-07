@@ -3,7 +3,7 @@
 	link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/datetimepicker/README.md
 ---
 
-# Nativescript datetimepicker
+# @nativescript/datetimepicker
 
 A [NativeScript](https://www.nativescript.org) plugin that provides ui elements for picking date and time. The plugin provides UI elements for picking date and time - `DatePickerField`, `TimePickerField` and `DateTimePickerFields` - they are all NativeScript Views that show selected date and/or time and allow picking another after being tapped. There is also a `DateTimePicker` class which provides static methods `pickDate` and `pickTime` that can be called to show the same dialog picker as the fields.
 
@@ -13,7 +13,7 @@ A [NativeScript](https://www.nativescript.org) plugin that provides ui elements 
 
 <img alt="TimePickerField on iOS (left) and Android (right)" src="https://raw.githubusercontent.com/NativeScript/nativescript-datetimepicker/master/docs/time_picker_field.png" width="500px"/>
 
-```javascript
+```cli
 ns plugin add @nativescript/datetimepicker
 ```
 

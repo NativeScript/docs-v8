@@ -3,7 +3,7 @@
 	link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/animated-circle/README.md
 ---
 
-# Nativescript animated-circle
+# @nativescript/animated-circle
 
 ```bash
 ns plugin add @nativescript/animated-circle

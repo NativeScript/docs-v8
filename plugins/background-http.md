@@ -3,9 +3,9 @@
 	link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/background-http/README.md
 ---
 
-# Nativescript background-http
+# @nativescript/background-http
 
-```javascript
+```cli
 ns plugin add @nativescript/background-http
 ```
 
@@ -17,24 +17,23 @@ The below attached code snippets demonstrate how to use `@nativescript/backgroun
 
 Sample code for configuring the upload session. Each session must have a unique `id`, but it can have multiple tasks running simultaneously. The `id` is passed as a parameter when creating the session (the `image-upload` string in the code bellow):
 
-```JavaScript
-
+```javascript
 // file path and url
-var file =  "/some/local/file/path/and/file/name.jpg";
-var url = "https://some.remote.service.com/path";
-var name = file.substr(file.lastIndexOf("/") + 1);
+var file = '/some/local/file/path/and/file/name.jpg'
+var url = 'https://some.remote.service.com/path'
+var name = file.substr(file.lastIndexOf('/') + 1)
 
 // upload configuration
-var bghttp = require("@nativescript/background-http");
-var session = bghttp.session("image-upload");
+var bghttp = require('@nativescript/background-http')
+var session = bghttp.session('image-upload')
 var request = {
-        url: url,
-        method: "POST",
-        headers: {
-            "Content-Type": "application/octet-stream"
-        },
-        description: "Uploading " + name
-    };
+  url: url,
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/octet-stream'
+  },
+  description: 'Uploading ' + name
+}
 ```
 
 For a single file upload, use the following code:

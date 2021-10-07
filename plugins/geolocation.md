@@ -3,11 +3,11 @@
 	link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/geolocation/README.md
 ---
 
-# Nativescript geolocation
+# @nativescript/geolocation
 
 Geolocation plugin to use for getting current location, monitor movement, etc.
 
-```javascript
+```cli
 ns plugin add @nativescript/geolocation
 ```
 
@@ -22,16 +22,16 @@ In short here are the steps:
 
 _TypeScript_
 
-```
-import * as geolocation from "@nativescript/geolocation";
-import { Utils } from "@nativescript/core";
+```typescript
+import * as geolocation from '@nativescript/geolocation'
+import { Utils } from '@nativescript/core'
 Utils.Accuracy // used to describe at what accuracy the location should be get
 ```
 
 _Javascript_
 
-```
-var geolocation = require("@nativescript/geolocation");
+```javascript
+var geolocation = require('@nativescript/geolocation')
 ```
 
 ### Request permissions

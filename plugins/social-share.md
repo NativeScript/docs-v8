@@ -3,9 +3,9 @@
 	link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/social-share/README.md
 ---
 
-# Nativescript social-share
+# @nativescript/social-share
 
-```javascript
+```cli
 ns plugin add @nativescript/social-share
 ```
 

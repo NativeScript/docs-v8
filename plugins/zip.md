@@ -3,9 +3,9 @@
 	link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/zip/README.md
 ---
 
-# Nativescript zip
+# @nativescript/zip
 
-```javascript
+```cli
 ns plugin add @nativescript/zip
 ```
 
@@ -29,19 +29,17 @@ Zip.zip({
 #### Progress
 
 ```typescript
-import { Zip } from '@nativescript/zip'
-import { path, knownFolders } from '@nativescript/core'
-let zipPath = path.join(knownFolders.temp().path, 'stuff.zip')
-let dest = path.join(knownFolders.documents().path, '/assets')
+import { Zip } from '@nativescript/zip';
+import { path, knownFolders } from '@nativescript/core';
+let zipPath = path.join(knownFolders.temp().path, 'stuff.zip');
+let dest = path.join(knownFolders.documents().path, '/assets');
 Zip.zip({
-  directory: dest,
-  archive: zipPath,
-  onProgress: onZipProgress
-})
-
 function onZipProgress(percent: number) {
-  console.log(`zip progress: ${percent}`)
-}
+	console.log(`unzip progress: ${percent}`);
+    directory: dest,
+		archive: zipPath,
+    onProgress: onZipProgress
+});
 ```
 
 ### Unzip
