@@ -31,7 +31,7 @@ async function main() {
 			})
 
 			// this is the README text :)
-			const data = await response.text()
+			const data = await response.text();
 
 			const headerSnippet = `---
 	title: ${item}
@@ -40,7 +40,7 @@ async function main() {
 
 			fse.outputFileSync(
 				`./plugins/${item}.md`,
-				`${headerSnippet} \n\n ${data}`
+				`${headerSnippet} \n\n ${data.trim()}`
 			)
 			log(chalk.green(`File saved for plugin: ${item}`))
 		}
