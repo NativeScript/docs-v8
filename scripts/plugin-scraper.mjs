@@ -2,6 +2,7 @@ const puppeteer = require('puppeteer-extra')
 const fse = require('fs-extra')
 const chalk = require('chalk')
 const log = console.log
+
 // array of plugins to pull from
 const plugins = require('./plugins.json')
 

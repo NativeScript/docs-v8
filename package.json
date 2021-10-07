@@ -8,7 +8,7 @@
     "build": "vitepress build .",
     "format": "prettier --write \"**/*.{js,css,md}\"",
     "postinstall": "husky install",
-    "scrape.plugins": "zx ./scripts/plugin-scraper.mjs"
+    "scrape.plugins": "zx ./scripts/plugin-scraper.mjs && prettier --write \"./plugins/*.md\""
   },
   "devDependencies": {
     "@prettier/plugin-xml": "^0.13.0",
