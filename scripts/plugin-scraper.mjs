@@ -31,7 +31,7 @@ async function main() {
 			})
 
 			// this is the README text :)
-			const data = await response.text();
+			const data = await response.text()
 
 			const headerSnippet = `---
 	title: ${item}
@@ -45,7 +45,7 @@ async function main() {
 			log(chalk.green(`File saved for plugin: ${item}`))
 		}
 
-		return
+		process.exit()
 	} catch (error) {
 		console.log(error)
 	}
