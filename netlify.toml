@@ -4,4 +4,5 @@
 
 [build.environment]
   NETLIFY_USE_YARN = "true"
-  NODE_VERSION = "14"
+  YARN_FLAGS = "--ignore-engines"
+  NODE_VERSION = "15"
