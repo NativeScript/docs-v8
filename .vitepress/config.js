@@ -329,7 +329,6 @@ function getPluginsSidebar() {
 		},
 		{
 			text: 'NativeScript UI Plugins',
-			type: 'pro-ui',
 			children: [
 				{
 					text: 'NativeScript-UI-ListView',
