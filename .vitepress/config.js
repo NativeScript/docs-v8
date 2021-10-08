@@ -122,7 +122,156 @@ module.exports = {
 		},
 	},
 
-	plugins: getPluginsSidebar(),
+	plugins: getPlugins(),
+}
+
+function getPlugins() {
+	const officialPlugins_baseUrl =
+		'https://raw.githubusercontent.com/NativeScript/plugins/main/packages'
+	const paymentsPlugins_baseUrl =
+		'https://raw.githubusercontent.com/NativeScript/payments/main/packages'
+
+	return [
+		{
+			category: 'Official Plugins',
+			plugins: [
+				{
+					name: 'Animated Circle',
+					link: '/plugins/animated-circle',
+					readme: `${officialPlugins_baseUrl}/animated-circle/README.md`,
+				},
+				{
+					name: 'App Availability',
+					link: '/plugins/appavailability',
+					readme: `${officialPlugins_baseUrl}/appavailability/README.md`,
+				},
+				{
+					name: 'Auto Fit Text',
+					link: '/plugins/auto-fit-text',
+					readme: `${officialPlugins_baseUrl}/auto-fit-text/README.md`,
+				},
+				{
+					name: 'Background HTTP',
+					link: '/plugins/background-http',
+					readme: `${officialPlugins_baseUrl}/background-http/README.md`,
+				},
+				{
+					name: 'Brightness',
+					link: '/plugins/brightness',
+					readme: `${officialPlugins_baseUrl}/brightness/README.md`,
+				},
+				{
+					name: 'Camera',
+					link: '/plugins/camera',
+					readme: `${officialPlugins_baseUrl}/camera/README.md`,
+				},
+				{
+					name: 'DateTimePicker',
+					link: '/plugins/datetimepicker',
+					readme: `${officialPlugins_baseUrl}/datetimepicker/README.md`,
+				},
+				{
+					name: 'Debug iOS',
+					link: '/plugins/debug-ios',
+					readme: `${officialPlugins_baseUrl}/debug-ios/README.md`,
+				},
+				{
+					name: 'Detox',
+					link: '/plugins/detox',
+					readme: `${officialPlugins_baseUrl}/detox/README.md`,
+				},
+				{
+					name: 'Directions',
+					link: '/plugins/directions',
+					readme: `${officialPlugins_baseUrl}/directions/README.md`,
+				},
+				{
+					name: 'Email',
+					link: '/plugins/email',
+					readme: `${officialPlugins_baseUrl}/email/README.md`,
+				},
+				{
+					name: 'Fingerprint-Auth',
+					link: '/plugins/fingerprint-auth',
+					readme: `${officialPlugins_baseUrl}/fingerprint-auth/README.md`,
+				},
+				{
+					name: 'Geolocation',
+					link: '/plugins/geolocation',
+					readme: `${officialPlugins_baseUrl}/geolocation/README.md`,
+				},
+				{
+					name: 'Image Picker',
+					link: '/plugins/imagepicker',
+					readme: `${officialPlugins_baseUrl}/imagepicker/README.md`,
+				},
+				{
+					name: 'IQ Keyboard Manager',
+					link: '/plugins/iqkeyboardmanager',
+					readme: `${officialPlugins_baseUrl}/iqkeyboardmanager/README.md`,
+				},
+				{
+					name: 'Local Notifications',
+					link: '/plugins/local-notifications',
+					readme: `${officialPlugins_baseUrl}/local-notifications/README.md`,
+				},
+				{
+					name: 'Localize',
+					link: '/plugins/localize',
+					readme: `${officialPlugins_baseUrl}/localize/README.md`,
+				},
+				{
+					name: 'Picker',
+					link: '/plugins/picker',
+					readme: `${officialPlugins_baseUrl}/picker/README.md`,
+				},
+				{
+					name: 'Shared Notification Delegate',
+					link: '/plugins/shared-notification-delegate',
+					readme: `${officialPlugins_baseUrl}/shared-notification-delegate/README.md`,
+				},
+				{
+					name: 'Social Share',
+					link: '/plugins/social-share',
+					readme: `${officialPlugins_baseUrl}/social-share/README.md`,
+				},
+				{
+					name: 'Zip',
+					link: '/plugins/zip',
+					readme: `${officialPlugins_baseUrl}/zip/README.md`,
+				},
+			],
+		},
+		{
+			category: 'Payment Plugins',
+			plugins: [
+				{
+					name: 'Apple Pay',
+					link: '/plugins/apple-pay',
+					readme: `${paymentsPlugins_baseUrl}/apple-pay/README.md`,
+				},
+				{
+					name: 'Google Pay',
+					link: '/plugins/google-pay',
+					readme: `${paymentsPlugins_baseUrl}/google-pay/README.md`,
+				},
+				{
+					name: 'Payments - In App Purchases',
+					link: '/plugins/payments',
+					readme: `${paymentsPlugins_baseUrl}/payments/README.md`,
+				},
+			],
+		},
+		{
+			category: 'NativeScript UI Plugins',
+			plugins: [
+				{
+					name: 'NativeScript UI ListView',
+					link: '/plugins/nativescript-ui/rad-list-view',
+				},
+			],
+		},
+	]
 }
 
 function getSidebar() {
@@ -222,6 +371,18 @@ function getSidebar() {
 }
 
 function getPluginsSidebar() {
+	const plugins = getPlugins()
+
+	return plugins.map((category) => {
+		return {
+			text: category.category,
+			children: category.plugins.map((plugin) => ({
+				text: plugin.name,
+				link: plugin.link,
+			})),
+		}
+	})
+
 	return [
 		// {
 		// 	text: 'Developing Plugins',
