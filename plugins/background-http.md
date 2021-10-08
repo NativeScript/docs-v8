@@ -1,6 +1,6 @@
 ---
-title: background-http
-link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/background-http/README.md
+title: Background HTTP
+link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/background-http/README.md
 ---
 
 # @nativescript/background-http
@@ -15,7 +15,7 @@ The below attached code snippets demonstrate how to use `@nativescript/backgroun
 
 ### Uploading files
 
-Sample code for configuring the upload session. Each session must have a unique `id`, but it can have multiple tasks running simultaneously. The `id` is passed as a parameter when creating the session (the `image-upload` string in the code below):
+Sample code for configuring the upload session. Each session must have a unique `id`, but it can have multiple tasks running simultaneously. The `id` is passed as a parameter when creating the session (the `image-upload` string in the code bellow):
 
 ```javascript
 // file path and url

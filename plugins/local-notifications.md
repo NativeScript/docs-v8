@@ -1,6 +1,6 @@
 ---
-title: local-notifications
-link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/local-notifications/README.md
+title: Local Notifications
+link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/local-notifications/README.md
 ---
 
 # @nativescript/local-notifications
@@ -63,7 +63,7 @@ There is a [Vue demo](https://github.com/EddyVerbruggen/nativescript-local-notif
 ### schedule
 
 On iOS you need to ask permission to schedule a notification.
-You can have the `schedule` function do that for you automatically (the notification will be scheduled in case the user granted permission), or you can manually invoke `requestPermission` if that's your thing.
+You can have the `schedule` funtion do that for you automatically (the notification will be scheduled in case the user granted permission), or you can manually invoke `requestPermission` if that's your thing.
 
 You can pass several options to this function, everything is optional:
 

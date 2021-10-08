@@ -121,6 +121,8 @@ module.exports = {
 			md.use(codeBlocksPlugin)
 		},
 	},
+
+	plugins: getPluginsSidebar(),
 }
 
 function getSidebar() {
@@ -236,10 +238,6 @@ function getPluginsSidebar() {
 					text: 'App Availability',
 					link: '/plugins/appavailability',
 				},
-				// {
-				// 	text: 'Apple Pay',
-				// 	link: '/plugins/apple-pay',
-				// },
 				{
 					text: 'Auto Fit Text',
 					link: '/plugins/auto-fit-text',
@@ -278,10 +276,6 @@ function getPluginsSidebar() {
 					text: 'Geolocation',
 					link: '/plugins/geolocation',
 				},
-				// {
-				// 	text: 'Google Pay',
-				// 	link: '/plugins/google-pay',
-				// },
 				{
 					text: 'Image Picker',
 					link: '/plugins/imagepicker',
@@ -317,7 +311,25 @@ function getPluginsSidebar() {
 			],
 		},
 		{
+			text: 'Payment Plugins',
+			children: [
+				{
+					text: 'Apple Pay',
+					link: '/plugins/apple-pay',
+				},
+				{
+					text: 'Google Pay',
+					link: '/plugins/google-pay',
+				},
+				{
+					text: 'Payments - In App Purchases',
+					link: '/plugins/payments',
+				},
+			],
+		},
+		{
 			text: 'NativeScript UI Plugins',
+			type: 'pro-ui',
 			children: [
 				{
 					text: 'NativeScript-UI-ListView',

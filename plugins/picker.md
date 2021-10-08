@@ -1,6 +1,6 @@
 ---
-title: picker
-link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/picker/README.md
+title: Picker
+link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/picker/README.md
 ---
 
 # @nativescript/picker

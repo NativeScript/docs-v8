@@ -1,6 +1,6 @@
 ---
-title: iqkeyboardmanager
-link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/iqkeyboardmanager/README.md
+title: IQ Keyboard Manager
+link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/iqkeyboardmanager/README.md
 ---
 
 # @nativescript/iqkeyboardmanager

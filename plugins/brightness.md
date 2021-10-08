@@ -1,6 +1,6 @@
 ---
-title: brightness
-link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/brightness/README.md
+title: Brightness
+link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/brightness/README.md
 ---
 
 # @nativescript/brightness

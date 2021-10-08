@@ -1,6 +1,6 @@
 ---
-title: email
-link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/email/README.md
+title: Email
+link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/email/README.md
 ---
 
 # @nativescript/Email
