@@ -1,6 +1,6 @@
 ---
-title: social-share
-link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/social-share/README.md
+title: Social Share
+link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/social-share/README.md
 ---
 
 # @nativescript/social-share
@@ -109,7 +109,7 @@ dependencies {
 }
 ```
 
-- Add a `meta-data` section and `provider` section of your `AndroidManifest.xml` so it becomes similar to this:
+- Add a `meta-data` section and `provider` section ot your `AndroidManifest.xml` so it becomes similar to this:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

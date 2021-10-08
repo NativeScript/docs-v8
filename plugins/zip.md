@@ -1,6 +1,6 @@
 ---
-title: zip
-link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/zip/README.md
+title: Zip
+link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/zip/README.md
 ---
 
 # @nativescript/zip

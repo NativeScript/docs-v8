@@ -1,6 +1,6 @@
 ---
-title: directions
-link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/directions/README.md
+title: Directions
+link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/directions/README.md
 ---
 
 # @nativescript/directions

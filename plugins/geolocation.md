@@ -1,6 +1,6 @@
 ---
-title: geolocation
-link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/geolocation/README.md
+title: Geolocation
+link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/geolocation/README.md
 ---
 
 # @nativescript/geolocation

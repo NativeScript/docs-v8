@@ -1,6 +1,6 @@
 ---
-title: appavailability
-link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/appavailability/README.md
+title: App Availability
+link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/appavailability/README.md
 ---
 
 # @nativescript/app-availability
