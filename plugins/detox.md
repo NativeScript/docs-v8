@@ -1,6 +1,6 @@
 ---
-	title: detox
-	link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/detox/README.md
+title: detox
+link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/detox/README.md
 ---
 
 # @nativescript/detox

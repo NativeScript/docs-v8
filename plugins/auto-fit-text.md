@@ -1,6 +1,6 @@
 ---
-	title: auto-fit-text
-	link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/auto-fit-text/README.md
+title: auto-fit-text
+link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/auto-fit-text/README.md
 ---
 
 # @nativescript/auto-fit-text

@@ -1,6 +1,6 @@
 ---
-	title: imagepicker
-	link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/imagepicker/README.md
+title: imagepicker
+link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/imagepicker/README.md
 ---
 
 # @nativescript/imagepicker ![apple](https://cdn3.iconfinder.com/data/icons/picons-social/57/16-apple-32.png) ![android](https://cdn4.iconfinder.com/data/icons/logos-3/228/android-32.png)

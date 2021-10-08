@@ -1,6 +1,6 @@
 ---
-	title: background-http
-	link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/background-http/README.md
+title: background-http
+link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/background-http/README.md
 ---
 
 # @nativescript/background-http

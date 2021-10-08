@@ -34,14 +34,16 @@ async function main() {
 			// this is the README text :)
 			const data = await response.text()
 
-			const headerSnippet = `---
-	title: ${item}
-	link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/${item}/README.md
----`
+			const headerSnippet = [
+				`---`,
+				`title: ${item}`,
+				`link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/${item}/README.md`,
+				`---`,
+			].join('\n')
 
 			fse.outputFileSync(
 				`./plugins/${item}.md`,
-				`${headerSnippet} \n\n ${data.trim()}`
+				`${headerSnippet}\n\n${data.trim()}`
 			)
 			log(chalk.green(`File saved for plugin: ${item}`))
 		}

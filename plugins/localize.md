@@ -1,6 +1,6 @@
 ---
-	title: localize
-	link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/localize/README.md
+title: localize
+link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/localize/README.md
 ---
 
 # @nativescript/localize

@@ -1,6 +1,6 @@
 ---
-	title: animated-circle
-	link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/animated-circle/README.md
+title: animated-circle
+link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/animated-circle/README.md
 ---
 
 # @nativescript/animated-circle

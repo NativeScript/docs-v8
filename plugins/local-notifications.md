@@ -1,6 +1,6 @@
 ---
-	title: local-notifications
-	link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/local-notifications/README.md
+title: local-notifications
+link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/local-notifications/README.md
 ---
 
 # @nativescript/local-notifications

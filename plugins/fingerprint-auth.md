@@ -1,6 +1,6 @@
 ---
-	title: fingerprint-auth
-	link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/fingerprint-auth/README.md
+title: fingerprint-auth
+link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/fingerprint-auth/README.md
 ---
 
 # @nativescript/fingerprint-auth

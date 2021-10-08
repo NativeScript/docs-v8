@@ -1,6 +1,6 @@
 ---
-	title: datetimepicker
-	link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/datetimepicker/README.md
+title: datetimepicker
+link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/datetimepicker/README.md
 ---
 
 # @nativescript/datetimepicker
