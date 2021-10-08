@@ -9,7 +9,7 @@ This is a plugin for NativeScript that implements internationalization (i18n) us
 
 ## Credits
 
-A lot of thanks goes out to [Ludovic Fabrèges (@lfabreges)](https://github.com/lfabreges) for developing and maintaining this plugin in the past. When he had to abandon it due to shifted priorities, he was kind enough to [move the repo to me](https://github.com/EddyVerbruggen/nativescript-localize/issues/73). Eddy then joined NativeScript's Technical Steering Committe and to vastly improve plugin maintenance [it was scoped and moved here](https://github.com/EddyVerbruggen/nativescript-localize/issues/99)!
+A lot of thanks goes out to [Ludovic Fabrèges (@lfabreges)](https://github.com/lfabreges) for developing and maintaining this plugin in the past. When he had to abandon it due to shifted priorities, he was kind enough to [move the repo to me](https://github.com/EddyVerbruggen/nativescript-localize/issues/73). Eddy then joined NativeScript's Technical Steering Committee and to vastly improve plugin maintenance [it was scoped and moved here](https://github.com/EddyVerbruggen/nativescript-localize/issues/99)!
 
 ## Table of contents
 
@@ -45,7 +45,7 @@ src
       | es.js
 ```
 
-You need to [set the default langage](#how-to-set-the-default-language) and make sure it contains
+You need to [set the default language](#how-to-set-the-default-language) and make sure it contains
 the [application name](#how-to-localize-the-application-name) to avoid any error.
 
 ### Angular
@@ -205,7 +205,7 @@ import { overrideLocale } from '@nativescript/localize'
 const localeOverriddenSuccessfully = overrideLocale('en-GB') // or "nl-NL", etc (or even just the part before the hyphen)
 ```
 
-## On Android you can programatically override this language since plugin version 4.2.1 by doing this:
+## On Android you can programmatically override this language since plugin version 4.2.1 by doing this:
 
 In your app.ts / main.ts / app.js
 

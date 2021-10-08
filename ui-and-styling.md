@@ -4703,7 +4703,7 @@ export class UsageComponent {
     console.log(textField.maxLength)
 
     Utils.setTimeout(() => {
-      textField.dismissSoftInput() // Hides the soft input method, ususally a soft keyboard.
+      textField.dismissSoftInput() // Hides the soft input method, usually a soft keyboard.
     }, 100)
   }
 
@@ -5820,7 +5820,7 @@ At build time, NativeScript will automatically import the common styles and choo
 
 To allow flexible styling and theming, NativeScript adds a CSS class to the root views in the application for specific states.
 
-The deafult CSS classes are are:
+The default CSS classes are are:
 
 - `.ns-root` - a class assigned to the application root view
 - `.ns-modal` - a class assigned to the modal root view

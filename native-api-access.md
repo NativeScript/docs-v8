@@ -51,7 +51,7 @@ Now for a short walk through of one way to go about translating Java to JavaScri
 
 3. The `getSystemService(java.lang.String)` method accepts a String. When programming in Android you can use `BATTERY_SERVICE` if the `import android.content.Context` is declared in the .java file. The compiler will know that `BATTERY_SERVICE` is the [static final string declared here](https://developer.android.com/reference/android/content/Context#BATTERY_SERVICE).
 
-   You could also write the `getSystemService("batterymanager")` using the statics constant value: "batterymanager". In your NativeScript code, you could do the same, but if you prefer to use the full namespace path to the static value, you can write it like the example does with `android.content.Context.BATTERY_SERVICE`.
+   You could also write the `getSystemService("batterymanager")` using the static constant value: "batterymanager". In your NativeScript code, you could do the same, but if you prefer to use the full namespace path to the static value, you can write it like the example does with `android.content.Context.BATTERY_SERVICE`.
 
 4. Now we have an instance of the [Android BatteryManager](https://developer.android.com/reference/android/os/BatteryManager) which is what the [docs state as the return value](https://developer.android.com/reference/android/content/Context#BATTERY_SERVICE) for this system service.
 

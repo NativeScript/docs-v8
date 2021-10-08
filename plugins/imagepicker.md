@@ -43,7 +43,7 @@ var imagepicker = require("@nativescript/imagepicker");
 
 ### Create imagepicker
 
-Create imagepicker in `single` or `multiple` mode to specifiy if the imagepicker will be used for single or multiple selection of images
+Create imagepicker in `single` or `multiple` mode to specify if the imagepicker will be used for single or multiple selection of images
 
 _TypeScript_
 
@@ -107,7 +107,7 @@ context
 | Option                      | Platform | Default   | Description                                                                                                                                        |
 | --------------------------- | -------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
 | mode                        | both     | multiple  | The mode if the imagepicker. Possible values are `single` for single selection and `multiple` for multiple selection.                              |
-| minimumNumberOfSelection    | iOS      | 0         | The minumum number of selected assets.                                                                                                             |
+| minimumNumberOfSelection    | iOS      | 0         | The minimum number of selected assets.                                                                                                             |
 | maximumNumberOfSelection    | iOS      | 0         | The maximum number of selected assets.                                                                                                             |
 | showsNumberOfSelectedAssets | iOS      | True      | Display the number of selected assets.                                                                                                             |
 | prompt                      | iOS      | undefined | Display prompt text when selecting assets.                                                                                                         |
