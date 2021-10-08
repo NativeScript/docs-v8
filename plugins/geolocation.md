@@ -110,7 +110,7 @@ Cannot enable the location service. Error: java.lang.NoClassDefFoundError: Faile
 In order to fix this you might pin the version number in your `app/App_Resources/Android/before-plugins.gradle` file (if the file does not exist, just create it):
 
 ```gradle
-android {
+android {  
   // other stuff here
 
   project.ext {
