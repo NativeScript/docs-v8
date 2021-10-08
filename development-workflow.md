@@ -50,14 +50,11 @@ ns run android
 
 Launches the app on a connected Android device or Android emulator.
 
-::: warning Note
+> **Note:**
 If you get an error at this point you might not have completed the full NativeScript CLI setup.
-
 You must have at least one AVD (Android Virtual Device) configured on your development machine for this command to run your app up on an Android emulator.
 Or a connected Android device with debugging enabled.
-
 Check the `devDependencies` of your `package.json` file. `@nativescript/android` must be installed to avoid the "[Unable to apply changes on device: emulator-5554. Error is: Invalid Version: null.](https://github.com/NativeScript/nativescript-cli/issues/4451)" error.
-:::
 
 ```cli
 ns run ios
@@ -65,9 +62,8 @@ ns run ios
 
 Launches the app on a connected iOS device or iOS simulator.
 
-::: tip Note
+> **Note:**
 NativeScript uses Xcode to build and run iOS apps, and Xcode is only available on macOS; therefore, you can only run iOS apps on macOS. There are VM and/or cloud services that allow you to build on a Mac from a PC.
-:::
 
 The `run` command will take a few seconds to complete, as the CLI will be building and deploying a native Android application. When the command finishes the native emulator will open, and launch your app on the local emulator (or connected device).
 
@@ -78,36 +74,29 @@ You can customize the `ns run` command using any of the following options:
 - `--timeout` - Sets the number of seconds that the NativeScript CLI will wait for the debugger to boot. If not set, the default timeout is 90 seconds.
 - `--clean` - If set forces rebuilding the native application.
 
-::: tip Note
+> **Note:**
 If you see this output in the terminal:
-
-```
-Webpack compilation complete. Watching for file changes.
-Watchpack Error (watcher): Error: EMFILE: too many open files 'FILE_PATH'
-Watchpack Error (watcher): Error: EMFILE: too many open files 'FILE_PATH'
-Watchpack Error (watcher): Error: EMFILE: too many open files 'FILE_PATH' <-- This repeats many times
-```
-
-This is related to node configuration options on your machine.
-
-**Solution**:
-
-Try adding this to your `~/.bash_profile` if you have one or `~/.zshenv` if using Zsh:
-
-```
-export NODE_OPTIONS="--max-old-space-size=6096"
-```
-
-Then open a new terminal window and run your app.
-:::
+>
+> ```
+> Webpack compilation complete. Watching for file changes.
+> Watchpack Error (watcher): Error: EMFILE: too many open files 'FILE_PATH'
+> Watchpack Error (watcher): Error: EMFILE: too many open files 'FILE_PATH'
+> Watchpack Error (watcher): Error: EMFILE: too many open files 'FILE_PATH' <-- This repeats many times
+> ```
+> This is related to node configuration options on your machine.
+> **Solution**:
+> Try adding this to your `~/.bash_profile` if you have one or `~/.zshenv` if using Zsh:
+> ```
+> export NODE_OPTIONS="--max-old-space-size=6096"
+> ```
+> Then open a new terminal window and run your app.
 
 ### `debug`
 
 The `debug` command builds and deploys a new package on a connected device or emulator. By default, it also starts to track for changes the `app` folder, meaning that it will automatically livesync changes in code as soon as they are saved. In order to apply the changes, the CLI will automatically restart the application after each sync.
 
-::: tip Note
+> **Note:**
 Changes inside `App_Resources` folder (e.g. `AndroidManifest.xml`, `Info.plist` or any of the resources folders) trigger a rebuild after which live syncing is resumed.
-:::
 
 For security reasons, the debugging agent **can't be started automatically** from the command-line. That's why NativeScript CLI generates a URL which is printed on the screen instead. **You need to manually copy it in Google Chrome's address bar to start debugging.**
 
@@ -222,9 +211,8 @@ Searching for devices...
 └───┴─────────────────────────┴──────────┴───────────────────┴──────────┴───────────┘
 ```
 
-::: tip Tip
+> **Tip:**
 Sometimes emulators take longer to start. As a recommendation and to avoid timing issues, start the emulator before executing other CLI commands. Once the emulator is started, leave it open to avoid the initial load time the next time you need to deploy an Android application.
-:::
 
 #### Creating Android Virtual Device via Android Studio
 
@@ -248,9 +236,8 @@ For example, the following command creates an AVD named `test` using the x86 sys
 avdmanager create avd -n test -k "system-images;android-25;google_apis;x86"
 ```
 
-::: warning Note
+> **Note:**
 The above command suggest that the system image is already downloaded. To download an image use the `sdkmanager`. For example `sdkmanager "system-images;android-25;google_apis;x86"`
-:::
 
 The following describes the usages for the other options:
 -c {path|size}: The path to the SD card image for this AVD or the size of a new SD card image to create for this AVD, in KB or MB, denoted with K or M. For example, -c path/to/sdcard/ or -c 1000M.
@@ -344,9 +331,8 @@ Alternatively, once you have the NativeScript project built, you can open open t
 
 ## Testing
 
-::: warning Note
+> **Note:**
 Be sure you have prepare/built/run the app at least once before starting the unit test runner.
-:::
 
 For more information about end-to-end testing, see [`@nativescript/detox` plugin](/plugins/detox.html).
 
@@ -372,11 +358,8 @@ Before writing and running unit tests, verify that you have completed the follow
    cd existingProjectDirectory
    ```
 
-:::tip Note
-
+> **Note:**
 You don't need to explicitly add the platforms for which you want to test your project. The NativeScript CLI will configure your project when you begin to run your tests.
-
-:::
 
 ### Configure Your Project
 
@@ -395,11 +378,8 @@ This operation applies the following changes to your project.
 - It installs the nativescript-unit-test-runner npm module for the selected framework and its dev dependencies in `node_modules`.
 - It creates `karma.conf.js` in the root of your project. This file contains the default configuration for the Karma server for the selected framework.
 
-:::tip Note
-
+> **Note:**
 To enable and write unit tests for TypeScript or Angular project install the TypeScript typings for the selected testing framework.
-
-:::
 
 <!-- tab:Jasmine -->
 
@@ -714,9 +694,8 @@ As shown above the command `ns plugin add @nativescript/camera` is actually doin
 npm i @nativescript/types --save-dev
 ```
 
-::: tip Note
+> **Note:**
 The difference between dependencies and developer dependencies is that **dependencies** are required to run, while **devDependencies** are needed only during development. Example for dependency is the **@nativescript/camera** plugin which is required at runtime so you could use the hardware camera. On the other hand, the **@nativescript/types** is a developer dependency required only for intelliSense during the development process. The `devDependencies` should not be installed as `dependencies` to avoid large output build files (large application size). Example `package.json` file using both `dependencies` and `devDependencies` can be found [here](https://github.com/NativeScript/nativescript-sdk-examples-js/blob/master/package.json#L31-L44).
-:::
 
 #### Importing and Using Plugins
 
@@ -782,11 +761,8 @@ npm install -g nativescript
 
 You should execute the **update** command in the root folder of your project to upgrade it with the latest versions of iOS/Android runtimes and cross-platform modules.
 
-:::tip Note
-
+> **Note:**
 The **update** command is introduced in version 2.4 of NativeScript CLI. You should update NativeScript CLI before using this command.
-
-:::
 
 ```cli
 ns update
@@ -804,14 +780,11 @@ You can also switch to specific version by passing it to the command:
 ns update 8.0.0
 ```
 
-::: tip Note
+> **Note:**
 The command `ns update` is updating the `@nativescript/core`, `@nativescript/webpack`, and the runtimes (`@nativescript/android`and`@nativescript/ios`). The command is combining the next three commands in this article (`ns platform add`, `npm i --save @nativescript/core`and`npm i @nativescript/webpack --save-dev`).
 
-:::
-
-::: warning Important
+> **Important:**
 When using the `--configs` flag, any previous configuration will be overwritten and lost. Consider saving any custom code that you have introduced in your `webpack.config.js` and reapplying the code after using the `--configs` flag.
-:::
 
 #### Upgrading platforms
 
@@ -841,9 +814,8 @@ npm install @nativescript/core@latest --save
 
 This installs the **@nativescript/core** package to the node_modules folder and adds it as a dependency to the package.json of the project.
 
-::: warning Important
+> **Important:**
 The `ns create` command will create a new project, add the **@nativescript/core** package as a dependency to its package.json and install it. So each new project you create will have the **@nativescript/core** package installed and you do not have to install it explicitly.
-:::
 
 Another place to find **@nativescript/core** package is [NativeScript Releases](https://github.com/NativeScript/NativeScript/releases/), where you can find a collection of the available @nativescript/core-\*.tgz packages for every release. You can download a selected release and install it by running: `npm install <path to @nativescript/core-*.tgz> --save`.
 
