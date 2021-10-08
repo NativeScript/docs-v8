@@ -130,6 +130,8 @@ function getPlugins() {
 		'https://raw.githubusercontent.com/NativeScript/plugins/main/packages'
 	const paymentsPlugins_baseUrl =
 		'https://raw.githubusercontent.com/NativeScript/payments/main/packages'
+	const firebasePlugins_baseUrl =
+		'https://raw.githubusercontent.com/NativeScript/firebase/main/packages'
 
 	return [
 		{
@@ -263,6 +265,91 @@ function getPlugins() {
 			],
 		},
 		{
+			category: 'Firebase Plugins',
+			plugins: [
+				{
+					name: 'Admob',
+					link: '/plugins/firebase-admob',
+					readme: `${firebasePlugins_baseUrl}/firebase-admob/README.md`,
+				},
+				{
+					name: 'Analytics',
+					link: '/plugins/firebase-analytics',
+					readme: `${firebasePlugins_baseUrl}/firebase-analytics/README.md`,
+				},
+				{
+					name: 'App Check',
+					link: '/plugins/firebase-app-check',
+					readme: `${firebasePlugins_baseUrl}/firebase-app-check/README.md`,
+				},
+				{
+					name: 'Auth',
+					link: '/plugins/firebase-auth',
+					readme: `${firebasePlugins_baseUrl}/firebase-auth/README.md`,
+				},
+				{
+					name: 'Core',
+					link: '/plugins/firebase-core',
+					readme: `${firebasePlugins_baseUrl}/firebase-core/README.md`,
+				},
+				{
+					name: 'Crashlytics',
+					link: '/plugins/firebase-crashlytics',
+					readme: `${firebasePlugins_baseUrl}/firebase-crashlytics/README.md`,
+				},
+				{
+					name: 'Database',
+					link: '/plugins/firebase-database',
+					readme: `${firebasePlugins_baseUrl}/firebase-database/README.md`,
+				},
+				{
+					name: 'Dynamic Links',
+					link: '/plugins/firebase-dynamic-links',
+					readme: `${firebasePlugins_baseUrl}/firebase-dynamic-links/README.md`,
+				},
+				{
+					name: 'Firestore',
+					link: '/plugins/firebase-firestore',
+					readme: `${firebasePlugins_baseUrl}/firebase-firestore/README.md`,
+				},
+				{
+					name: 'Functions',
+					link: '/plugins/firebase-functions',
+					readme: `${firebasePlugins_baseUrl}/firebase-functions/README.md`,
+				},
+				{
+					name: 'In App Messaging',
+					link: '/plugins/firebase-in-app-messaging',
+					readme: `${firebasePlugins_baseUrl}/firebase-in-app-messaging/README.md`,
+				},
+				{
+					name: 'Insallations',
+					link: '/plugins/firebase-installations',
+					readme: `${firebasePlugins_baseUrl}/firebase-installations/README.md`,
+				},
+				{
+					name: 'Messaging',
+					link: '/plugins/firebase-messaging',
+					readme: `${firebasePlugins_baseUrl}/firebase-messaging/README.md`,
+				},
+				{
+					name: 'Performance',
+					link: '/plugins/firebase-performance',
+					readme: `${firebasePlugins_baseUrl}/firebase-performance/README.md`,
+				},
+				{
+					name: 'Remote Config',
+					link: '/plugins/firebase-remote-config',
+					readme: `${firebasePlugins_baseUrl}/firebase-remote-config/README.md`,
+				},
+				{
+					name: 'Storage',
+					link: '/plugins/firebase-storage',
+					readme: `${firebasePlugins_baseUrl}/firebase-storage/README.md`,
+				},
+			],
+		},
+		{
 			category: 'NativeScript UI Plugins',
 			plugins: [
 				{
@@ -382,122 +469,6 @@ function getPluginsSidebar() {
 			})),
 		}
 	})
-
-	return [
-		// {
-		// 	text: 'Developing Plugins',
-		// 	link: '/plugins/developing-plugins',
-		// },
-		{
-			text: 'Official Plugins',
-			children: [
-				{
-					text: 'Animated Circle',
-					link: '/plugins/animated-circle',
-				},
-				{
-					text: 'App Availability',
-					link: '/plugins/appavailability',
-				},
-				{
-					text: 'Auto Fit Text',
-					link: '/plugins/auto-fit-text',
-				},
-				{
-					text: 'Background HTTP',
-					link: '/plugins/background-http',
-				},
-				{
-					text: 'Brightness',
-					link: '/plugins/brightness',
-				},
-				{ text: 'Camera', link: '/plugins/camera' },
-				{
-					text: 'DateTimePicker',
-					link: '/plugins/datetimepicker',
-				},
-				{
-					text: 'Debug iOS',
-					link: '/plugins/debug-ios',
-				},
-				{
-					text: 'Detox',
-					link: '/plugins/detox',
-				},
-				{
-					text: 'Directions',
-					link: '/plugins/directions',
-				},
-				{ text: 'Email', link: '/plugins/email' },
-				{
-					text: 'Fingerprint-Auth',
-					link: '/plugins/fingerprint-auth',
-				},
-				{
-					text: 'Geolocation',
-					link: '/plugins/geolocation',
-				},
-				{
-					text: 'Image Picker',
-					link: '/plugins/imagepicker',
-				},
-				{
-					text: 'IQ Keyboard Manager',
-					link: '/plugins/iqkeyboardmanager',
-				},
-				{
-					text: 'Local Notifications',
-					link: '/plugins/local-notifications',
-				},
-				{
-					text: 'Localize',
-					link: '/plugins/localize',
-				},
-				{
-					text: 'Picker',
-					link: '/plugins/picker',
-				},
-				{
-					text: 'Shared Notification Delegate',
-					link: '/plugins/shared-notification-delegate',
-				},
-				{
-					text: 'Social Share',
-					link: '/plugins/social-share',
-				},
-				{
-					text: 'Zip',
-					link: '/plugins/zip',
-				},
-			],
-		},
-		{
-			text: 'Payment Plugins',
-			children: [
-				{
-					text: 'Apple Pay',
-					link: '/plugins/apple-pay',
-				},
-				{
-					text: 'Google Pay',
-					link: '/plugins/google-pay',
-				},
-				{
-					text: 'Payments - In App Purchases',
-					link: '/plugins/payments',
-				},
-			],
-		},
-		{
-			text: 'NativeScript UI Plugins',
-			children: [
-				{
-					text: 'NativeScript-UI-ListView',
-					link: '/plugins/nativescript-ui/rad-list-view',
-				},
-			],
-		},
-	]
 }
 
 function getBestPracticeSidebar() {
