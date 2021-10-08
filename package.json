@@ -7,8 +7,9 @@
     "dev": "vitepress dev .",
     "build": "vitepress build .",
     "format": "prettier --write \"**/*.{js,css,md}\"",
-    "postinstall": "husky install",
-    "scrape.plugins": "zx ./scripts/plugin-scraper.mjs && prettier --write \"./plugins/*.md\""
+    "postinstall": "husky install && npm run patch.vitepress",
+    "scrape.plugins": "zx ./scripts/plugin-scraper.mjs && prettier --write \"./plugins/*.md\"",
+    "patch.vitepress": "zx ./scripts/patch-vitepress-deadLinks.mjs"
   },
   "devDependencies": {
     "@prettier/plugin-xml": "^1.1.0",
