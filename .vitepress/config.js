@@ -234,12 +234,12 @@ function getPluginsSidebar() {
 				},
 				{
 					text: 'App Availability',
-					link: '/plugins/app-availability',
+					link: '/plugins/appavailability',
 				},
-				{
-					text: 'Apple Pay',
-					link: '/plugins/apple-pay',
-				},
+				// {
+				// 	text: 'Apple Pay',
+				// 	link: '/plugins/apple-pay',
+				// },
 				{
 					text: 'Auto Fit Text',
 					link: '/plugins/auto-fit-text',
@@ -278,17 +278,17 @@ function getPluginsSidebar() {
 					text: 'Geolocation',
 					link: '/plugins/geolocation',
 				},
-				{
-					text: 'Google Pay',
-					link: '/plugins/google-pay',
-				},
+				// {
+				// 	text: 'Google Pay',
+				// 	link: '/plugins/google-pay',
+				// },
 				{
 					text: 'Image Picker',
 					link: '/plugins/imagepicker',
 				},
 				{
 					text: 'IQ Keyboard Manager',
-					link: '/plugins/iq-keyboard-manager',
+					link: '/plugins/iqkeyboardmanager',
 				},
 				{
 					text: 'Local Notifications',

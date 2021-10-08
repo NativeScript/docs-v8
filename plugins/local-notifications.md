@@ -1,9 +1,16 @@
 ---
-title: Local Notifications
+title: local-notifications
 link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/local-notifications/README.md
 ---
 
 # @nativescript/local-notifications
+
+[![NPM version][npm-image]][npm-url]
+[![Downloads][downloads-image]][npm-url]
+
+[npm-image]: http://img.shields.io/npm/v/@nativescript/local-notifications.svg
+[npm-url]: https://npmjs.org/package/@nativescript/local-notifications
+[downloads-image]: http://img.shields.io/npm/dm/@nativescript/local-notifications.svg
 
 The Local Notifications plugin allows your app to show notifications when the app is not running.
 Just like remote push notifications, but a few orders of magnitude easier to set up.
@@ -21,7 +28,7 @@ ns plugin add @nativescript/local-notifications
 #### NativeScript prior to 7:
 
 ```cli
-ns plugin add nativescript-local-notifications@4.2.1
+tns plugin add nativescript-local-notifications@4.2.1
 ```
 
 ## Setup (since plugin version 3.0.0)
@@ -73,7 +80,7 @@ You can pass several options to this function, everything is optional:
 | `ticker`                    | On Android you can show a different text in the statusbar, instead of the `body`. Default not set, so `body` is used.                                                                                                                                                                                                                              |
 | `at`                        | A JavaScript Date object indicating when the notification should be shown. Default not set (the notification will be shown immediately).                                                                                                                                                                                                           |
 | `badge`                     | On iOS (and some Android devices) you see a number on top of the app icon. On most Android devices you'll see this number in the notification center. Default not set (0).                                                                                                                                                                         |
-| `sound`                     | Notification sound. For custom notification sound (iOS only), copy the file to `App_Resources/iOS`. Set this to "default" (or do not set at all) in order to use default OS sound. Set this to `null` to suppress sound.                                                                                                                           |
+| `sound`                     | Notification sound. For custom notification sound, copy the file to `App_Resources/iOS` and `App_Resources/Android/src/main/res/raw`. Set this to "default" (or do not set at all) in order to use default OS sound. Set this to `null` to suppress sound.                                                                                         |
 | `interval`                  | Set to one of `second`, `minute`, `hour`, `day`, `week`, `month`, `year`, number (in days) if you want a recurring notification.                                                                                                                                                                                                                   |
 | `icon`                      | On Android you can set a custom icon in the system tray. Pass in `res://filename` (without the extension) which lives in `App_Resouces/Android/drawable` folders. If not passed, we'll look there for a file named `ic_stat_notify.png`. By default the app icon is used. Android < Lollipop (21) only (see `silhouetteIcon` below).               |
 | `silhouetteIcon`            | Same as `icon`, but for Android >= Lollipop (21). Should be an alpha-only image. Defaults to `res://ic_stat_notify_silhouette`, or the app icon if not present.                                                                                                                                                                                    |
@@ -114,7 +121,7 @@ LocalNotifications.schedule([
     thumbnail: true,
     interval: 'minute',
     channel: 'My Channel', // default: 'Channel'
-    sound: 'customsound-ios.wav', // falls back to the default sound on Android
+    sound: isAndroid ? 'customsound' : 'customsound.wav',
     at: new Date(new Date().getTime() + 10 * 1000) // 10 seconds from now
   }
 ]).then(

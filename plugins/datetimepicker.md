@@ -1,5 +1,5 @@
 ---
-title: DateTimePicker
+title: datetimepicker
 link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/datetimepicker/README.md
 ---
 
@@ -39,7 +39,7 @@ To use one of the UI elements `DatePickerField`, `TimePickerField` or `DateTimeP
 
 - If you are developing a NativeScript Angular app, you need to import the plugin module in the module of your component:
 
-```typescript
+```ts
 import { NativeScriptDateTimePickerModule } from "@nativescript/datetimepicker/angular";
 ...
 @NgModule({

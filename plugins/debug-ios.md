@@ -1,5 +1,5 @@
 ---
-title: NativeScriptDebugIOS
+title: debug-ios
 link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/debug-ios/README.md
 ---
 
@@ -7,14 +7,18 @@ link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/deb
 
 Advanced iOS debugging made possible via [Flex](https://github.com/FLEXTool/FLEX).
 
-```javascript
+```cli
 npm install @nativescript/debug-ios -D
 ```
 
 ## Usage
 
-```
-import { NativeScriptDebugIOS } from '@nativescript/debug-ios';
+```typescript
+import { NativeScriptDebugIOS } from '@nativescript/debug-ios'
 
-NativeScriptDebugIOS.show();
+NativeScriptDebugIOS.show()
 ```
+
+## License
+
+Apache License Version 2.0
