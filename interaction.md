@@ -1026,6 +1026,7 @@ view.animate({
   animation-name: rotate;
   animation-duration: 3;
 }
+
 @keyframes rotate {
   from {
     transform: rotate(0deg);
@@ -1360,8 +1361,6 @@ view
 
 ### Width
 
-/// flavor plain
-
 ```js
 const label = page.getViewById('lblNS')
 const animation = new Animation([
@@ -1417,9 +1416,6 @@ animation.play()
 ```
 
 [Demo JavaScript](https://play.nativescript.org/?template=play-js&id=mOZv68) [Demo TypeScript](https://play.nativescript.org/?template=play-tsc&id=ckdYDS)
-///
-
-/// flavor angular
 
 ```typescript
 @ViewChild("lblNS", { read: ElementRef, static: false }) labelRef: ElementRef;
@@ -1440,8 +1436,6 @@ let animation = new Animation([
 ]);
 animation.play();
 ```
-
-///
 
 ### Height
 
@@ -1465,7 +1459,7 @@ let animation = new Animation([
 animation.play();
 ```
 
-[Demo](https://play.nativescript.org/?template=play-ng&id=cWAc2j) {% endangular %}
+[Demo](https://play.nativescript.org/?template=play-ng&id=cWAc2j)
 
 ## Dialogs
 

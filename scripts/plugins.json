@@ -1,0 +1,23 @@
+[
+  "animated-circle",
+  "appavailability",
+  "auto-fit-text",
+  "background-http",
+  "brightness",
+  "camera",
+  "datetimepicker",
+  "debug-ios",
+  "detox",
+  "directions",
+  "email",
+  "fingerprint-auth",
+  "geolocation",
+  "imagepicker",
+  "iqkeyboardmanager",
+  "local-notifications",
+  "localize",
+  "picker",
+  "shared-notification-delegate",
+  "social-share",
+  "zip"
+]

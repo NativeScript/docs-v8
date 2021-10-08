@@ -1,5 +1,5 @@
 ---
-title: Shared Notification Delegate
+title: shared-notification-delegate
 link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/shared-notification-delegate/README.md
 ---
 

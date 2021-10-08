@@ -1,5 +1,5 @@
 ---
-title: Detox
+title: detox
 link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/detox/README.md
 ---
 
@@ -34,13 +34,13 @@ The full setup requirements can be found [here](https://github.com/wix/Detox/blo
 
 ### Install Detox command line tools (`detox-cli`)
 
-```cli
+```bash
 npm install -g detox-cli
 ```
 
 ### Install [applesimutils](https://github.com/wix/AppleSimulatorUtils) (iOS)
 
-```cli
+```bash
 brew tap wix/brew
 brew install applesimutils
 ```
@@ -49,19 +49,19 @@ brew install applesimutils
 
 ### Install the Detox package to your NativeScript project
 
-```cli
+```bash
 npm install detox --save-dev
 ```
 
 ### Install Jest
 
-```cli
+```bash
 npm install jest jest-cli jest-circus --save-dev --no-package-lock
 ```
 
 ### Initialize Detox
 
-```cli
+```bash
 detox init -r jest
 ```
 
@@ -70,7 +70,7 @@ If things go well, you should to have this set up:
 - An `e2e/` folder in your project root
 - An `e2e/config.json` file; [example](https://github.com/wix/Detox/blob/master/examples/demo-react-native-jest/e2e/config.json)
 - An `e2e/environment.js` file; [example](https://github.com/wix/Detox/blob/master/examples/demo-react-native-jest/e2e/environment.js)
-- An `e2e/firstTest.e2e.js` file with content similar to [this](https://github.com/wix/Detox/blob/master/examples/demo-react-native-jest/e2e/app-hello.e2e.ts).
+- An `e2e/firstTest.e2e.js` file with content similar to [this](https://github.com/wix/Detox/blob/master/examples/demo-react-native-jest/e2e/app-hello.e2e.js).
 
 There should also be a file called `.detoxrc.json` in your project root.
 
@@ -171,7 +171,7 @@ You should now be able to write tests to simulate user behavior and test for exp
 
 Build your app for testing using the following command:
 
-```cli
+```bash
 detox build -c ios|android
 ```
 
@@ -179,7 +179,7 @@ detox build -c ios|android
 
 Run your tests with the following command:
 
-```cli
+```bash
 detox test -c ios|android
 ```
 
@@ -202,14 +202,14 @@ Now to build and run tests you would run:
 
 Android:
 
-```cli
+```bash
 npm run e2e:android:build
 npm run e2e:android:test
 ```
 
 iOS:
 
-```cli
+```bash
 npm run e2e:ios:build
 npm run e2e:ios:test
 ```
@@ -218,7 +218,7 @@ npm run e2e:ios:test
 
 Detox requires a minimum SDK version of 18, so if you get the following error, change the `minSdkVersion` to 18 in `App_Resources/Android/app.gradle`.
 
-```cli
+```bash
 Execution failed for task ':app:processDebugAndroidTestManifest'.
 Manifest merger failed : uses-sdk:minSdkVersion 17 cannot be smaller than version 18 declared in library [com.wix:detox:17.6.1] /Users/user/.gradle/caches/transforms-2/files-2.1/91a3acd87d710d1913b266ac114d7001/jetified-detox-17.6.1/AndroidManifest.xml as the library might be using APIs not available in 17
         Suggestion: use a compatible library with a minSdk of at most 17,

@@ -1,6 +1,12 @@
 'use strict'
 Object.defineProperty(exports, '__esModule', { value: true })
-exports.setupPrismCLILang = exports.createDeviceFrameContainer = exports.wrapFlavorContainersInTabs = exports.markFlavorHeadings = exports.createFlavorContainer = exports.codeBlocksPlugin = void 0
+exports.setupPrismCLILang =
+	exports.createDeviceFrameContainer =
+	exports.wrapFlavorContainersInTabs =
+	exports.markFlavorHeadings =
+	exports.createFlavorContainer =
+	exports.codeBlocksPlugin =
+		void 0
 var code_blocks_1 = require('./code-blocks')
 Object.defineProperty(exports, 'codeBlocksPlugin', {
 	enumerable: true,

@@ -1,5 +1,5 @@
 ---
-title: Picker
+title: picker
 link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/picker/README.md
 ---
 
@@ -13,15 +13,11 @@ npm install @nativescript/picker
 
 ## Usage
 
-- [@nativescript/picker](#nativescriptpicker)
-  - [Usage](#usage)
-  - [Screenshots](#screenshots)
-  - [Configuration](#configuration)
-  - [Usage](#usage-1)
-  - [Features](#features)
-    - [PickerField](#pickerfield)
-  - [API](#api)
-    - [PickerField](#pickerfield-1)
+- [Configuration](#configuration)
+- [Usage](#usage)
+- [Features](#features)
+  - [PickerField](#PickerField)
+- [API](#api)
 
 ## Screenshots
 

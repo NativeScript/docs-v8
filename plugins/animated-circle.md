@@ -1,11 +1,11 @@
 ---
-title: Animated Circle
+title: animated-circle
 link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/animated-circle/README.md
 ---
 
 # @nativescript/animated-circle
 
-```cli
+```bash
 ns plugin add @nativescript/animated-circle
 ```
 
@@ -83,3 +83,7 @@ imports: [NativeScriptAnimatedCircleModule]
 ## License
 
 Apache License Version 2.0
+
+```
+
+```

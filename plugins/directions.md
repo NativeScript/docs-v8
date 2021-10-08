@@ -1,5 +1,5 @@
 ---
-title: Directions
+title: directions
 link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/directions/README.md
 ---
 
@@ -12,6 +12,8 @@ ns plugin add @nativescript/directions
 ## Usage
 
 ### Demo app (XML + TypeScript)
+
+Want to dive in quickly? Check out [the demo app](demo)! Otherwise, continue reading.
 
 You can run the demo app from the root of the project by typing `npm run demo.ios.device` or `npm run demo.android`.
 
@@ -115,7 +117,8 @@ directions
     type: 'walking', // optional, can be: driving, transit, bicycling or walking
     ios: {
       preferGoogleMaps: true, // If the Google Maps app is installed, use that one instead of Apple Maps, because it supports waypoints. Default true.
-      allowGoogleMapsWeb: true // If waypoints are passed in and Google Maps is not installed, you can either open Apple Maps and the first waypoint is used as the to-address (the rest is ignored), or you can open Google Maps on web so all waypoints are shown (set this property to true). Default false.
+      allowGoogleMapsWeb: true, // If waypoints are passed in and Google Maps is not installed, you can either open Apple Maps and the first waypoint is used as the to-address (the rest is ignored), or you can open Google Maps on web so all waypoints are shown (set this property to true). Default false.
+      useUniversalSyntax: true // Prefer the Universal URL Syntax to the comgooglemaps:// url scheme. Useful if Google Maps does not load correctly.
     },
     android: {
       newTask: true // Start as new task. This means it will start a new history stack instead of using the current app. Default true.
