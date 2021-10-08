@@ -4,3 +4,4 @@
 
 [build.environment]
   NETLIFY_USE_YARN = "true"
+  NODE_VERSION = "15.11.0"
