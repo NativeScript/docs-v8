@@ -267,11 +267,11 @@ function getPlugins() {
 		{
 			category: 'Firebase Plugins',
 			plugins: [
-				{
-					name: 'Admob',
-					link: '/plugins/firebase-admob',
-					readme: `${firebasePlugins_baseUrl}/firebase-admob/README.md`,
-				},
+				// {
+				// 	name: 'Admob',
+				// 	link: '/plugins/firebase-admob',
+				// 	readme: `${firebasePlugins_baseUrl}/firebase-admob/README.md`,
+				// },
 				{
 					name: 'Analytics',
 					link: '/plugins/firebase-analytics',
