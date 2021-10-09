@@ -193,9 +193,19 @@ function getPlugins() {
 					readme: `${officialPlugins_baseUrl}/email/README.md`,
 				},
 				{
+					name: 'Facebook',
+					link: '/plugins/facebook',
+					readme: `${officialPlugins_baseUrl}/facebook/README.md`,
+				},
+				{
 					name: 'Fingerprint-Auth',
 					link: '/plugins/fingerprint-auth',
 					readme: `${officialPlugins_baseUrl}/fingerprint-auth/README.md`,
+				},
+				{
+					name: 'Google Signin',
+					link: '/plugins/google-signin',
+					readme: `${officialPlugins_baseUrl}/google-signin/README.md`,
 				},
 				{
 					name: 'Geolocation',
@@ -236,6 +246,11 @@ function getPlugins() {
 					name: 'Social Share',
 					link: '/plugins/social-share',
 					readme: `${officialPlugins_baseUrl}/social-share/README.md`,
+				},
+				{
+					name: 'Twitter',
+					link: '/plugins/twitter',
+					readme: `${officialPlugins_baseUrl}/twitter/README.md`,
 				},
 				{
 					name: 'Zip',
