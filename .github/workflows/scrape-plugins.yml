@@ -1,0 +1,22 @@
+name: scrape-plugins
+
+on:
+  schedule:
+  - cron: "0 8 * * *"
+  workflow_dispatch:
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: scrape plugins
+        run: |
+          yarn
+          yarn scrape.plugins
+      - name: commit new data
+        run: |
+          git config --global user.name 'NativeScript-Bot'
+          git config --global user.email 'oss@nativescript.org'
+          git commit -am "chore(update-plugins): $(date)" || echo "No changes to commit."
+          git push
