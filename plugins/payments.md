@@ -1,5 +1,5 @@
 ---
-title: Payments - In App Purchases
+title: Payments: IAP & Subscriptions
 link: https://raw.githubusercontent.com/NativeScript/payments/main/packages/payments/README.md
 ---
 
