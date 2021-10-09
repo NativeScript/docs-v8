@@ -135,7 +135,7 @@ function getPlugins() {
 
 	return [
 		{
-			category: 'Official Plugins',
+			category: 'Plugins',
 			plugins: [
 				{
 					name: 'Animated Circle',
@@ -245,7 +245,7 @@ function getPlugins() {
 			],
 		},
 		{
-			category: 'Payment Plugins',
+			category: 'Payments',
 			plugins: [
 				{
 					name: 'Apple Pay',
@@ -258,14 +258,14 @@ function getPlugins() {
 					readme: `${paymentsPlugins_baseUrl}/google-pay/README.md`,
 				},
 				{
-					name: 'Payments - In App Purchases',
+					name: 'Payments: IAP & Subscriptions',
 					link: '/plugins/payments',
 					readme: `${paymentsPlugins_baseUrl}/payments/README.md`,
 				},
 			],
 		},
 		{
-			category: 'Firebase Plugins',
+			category: 'Firebase',
 			plugins: [
 				{
 					name: 'Admob',
@@ -350,7 +350,7 @@ function getPlugins() {
 			],
 		},
 		{
-			category: 'NativeScript UI Plugins',
+			category: 'Extras',
 			plugins: [
 				{
 					name: 'NativeScript UI ListView',

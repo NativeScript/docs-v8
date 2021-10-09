@@ -2,7 +2,7 @@
 title: Plugins
 ---
 
-# Plugins are sweet!
+A few plugins to help with your project developments. You will find more in the left sidebar including Payments (Apple Pay, Google Pay, IAP, Subscription handling) and Firebase.
 
 - [@nativescript/animated-circle](animated-circle)
 - [@nativescript/appavailability](appavailability)
