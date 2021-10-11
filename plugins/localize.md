@@ -11,22 +11,6 @@ This is a plugin for NativeScript that implements internationalization (i18n) us
 
 A lot of thanks goes out to [Ludovic Fabrèges (@lfabreges)](https://github.com/lfabreges) for developing and maintaining this plugin in the past. When he had to abandon it due to shifted priorities, he was kind enough to [move the repo to me](https://github.com/EddyVerbruggen/nativescript-localize/issues/73). Eddy then joined NativeScript's Technical Steering Committe and to vastly improve plugin maintenance [it was scoped and moved here](https://github.com/EddyVerbruggen/nativescript-localize/issues/99)!
 
-## Table of contents
-
-- [Installation](#installation)
-- [Usage](#usage)
-  - [Angular](#angular)
-  - [Javascript](#javascript)
-  - [Vue](#vue)
-- [File format](#file-format)
-- [Frequently asked questions](#frequently-asked-questions)
-  - [How to set the default language?](#how-to-set-the-default-language)
-  - [How to localize the application name?](#how-to-localize-the-application-name)
-  - [How to localize iOS properties?](#how-to-localize-ios-properties)
-  - [How to change the language dynamically at runtime?](#how-to-change-the-language-dynamically-at-runtime)
-- [Troubleshooting](#troubleshooting)
-  - [The angular localization pipe does not work when in a modal context](#the-angular-localization-pipe-does-not-work-when-in-a-modal-context)
-
 ## Installation
 
 ```cli
@@ -47,8 +31,7 @@ src
 
 You need to [set the default langage](#how-to-set-the-default-language) and make sure it contains
 the [application name](#how-to-localize-the-application-name) to avoid any error.
-
-### Angular
+/// flavor angular
 
 #### app.module.ts
 
@@ -83,7 +66,9 @@ import { localize } from '@nativescript/localize'
 console.log(localize('Hello world !'))
 ```
 
-### Javascript / XML
+///
+
+/// flavor plain
 
 #### app.js
 
@@ -110,15 +95,19 @@ console.log(localize('Hello world !'))
 
 #### Quirks
 
-⚠️ If you notice translations work on your main XML page, but don't work on a page you
+:::tip Note
+If you notice translations work on your main XML page, but don't work on a page you
 navigate to, then add this little hack to the 'page loaded' function of that new page:
+:::
 
 ```js
 const page = args.object
 page.bindingContext = new Observable()
 ```
 
-### Vue
+///
+
+/// flavor vue
 
 #### app.js
 
@@ -133,6 +122,8 @@ Vue.filter('L', localize)
 ```html
 <label :text="'Hello world !'|L"></label> <label :text="'I am %s'|L('user name')"></label>
 ```
+
+///
 
 ## File format
 
@@ -198,16 +189,16 @@ Keys starting with `ios.info.plist.` are used to localize iOS properties:
 
 This plugin uses the native capabilities of each platform, language selection is therefore made by the OS.
 
-## On iOS you can programmatically override this language since plugin version 4.2.0 by doing this:
+#### On iOS you can programmatically override this language since plugin version 4.2.0 by doing this:
 
 ```typescript
 import { overrideLocale } from '@nativescript/localize'
 const localeOverriddenSuccessfully = overrideLocale('en-GB') // or "nl-NL", etc (or even just the part before the hyphen)
 ```
 
-## On Android you can programatically override this language since plugin version 4.2.1 by doing this:
+#### On Android you can programatically override this language since plugin version 4.2.1 by doing this:
 
-In your app.ts / main.ts / app.js
+In your `app.ts/main.ts/app.js`
 
 ```ts
 import { Application } from '@nativescript/core'
@@ -227,8 +218,9 @@ import { overrideLocale } from '@nativescript/localize'
 const localeOverriddenSuccessfully = overrideLocale('en-GB') // or "nl-NL", etc (or even just the part before the hyphen)
 ```
 
-> **Important:** In both cases, after calling override Locale, you must ask the user to restart the app
-
+:::tip Note
+In both cases, after calling override Locale, you must ask the user to restart the app
+:::
 For Example:
 
 ```ts
@@ -251,8 +243,9 @@ alert({
 })
 ```
 
-> **Important:** In case you are using [Android app bundle](https://docs.nativescript.org/tooling/publishing/android-app-bundle) to release your android app, add this to
-> App_Resources/Android/app.gradle to make sure all lanugages are bundled in the split apks
+:::tip Note
+In case you are using [Android app bundle](https://docs.nativescript.org/tooling/publishing/android-app-bundle) to release your android app, add this to `App_Resources/Android/app.gradle` to make sure all lanugages are bundled in the split apks
+:::
 
 ```groovy
 android {
@@ -267,7 +260,9 @@ android {
 }
 ```
 
-> **Tip:** you can get the default language on user's phone by using this
+:::tip Note
+You can get the default language on user's phone by using this
+:::
 
 ```ts
 import { Device } from '@nativescript/core'
@@ -275,8 +270,9 @@ import { Device } from '@nativescript/core'
 console.log("user's language is", Device.language.split('-')[0])
 ```
 
-> **Tip:** overrideLocale method stores the language in a special key in app-settings,
-> you can access it like this,
+:::tip Note
+`overrideLocale` method stores the language in a special key in app-settings, you can access it like this,
+:::
 
 ```ts
 import { ApplicationSettings } from '@nativescript/core'

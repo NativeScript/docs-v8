@@ -13,12 +13,16 @@ ns plugin add @nativescript/social-share
 
 To use the social share module you must first `require()` it. After you `require()` the module you have access to its APIs.
 
-```JavaScript
-// ------------ JavaScript ------------------
-var SocialShare = require("@nativescript/social-share");
+<!-- tab:Javascript -->
 
-// ------------- TypeScript ------------------
-import * as SocialShare from "@nativescript/social-share";
+```JavaScript
+var SocialShare = require("@nativescript/social-share");
+```
+
+<!-- tab:typescript -->
+
+```ts
+import * as SocialShare from '@nativescript/social-share'
 ```
 
 ## API
@@ -27,20 +31,24 @@ import * as SocialShare from "@nativescript/social-share";
 
 The `shareImage()` method expects an [`ImageSource`](http://docs.nativescript.org/ApiReference/image-source/ImageSource.html) object. The code below loads an image from the app and invokes the share widget with it:
 
+<!-- tab:javascript -->
+
 ```JavaScript
-// ------------ JavaScript ------------------
 var SocialShare = require("@nativescript/social-share");
 var imageSourceModule = require("@nativescript/core");
 
 var image = imageSourceModule.fromFile("~/path/to/myImage.jpg");
 SocialShare.shareImage(image);
+```
 
-// ------------- TypeScript ------------------
-import * as SocialShare from "@nativescript/social-share";
-import { ImageSource } from "@nativescript/core";
+<!-- tab:typescript -->
 
-let image = ImageSource.fromFile("~/path/to/myImage.jpg");
-SocialShare.shareImage(image);
+```ts
+import * as SocialShare from '@nativescript/social-share'
+import { ImageSource } from '@nativescript/core'
+
+let image = ImageSource.fromFile('~/path/to/myImage.jpg')
+SocialShare.shareImage(image)
 ```
 
 You can optionally provide a second argument to configure the subject on Android:
@@ -97,9 +105,9 @@ Share url via Facebook. Note that `text` will usually be suppressed due to Faceb
 SocialShare.shareViaFacebook('Home of NativeScript', 'https://www.nativescript.org/')
 ```
 
-- **Android Only NOTE**:
-
+:::tip Note
 If you are already using the Facebook Share SDK in your project you likely do _not_ have to add the following.
+:::
 
 If you are not using the sdk explicitly in your project yet, add to your `app.gradle`:
 

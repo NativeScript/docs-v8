@@ -11,14 +11,6 @@ A NativeScript plugin that provides ui element for picking an object/value from 
 npm install @nativescript/picker
 ```
 
-## Usage
-
-- [Configuration](#configuration)
-- [Usage](#usage)
-- [Features](#features)
-  - [PickerField](#PickerField)
-- [API](#api)
-
 ## Screenshots
 
 <img alt="PickerField on iOS" src="https://raw.githubusercontent.com/NativeScript/nativescript-picker/master/docs/picker-ios.gif" height="590px"/><img alt="PickerField on Android" src="https://raw.githubusercontent.com/NativeScript/nativescript-picker/master/docs/picker-android.gif" height="590px"/>
@@ -31,6 +23,8 @@ No additional configuration required!
 
 To use the `PickerField` in markup you need to:
 
+/// flavor plain
+
 - If you are developing a NativeScript Core app, you need to register the plugin namespace in the xml:
 
 ```xml
@@ -40,6 +34,10 @@ To use the `PickerField` in markup you need to:
    <picker:PickerField hint="Click here" items="{{ pickerItems }}"/>
 ...
 ```
+
+///
+
+/// flavor angular
 
 - If you are developing a NativeScript Angular app, you need to import the plugin module in the module of your component:
 
@@ -60,6 +58,10 @@ Then you will be able to declare the fields in the html of your component:
 <PickerField hint="Click here" [items]="pickerItems"></PickerField>
 ```
 
+///
+
+/// flavor vue
+
 - If you are developing a NativeScript Vue app, you need to install the plugin in you app.js file:
 
 ```js
@@ -74,6 +76,8 @@ Then you will be able to declare the fields in the template of your component:
 ```html
 <PickerField hint="Click here"></PickerField>
 ```
+
+///
 
 ## Features
 

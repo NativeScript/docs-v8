@@ -28,7 +28,7 @@ See those < and > buttons in the video above.
 In case those fields were not direct siblings, until version 1.3.0 of this plugin, you had no way
 to force the previous / next buttons to appear. However, now you can:
 
-#### NativeScript /w XML usage
+/// flavor plain
 
 Note in the example below that the two `<TextField>` controls are not siblings (both have parent `<StackLayout>` containers). Because of this, IQKeyboardManager will not automatically provide an optimized keyboard by default.
 
@@ -55,7 +55,9 @@ However, if you surround the controls with this plugin's `<PreviousNextView>` co
 </Page>
 ```
 
-#### NativeScript /w Angular usage
+///
+
+/// flavor angular
 
 In the `.modules.ts` file where you want to use this feature (or the `app.module.ts`),
 register the `PreviousNextView` element:
@@ -86,7 +88,9 @@ Then in the view, use that element like this (again, we went nuts with the `<Sta
 </StackLayout>
 ```
 
-#### NativeScript /w Vue usage
+///
+
+/// flavor vue
 
 Vue usage is very similar to Angular usage, the only difference is in how the element is registered. Open your app's entry file, and add this:
 
@@ -96,6 +100,8 @@ Vue.registerElement(
   () => require('@nativescript/iqkeyboardmanager').PreviousNextView
 )
 ```
+
+///
 
 ### Adding a placeholder/hint on a `TextView`'s accessory bar
 
@@ -107,7 +113,7 @@ of an iOS limitation. You can work around this limitation by using the `TextView
 provided by this plugin. So whenever you want to use a `TextView` with a placeholder,
 use `TextViewWithHint` instead.
 
-#### NativeScript /w XML usage
+/// flavor plain
 
 ```xml
 <Page
@@ -121,7 +127,9 @@ use `TextViewWithHint` instead.
 </Page>
 ```
 
-#### NativeScript /w Angular usage
+///
+
+/// flavor angular
 
 In the `.modules.ts` file where you want to use this feature (or the `app.module.ts`),
 register the `TextViewWithHint` element:
@@ -143,7 +151,9 @@ Then in the view, use that element like this:
 </StackLayout>
 ```
 
-#### NativeScript /w Vue usage
+///
+
+/// flavor vue
 
 Vue usage is very similar to Angular usage, the only difference is in how the element is registered. Open your app's entry file, and add this:
 
@@ -154,6 +164,8 @@ Vue.registerElement(
 )
 ```
 
+///
+
 ### Tweaking the appearance and behavior
 
 Start by adding the following two paths into your app’s `references.d.ts` file. (See this repo’s demo app for a specific example.)
@@ -163,8 +175,9 @@ Start by adding the following two paths into your app’s `references.d.ts` file
 /// <reference path="./node_modules/@nativescript/iqkeyboardmanager/index.d.ts" />
 ```
 
-> **NOTE**: You might also need to `npm install --save-dev tns-platform-declarations` to bring in NativeScript’s TypeScript definitions for native iOS development.
-
+:::tip Note
+You might also need to `npm install --save-dev tns-platform-declarations` to bring in NativeScript’s TypeScript definitions for native iOS development.
+:::
 Next, initialize an instance of `IQKeyboardManager` with the following line of code.
 
 ```typescript

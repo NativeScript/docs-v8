@@ -11,8 +11,6 @@ Easily add [Detox](https://github.com/wix/Detox) end-to-end testing to your Nati
 | --------------------------------------------- | --------------------------------------------- |
 | iOS Demo                                      | Android Demo                                  |
 
----
-
 ## Table of Contents
 
 1. [Installation](#installation)
@@ -121,7 +119,9 @@ Here is a full example of a Detox configuration:
 }
 ```
 
-**NOTE:** A default NativeScript Android project uses 17 as the minimum SDK, but Detox requires >=18. Remove or modify the `minSdkVersion` in your `App_Resources/Android/app.gradle`.
+:::tip Note
+A default NativeScript Android project uses 17 as the minimum SDK, but Detox requires >=18. Remove or modify the `minSdkVersion` in your `App_Resources/Android/app.gradle`.
+:::
 
 ## Usage
 

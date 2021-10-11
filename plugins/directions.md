@@ -29,7 +29,7 @@ This plugin is part of the [plugin showcase app](https://github.com/EddyVerbrugg
 
 Not all devices have the Google (Android) or Apple (iOS) Maps app installed. Well, most do of course, but on an Android simulator you may be out of luck, so let's check beforehand:
 
-##### JavaScript
+<!-- tab:Javascript -->
 
 ```js
 // require the plugin
@@ -43,7 +43,7 @@ directions.Directions.available().then(function (avail) {
 })
 ```
 
-##### TypeScript
+<!-- tab:Typescript -->
 
 ```typescript
 // require the plugin
@@ -69,7 +69,7 @@ If you pass in an Array of `to` addresses, then the last item is the destination
 
 Note that if there's an ocean in between `from` and `to` you won't be able to get directions, don't blame this plugin for that 😁
 
-##### JavaScript
+<!-- tab:Javascript -->
 
 ```js
 directions
@@ -95,7 +95,7 @@ directions
   )
 ```
 
-##### TypeScript
+<!-- tab:Typescript -->
 
 ```typescript
 directions
@@ -136,7 +136,7 @@ directions
 
 ## Future work
 
-- Perhaps add Android-specific options like opening the map in StreetView mode, or pre-defining the transportation type (walk/bike/car).
+Perhaps add Android-specific options like opening the map in StreetView mode, or pre-defining the transportation type (walk/bike/car).
 
 ## License
 

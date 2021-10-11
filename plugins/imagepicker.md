@@ -29,34 +29,34 @@ In short here are the steps:
 
 ### Import the plugin
 
-_TypeScript_
+<!-- tab:Typescript -->
 
-```
-import * as imagepicker from "@nativescript/imagepicker";
+```ts
+import * as imagepicker from '@nativescript/imagepicker'
 ```
 
-_Javascript_
+<!-- tab:Javascript -->
 
-```
-var imagepicker = require("@nativescript/imagepicker");
+```js
+var imagepicker = require('@nativescript/imagepicker')
 ```
 
 ### Create imagepicker
 
 Create imagepicker in `single` or `multiple` mode to specifiy if the imagepicker will be used for single or multiple selection of images
 
-_TypeScript_
+<!-- tab:Typescript -->
 
-```
+```ts
 let context = imagepicker.create({
-    mode: "single" // use "multiple" for multiple selection
-});
+  mode: 'single' // use "multiple" for multiple selection
+})
 ```
 
-_Javascript_
+<!-- tab:Javascript -->
 
-```
-var context = imagepicker.create({ mode: "single" }); // use "multiple" for multiple selection
+```js
+var context = imagepicker.create({ mode: 'single' }) // use "multiple" for multiple selection
 ```
 
 ### Request permissions, show the images list and process the selection
@@ -77,9 +77,11 @@ context
     });
 ```
 
-> **NOTE**: To request permissions for Android 6+ (API 23+) we use [nativescript-permissions](https://www.npmjs.com/package/nativescript-permissions).
-
-> **NOTE**: To be sure to have permissions add the following lines in AndroidManifest.xml
+:::tip Note
+To request permissions for Android 6+ (API 23+) we use [nativescript-permissions](https://www.npmjs.com/package/nativescript-permissions).
+:::
+:::tip Note
+To be sure to have permissions add the following lines in AndroidManifest.xml
 
 ```
 <manifest ... >
@@ -91,12 +93,17 @@ context
 </manifest>
 ```
 
-> **NOTE**: Using the plugin on iOS requres photo library permission. Your app might be rejected from the Apple App Store if you do not provide a description about why you need this permission. The default message "Requires access to photo library." might not be enough for the App Store reviewers. You can customize it by editing the `app/App_Resources/iOS/Info.plist` file in your app and adding the following key:
+:::
+
+:::tip Note
+Using the plugin on iOS requres photo library permission. Your app might be rejected from the Apple App Store if you do not provide a description about why you need this permission. The default message "Requires access to photo library." might not be enough for the App Store reviewers. You can customize it by editing the `app/App_Resources/iOS/Info.plist` file in your app and adding the following key:
 
 ```xml
 <key>NSPhotoLibraryUsageDescription</key>
 <string>Description text goes here</string>
 ```
+
+:::
 
 ## API
 

@@ -5,7 +5,7 @@ link: https://raw.githubusercontent.com/NativeScript/firebase/main/packages/fire
 
 # @nativescript/firebase-core
 
-```javascript
+```cli
 ns plugin add @nativescript/firebase-core
 ```
 

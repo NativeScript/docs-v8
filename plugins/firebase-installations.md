@@ -5,7 +5,7 @@ link: https://raw.githubusercontent.com/NativeScript/firebase/main/packages/fire
 
 # @nativescript/firebase-installations
 
-```javascript
+```cli
 ns plugin add @nativescript/firebase-installations
 ```
 

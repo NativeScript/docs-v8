@@ -17,7 +17,9 @@ link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/email
 
 You can use this plugin to compose an e-mail, have the user edit the draft manually, and send it.
 
-> Note that this plugin depends on the default mail app. If you want a fallback to a third party client app like Gmail or Outlook, then check for availability, and if not available use a solution like [the Social Share plugin](https://github.com/tjvantoll/nativescript-social-share).
+:::tip Note
+This plugin depends on the default mail app. If you want a fallback to a third party client app like Gmail or Outlook, then check for availability, and if not available use a solution like [the Social Share plugin](https://github.com/tjvantoll/nativescript-social-share).
+:::
 
 ```cli
 ns plugin add @nativescript/email
@@ -29,7 +31,7 @@ ns plugin add @nativescript/email
 
 To use this plugin you must first require/import it:
 
-#### TypeScript
+<!-- tab:Typescript -->
 
 ```typescript
 import * as email from '@nativescript/email'
@@ -39,7 +41,7 @@ import { compose } from '@nativescript/email'
 import { compose as composeEmail } from '@nativescript/email'
 ```
 
-#### JavaScript
+<!-- tab:Javascript -->
 
 ```js
 var email = require('@nativescript/email')
@@ -47,7 +49,7 @@ var email = require('@nativescript/email')
 
 ### `available`
 
-#### TypeScript
+<!-- tab:Typescript -->
 
 ```typescript
 email.available().then((avail: boolean) => {
@@ -55,7 +57,7 @@ email.available().then((avail: boolean) => {
 })
 ```
 
-#### JavaScript
+<!-- tab:Javascript -->
 
 ```js
 email.available().then(function (avail) {
@@ -65,7 +67,7 @@ email.available().then(function (avail) {
 
 ### `compose`
 
-#### JavaScript
+<!-- tab:Javascript -->
 
 ```js
 // let's first create a File object

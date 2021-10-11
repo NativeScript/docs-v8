@@ -5,7 +5,7 @@ link: https://raw.githubusercontent.com/NativeScript/firebase/main/packages/fire
 
 # @nativescript/firebase-auth
 
-```javascript
+```cli
 ns plugin add @nativescript/firebase-auth
 ```
 
@@ -181,9 +181,9 @@ LoginManager.logInWithPermissions(['public_profile', 'email']).then(result => {
 })
 ```
 
-** Note **
-
-> Firebase will not set the User.emailVerified property to true if your user logs in with Facebook. Should your user login using a provider that verifies email (e.g. Google sign-in) then this will be set to true.
+:::tip Note
+Firebase will not set the `User.emailVerified` property to true if your user logs in with Facebook. Should your user login using a provider that verifies email (e.g. Google sign-in) then this will be set to true.
+:::
 
 #### Twitter
 
@@ -245,7 +245,9 @@ GoogleSignin.signIn().then(user => {
 
 Phone authentication allows users to sign in to Firebase using their phone as the authenticator. An SMS message is sent to the user (using the provided phone number) containing a unique code. Once the code has been authorized, the user is able to sign into Firebase.
 
-> Phone numbers that end users provide for authentication will be sent and stored by Google to improve spam and abuse prevention across Google service, including to, but not limited to Firebase. Developers should ensure they have the appropriate end-user consent prior to using the Firebase Authentication phone number sign-in service.authentication
+:::tip Note
+Phone numbers that end users provide for authentication will be sent and stored by Google to improve spam and abuse prevention across Google service, including to, but not limited to Firebase. Developers should ensure they have the appropriate end-user consent prior to using the Firebase Authentication phone number sign-in service.authentication
+:::
 
 Firebase Phone Authentication is not supported in all countries. Please see their [FAQs](https://firebase.google.com/support/faq/#develop) for more information.
 

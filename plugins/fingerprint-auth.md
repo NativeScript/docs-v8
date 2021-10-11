@@ -26,7 +26,7 @@ Want a nicer guide than these raw code samples? Read [Nic Raboy's blog post abou
 
 ### `available`
 
-#### JavaScript
+<!-- tab:Javascript -->
 
 ```js
 var fingerprintAuthPlugin = require('@nativescript/fingerprint-auth')
@@ -37,7 +37,7 @@ fingerprintAuth.available().then(function (avail) {
 })
 ```
 
-#### TypeScript
+<!-- tab:Typescript -->
 
 ```typescript
 import { FingerprintAuth, BiometricIDAvailableResult } from "@nativescript/fingerprint-auth";
@@ -89,15 +89,17 @@ the system password. It must be used to compare the entered password with an app
 
 The password fallback can be disabled by overriding the default `use_password` text to a blank string (see optional change below for details on how to do this).
 
-##### Optional change
+#### Optional change
 
 If you want to override the default texts of this popover screen, then drop a file [`strings.xml`](https://github.com/EddyVerbruggen/nativescript-fingerprint-auth/blob/5a14f96f7e752953df506401588b5694e3ab6444/demo/app/App_Resources/Android/src/main/res/values/strings.xml) in your project and override the properties you like. See the demo app for an example.
 
-##### ⚠️ Important note when using NativeScript < 5.4.0
+:::warning Note
+Important note when using NativeScript < 5.4.0
 
 **Use plugin version < 7.0.0 to be able to use this feature with NativeScript < 5.4.0**
 
-> Skip this section if you're on NativeScript 5.4.0 or newer because it's all handled automatically!
+Skip this section if you're on NativeScript 5.4.0 or newer because it's all handled automatically!
+:::
 
 To be able to use this screen, a change to `App_Resources/Android/AndroidManifest.xml` is required as our NativeScript activity needs to extend AppCompatActivity (note that in the future this may become the default for NativeScript apps).
 
