@@ -75,7 +75,7 @@ for Google Play Billing](https://developer.android.com/google/play/billing/test)
 
 **Note about the plugin usage:**
 
-This plugin uses a RxJS Observable to emit the events to handle the purchase flow. To avoid threading errors with the platform purchasing flow, you can use `toMainThread()` as a pipe on the Observable so that the purchase logic executes on the main thread. `payments$.pipe(toMainThread()).subscribe((event: PaymentEvent.Type) => {...`
+This plugin uses a RxJS Observable to emit the events to handle the purchase flow. To avoid threading errors with the platform purchasing flow, you can use `toMainThread()` as a pipe on the Observable so that the purchase logic executes on the main thread. `paymentEvents.pipe(toMainThread()).subscribe((event: PaymentEvent.Type) => {...`
 The sample below should give a good starting point on how to use the Observable and setup the purchasing mechanism.
 
 ## Usage
@@ -86,9 +86,9 @@ The standard flow of method calls:
 // This sets up the internal system of the plugin
 init();
 // Connect the RxJS Observable
-payments$.connect();
+paymentEvents.connect();
 // Establish the Subscription with your event handling
-payments$.pipe(toMainThread()).subscribe((event: PaymentEvent.Type) => {...
+paymentEvents.pipe(toMainThread()).subscribe((event: PaymentEvent.Type) => {...
 
 // fetchItems(['item.id', ...]) will query the store for the items requested.
 // Handle these items inside the PaymentEvent.Context.RETRIEVING_ITEMS event.
@@ -112,12 +112,13 @@ finalizeOrder(payload)
 import {
   buyItem,
   BuyItemOptions,
+  canMakePayments,
   fetchItems,
   finalizeOrder,
   init as initPayments,
   Item,
   PaymentEvent,
-  payments$,
+  paymentEvents,
   toMainThread
 } from '@nativescript/payments'
 
@@ -126,12 +127,12 @@ export class SomeViewModel {
 
   pageLoaded() {
     // Connect to the RxJS Observable
-    payments$.connect()
+    paymentEvents.connect()
 
     // Subscribe to the RxJS Observable
     // You do not have to handle all of the events
     // RETRIEVING_ITEMS && PROCESSING_ORDER are the ones you'll want to use to handle the purchase flow
-    const subscription = payments$
+    const subscription = paymentEvents
       .pipe(toMainThread())
       .subscribe((event: PaymentEvent.Type) => {
         switch (event.context) {
