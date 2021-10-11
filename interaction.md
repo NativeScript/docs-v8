@@ -48,8 +48,8 @@ The [`AnimationDefinition`](/api-reference/interfaces/animationdefinition.html) 
 - **target**: The view whose property is to be animated.
 - **opacity**: Animates the opacity of the view. Value should be a number between 0.0 and 1.0.
 - **backgroundColor**: Animates the backgroundColor of the view.
-- **translate**: Animates the translate affine transform of the view. Value should be a [`Pair`](/api-reference/interfaces/_ui_animation_.pair.html).
-- **scale**: Animates the scale affine transform of the view. Value should be a [`Pair`](/api-reference/interfaces/_ui_animation_.pair.html).
+- **translate**: Animates the translate affine transform of the view. Value should be a [`Pair`](https://v6.docs.nativescript.org/api-reference/interfaces/_ui_animation_.pair.html).
+- **scale**: Animates the scale affine transform of the view. Value should be a [`Pair`](https://v6.docs.nativescript.org/api-reference/interfaces/_ui_animation_.pair.html).
 - **rotate**: Animates the rotate affine transform of the view. Value should be a number specifying the rotation amount in degrees.
 - **duration**: The length of the animation in milliseconds. The default duration is 300 milliseconds.
 - **delay**: The amount of time, in milliseconds, to delay starting the animation.
