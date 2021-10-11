@@ -30,7 +30,7 @@ async function main() {
 
 			const headerSnippet = [
 				`---`,
-				`title: ${plugin.name}`,
+				`title: ${JSON.stringify(plugin.name)}`,
 				`link: ${url}`,
 				`---`,
 			].join('\n')
