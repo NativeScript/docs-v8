@@ -1,5 +1,5 @@
 ---
-title: App Availability
+title: 'App Availability'
 link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/appavailability/README.md
 ---
 

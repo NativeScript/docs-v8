@@ -1,5 +1,5 @@
 ---
-title: Twitter
+title: 'Twitter'
 link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/twitter/README.md
 ---
 

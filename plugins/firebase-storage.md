@@ -1,5 +1,5 @@
 ---
-title: Storage
+title: 'Storage'
 link: https://raw.githubusercontent.com/NativeScript/firebase/main/packages/firebase-storage/README.md
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Image Picker
+title: 'Image Picker'
 link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/imagepicker/README.md
 ---
 

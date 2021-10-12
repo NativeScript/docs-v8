@@ -1,5 +1,5 @@
 ---
-title: App Check
+title: 'App Check'
 link: https://raw.githubusercontent.com/NativeScript/firebase/main/packages/firebase-app-check/README.md
 ---
 

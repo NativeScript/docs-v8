@@ -1,5 +1,5 @@
 ---
-title: Detox
+title: 'Detox'
 link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/detox/README.md
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Functions
+title: 'Functions'
 link: https://raw.githubusercontent.com/NativeScript/firebase/main/packages/firebase-functions/README.md
 ---
 

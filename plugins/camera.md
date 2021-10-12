@@ -1,5 +1,5 @@
 ---
-title: Camera
+title: 'Camera'
 link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/camera/README.md
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Facebook
+title: 'Facebook'
 link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/facebook/README.md
 ---
 

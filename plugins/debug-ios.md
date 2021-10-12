@@ -1,5 +1,5 @@
 ---
-title: Debug iOS
+title: 'Debug iOS'
 link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/debug-ios/README.md
 ---
 

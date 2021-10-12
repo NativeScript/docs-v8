@@ -1,5 +1,5 @@
 ---
-title: Messaging
+title: 'Messaging'
 link: https://raw.githubusercontent.com/NativeScript/firebase/main/packages/firebase-messaging/README.md
 ---
 

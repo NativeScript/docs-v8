@@ -1,5 +1,5 @@
 ---
-title: Core
+title: 'Core'
 link: https://raw.githubusercontent.com/NativeScript/firebase/main/packages/firebase-core/README.md
 ---
 

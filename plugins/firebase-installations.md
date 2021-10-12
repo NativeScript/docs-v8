@@ -1,5 +1,5 @@
 ---
-title: Insallations
+title: 'Insallations'
 link: https://raw.githubusercontent.com/NativeScript/firebase/main/packages/firebase-installations/README.md
 ---
 

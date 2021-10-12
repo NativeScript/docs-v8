@@ -1,5 +1,5 @@
 ---
-title: Analytics
+title: 'Analytics'
 link: https://raw.githubusercontent.com/NativeScript/firebase/main/packages/firebase-analytics/README.md
 ---
 
