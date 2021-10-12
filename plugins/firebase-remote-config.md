@@ -1,5 +1,5 @@
 ---
-title: Remote Config
+title: 'Remote Config'
 link: https://raw.githubusercontent.com/NativeScript/firebase/main/packages/firebase-remote-config/README.md
 ---
 

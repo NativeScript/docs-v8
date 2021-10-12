@@ -1,5 +1,5 @@
 ---
-title: IQ Keyboard Manager
+title: 'IQ Keyboard Manager'
 link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/iqkeyboardmanager/README.md
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Zip
+title: 'Zip'
 link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/zip/README.md
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Google Signin
+title: 'Google Signin'
 link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/google-signin/README.md
 ---
 

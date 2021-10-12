@@ -1,5 +1,5 @@
 ---
-title: Apple Pay
+title: 'Apple Pay'
 link: https://raw.githubusercontent.com/NativeScript/payments/main/packages/apple-pay/README.md
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Google Pay
+title: 'Google Pay'
 link: https://raw.githubusercontent.com/NativeScript/payments/main/packages/google-pay/README.md
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Crashlytics
+title: 'Crashlytics'
 link: https://raw.githubusercontent.com/NativeScript/firebase/main/packages/firebase-crashlytics/README.md
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Dynamic Links
+title: 'Dynamic Links'
 link: https://raw.githubusercontent.com/NativeScript/firebase/main/packages/firebase-dynamic-links/README.md
 ---
 

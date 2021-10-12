@@ -1,5 +1,5 @@
 ---
-title: Performance
+title: 'Performance'
 link: https://raw.githubusercontent.com/NativeScript/firebase/main/packages/firebase-performance/README.md
 ---
 

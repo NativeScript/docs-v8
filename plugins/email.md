@@ -1,5 +1,5 @@
 ---
-title: Email
+title: 'Email'
 link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/email/README.md
 ---
 

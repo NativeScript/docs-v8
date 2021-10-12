@@ -1,5 +1,5 @@
 ---
-title: Auth
+title: 'Auth'
 link: https://raw.githubusercontent.com/NativeScript/firebase/main/packages/firebase-auth/README.md
 ---
 

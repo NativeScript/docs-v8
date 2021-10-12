@@ -1,5 +1,5 @@
 ---
-title: Picker
+title: 'Picker'
 link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/picker/README.md
 ---
 

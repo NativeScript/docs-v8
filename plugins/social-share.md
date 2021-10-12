@@ -1,5 +1,5 @@
 ---
-title: Social Share
+title: 'Social Share'
 link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/social-share/README.md
 ---
 

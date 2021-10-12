@@ -1,5 +1,5 @@
 ---
-title: Database
+title: 'Database'
 link: https://raw.githubusercontent.com/NativeScript/firebase/main/packages/firebase-database/README.md
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Firestore
+title: 'Firestore'
 link: https://raw.githubusercontent.com/NativeScript/firebase/main/packages/firebase-firestore/README.md
 ---
 
