@@ -3,7 +3,7 @@ title: 'Animated Circle'
 link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/animated-circle/README.md
 ---
 
-# Repo: [Animated Circle](https://github.com/NativeScript/plugins/tree/main/packages/animated-circle)
+### ![github logo]('../assets/images/github/GitHub-Mark-32px.png'): [Animated Circle](https://github.com/NativeScript/plugins/tree/main/packages/animated-circle)
 
 # @nativescript/animated-circle
 

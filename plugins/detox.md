@@ -3,7 +3,7 @@ title: 'Detox'
 link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/detox/README.md
 ---
 
-# Repo: [Detox](https://github.com/NativeScript/plugins/tree/main/packages/detox)
+### ![github logo]('../assets/images/github/GitHub-Mark-32px.png'): [Detox](https://github.com/NativeScript/plugins/tree/main/packages/detox)
 
 # @nativescript/detox
 

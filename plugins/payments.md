@@ -3,7 +3,7 @@ title: 'Payments: IAP & Subscriptions'
 link: https://raw.githubusercontent.com/NativeScript/payments/main/packages/payments/README.md
 ---
 
-# Repo: [Payments: IAP & Subscriptions](https://github.com/NativeScript/payments/tree/main/packages/payments)
+### ![github logo]('../assets/images/github/GitHub-Mark-32px.png'): [Payments: IAP & Subscriptions](https://github.com/NativeScript/payments/tree/main/packages/payments)
 
 # @nativescript/payments
 

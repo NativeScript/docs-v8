@@ -3,7 +3,7 @@ title: 'Functions'
 link: https://raw.githubusercontent.com/NativeScript/firebase/main/packages/firebase-functions/README.md
 ---
 
-# Repo: [Functions](https://github.com/NativeScript/firebase/tree/main/packages/firebase-functions)
+### ![github logo]('../assets/images/github/GitHub-Mark-32px.png'): [Functions](https://github.com/NativeScript/firebase/tree/main/packages/firebase-functions)
 
 # @nativescript/firebase-functions
 

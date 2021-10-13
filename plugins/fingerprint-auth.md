@@ -3,7 +3,7 @@ title: 'Fingerprint-Auth'
 link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/fingerprint-auth/README.md
 ---
 
-# Repo: [Fingerprint-Auth](https://github.com/NativeScript/plugins/tree/main/packages/fingerprint-auth)
+### ![github logo]('../assets/images/github/GitHub-Mark-32px.png'): [Fingerprint-Auth](https://github.com/NativeScript/plugins/tree/main/packages/fingerprint-auth)
 
 # @nativescript/fingerprint-auth
 

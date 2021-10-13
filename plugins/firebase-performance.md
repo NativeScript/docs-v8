@@ -3,7 +3,7 @@ title: 'Performance'
 link: https://raw.githubusercontent.com/NativeScript/firebase/main/packages/firebase-performance/README.md
 ---
 
-# Repo: [Performance](https://github.com/NativeScript/firebase/tree/main/packages/firebase-performance)
+### ![github logo]('../assets/images/github/GitHub-Mark-32px.png'): [Performance](https://github.com/NativeScript/firebase/tree/main/packages/firebase-performance)
 
 # @nativescript/firebase-performance
 

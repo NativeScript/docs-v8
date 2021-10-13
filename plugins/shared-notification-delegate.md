@@ -3,7 +3,7 @@ title: 'Shared Notification Delegate'
 link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/shared-notification-delegate/README.md
 ---
 
-# Repo: [Shared Notification Delegate](https://github.com/NativeScript/plugins/tree/main/packages/shared-notification-delegate)
+### ![github logo]('../assets/images/github/GitHub-Mark-32px.png'): [Shared Notification Delegate](https://github.com/NativeScript/plugins/tree/main/packages/shared-notification-delegate)
 
 # @nativescript/shared-notification-delegate
 

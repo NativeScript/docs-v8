@@ -3,7 +3,7 @@ title: 'Zip'
 link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/zip/README.md
 ---
 
-# Repo: [Zip](https://github.com/NativeScript/plugins/tree/main/packages/zip)
+### ![github logo]('../assets/images/github/GitHub-Mark-32px.png'): [Zip](https://github.com/NativeScript/plugins/tree/main/packages/zip)
 
 # @nativescript/zip
 

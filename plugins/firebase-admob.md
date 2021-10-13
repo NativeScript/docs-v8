@@ -3,7 +3,7 @@ title: 'Admob'
 link: https://raw.githubusercontent.com/NativeScript/firebase/main/packages/firebase-admob/README.md
 ---
 
-# Repo: [Admob](undefined)
+### ![github logo]('../assets/images/github/GitHub-Mark-32px.png'): [Admob](undefined)
 
 # @nativescript/firebase-admob
 

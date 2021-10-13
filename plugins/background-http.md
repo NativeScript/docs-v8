@@ -3,7 +3,7 @@ title: 'Background HTTP'
 link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/background-http/README.md
 ---
 
-# Repo: [Background HTTP](https://github.com/NativeScript/plugins/tree/main/packages/background-http)
+### ![github logo]('../assets/images/github/GitHub-Mark-32px.png'): [Background HTTP](https://github.com/NativeScript/plugins/tree/main/packages/background-http)
 
 # @nativescript/background-http
 

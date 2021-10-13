@@ -3,7 +3,7 @@ title: 'Geolocation'
 link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/geolocation/README.md
 ---
 
-# Repo: [Geolocation](https://github.com/NativeScript/plugins/tree/main/packages/geolocation)
+### ![github logo]('../assets/images/github/GitHub-Mark-32px.png'): [Geolocation](https://github.com/NativeScript/plugins/tree/main/packages/geolocation)
 
 # @nativescript/geolocation
 

@@ -3,7 +3,7 @@ title: 'Auto Fit Text'
 link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/auto-fit-text/README.md
 ---
 
-# Repo: [Auto Fit Text](https://github.com/NativeScript/plugins/tree/main/packages/auto-fit-text)
+### ![github logo]('../assets/images/github/GitHub-Mark-32px.png'): [Auto Fit Text](https://github.com/NativeScript/plugins/tree/main/packages/auto-fit-text)
 
 # @nativescript/auto-fit-text
 

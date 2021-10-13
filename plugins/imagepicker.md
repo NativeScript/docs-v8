@@ -3,7 +3,7 @@ title: 'Image Picker'
 link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/imagepicker/README.md
 ---
 
-# Repo: [Image Picker](https://github.com/NativeScript/plugins/tree/main/packages/imagepicker)
+### ![github logo]('../assets/images/github/GitHub-Mark-32px.png'): [Image Picker](https://github.com/NativeScript/plugins/tree/main/packages/imagepicker)
 
 # @nativescript/imagepicker ![apple](https://cdn3.iconfinder.com/data/icons/picons-social/57/16-apple-32.png) ![android](https://cdn4.iconfinder.com/data/icons/logos-3/228/android-32.png)
 

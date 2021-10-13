@@ -3,7 +3,7 @@ title: 'Facebook'
 link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/facebook/README.md
 ---
 
-# Repo: [Facebook](https://github.com/NativeScript/plugins/tree/main/packages/facebook)
+### ![github logo]('../assets/images/github/GitHub-Mark-32px.png'): [Facebook](https://github.com/NativeScript/plugins/tree/main/packages/facebook)
 
 # @nativescript/facebook
 

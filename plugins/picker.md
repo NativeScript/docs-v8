@@ -3,7 +3,7 @@ title: 'Picker'
 link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/picker/README.md
 ---
 
-# Repo: [Picker](https://github.com/NativeScript/plugins/tree/main/packages/picker)
+### ![github logo]('../assets/images/github/GitHub-Mark-32px.png'): [Picker](https://github.com/NativeScript/plugins/tree/main/packages/picker)
 
 # @nativescript/picker
 

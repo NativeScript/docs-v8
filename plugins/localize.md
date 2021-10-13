@@ -3,7 +3,7 @@ title: 'Localize'
 link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/localize/README.md
 ---
 
-# Repo: [Localize](https://github.com/NativeScript/plugins/tree/main/packages/localize)
+### ![github logo]('../assets/images/github/GitHub-Mark-32px.png'): [Localize](https://github.com/NativeScript/plugins/tree/main/packages/localize)
 
 # @nativescript/localize
 

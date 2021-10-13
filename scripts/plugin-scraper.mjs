@@ -36,9 +36,11 @@ async function main() {
 			].join('\n')
 
 			// adds a link to the actual plugin repo to the MD file
-			const repoSnippet = [`# Repo: [${plugin.name}](${plugin.repo})`].join(
-				'\n'
-			)
+			const repoSnippet = [
+				`###  ![github logo]('../assets/images/github/GitHub-Mark-32px.png'): [${
+					plugin.name
+				}](${plugin.repo})`,
+			].join('\n')
 
 			// save the file
 			fse.outputFileSync(

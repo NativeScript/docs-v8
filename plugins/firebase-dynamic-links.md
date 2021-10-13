@@ -3,7 +3,7 @@ title: 'Dynamic Links'
 link: https://raw.githubusercontent.com/NativeScript/firebase/main/packages/firebase-dynamic-links/README.md
 ---
 
-# Repo: [Dynamic Links](https://github.com/NativeScript/firebase/tree/main/packages/firebase-dynamic-links)
+### ![github logo]('../assets/images/github/GitHub-Mark-32px.png'): [Dynamic Links](https://github.com/NativeScript/firebase/tree/main/packages/firebase-dynamic-links)
 
 # @nativescript/firebase-dynamic-links
 

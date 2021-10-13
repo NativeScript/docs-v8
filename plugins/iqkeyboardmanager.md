@@ -3,7 +3,7 @@ title: 'IQ Keyboard Manager'
 link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/iqkeyboardmanager/README.md
 ---
 
-# Repo: [IQ Keyboard Manager](https://github.com/NativeScript/plugins/tree/main/packages/iqkeyboardmanager)
+### ![github logo]('../assets/images/github/GitHub-Mark-32px.png'): [IQ Keyboard Manager](https://github.com/NativeScript/plugins/tree/main/packages/iqkeyboardmanager)
 
 # @nativescript/iqkeyboardmanager
 

@@ -3,7 +3,7 @@ title: 'Local Notifications'
 link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/local-notifications/README.md
 ---
 
-# Repo: [Local Notifications](https://github.com/NativeScript/plugins/tree/main/packages/local-notifications)
+### ![github logo]('../assets/images/github/GitHub-Mark-32px.png'): [Local Notifications](https://github.com/NativeScript/plugins/tree/main/packages/local-notifications)
 
 # @nativescript/local-notifications
 

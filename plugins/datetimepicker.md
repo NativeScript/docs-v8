@@ -3,7 +3,7 @@ title: 'DateTimePicker'
 link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/datetimepicker/README.md
 ---
 
-# Repo: [DateTimePicker](https://github.com/NativeScript/plugins/tree/main/packages/datetimepicker)
+### ![github logo]('../assets/images/github/GitHub-Mark-32px.png'): [DateTimePicker](https://github.com/NativeScript/plugins/tree/main/packages/datetimepicker)
 
 # @nativescript/datetimepicker
 

@@ -3,7 +3,7 @@ title: 'Analytics'
 link: https://raw.githubusercontent.com/NativeScript/firebase/main/packages/firebase-analytics/README.md
 ---
 
-# Repo: [Analytics](https://github.com/NativeScript/firebase/tree/main/packages/firebase-analytics)
+### ![github logo]('../assets/images/github/GitHub-Mark-32px.png'): [Analytics](https://github.com/NativeScript/firebase/tree/main/packages/firebase-analytics)
 
 # @nativescript/firebase-analytics
 

@@ -3,7 +3,7 @@ title: 'Twitter'
 link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/twitter/README.md
 ---
 
-# Repo: [Twitter](https://github.com/NativeScript/plugins/tree/main/packages/twitter)
+### ![github logo]('../assets/images/github/GitHub-Mark-32px.png'): [Twitter](https://github.com/NativeScript/plugins/tree/main/packages/twitter)
 
 # @nativescript/twitter
 

@@ -3,7 +3,7 @@ title: 'Google Signin'
 link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/google-signin/README.md
 ---
 
-# Repo: [Google Signin](https://github.com/NativeScript/plugins/tree/main/packages/google-signin)
+### ![github logo]('../assets/images/github/GitHub-Mark-32px.png'): [Google Signin](https://github.com/NativeScript/plugins/tree/main/packages/google-signin)
 
 # @nativescript/google-signin
 

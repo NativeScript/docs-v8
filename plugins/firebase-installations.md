@@ -3,7 +3,7 @@ title: 'Insallations'
 link: https://raw.githubusercontent.com/NativeScript/firebase/main/packages/firebase-installations/README.md
 ---
 
-# Repo: [Insallations](https://github.com/NativeScript/firebase/tree/main/packages/firebase-installations)
+### ![github logo]('../assets/images/github/GitHub-Mark-32px.png'): [Insallations](https://github.com/NativeScript/firebase/tree/main/packages/firebase-installations)
 
 # @nativescript/firebase-installations
 
