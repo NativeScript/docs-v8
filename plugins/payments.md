@@ -3,6 +3,8 @@ title: 'Payments: IAP & Subscriptions'
 link: https://raw.githubusercontent.com/NativeScript/payments/main/packages/payments/README.md
 ---
 
+# Repo: [Payments: IAP & Subscriptions](https://github.com/NativeScript/payments/tree/main/packages/payments)
+
 # @nativescript/payments
 
 In-App Purchase and Subscriptions for NativeScript iOS and Android.

@@ -3,6 +3,8 @@ title: 'Apple Pay'
 link: https://raw.githubusercontent.com/NativeScript/payments/main/packages/apple-pay/README.md
 ---
 
+# Repo: [Apple Pay](https://github.com/NativeScript/payments/tree/main/packages/apple-pay)
+
 # @nativescript/apple-pay
 
 ```javascript

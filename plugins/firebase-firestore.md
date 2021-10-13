@@ -3,6 +3,8 @@ title: 'Firestore'
 link: https://raw.githubusercontent.com/NativeScript/firebase/main/packages/firebase-firestore/README.md
 ---
 
+# Repo: [Firestore](https://github.com/NativeScript/firebase/tree/main/packages/firebase-firestore)
+
 # @nativescript/firebase-firestore
 
 ```javascript

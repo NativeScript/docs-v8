@@ -3,6 +3,8 @@ title: 'Directions'
 link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/directions/README.md
 ---
 
+# Repo: [Directions](https://github.com/NativeScript/plugins/tree/main/packages/directions)
+
 # @nativescript/directions
 
 ```cli

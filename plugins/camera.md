@@ -3,6 +3,8 @@ title: 'Camera'
 link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/camera/README.md
 ---
 
+# Repo: [Camera](https://github.com/NativeScript/plugins/tree/main/packages/camera)
+
 # @nativescript/camera
 
 # Working with the camera plugin

@@ -3,6 +3,8 @@ title: 'Debug iOS'
 link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/debug-ios/README.md
 ---
 
+# Repo: [Debug iOS](https://github.com/NativeScript/plugins/tree/main/packages/debug-ios)
+
 # @nativescript/debug-ios
 
 Advanced iOS debugging made possible via [Flex](https://github.com/FLEXTool/FLEX).

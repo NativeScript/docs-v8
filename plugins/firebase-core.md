@@ -3,6 +3,8 @@ title: 'Core'
 link: https://raw.githubusercontent.com/NativeScript/firebase/main/packages/firebase-core/README.md
 ---
 
+# Repo: [Core](https://github.com/NativeScript/firebase/tree/main/packages/firebase-core)
+
 # @nativescript/firebase-core
 
 ```javascript

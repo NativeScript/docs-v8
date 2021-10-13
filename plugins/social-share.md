@@ -3,6 +3,8 @@ title: 'Social Share'
 link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/social-share/README.md
 ---
 
+# Repo: [Social Share](https://github.com/NativeScript/plugins/tree/main/packages/social-share)
+
 # @nativescript/social-share
 
 ```cli

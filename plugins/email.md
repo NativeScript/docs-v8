@@ -3,6 +3,8 @@ title: 'Email'
 link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/email/README.md
 ---
 
+# Repo: [Email](https://github.com/NativeScript/plugins/tree/main/packages/email)
+
 # @nativescript/Email
 
 [![NPM version][npm-image]][npm-url]
