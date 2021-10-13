@@ -2,7 +2,7 @@
 title: Best Practices around hidden, visibility, v-if, ngIf and all those "if" things
 ---
 
-There's various ways to hide and show view elements on the screen at any given time either dynamically or just per page.
+There are various ways to hide and show view elements on the screen at any given time either dynamically or just per page.
 
 ## From @nativescript/core
 
@@ -24,7 +24,7 @@ Direct visual tree manipulation is the most expensive operation you can do gener
 
 ## What occurs with `v-if`, `ngIf`, etc.?
 
-These type of bindings completely destroy a view node when hiding and recreate it when showing. This is perfect for many uses cases but should be avoided on anything that involves scrolling which would cause those bindings to change mid-flight during scroll behavior. Or really any other highly interactive user experience which cause binding changes.
+These types of bindings completely destroy a view node when hiding and recreate it when showing. This is perfect for many uses cases but should be avoided on anything that involves scrolling which would cause those bindings to change mid-flight during scroll behavior. Or really any other highly interactive user experience which causes binding changes.
 
 On the other hand, `hidden` and `visibility` both **do not destroy** the view node. They simply modify it's properties to hide it or show it. The key differences between the two are illustrated here in this sample:
 
