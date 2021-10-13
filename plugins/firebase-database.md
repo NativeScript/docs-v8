@@ -3,7 +3,10 @@ title: 'Database'
 link: https://raw.githubusercontent.com/NativeScript/firebase/main/packages/firebase-database/README.md
 ---
 
-### ![github logo]('../assets/images/github/GitHub-Mark-32px.png'): [Database](https://github.com/NativeScript/firebase/tree/main/packages/firebase-database)
+<div style="width: 100%; padding: 1.2em 0em">
+  					<img alt="github logo" src="../assets/images/github/GitHub-Mark-32px.png" style="display: inline; margin: 1em 0.5em 1em 0em">
+  					<a href="https://github.com/NativeScript/firebase/tree/main/packages/firebase-database" target="_blank" noopener>Database</a>
+				</div>
 
 # @nativescript/firebase-database
 

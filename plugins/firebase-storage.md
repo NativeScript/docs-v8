@@ -3,7 +3,10 @@ title: 'Storage'
 link: https://raw.githubusercontent.com/NativeScript/firebase/main/packages/firebase-storage/README.md
 ---
 
-### ![github logo]('../assets/images/github/GitHub-Mark-32px.png'): [Storage](https://github.com/NativeScript/firebase/tree/main/packages/firebase-storage)
+<div style="width: 100%; padding: 1.2em 0em">
+  					<img alt="github logo" src="../assets/images/github/GitHub-Mark-32px.png" style="display: inline; margin: 1em 0.5em 1em 0em">
+  					<a href="https://github.com/NativeScript/firebase/tree/main/packages/firebase-storage" target="_blank" noopener>Storage</a>
+				</div>
 
 # @nativescript/firebase-storage
 

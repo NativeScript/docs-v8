@@ -3,7 +3,10 @@ title: 'Camera'
 link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/camera/README.md
 ---
 
-### ![github logo]('../assets/images/github/GitHub-Mark-32px.png'): [Camera](https://github.com/NativeScript/plugins/tree/main/packages/camera)
+<div style="width: 100%; padding: 1.2em 0em">
+  					<img alt="github logo" src="../assets/images/github/GitHub-Mark-32px.png" style="display: inline; margin: 1em 0.5em 1em 0em">
+  					<a href="https://github.com/NativeScript/plugins/tree/main/packages/camera" target="_blank" noopener>Camera</a>
+				</div>
 
 # @nativescript/camera
 

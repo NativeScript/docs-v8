@@ -3,7 +3,10 @@ title: 'Image Picker'
 link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/imagepicker/README.md
 ---
 
-### ![github logo]('../assets/images/github/GitHub-Mark-32px.png'): [Image Picker](https://github.com/NativeScript/plugins/tree/main/packages/imagepicker)
+<div style="width: 100%; padding: 1.2em 0em">
+  					<img alt="github logo" src="../assets/images/github/GitHub-Mark-32px.png" style="display: inline; margin: 1em 0.5em 1em 0em">
+  					<a href="https://github.com/NativeScript/plugins/tree/main/packages/imagepicker" target="_blank" noopener>Image Picker</a>
+				</div>
 
 # @nativescript/imagepicker ![apple](https://cdn3.iconfinder.com/data/icons/picons-social/57/16-apple-32.png) ![android](https://cdn4.iconfinder.com/data/icons/logos-3/228/android-32.png)
 
