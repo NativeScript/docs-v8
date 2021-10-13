@@ -3,7 +3,10 @@ title: 'Social Share'
 link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/social-share/README.md
 ---
 
-# Repo: [Social Share](https://github.com/NativeScript/plugins/tree/main/packages/social-share)
+<div style="width: 100%; padding: 1.2em 0em">
+  					<img alt="github logo" src="../assets/images/github/GitHub-Mark-32px.png" style="display: inline; margin: 1em 0.5em 1em 0em">
+  					<a href="https://github.com/NativeScript/plugins/tree/main/packages/social-share" target="_blank" noopener>Social Share</a>
+				</div>
 
 # @nativescript/social-share
 

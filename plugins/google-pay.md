@@ -3,7 +3,10 @@ title: 'Google Pay'
 link: https://raw.githubusercontent.com/NativeScript/payments/main/packages/google-pay/README.md
 ---
 
-# Repo: [Google Pay](https://github.com/NativeScript/payments/tree/main/packages/google-pay)
+<div style="width: 100%; padding: 1.2em 0em">
+  					<img alt="github logo" src="../assets/images/github/GitHub-Mark-32px.png" style="display: inline; margin: 1em 0.5em 1em 0em">
+  					<a href="https://github.com/NativeScript/payments/tree/main/packages/google-pay" target="_blank" noopener>Google Pay</a>
+				</div>
 
 # @nativescript/google-pay
 

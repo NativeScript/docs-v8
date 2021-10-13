@@ -3,7 +3,10 @@ title: 'Remote Config'
 link: https://raw.githubusercontent.com/NativeScript/firebase/main/packages/firebase-remote-config/README.md
 ---
 
-# Repo: [Remote Config](https://github.com/NativeScript/firebase/tree/main/packages/firebase-remote-config)
+<div style="width: 100%; padding: 1.2em 0em">
+  					<img alt="github logo" src="../assets/images/github/GitHub-Mark-32px.png" style="display: inline; margin: 1em 0.5em 1em 0em">
+  					<a href="https://github.com/NativeScript/firebase/tree/main/packages/firebase-remote-config" target="_blank" noopener>Remote Config</a>
+				</div>
 
 # @nativescript/firebase-remote-config
 

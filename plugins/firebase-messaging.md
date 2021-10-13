@@ -3,7 +3,10 @@ title: 'Messaging'
 link: https://raw.githubusercontent.com/NativeScript/firebase/main/packages/firebase-messaging/README.md
 ---
 
-# Repo: [Messaging](https://github.com/NativeScript/firebase/tree/main/packages/firebase-messaging)
+<div style="width: 100%; padding: 1.2em 0em">
+  					<img alt="github logo" src="../assets/images/github/GitHub-Mark-32px.png" style="display: inline; margin: 1em 0.5em 1em 0em">
+  					<a href="https://github.com/NativeScript/firebase/tree/main/packages/firebase-messaging" target="_blank" noopener>Messaging</a>
+				</div>
 
 # @nativescript/firebase-messaging
 
