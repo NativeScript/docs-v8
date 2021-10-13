@@ -3,6 +3,8 @@ title: 'Picker'
 link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/picker/README.md
 ---
 
+# Repo: [Picker](https://github.com/NativeScript/plugins/tree/main/packages/picker)
+
 # @nativescript/picker
 
 A NativeScript plugin that provides ui element for picking an object/value from a list opened in a modal popup.

@@ -3,6 +3,8 @@ title: 'Storage'
 link: https://raw.githubusercontent.com/NativeScript/firebase/main/packages/firebase-storage/README.md
 ---
 
+# Repo: [Storage](https://github.com/NativeScript/firebase/tree/main/packages/firebase-storage)
+
 # @nativescript/firebase-storage
 
 ```javascript

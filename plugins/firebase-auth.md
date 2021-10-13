@@ -3,6 +3,8 @@ title: 'Auth'
 link: https://raw.githubusercontent.com/NativeScript/firebase/main/packages/firebase-auth/README.md
 ---
 
+# Repo: [Auth](https://github.com/NativeScript/firebase/tree/main/packages/firebase-auth)
+
 # @nativescript/firebase-auth
 
 ```javascript

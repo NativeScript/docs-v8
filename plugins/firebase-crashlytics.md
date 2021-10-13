@@ -3,6 +3,8 @@ title: 'Crashlytics'
 link: https://raw.githubusercontent.com/NativeScript/firebase/main/packages/firebase-crashlytics/README.md
 ---
 
+# Repo: [Crashlytics](https://github.com/NativeScript/firebase/tree/main/packages/firebase-crashlytics)
+
 # @nativescript/firebase-crashlytics
 
 ```javascript

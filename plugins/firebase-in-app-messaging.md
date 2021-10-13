@@ -3,6 +3,8 @@ title: 'In App Messaging'
 link: https://raw.githubusercontent.com/NativeScript/firebase/main/packages/firebase-in-app-messaging/README.md
 ---
 
+# Repo: [In App Messaging](https://github.com/NativeScript/firebase/tree/main/packages/firebase-in-app-messaging)
+
 # @nativescript/firebase-in-app-messaging
 
 ```javascript

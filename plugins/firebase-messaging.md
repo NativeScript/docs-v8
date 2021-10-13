@@ -3,6 +3,8 @@ title: 'Messaging'
 link: https://raw.githubusercontent.com/NativeScript/firebase/main/packages/firebase-messaging/README.md
 ---
 
+# Repo: [Messaging](https://github.com/NativeScript/firebase/tree/main/packages/firebase-messaging)
+
 # @nativescript/firebase-messaging
 
 ```javascript

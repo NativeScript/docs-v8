@@ -3,6 +3,8 @@ title: 'Localize'
 link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/localize/README.md
 ---
 
+# Repo: [Localize](https://github.com/NativeScript/plugins/tree/main/packages/localize)
+
 # @nativescript/localize
 
 This is a plugin for NativeScript that implements internationalization (i18n) using the native capabilities of each platform. It is inspired from [nativescript-i18n](https://github.com/rborn/nativescript-i18n)

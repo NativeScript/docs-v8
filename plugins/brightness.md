@@ -3,6 +3,8 @@ title: 'Brightness'
 link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/brightness/README.md
 ---
 
+# Repo: [Brightness](https://github.com/NativeScript/plugins/tree/main/packages/brightness)
+
 # @nativescript/brightness
 
 ```cli

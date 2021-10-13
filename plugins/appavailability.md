@@ -3,6 +3,8 @@ title: 'App Availability'
 link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/appavailability/README.md
 ---
 
+# Repo: [App Availability](https://github.com/NativeScript/plugins/tree/main/packages/appavailability)
+
 # @nativescript/app-availability
 
 A plugin to check for availability of other apps on the device.

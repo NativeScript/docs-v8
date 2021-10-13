@@ -3,6 +3,8 @@ title: 'Geolocation'
 link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/geolocation/README.md
 ---
 
+# Repo: [Geolocation](https://github.com/NativeScript/plugins/tree/main/packages/geolocation)
+
 # @nativescript/geolocation
 
 Geolocation plugin to use for getting current location, monitor movement, etc.

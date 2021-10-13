@@ -3,6 +3,8 @@ title: 'Detox'
 link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/detox/README.md
 ---
 
+# Repo: [Detox](https://github.com/NativeScript/plugins/tree/main/packages/detox)
+
 # @nativescript/detox
 
 Easily add [Detox](https://github.com/wix/Detox) end-to-end testing to your NativeScript apps!
@@ -70,7 +72,7 @@ If things go well, you should to have this set up:
 - An `e2e/` folder in your project root
 - An `e2e/config.json` file; [example](https://github.com/wix/Detox/blob/master/examples/demo-react-native-jest/e2e/config.json)
 - An `e2e/environment.js` file; [example](https://github.com/wix/Detox/blob/master/examples/demo-react-native-jest/e2e/environment.js)
-- An `e2e/firstTest.e2e.js` file with content similar to [this](https://github.com/wix/Detox/blob/master/examples/demo-react-native-jest/e2e/app-hello.e2e.js).
+- An `e2e/firstTest.e2e.ts` file with content similar to [this](https://github.com/wix/Detox/blob/master/examples/demo-react-native-jest/e2e/app-hello.e2e.ts).
 
 There should also be a file called `.detoxrc.json` in your project root.
 
