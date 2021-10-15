@@ -82,6 +82,8 @@ async function main() {
 
 function transformNoteStyle(data) {
 	// Transforms note styles for vitepress
+	// The notes should look like the following to match the regex
+	// > **Note:** Example note
 	const noteStringRegex = /(\> \*\*.*\*\*( |:))(.)*\n/ig;
 	const noteKeywordRegex = /(\> \*\*.*\*\*( |: ))/ig;
 
