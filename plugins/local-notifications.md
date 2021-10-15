@@ -3,6 +3,11 @@ title: 'Local Notifications'
 link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/local-notifications/README.md
 ---
 
+<div style="width: 100%; padding: 1.2em 0em">
+  					<img alt="github logo" src="../assets/images/github/GitHub-Mark-32px.png" style="display: inline; margin: 1em 0.5em 1em 0em">
+  					<a href="https://github.com/NativeScript/plugins/tree/main/packages/local-notifications" target="_blank" noopener>Local Notifications</a>
+				</div>
+
 # @nativescript/local-notifications
 
 [![NPM version][npm-image]][npm-url]

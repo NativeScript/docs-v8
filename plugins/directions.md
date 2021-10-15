@@ -3,6 +3,11 @@ title: 'Directions'
 link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/directions/README.md
 ---
 
+<div style="width: 100%; padding: 1.2em 0em">
+  					<img alt="github logo" src="../assets/images/github/GitHub-Mark-32px.png" style="display: inline; margin: 1em 0.5em 1em 0em">
+  					<a href="https://github.com/NativeScript/plugins/tree/main/packages/directions" target="_blank" noopener>Directions</a>
+				</div>
+
 # @nativescript/directions
 
 ```cli
@@ -13,11 +18,11 @@ ns plugin add @nativescript/directions
 
 ### Demo app (XML + TypeScript)
 
-Want to dive in quickly? Check out [the demo app](demo)! Otherwise, continue reading.
+Want to dive in quickly? Check out [the demo app](https://github.com/EddyVerbruggen/nativescript-directions/tree/9a9f1ff0de551c447a87b3513a5453f1b962c33c/demo)! Otherwise, continue reading.
 
 You can run the demo app from the root of the project by typing `npm run demo.ios.device` or `npm run demo.android`.
 
-<img src="https://raw.githubusercontent.com/EddyVerbruggen/@nativescript/directions/master/media/directions-animated.gif" width="320px" height="570px"/>
+<img src="https://raw.githubusercontent.com/EddyVerbruggen/nativescript-directions/master/media/directions-animated.gif" width="320px" height="570px"/>
 
 ### Demo app (Angular)
 

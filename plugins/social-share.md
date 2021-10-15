@@ -3,6 +3,11 @@ title: 'Social Share'
 link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/social-share/README.md
 ---
 
+<div style="width: 100%; padding: 1.2em 0em">
+  					<img alt="github logo" src="../assets/images/github/GitHub-Mark-32px.png" style="display: inline; margin: 1em 0.5em 1em 0em">
+  					<a href="https://github.com/NativeScript/plugins/tree/main/packages/social-share" target="_blank" noopener>Social Share</a>
+				</div>
+
 # @nativescript/social-share
 
 ```cli
@@ -25,7 +30,7 @@ import * as SocialShare from "@nativescript/social-share";
 
 ### shareImage(ImageSource image, \[optional\] String subject)
 
-The `shareImage()` method expects an [`ImageSource`](http://docs.nativescript.org/ApiReference/image-source/ImageSource.html) object. The code below loads an image from the app and invokes the share widget with it:
+The `shareImage()` method expects an [`ImageSource`](https://docs.nativescript.org/api-reference/classes/imagesource.html) object. The code below loads an image from the app and invokes the share widget with it:
 
 ```JavaScript
 // ------------ JavaScript ------------------

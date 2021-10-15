@@ -14,8 +14,8 @@ async function main() {
 		const promises = []
 
 		const fetchData = async (plugin) => {
-			const url = plugin.readme;
-			
+			const url = plugin.readme
+
 			log(`Fetching: ${url}`)
 
 			const page = await browser.newPage()
@@ -35,20 +35,28 @@ async function main() {
 				`---`,
 			].join('\n')
 
+			// adds a link to the actual plugin repo to the MD file
+			const repoSnippet = [
+				`<div style="width: 100%; padding: 1.2em 0em">
+  					<img alt="github logo" src="../assets/images/github/GitHub-Mark-32px.png" style="display: inline; margin: 1em 0.5em 1em 0em">
+  					<a href="${plugin.repo}" target="_blank" noopener>${plugin.name}</a>
+				</div>`,
+			]
+
 			// save the file
 			fse.outputFileSync(
 				`./${plugin.link}.md`,
-				`${headerSnippet}\n\n${data.trim()}`
+				`${headerSnippet}\n\n${repoSnippet}\n\n${data.trim()}`
 			)
 			log(chalk.green(`File saved for plugin: ${plugin.name}`))
 		}
 
 		const walkPlugin = (plugin) => {
-			if(plugin.category) {
-				return walkPlugins(plugin.plugins);
+			if (plugin.category) {
+				return walkPlugins(plugin.plugins)
 			}
 
-			if(plugin.readme) {
+			if (plugin.readme) {
 				promises.push(
 					fetchData(plugin).catch((error) => {
 						log(chalk.red(error))
@@ -57,18 +65,18 @@ async function main() {
 			}
 		}
 
-		const walkPlugins = plugins => {
+		const walkPlugins = (plugins) => {
 			plugins.forEach(walkPlugin)
 		}
 
-		walkPlugins(config.plugins);
+		walkPlugins(config.plugins)
 
 		await Promise.all(promises)
 		log(chalk.green('Done.'))
-		process.exit();
+		process.exit()
 	} catch (error) {
 		log(chalk.red(error), error)
-		process.exit();
+		process.exit()
 	}
 }
 

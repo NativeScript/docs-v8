@@ -3,6 +3,11 @@ title: 'Shared Notification Delegate'
 link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/shared-notification-delegate/README.md
 ---
 
+<div style="width: 100%; padding: 1.2em 0em">
+  					<img alt="github logo" src="../assets/images/github/GitHub-Mark-32px.png" style="display: inline; margin: 1em 0.5em 1em 0em">
+  					<a href="https://github.com/NativeScript/plugins/tree/main/packages/shared-notification-delegate" target="_blank" noopener>Shared Notification Delegate</a>
+				</div>
+
 # @nativescript/shared-notification-delegate
 
 This project aims to prevent the shortcomings that come from the iOS implementation of only allowing a single delegate.

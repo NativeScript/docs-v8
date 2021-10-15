@@ -3,6 +3,11 @@ title: 'IQ Keyboard Manager'
 link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/iqkeyboardmanager/README.md
 ---
 
+<div style="width: 100%; padding: 1.2em 0em">
+  					<img alt="github logo" src="../assets/images/github/GitHub-Mark-32px.png" style="display: inline; margin: 1em 0.5em 1em 0em">
+  					<a href="https://github.com/NativeScript/plugins/tree/main/packages/iqkeyboardmanager" target="_blank" noopener>IQ Keyboard Manager</a>
+				</div>
+
 # @nativescript/iqkeyboardmanager
 
 NativeScript wrapper for the popular [IQKeyboardManager](https://cocoapods.org/pods/IQKeyboardManager) iOS framework, which provides an elegant solution for preventing the iOS keyboard from covering `UITextView` controls.
@@ -179,7 +184,7 @@ iqKeyboard.overrideKeyboardAppearance = true
 iqKeyboard.keyboardAppearance = UIKeyboardAppearance.Dark
 ```
 
-For more examples of what's possible, run the demo app (shown in the gif below) and check out the [app's `main-view-model.ts` file](apps/demo/src/plugin-demos/iqkeyboardmanager.ts).
+For more examples of what's possible, run the demo app (shown in the gif below) and check out the [app's `main-view-model.ts` file](https://github.com/NativeScript/plugins/blob/main/apps/demo/src/plugin-demos/iqkeyboardmanager.ts).
 
 <img src="https://github.com/tjvantoll/nativescript-IQKeyboardManager/raw/master/demo.gif" width="320px"/>
 
@@ -219,7 +224,7 @@ For more details on how IQKeyboardManager works, including more detailed API doc
 
 ## Maintainers
 
-For maintainer’s of this plugin’s source code: when the [IQKeyboardManager Podfile](platforms/ios/Podfile) updates, you should generate new typings for for this plugin to reflect those changes.
+For maintainer’s of this plugin’s source code: when the [IQKeyboardManager Podfile](https://github.com/NativeScript/plugins/blob/main/packages/iqkeyboardmanager/platforms/ios/Podfile) updates, you should generate new typings for for this plugin to reflect those changes.
 
 To do so, execute these commands.
 

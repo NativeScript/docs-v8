@@ -3,6 +3,11 @@ title: 'Payments: IAP & Subscriptions'
 link: https://raw.githubusercontent.com/NativeScript/payments/main/packages/payments/README.md
 ---
 
+<div style="width: 100%; padding: 1.2em 0em">
+  					<img alt="github logo" src="../assets/images/github/GitHub-Mark-32px.png" style="display: inline; margin: 1em 0.5em 1em 0em">
+  					<a href="https://github.com/NativeScript/payments/tree/main/packages/payments" target="_blank" noopener>Payments: IAP & Subscriptions</a>
+				</div>
+
 # @nativescript/payments
 
 In-App Purchase and Subscriptions for NativeScript iOS and Android.

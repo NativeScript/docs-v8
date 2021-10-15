@@ -3,6 +3,11 @@ title: 'Analytics'
 link: https://raw.githubusercontent.com/NativeScript/firebase/main/packages/firebase-analytics/README.md
 ---
 
+<div style="width: 100%; padding: 1.2em 0em">
+  					<img alt="github logo" src="../assets/images/github/GitHub-Mark-32px.png" style="display: inline; margin: 1em 0.5em 1em 0em">
+  					<a href="https://github.com/NativeScript/firebase/tree/main/packages/firebase-analytics" target="_blank" noopener>Analytics</a>
+				</div>
+
 # @nativescript/firebase-analytics
 
 ```javascript

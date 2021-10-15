@@ -3,6 +3,11 @@ title: 'Twitter'
 link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/twitter/README.md
 ---
 
+<div style="width: 100%; padding: 1.2em 0em">
+  					<img alt="github logo" src="../assets/images/github/GitHub-Mark-32px.png" style="display: inline; margin: 1em 0.5em 1em 0em">
+  					<a href="https://github.com/NativeScript/plugins/tree/main/packages/twitter" target="_blank" noopener>Twitter</a>
+				</div>
+
 # @nativescript/twitter
 
 ```cli
@@ -17,13 +22,14 @@ Go to [Twitter Apps](https://apps.twitter.com/) to create your app so that you c
 - By default, Twitter won't allow you to grab user's email, so you have to apply for a permission for your app to retrieve user's email
 
 Here is how callbacks would look like:
-![callback screenshot](assets/images/callback.png)
+
+![callback screenshot](https://raw.githubusercontent.com/NativeScript/plugins/main/packages/twitter/assets/images/callback.png)
 
 ## Usage
 
 ### iOS
 
-Configure Info.Plist like below, replace <consumerKey> with your own key:
+Configure Info.Plist like below, replace `consumerKey` tag with your own key:
 
 ```xml
 <key>CFBundleURLTypes</key>
