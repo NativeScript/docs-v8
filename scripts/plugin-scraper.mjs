@@ -46,7 +46,7 @@ async function main() {
 			// save the file
 			fse.outputFileSync(
 				`./${plugin.link}.md`,
-				`${headerSnippet}\n\n${repoSnippet}\n\n${data.trim()}`
+				`${headerSnippet}\n\n${repoSnippet}\n\n${transformNoteStyle(data)}`
 			)
 			log(chalk.green(`File saved for plugin: ${plugin.name}`))
 		}
@@ -78,6 +78,16 @@ async function main() {
 		log(chalk.red(error), error)
 		process.exit()
 	}
+}
+
+function transformNoteStyle(data) {
+	// Transforms note styles for vitepress
+	const noteStringRegex = /(\> \*\*.*\*\*( |:))(.)*\n/ig;
+	const noteKeywordRegex = /(\> \*\*.*\*\*( |: ))/ig;
+
+	return data.replace(noteStringRegex, ":::tip Note\n$&:::\n")
+			  .replace(noteKeywordRegex, "")
+			  .trim();
 }
 
 main()
