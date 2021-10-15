@@ -80,16 +80,38 @@ async function main() {
 	}
 }
 
-function transformNoteStyle(data) {
-	// Transforms note styles for vitepress
-	// The notes should look like the following to match the regex
-	// > **Note:** Example note
-	const noteStringRegex = /(\> \*\*.*\*\*( |:))(.)*\n/ig;
-	const noteKeywordRegex = /(\> \*\*.*\*\*( |: ))/ig;
+function transformNoteStyle(content) {
+	// transforms note styles for vitepress
+	const debug = false;
+	const NOTE_RE = /^>\s+\*{2}([^\*]+)\*{2}:?[^\S\r\n]+(.+(?:\n>.*)*)/gim;
+	let match_;
+	const containerTypeMap = {
+		'note': 'tip',
+		'warning': 'warning',
+	}
+		
+	while(match_ = NOTE_RE.exec(content)) {
+		let [match, title, cont] = match_;
+		
+		debug && console.log({
+			match, title, cont
+		})
+		
+		// normalize title
+		title = title.replace(/:/g, '');
+		
+		// replace "> " from multiline quotes
+		cont = cont.replace(/^>\s*/gim, '');
+		
+		// generate replacement
+		let containerType = containerTypeMap[title.toLowerCase()] ?? 'tip';
+		const replacement = `:::${containerType} ${title}\n\n${cont}\n\n:::`;
+		
+		// replace the match with the replacement
+		content = content.replace(match, replacement);
+	  }
 
-	return data.replace(noteStringRegex, ":::tip Note\n$&:::\n")
-			  .replace(noteKeywordRegex, "")
-			  .trim();
+	return content;
 }
 
 main()
