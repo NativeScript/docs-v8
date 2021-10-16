@@ -10,7 +10,7 @@ link: https://raw.githubusercontent.com/NativeScript/firebase/main/packages/fire
 
 # @nativescript/firebase-remote-config
 
-```javascript
+```cli
 ns plugin add @nativescript/firebase-remote-config
 ```
 

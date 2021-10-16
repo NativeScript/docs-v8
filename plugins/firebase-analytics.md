@@ -10,7 +10,7 @@ link: https://raw.githubusercontent.com/NativeScript/firebase/main/packages/fire
 
 # @nativescript/firebase-analytics
 
-```javascript
+```cli
 ns plugin add @nativescript/firebase-analytics
 ```
 

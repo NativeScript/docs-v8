@@ -10,13 +10,11 @@ link: https://raw.githubusercontent.com/NativeScript/firebase/main/packages/fire
 
 # @nativescript/firebase-app-check
 
-```javascript
+```cli
 ns plugin add @nativescript/firebase-app-check
 ```
 
-**Note**: iOS
-
-App Check requires you set the minimum iOS Deployment version in ios/Podfile to 11.0 or greater.
+> **Note**: (iOS) App Check requires you set the minimum iOS Deployment version in ios/Podfile to 11.0 or greater.
 
 ### What does it do
 
