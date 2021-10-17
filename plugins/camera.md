@@ -47,7 +47,11 @@ npm install @nativescript/camera --save
 | cameraFacing           | rear    | Both     | The initial camera facing. Use `'front'` for selfies.                                                                                                                                                                                                                                                                                                                                    |
 | modalPresentationStyle | 0       | iOS      | Set a custom UIModalPresentationStyle (Defaults to UIModalPresentationStyle.FullScreen)                                                                                                                                                                                                                                                                                                  |
 
-> Note: The `saveToGallery` option might have unexpected behavior on Android! Some vendor camera apps (e.g. LG) will save all captured images to the gallery regardless of what the value of `saveToGallery` is. This behavior cannot be controlled by the camera plugin and if you must exclude the captured image from the photo gallery, you will need to get a local storage read/write permission and write custom code to find the gallery location and delete the new image from there.
+:::tip Note
+
+The `saveToGallery` option might have unexpected behavior on Android! Some vendor camera apps (e.g. LG) will save all captured images to the gallery regardless of what the value of `saveToGallery` is. This behavior cannot be controlled by the camera plugin and if you must exclude the captured image from the photo gallery, you will need to get a local storage read/write permission and write custom code to find the gallery location and delete the new image from there.
+
+:::
 
 ## Usage
 
@@ -70,9 +74,17 @@ requestPermissions().then(
 );
 ```
 
-> **Note for Android:** Older versions of Android that don't use a request permissions popup won't be affected by the usage of the requestPermissions method.
+:::tip Note
 
-> **Note for iOS:** If the user rejects permissions from the iOS popup, the app is not allowed to ask again. You can instruct the user to go to app settings and enable the camera permission manually from there. Additionally, [App Store Guideline 5.1.1](https://developer.apple.com/app-store/review/guidelines/#data-collection-and-storage) requires apps to clarify the usage of the camera and photo library. To do so, edit your `app/App_Resources/iOS/Info.plist` and add the following clarifications:
+(**for Android**) Older versions of Android that don't use a request permissions popup won't be affected by the usage of the requestPermissions method.
+
+:::
+
+:::tip Note
+
+(**for iOS**) If the user rejects permissions from the iOS popup, the app is not allowed to ask again. You can instruct the user to go to app settings and enable the camera permission manually from there. Additionally, [App Store Guideline 5.1.1](https://developer.apple.com/app-store/review/guidelines/#data-collection-and-storage) requires apps to clarify the usage of the camera and photo library. To do so, edit your `app/App_Resources/iOS/Info.plist` and add the following clarifications:
+
+:::
 
 ```
 <key>NSCameraUsageDescription</key>
@@ -88,7 +100,7 @@ However, there are some points that need a little bit more explanation.
 
 In order to use the camera module, just require it, as shown in Example 1:
 
-> Example 1: Require camera module in the application
+#### Example 1: Require camera module in the application
 
 ```JavaScript
 // JavaScript
@@ -102,7 +114,7 @@ import * as camera from "@nativescript/camera";
 
 Then you are ready to use it:
 
-> Example 2: How to take a picture and to receive image asset
+#### Example 2: How to take a picture and to receive image asset
 
 ```JavaScript
 // JavaScript
@@ -150,7 +162,7 @@ Setting the `keepAspectRatio` property could result in a different than requeste
 
 **Example 3** shows how to use the options parameter:
 
-> Example 3: How to setup `width`, `height`, `keepAspectRatio` and `saveToGallery` properties for the camera module
+#### Example 3: How to setup `width`, `height`, `keepAspectRatio` and `saveToGallery` properties for the camera module
 
 ```JavaScript
 // JavaScript
@@ -228,4 +240,8 @@ The method isAvaiable will return true if the camera hardware is ready to use or
 const isAvailable = camera.isAvailable();
 ```
 
-> Note: This method will return false when used in iOS simulator (as the simulator does not have camera hardware)
+:::tip Note
+
+This method will return false when used in iOS simulator (as the simulator does not have camera hardware)
+
+:::

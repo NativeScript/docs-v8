@@ -103,7 +103,11 @@ A `BannerAd` requires an `unitId`, an `BannerAdSize`, an `AdRequest`, and a `Ban
 
 #### Core
 
-> **Important:** Ensure you've included xmlns:ui="@nativescript/firebase-admob" on the Page element
+:::tip Important
+
+Ensure you've included xmlns:ui="@nativescript/firebase-admob" on the Page element
+
+:::
 
 ```xml
 <ui:BannerAd
@@ -278,7 +282,11 @@ Broadly speaking, there are two parts to successfully implementing Native Ads: l
 
 #### Core
 
-> **Important:** Ensure you've included `xmlns:ui="@nativescript/firebase-admob"` on the Page element
+:::tip Important
+
+Ensure you've included `xmlns:ui="@nativescript/firebase-admob"` on the Page element
+
+:::
 
 ```xml
 <ui:NativeAdView height="400" loaded="{{nativeAdLoaded}}" />
