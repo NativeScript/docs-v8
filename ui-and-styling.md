@@ -2833,14 +2833,14 @@ export class ListViewTipsComponent implements OnInit {
 
 #### Properties
 
-| Name                    | Type                   | Description                                                                       |
-| ----------------------- | ---------------------- | --------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `items`                 | `Array<any>`           | `ItemsSource`                                                                     | Gets or set the items collection of the `ListView`. The items property can be set to an array or an object defining length and getItem(index) method. |
-| `itemTemplateSelector`  | `function`             | A function that returns the appropriate key template based on the data item.      |
-| `itemTemplates`         | `Array<KeyedTemplate>` | Gets or set the list of item templates for the item template selector.            |
-| `separatorColor`        | `string`               | `Color`                                                                           | Gets or set the items separator line color of the ListView.                                                                                           |
-| `rowHeight`             | `Length`               | Gets or set row height of the ListView.                                           |
-| `iosEstimatedRowHeight` | `Length`               | Gets or set the estimated height of rows in the ListView. Default value: **44px** |
+| Name                    | Type                          | Description                                                                                                                                           |
+| ----------------------- | ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `items`                 | `Array<any>` \| `ItemsSource` | Gets or set the items collection of the `ListView`. The items property can be set to an array or an object defining length and getItem(index) method. |
+| `itemTemplateSelector`  | `function`                    | A function that returns the appropriate ket template based on the data item.                                                                          |
+| `itemTemplates`         | `Array<KeyedTemplate>`        | Gets or set the list of item templates for the item template selector.                                                                                |
+| `separatorColor`        | `string` \| `Color`           | Gets or set the items separator line color of the ListView.                                                                                           |
+| `rowHeight`             | `Length`                      | Gets or set row height of the ListView.                                                                                                               |
+| `iosEstimatedRowHeight` | `Length`                      | Gets or set the estimated height of rows in the ListView. Default value: **44px**                                                                     |
 
 ///
 
