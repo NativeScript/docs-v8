@@ -6,7 +6,7 @@ title: Interaction
 
 ### Animations with code
 
-The easiest way to animate a **single** [`View`](/api-reference/classes/_ui_core_view_.view.html) is by using the `View.animate` method which accepts an [`AnimationDefinition`](/api-reference/interfaces/_ui_animation_.animationdefinition.html), immediately starts the animation and then returns its finished promise.
+The easiest way to animate a **single** [`View`](/api-reference/classes/view.html) is by using the `View.animate` method which accepts an [`AnimationDefinition`](/api-reference/interfaces/animationdefinition.html), immediately starts the animation and then returns its finished promise.
 
 **Example 20: How to execute animation on single view.**
 
@@ -28,13 +28,13 @@ view.animate({
 
 :::tip Note
 
-You should create an [`Animation`](/api-reference/classes/_ui_animation_.animation.html) class in order to be able to **cancel** the animation. This is demonstrated below.
+You should create an [`Animation`](/api-reference/classes/animation.html) class in order to be able to **cancel** the animation. This is demonstrated below.
 
 :::
 
 ### The AnimationDefinition interface
 
-The [`AnimationDefinition`](/api-reference/interfaces/_ui_animation_.animationdefinition.html) interface is central for defining an animation for **one or more properties** of a **single** [`View`](/api-reference/classes/_ui_core_view_.view.html). The animatable properties are:
+The [`AnimationDefinition`](/api-reference/interfaces/animationdefinition.html) interface is central for defining an animation for **one or more properties** of a **single** [`View`](/api-reference/classes/view.html). The animatable properties are:
 
 - **opacity**
 - **backgroundColor**
@@ -43,29 +43,29 @@ The [`AnimationDefinition`](/api-reference/interfaces/_ui_animation_.animationde
 - **rotate**
 - **width** and **height**
 
-The [`AnimationDefinition`](/api-reference/interfaces/_ui_animation_.animationdefinition.html) interface has the following members:
+The [`AnimationDefinition`](/api-reference/interfaces/animationdefinition.html) interface has the following members:
 
 - **target**: The view whose property is to be animated.
 - **opacity**: Animates the opacity of the view. Value should be a number between 0.0 and 1.0.
 - **backgroundColor**: Animates the backgroundColor of the view.
-- **translate**: Animates the translate affine transform of the view. Value should be a [`Pair`](/api-reference/interfaces/_ui_animation_.pair.html).
-- **scale**: Animates the scale affine transform of the view. Value should be a [`Pair`](/api-reference/interfaces/_ui_animation_.pair.html).
+- **translate**: Animates the translate affine transform of the view. Value should be a [`Pair`](https://v6.docs.nativescript.org/api-reference/interfaces/_ui_animation_.pair.html).
+- **scale**: Animates the scale affine transform of the view. Value should be a [`Pair`](https://v6.docs.nativescript.org/api-reference/interfaces/_ui_animation_.pair.html).
 - **rotate**: Animates the rotate affine transform of the view. Value should be a number specifying the rotation amount in degrees.
 - **duration**: The length of the animation in milliseconds. The default duration is 300 milliseconds.
 - **delay**: The amount of time, in milliseconds, to delay starting the animation.
 - **iterations**: Specifies how many times the animation should be played. Default is 1. iOS animations support fractional iterations, i.e., 1.5. To repeat an animation infinitely, use `Number.POSITIVE_INFINITY`.
-- **curve**: An optional animation curve. Possible values are contained in the [AnimationCurve enumeration](/api-reference/modules/_ui_enums_.animationcurve.html). Alternatively, you can pass an instance of type [`UIViewAnimationCurve`](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIView_Class/#//apple_ref/c/tdef/UIViewAnimationCurve) for iOS or [`android.animation.TimeInterpolator`](http://developer.android.com/reference/android/animation/TimeInterpolator.html) for Android.
+- **curve**: An optional animation curve. Possible values are contained in the [AnimationCurve](/api-reference/modules/coretypes.animationcurve.html). Alternatively, you can pass an instance of type [`UIViewAnimationCurve`](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIView_Class/#//apple_ref/c/tdef/UIViewAnimationCurve) for iOS or [`android.animation.TimeInterpolator`](http://developer.android.com/reference/android/animation/TimeInterpolator.html) for Android.
 - **width**: Animates view's width.
 - **height**: Animates view's height.
 
 All members of the interface are **optional** and have default values with the following exceptions:
 
-- target is only optional when calling the `animate` method of a [`View`](/api-reference/classes/_ui_core_view_.view.html) instance since it is set automatically for you.
+- target is only optional when calling the `animate` method of a [`View`](/api-reference/classes/view.html) instance since it is set automatically for you.
 - You must specify at least one property from this list: opacity, backgroundColor, scale, rotate or translate.
 
 ### The Animation class
 
-The [`Animation`](/api-reference/classes/_ui_animation_.animation.html) class represents a **set** of one or more [`AnimationDefinitions`](/api-reference/interfaces/_ui_animation_.animationdefinition.html) that can be played either **simultaneously or sequentially**. **This class is typically used when you need to animate several views together**. The constructor of the [`Animation`](/api-reference/classes/_ui_animation_.animation.html) class accepts an array of [`AnimationDefinitions`](/api-reference/interfaces/_ui_animation_.animationdefinition.html) and a boolean parameter indicating whether to play the animations sequentially. Creating an instance of the [`Animation`](/api-reference/classes/_ui_animation_.animation.html) class does not start the animation playback. The class has four members:
+The [`Animation`](/api-reference/classes/animation.html) class represents a **set** of one or more [`AnimationDefinitions`](/api-reference/interfaces/animationdefinition.html) that can be played either **simultaneously or sequentially**. **This class is typically used when you need to animate several views together**. The constructor of the [`Animation`](/api-reference/classes/animation.html) class accepts an array of [`AnimationDefinitions`](/api-reference/interfaces/animationdefinition.html) and a boolean parameter indicating whether to play the animations sequentially. Creating an instance of the [`Animation`](/api-reference/classes/animation.html) class does not start the animation playback. The class has four members:
 
 - **play**: A method that starts the animation and returns the instance it was called on for fluent animation chaining.
 - **cancel**: A void method that stops the animation.
@@ -823,7 +823,7 @@ More detailed examples are available on the [Animation Examples](#animation-exam
 
 ### Rotation using originX and originY
 
-To create more complex animations, we might need to change the origin point around which the selected view will be transformed. This can be achieved using [`originX`](/api-reference/classes/_ui_core_view_.view#originx) and [`originY`](/api-reference/classes/_ui_core_view_.view#originy) properties of `View`.
+To create more complex animations, we might need to change the origin point around which the selected view will be transformed. This can be achieved using [`originX`](/api-reference/classes/view.html#originx) and [`originY`](/api-reference/classes/view.html#originy) properties of `View`.
 
 **Example 5: Rotating a view around its center. Center of view is changed via `originX` and `originY` properties.**
 
@@ -851,7 +851,7 @@ The properties `originX` and `originY` are JavaScript properties and can be assi
 
 ### Limitations
 
-- `Span` and `FormattedString` can not be animated. `Span` and `FormattedString` elements are not extending the [`View`](https://docs.nativescript.org/api-reference/classes/__nativescript_core_.view) class, but only [`ViewBase`](https://docs.nativescript.org/api-reference/classes/__nativescript_core_.viewbase). Because of this, neither `Span` nor `FormattedString` are ui elements, making it impossible to animate them and causing a crash on iOS.
+- `Span` and `FormattedString` can not be animated. `Span` and `FormattedString` elements are not extending the [`View`](/api-reference/classes/view.html) class, but only [`ViewBase`](/api-reference/classes/viewbase.html). Because of this, neither `Span` nor `FormattedString` are ui elements, making it impossible to animate them and causing a crash on iOS.
 
 ### Animation examples
 
@@ -1669,20 +1669,20 @@ The result are received in the dialog resolved promise after the user closes or 
 
 ### API References
 
-| Name                                                                                                 | Type        |
-| ---------------------------------------------------------------------------------------------------- | ----------- |
-| [@nativescript/core/dialogs](https://docs.nativescript.org/api-reference/modules/_ui_dialogs_)       | `Module`    |
-| [action](https://docs.nativescript.org/api-reference/modules/_ui_dialogs_#action)                    | `function`  |
-| [ActionOptions](https://docs.nativescript.org/api-reference/interfaces/_ui_dialogs_.actionoptions)   | `interface` |
-| [alert](https://docs.nativescript.org/api-reference/modules/_ui_dialogs_#alert)                      | `function`  |
-| [AlertOptions](https://docs.nativescript.org/api-reference/interfaces/_ui_dialogs_.alertoptions)     | `interface` |
-| [confirm](https://docs.nativescript.org/api-reference/modules/_ui_dialogs_#confirm)                  | `function`  |
-| [ConfirmOptions](https://docs.nativescript.org/api-reference/interfaces/_ui_dialogs_.confirmoptions) | `interface` |
-| [login](https://docs.nativescript.org/api-reference/modules/_ui_dialogs_#login)                      | `function`  |
-| [LoginOptions](https://docs.nativescript.org/api-reference/interfaces/_ui_dialogs_.loginoptions)     | `interface` |
-| [LoginResults](https://docs.nativescript.org/api-reference/interfaces/_ui_dialogs_.loginresult)      | `interface` |
-| [prompt](https://docs.nativescript.org/api-reference/modules/_ui_dialogs_#prompt)                    | `function`  |
-| [PromptOptions](https://docs.nativescript.org/api-reference/interfaces/_ui_dialogs_.promptoptions)   | `interface` |
+| Name                                                              | Type        |
+| ----------------------------------------------------------------- | ----------- |
+| [@nativescript/core/dialogs](/api-reference/modules.html#dialogs) | `Module`    |
+| [action](/api-reference/modules.html#dialogs)                     | `function`  |
+| [ActionOptions](/api-reference/modules.html#dialogs)              | `interface` |
+| [alert](/api-reference/modules.html#dialogs)                      | `function`  |
+| [AlertOptions](/api-reference/modules.html#dialogs)               | `interface` |
+| [confirm](/api-reference/modules.html#dialogs)                    | `function`  |
+| [ConfirmOptions](/api-reference/modules.html#dialogs)             | `interface` |
+| [login](/api-reference/modules.html#dialogs)                      | `function`  |
+| [LoginOptions](/api-reference/modules.html#dialogs)               | `interface` |
+| [LoginResults](/api-reference/modules.html#dialogs)               | `interface` |
+| [prompt](/api-reference/modules.html#dialogs)                     | `function`  |
+| [PromptOptions](/api-reference/modules.html#dialogs)              | `interface` |
 
 ### Native Component
 
