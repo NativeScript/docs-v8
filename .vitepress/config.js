@@ -278,6 +278,12 @@ function getPlugins() {
 					repo: `${officialGithubUrl}/social-share`,
 				},
 				{
+					name: 'Theme Switcher',
+					link: '/plugins/theme-switcher',
+					readme: `${officialPlugins_baseUrl}/theme-switcher/README.md`,
+					repo: `${officialGithubUrl}/theme-switcher`,
+				},
+				{
 					name: 'Twitter',
 					link: '/plugins/twitter',
 					readme: `${officialPlugins_baseUrl}/twitter/README.md`,
