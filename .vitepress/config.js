@@ -130,6 +130,7 @@ function getSidebar() {
 			children: [
 				{ text: 'Introduction', link: '/introduction' },
 				{ text: 'Tutorial', link: '/tutorial' },
+				{ text: 'Angular Tutorial', link: '/tutorial-angular' },
 				{
 					text: 'Environment Setup',
 					link: '/environment-setup',
