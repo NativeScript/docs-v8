@@ -11,9 +11,7 @@ This tutorial will teach you the following:
 - Build layouts using NativeScript components
 - Add interactivity to your app using gestures
 - Use built-in Angular directives to create and modify your views
-- Use data binding to read and update your views
 - Use routing to navigate between different views
-- Use Angular animations to add animations to your views
 
 ## Prerequisites
 
@@ -21,7 +19,7 @@ To get the most out of this tutorial you should already have a basic understandi
 
 ## Overview of the example application
 
-Components form the basic building blocks of an Angular application. Components represent the pages and views that the user interacts with. NativeScript Angular follows the same concept with the difference being primarily within the component's HTML template layer and it's styling.
+Components form the basic building blocks of an Angular application. Components represent the pages and views that the user interacts with. NativeScript Angular follows the same concept with the difference being primarily within the component's HTML template layer and its styling.
 
 You'll build a video streaming app that offers the ability to select and watch videos in the app and bring that experience outside the application in picture-in-picture mode.
 
@@ -57,7 +55,7 @@ ns run ios
 ns run android
 ```
 
-The `ns run` command builds the app and launches the app on a connected Android device or Android emulator for Android and a connected iOS device or iOS simulator for iOS. By default listens for changes in your code, synchronizes those changes, and refresh all selected devices.
+The `ns run` command builds the app and launches the app on a connected Android device or Android emulator for Android and a connected iOS device or iOS simulator for iOS. By default, it listens for changes in your code, synchronizes those changes, and refreshes all selected devices.
 
 ## Folder structure
 
@@ -212,7 +210,7 @@ export interface FlickModel {
 }
 ```
 
-We will the use the `FlickModel` in our `FlickService` to return our flick data. Create a `services` directory inside `core` and create a new file called `flick.service.ts`. Open the new `flick.service.ts` and add the following:
+We will then use the `FlickModel` in our `FlickService` to return our flick data. Create a `services` directory inside `core` and create a new file called `flick.service.ts`. Open the new `flick.service.ts` and add the following:
 
 ```typescript
 // src/app/core/services/flick.service.ts
@@ -247,11 +245,11 @@ export class FlickService {
         },
         {
           title: 'History',
-          body: 'The Book of Mormon was conceived by Trey Parker, Matt Stone and Robert Lopez. Parker and Stone grew up in Colorado, and were familiar with The Church of Jesus Christ of Latter-day Saints and its members. They became friends at the University of Colorado Boulder and collaborated on a musical film, Cannibal! The Musical (1993), their first experience with movie musicals. In 1997, they created the TV series South Park for Comedy Central and in 1999, the musical film South Park: Bigger, Longer & Uncut. The two had first thought of a fictionalized Joseph Smith, religious leader and founder of the Latter Day Saint movement, while working on an aborted Fox series about historical characters. Their 1997 film, Orgazmo, and a 2003 episode of South Park, "All About Mormons", both gave comic treatment to Mormonism. Smith was also included as one of South Park\'s "Super Best Friends", a Justice League parody team of religious figures like Jesus and Buddha.'
+          body: 'The Book of Mormon was conceived by Trey Parker, Matt Stone, and Robert Lopez. Parker and Stone grew up in Colorado and were familiar with The Church of Jesus Christ of Latter-day Saints and its members. They became friends at the University of Colorado Boulder and collaborated on a musical film, Cannibal! The Musical (1993), their first experience with movie musicals. In 1997, they created the TV series South Park for Comedy Central and in 1999, the musical film South Park: Bigger, Longer & Uncut. The two had first thought of a fictionalized Joseph Smith, religious leader and founder of the Latter Day Saint movement while working on an aborted Fox series about historical characters. Their 1997 film, Orgazmo, and a 2003 episode of South Park, "All About Mormons", both gave comic treatment to Mormonism. Smith was also included as one of South Park\'s "Super Best Friends", a Justice League parody team of religious figures like Jesus and Buddha.'
         },
         {
           title: 'Development',
-          body: `During the summer of 2003, Parker and Stone flew to New York City to discuss the script of their new film, Team America: World Police, with friend and producer Scott Rudin (who also produced South Park: Bigger, Longer & Uncut). Rudin advised the duo to see the musical Avenue Q on Broadway, finding the cast of marionettes in Team America similar to the puppets of Avenue Q. Parker and Stone went to see the production during that summer and the writer-composers of Avenue Q, Lopez and Jeff Marx, noticed them in the audience and introduced themselves. Lopez revealed that South Park: Bigger, Longer & Uncut was highly influential in the creation of Avenue Q. The quartet went for drinks afterwards, and soon found that each camp wanted to write something involving Joseph Smith. The four began working out details nearly immediately, with the idea to create a modern story formulated early on. For research purposes, the quartet took a road trip to Salt Lake City where they "interviewed a bunch of missionaries—or ex-missionaries." They had to work around Parker and Stone\'s South Park schedule. In 2006, Parker and Stone flew to London where they spent three weeks with Lopez, who was working on the West End production of Avenue Q. There, the three wrote "four or five songs" and came up with the basic idea of the story. After an argument between Parker and Marx, who felt he was not getting enough creative control, Marx was separated from the project.[10] For the next few years, the remaining trio met frequently to develop what they initially called The Book of Mormon: The Musical of the Church of Jesus Christ of Latter-day Saints. "There was a lot of hopping back and forth between L.A. and New York," Parker recalled.`
+          body: `During the summer of 2003, Parker and Stone flew to New York City to discuss the script of their new film, Team America: World Police, with friend and producer Scott Rudin (who also produced South Park: Bigger, Longer & Uncut). Rudin advised the duo to see the musical Avenue Q on Broadway, finding the cast of marionettes in Team America similar to the puppets of Avenue Q. Parker and Stone went to see the production during that summer and the writer-composers of Avenue Q, Lopez, and Jeff Marx, noticed them in the audience and introduced themselves. Lopez revealed that South Park: Bigger, Longer & Uncut was highly influential in the creation of Avenue Q. The quartet went for drinks afterward and soon found that each camp wanted to write something involving Joseph Smith. The four began working out details nearly immediately, with the idea to create a modern story formulated early on. For research purposes, the quartet took a road trip to Salt Lake City where they "interviewed a bunch of missionaries—or ex-missionaries." They had to work around Parker and Stone\'s South Park schedule. In 2006, Parker and Stone flew to London where they spent three weeks with Lopez, who was working on the West End production of Avenue Q. There, the three wrote "four or five songs" and came up with the basic idea of the story. After an argument between Parker and Marx, who felt he was not getting enough creative control, Marx was separated from the project.[10] For the next few years, the remaining trio met frequently to develop what they initially called The Book of Mormon: The Musical of the Church of Jesus Christ of Latter-day Saints. "There was a lot of hopping back and forth between L.A. and New York," Parker recalled.`
         }
       ]
     },
@@ -281,7 +279,7 @@ export class FlickService {
         },
         {
           title: 'Background',
-          body: `In 2016, a musical adaptation of the 1988 film Beetlejuice (directed by Tim Burton and starring Geena Davis as Barbara Maitland, Alec Baldwin as Adam Maitland, Winona Ryder as Lydia Deetz and Michael Keaton as Betelgeuse) was reported to be in the works, directed by Alex Timbers and produced by Warner Bros., following a reading with Christopher Fitzgerald in the title role. In March 2017, it was reported that Australian musical comedian Eddie Perfect would be writing the music and lyrics and Scott Brown and Anthony King would be writing the book of the musical, and that another reading would take place in May, featuring Kris Kukul as musical director. The musical has had three readings and two laboratory workshops with Alex Brightman in the title role, Sophia Anne Caruso as Lydia Deetz, Kerry Butler and Rob McClure as Barbara and Adam Maitland.`
+          body: `In 2016, a musical adaptation of the 1988 film Beetlejuice (directed by Tim Burton and starring Geena Davis as Barbara Maitland, Alec Baldwin as Adam Maitland, Winona Ryder as Lydia Deetz and Michael Keaton as Betelgeuse) was reported to be in the works, directed by Alex Timbers and produced by Warner Bros., following a reading with Christopher Fitzgerald in the title role. In March 2017, it was reported that Australian musical comedian Eddie Perfect would be writing the music and lyrics and Scott Brown and Anthony King would be writing the book of the musical and that another reading would take place in May, featuring Kris Kukul as musical director. The musical has had three readings and two laboratory workshops with Alex Brightman in the title role, Sophia Anne Caruso as Lydia Deetz, Kerry Butler and Rob McClure as Barbara and Adam Maitland.`
         }
       ]
     },
@@ -324,14 +322,14 @@ export class FlickService {
 ```
 
 :::tip Note
-You can create barrel exports for your models and services to give you more flexibility in organizing your files and folders. To do this, create an `index.ts` in the your `services` and `models` directory and export `flick.service.ts` and `flick.model.ts` respectively. You can also add another `index.ts` in your `core` folder and export your `services` and `models` directory.
+You can create barrel exports for your models and services to give you more flexibility in organizing your files and folders. To do this, create an `index.ts` in your `services` and `models` directory and export `flick.service.ts` and `flick.model.ts` respectively. You can also add another `index.ts` in your `core` folder and export your `services` and `models` directory.
 :::
 
-Next, let's breaking down the layout and UI elements of the home page.
+Next, let's break down the layout and UI elements of the home page.
 
 ![Home page layout breakdown](./public/assets/images/tutorial/tutorial-example-app-master-breakdown.png)
 
-The home page can be divided into two main parts, the actionbar with the title and the scrollable main content area with the cards (we will talk about the cards in the next section). Let's start with creating the action bar with the title. Open `home.component.html` and add the following code:
+The home page can be divided into two main parts, the action bar with the title and the scrollable main content area with the cards (we will talk about the cards in the next section). Let's start with creating the action bar with the title. Open `home.component.html` and add the following code:
 
 ```html
 <!-- src/app/features/home/home.component.html -->
@@ -473,3 +471,282 @@ As you can see in the image above, each card is made up of 3 components, the pre
 If you've followed along this far, running the app on either platform should result in an app that resembles the one in this screenshot, with the list being scrollable vertically.
 
 ![Home page](./public/assets/images/tutorial/tutorial-example-app-master.png)
+
+## Create the details page
+
+Let's start with creating the files for our details feature with the following contents:
+
+/// flavor details.component.html
+
+```html
+<!-- src/app/features/details/details.component.html -->
+```
+
+///
+
+/// flavor home.component.ts
+
+```typescript
+// src/app/features/details/details.component.ts
+
+import { Component } from '@angular/core'
+
+@Component({
+  moduleId: module.id,
+  selector: 'ns-details',
+  templateUrl: 'details.component.html'
+})
+export class DetailsComponent {}
+```
+
+///
+
+/// flavor details-routing.module.ts
+
+```typescript
+// src/app/features/details/details-routing.module.ts
+
+import { NgModule } from '@angular/core'
+import { Routes } from '@angular/router'
+import { NativeScriptRouterModule } from '@nativescript/angular'
+import { DetailsComponent } from './details.component'
+
+export const routes: Routes = [
+  {
+    path: '',
+    component: DetailsComponent
+  }
+]
+
+@NgModule({
+  imports: [NativeScriptRouterModule.forChild(routes)]
+})
+export class DetailsRoutingModule {}
+```
+
+///
+
+/// flavor details.module.ts
+
+```typescript
+// src/app/features/details/details.module.ts
+
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core'
+import { NativeScriptCommonModule } from '@nativescript/angular'
+import { DetailsRoutingModule } from './details-routing.module'
+import { DetailsComponent } from './details.component'
+
+@NgModule({
+  imports: [NativeScriptCommonModule, DetailsRoutingModule],
+  declarations: [DetailsComponent],
+  schemas: [NO_ERRORS_SCHEMA]
+})
+export class DetailsModule {}
+```
+
+///
+
+### Routing setup
+
+We will be setting up our `DetailsModule` as a lazy-loaded module similar to our `HomeModule` in the previous section. In addition to the route name, we will also pass in the flick's `id` as a route parameter. The route parameter is the variable following the colon in the `path` property. Open `app-routing.module.ts` and add the following code:
+
+```typescript
+// src/app/app-routing.module.ts
+
+import { NgModule } from '@angular/core'
+import { Routes } from '@angular/router'
+import { NativeScriptRouterModule } from '@nativescript/angular'
+
+const routes: Routes = [
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  {
+    path: 'home',
+    loadChildren: () => import('./features/home/home.module').then(m => m.HomeModule)
+  },
+
+  // Add this 👇
+  {
+    path: 'details/:id',
+    loadChildren: () =>
+      import('./features/details/details.module').then(m => m.DetailsModule)
+  }
+]
+
+@NgModule({
+  imports: [NativeScriptRouterModule.forRoot(routes)],
+  exports: [NativeScriptRouterModule]
+})
+export class AppRoutingModule {}
+```
+
+### Setup navigation
+
+Now that we have the routes already set up, we can use NativeScript Angular's `RouterExtensions` to perform the navigation. The `RouterExtensions` class provides methods for imperative navigation, similar to how you would navigate with the Angular `Router` and `Location` classes. To use the class simply inject it in your component constructor and call it's `navigate` function. Open `home.component.ts` and add the following:
+
+```typescript
+// src/app/features/home/home.component.ts
+
+import { Component } from '@angular/core'
+import { FlickService } from '~/app/core'
+
+// Add this 👇
+import { RouterExtensions } from '@nativescript/angular'
+
+@Component({
+  moduleId: module.id,
+  selector: 'ns-home',
+  templateUrl: 'home.component.html'
+})
+export class HomeComponent {
+  flicks = this.flickService.getFlicks()
+
+  constructor(
+    private flickService: FlickService,
+
+    // Add this 👇
+    private routerExtensions: RouterExtensions
+  ) {}
+
+  // Add this 👇
+  onFlickTap(args: ItemEventData): void {
+    this.routerExtensions.navigate(['details', this.flicks[args.index].id])
+  }
+}
+```
+
+Next, let's add the tap event to the listview items. Open `home.component.html` and add the following:
+
+```html
+<!-- src/app/features/home/home.component.html -->
+
+<ActionBar title="NativeFlix"></ActionBar>
+
+<ListView
+  height="100%"
+  separatorColor="transparent"
+  [items]="flicks"
+  (itemTap)="onFlickTap($event)"
+>
+  <!-- 👈 Add this -->
+  <ng-template let-item="item">
+    <!-- The item template can only have a single root view container (e.g. GridLayout, StackLayout, etc.)-->
+    <GridLayout
+      height="280"
+      borderRadius="10"
+      class="bg-secondary"
+      rows="*, auto, auto"
+      columns="*"
+      margin="5 10"
+      padding="0"
+    >
+      <image row="0" margin="0" stretch="aspectFill" [src]="item.image"></image>
+      <label
+        row="1"
+        margin="10 10 0 10"
+        fontWeight="700"
+        class="text-primary"
+        fontSize="18"
+        [text]="item.title"
+      ></label>
+      <label
+        row="2"
+        margin="0 10 10 10"
+        class="text-secondary"
+        fontSize="14"
+        textWrap="true"
+        [text]="item.description"
+      ></label>
+    </GridLayout>
+  </ng-template>
+</ListView>
+```
+
+### Access route parameters
+
+We passed in the `id` of the flick card the user tapped on in the previous section as we navigate to the details component. We can use Angular router's `ActivatedRoute` to get a static image of the route information shortly after the component was created. The snapshot returns a `params` property that contains an object with the route parameters we defined in our navigation. We can then use the `id` to get the selected flick information to be displayed in our details component's template. Open `details.component.ts` and add the following:
+
+```typescript
+// src/app/features/details/details.component.ts
+
+import { Component } from '@angular/core'
+
+// Add this 👇
+import { ActivatedRoute } from '@angular/router'
+import { FlickService, FlickModel } from '~/app/core'
+
+@Component({
+  moduleId: module.id,
+  selector: 'ns-details',
+  templateUrl: 'details.component.html'
+})
+export class DetailsComponent {
+  // Add this 👇
+  flick: FlickModel | undefined = undefined
+
+  // Add this 👇
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private flickService: FlickService
+  ) {}
+
+  // Add this 👇
+  ngOnInit(): void {
+    const id = +this.activatedRoute.snapshot.params.id
+    if (id) {
+      this.flick = this.flickService.getFlickById(id)
+    }
+  }
+}
+```
+
+### Details UI
+
+Let's break down the layout and UI elements of the details page.
+
+![Details page layout breakdown](./public/assets/images/tutorial/tutorial-example-app-details-breakdown.png)
+
+The home page can be divided into three main parts, the action bar with the flick title, the hero image, and the main content with the flick details. We will use the `details` array from our `flicks` object to populate the flick details section. The `details` array contains objects with a `title` and `body` which are rendered uniformly, each with their style. We can use Angular's `*ngFor` directive to loop through the array and create a UI element or set of elements for each entry in the array. Open `details.component.html` and add the following code:
+
+```html
+<!-- src/app/features/details/details.component.html -->
+
+<!-- actionbar -->
+<ActionBar [title]="flick?.title"></ActionBar>
+
+<ScrollView height="100%">
+  <StackLayout>
+    <!-- hero image -->
+    <image margin="0" stretch="aspectFill" [src]="flick?.image"></image>
+
+    <!-- main content -->
+    <StackLayout padding="10 20">
+      <ng-container *ngFor="let detail of flick?.details">
+        <label
+          marginTop="15"
+          fontSize="16"
+          fontWeight="700"
+          class="text-primary"
+          textWrap="true"
+          [text]="detail.title"
+        ></label>
+        <label
+          fontSize="14"
+          class="text-secondary"
+          textWrap="true"
+          [text]="detail.body"
+        ></label>
+      </ng-container>
+    </StackLayout>
+  </StackLayout>
+</ScrollView>
+```
+
+### Checkpoint
+
+Running the app on either platform should now result in an app that resembles the one in this screenshot with the ability to navigate between the home and details pages.
+
+![Details page](./public/assets/images/tutorial/tutorial-example-app-details.png)
+
+## What's next
+
+Congratulations! You built your first NativeScript app that runs on both iOS and Android. You can continue adding more [NativeScript UI components](https://docs.nativescript.org/ui-and-styling.html) (or build your custom UI components), or you could add some [native functionalities](https://docs.nativescript.org/native-api-access.html). The possibilities are endless!
