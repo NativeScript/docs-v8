@@ -16,6 +16,42 @@ Geolocation plugin to use for getting current location, monitor movement, etc.
 ns plugin add @nativescript/geolocation
 ```
 
+> **Important Breaking Change**
+> Version 8.0.0 of the plugin remove the Android permissions from the plugin.
+> The developer is now responsible for adding the permission(s) that their app needs.
+> More info below.
+
+## Permissions Android
+
+In order to use geolocation on Android, you'll need to add the following permission(s) to your app's `AndroidManifest.xml` inside the `App_Resources/Android/src/main` dir:
+
+```xml
+  <!-- Always include this permission -->
+  <!-- This permission is for "approximate" location data -->
+  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+  <!-- Include only if your app benefits from precise location access. -->
+  <!-- This permission is for "precise" location data -->
+  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+  <!-- Required only when requesting background location access on
+       Android 10 (API level 29) and higher. -->
+  <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+```
+
+More information can be found in the [Android docs here](https://developer.android.com/training/location/permissions).
+
+## Permissions iOS
+
+If `iosAllowsBackgroundLocationUpdates` is set to true, the following code is required in the `info.plist` file:
+
+```xml
+<key>UIBackgroundModes</key>
+<array>
+  <string>location</string>
+</array>
+```
+
 ## Usage
 
 The best way to explore the usage of the plugin is to inspect the demo app in the plugin's root folder.
@@ -25,38 +61,32 @@ In short here are the steps:
 
 ### Import the plugin
 
-_TypeScript_
-
 ```typescript
 import * as geolocation from '@nativescript/geolocation'
 import { Utils } from '@nativescript/core'
 Utils.Accuracy // used to describe at what accuracy the location should be get
 ```
 
-_Javascript_
-
-```javascript
-var geolocation = require('@nativescript/geolocation')
-```
-
 ### Request permissions
 
-```
-geolocation.enableLocationRequest();
+```ts
+geolocation.enableLocationRequest()
 ```
 
 ### Call plugin methods
 
-```
+```ts
 // Get current location with high accuracy
-geolocation.getCurrentLocation({ desiredAccuracy: Accuracy.high, maximumAge: 5000, timeout: 20000 })
+geolocation.getCurrentLocation({
+  desiredAccuracy: Accuracy.high,
+  maximumAge: 5000,
+  timeout: 20000
+})
 ```
 
 ## API
 
 ### Properties
-
-#### Location
 
 | Property           | Default | Description                                             |
 | ------------------ | ------- | ------------------------------------------------------- |
@@ -68,7 +98,7 @@ geolocation.getCurrentLocation({ desiredAccuracy: Accuracy.high, maximumAge: 500
 | speed              | -       | The speed, in meters/second over ground.                |
 | timestamp          | -       | The time at which this location was determined.         |
 
-#### Options
+### Options
 
 | Property                              | Default       | Description                                                                                                                                                                                                                                                                                                                                                                                 |
 | ------------------------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -80,19 +110,6 @@ geolocation.getCurrentLocation({ desiredAccuracy: Accuracy.high, maximumAge: 500
 | timeout                               | 5 minutes     | How long to wait for a location in ms.                                                                                                                                                                                                                                                                                                                                                      |
 | iosAllowsBackgroundLocationUpdates    | false         | If enabled, UIBackgroundModes key in info.plist is required (check the hint below). Allow the application to receive location updates in background (ignored on Android). Read more in [Apple document](https://developer.apple.com/documentation/corelocation/cllocationmanager/1620568-allowsbackgroundlocationupdates?language=objc)                                                     |
 | iosPausesLocationUpdatesAutomatically | true          | Allow deactivation of the automatic pause of location updates (ignored on Android). Read more in [Apple document](https://developer.apple.com/documentation/corelocation/cllocationmanager/1620553-pauseslocationupdatesautomatical?language=objc)                                                                                                                                          |
-
-:::tip Note
-
-If `iosAllowsBackgroundLocationUpdates` is set to true, the following code is required in the `info.plist` file:
-
-:::
-
-```
-<key>UIBackgroundModes</key>
-<array>
-  <string>location</string>
-</array>
-```
 
 ### Methods
 
