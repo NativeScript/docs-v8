@@ -4629,14 +4629,14 @@ export class UsageComponent {
     console.log(textField.text)
     // Gets or sets the secure option (e.g. for passwords).
     console.log(textField.secure)
-
+    // Gets or sets the secure without autofill for iOS 12+ (e.g. for passwords).
+    console.log(textField.secureWithoutAutofill)
     // Gets or sets the soft keyboard type. Options: "datetime" | "phone" | "number" | "url" | "email"
     console.log(textField.keyboardType)
     // Gets or sets the soft keyboard return key flavor. Options: "done" | "next" | "go" | "search" | "send"
     console.log(textField.returnKeyType)
     // Gets or sets the autocapitalization type. Options: "none" | "words" | "sentences" | "allcharacters"
     console.log(textField.autocapitalizationType)
-
     // Gets or sets a value indicating when the text property will be updated.
     console.log(textField.updateTextTrigger)
     // Gets or sets whether the instance is editable.
@@ -4711,6 +4711,7 @@ export class UsageComponent {
 | `editable`               | `Boolean`                                                                                | When `true`, indicates that the user can edit the value of the field.                                              |
 | `maxLength`              | `Number`                                                                                 | Limits input to the specified number of characters.                                                                |
 | `secure`                 | `Boolean`                                                                                | Hides the entered text when `true`. Use this property to create password input fields.<br/>Default value: `false`. |
+| `secureWithoutAutofill`  | `Boolean`                                                                                | Prevent iOS 12+ auto suggested strong password handling (iOS Only)                                                 |
 | `keyboardType`           | `KeyboardType`                                                                           | Shows a custom keyboard for easier text input.<br/>Valid values: `datetime`, `phone`, `number`, `url`, or `email`. |
 | `returnKeyType`          | `ReturnKeyType`                                                                          | Gets or sets the label of the return key.<br/>Valid values: `done`, `next`, `go`, `search`, or `send`.             |
 | `autocorrect`            | `Boolean`                                                                                | Enables or disables autocorrect.                                                                                   |
