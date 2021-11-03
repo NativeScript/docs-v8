@@ -705,7 +705,7 @@ Let's break down the layout and UI elements of the details page.
 
 ![Details page layout breakdown](./public/assets/images/tutorial/tutorial-example-app-details-breakdown.png)
 
-The home page can be divided into three main parts, the action bar with the flick title, the hero image, and the main content with the flick details. We will use the `details` array from our `flicks` object to populate the flick details section. The `details` array contains objects with a `title` and `body` which are rendered uniformly, each with their style. We can use Angular's `*ngFor` directive to loop through the array and create a UI element or set of elements for each entry in the array. Open `details.component.html` and add the following code:
+The details page can be divided into three main parts, the action bar with the flick title, the hero image, and the main content with the flick details. We will use the `details` array from our `flicks` object to populate the flick details section. The `details` array contains objects with a `title` and `body` which are rendered uniformly, each with their style. We can use Angular's `*ngFor` directive to loop through the array and create a UI element or set of elements for each entry in the array. Open `details.component.html` and add the following code:
 
 ```html
 <!-- src/app/features/details/details.component.html -->
