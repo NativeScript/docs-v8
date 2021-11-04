@@ -4,7 +4,7 @@ title: Angular Tutorial
 
 ## Getting Started with NativeScript Angular
 
-This tutorial introduces you to the essentials of Angular by walking you through building an Example App with a Some Basic Functionalities and UIs.
+This tutorial introduces you to the fundamentals of building a NativeScript app with Angular by walking you through building an example app with some basic functionalities.
 
 This tutorial will teach you the following:
 
@@ -33,7 +33,7 @@ To set up your development environment, follow the instructions in the [Environm
 
 ## Create a new NativeScript Angular application
 
-To create a new NativeScript Angular application, run the CLI command `ns create` with the name of the application followed by the `--ng`.
+To create a new NativeScript Angular application, run the CLI command `ns create` with the name of the application followed by `--ng`.
 
 ```bash
 ns create example-app --ng
