@@ -337,7 +337,7 @@ The home page can be divided into two main parts, the action bar with the title 
 <ActionBar title="NativeFlix"></ActionBar>
 ```
 
-Since we have an array of flicks to display we can use NativeScript's [`ListView`](https://docs.nativescript.org/ui-and-styling.html#listview) component. `ListView` is a NativeScript UI component that efficiently renders items in a vertical or horizontal scrolling list. Let's first create a variable to our `HomeComponent` that we are going to use as our `ListView`'s data source. Open `home.component.ts` and add the following:
+Since we have an array of flicks to display we can use NativeScript's [`ListView`](https://docs.nativescript.org/ui-and-styling.html#listview) component. `ListView` is a NativeScript UI component that efficiently renders items in a vertical or horizontal scrolling list. Let's first create a variable in our `HomeComponent` that we are going to use as our `ListView`'s data source. Open `home.component.ts` and add the following:
 
 ```typescript
 // src/app/features/home/home.component.ts

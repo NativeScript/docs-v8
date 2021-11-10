@@ -1,10 +1,10 @@
 ---
-title: Core Tutorial
+title: Svelte Tutorial
 ---
 
-## Getting Started with NativeScript Core
+## Getting Started with NativeScript Svelte
 
-This tutorial introduces you to the fundamentals of NativeScript Core by walking you through building an example app with some basic functionalities.
+This tutorial introduces you to the fundamentals of using NativeScript with Svelte by walking you through building an example app with some basic functionalities.
 
 This tutorial will teach you the following:
 
@@ -14,7 +14,7 @@ This tutorial will teach you the following:
 
 ## Prerequisites
 
-NativeScript Core uses Javascript or Typescript and XML to create your applications. To get the most out of this tutorial you should already have a basic understanding of [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) or [Typescript](https://www.typescriptlang.org/).
+To get the most out of this tutorial you should already have a basic understanding of Svelte. If you're completely new to Svelte, you might want to try the official [Svelte tutorial](https://svelte.dev/tutorial/basics) first.
 
 ## Overview of the example application
 
@@ -31,10 +31,10 @@ To set up your development environment, follow the instructions in the [Environm
 
 ## Create a new NativeScript application
 
-We will be using Typescript for this tutorial. To create a new NativeScript Typescript application, run the CLI command `ns create` with the name of the application followed by `--ts`.
+We will be using Typescript for this tutorial. To create a new NativeScript Typescript application, run the CLI command `ns create` with the name of the application followed by `--svelte`.
 
 ```bash
-ns create example-app --ts
+ns create example-app -svelte
 ```
 
 The NativeScript CLI creates a new directory with the root folder named `example-app` with an initial skeleton app project and installs the necessary packages and dependencies. This can take a few minutes and should be ready to run once it's done installing.
@@ -61,85 +61,55 @@ Based on the Typescript starter app, we will be creating the following file/fold
 
 ```
 app
-  |- home
-      |- home-page.ts
-      |- home-page.xml
-      |- home-view-model.ts
-  |- details
-      |- details-page.ts
-      |- details-page.xml
-      |- details-view-model.ts
+  |- pages
+      |- Home.svelte
+      |- Details.svelte
   |- models
-      |- flick.model.ts
+      |- flick.ts
+  |- services
+      |- flickService.ts
   |- services
       |- flick.service.ts
-  |- app-root.xml
   |- app.css
+  |- App.svelte
   |- app.ts
 ```
 
 ## Create the home page
 
-Let's start with creating the file for our home feature with the following contents:
+Let's start with creating the file for our home page with the following contents:
 
-/// flavor home-page.ts
+```html
+<!-- app/pages/Home.svelte -->
+<page> </page>
 
-```typescript
-// app/home/home-page.ts
-
-import { NavigatedData, Page } from '@nativescript/core'
-import { HomeViewModel } from './home-view-model'
-
-export function navigatingTo(args: NavigatedData): void {
-  if (args.isBackNavigation) {
-    return
-  }
-
-  const page = <Page>args.object
-  page.bindingContext = new HomeViewModel()
-}
+<script></script>
 ```
-
-///
-
-/// flavor home-view-model.ts
-
-```typescript
-// app/home/home-view-model.ts
-
-import { Observable } from '@nativescript/core'
-
-export class HomeViewModel extends Observable {}
-```
-
-///
-
-/// flavor home-page.xml
-
-```xml
-<!-- app/home/home-page.xml -->
-<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo" />
-```
-
-///
 
 ### Routing setup
 
-We will be setting up the home page as our default route when the app starts. We can set the default route by passing the path in our home page file to the `defaultPage` property of the root's `Frame` component. Open `app-root.xml` and add the following code:
+We will be setting up the home page as our default route when the app starts. We can set the default route by importing the home component in our `App.svelte` file and setting it as the `defaultPage` of the root's `frame` component. Open `App.svelte` and add the following code:
 
-```xml
-<!-- app/app-root.xml -->
-<Frame defaultPage="home/home-page" />
+```html
+<!-- app/App.svelte -->
+
+<page>
+  <frame id="rootFrame" defaultPage="{Home}"></frame>
+</page>
+
+<script>
+  import Home from './pages/Home.svelte'
+</script>
 ```
 
 ### Home UI
 
 Before we create the UI of our home page, let's create our `FlickModel` and `FlickService` first. This will allow us to use the data directly in our template.
 
-`FlickModel` will contain the shape of each flick object. Create a `models` directory inside `app` and create a new file called `flick.model.ts`. Open the new `flick.model.ts` and add the following `interface`:
+`FlickModel` will contain the shape of each flick object. Create a `models` directory inside `app` and create a new file called `flick.ts`. Open the new `flick.ts` and add the following `interface`:
 
 ```typescript
-// app/models/flick.model.ts
+// app/models/flick.ts
 
 export interface FlickModel {
   id: number
@@ -155,12 +125,12 @@ export interface FlickModel {
 }
 ```
 
-We will then use the `FlickModel` in our `FlickService` to return our flick data. Create a `services` directory inside `app` and create a new file called `flick.service.ts`. Open the new `flick.service.ts` and add the following:
+We will then use the `FlickModel` in our `FlickService` to return our flick data. Create a `services` directory inside `app` and create a new file called `flickService.ts`. Open the new `flickService.ts` and add the following:
 
 ```typescript
-// app/services/flick.service.ts
+// app/services/flickService.ts
 
-import { FlickModel } from '../models'
+import { FlickModel } from '../models/flick'
 
 export class FlickService {
   private flicks: FlickModel[] = [
@@ -272,63 +242,60 @@ Next, let's break down the layout and UI elements of the home page.
 
 ![Home page layout breakdown](./public/assets/images/tutorial/tutorial-example-app-master-breakdown.png)
 
-The home page can be divided into two main parts, the action bar with the title and the scrollable main content area with the cards (we will talk about the cards in the next section). Let's start with creating the action bar with the title. Open `home-page.xml` and add the following code:
+The home page can be divided into two main parts, the action bar with the title and the scrollable main content area with the cards (we will talk about the cards in the next section). Let's start with creating the action bar with the title. Open `Home.svelte` and add the following code:
 
-```xml
-<!-- app/home/home-page.xml -->
-<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo">
-  <ActionBar title="NativeFlix" />
-</Page>
+```html
+<!-- app/pages/Home.svelte -->
+<page>
+  <actionBar title="NativeFlix" />
+</page>
+<script></script>
 ```
 
-Since we have an array of flicks to display we can use NativeScript's [`ListView`](https://docs.nativescript.org/ui-and-styling.html#listview) component. `ListView` is a NativeScript UI component that efficiently renders items in a vertical or horizontal scrolling list. Let's first create a variable called flick in our home component that we are going to use as our `ListView`'s data source. Open `home-view-model.ts` and add the following:
+Since we have an array of flicks to display we can use NativeScript's [`ListView`](https://docs.nativescript.org/ui-and-styling.html#listview) component. `ListView` is a NativeScript UI component that efficiently renders items in a vertical or horizontal scrolling list. Let's first create a variable called flick in our home component that we are going to use as our `ListView`'s data source. Open `Home.svelte` and add the following:
 
-```typescript
-// app/home/home-view-model.ts
+```html
+// app/pages/Home.svelte
 
-import { Observable, ObservableArray } from '@nativescript/core'
-import { FlickModel } from '../models'
-import { FlickService } from '../services'
+<page>
+  <actionBar title="NativeFlix" />
+</page>
 
-// Add the contents of HomeViewModel class 👇
-export class HomeViewModel extends Observable {
-  private _flicks: FlickModel[]
+<script>
+  // Add the following 👇
+  import { FlickService } from '../services/FlickService'
 
-  constructor() {
-    super()
-    this.populateFlicks()
-  }
-
-  // this will be used as the data source of our ListView
-  get flicks(): ObservableArray<FlickModel> {
-    return new ObservableArray(this._flicks)
-  }
-
-  populateFlicks(): void {
-    this._flicks = FlickService().getInstance().getFlicks()
-  }
-}
+  let flicks = FlickService.getInstance().getFlicks()
+</script>
 ```
 
 Next, add the `ListView` component:
 
-```xml
-<!-- app/home-page/home-page.xml -->
-<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo">
-  <ActionBar title="NativeFlix" />
+```html
+<!-- app/pages/Home.svelte -->
 
+<page>
+  <actionBar title="NativeFlix" />
   <!-- Add this 👇 -->
-  <StackLayout height="100%">
-    <ListView height="100%" separatorColor="transparent" items="{{ flicks }}">
-      <ListView.itemTemplate>
-        <Label text="{{ title }}" />
-      </ListView.itemTemplate>
-    </ListView>
-  </StackLayout>
-</Page>
+  <stackLayout height="100%">
+    <listView height="100%" separatorColor="transparent" items="{flicks}">
+      <template let:item>
+        <label text="{item.title}" />
+      </template>
+    </listView>
+  </stackLayout>
+</page>
+
+<script>
+  // Add this 👇
+  import { Template } from 'svelte-native/components'
+  import { FlickService } from '../services/FlickService'
+
+  let flicks = FlickService.getInstance().getFlicks()
+</script>
 ```
 
-`ListView` in NativeScript uses the `items` property as its data source. In the snippet above, we set the `items` property to `flicks`. This loops through the `flicks` observable array and renders the contents within the `ListView.itemTemplate` for each entry. If you run the app now, you should see a list of flick titles.
+`ListView` in NativeScript Svelte uses the `items` property as its data source. In the snippet above, we set the `items` property to `flicks`. This loops through the `flicks` observable array and renders the contents within the `Template` for each entry. If you run the app now, you should see a list of flick titles.
 
 ### Create flick cards
 
@@ -368,22 +335,18 @@ Before we dive into creating the card below, let's create some classes for our b
 
 ![Home page cards breakdown](./public/assets/images/tutorial/tutorial-example-app-master-card-breakdown.png)
 
-As you can see in the image above, each card is made up of 3 components, the preview image, a title, and a description. We will be using a `GridLayout` as our container and use the `Image` and `Label` components for the preview image and texts. Open your `home-page.xml` and add the following:
+As you can see in the image above, each card is made up of 3 components, the preview image, a title, and a description. We will be using a `GridLayout` as our container and use the `Image` and `Label` components for the preview image and texts. Open your `Home.svelte` and add the following:
 
-```xml
-<!-- app/home/home-page.xml -->
-<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo">
-  <ActionBar title="NativeFlix" />
-  <StackLayout height="100%">
-    <ListView
-      height="100%"
-      separatorColor="transparent"
-      items="{{ flicks }}"
-      itemTap="{{ onFlickTap }}"
-    >
-      <ListView.itemTemplate>
+```html
+<!-- app/pages/Home.svelte -->
+
+<page>
+  <actionBar title="NativeFlix" />
+  <stackLayout height="100%">
+    <listView height="100%" separatorColor="transparent" items="{flicks}">
+      <template let:item>
         <!-- Add this 👇 -->
-        <GridLayout
+        <gridLayout
           height="280"
           borderRadius="10"
           class="bg-secondary"
@@ -392,28 +355,35 @@ As you can see in the image above, each card is made up of 3 components, the pre
           margin="5 10"
           padding="0"
         >
-          <Image row="0" margin="0" stretch="aspectFill" src="{{ image }}" />
-          <Label
+          <image row="0" margin="0" stretch="aspectFill" src="{item.image}" />
+          <label
             row="1"
             margin="10 10 0 10"
             fontWeight="700"
             class="text-primary"
             fontSize="18"
-            text="{{ title }}"
+            text="{item.title}"
           />
-          <Label
+          <label
             row="2"
             margin="0 10 10 10"
             class="text-secondary"
             fontSize="14"
             textWrap="true"
-            text="{{ description }}"
+            text="{item.description}"
           />
-        </GridLayout>
-      </ListView.itemTemplate>
-    </ListView>
-  </StackLayout>
-</Page>
+        </gridLayout>
+      </template>
+    </listView>
+  </stackLayout>
+</page>
+
+<script>
+  import { Template } from 'svelte-native/components'
+  import { FlickService } from '../services/FlickService'
+
+  let flicks = FlickService.getInstance().getFlicks()
+</script>
 ```
 
 ### Checkpoint
@@ -424,99 +394,29 @@ If you've followed along this far, running the app on either platform should res
 
 ## Create the details page
 
-Let's start with creating the file for our details feature with the following contents:
+Let's start with creating the file for our details page with the following contents:
 
-/// flavor details-page.ts
+```html
+<!-- app/pages/Details.svelte -->
 
-```typescript
-// app/details/details-page.ts
+<page> </page>
 
-import { NavigatedData, Page } from '@nativescript/core'
-import { DetailsViewModel } from './details-view-model'
-
-export function navigatingTo(args: NavigatedData): void {
-  const page = <Page>args.object
-  page.bindingContext = new DetailsViewModel()
-}
+<script></script>
 ```
-
-///
-
-/// flavor details-view-model.ts
-
-```typescript
-// app/details/details-view-model.ts
-
-import { Observable } from '@nativescript/core'
-
-export class DetailsViewModel extends Observable {}
-```
-
-///
-
-/// flavor details-page.xml
-
-```xml
-<!-- app/details/details-page.xml -->
-<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo" />
-```
-
-///
 
 ### Setup navigation from home to details component
 
-We will be using the `navigate` function from the `Frame` class to navigate from our home component to the details component. In addition to the route name, we will also pass in the flick's `id` as part of the `context` object of the `navigate` function. We will use this `id` in our details component to access more information about the flick. Open `home-view-model.ts` and add the following:
+We will be using the `navigate` function from `svelte-native` class to navigate from our home component to the details component. In addition to the page name, we will also pass in the flick's `id` as part of the `props` object of the `navigate` function. We will use this `id` in our details component to access more information about the flick. Open `Home.svelte` and add the following:
 
-```typescript
-// app/home/home-view-model.ts
+```html
+<!-- app/pages/Home.svelte -->
 
-// Update this 👇
-import { Frame, Observable, ObservableArray, ItemEventData } from '@nativescript/core'
-import { FlickModel } from '../models'
-import { FlickService } from '../services'
-
-export class HomeViewModel extends Observable {
-  private _flicks: FlickModel[]
-
-  constructor() {
-    super()
-    this.populateFlicks()
-  }
-
-  get flicks(): ObservableArray<FlickModel> {
-    return new ObservableArray(this._flicks)
-  }
-
-  populateFlicks(): void {
-    this._flicks = FlickService.getInstance().getFlicks()
-  }
-
-  // Add this 👇
-  onFlickTap(args: ItemEventData): void {
-    Frame.topmost().navigate({
-      moduleName: 'details/details-page',
-      context: { flickId: this._flicks[args.index].id }
-    })
-  }
-}
-```
-
-Next, let's add the tap event to the listview items. Open `home-page.xml` and add the following:
-
-```xml
-<!-- app/home/home-page.xml -->
-<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo">
-  <ActionBar title="NativeFlix" />
-  <StackLayout height="100%">
-    <!-- Update this 👇 -->
-    <ListView
-      height="100%"
-      separatorColor="transparent"
-      items="{{ flicks }}"
-      itemTap="{{ onFlickTap }}"
-    >
-      <ListView.itemTemplate>
-        <GridLayout
+<page>
+  <actionBar title="NativeFlix" />
+  <stackLayout height="100%">
+    <listView height="100%" separatorColor="transparent" items="{flicks}">
+      <template let:item>
+        <gridLayout
           height="280"
           borderRadius="10"
           class="bg-secondary"
@@ -525,71 +425,144 @@ Next, let's add the tap event to the listview items. Open `home-page.xml` and ad
           margin="5 10"
           padding="0"
         >
-          <Image row="0" margin="0" stretch="aspectFill" src="{{ image }}" />
-          <Label
+          <image row="0" margin="0" stretch="aspectFill" src="{item.image}" />
+          <label
             row="1"
             margin="10 10 0 10"
             fontWeight="700"
             class="text-primary"
             fontSize="18"
-            text="{{ title }}"
+            text="{item.title}"
           />
-          <Label
+          <label
             row="2"
             margin="0 10 10 10"
             class="text-secondary"
             fontSize="14"
             textWrap="true"
-            text="{{ description }}"
+            text="{item.description}"
           />
-        </GridLayout>
-      </ListView.itemTemplate>
-    </ListView>
-  </StackLayout>
-</Page>
+        </gridLayout>
+      </template>
+    </listView>
+  </stackLayout>
+</page>
+
+<script>
+  // Add this 👇
+  import { navigate } from 'svelte-native'
+  import { Template } from 'svelte-native/components'
+  import { FlickService } from '../services/FlickService'
+  // Add this 👇
+  import Details from './Details.svelte'
+
+  let flicks = FlickService.getInstance().getFlicks()
+
+  // Add this 👇
+  function onFlickTap(event) {
+    navigate({
+      page: Details,
+      props: { flickId: flicks[event.index].id }
+    })
+  }
+</script>
+```
+
+Next, let's add the tap event to the listview items. Open `Home.svelte` and add the following:
+
+```html
+<!-- app/pages/Home.svelte -->
+
+<page>
+  <actionBar title="NativeFlix" />
+  <stackLayout height="100%">
+    <!-- add itemTap 👇 -->
+    <listView
+      height="100%"
+      separatorColor="transparent"
+      items="{flicks}"
+      on:itemTap="{onFlickTap}"
+    >
+      <template let:item>
+        <gridLayout
+          height="280"
+          borderRadius="10"
+          class="bg-secondary"
+          rows="*, auto, auto"
+          columns="*"
+          margin="5 10"
+          padding="0"
+        >
+          <image row="0" margin="0" stretch="aspectFill" src="{item.image}" />
+          <label
+            row="1"
+            margin="10 10 0 10"
+            fontWeight="700"
+            class="text-primary"
+            fontSize="18"
+            text="{item.title}"
+          />
+          <label
+            row="2"
+            margin="0 10 10 10"
+            class="text-secondary"
+            fontSize="14"
+            textWrap="true"
+            text="{item.description}"
+          />
+        </gridLayout>
+      </template>
+    </listView>
+  </stackLayout>
+</page>
+
+<script>
+  import { navigate } from 'svelte-native'
+  import { Template } from 'svelte-native/components'
+  import { FlickService } from '../services/FlickService'
+  import Details from './Details.svelte'
+
+  let flicks = FlickService.getInstance().getFlicks()
+
+  function onFlickTap(event) {
+    navigate({
+      page: Details,
+      props: { flickId: flicks[event.index].id }
+    })
+  }
+</script>
 ```
 
 ### Access navigation props
 
-We passed in the `id` of the flick card the user tapped on in the previous section as we navigate to the details page. We can access the passed in `id` via the page's `navigationContext`. We will first get the `navigationContext` on our details page and pass it along to our `DetailsViewModel`. We can then use the `id` to get the selected flick information to be displayed in our details component's template. Open `details-page.ts` and add the following:
+We passed in the `id` of the flick card the user tapped on in the previous section as we navigate to the details page. We can access the passed in `flickId` by declaring and exporting a variable with the same name in the details component. We can then use the `id` to get the selected flick information to be displayed in our details component's template. Open `Details.svelte` and add the following:
 
-```typescript
-// app/details/details-page.ts
+```html
+<!-- app/pages/Details.svelte -->
 
-import { EventData, Page } from '@nativescript/core'
-import { DetailsViewModel } from './details-view-model'
+<page> </page>
 
-export function navigatingTo(args: EventData): void {
-  const page = <Page>args.object
-  // Update this 👇
-  page.bindingContext = new DetailsViewModel(page.navigationContext)
-}
+<script>
+  // Add this 👇
+  export let flickId
+</script>
 ```
 
-Next, let's access this property and get the flick information in our `DetailsViewModel`. Open `details-view-model.ts` and add the following:
+Next, let's use the `flickId` to get the flick information from our `FlickService`. Open `Details.svelte` and add the following:
 
-```typescript
-// app/details/details-view-model.ts
+```html
+<!-- app/pages/Details.svelte -->
 
-import { Observable } from '@nativescript/core'
-import { FlickService } from '../services'
-import { FlickModel } from '../models'
+<page> </page>
 
-// Add the contents of HomeViewModel class 👇
-export class DetailsViewModel extends Observable {
-  private _flick: FlickModel
+<script>
+  // Add this 👇
+  import { FlickService } from '../services/FlickService'
 
-  // the passed in context object during the navigation will be here
-  constructor(private _context: { flickId: number }) {
-    super()
-
-    this._flick = FlickService.getInstance().getFlickById(this._context.flickId)
-  }
-
-  get flick(): FlickModel {
-    return this._flick
-  }
-}
+  export let flickId
+  // Add this 👇
+  let flick = FlickService.getInstance().getFlickById(flickId)
+</script>
 ```
 
 ### Details UI
@@ -598,43 +571,49 @@ Let's break down the layout and UI elements of the details page.
 
 ![Details page layout breakdown](./public/assets/images/tutorial/tutorial-example-app-details-breakdown.png)
 
-The details page can be divided into three main parts, the action bar with the flick title, the hero image, and the main content with the flick details. We will use the `details` array from our `flicks` object to populate the flick details section. The `details` array contains objects with a `title` and `body` which are rendered uniformly, each with their style. We can use NativeScript's `Repeater` component to loop through the array and create a UI element or set of elements for each entry in the array. Open `details-page.xml` and add the following code:
+The details page can be divided into three main parts, the action bar with the flick title, the hero image, and the main content with the flick details. We will use the `details` array from our `flicks` object to populate the flick details section. The `details` array contains objects with a `title` and `body` which are rendered uniformly, each with their style. We can use Svelte's `#each` block to loop through the array and create a UI element or set of elements for each entry in the array. Open `Details.svelte` and add the following code:
 
-```xml
-<!-- app/details/details-page.xml -->
-<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo">
+```html
+<!-- app/pages/Details.svelte -->
+
+<page>
   <!-- Add this 👇 -->
-  <ActionBar title="{{ flick.title }}" />
+  <actionBar title="{flick.title}" />
 
   <!-- Add this 👇 -->
-  <ScrollView>
-    <StackLayout>
-      <Image margin="0" stretch="aspectFill" src="{{ flick.image }}" />
-      <StackLayout padding="10 20">
-        <Repeater items="{{ flick.details }}">
-          <Repeater.itemTemplate>
-            <StackLayout>
-              <Label
-                marginTop="15"
-                fontSize="16"
-                fontWeight="700"
-                class="text-primary"
-                textWrap="true"
-                text="{{ $value.title }}"
-              />
-              <Label
-                fontSize="14"
-                class="text-secondary"
-                textWrap="true"
-                text="{{ $value.body }}"
-              />
-            </StackLayout>
-          </Repeater.itemTemplate>
-        </Repeater>
-      </StackLayout>
-    </StackLayout>
-  </ScrollView>
-</Page>
+  <scrollView>
+    <stackLayout>
+      <image margin="0" stretch="aspectFill" src="{flick.image}" />
+      <stackLayout padding="10 20">
+        {#each flick.details as details}
+        <stackLayout>
+          <label
+            marginTop="15"
+            fontSize="16"
+            fontWeight="700"
+            class="text-primary"
+            textWrap="true"
+            text="{details.title}"
+          />
+          <label
+            fontSize="14"
+            class="text-secondary"
+            textWrap="true"
+            text="{details.body}"
+          />
+        </stackLayout>
+        {/each}
+      </stackLayout>
+    </stackLayout>
+  </scrollView>
+</page>
+
+<script>
+  import { FlickService } from '../services/FlickService'
+
+  export let flickId
+  let flick = FlickService.getInstance().getFlickById(flickId)
+</script>
 ```
 
 ### Checkpoint

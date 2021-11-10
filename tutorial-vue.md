@@ -266,7 +266,7 @@ export default Vue.extend({})
 </script>
 ```
 
-Since we have an array of flicks to display we can use NativeScript's [`ListView`](https://docs.nativescript.org/ui-and-styling.html#listview) component. `ListView` is a NativeScript UI component that efficiently renders items in a vertical or horizontal scrolling list. Let's first create a variable called flick to our home component that we are going to use as our `ListView`'s data source. Open `Home.vue` and add the following:
+Since we have an array of flicks to display we can use NativeScript's [`ListView`](https://docs.nativescript.org/ui-and-styling.html#listview) component. `ListView` is a NativeScript UI component that efficiently renders items in a vertical or horizontal scrolling list. Let's first create a variable called flick in our home component that we are going to use as our `ListView`'s data source. Open `Home.vue` and add the following:
 
 ```vue
 <!-- app/components/Home.vue -->

@@ -129,9 +129,6 @@ function getSidebar() {
 			text: 'Basics',
 			children: [
 				{ text: 'Introduction', link: '/introduction' },
-				{ text: 'Core Tutorial', link: '/tutorial-core' },
-				{ text: 'Angular Tutorial', link: '/tutorial-angular' },
-				{ text: 'Vue Tutorial', link: '/tutorial-vue' },
 				{
 					text: 'Environment Setup',
 					link: '/environment-setup',
@@ -144,6 +141,16 @@ function getSidebar() {
 					text: 'Understanding @nativescript',
 					link: '/understanding-packages',
 				},
+			],
+		},
+		{
+			text: 'Tutorials',
+			children: [
+				{ text: 'Core Tutorial', link: '/tutorial-core' },
+				{ text: 'Angular Tutorial', link: '/tutorial-angular' },
+				{ text: 'Vue Tutorial', link: '/tutorial-vue' },
+				{ text: 'React Tutorial', link: '/tutorial-react' },
+				{ text: 'Svelte Tutorial', link: '/tutorial-svelte' },
 			],
 		},
 		{
