@@ -21,7 +21,7 @@ To get the most out of this tutorial you should already have a basic understandi
 
 Components form the basic building blocks of an Angular application. Components represent the pages and views that the user interacts with. NativeScript Angular follows the same concept with the difference being primarily within the component's HTML template layer and its styling.
 
-You'll build a video streaming app that offers the ability to select and watch videos in the app and bring that experience outside the application in picture-in-picture mode.
+You'll build a master-details app that displays a list of musicals and allows you to navigate to a details page to view more information about each musical.
 
 ![Example app preview](./public/assets/images/tutorial/tutorial-example-app-preview.png)
 

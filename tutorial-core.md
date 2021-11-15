@@ -18,8 +18,7 @@ NativeScript Core uses Javascript or Typescript and XML to create your applicati
 
 ## Overview of the example application
 
-// TODO: we aren't doing the picture in picture stuff
-You'll build a video streaming app that offers the ability to select and watch videos in the app and bring that experience outside the application in picture-in-picture mode.
+You'll build a master-details app that displays a list of musicals and allows you to navigate to a details page to view more information about each musical.
 
 ![Example app preview](./public/assets/images/tutorial/tutorial-example-app-preview.png)
 
