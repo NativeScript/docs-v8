@@ -14,7 +14,7 @@ This tutorial will teach you the following:
 
 ## Prerequisites
 
-NativeScript Core uses Javascript or Typescript and XML to create your applications. To get the most out of this tutorial you should already have a basic understanding of [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) or [Typescript](https://www.typescriptlang.org/).
+NativeScript Core uses Javascript or Typescript and XML to create your applications. To get the most out of this tutorial you should already have a basic understanding of [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) or [TypeScript](https://www.typescriptlang.org/).
 
 ## Overview of the example application
 
@@ -22,17 +22,17 @@ You'll build a master-details app that displays a list of musicals and allows yo
 
 ![Example app preview](./public/assets/images/tutorial/tutorial-example-app-preview.png)
 
-You can find the complete source code of the application on [Github]()
+You can find the complete source code of the application on [GitHub]()
 
 ## Set up your environment
 
-To set up your development environment, follow the instructions in the [Environment Setup](https://docs.nativescript.org/environment-setup.html#windows-android) section of the docs.
+To set up your development environment, follow the instructions in the [Environment Setup](/environment-setup) section of the docs.
 
 ## Create a new NativeScript application
 
 We will be using Typescript for this tutorial. To create a new NativeScript Typescript application, run the CLI command `ns create` with the name of the application followed by `--ts`.
 
-```bash
+```cli
 ns create example-app --ts
 ```
 
@@ -42,7 +42,7 @@ The NativeScript CLI creates a new directory with the root folder named `example
 
 Go to the project's directory and run the following command to run it on the respective platforms.
 
-```bash
+```cli
 cd example-app
 
 // run on iOS
@@ -81,7 +81,7 @@ app
 
 Let's start with creating the file for our home feature with the following contents:
 
-/// flavor home-page.ts
+<!-- tab:home-page.ts -->
 
 ```typescript
 // app/home/home-page.ts
@@ -99,9 +99,7 @@ export function navigatingTo(args: NavigatedData): void {
 }
 ```
 
-///
-
-/// flavor home-view-model.ts
+<!-- tab:home-view-model.ts -->
 
 ```typescript
 // app/home/home-view-model.ts
@@ -111,16 +109,12 @@ import { Observable } from '@nativescript/core'
 export class HomeViewModel extends Observable {}
 ```
 
-///
-
-/// flavor home-page.xml
+<!-- tab:home-page.xml -->
 
 ```xml
 <!-- app/home/home-page.xml -->
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo" />
 ```
-
-///
 
 ### Routing setup
 
@@ -181,11 +175,13 @@ export class FlickService {
         },
         {
           title: 'Revenue',
-          body: 'Grossed over $500 million, making it one of the most successful musicals of all time.'
+          body:
+            'Grossed over $500 million, making it one of the most successful musicals of all time.'
         },
         {
           title: 'History',
-          body: 'The Book of Mormon was conceived by Trey Parker, Matt Stone and Robert Lopez. Parker and Stone grew up in Colorado, and were familiar with The Church of Jesus Christ of Latter-day Saints and its members. They became friends at the University of Colorado Boulder and collaborated on a musical film, Cannibal! The Musical (1993), their first experience with movie musicals. In 1997, they created the TV series South Park for Comedy Central and in 1999, the musical film South Park: Bigger, Longer & Uncut. The two had first thought of a fictionalized Joseph Smith, religious leader and founder of the Latter Day Saint movement, while working on an aborted Fox series about historical characters. Their 1997 film, Orgazmo, and a 2003 episode of South Park, "All About Mormons", both gave comic treatment to Mormonism. Smith was also included as one of South Park\'s "Super Best Friends", a Justice League parody team of religious figures like Jesus and Buddha.'
+          body:
+            'The Book of Mormon was conceived by Trey Parker, Matt Stone and Robert Lopez. Parker and Stone grew up in Colorado, and were familiar with The Church of Jesus Christ of Latter-day Saints and its members. They became friends at the University of Colorado Boulder and collaborated on a musical film, Cannibal! The Musical (1993), their first experience with movie musicals. In 1997, they created the TV series South Park for Comedy Central and in 1999, the musical film South Park: Bigger, Longer & Uncut. The two had first thought of a fictionalized Joseph Smith, religious leader and founder of the Latter Day Saint movement, while working on an aborted Fox series about historical characters. Their 1997 film, Orgazmo, and a 2003 episode of South Park, "All About Mormons", both gave comic treatment to Mormonism. Smith was also included as one of South Park\'s "Super Best Friends", a Justice League parody team of religious figures like Jesus and Buddha.'
         },
         {
           title: 'Development',
@@ -425,7 +421,7 @@ If you've followed along this far, running the app on either platform should res
 
 Let's start with creating the file for our details feature with the following contents:
 
-/// flavor details-page.ts
+<!-- tab:details-page.ts -->
 
 ```typescript
 // app/details/details-page.ts
@@ -439,9 +435,7 @@ export function navigatingTo(args: NavigatedData): void {
 }
 ```
 
-///
-
-/// flavor details-view-model.ts
+<!-- tab:details-view-model.ts -->
 
 ```typescript
 // app/details/details-view-model.ts
@@ -451,16 +445,12 @@ import { Observable } from '@nativescript/core'
 export class DetailsViewModel extends Observable {}
 ```
 
-///
-
-/// flavor details-page.xml
+<!-- tab:details-page.xml -->
 
 ```xml
 <!-- app/details/details-page.xml -->
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo" />
 ```
-
-///
 
 ### Setup navigation from home to details component
 
