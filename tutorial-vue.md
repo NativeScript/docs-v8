@@ -35,7 +35,7 @@ To set up your development environment, follow the instructions in the [Environm
 
 To create a new NativeScript Vue application, run the CLI command `ns create` with the name of the application followed by `--vue`.
 
-```bash
+```cli
 ns create example-app --vue
 ```
 
@@ -45,7 +45,7 @@ The NativeScript CLI creates a new directory with the root folder named `example
 
 Go to the project's directory and run the following command to run it on the respective platforms.
 
-```bash
+```cli
 cd example-app
 
 // run on iOS

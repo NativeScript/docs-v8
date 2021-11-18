@@ -35,7 +35,7 @@ To set up your development environment, follow the instructions in the [Environm
 
 To create a new NativeScript Angular application, run the CLI command `ns create` with the name of the application followed by `--ng`.
 
-```bash
+```cli
 ns create example-app --ng
 ```
 
@@ -45,7 +45,7 @@ The NativeScript CLI creates a new directory with the root folder named `example
 
 Go to the project's directory and run the following command to run it on the respective platforms.
 
-```bash
+```cli
 cd example-app
 
 // run on iOS
@@ -84,15 +84,13 @@ src/app
 
 Let's start with creating the files for our home feature with the following contents:
 
-/// flavor home.component.html
+<!-- tab:home.component.html -->
 
 ```html
 <!-- src/app/features/home/home.component.html -->
 ```
 
-///
-
-/// flavor home.component.ts
+<!-- tab:home.component.ts -->
 
 ```typescript
 // src/app/features/home/home.component.ts
@@ -107,9 +105,7 @@ import { Component } from '@angular/core'
 export class HomeComponent {}
 ```
 
-///
-
-/// flavor home-routing.module.ts
+<!-- tab:home-routing.module.ts -->
 
 ```typescript
 // src/app/features/home/home-routing.module.ts
@@ -132,9 +128,7 @@ export const routes: Routes = [
 export class HomeRoutingModule {}
 ```
 
-///
-
-/// flavor home.module.ts
+<!-- tab:home.module.ts -->
 
 ```typescript
 // src/app/features/home/home.module.ts
@@ -151,8 +145,6 @@ import { HomeComponent } from './home.component'
 })
 export class HomeModule {}
 ```
-
-///
 
 ### Routing setup
 
@@ -476,15 +468,13 @@ If you've followed along this far, running the app on either platform should res
 
 Let's start with creating the files for our details feature with the following contents:
 
-/// flavor details.component.html
+<!-- tab:details.component.html -->
 
 ```html
 <!-- src/app/features/details/details.component.html -->
 ```
 
-///
-
-/// flavor home.component.ts
+<!-- tab:home.component.ts -->
 
 ```typescript
 // src/app/features/details/details.component.ts
@@ -499,9 +489,7 @@ import { Component } from '@angular/core'
 export class DetailsComponent {}
 ```
 
-///
-
-/// flavor details-routing.module.ts
+<!-- tab:details-routing.module.ts -->
 
 ```typescript
 // src/app/features/details/details-routing.module.ts
@@ -524,9 +512,7 @@ export const routes: Routes = [
 export class DetailsRoutingModule {}
 ```
 
-///
-
-/// flavor details.module.ts
+<!-- tab:details.module.ts -->
 
 ```typescript
 // src/app/features/details/details.module.ts
@@ -543,8 +529,6 @@ import { DetailsComponent } from './details.component'
 })
 export class DetailsModule {}
 ```
-
-///
 
 ### Routing setup
 
