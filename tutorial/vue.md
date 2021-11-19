@@ -23,9 +23,9 @@ Components form the basic building blocks of an Vue application. Components repr
 
 You'll build a master-details app that displays a list of musicals and allows you to navigate to a details page to view more information about each musical.
 
-![Example app preview](./public/assets/images/tutorial/tutorial-example-app-preview.png)
+![Example app preview](/assets/images/tutorial/tutorial-example-app-preview.png)
 
-You can find the complete source code of the application on [Github]()
+You can find the complete source code of the application on [GitHub](https://github.com/NativeScript/tutorials/tree/main/vue-tutorial)
 
 ## Set up your environment
 
@@ -33,10 +33,10 @@ To set up your development environment, follow the instructions in the [Environm
 
 ## Create a new NativeScript Vue application
 
-To create a new NativeScript Vue application, run the CLI command `ns create` with the name of the application followed by `--vue`.
+To create a new NativeScript Vue application, run the CLI command `ns create` with the name of the application followed by `--vue` and `--ts`.
 
 ```cli
-ns create example-app --vue
+ns create example-app --vue --ts
 ```
 
 The NativeScript CLI creates a new directory with the root folder named `example-app` with an initial skeleton app project and installs the necessary packages and dependencies. This can take a few minutes and should be ready to run once it's done installing.
@@ -95,8 +95,8 @@ export default Vue.extend({})
 
 We will be setting up the home component as our default route when the app starts. Open `app.ts` and add the following code:
 
-```typescript
-// app/app,ts
+```typescript{13}
+// app/app.ts
 
 import Vue from 'nativescript-vue'
 import Home from './components/Home.vue'
@@ -148,7 +148,7 @@ export default class FlickService {
       id: 1,
       genre: 'Musical',
       title: 'Book of Mormon',
-      image: '~/assets/bookofmormon.png',
+      image: '/assets/bookofmormon.png',
       url: 'https://nativescript.org/images/ngconf/book-of-mormon.mov',
       description: `A satirical examination of the beliefs and practices of The Church of Jesus Christ of Latter-day Saints.`,
       details: [
@@ -162,11 +162,13 @@ export default class FlickService {
         },
         {
           title: 'Revenue',
-          body: 'Grossed over $500 million, making it one of the most successful musicals of all time.'
+          body:
+            'Grossed over $500 million, making it one of the most successful musicals of all time.'
         },
         {
           title: 'History',
-          body: 'The Book of Mormon was conceived by Trey Parker, Matt Stone and Robert Lopez. Parker and Stone grew up in Colorado, and were familiar with The Church of Jesus Christ of Latter-day Saints and its members. They became friends at the University of Colorado Boulder and collaborated on a musical film, Cannibal! The Musical (1993), their first experience with movie musicals. In 1997, they created the TV series South Park for Comedy Central and in 1999, the musical film South Park: Bigger, Longer & Uncut. The two had first thought of a fictionalized Joseph Smith, religious leader and founder of the Latter Day Saint movement, while working on an aborted Fox series about historical characters. Their 1997 film, Orgazmo, and a 2003 episode of South Park, "All About Mormons", both gave comic treatment to Mormonism. Smith was also included as one of South Park\'s "Super Best Friends", a Justice League parody team of religious figures like Jesus and Buddha.'
+          body:
+            'The Book of Mormon was conceived by Trey Parker, Matt Stone and Robert Lopez. Parker and Stone grew up in Colorado, and were familiar with The Church of Jesus Christ of Latter-day Saints and its members. They became friends at the University of Colorado Boulder and collaborated on a musical film, Cannibal! The Musical (1993), their first experience with movie musicals. In 1997, they created the TV series South Park for Comedy Central and in 1999, the musical film South Park: Bigger, Longer & Uncut. The two had first thought of a fictionalized Joseph Smith, religious leader and founder of the Latter Day Saint movement, while working on an aborted Fox series about historical characters. Their 1997 film, Orgazmo, and a 2003 episode of South Park, "All About Mormons", both gave comic treatment to Mormonism. Smith was also included as one of South Park\'s "Super Best Friends", a Justice League parody team of religious figures like Jesus and Buddha.'
         },
         {
           title: 'Development',
@@ -178,7 +180,7 @@ export default class FlickService {
       id: 2,
       genre: 'Musical',
       title: 'Beetlejuice',
-      image: '~/assets/beetlejuicemusical.png',
+      image: '/assets/beetlejuicemusical.png',
       url: 'https://nativescript.org/images/ngconf/beetlejuice.mov',
       description: `A deceased couple looks for help from a devious bio-exorcist to handle their haunted house.`,
       details: [
@@ -208,7 +210,7 @@ export default class FlickService {
       id: 3,
       genre: 'Musical',
       title: 'Anastasia',
-      image: '~/assets/anastasia.png',
+      image: '/assets/anastasia.png',
       url: 'https://nativescript.org/images/ngconf/anastasia.mov',
       description: `The legend of Grand Duchess Anastasia Nikolaevna of Russia.`,
       details: [
@@ -244,11 +246,11 @@ export default class FlickService {
 
 Next, let's break down the layout and UI elements of the home page.
 
-![Home page layout breakdown](./public/assets/images/tutorial/tutorial-example-app-master-breakdown.png)
+![Home page layout breakdown](/assets/images/tutorial/tutorial-example-app-master-breakdown.png)
 
 The home page can be divided into two main parts, the action bar with the title and the scrollable main content area with the cards (we will talk about the cards in the next section). Let's start with creating the action bar with the title. Open `Home.vue` and add the following code:
 
-```vue
+```vue{6}
 <!-- app/components/Home.vue -->
 
 <template>
@@ -267,7 +269,7 @@ export default Vue.extend({})
 
 Since we have an array of flicks to display we can use NativeScript's [`ListView`](https://docs.nativescript.org/ui-and-styling.html#listview) component. `ListView` is a NativeScript UI component that efficiently renders items in a vertical or horizontal scrolling list. Let's first create a variable called flick in our home component that we are going to use as our `ListView`'s data source. Open `Home.vue` and add the following:
 
-```vue
+```vue{17-21}
 <!-- app/components/Home.vue -->
 
 <template>
@@ -295,7 +297,7 @@ export default Vue.extend({
 
 Next, add the `ListView` component:
 
-```vue
+```vue{7-11}
 <!-- app/components/Home.vue -->
 
 <template>
@@ -368,11 +370,11 @@ Before we dive into creating the card below, let's create some classes for our b
 }
 ```
 
-![Home page cards breakdown](./public/assets/images/tutorial/tutorial-example-app-master-card-breakdown.png)
+![Home page cards breakdown](/assets/images/tutorial/tutorial-example-app-master-card-breakdown.png)
 
 As you can see in the image above, each card is made up of 3 components, the preview image, a title, and a description. We will be using a `GridLayout` as our container and use the `Image` and `Label` components for the preview image and texts. Open your `Home.vue` and add the following:
 
-```html
+```html{7-37}
 <!-- app/components/Home.vue -->
 
 <template>
@@ -433,7 +435,7 @@ As you can see in the image above, each card is made up of 3 components, the pre
 
 If you've followed along this far, running the app on either platform should result in an app that resembles the one in this screenshot, with the list being scrollable vertically.
 
-![Home page](./public/assets/images/tutorial/tutorial-example-app-master.png)
+![Home page](/assets/images/tutorial/tutorial-example-app-master.png)
 
 ## Create the details page
 
@@ -457,7 +459,7 @@ export default Vue.extend({})
 
 We will be using the `$navigateTo` function from `nativescript-vue` to navigate from our home component to the details component. In addition to the route name, we will also pass in the flick's `id` as a prop to our `$navigateTo` function. We will use this `id` in our details component to access more information about the flick. Open `Home.vue` and add the following:
 
-```vue
+```vue{55-60}
 <!-- app/components/Home.vue -->
 
 <template>
@@ -525,7 +527,7 @@ export default Vue.extend({
 
 Next, let's add the tap event to the listview items. Open `Home.vue` and add the following:
 
-```html
+```html{11}
 <!-- app/components/Home.vue -->
 
 <template>
@@ -602,11 +604,11 @@ Next, let's add the tap event to the listview items. Open `Home.vue` and add the
 
 We passed in the `id` of the flick card the user tapped on in the previous section as we navigate to the details component. We can use the `props` property to get the passed in `id`. We can then use the `id` to get the selected flick information to be displayed in our details component's template. Open `Details.vue` and add the following:
 
-```vue
+```vue{10,13,17,20-22}
 <!-- app/components/Details.vue -->
 
 <template>
-  <Page> </Page>
+  <Page></Page>
 </template>
 
 <script lang="ts">
@@ -634,11 +636,11 @@ export default Vue.extend({
 
 Let's break down the layout and UI elements of the details page.
 
-![Details page layout breakdown](./public/assets/images/tutorial/tutorial-example-app-details-breakdown.png)
+![Details page layout breakdown](/assets/images/tutorial/tutorial-example-app-details-breakdown.png)
 
 The details page can be divided into three main parts, the action bar with the flick title, the hero image, and the main content with the flick details. We will use the `details` array from our `flicks` object to populate the flick details section. The `details` array contains objects with a `title` and `body` which are rendered uniformly, each with their style. We can use Vue's `v-for` directive to loop through the array and create a UI element or set of elements for each entry in the array. Open `Details.vue` and add the following code:
 
-```vue
+```vue{6,9-31}
 <!-- app/components/Details.vue -->
 
 <template>
@@ -694,7 +696,7 @@ export default Vue.extend({
 
 Running the app on either platform should now result in an app that resembles the one in this screenshot with the ability to navigate between the home and details pages.
 
-![Details page](./public/assets/images/tutorial/tutorial-example-app-details.png)
+![Details page](/assets/images/tutorial/tutorial-example-app-details.png)
 
 ## What's next
 

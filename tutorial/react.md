@@ -20,9 +20,9 @@ To get the most out of this tutorial you should already have a basic understandi
 
 You'll build a master-details app that displays a list of musicals and allows you to navigate to a details page to view more information about each musical.
 
-![Example app preview](./public/assets/images/tutorial/tutorial-example-app-preview.png)
+![Example app preview](/assets/images/tutorial/tutorial-example-app-preview.png)
 
-You can find the complete source code of the application on [Github]()
+You can find the complete source code of the application on [GitHub](https://github.com/NativeScript/tutorials/tree/main/react-tutorial)
 
 ## Set up your environment
 
@@ -168,7 +168,7 @@ class _FlickService {
       id: 1,
       genre: 'Musical',
       title: 'Book of Mormon',
-      image: '~/assets/bookofmormon.png',
+      image: '/assets/bookofmormon.png',
       url: 'https://nativescript.org/images/ngconf/book-of-mormon.mov',
       description: `A satirical examination of the beliefs and practices of The Church of Jesus Christ of Latter-day Saints.`,
       details: [
@@ -182,11 +182,13 @@ class _FlickService {
         },
         {
           title: 'Revenue',
-          body: 'Grossed over $500 million, making it one of the most successful musicals of all time.'
+          body:
+            'Grossed over $500 million, making it one of the most successful musicals of all time.'
         },
         {
           title: 'History',
-          body: 'The Book of Mormon was conceived by Trey Parker, Matt Stone and Robert Lopez. Parker and Stone grew up in Colorado, and were familiar with The Church of Jesus Christ of Latter-day Saints and its members. They became friends at the University of Colorado Boulder and collaborated on a musical film, Cannibal! The Musical (1993), their first experience with movie musicals. In 1997, they created the TV series South Park for Comedy Central and in 1999, the musical film South Park: Bigger, Longer & Uncut. The two had first thought of a fictionalized Joseph Smith, religious leader and founder of the Latter Day Saint movement, while working on an aborted Fox series about historical characters. Their 1997 film, Orgazmo, and a 2003 episode of South Park, "All About Mormons", both gave comic treatment to Mormonism. Smith was also included as one of South Park\'s "Super Best Friends", a Justice League parody team of religious figures like Jesus and Buddha.'
+          body:
+            'The Book of Mormon was conceived by Trey Parker, Matt Stone and Robert Lopez. Parker and Stone grew up in Colorado, and were familiar with The Church of Jesus Christ of Latter-day Saints and its members. They became friends at the University of Colorado Boulder and collaborated on a musical film, Cannibal! The Musical (1993), their first experience with movie musicals. In 1997, they created the TV series South Park for Comedy Central and in 1999, the musical film South Park: Bigger, Longer & Uncut. The two had first thought of a fictionalized Joseph Smith, religious leader and founder of the Latter Day Saint movement, while working on an aborted Fox series about historical characters. Their 1997 film, Orgazmo, and a 2003 episode of South Park, "All About Mormons", both gave comic treatment to Mormonism. Smith was also included as one of South Park\'s "Super Best Friends", a Justice League parody team of religious figures like Jesus and Buddha.'
         },
         {
           title: 'Development',
@@ -198,7 +200,7 @@ class _FlickService {
       id: 2,
       genre: 'Musical',
       title: 'Beetlejuice',
-      image: '~/assets/beetlejuicemusical.png',
+      image: '/assets/beetlejuicemusical.png',
       url: 'https://nativescript.org/images/ngconf/beetlejuice.mov',
       description: `A deceased couple looks for help from a devious bio-exorcist to handle their haunted house.`,
       details: [
@@ -228,7 +230,7 @@ class _FlickService {
       id: 3,
       genre: 'Musical',
       title: 'Anastasia',
-      image: '~/assets/anastasia.png',
+      image: '/assets/anastasia.png',
       url: 'https://nativescript.org/images/ngconf/anastasia.mov',
       description: `The legend of Grand Duchess Anastasia Nikolaevna of Russia.`,
       details: [
@@ -266,11 +268,11 @@ export const FlickService = new _FlickService()
 
 Next, let's break down the layout and UI elements of the home page.
 
-![Home page layout breakdown](./public/assets/images/tutorial/tutorial-example-app-master-breakdown.png)
+![Home page layout breakdown](/assets/images/tutorial/tutorial-example-app-master-breakdown.png)
 
 The home page can be divided into two main parts, the action bar with the title and the scrollable main content area with the cards (we will talk about the cards in the next section). Let's start with creating the action bar with the title. Open `Navigator.tsx` and add the following code:
 
-```tsx
+```tsx{17-19,24-26}
 // src/components/Navigator.tsx
 
 import * as React from 'react'
@@ -286,14 +288,14 @@ export const mainStackNavigator = () => {
     <BaseNavigationContainer>
       <StackNavigator.Navigator
         initialRouteName="Home"
-        // New 👇
+        // Add this 👇
         screenOptions={{
           headerShown: true
         }}
       >
         <StackNavigator.Screen
           name="Home"
-          // New 👇
+          // Add this 👇
           options={{
             title: 'NativeFlix'
           }}
@@ -307,7 +309,7 @@ export const mainStackNavigator = () => {
 
 Since we have an array of flicks to display we can use NativeScript's [`ListView`](https://docs.nativescript.org/ui-and-styling.html#listview) component. `ListView` is a NativeScript UI component that efficiently renders items in a vertical or horizontal scrolling list. Let's first create a variable called flick to our home component that we are going to use as our `ListView`'s data source. Open `HomeScreen.tsx` and add the following:
 
-```tsx
+```tsx{11,20}
 // src/components/HomeScreen.tsx
 
 import * as React from 'react'
@@ -335,7 +337,7 @@ export function HomeScreen({ navigation }: HomeScreenProps) {
 
 Next, add the `ListView` component:
 
-```tsx
+```tsx{12,22-24,28-33}
 // src/components/HomeScreen.tsx
 
 import * as React from 'react'
@@ -412,11 +414,11 @@ Before we dive into creating the card below, let's create some classes for our b
 }
 ```
 
-![Home page cards breakdown](./public/assets/images/tutorial/tutorial-example-app-master-card-breakdown.png)
+![Home page cards breakdown](/assets/images/tutorial/tutorial-example-app-master-card-breakdown.png)
 
 As you can see in the image above, each card is made up of 3 components, the preview image, a title, and a description. We will be using a `GridLayout` as our container and use the `Image` and `Label` components for the preview image and texts. Open your `HomeScreen.tsx` and add the following:
 
-```tsx
+```tsx{21-50}
 // src/components/HomeScreen.tsx
 
 import * as React from 'react'
@@ -486,13 +488,13 @@ export function HomeScreen({ navigation }: HomeScreenProps) {
 
 If you've followed along this far, running the app on either platform should result in an app that resembles the one in this screenshot, with the list being scrollable vertically.
 
-![Home page](./public/assets/images/tutorial/tutorial-example-app-master.png)
+![Home page](/assets/images/tutorial/tutorial-example-app-master.png)
 
 ## Create the details screen
 
 Let's start with adding an entry for the Details screen to your `MainStackParamList`. Open `NavigationParamList.ts` and add the following:
 
-```typescript
+```typescript{6-8}
 // src/components/NavigationParamList.ts
 
 export type MainStackParamList = {
@@ -527,7 +529,7 @@ export function DetailsScreen({ navigation }: DetailsScreenProps) {
 
 To be able to navigate to the details screen, we will need to add a `StackNavigator.Screen` component for the `Details` component in our `BaseNavigationContainer`. Open `Navigator.tsx` and add the following:
 
-```tsx
+```tsx{8,29}
 import * as React from 'react'
 import { BaseNavigationContainer } from '@react-navigation/core'
 import { stackNavigatorFactory } from 'react-nativescript-navigation'
@@ -565,7 +567,7 @@ export const mainStackNavigator = () => {
 
 We will be using the `navigate` function from the `navigation` prop to navigate from our home component to the details component. In addition to the route name, we will also pass in the flick's `id` to the `navigate` function. We will use this `id` in our details component to access more information about the flick. Open `HomeScreen.tsx` and add the following:
 
-```tsx
+```tsx{8,55-61}
 // src/components/HomeScreen.tsx
 
 import * as React from 'react'
@@ -643,7 +645,7 @@ export function HomeScreen({ navigation }: HomeScreenProps) {
 
 Next, let's add the tap event to the listview items. Open `HomeScreen.tsx` and add the following:
 
-```tsx
+```tsx{66}
 // src/components/HomeScreen.tsx
 
 import * as React from 'react'
@@ -722,7 +724,7 @@ export function HomeScreen({ navigation }: HomeScreenProps) {
 
 We passed in the `id` of the flick card the user tapped on in the previous section as we navigate to the details page. We can access the passed in `id` via the `route.params` property. We can then use the `id` to get the selected flick information to be displayed in our details component's template. Open `DetailsScreen.tsx` and add the following:
 
-```tsx
+```tsx{9,17,19}
 // src/components/DetailsScreen.tsx
 
 import * as React from 'react'
@@ -752,11 +754,11 @@ export function DetailsScreen({ route }: DetailsScreenProps) {
 
 Let's break down the layout and UI elements of the details page.
 
-![Details page layout breakdown](./public/assets/images/tutorial/tutorial-example-app-details-breakdown.png)
+![Details page layout breakdown](/assets/images/tutorial/tutorial-example-app-details-breakdown.png)
 
 The details page can be divided into three main parts, the action bar with the flick title, the hero image, and the main content with the flick details. We will use the `details` array from our `flicks` object to populate the flick details section. The `details` array contains objects with a `title` and `body` which are rendered uniformly, each with their style. We can use Javascript's array `map` operator to loop through the `details` array and create a UI element or set of elements for each entry in the array. Open `DetailsScreen.tsx` and add the following code:
 
-```tsx
+```tsx{20-44}
 // src/components/DetailsScreen.tsx
 
 import * as React from 'react'
@@ -807,7 +809,7 @@ export function DetailsScreen({ route }: DetailsScreenProps) {
 
 Next, set the title of the `ActionBar` to the title of the selected flick. We will use the `title` property from the `options` object of the details' `StackNavigator.Screen` component. Open `Navigator.tsx` and add the following:
 
-```tsx
+```tsx{11,36-38}
 // src/Navigator.tsx
 
 import * as React from 'react'
@@ -858,7 +860,7 @@ export const mainStackNavigator = () => {
 
 Running the app on either platform should now result in an app that resembles the one in this screenshot with the ability to navigate between the home and details pages.
 
-![Details page](./public/assets/images/tutorial/tutorial-example-app-details.png)
+![Details page](/assets/images/tutorial/tutorial-example-app-details.png)
 
 ## What's next
 
