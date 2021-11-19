@@ -145,19 +145,8 @@ function getSidebar() {
 					text: 'Tutorials',
 					link: '/tutorial/',
 				},
-				// { text: 'Plain Tutorial', link: '/tutorial/plain' },
-				// { text: 'Angular Tutorial', link: '/tutorial/angular' },
-				// { text: 'Vue Tutorial', link: '/tutorial/vue' },
-				// { text: 'React Tutorial', link: '/tutorial/react' },
-				// { text: 'Svelte Tutorial', link: '/tutorial/svelte' },
 			],
 		},
-		// {
-		// 	text: 'Tutorials',
-		// 	children: [
-
-		// 	],
-		// },
 		{
 			text: 'Running & Building',
 			children: [
