@@ -1,7 +1,12 @@
 ---
-title: IQ Keyboard Manager
-link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/iqkeyboardmanager/README.md
+title: 'IQ Keyboard Manager'
+link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/iqkeyboardmanager/README.md
 ---
+
+<div style="width: 100%; padding: 1.2em 0em">
+  					<img alt="github logo" src="../assets/images/github/GitHub-Mark-32px.png" style="display: inline; margin: 1em 0.5em 1em 0em">
+  					<a href="https://github.com/NativeScript/plugins/tree/main/packages/iqkeyboardmanager" target="_blank" noopener>IQ Keyboard Manager</a>
+				</div>
 
 # @nativescript/iqkeyboardmanager
 
@@ -158,12 +163,12 @@ Vue.registerElement(
 
 Start by adding the following two paths into your app’s `references.d.ts` file. (See this repo’s demo app for a specific example.)
 
-```ts
+```
 /// <reference path="./node_modules/tns-platform-declarations/ios/ios.d.ts" />
 /// <reference path="./node_modules/@nativescript/iqkeyboardmanager/index.d.ts" />
 ```
 
-:::tip Note
+:::tip NOTE
 
 You might also need to `npm install --save-dev tns-platform-declarations` to bring in NativeScript’s TypeScript definitions for native iOS development.
 
@@ -183,7 +188,7 @@ iqKeyboard.overrideKeyboardAppearance = true
 iqKeyboard.keyboardAppearance = UIKeyboardAppearance.Dark
 ```
 
-For more examples of what's possible, run the demo app (shown in the gif below) and check out the [app's `main-view-model.ts` file](https://github.com/NativeScript/plugins/blob/master/apps/demo/src/plugin-demos/iqkeyboardmanager.ts).
+For more examples of what's possible, run the demo app (shown in the gif below) and check out the [app's `main-view-model.ts` file](https://github.com/NativeScript/plugins/blob/main/apps/demo/src/plugin-demos/iqkeyboardmanager.ts).
 
 <img src="https://github.com/tjvantoll/nativescript-IQKeyboardManager/raw/master/demo.gif" width="320px"/>
 
@@ -223,11 +228,11 @@ For more details on how IQKeyboardManager works, including more detailed API doc
 
 ## Maintainers
 
-For maintainer’s of this plugin’s source code: when the [IQKeyboardManager Podfile](https://github.com/NativeScript/plugins/blob/master/packages/iqkeyboardmanager/platforms/ios/Podfile) updates, you should generate new typings for for this plugin to reflect those changes.
+For maintainer’s of this plugin’s source code: when the [IQKeyboardManager Podfile](https://github.com/NativeScript/plugins/blob/main/packages/iqkeyboardmanager/platforms/ios/Podfile) updates, you should generate new typings for for this plugin to reflect those changes.
 
 To do so, execute these commands.
 
-```cli
+```bash
 cd demo
 TNS_DEBUG_METADATA_PATH="$(pwd)/metadata" tns build ios
 TNS_TYPESCRIPT_DECLARATIONS_PATH="$(pwd)/typings" tns build ios

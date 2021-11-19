@@ -1,7 +1,12 @@
 ---
-title: Directions
-link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/directions/README.md
+title: 'Directions'
+link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/directions/README.md
 ---
+
+<div style="width: 100%; padding: 1.2em 0em">
+  					<img alt="github logo" src="../assets/images/github/GitHub-Mark-32px.png" style="display: inline; margin: 1em 0.5em 1em 0em">
+  					<a href="https://github.com/NativeScript/plugins/tree/main/packages/directions" target="_blank" noopener>Directions</a>
+				</div>
 
 # @nativescript/directions
 
@@ -13,9 +18,11 @@ ns plugin add @nativescript/directions
 
 ### Demo app (XML + TypeScript)
 
+Want to dive in quickly? Check out [the demo app](https://github.com/EddyVerbruggen/nativescript-directions/tree/9a9f1ff0de551c447a87b3513a5453f1b962c33c/demo)! Otherwise, continue reading.
+
 You can run the demo app from the root of the project by typing `npm run demo.ios.device` or `npm run demo.android`.
 
-<img src="https://raw.githubusercontent.com/EddyVerbruggen/@nativescript/directions/master/media/directions-animated.gif" width="320px" height="570px"/>
+<img src="https://raw.githubusercontent.com/EddyVerbruggen/nativescript-directions/master/media/directions-animated.gif" width="320px" height="570px"/>
 
 ### Demo app (Angular)
 
@@ -115,7 +122,8 @@ directions
     type: 'walking', // optional, can be: driving, transit, bicycling or walking
     ios: {
       preferGoogleMaps: true, // If the Google Maps app is installed, use that one instead of Apple Maps, because it supports waypoints. Default true.
-      allowGoogleMapsWeb: true // If waypoints are passed in and Google Maps is not installed, you can either open Apple Maps and the first waypoint is used as the to-address (the rest is ignored), or you can open Google Maps on web so all waypoints are shown (set this property to true). Default false.
+      allowGoogleMapsWeb: true, // If waypoints are passed in and Google Maps is not installed, you can either open Apple Maps and the first waypoint is used as the to-address (the rest is ignored), or you can open Google Maps on web so all waypoints are shown (set this property to true). Default false.
+      useUniversalSyntax: true // Prefer the Universal URL Syntax to the comgooglemaps:// url scheme. Useful if Google Maps does not load correctly.
     },
     android: {
       newTask: true // Start as new task. This means it will start a new history stack instead of using the current app. Default true.

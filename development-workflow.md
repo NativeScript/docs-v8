@@ -682,7 +682,7 @@ If you can't find a plugin, try asking for help on [Stack Overflow](https://stac
 
 <!-- TODO: fix links -->
 
-Also, make sure to look through the [NativeScript core modules](https://docs.nativescript.org/core-concepts/modules), which ship as a dependency of every NativeScript app. There’s a chance that the functionality you need is built in. If you’re still not finding what you need, you can request the plugin as an idea on the [NativeScript community forum](https://discourse.nativescript.org/c/plugins), or you can take a stab at [building the plugin yourself](/plugins/building-plugins/).
+Also, make sure to look through the [NativeScript core modules](https://docs.nativescript.org/core-concepts/modules), which ship as a dependency of every NativeScript app. There’s a chance that the functionality you need is built in. If you’re still not finding what you need, you can request the plugin as an idea on the [NativeScript community forum](https://discourse.nativescript.org/c/plugins), or you can take a stab at [building the plugin yourself](https://v7.docs.nativescript.org/plugins/building-plugins).
 
 #### Installing Plugins
 

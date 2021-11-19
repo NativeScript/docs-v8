@@ -1,41 +1,86 @@
 ---
-title: Email
-link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/email/README.md
+title: 'Email'
+link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/email/README.md
 ---
 
-# @nativescript/email
+<div style="width: 100%; padding: 1.2em 0em">
+  					<img alt="github logo" src="../assets/images/github/GitHub-Mark-32px.png" style="display: inline; margin: 1em 0.5em 1em 0em">
+  					<a href="https://github.com/NativeScript/plugins/tree/main/packages/email" target="_blank" noopener>Email</a>
+				</div>
+
+# @nativescript/Email
+
+[![NPM version][npm-image]][npm-url]
+[![Downloads][downloads-image]][npm-url]
+[![Twitter Follow][twitter-image]][twitter-url]
+
+[npm-image]: https://img.shields.io/npm/v/nativescript-email.svg
+[npm-url]: https://npmjs.org/package/nativescript-email
+[downloads-image]: https://img.shields.io/npm/dm/nativescript-email.svg
+[twitter-image]: https://img.shields.io/twitter/follow/eddyverbruggen.svg?style=social&label=Follow%20me
+[twitter-url]: https://twitter.com/eddyverbruggen
 
 You can use this plugin to compose an e-mail, have the user edit the draft manually, and send it.
 
-> Note that this plugin depends on the default mail app. If you want a fallback to a third party client app like Gmail or Outlook, then check for availability, and if not available use a solution like [the Social Share plugin](https://github.com/tjvantoll/nativescript-social-share).
+:::tip Note
 
-## Install
+This plugin depends on the default mail app. If you want a fallback to a third party client app like Gmail or Outlook, then check for availability, and if not available use a solution like [the Social Share plugin](https://github.com/tjvantoll/nativescript-social-share).
+
+:::
 
 ```cli
 ns plugin add @nativescript/email
 ```
 
+## Usage
+
 ## API
 
-### `available`
+To use this plugin you must first require/import it:
+
+#### TypeScript
 
 ```typescript
 import * as email from '@nativescript/email'
+// or
+import { compose } from '@nativescript/email'
+// or even
+import { compose as composeEmail } from '@nativescript/email'
+```
 
+#### JavaScript
+
+```js
+var email = require('@nativescript/email')
+```
+
+### `available`
+
+#### TypeScript
+
+```typescript
 email.available().then((avail: boolean) => {
+  console.log('Email available? ' + avail)
+})
+```
+
+#### JavaScript
+
+```js
+email.available().then(function (avail) {
   console.log('Email available? ' + avail)
 })
 ```
 
 ### `compose`
 
-```typescript
-import * as email from '@nativescript/email'
-import { knownFolders } from '@nativescript/core'
+#### JavaScript
 
+```js
 // let's first create a File object
-const appPath = knownFolders.currentApp().path
-const logoPath = appPath + '/res/nativescript-logo.png'
+import { knownFolders } from '@nativescript/core'
+var appPath = knownFolders.currentApp().path
+var logoPath = appPath + '/res/telerik-logo.png'
 
 email
   .compose({
@@ -47,22 +92,21 @@ email
     attachments: [
       {
         fileName: 'arrow1.png',
-        path:
-          'base64://iVBORw0KGgoAAAANSUhEUgAAABYAAAAoCAYAAAD6xArmAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAHGlET1QAAAACAAAAAAAAABQAAAAoAAAAFAAAABQAAAB5EsHiAAAAAEVJREFUSA1iYKAimDhxYjwIU9FIBgaQgZMmTfoPwlOmTJGniuHIhlLNxaOGwiNqNEypkwlGk9RokoIUfaM5ijo5Clh9AAAAAP//ksWFvgAAAEFJREFUY5g4cWL8pEmT/oMwiM1ATTBqONbQHA2W0WDBGgJYBUdTy2iwYA0BrILDI7VMmTJFHqv3yBUEBQsIg/QDAJNpcv6v+k1ZAAAAAElFTkSuQmCC',
+        path: 'base64://iVBORw0KGgoAAAANSUhEUgAAABYAAAAoCAYAAAD6xArmAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAHGlET1QAAAACAAAAAAAAABQAAAAoAAAAFAAAABQAAAB5EsHiAAAAAEVJREFUSA1iYKAimDhxYjwIU9FIBgaQgZMmTfoPwlOmTJGniuHIhlLNxaOGwiNqNEypkwlGk9RokoIUfaM5ijo5Clh9AAAAAP//ksWFvgAAAEFJREFUY5g4cWL8pEmT/oMwiM1ATTBqONbQHA2W0WDBGgJYBUdTy2iwYA0BrILDI7VMmTJFHqv3yBUEBQsIg/QDAJNpcv6v+k1ZAAAAAElFTkSuQmCC',
         mimeType: 'image/png'
       },
       {
-        fileName: 'nativescript-logo.png',
+        fileName: 'telerik-logo.png',
         path: logoPath,
         mimeType: 'image/png'
       }
     ]
   })
   .then(
-    () => {
+    function () {
       console.log('Email composer closed')
     },
-    err => {
+    function (err) {
       console.log('Error: ' + err)
     }
   )

@@ -4,7 +4,7 @@ title: Best Practices with ListViews, RadListView, etc.
 
 Quite possibly the _most_ important controls available on all mobile devices which have the most impact on perceived app performance.
 
-ListView, RadListView and really any view component that utilizes some form of row recyclying with view templates/components.
+ListView, RadListView and really any view component that utilizes some form of row recycling with view templates/components.
 
 ## Bad setup
 

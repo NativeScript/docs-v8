@@ -36,8 +36,34 @@ There are also quite a number of plugins maintained and developed by the NativeS
 
 ## NPM Versioning
 
-NativeScript packages do not follow Semantic Versioning for a particular reason. Since NativeScript enables the empowerment of JavaScript with native platform APIs we strive to do major releases around platform API tooling upgrade cycles (Things like Xcode, Android Studio, etc.). Major framework releases are generally released every six months (~March and ~September which is often the timeframe platform API toolchains are also updated), while minor and patch releases may be released as often as every week. Patch releases should never contain breaking changes, however minor, and major releases can. We strive to note any breaking changes in the Changelogs, to make upgrades as easy as possible.
+NativeScript packages do not follow Semantic Versioning for a particular reason. Since NativeScript enables the empowerment of JavaScript with native platform APIs we strive to do major releases around platform API tooling upgrade cycles (Things like Xcode, Android Studio, etc.). Major/Minor releases are generally released every six months (~March and ~September which is often the timeframe platform API toolchains are also updated), while patch releases may be released as often as every week. Patch releases should never contain breaking changes, however minor and major releases can. We strive to always note any breaking changes in the Changelogs, to make upgrades as easy as possible.
 
-We always recommend using `~` (tilda) with any NativeScript package versions in your projects as that will ensure anytime you execute a `ns clean` against your project that the next run will pull down the latest patch release fixes to anything we may have released.
+### Recommended: Use tilde `~`
 
-For example, when referencing the `@nativescript/core` package, you could use a fixed version constraint such as `8.0.0`, or alternatively `~8.0.0` to allow installing patch updates automatically after a project clean.
+We always recommend using tilde `~` with any NativeScript package versions in your projects to ensure anytime you execute `ns clean` against your project that the subsequent run will pull down the latest patch release fixes to anything we may have released.
+
+For example, when referencing the `@nativescript/*` packages, we always recommend the following:
+
+```
+"dependencies": {
+  "@nativescript/core": "~8.1.0"
+},
+"devDependencies": {
+  "@nativescript/android": "~8.1.0",
+  "@nativescript/ios": "~8.1.0",
+  "@nativescript/types": "~8.1.0",
+  "@nativescript/webpack": "~5.0.0"
+}
+```
+
+This will ensure bug fix patch updates are automatically installed when cleaning your projects in addition to ensuring that no major version changes may accidentally pulled it which may contain breaking changes.
+
+### When to use caret `^`?
+
+If you are comfortable with the particular npm package and are Ok handling any potential breaking changes from dependencies in your projects on your own then using a caret in front of your versions is absolutely fine.
+
+[Learn more about version specifiers here](https://github.com/npm/node-semver#tilde-ranges-123-12-1)
+
+### When to use `next`?
+
+Using `next` as the version for any NativeScript related packages will always pull down latest `main` (or `master`) changes from the repo which is likely to contain breaking changes however can be a great way to try out cutting edge features or fixes. Use `next` when you absolutely know what you are doing.

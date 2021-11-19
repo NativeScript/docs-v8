@@ -1,11 +1,16 @@
 ---
-title: Google Pay
-link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/google-pay/README.md
+title: 'Google Pay'
+link: https://raw.githubusercontent.com/NativeScript/payments/main/packages/google-pay/README.md
 ---
+
+<div style="width: 100%; padding: 1.2em 0em">
+  					<img alt="github logo" src="../assets/images/github/GitHub-Mark-32px.png" style="display: inline; margin: 1em 0.5em 1em 0em">
+  					<a href="https://github.com/NativeScript/payments/tree/main/packages/google-pay" target="_blank" noopener>Google Pay</a>
+				</div>
 
 # @nativescript/google-pay
 
-```cli
+```shell
 ns plugin add @nativescript/google-pay
 ```
 
@@ -546,6 +551,11 @@ interface PaymentSuccessEventData extends EventData {
            * A JSON object serialized as a string that contains the encryptedMessage, ephemeralPublicKey, and tag. It's serialized to simplify the signature verification process.
            */
           signedMessage: string
+
+          /**
+           * JSON object string that contains a chargeable token issued by your gateway
+           */
+          rawToken: string
         }
       }
     }

@@ -1,7 +1,12 @@
 ---
-title: Brightness
-link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/brightness/README.md
+title: 'Brightness'
+link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/brightness/README.md
 ---
+
+<div style="width: 100%; padding: 1.2em 0em">
+  					<img alt="github logo" src="../assets/images/github/GitHub-Mark-32px.png" style="display: inline; margin: 1em 0.5em 1em 0em">
+  					<a href="https://github.com/NativeScript/plugins/tree/main/packages/brightness" target="_blank" noopener>Brightness</a>
+				</div>
 
 # @nativescript/brightness
 
@@ -11,11 +16,23 @@ ns plugin add @nativescript/brightness
 
 This command automatically installs the necessary files, as well as stores @nativescript/brightness as a dependency in your project's `package.json` file.
 
-This plugin requires `<uses-permission android:name="android.permission.WRITE_SETTINGS"/>` to be added in the android manifest in `App_Resources/Android/` directory of your application.
+:::tip Note
+
+This plugin requires `<uses-permission android:name="android.permission.WRITE_SETTINGS"/>` to be added in the android manifest.
+
+:::
 
 ## Usage
 
-To use the brightness module:
+To use the brightness module you must first `require()` and instantiate it:
+
+```javascript
+// JavaScript
+var nativescriptBrightness = require('@nativescript/brightness')
+var brightness = new nativescriptBrightness.Brightness()
+```
+
+Or if you’re using TypeScript, `import` the module:
 
 ```typescript
 // TypeScript
@@ -27,7 +44,7 @@ After you have a reference to the module you can then call its `get()` and `set(
 
 The `intensity` can be set to a value from 1 to 100.
 
-```typescript
+```js
 // TypeScript
 import { Brightness } from '@nativescript/brightness'
 const brightness = new Brightness()

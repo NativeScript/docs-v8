@@ -1,0 +1,558 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="google-site-verification" content="iwHdY_1KfeQbVLI-gtcAsI9pslqa2dLBsQD47d2E5To" />
+	<title>AutofillType | NativeScript</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+	<link rel="shortcut icon" href="//www.nativescript.org/favicon.ico" />
+	<link
+	rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/@docsearch/css@1.0.0-alpha.28"
+	/>
+	<script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script src="../assets/js/modernizr.js"></script>
+	<script src="https://cdn.cookielaw.org/consent/dc6bd370-357e-468e-916d-2c0b0f5fba8d.js" type="text/javascript" charset="UTF-8"></script>
+	<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+</head>
+<body>
+<!-- Google Tag Manager -->
+<noscript>
+	<iframe src="//www.googletagmanager.com/ns.html?id=GTM-W58JDD" height="0" width="0" style="display: none; visibility: hidden"></iframe>
+</noscript>
+<script>(function(w, d, s, l, i) { w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f); })(window, document, 'script', 'dataLayer', 'GTM-W58JDD');</script>
+<!-- End Google Tag Manager -->
+<header class="top-0 z-10 lg:sticky nav-bar" x-data="{mobileMenuOpen: false}">
+	<div class="pt-6 pb-6 bg-ns-blue">
+		<nav class="relative flex items-center justify-between px-4 mx-auto 2xl:container sm:px-6" aria-label="Global">
+			<div class="flex items-center flex-1">
+				<div class="flex items-center justify-between w-full lg:w-auto"><a href="https://nativescript.org"><span
+						class="sr-only">NativeScript</span>
+						<svg viewBox="0 0 532 100" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd"
+						clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" class="w-auto h-8 sm:h-10"
+						aria-hidden="true">
+						<g transform="translate(-1641.886 -310)">
+							<path fill="none" d="M1642.22 310h531.337v100H1642.22z"></path>
+							<clipPath id="a1">
+								<path d="M1642.22 310h531.337v100H1642.22z"></path>
+							</clipPath>
+							<g clip-path="url(#a1)">
+								<g transform="matrix(.09766 0 0 .09766 1642.4300256 310.0000256)">
+									<path d="M1024 256C1024 114.71 909.29 0 768 0H256C114.71 0 0 114.71 0 256v512c0 141.29 114.71 256 256 256h512c141.29 0 256-114.71 256-256V256z"
+									fill="none"></path>
+									<clipPath id="b">
+										<path d="M1024 256C1024 114.71 909.29 0 768 0H256C114.71 0 0 114.71 0 256v512c0 141.29 114.71 256 256 256h512c141.29 0 256-114.71 256-256V256z"></path>
+									</clipPath>
+									<g clip-path="url(#b)">
+										<path d="M1024 0H0v1024h1024V0zM843 511.86v1.1c0 .26-.19.47-.45.49-33.36 3.13-59.48 30.24-59.48 64.41v136.95c0 9.56-2.01 18.8-5.64 27.23-10.35 24.07-33.84 41.57-61.16 41.57h-69.2l-.48-.6-269.18-337.33v337.93h-69.68c-36.89 0-66.8-29.91-66.8-66.8V577.86c0-34.17-26.11-61.28-59.48-64.41-.25-.02-.45-.23-.45-.49v-1.1c0-.25.19-.46.45-.49 33.24-3.24 59.22-31.02 59.22-65.11V307.19c0-9.29 1.9-18.14 5.33-26.18 10.18-23.88 33.87-40.62 61.47-40.62h69.66l.28.35 269.18 337.34V240.39h69.94c36.89 0 66.8 29.91 66.8 66.8v139.07c0 34.09 25.98 61.87 59.22 65.11.26.03.45.24.45.49z"
+										fill="#fff"></path>
+									</g>
+								</g>
+								<path d="M1807.579 336.618v49.436h-9.044l-21.556-31.144h-.34v31.144h-10.472v-49.436h9.18l21.352 31.076h.408v-31.076h10.472zM1826.557 386.734c-3.536 0-6.46-.884-8.84-2.788-2.312-1.836-3.468-4.556-3.468-8.228 0-2.788.612-4.964 1.972-6.528 1.292-1.564 2.992-2.72 5.1-3.468 2.108-.748 4.42-1.224 6.868-1.428 3.196-.34 5.508-.68 6.868-1.02 1.428-.34 2.108-1.156 2.108-2.312v-.136c0-1.564-.476-2.72-1.428-3.604-.952-.816-2.312-1.224-4.08-1.224-1.836 0-3.332.408-4.42 1.224-1.088.748-1.836 1.836-2.176 3.06l-9.52-.816c.68-3.332 2.448-6.052 5.304-8.024 2.788-1.972 6.392-2.992 10.88-2.992 2.72 0 5.304.476 7.684 1.36 2.38.816 4.352 2.176 5.848 4.012 1.428 1.904 2.176 4.284 2.176 7.208v25.024h-9.724v-5.168h-.34c-.884 1.768-2.244 3.128-4.012 4.216-1.836 1.088-4.08 1.632-6.8 1.632zm2.924-7.072c2.244 0 4.148-.68 5.576-1.972 1.428-1.292 2.176-2.924 2.176-4.896v-3.944c-.408.272-1.02.544-1.904.748-.816.204-1.7.408-2.652.544-1.02.136-1.836.272-2.584.408-1.836.204-3.264.748-4.352 1.496-1.156.748-1.7 1.836-1.7 3.332 0 1.428.544 2.448 1.564 3.196 1.02.748 2.312 1.088 3.876 1.088zM1875.126 348.994v7.684h-6.936v17.952c0 1.428.34 2.38.952 2.924.68.476 1.496.748 2.516.748.476 0 .952-.068 1.428-.136.476-.136.884-.204 1.156-.204l1.564 7.616c-.476.204-1.224.34-2.176.612-.884.204-2.04.34-3.4.34-3.74.204-6.732-.612-8.976-2.38-2.244-1.768-3.4-4.488-3.332-8.16v-19.312h-5.1v-7.684h5.1v-8.908h10.268v8.908h6.936zM1881.824 386.054v-37.06h10.336v37.06h-10.336zm5.168-41.888c-1.496 0-2.788-.476-3.876-1.496s-1.632-2.244-1.632-3.672c0-1.496.544-2.72 1.632-3.672 1.088-1.02 2.38-1.564 3.876-1.564 1.564 0 2.856.544 3.944 1.564 1.088.952 1.632 2.176 1.632 3.672 0 1.428-.544 2.652-1.632 3.672-1.088 1.02-2.38 1.496-3.944 1.496zM1934.933 348.994l-12.988 37.06h-11.56l-12.988-37.06h10.88l7.684 26.52h.408l7.684-26.52h10.88zM1955.865 386.802c-3.808 0-7.072-.816-9.86-2.38-2.72-1.496-4.828-3.74-6.324-6.596-1.496-2.856-2.244-6.256-2.244-10.132 0-3.808.748-7.208 2.244-10.064 1.496-2.856 3.604-5.1 6.256-6.732 2.72-1.632 5.848-2.448 9.52-2.448 3.264 0 6.188.748 8.84 2.108s4.692 3.468 6.256 6.256c1.564 2.788 2.312 6.324 2.312 10.472v2.856h-25.228c0 2.788.748 4.964 2.244 6.596 1.496 1.564 3.604 2.38 6.12 2.38 1.768 0 3.264-.408 4.488-1.088 1.292-.748 2.176-1.836 2.652-3.196l9.52.612c-.748 3.4-2.584 6.188-5.508 8.228-2.924 2.108-6.732 3.128-11.288 3.128zm-8.228-23.052h15.572c0-2.176-.748-4.012-2.108-5.44-1.428-1.428-3.264-2.176-5.508-2.176s-4.148.748-5.576 2.244c-1.496 1.496-2.244 3.264-2.38 5.372zM2006.638 350.83c-.204-1.972-1.02-3.468-2.516-4.556s-3.468-1.632-5.984-1.632-4.488.544-5.848 1.564c-1.36 1.088-2.04 2.38-2.04 4.012-.068 1.768.68 3.06 2.244 4.012 1.564.884 3.4 1.632 5.576 2.108l4.42 1.02c2.856.68 5.44 1.632 7.616 2.856 2.244 1.224 4.012 2.788 5.304 4.692 1.292 1.904 1.904 4.284 1.904 7.004 0 4.556-1.7 8.16-5.1 10.812-3.332 2.72-8.024 4.012-14.076 4.012-6.052 0-10.812-1.36-14.416-4.08-3.536-2.72-5.372-6.8-5.508-12.104h10.132c.136 2.448 1.156 4.352 2.924 5.576 1.768 1.224 4.012 1.836 6.732 1.836 2.652 0 4.76-.544 6.392-1.632 1.564-1.156 2.38-2.652 2.38-4.42 0-1.7-.748-2.992-2.176-3.876-1.496-.884-3.536-1.7-6.256-2.312l-5.372-1.36c-4.148-1.02-7.48-2.584-9.86-4.76-2.448-2.176-3.604-5.1-3.604-8.704 0-2.992.748-5.644 2.38-7.888 1.632-2.244 3.876-3.944 6.664-5.236 2.856-1.224 6.052-1.836 9.724-1.836 3.604 0 6.868.612 9.588 1.836 2.72 1.292 4.896 3.06 6.392 5.304 1.564 2.176 2.312 4.828 2.38 7.752h-9.996zM2040.898 386.802c-3.808 0-7.072-.816-9.792-2.448-2.72-1.632-4.828-3.876-6.324-6.732-1.428-2.924-2.176-6.188-2.176-9.996 0-3.74.748-7.14 2.244-9.996 1.496-2.856 3.536-5.1 6.256-6.732 2.72-1.632 5.984-2.448 9.724-2.448 3.264 0 6.052.612 8.5 1.768 2.448 1.224 4.352 2.856 5.78 4.964 1.428 2.108 2.176 4.624 2.312 7.48h-9.656c-.272-1.836-1.02-3.332-2.176-4.488-1.156-1.088-2.72-1.7-4.556-1.7-2.38 0-4.352.952-5.78 2.924-1.428 1.904-2.176 4.624-2.176 8.092 0 3.536.748 6.324 2.176 8.228 1.428 1.972 3.332 2.924 5.78 2.924 1.768 0 3.264-.544 4.42-1.632 1.224-1.02 1.972-2.584 2.312-4.556h9.656c-.136 2.856-.884 5.304-2.244 7.48-1.428 2.176-3.332 3.876-5.712 5.032-2.448 1.224-5.304 1.836-8.568 1.836zM2064.042 386.054v-37.06h9.996v6.46h.408c.68-2.312 1.768-4.08 3.4-5.236 1.564-1.224 3.4-1.768 5.508-1.768 1.156 0 2.176.136 3.196.34v9.112c-.476-.136-1.156-.272-1.972-.408-.884-.068-1.632-.136-2.38-.136-2.244 0-4.148.748-5.644 2.176-1.428 1.428-2.176 3.264-2.176 5.508v21.012h-10.336zM2091.836 386.054v-37.06h10.336v37.06h-10.336zm5.168-41.888c-1.496 0-2.788-.476-3.876-1.496s-1.632-2.244-1.632-3.672c0-1.496.544-2.72 1.632-3.672 1.088-1.02 2.38-1.564 3.876-1.564 1.564 0 2.856.544 3.944 1.564 1.088.952 1.632 2.176 1.632 3.672 0 1.428-.544 2.652-1.632 3.672-1.088 1.02-2.38 1.496-3.944 1.496zM2110.334 399.994v-51h10.2v6.188h.408c.476-1.02 1.156-2.04 1.972-3.06.884-1.02 2.04-1.904 3.4-2.584 1.428-.68 3.128-1.088 5.168-1.088 2.72 0 5.236.748 7.548 2.176 2.244 1.36 4.08 3.468 5.44 6.324 1.36 2.788 2.04 6.324 2.04 10.608 0 4.148-.612 7.616-1.972 10.472-1.36 2.856-3.128 4.964-5.44 6.46-2.244 1.428-4.76 2.176-7.616 2.176-1.972 0-3.672-.34-5.1-1.02-1.36-.612-2.516-1.496-3.4-2.448-.884-1.02-1.564-2.04-2.04-3.06h-.272v19.856h-10.336zm10.064-32.504c0 3.332.68 5.984 2.04 7.956 1.36 2.04 3.332 2.992 5.78 2.992 2.516 0 4.488-.952 5.78-2.992 1.36-2.04 2.04-4.692 2.04-7.956 0-3.196-.68-5.78-1.972-7.82-1.36-1.972-3.264-2.992-5.848-2.992-2.516 0-4.42.952-5.78 2.924-1.36 1.972-2.04 4.624-2.04 7.888zM2173.061 348.994v7.684h-6.936v17.952c0 1.428.34 2.38.952 2.924.68.476 1.496.748 2.516.748.476 0 .952-.068 1.428-.136.476-.136.884-.204 1.156-.204l1.564 7.616c-.476.204-1.224.34-2.176.612-.884.204-2.04.34-3.4.34-3.74.204-6.732-.612-8.976-2.38-2.244-1.768-3.4-4.488-3.332-8.16v-19.312h-5.1v-7.684h5.1v-8.908h10.268v8.908h6.936z"
+								fill="#fff" fill-rule="nonzero"></path>
+							</g>
+						</g>
+						</svg>
+					</a>
+					<div class="flex items-center -mr-1 lg:hidden">
+						<button type="button"
+						@click="mobileMenuOpen = !mobileMenuOpen"
+						class="inline-flex items-center justify-center p-2 text-gray-900 bg-white rounded-md hover:bg-gray-800 hover:text-white focus:outline-none focus:ring-2 focus-ring-inset focus:ring-white"
+						aria-expanded="false"><span class="sr-only">Open main menu</span>
+						<svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+						stroke="currentColor" aria-hidden="true">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+						d="M4 6h16M4 12h16M4 18h16"></path>
+						</svg>
+						</button>
+					</div>
+				</div>
+				<div class="hidden ml-10 space-x-8 lg:flex">
+					<div class="flex justify-center flex-1 px-2 lg:justify-end">
+						<div class="w-full max-w-xl xl:max-w-xs">
+							<div class="relative text-white rounded-md focus-within:ring-2 ring-offset-2 ring-offset-transparent">
+								<div class="algolia-search-box" id="docsearch"></div>
+								<div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+									<svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+									fill="currentColor" aria-hidden="true">
+									<path fill-rule="evenodd"
+									d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+									clip-rule="evenodd"></path>
+									</svg>
+								</div>
+								<input aria-hidden="true" id="search" name="search" disabled=""
+								class="block py-2 pl-10 pr-3 leading-5 bg-white border border-transparent rounded-md placeholder-blue-50 text-blue-50 bg-opacity-20 focus:outline-none focus:bg-white focus:ring-0 focus:placeholder-gray-400 focus:text-gray-900 sm:text-sm"
+								placeholder="Search Anything" type="search"/>
+								<!--                                <div class="absolute inset-y-0 right-0 items-center hidden pr-3 pointer-events-none xl:flex">-->
+								<!--                                    <div class="px-2 py-1 text-xs text-white bg-white border border-white border-opacity-50 rounded bg-opacity-30">-->
+								<!--                                        <span class="sr-only">Press Ctrl+K to open quick search</span>-->
+								<!--                                        <span aria-hidden="true">Ctrl K</span>-->
+								<!--                                    </div>-->
+								<!--                                </div>-->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="hidden lg:flex lg:items-center lg:space-x-6">
+				<!--[--><a href="https://docs.nativescript.org"
+				class="text-base font-medium text-white border-b-4 border-transparent hover:border-blue-100">Docs</a><a
+				href="https://nativescript.org"
+				class="text-base font-medium text-white border-b-4 border-transparent hover:border-blue-100 hover:no-underline">@nativescript/core</a>
+				<a href="https://github.com/NativeScript/NativeScript" target="_blank" rel="noopener noreferrer"
+				class="inline-flex items-center justify-center p-2 text-gray-900 transition-colors rounded-md hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-transparent"
+				aria-expanded="false"><span class="sr-only">Open NativeScript GitHub</span>
+				<svg class="w-6 h-6" role="presentation" viewBox="0 0 16 16" fill="currentColor">
+					<path fill-rule="evenodd"
+					d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+				</svg>
+			</a></div>
+		</nav>
+	</div>
+	<transition
+	x-show="mobileMenuOpen"
+	x-transition:enter="transition duration-150 ease-out"
+	x-transition:enter-start="transform scale-95 opacity-0"
+	x-transition:enter-end="transform scale-100 opacity-100"
+	x-transition:leave="transition duration-100 ease-in"
+	x-transition:leave-start="transform scale-100 opacity-100"
+	x-transition:leave-end="transform opacity-0"
+	>
+	<div class="absolute inset-x-0 top-0 z-20 p-2 transition origin-top transform lg:hidden">
+		<div class="overflow-hidden bg-white rounded-lg shadow-md ring-1 ring-black ring-opacity-5">
+			<div class="flex items-center justify-between px-5 pt-4">
+				<div><svg viewBox="0 0 532 100" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" class="w-auto h-8" aria-hidden="true"><g transform="translate(-362.21733 -1030)"><path fill="none" d="M362.217 1030h531.337v100H362.217z"></path><clipPath id="a"><path d="M362.217 1030h531.337v100H362.217z"></path></clipPath><g clip-path="url(#a)"><g transform="matrix(.09766 0 0 .09766 362.4350256 1030.0000256)"><path d="M1024 256C1024 114.71 909.29 0 768 0H256C114.71 0 0 114.71 0 256v512c0 141.29 114.71 256 256 256h512c141.29 0 256-114.71 256-256V256z" fill="none"></path><clipPath id="b"><path d="M1024 256C1024 114.71 909.29 0 768 0H256C114.71 0 0 114.71 0 256v512c0 141.29 114.71 256 256 256h512c141.29 0 256-114.71 256-256V256z"></path></clipPath><g clip-path="url(#b)"><path fill="#65adf1" d="M0 0h1024v1024H0z"></path><path d="M843 511.864v1.099c0 .256-.195.468-.451.492-33.364 3.123-59.479 30.233-59.479 64.409v136.941c0 9.569-2.01 18.8-5.64 27.229-10.35 24.071-33.84 41.571-61.16 41.571h-69.2l-.48-.601-269.18-337.32v337.921h-69.68c-36.893 0-66.8-29.908-66.8-66.8V577.864c0-34.175-26.115-61.286-59.479-64.409-.256-.024-.451-.236-.451-.492v-1.099c0-.255.194-.467.449-.492 33.245-3.237 59.221-31.021 59.221-65.117v-139.06c0-9.29 1.9-18.15 5.33-26.181 10.18-23.879 33.87-40.62 61.47-40.62h69.66l.28.35 269.18 337.33v-337.68h69.94c36.893 0 66.8 29.908 66.8 66.801v139.06c0 34.096 25.976 61.88 59.222 65.117.254.025.448.237.448.492" fill="#fff" fill-rule="nonzero"></path></g></g><path d="M527.5797 1056.618v49.436h-9.044l-21.556-31.144h-.34v31.144h-10.472v-49.436h9.18l21.352 31.076h.408v-31.076h10.472zM546.5577 1106.734c-3.536 0-6.46-.884-8.84-2.788-2.312-1.836-3.468-4.556-3.468-8.228 0-2.788.612-4.964 1.972-6.528 1.292-1.564 2.992-2.72 5.1-3.468 2.108-.748 4.42-1.224 6.868-1.428 3.196-.34 5.508-.68 6.868-1.02 1.428-.34 2.108-1.156 2.108-2.312v-.136c0-1.564-.476-2.72-1.428-3.604-.952-.816-2.312-1.224-4.08-1.224-1.836 0-3.332.408-4.42 1.224-1.088.748-1.836 1.836-2.176 3.06l-9.52-.816c.68-3.332 2.448-6.052 5.304-8.024 2.788-1.972 6.392-2.992 10.88-2.992 2.72 0 5.304.476 7.684 1.36 2.38.816 4.352 2.176 5.848 4.012 1.428 1.904 2.176 4.284 2.176 7.208v25.024h-9.724v-5.168h-.34c-.884 1.768-2.244 3.128-4.012 4.216-1.836 1.088-4.08 1.632-6.8 1.632zm2.924-7.072c2.244 0 4.148-.68 5.576-1.972 1.428-1.292 2.176-2.924 2.176-4.896v-3.944c-.408.272-1.02.544-1.904.748-.816.204-1.7.408-2.652.544-1.02.136-1.836.272-2.584.408-1.836.204-3.264.748-4.352 1.496-1.156.748-1.7 1.836-1.7 3.332 0 1.428.544 2.448 1.564 3.196 1.02.748 2.312 1.088 3.876 1.088zM595.1267 1068.994v7.684h-6.936v17.952c0 1.428.34 2.38.952 2.924.68.476 1.496.748 2.516.748.476 0 .952-.068 1.428-.136.476-.136.884-.204 1.156-.204l1.564 7.616c-.476.204-1.224.34-2.176.612-.884.204-2.04.34-3.4.34-3.74.204-6.732-.612-8.976-2.38-2.244-1.768-3.4-4.488-3.332-8.16v-19.312h-5.1v-7.684h5.1v-8.908h10.268v8.908h6.936zM601.8247 1106.054v-37.06h10.336v37.06h-10.336zm5.168-41.888c-1.496 0-2.788-.476-3.876-1.496s-1.632-2.244-1.632-3.672c0-1.496.544-2.72 1.632-3.672 1.088-1.02 2.38-1.564 3.876-1.564 1.564 0 2.856.544 3.944 1.564 1.088.952 1.632 2.176 1.632 3.672 0 1.428-.544 2.652-1.632 3.672-1.088 1.02-2.38 1.496-3.944 1.496zM654.9337 1068.994l-12.988 37.06h-11.56l-12.988-37.06h10.88l7.684 26.52h.408l7.684-26.52h10.88zM675.8657 1106.802c-3.808 0-7.072-.816-9.86-2.38-2.72-1.496-4.828-3.74-6.324-6.596-1.496-2.856-2.244-6.256-2.244-10.132 0-3.808.748-7.208 2.244-10.064 1.496-2.856 3.604-5.1 6.256-6.732 2.72-1.632 5.848-2.448 9.52-2.448 3.264 0 6.188.748 8.84 2.108s4.692 3.468 6.256 6.256c1.564 2.788 2.312 6.324 2.312 10.472v2.856h-25.228c0 2.788.748 4.964 2.244 6.596 1.496 1.564 3.604 2.38 6.12 2.38 1.768 0 3.264-.408 4.488-1.088 1.292-.748 2.176-1.836 2.652-3.196l9.52.612c-.748 3.4-2.584 6.188-5.508 8.228-2.924 2.108-6.732 3.128-11.288 3.128zm-8.228-23.052h15.572c0-2.176-.748-4.012-2.108-5.44-1.428-1.428-3.264-2.176-5.508-2.176s-4.148.748-5.576 2.244c-1.496 1.496-2.244 3.264-2.38 5.372zM726.6387 1070.83c-.204-1.972-1.02-3.468-2.516-4.556s-3.468-1.632-5.984-1.632-4.488.544-5.848 1.564c-1.36 1.088-2.04 2.38-2.04 4.012-.068 1.768.68 3.06 2.244 4.012 1.564.884 3.4 1.632 5.576 2.108l4.42 1.02c2.856.68 5.44 1.632 7.616 2.856 2.244 1.224 4.012 2.788 5.304 4.692 1.292 1.904 1.904 4.284 1.904 7.004 0 4.556-1.7 8.16-5.1 10.812-3.332 2.72-8.024 4.012-14.076 4.012-6.052 0-10.812-1.36-14.416-4.08-3.536-2.72-5.372-6.8-5.508-12.104h10.132c.136 2.448 1.156 4.352 2.924 5.576 1.768 1.224 4.012 1.836 6.732 1.836 2.652 0 4.76-.544 6.392-1.632 1.564-1.156 2.38-2.652 2.38-4.42 0-1.7-.748-2.992-2.176-3.876-1.496-.884-3.536-1.7-6.256-2.312l-5.372-1.36c-4.148-1.02-7.48-2.584-9.86-4.76-2.448-2.176-3.604-5.1-3.604-8.704 0-2.992.748-5.644 2.38-7.888 1.632-2.244 3.876-3.944 6.664-5.236 2.856-1.224 6.052-1.836 9.724-1.836 3.604 0 6.868.612 9.588 1.836 2.72 1.292 4.896 3.06 6.392 5.304 1.564 2.176 2.312 4.828 2.38 7.752h-9.996zM760.8987 1106.802c-3.808 0-7.072-.816-9.792-2.448-2.72-1.632-4.828-3.876-6.324-6.732-1.428-2.924-2.176-6.188-2.176-9.996 0-3.74.748-7.14 2.244-9.996 1.496-2.856 3.536-5.1 6.256-6.732 2.72-1.632 5.984-2.448 9.724-2.448 3.264 0 6.052.612 8.5 1.768 2.448 1.224 4.352 2.856 5.78 4.964 1.428 2.108 2.176 4.624 2.312 7.48h-9.656c-.272-1.836-1.02-3.332-2.176-4.488-1.156-1.088-2.72-1.7-4.556-1.7-2.38 0-4.352.952-5.78 2.924-1.428 1.904-2.176 4.624-2.176 8.092 0 3.536.748 6.324 2.176 8.228 1.428 1.972 3.332 2.924 5.78 2.924 1.768 0 3.264-.544 4.42-1.632 1.224-1.02 1.972-2.584 2.312-4.556h9.656c-.136 2.856-.884 5.304-2.244 7.48-1.428 2.176-3.332 3.876-5.712 5.032-2.448 1.224-5.304 1.836-8.568 1.836zM784.0427 1106.054v-37.06h9.996v6.46h.408c.68-2.312 1.768-4.08 3.4-5.236 1.564-1.224 3.4-1.768 5.508-1.768 1.156 0 2.176.136 3.196.34v9.112c-.476-.136-1.156-.272-1.972-.408-.884-.068-1.632-.136-2.38-.136-2.244 0-4.148.748-5.644 2.176-1.428 1.428-2.176 3.264-2.176 5.508v21.012h-10.336zM811.8367 1106.054v-37.06h10.336v37.06h-10.336zm5.168-41.888c-1.496 0-2.788-.476-3.876-1.496s-1.632-2.244-1.632-3.672c0-1.496.544-2.72 1.632-3.672 1.088-1.02 2.38-1.564 3.876-1.564 1.564 0 2.856.544 3.944 1.564 1.088.952 1.632 2.176 1.632 3.672 0 1.428-.544 2.652-1.632 3.672-1.088 1.02-2.38 1.496-3.944 1.496zM830.3347 1119.994v-51h10.2v6.188h.408c.476-1.02 1.156-2.04 1.972-3.06.884-1.02 2.04-1.904 3.4-2.584 1.428-.68 3.128-1.088 5.168-1.088 2.72 0 5.236.748 7.548 2.176 2.244 1.36 4.08 3.468 5.44 6.324 1.36 2.788 2.04 6.324 2.04 10.608 0 4.148-.612 7.616-1.972 10.472-1.36 2.856-3.128 4.964-5.44 6.46-2.244 1.428-4.76 2.176-7.616 2.176-1.972 0-3.672-.34-5.1-1.02-1.36-.612-2.516-1.496-3.4-2.448-.884-1.02-1.564-2.04-2.04-3.06h-.272v19.856h-10.336zm10.064-32.504c0 3.332.68 5.984 2.04 7.956 1.36 2.04 3.332 2.992 5.78 2.992 2.516 0 4.488-.952 5.78-2.992 1.36-2.04 2.04-4.692 2.04-7.956 0-3.196-.68-5.78-1.972-7.82-1.36-1.972-3.264-2.992-5.848-2.992-2.516 0-4.42.952-5.78 2.924-1.36 1.972-2.04 4.624-2.04 7.888zM893.0617 1068.994v7.684h-6.936v17.952c0 1.428.34 2.38.952 2.924.68.476 1.496.748 2.516.748.476 0 .952-.068 1.428-.136.476-.136.884-.204 1.156-.204l1.564 7.616c-.476.204-1.224.34-2.176.612-.884.204-2.04.34-3.4.34-3.74.204-6.732-.612-8.976-2.38-2.244-1.768-3.4-4.488-3.332-8.16v-19.312h-5.1v-7.684h5.1v-8.908h10.268v8.908h6.936z" fill="#65adf1"></path></g></g></svg></div>
+				<div class="-mr-3">
+					<button
+					@click="mobileMenuOpen = false"
+					type="button"
+					class="inline-flex items-center justify-center p-2 text-gray-400 bg-white rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600"
+					>
+					<span class="sr-only">Close menu</span>
+					<!-- Heroicon name: outline/x -->
+					<svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+					</svg>
+					</button>
+				</div>
+			</div>
+			<div class="pt-5 pb-6">
+				<div class="px-2 space-y-1">
+					<!-- Mobile Menu Items -->
+					<a href="https://docs.nativescript.org/" class="block px-3 py-2 text-base font-medium text-gray-900 rounded-md hover:bg-gray-50 hover:no-underline">Docs</a>
+					<a href="https://nativescript.org/" class="block px-3 py-2 text-base font-medium text-gray-900 rounded-md hover:bg-gray-50 hover:no-underline">@nativescript/core</a>
+				</div>
+				<div class="px-5 mt-6">
+					<div class="w-full">
+						<!-- <label for="search" class="sr-only">Search</label> -->
+						<div @click="document.querySelector('#docsearch .DocSearch-Button').click()" class="relative text-white">
+							<div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+								<!-- Heroicon name: solid/search -->
+								<svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#FFFFFF" aria-hidden="true">
+									<path
+									fill-rule="evenodd"
+									d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+									clip-rule="evenodd"
+									/>
+								</svg>
+							</div>
+							<button class="block w-full py-3 pl-10 text-left rounded-md bg-ns-blue">Search Anything</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</transition>
+</header>
+<style>
+    .algolia-search-box {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: 0.75;
+    }
+
+    .DocSearch-Button {
+        margin: 0;
+        border-radius: 0;
+        width: 100%;
+        opacity: 0;
+        border: 0;
+    }
+
+    .DocSearch-Button:hover {
+        box-shadow: none;
+    }
+
+    .DocSearch-Search-Icon,
+    .DocSearch-Button-Placeholder,
+    .DocSearch-Button-Key {
+        display: none;
+    }
+
+    /*@screen md {*/
+        .DocSearch--active {
+            overflow-y: scroll !important;
+        }
+    }
+
+    #docsearch-input:focus {
+        box-shadow: none;
+        /*ring-0;*/
+    }
+
+    .DocSearch {
+        --docsearch-primary-color: #65adf1;
+        --docsearch-highlight-color: var(--docsearch-primary-color);
+        --docsearch-searchbox-shadow: inset 0 0 0 2px var(--docsearch-primary-color);
+        --docsearch-text-color: #111827;
+        --docsearch-muted-color: #9CA3AF;
+        /* --docsearch-searchbox-background: #f2f2f2; */
+        --docsearch-container-background: rgba(15, 23, 42, 0.2);
+    }
+
+    .bg-ns-blue {
+        background-color: #65ADF1;
+    }
+</style>
+<div class="tsd-page-toolbar">
+	<div class="container">
+		<div class="table-wrap">
+			<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
+				<ul class="results">
+					<li class="state loading">Preparing search index...</li>
+					<li class="state failure">The search index is not available</li>
+				</ul>
+				<a href="../index.html" class="title">NativeScript</a>
+			</div>
+			<div class="table-cell" id="tsd-widgets">
+				<div id="tsd-filter">
+					<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+					<div class="tsd-filter-group">
+						<div class="tsd-select" id="tsd-filter-visibility">
+							<span class="tsd-select-label">All</span>
+							<ul class="tsd-select-list">
+								<li data-value="public">Public</li>
+								<li data-value="protected">Public/Protected</li>
+								<li data-value="private" class="selected">All</li>
+							</ul>
+						</div>
+						<input type="checkbox" id="tsd-filter-inherited" checked />
+						<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+						<input type="checkbox" id="tsd-filter-only-exported" />
+						<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+					</div>
+				</div>
+				<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="tsd-page-title">
+	<div class="container">
+		<ul class="tsd-breadcrumb">
+			<li>
+				<a href="../modules.html">@nativescript/core</a>
+			</li>
+			<li>
+				<a href="coretypes.html">CoreTypes</a>
+			</li>
+			<li>
+				<a href="coretypes.autofilltype.html">AutofillType</a>
+			</li>
+		</ul>
+		<h1>Namespace AutofillType</h1>
+	</div>
+</div>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-4 col-menu menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class=" ">
+						<a href="../modules.html">Modules</a>
+					</li>
+					<li class="current tsd-kind-namespace">
+						<a href="coretypes.html">Core<wbr>Types</a>
+						<ul>
+							<li class="current tsd-kind-namespace tsd-parent-kind-namespace">
+								<a href="coretypes.autofilltype.html">Autofill<wbr>Type</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary">
+				<ul class="before-current">
+					<li class=" tsd-kind-variable tsd-parent-kind-namespace">
+						<a href="coretypes.autofilltype.html#none" class="tsd-kind-icon">none</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-parent-kind-namespace">
+						<a href="coretypes.autofilltype.html#password" class="tsd-kind-icon">password</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-parent-kind-namespace">
+						<a href="coretypes.autofilltype.html#username" class="tsd-kind-icon">username</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+		<div class="col-8 col-content">
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Variables</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-variable tsd-parent-kind-namespace"><a href="coretypes.autofilltype.html#none" class="tsd-kind-icon">none</a></li>
+								<li class="tsd-kind-variable tsd-parent-kind-namespace"><a href="coretypes.autofilltype.html#password" class="tsd-kind-icon">password</a></li>
+								<li class="tsd-kind-variable tsd-parent-kind-namespace"><a href="coretypes.autofilltype.html#username" class="tsd-kind-icon">username</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Variables</h2>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-namespace">
+					<a name="none" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> none</h3>
+					<div class="tsd-signature tsd-kind-icon">none<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"none"</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/NativeScript/NativeScript/blob/ee701db13/packages/core/core-types/index.ts#L48">core-types/index.ts:48</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-namespace">
+					<a name="password" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> password</h3>
+					<div class="tsd-signature tsd-kind-icon">password<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"password"</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/NativeScript/NativeScript/blob/ee701db13/packages/core/core-types/index.ts#L47">core-types/index.ts:47</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-namespace">
+					<a name="username" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> username</h3>
+					<div class="tsd-signature tsd-kind-icon">username<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"username"</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/NativeScript/NativeScript/blob/ee701db13/packages/core/core-types/index.ts#L46">core-types/index.ts:46</a></li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+		</div>
+	</div>
+</div>
+<div class="tsd-legend-wrapper with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<footer class="">
+	<div class="px-4 pt-10 pb-4 mx-auto max-w-7xl sm:px-6 md:flex md:items-center md:justify-between lg:px-6">
+		<div class="flex justify-center space-x-6 md:order-3">
+			<a href="https://twitter.com/NativeScript" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-500">
+				<span class="sr-only">Twitter</span>
+				<svg class="w-6 h-6 p-0.5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+					<path
+					d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"
+					/>
+				</svg>
+			</a>
+			<a href="https://nativescript.org/discord" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-500">
+				<span class="sr-only">Discord</span>
+				<svg class="w-6 h-6 p-0.5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+					<path
+					d="M20.222 0c1.406 0 2.54 1.137 2.607 2.475V24l-2.677-2.273-1.47-1.338-1.604-1.398.67 2.205H3.71c-1.402 0-2.54-1.065-2.54-2.476V2.48C1.17 1.142 2.31.003 3.715.003h16.5L20.222 0zm-6.118 5.683h-.03l-.202.2c2.073.6 3.076 1.537 3.076 1.537-1.336-.668-2.54-1.002-3.744-1.137-.87-.135-1.74-.064-2.475 0h-.2c-.47 0-1.47.2-2.81.735-.467.203-.735.336-.735.336s1.002-1.002 3.21-1.537l-.135-.135s-1.672-.064-3.477 1.27c0 0-1.805 3.144-1.805 7.02 0 0 1 1.74 3.743 1.806 0 0 .4-.533.805-1.002-1.54-.468-2.14-1.404-2.14-1.404s.134.066.335.2h.06c.03 0 .044.015.06.03v.006c.016.016.03.03.06.03.33.136.66.27.93.4.466.202 1.065.403 1.8.536.93.135 1.996.2 3.21 0 .6-.135 1.2-.267 1.8-.535.39-.2.87-.4 1.397-.737 0 0-.6.936-2.205 1.404.33.466.795 1 .795 1 2.744-.06 3.81-1.8 3.87-1.726 0-3.87-1.815-7.02-1.815-7.02-1.635-1.214-3.165-1.26-3.435-1.26l.056-.02zm.168 4.413c.703 0 1.27.6 1.27 1.335 0 .74-.57 1.34-1.27 1.34-.7 0-1.27-.6-1.27-1.334.002-.74.573-1.338 1.27-1.338zm-4.543 0c.7 0 1.266.6 1.266 1.335 0 .74-.57 1.34-1.27 1.34-.7 0-1.27-.6-1.27-1.334 0-.74.57-1.338 1.27-1.338z"
+					/>
+				</svg>
+			</a>
+			<a href="https://stackoverflow.com/questions/tagged/nativescript" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-500">
+				<span class="sr-only">Stack Overflow</span>
+				<svg class="w-6 h-6 p-0.5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+					<path
+					d="M15.725 0l-1.72 1.277 6.39 8.588 1.716-1.277L15.725 0zm-3.94 3.418l-1.369 1.644 8.225 6.85 1.369-1.644-8.225-6.85zm-3.15 4.465l-.905 1.94 9.702 4.517.904-1.94-9.701-4.517zm-1.85 4.86l-.44 2.093 10.473 2.201.44-2.092-10.473-2.203zM1.89 15.47V24h19.19v-8.53h-2.133v6.397H4.021v-6.396H1.89zm4.265 2.133v2.13h10.66v-2.13H6.154Z"
+					/>
+				</svg>
+			</a>
+			<a href="https://github.com/NativeScript/NativeScript" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-500">
+				<span class="sr-only">GitHub</span>
+				<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+					<path
+					fill-rule="evenodd"
+					d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+					clip-rule="evenodd"
+					/>
+				</svg>
+			</a>
+		</div>
+		<div class="order-1 mt-8 md:mt-0">
+			<a href="https://openjsf.org/" target="_blank" rel="noopener noreferrer" class="flex justify-center text-gray-400 hover:text-gray-500">
+				<span class="sr-only">OpenJS Foundation</span>
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 320" fill="currentColor" aria-hidden="true" class="w-auto h-12">
+					<g>
+						<path
+						d="M271.4,78.1L137,0.5L136.1,0l-0.9,0.5L1.6,77.7l-0.7,0.4L0,78.6v157.2l0.9,0.5l134.4,77.6l0.9,0.5l0.9-0.5l132.6-76.5   l1.8-1l0.9-0.5V78.6L271.4,78.1z M122.7,20.1L89.8,77H24.1L122.7,20.1z M84.4,86.4L69,113.1L22.8,86.4H84.4z M72.4,125.8l54.3,31.4   l-54.3,31.4l-18.1-31.4L72.4,125.8z M64.4,121.2l-15.4,26.7L18.1,94.5L64.4,121.2z M10.7,100.3l32.9,56.9l-32.9,56.9V100.3z    M48.9,166.6l15.4,26.7l-46.2,26.7L48.9,166.6z M69,201.3L84.4,228H22.8L69,201.3z M24.1,237.4h65.7l32.9,56.9L24.1,237.4z    M131.5,290.8l-30.8-53.4h30.8V290.8z M131.5,228H95.2l-18.1-31.4l54.3-31.4V228z M131.5,149.1l-54.3-31.4l18.1-31.4h36.2V149.1z    M131.5,77h-30.8l30.8-53.4V77z M207.9,121.2l46.2-26.7l-30.8,53.4L207.9,121.2z M217.9,157.2l-18.1,31.4l-54.3-31.4l54.3-31.4   L217.9,157.2z M203.2,113.1l-15.4-26.7h61.6L203.2,113.1z M248.1,77h-65.7l-32.8-56.9L248.1,77z M140.8,23.6L171.6,77h-30.8V23.6z    M140.8,86.4H177l18.1,31.4l-54.3,31.4V86.4z M140.8,165.3l54.3,31.4L177,228h-36.2V165.3z M140.8,237.4h30.8l-30.8,53.4V237.4z    M149.6,294.3l32.8-56.9h65.7L149.6,294.3z M187.8,228l15.4-26.7l46.2,26.7H187.8z M207.9,193.2l15.4-26.7l30.8,53.4L207.9,193.2z    M261.6,214.1l-32.9-56.9l32.9-56.9V214.1z"
+						/>
+						<polygon points="308.4,202.7 372.6,202.7 372.6,208.5 315,208.5 315,257 367.2,257 367.2,263 315,263 315,312.9 308.4,312.9  " />
+							<path
+							d="M383.8,279.7c0-19,15.2-34.4,34.5-34.4c19.3,0,34.2,15.4,34.2,34.4c0,19-14.9,34.5-34.2,34.5   C399,314.2,383.8,298.7,383.8,279.7 M446,279.7c0-16.4-11.2-28.7-27.7-28.7c-16.5,0-28,12.3-28,28.7c0,16.4,11.5,28.9,28,28.9   C434.8,308.6,446,296.1,446,279.7"
+							/>
+							<path
+							d="M469.9,288.5v-41.7h6.3v40.7c0,13.5,6.3,21.1,19,21.1c14.3,0,24.3-9.6,24.3-24.8v-37h6.3v66.2h-6.3l0.2-14.6   c-4.4,9.9-13.5,16-25.1,16C479.8,314.4,469.9,304.7,469.9,288.5"
+							/>
+							<path
+							d="M543,246.8h6.3l-0.2,14.8c4.4-10,13.6-16.2,25.3-16.2c14.8,0,24.6,9.9,24.6,26.3v41.3h-6.3v-40.2   c0-13.6-6.3-21.6-19.1-21.6c-14.3,0-24.3,9.4-24.3,24.8v37H543V246.8z"
+							/>
+							<path
+							d="M616.3,279.7c0-19.5,13.8-34.4,32.8-34.4c13.5,0,23.2,7.3,28,17.2v-66.6h6.3v117.1h-6.3l0.3-16.5   c-4.7,10.2-15.6,17.8-28.4,17.8C630.1,314.2,616.3,299.2,616.3,279.7 M677.6,279.7c0-16.4-11-28.7-27.7-28.7   c-16.4,0-26.9,12.3-26.9,28.7c0,16.4,10.5,28.9,26.9,28.9C666.6,308.6,677.6,296.1,677.6,279.7"
+							/>
+							<path
+							d="M748,271.4c0-14.9-6.8-20.6-17.7-20.6c-10.1,0-16.9,4.2-21.6,11.4l-4.5-3.2c5.5-8.6,14.9-13.6,26.3-13.6   c13.6,0,23.8,8.3,23.8,25.5v42.2H748l0.3-10.2c-4.2,6.3-11.5,11.5-22.9,11.5c-15.1,0-25-7-25-20.3c0-13.1,11.5-19.3,24.2-19.3H748   V271.4z M725.4,279.9c-10.1,0-18.6,3.9-18.6,13.9c0,10.1,6.6,14.8,19.3,14.8c11,0,21.9-6.5,21.9-16.7v-12H725.4z"
+							/>
+							<path
+							d="M782.5,295.4v-43.3h-10.4v-5.4h10.4v-23.2h6.3v23.2h19.1v5.4h-19.1v43.1c0,9.7,3.4,13.3,8.9,13.3c5.8,0,8.1-2.3,10.5-4.9   l4.1,3.9c-3.2,3.7-7.1,6.6-14.6,6.6C789.3,314.2,782.5,308.9,782.5,295.4"
+							/>
+							<path
+							d="M829.5,218.2c0-3.1,2.6-5.4,5.4-5.4c2.8,0,5.4,2.3,5.4,5.4c0,3.2-2.6,5.3-5.4,5.3C832.1,223.6,829.5,221.5,829.5,218.2    M831.8,246.8h6.3v66.2h-6.3V246.8z"
+							/>
+							<path
+							d="M857.1,279.7c0-19,15.2-34.4,34.5-34.4c19.3,0,34.2,15.4,34.2,34.4c0,19-14.9,34.5-34.2,34.5   C872.4,314.2,857.1,298.7,857.1,279.7 M919.4,279.7c0-16.4-11.2-28.7-27.7-28.7c-16.5,0-28,12.3-28,28.7c0,16.4,11.5,28.9,28,28.9   C908.2,308.6,919.4,296.1,919.4,279.7"
+							/>
+							<path
+							d="M943.9,246.8h6.3l-0.2,14.8c4.4-10,13.6-16.2,25.3-16.2c14.8,0,24.6,9.9,24.6,26.3v41.3h-6.3v-40.2   c0-13.6-6.3-21.6-19.1-21.6c-14.3,0-24.3,9.4-24.3,24.8v37h-6.3V246.8z"
+							/>
+							<path
+							d="M308.4,73.1c0-41.4,31.8-71.3,71.7-71.3c39.6,0,71.5,29.8,71.5,71.3c0,41.4-31.9,71.3-71.5,71.3   C340.2,144.3,308.4,114.5,308.4,73.1 M429.4,73.1c0-29.6-20.4-51.9-49.4-51.9c-29,0-49.6,22.3-49.6,51.9   c0,29.6,20.6,51.9,49.6,51.9C409,124.9,429.4,102.7,429.4,73.1"
+							/>
+							<path
+							d="M473.9,56.8h20.8l-0.6,15.9c5.5-10.6,15.7-17.8,30.4-17.8c22,0,39.8,18.6,39.8,44.5c0,25.9-18,44.9-40.2,44.9   c-14.3,0-24.5-6.9-29.4-16.5v58h-20.8V56.8z M543.1,99.4c0-15.5-9.4-26.1-24.3-26.1c-15.1,0-24.9,10.6-24.9,26.1   c0,16.1,9.8,26.7,24.9,26.7C533.8,126.2,543.1,115.6,543.1,99.4"
+							/>
+							<path
+							d="M635,127c11.2,0,19.4-4.5,24.3-9.2l12,12.7c-8,8-19,13.9-36.1,13.9c-29.4,0-48.4-19-48.4-44.7c0-25.5,20-44.7,45.7-44.7   c29.2,0,45.7,21.6,44.3,51.7h-69C610.3,119,619.3,127,635,127 M656.1,92.3c-1.8-11.6-9-20.2-23.3-20.2c-13.3,0-22.5,7.3-24.9,20.2   H656.1z"
+							/>
+							<path
+							d="M699.7,56.8h20.6l-0.4,15.9c5.3-11.2,16.1-17.8,29-17.8c19,0,32.1,13.5,32.1,36.7v50.8h-20.6V93.3   c0-12.3-5.7-19.4-17.8-19.4c-13.5,0-22.3,8.2-22.3,22v46.5h-20.6V56.8z"
+							/>
+							<path
+							d="M803.5,120.9l17.6-10.8c4.9,8.8,10.6,14.9,20.8,14.9c11.6,0,19.2-5.5,19.2-21.6V3.7h21.6v100c0,27.6-16.5,40.6-39.8,40.6   C822.3,144.3,810.1,133.7,803.5,120.9"
+							/>
+							<path
+							d="M904.9,115.6l17.8-9.8c6.5,10.8,14.9,19.4,31.8,19.4c14.1,0,24.1-7.6,24.1-19c0-12-8.2-17.4-23.3-24.1l-9.2-4.1   c-20.2-9-32.5-19.2-32.5-40.6c0-20.6,15.9-35.3,39-35.3C971,2,983.5,9,991.8,23.9l-16.9,10.4c-5.3-9.2-11.4-13.5-22.3-13.5   c-11,0-18,6.7-18,16.1c0,10.4,5.9,15.1,20,21.2l9,4.1c23.7,10.4,36.3,21.4,36.3,43.7c0,24.3-19,38.4-45.1,38.4   C928.5,144.3,912.6,131.3,904.9,115.6"
+							/>
+					</g>
+				</svg>
+			</a>
+		</div>
+		<div class="mt-8 md:mt-0 md:order-2">
+			<p class="text-base text-center text-gray-500">&copy; <script>document.write(new Date().getFullYear())</script></p>
+		</div>
+	</div>
+	<div class="mt-10 text-sm">
+		<div class="px-4 mx-auto max-w-7xl sm:px-6">
+			<p class="text-gray-500">
+				Copyright
+				<a class="font-medium text-gray-600 hover:text-gray-900" target="_blank" href="https://openjsf.org">OpenJS Foundation</a> and NativeScript
+				contributors. All rights reserved. The
+				<a class="font-medium text-gray-600 hover:text-gray-900" target="_blank" href="https://openjsf.org">OpenJS Foundation</a> has registered trademarks
+				and uses trademarks. For a list of trademarks of the
+				<a class="font-medium text-gray-600 hover:text-gray-900" target="_blank" href="https://openjsf.org">OpenJS Foundation</a>, please see our
+				<a class="font-medium text-gray-600 hover:text-gray-900" target="_blank" href="https://trademark-policy.openjsf.org">Trademark Policy</a> and
+				<a class="font-medium text-gray-600 hover:text-gray-900" target="_blank" href="https://trademark-list.openjsf.org">Trademark List</a>. Trademarks and
+				logos not indicated on the
+				<a class="font-medium text-gray-600 hover:text-gray-900" target="_blank" href="https://trademark-list.openjsf.org">
+					list of OpenJS Foundation trademarks
+				</a>
+				are trademarks&trade; or registered&reg; trademarks of their respective holders. Use of them does not imply any affiliation with or endorsement by
+				them.
+			</p>
+		</div>
+		<div class="flex flex-col justify-center pb-10 mt-6 space-y-4 divide-gray-300 sm:px-3 lg:space-y-0 lg:px-0 lg:divide-x lg:flex-row">
+			<a class="px-3 text-gray-500 hover:text-gray-800" target="_blank" href="https://openjsf.org">The OpenJS Foundation</a>
+			<a class="px-3 text-gray-500 hover:text-gray-800" target="_blank" href="https://terms-of-use.openjsf.org">Terms of Use</a>
+			<a class="px-3 text-gray-500 hover:text-gray-800" target="_blank" href="https://privacy-policy.openjsf.org">Privacy Policy</a>
+			<a class="px-3 text-gray-500 hover:text-gray-800" target="_blank" href="https://bylaws.openjsf.org">OpenJS Foundation Bylaws</a>
+			<a class="px-3 text-gray-500 hover:text-gray-800" target="_blank" href="https://trademark-policy.openjsf.org">Trademark Policy</a>
+			<a class="px-3 text-gray-500 hover:text-gray-800" target="_blank" href="https://trademark-list.openjsf.org">Trademark List</a>
+			<a class="px-3 text-gray-500 hover:text-gray-800" target="_blank" href="https://www.linuxfoundation.org/cookies">Cookie Policy</a>
+		</div>
+	</div>
+</footer>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@1.0.0-alpha.28"></script>
+<script>
+    docsearch({
+        apiKey: '8d41b4ae92a02aea355e1dc8cfad1899',
+        indexName: 'nativescript',
+        container: '#docsearch', // CSS selector to target the <input />
+    });
+</script>
+</body>
+</html>

@@ -27,6 +27,12 @@ With version `5.0.0` of `@nativescript/webpack` our goal was to simplify mainten
 
 ## Flags & their usage
 
+### CLI flags
+
+When running a NativeScript app the following flags have an effect on the webpack config:
+
+- `--no-hmr` - disable HMR (enabled by default)
+
 ### env flags
 
 - `--env.verbose` - prints verbose logs and the internal config before building
@@ -45,11 +51,39 @@ More env flags that are usually passed by the CLI automatically:
 - `--env.platform=<platform>` - for specifying the platform to use. Can be `android` or `ios`, or a custom platform in the future.
 - `--env.hmr` - `true` if building with HMR enabled
 
-### CLI flags
+<!-- #### Using flags at runtime -->
 
-When running a NativeScript app the following flags have an effect on the webpack config:
+<!-- In your app logic you can access `env` variables like the following: -->
 
-- `--no-hmr` - disable HMR (enabled by default)
+<!-- ```js
+if (process.env.production) {
+  // this is a build executed with the `--env.production` flag
+  // typically this would be your release build
+} else {
+  // this is a debug/dev build
+}
+``` -->
+
+#### Using a .env file
+
+You can add a `.env` file to your project root and add any values to it and access those at runtime.
+
+```js
+if (process.env.VAR_NAME) {
+  // do work here if the variable is true
+}
+```
+
+::: tip Note
+If you want to check if you are in Dev or Release mode you can also use:
+
+```js
+if (__DEV__) {
+  // this is dev builds
+}
+```
+
+:::
 
 ## Examples of configurations
 
@@ -211,7 +245,9 @@ module.exports = env => {
   webpack.chainWebpack(config => {
     config.plugin('DefinePlugin').tap(args => {
       Object.assign(args[0], {
-        'global.isProduction': !!env.production
+        'global.isProduction': !!env.production,
+        'global.someNumber': 42,
+        'global.someString': JSON.stringify('some string value')
       })
 
       return args
