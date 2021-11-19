@@ -1,8 +1,8 @@
 'use strict'
 Object.defineProperty(exports, '__esModule', { value: true })
 exports.setupPrismCLILang = void 0
-const prism = require('prismjs')
-function setupPrismCLILang() {
+const prism_ = require('prismjs')
+function setupPrismCLILang(prism = prism_) {
 	prism.languages.cli = {
 		comment: [/^#.*/gm, ...prism.languages.js.comment],
 		output: {
