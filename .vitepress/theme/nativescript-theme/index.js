@@ -7667,17 +7667,109 @@ function render$7(_ctx, _cache, $props, $setup, $data, $options) {
 
 script$8.render = render$7
 
+function _defineProperty(obj, key, value) {
+	if (key in obj) {
+		Object.defineProperty(obj, key, {
+			value: value,
+			enumerable: true,
+			configurable: true,
+			writable: true,
+		})
+	} else {
+		obj[key] = value
+	}
+
+	return obj
+}
+
+function _slicedToArray(arr, i) {
+	return (
+		_arrayWithHoles(arr) ||
+		_iterableToArrayLimit(arr, i) ||
+		_unsupportedIterableToArray(arr, i) ||
+		_nonIterableRest()
+	)
+}
+
+function _arrayWithHoles(arr) {
+	if (Array.isArray(arr)) return arr
+}
+
+function _iterableToArrayLimit(arr, i) {
+	var _i =
+		arr &&
+		((typeof Symbol !== 'undefined' && arr[Symbol.iterator]) ||
+			arr['@@iterator'])
+
+	if (_i == null) return
+	var _arr = []
+	var _n = true
+	var _d = false
+
+	var _s, _e
+
+	try {
+		for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) {
+			_arr.push(_s.value)
+
+			if (i && _arr.length === i) break
+		}
+	} catch (err) {
+		_d = true
+		_e = err
+	} finally {
+		try {
+			if (!_n && _i['return'] != null) _i['return']()
+		} finally {
+			if (_d) throw _e
+		}
+	}
+
+	return _arr
+}
+
+function _unsupportedIterableToArray(o, minLen) {
+	if (!o) return
+	if (typeof o === 'string') return _arrayLikeToArray(o, minLen)
+	var n = Object.prototype.toString.call(o).slice(8, -1)
+	if (n === 'Object' && o.constructor) n = o.constructor.name
+	if (n === 'Map' || n === 'Set') return Array.from(o)
+	if (n === 'Arguments' || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
+		return _arrayLikeToArray(o, minLen)
+}
+
+function _arrayLikeToArray(arr, len) {
+	if (len == null || len > arr.length) len = arr.length
+
+	for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]
+
+	return arr2
+}
+
+function _nonIterableRest() {
+	throw new TypeError(
+		'Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.'
+	)
+}
+
 function useActiveSidebarLinks$1() {
-	let rootActiveLink = null
-	let activeLink = null
-	const onScroll = throttleAndDebounce$1(setActiveLink, 300)
+	var rootActiveLink = null
+	var activeLink = null
+	var onScroll = throttleAndDebounce$1(setActiveLink, 300)
+
 	function setActiveLink() {
-		const sidebarLinks = getSidebarLinks$1()
-		const anchors = getAnchors$1(sidebarLinks)
-		for (let i = 0; i < anchors.length; i++) {
-			const anchor = anchors[i]
-			const nextAnchor = anchors[i + 1]
-			const [isActive, hash] = isAnchorActive$1(i, anchor, nextAnchor)
+		var sidebarLinks = getSidebarLinks$1()
+		var anchors = getAnchors$1(sidebarLinks)
+
+		for (var i = 0; i < anchors.length; i++) {
+			var anchor = anchors[i]
+			var nextAnchor = anchors[i + 1]
+
+			var _isAnchorActive = isAnchorActive$1(i, anchor, nextAnchor),
+				_isAnchorActive2 = _slicedToArray(_isAnchorActive, 2),
+				isActive = _isAnchorActive2[0],
+				hash = _isAnchorActive2[1]
+
 			if (isActive) {
 				history.replaceState(null, document.title, hash ? hash : ' ')
 				activateLink(hash)
@@ -7685,16 +7777,20 @@ function useActiveSidebarLinks$1() {
 			}
 		}
 	}
+
 	function activateLink(hash) {
 		deactiveLink(activeLink)
 		deactiveLink(rootActiveLink)
-		activeLink = document.querySelector(`.sidebar a[href="${hash}"]`)
+		activeLink = document.querySelector('.sidebar a[href="'.concat(hash, '"]'))
+
 		if (!activeLink) {
 			return
 		}
-		activeLink.classList.add('active')
-		// also add active class to parent h2 anchors
-		const rootLi = activeLink.closest('.sidebar-links > ul > li')
+
+		activeLink.classList.add('active') // also add active class to parent h2 anchors
+
+		var rootLi = activeLink.closest('.sidebar-links > ul > li')
+
 		if (rootLi && rootLi !== activeLink.parentElement) {
 			rootActiveLink = rootLi.querySelector('a')
 			rootActiveLink && rootActiveLink.classList.add('active')
@@ -7702,64 +7798,79 @@ function useActiveSidebarLinks$1() {
 			rootActiveLink = null
 		}
 	}
+
 	function deactiveLink(link) {
 		link && link.classList.remove('active')
 	}
-	onMounted(() => {
+
+	onMounted(function () {
 		setActiveLink()
 		window.addEventListener('scroll', onScroll)
 	})
-	onUpdated(() => {
+	onUpdated(function () {
 		// sidebar update means a route change
 		activateLink(decodeURIComponent(location.hash))
 	})
-	onUnmounted(() => {
+	onUnmounted(function () {
 		window.removeEventListener('scroll', onScroll)
 	})
 }
+
 function getSidebarLinks$1() {
 	return [].slice.call(
 		document.querySelectorAll('.sidebar a.sidebar-link-item')
 	)
 }
+
 function getAnchors$1(sidebarLinks) {
 	return [].slice
 		.call(document.querySelectorAll('.header-anchor'))
-		.filter((anchor) =>
-			sidebarLinks.some((sidebarLink) => sidebarLink.hash === anchor.hash)
-		)
+		.filter(function (anchor) {
+			return sidebarLinks.some(function (sidebarLink) {
+				return sidebarLink.hash === anchor.hash
+			})
+		})
 }
+
 function getPageOffset$1() {
 	return document.querySelector('.nav-bar').offsetHeight
 }
+
 function getAnchorTop$1(anchor) {
-	const pageOffset = getPageOffset$1()
+	var pageOffset = getPageOffset$1()
 	return anchor.parentElement.offsetTop - pageOffset - 15
 }
+
 function isAnchorActive$1(index, anchor, nextAnchor) {
-	const scrollTop = window.scrollY
+	var scrollTop = window.scrollY
+
 	if (index === 0 && scrollTop === 0) {
 		return [true, null]
 	}
+
 	if (scrollTop < getAnchorTop$1(anchor)) {
 		return [false, null]
 	}
+
 	if (!nextAnchor || scrollTop < getAnchorTop$1(nextAnchor)) {
 		return [true, decodeURIComponent(anchor.hash)]
 	}
+
 	return [false, null]
 }
+
 function throttleAndDebounce$1(fn, delay) {
-	let timeout
-	let called = false
-	return () => {
+	var timeout
+	var called = false
+	return function () {
 		if (timeout) {
 			clearTimeout(timeout)
 		}
+
 		if (!called) {
 			fn()
 			called = true
-			setTimeout(() => {
+			setTimeout(function () {
 				called = false
 			}, delay)
 		} else {
@@ -7772,7 +7883,7 @@ function isArray(value) {
 	return Array.isArray(value)
 }
 function ensureStartingSlash(path) {
-	return /^\//.test(path) ? path : `/${path}`
+	return /^\//.test(path) ? path : '/'.concat(path)
 }
 
 function isSideBarConfig(sidebar) {
@@ -7784,65 +7895,84 @@ function isSideBarConfig(sidebar) {
  * combinations such as matching `guide/` and `/guide/`. If no matching config
  * was found, it will return `auto` as a fallback.
  */
+
 function getSideBarConfig(sidebar, path) {
 	if (isSideBarConfig(sidebar)) {
 		return sidebar
 	}
+
 	path = ensureStartingSlash(path)
-	for (const dir in sidebar) {
+
+	for (var dir in sidebar) {
 		// make sure the multi sidebar key starts with slash too
 		if (path.startsWith(ensureStartingSlash(dir))) {
 			return sidebar[dir]
 		}
 	}
+
 	return 'auto'
 }
 
 function useSideBar() {
-	const route = useRoute()
-	const { site } = useData()
+	var route = useRoute()
+
+	var _useData = useData(),
+		site = _useData.site
+
 	useActiveSidebarLinks$1()
-	return computed(() => {
+	return computed(function () {
 		// at first, we'll check if we can find the sidebar setting in frontmatter.
-		const headers = route.data.headers
-		const frontSidebar = route.data.frontmatter.sidebar
-		const sidebarDepth = route.data.frontmatter.sidebarDepth
-		// if it's `false`, we'll just return an empty array here.
+		var headers = route.data.headers
+		var frontSidebar = route.data.frontmatter.sidebar
+		var sidebarDepth = route.data.frontmatter.sidebarDepth // if it's `false`, we'll just return an empty array here.
+
 		if (frontSidebar === false) {
 			return []
-		}
-		// if it's `atuo`, render headers of the current page
+		} // if it's `atuo`, render headers of the current page
+
 		if (frontSidebar === 'auto') {
 			return resolveAutoSidebar(headers, sidebarDepth)
-		}
-		// now, there's no sidebar setting at frontmatter; let's see the configs
-		const themeSidebar = getSideBarConfig(
+		} // now, there's no sidebar setting at frontmatter; let's see the configs
+
+		var themeSidebar = getSideBarConfig(
 			site.value.themeConfig.sidebar,
 			route.data.relativePath
 		)
+
 		if (themeSidebar === false) {
 			return []
 		}
+
 		if (themeSidebar === 'auto') {
 			return resolveAutoSidebar(headers, sidebarDepth)
 		}
+
 		return themeSidebar
 	})
 }
+
 function resolveAutoSidebar(headers, depth) {
-	const ret = []
+	var ret = []
+
 	if (headers === undefined) {
 		return []
 	}
-	let lastH2 = undefined
-	headers.forEach(({ level, title, slug }) => {
+
+	var lastH2 = undefined
+	headers.forEach(function (_ref) {
+		var level = _ref.level,
+			title = _ref.title,
+			slug = _ref.slug
+
 		if (level - 1 > depth) {
 			return
 		}
-		const item = {
+
+		var item = {
 			text: title,
-			link: `#${slug}`,
+			link: '#'.concat(slug),
 		}
+
 		if (level === 2) {
 			lastH2 = item
 			ret.push(item)
@@ -8178,91 +8308,6 @@ var script$5 = {
 			)
 		}
 	},
-}
-
-function _defineProperty(obj, key, value) {
-	if (key in obj) {
-		Object.defineProperty(obj, key, {
-			value: value,
-			enumerable: true,
-			configurable: true,
-			writable: true,
-		})
-	} else {
-		obj[key] = value
-	}
-
-	return obj
-}
-
-function _slicedToArray(arr, i) {
-	return (
-		_arrayWithHoles(arr) ||
-		_iterableToArrayLimit(arr, i) ||
-		_unsupportedIterableToArray(arr, i) ||
-		_nonIterableRest()
-	)
-}
-
-function _arrayWithHoles(arr) {
-	if (Array.isArray(arr)) return arr
-}
-
-function _iterableToArrayLimit(arr, i) {
-	var _i =
-		arr &&
-		((typeof Symbol !== 'undefined' && arr[Symbol.iterator]) ||
-			arr['@@iterator'])
-
-	if (_i == null) return
-	var _arr = []
-	var _n = true
-	var _d = false
-
-	var _s, _e
-
-	try {
-		for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) {
-			_arr.push(_s.value)
-
-			if (i && _arr.length === i) break
-		}
-	} catch (err) {
-		_d = true
-		_e = err
-	} finally {
-		try {
-			if (!_n && _i['return'] != null) _i['return']()
-		} finally {
-			if (_d) throw _e
-		}
-	}
-
-	return _arr
-}
-
-function _unsupportedIterableToArray(o, minLen) {
-	if (!o) return
-	if (typeof o === 'string') return _arrayLikeToArray(o, minLen)
-	var n = Object.prototype.toString.call(o).slice(8, -1)
-	if (n === 'Object' && o.constructor) n = o.constructor.name
-	if (n === 'Map' || n === 'Set') return Array.from(o)
-	if (n === 'Arguments' || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
-		return _arrayLikeToArray(o, minLen)
-}
-
-function _arrayLikeToArray(arr, len) {
-	if (len == null || len > arr.length) len = arr.length
-
-	for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]
-
-	return arr2
-}
-
-function _nonIterableRest() {
-	throw new TypeError(
-		'Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.'
-	)
 }
 
 function useActiveSidebarLinks() {
@@ -9105,4 +9150,4 @@ var theme = function theme(enhanceApp) {
 	}
 }
 
-export { theme as default }
+export default theme
