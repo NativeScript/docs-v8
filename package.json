@@ -23,7 +23,7 @@
     "puppeteer": "^10.4.0",
     "puppeteer-extra": "^3.2.3",
     "rimraf": "^3.0.2",
-    "vitepress": "0.20.0",
+    "vitepress": "0.20.1",
     "zx": "^4.2.0"
   },
   "lint-staged": {

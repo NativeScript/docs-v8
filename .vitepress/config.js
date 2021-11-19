@@ -450,6 +450,10 @@ function getSidebar() {
 					text: '@nativescript',
 					link: '/understanding-packages',
 				},
+				{
+					text: 'Tutorials',
+					link: '/tutorial/',
+				},
 			],
 		},
 		{
