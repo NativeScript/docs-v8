@@ -33,7 +33,7 @@ To set up your development environment, follow the instructions in the [Environm
 We will be using Typescript for this tutorial. To create a new NativeScript Typescript application, run the CLI command `ns create` with the name of the application followed by `--svelte`.
 
 ```cli
-ns create example-app -svelte
+ns create example-app --svelte
 ```
 
 The NativeScript CLI creates a new directory with the root folder named `example-app` with an initial skeleton app project and installs the necessary packages and dependencies. This can take a few minutes and should be ready to run once it's done installing.
