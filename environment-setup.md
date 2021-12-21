@@ -14,10 +14,10 @@ You will need Node, NativeScript CLI (command line interface), Android Studio an
 
 We recommend using [Chocolatey](https://chocolatey.org/) to install the required dependencies &mdash; a popular package manager for Windows.
 
-To install **Node** and **JDK** open an Administrator Command Prompt (right click and select "Run as Administrator") and run the following command:
+To install **Node** and **JDK** (using the prebuilt OpenJDK binaries from [Adoptium](https://adoptium.net/)) open an Administrator Command Prompt (right click and select "Run as Administrator") and run the following command:
 
 ```cli
-choco install -y nodejs.install openjdk8
+choco install -y nodejs.install temurin11
 ```
 
 Setting up the Android development environment can be daunting if you are new to Android development, however following the next steps carefully will get you up and running in no time.
@@ -114,15 +114,15 @@ brew install node
 If you need to work with multiple versions of node, you may skip installing node via Homebrew, and use a node version manager: [nvm](https://github.com/nvm-sh/nvm), [n](https://npmjs.com/n) or any other node version manager you prefer.
 :::
 
-To install a **JDK** run the following command:
+To install a **JDK** (using the prebuilt OpenJDK binaries from [Adoptium](https://adoptium.net/)) run the following command:
 
 ```cli
-brew tap AdoptOpenJDK/openjdk
-brew install --cask adoptopenjdk15
+brew tap homebrew/cask-versions
+brew install --cask temurin11
 ```
 
 :::warning Note
-The default `adoptopenjdk16` does not currently work with the gradle plugin version NativeScript uses, so we recommend sticking with an older version for now.
+The default `temurin` does not currently work with the gradle plugin version NativeScript uses, so we recommend sticking with an older version for now.
 :::
 
 Setting up the Android development environment can be daunting if you are new to Android development, however following the next steps carefully will get you up and running in no time.
@@ -269,26 +269,6 @@ If you see **No issues were detected** you have successfully set up your system.
 
 ![ns doctor output](assets/environment-setup/ns_doctor_ios.png) -->
 
-#### Additional notes for M1 based machines:
-
-You may need to install rosetta2, run:
-
-```cli
-softwareupdate --install-rosetta
-```
-
-May need to install `ffi`
-
-```cli
-sudo arch -x86_64 gem install ffi
-```
-
-Then
-
-```cli
-arch -x86_64 pod install
-```
-
 ### Linux + Android
 
 You will need Node, NativeScript CLI (command line interface), Android Studio and a JDK (java development kit).
@@ -321,8 +301,9 @@ $:v15.x.x
 
 A **JDK version 8 or greater** is required, and you have a couple options:
 
-1. [OpenJDK](https://openjdk.java.net/) &mdash; can be downloaded from [AdoptOpenJDK](https://adoptopenjdk.net) or your system package manager.
-2. [Oracle JDK](https://www.oracle.com/java/technologies/javase-jdk14-downloads.html) &mdash; can be downloaded directly or through the system package manager.
+1. [OpenJDK - Adoptium](https://openjdk.java.net/) &mdash; can be downloaded from [Adoptium](https://adoptium.net/) or your system package manager.
+1. [OpenJDK - AdoptOpenJDK](https://openjdk.java.net/) &mdash; can be downloaded from [AdoptOpenJDK](https://adoptopenjdk.net) or your system package manager.
+1. [Oracle JDK](https://www.oracle.com/java/technologies/javase-jdk14-downloads.html) &mdash; can be downloaded directly or through the system package manager.
 
 <!-- tab:Ubuntu 20.04 -->
 
@@ -449,13 +430,19 @@ npm install -g nativescript
 
 ## Integrating with native apps
 
-Talk about how NativeScript can be embedded into existing apps - clear and detailed step-by-step guide. This is a huge potential for bringing more people into the ecosystem.
+This section is a missing, some details can be found at the following location:
 
 - https://github.com/NativeScript/docs/tree/master/docs/guides/integration-with-existing-ios-and-android-apps
 
 ## Building for Other Platforms/Devices
 
 ### Building for Smart Watches
+
+:::warning Note
+
+This section may be outdated, if you attempt to build for a smart watch and run into issues, please help us update this section.
+
+:::
 
 #### iOS WatchOS Applications
 
@@ -492,14 +479,14 @@ You can skip steps 1-3 if your Watch app is already created.
 
 :::
 
-4. Copy the generated **_MyFirstWatchApp_** and **_MyFirstWatchAppExtension_** to **_.../apps/MyApp/app/App_Resources/iOS/watchapp/MyFirstWatchApp_** and **_.../apps/MyApp/app/App_Resources/iOS/watchextension/MyFirstWatchAppExtension_** respectively.
+1. Copy the generated **_MyFirstWatchApp_** and **_MyFirstWatchAppExtension_** to **_.../apps/MyApp/app/App_Resources/iOS/watchapp/MyFirstWatchApp_** and **_.../apps/MyApp/app/App_Resources/iOS/watchextension/MyFirstWatchAppExtension_** respectively.
 
-5. Inside the **_Info.plist_** of the Watch App replace the value of **_`WKCompanionAppBundleIdentifier`_** with **_`$(WK_APP_BUNDLE_IDENTIFIER)`_**.
+2. Inside the **_Info.plist_** of the Watch App replace the value of **_`WKCompanionAppBundleIdentifier`_** with **_`$(WK_APP_BUNDLE_IDENTIFIER)`_**.
 
-6. Inside the **_Info.plist_** of the Watch Extension replace the
+3. Inside the **_Info.plist_** of the Watch Extension replace the
    of **_`WKAppBundleIdentifier`_** with **_`$(WK_APP_BUNDLE_IDENTIFIER)`_**.
 
-7. You can populate the **_Assets.xcassets_** of the Watch App and add the name of the **_`appiconset`_** to the **_.../apps/MyApp/app/App_Resources/iOS/watchapp/MyFirstWatchApp/watchapp.json_**:
+4. You can populate the **_Assets.xcassets_** of the Watch App and add the name of the **_`appiconset`_** to the **_.../apps/MyApp/app/App_Resources/iOS/watchapp/MyFirstWatchApp/watchapp.json_**:
 
    ```JSON
    {
@@ -507,7 +494,7 @@ You can skip steps 1-3 if your Watch app is already created.
    }
    ```
 
-8. You can modify the **_`WATCHOS_DEPLOYMENT_TARGET`_** of the Watch App by adding the value inside the **_watchapp.json _** file like this:
+5. You can modify the **_`WATCHOS_DEPLOYMENT_TARGET`_** of the Watch App by adding the value inside the **_watchapp.json _** file like this:
 
    ```JSON
    {
@@ -518,13 +505,13 @@ You can skip steps 1-3 if your Watch app is already created.
    }
    ```
 
-9. Build & Run the NativeScript application.
+6. Build & Run the NativeScript application.
 
    ```cli
    ns run ios
    ```
 
-10. The application will be deployed and started on your iOS device/simulator. Make sure that the test iPhone is already paired with the testing iWatch. Once the iOS app starts, the Watch app will be automatically deployed on the testing iWatch device.
+7. The application will be deployed and started on your iOS device/simulator. Make sure that the test iPhone is already paired with the testing iWatch. Once the iOS app starts, the Watch app will be automatically deployed on the testing iWatch device.
 
 :::tip Note
 
