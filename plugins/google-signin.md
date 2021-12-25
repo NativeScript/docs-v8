@@ -129,18 +129,21 @@ This method may be used to find out whether some user is currently signed in.
 
 Checks if device has Google Play Services installed. Always resolves to true on iOS.
 
-Presence of up-to-date Google Play Services is required to show the sign in modal, but it is not required to perform calls to configure and signInSilently. Therefore, we recommend to call hasPlayServices directly before signIn.
+Presence of up-to-date Google Play Services is required to show the sign in modal, but it is not required to perform calls to configure and signInSilently. Therefore, we recommend to call `hasPlayServices` directly before `signIn`.
 
-``ts
-import { GoogleSignin } from "@nativescript/google-signin";
+```ts
+import { GoogleSignin } from '@nativescript/google-signin'
 
-playServicesAvailable: boolean = await GoogleSignin.playServicesAvailable();
-
+playServicesAvailable: boolean = await GoogleSignin.playServicesAvailable()
 ```
 
 ## signOut()
 
 Signs out the current user.
+
+## disconnect()
+
+Disconnects the current user.
 
 ## getTokens()
 
@@ -153,4 +156,3 @@ This method resolves with null or user object.
 ## License
 
 Apache License Version 2.0
-```
