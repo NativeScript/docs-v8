@@ -16,14 +16,14 @@ The core of NativeScript is all written in TypeScript and you can view the [sour
 
 ## Android Walkthrough
 
-The Java code below will get the Android device battery level. This example is only for Android API 21+. To get the battery level prior to Android 21 a different approach was necessary. The purpose of this example is to explain walking through an approach of converting Java to JavaScript.
+The Java code below will get the Android device battery level. This example is only for Android API 21+. To get the battery level prior to Android 21 a different approach was necessary. The purpose of this example is to explain the approach of converting Java to JavaScript.
 
 ```java
 BatteryManager bm = (BatteryManager) context.getSystemService(BATTERY_SERVICE);
 int batLevel = bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY);
 ```
 
-Now we need to take this and write JavaScript (TypeScript in this example) calling the same methods the java sample calls. Below is the working code to achieve the same end result that Java code would provide.
+Below is the working JavaScript to achieve the same end result that Java code would provide.
 
 ```ts
 import { Utils, Device } from '@nativescript/core'
@@ -37,17 +37,17 @@ if (global.isAndroid && Device.sdkVersion >= '21') {
 ```
 
 ::: warning Note
-The code block is wrapped with `global.isAndroid` so that it is only executed on Android. Otherwise, the app will crash on iOS when it tries to access APIs that are not part of the iOS platform.
+The code block is wrapped with `global.isAndroid` so it's only executed on Android. Otherwise the app would crash on iOS when it tries to access APIs that are not part of the iOS platform.
 
-Since this code is only for Android API 21+ we have also included a sdk version check so that you can copy and paste this code in your application.
+Since this code is only for Android API 21+ we have also included a sdk version check.
 :::
 
-Now for a short walk through of one way to go about translating Java to JavaScript.
+Now for a short walkthrough of one way to go about translating Java to JavaScript.
 
-1. JavaScript uses `const, let, var` to declare variables. So we can not use the types to declare what variable in this way. Using TypeScript you can assign a variable a native type using the `@nativescript/types` developer dependency.
-2. Next we see the method `getSystemService(BATTERY_SERVICE)` is being executed. We can search the Android docs for this method. The [getSystemService method is documented here](https://developer.android.com/reference/android/content/Context#getSystemService).
+1. JavaScript uses `const, let, var` to declare variables. Further with TypeScript we can assign any variable a platform native type using the `@nativescript/types` package.
+2. Next we see the method `getSystemService(BATTERY_SERVICE)` is being executed. We can find the [getSystemService method is documented here](https://developer.android.com/reference/android/content/Context#getSystemService) on Android docs.
 
-   The method is a public abstract of the `android.content.Context`. In the Java code you typically see `context` which will be an instance of the application context. In NativeScript you can get the Android context a couple ways, the `Utils` of `@nativescript/core` provides a method to get the Android context: `Utils.android.getApplicationContext()`.
+   The method is a public abstract of the `android.content.Context`. In the Java code you typically see `context` which would be an instance of the Application Context. In NativeScript we can use `Utils` from `@nativescript/core` which provides a method to get the Android context: `Utils.android.getApplicationContext()`.
 
 3. The `getSystemService(java.lang.String)` method accepts a String. When programming in Android you can use `BATTERY_SERVICE` if the `import android.content.Context` is declared in the .java file. The compiler will know that `BATTERY_SERVICE` is the [static final string declared here](https://developer.android.com/reference/android/content/Context#BATTERY_SERVICE).
 
@@ -63,13 +63,13 @@ Now for a short walk through of one way to go about translating Java to JavaScri
 
 ## iOS Walkthrough
 
-Here is the Objective-C code to get the current battery level of the iOS device.
+Here is the Objective-C code to get the current battery level from an iOS device.
 
 ```objc
 float batteryLevel = [[UIDevice currentDevice] batteryLevel];
 ```
 
-Now we convert this to JavaScript to execute in NativeScript to read the iOS device battery level.
+Here's the same thing in JavaScript using our abilities with NativeScript:
 
 ```ts
 if (global.isIOS) {
@@ -81,7 +81,7 @@ if (global.isIOS) {
 We can conditionally wrap any platform specific code with `global.isIOS` or `global.isAndroid` so that it is only executed on the platform we want. This global is also configured at the webpack level so when you use these conditionals, production code is bundled with only the target platform code excluding any conditionals which are not indicated for the platform. Otherwise the app would crash on Android when it tries to access APIs that are not part of the Android platform itself (just as the platform would in this case).
 :::
 
-Now for a short walk through of one way to go about translating Objective-C to JavaScript.
+Now for a short walkthrough of one way to go about translating Objective-C to JavaScript.
 
 1. In Objective-C we see `UIDevice`, so you can search for `UIDevice` on the [iOS Documentation](https://developer.apple.com/documentation/uikit/uidevice).
 
