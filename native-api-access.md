@@ -4,14 +4,15 @@ title: Accessing Native Platform APIs
 
 ## Native API Access
 
-The most important feature of NativeScript is the ability to access native platform APIs directly from JavaScript.
+What exactly does it mean for NativeScript to "Empower JavaScript
+with native APIs"?
+
+This means you can go directly to platform source documentation like [Apple API Docs](https://developer.apple.com/documentation/) and [Android API Docs](https://developer.android.com/reference) and work with it right away without leaving your JavaScript codebase.
+
+Let's explore this more by looking at some concrete use cases.
 
 ::: tip Note
-When trying to figure out how to execute some native Android or iOS code in your NativeScript app, you can search the Android & iOS documentation, StackOverflow or other resources.
-
-The key is knowing how to call those APIs from JavaScript instead of writing the code in Java, Objective-C, Kotlin, or Swift.
-
-The core of NativeScript is all written in TypeScript and you can view the [source on Github](https://github.com/NativeScript/NativeScript/tree/master/packages/core) for many examples of calling native platform APIs.
+The @nativescript/core package is written in TypeScript and you can view it's [source on Github](https://github.com/NativeScript/NativeScript/tree/master/packages/core) for many examples of calling native platform APIs.
 :::
 
 ## Android Walkthrough
@@ -63,7 +64,7 @@ Now for a short walkthrough of one way to go about translating Java to JavaScrip
 
 ## iOS Walkthrough
 
-Here is the Objective-C code to get the current battery level from an iOS device.
+Here is the Objective-C code to get the current battery level from an iOS device:
 
 ```objc
 float batteryLevel = [[UIDevice currentDevice] batteryLevel];
