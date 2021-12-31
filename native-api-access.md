@@ -14,7 +14,7 @@ The key is knowing how to call those APIs from JavaScript instead of writing the
 The core of NativeScript is all written in TypeScript and you can view the [source on Github](https://github.com/NativeScript/NativeScript/tree/master/packages/core) for many examples of calling native platform APIs.
 :::
 
-## Android Walk-Through
+## Android Walkthrough
 
 The Java code below will get the Android device battery level. This example is only for Android API 21+. To get the battery level prior to Android 21 a different approach was necessary. The purpose of this example is to explain walking through an approach of converting Java to JavaScript.
 
@@ -61,7 +61,7 @@ Now for a short walk through of one way to go about translating Java to JavaScri
 
    You could execute the `getIntProperty(int id)` method passing in `4` as the argument in Java and it would work, same as you could in NativeScript. In order to use the full namespace in NativeScript you would use the fully qualified namespace path to the static int `android.os.BatteryManager.BATTERY_PROPERTY_CAPACITY`. Again, you typically do not use the full namespace path to values in Java because you can import the class. So `import android.os.BatteryManager` would be in the example java file allowing you to use the static value and the compiler know what you are trying to do and compile correctly at build time.
 
-## iOS Walk-Through
+## iOS Walkthrough
 
 Here is the Objective-C code to get the current battery level of the iOS device.
 
@@ -73,25 +73,25 @@ Now we convert this to JavaScript to execute in NativeScript to read the iOS dev
 
 ```ts
 if (global.isIOS) {
-  UIDevice.currentDevice.batteryLevel
+  const batteryLevel = UIDevice.currentDevice.batteryLevel
 }
 ```
 
 ::: warning Note
-The code block is wrapped with `global.isIOS` so that it is only executed on iOS. Otherwise, the app will crash on Android when it tries to access APIs that are not part of the Android platform itself.
+We can conditionally wrap any platform specific code with `global.isIOS` or `global.isAndroid` so that it is only executed on the platform we want. This global is also configured at the webpack level so when you use these conditionals, production code is bundled with only the target platform code excluding any conditionals which are not indicated for the platform. Otherwise the app would crash on Android when it tries to access APIs that are not part of the Android platform itself (just as the platform would in this case).
 :::
 
 Now for a short walk through of one way to go about translating Objective-C to JavaScript.
 
-1. In the Objective-C code we see `UIDevice`, so you can search for `UIDevice` on the [iOS Documentation](https://developer.apple.com/documentation/uikit/uidevice).
+1. In Objective-C we see `UIDevice`, so you can search for `UIDevice` on the [iOS Documentation](https://developer.apple.com/documentation/uikit/uidevice).
 
 2. Next we see `currentDevice` property being accessed. In the iOS documentation for `UIDevice` you will find the [`currentDevice property`](https://developer.apple.com/documentation/uikit/uidevice/1620014-currentdevice?language=objc) of the `UIDevice` class.
 
 ::: tip Note
-In NativeScript iOS code, the translating of Objective-C to JavaScript is not always 1:1, this is where using intellisense and the `@nativescript/types` package during development will help complete the native API calls where they may slightly differ.
+Translating Objective-C to JavaScript is made easy using intellisense and the `@nativescript/types` package during development which will help you autocomplete the native API calls where they may slightly differ.
 :::
 
-3. Last, the Objective-C code is accessing [`batteryLevel`](https://developer.apple.com/documentation/uikit/uidevice/1620042-batterylevel?language=objc) to get the value. So we can do the same direct call in our JavaScript code to read the battery level of the iOS device.
+3. Lastly, Objective-C is accessing [`batteryLevel`](https://developer.apple.com/documentation/uikit/uidevice/1620042-batterylevel?language=objc) synchronously to get the value. So we can access the exact same value synchronously in our JavaScript code to read the battery level just as the iOS platform API is designed to do.
 
 <!-- ## Android Examples
 
