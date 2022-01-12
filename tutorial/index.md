@@ -30,5 +30,6 @@ You may also find these additional topics of interest when starting out.
 
 ### Creating NativeScript Plugins and Enhancing Behavior
 
-- [Part 1: How to create a NativeScript plugin that uses native iOS & Android views - Label Marquee!](https://blog.nativescript.org/create-a-custom-view-plugin-marquee-label/index.html)
-- [Part 2: How to create a NativeScript plugin that uses native iOS & Android views (Part 2 - more native platform APIs) - Shimmer!](https://blog.nativescript.org/create-a-custom-view-plugin-shimmer/index.html)
+- [Part 1: How to create a NativeScript plugin that uses native iOS & Android views - Label Marquee!](https://blog.nativescript.org/create-a-custom-view-plugin-marquee-label)
+- [Part 2: How to create a NativeScript plugin that uses native iOS & Android views - more native platform APIs - Shimmer!](https://blog.nativescript.org/create-a-custom-view-plugin-shimmer)
+- [Part 3: Should this be a plugin or part of core? 💥 Holy Interactivity Batman!](https://blog.nativescript.org/create-a-custom-view-plugin-touch-effects)
