@@ -8,6 +8,10 @@ link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/finge
   					<a href="https://github.com/NativeScript/plugins/tree/main/packages/fingerprint-auth" target="_blank" noopener>Fingerprint-Auth</a>
 				</div>
 
+## Replacement notice
+
+This plugin is replaced by [@nativescript/biometrics](../biometrics)
+
 # @nativescript/fingerprint-auth
 
 ```cli
