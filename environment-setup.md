@@ -430,7 +430,7 @@ npm install -g nativescript
 
 ## Integrating with native apps
 
-This section is a missing, some details can be found at the following location:
+This section is missing, some details can be found at the following location:
 
 - https://github.com/NativeScript/docs/tree/master/docs/guides/integration-with-existing-ios-and-android-apps
 
