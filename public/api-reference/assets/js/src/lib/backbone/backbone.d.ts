@@ -202,7 +202,7 @@ declare module Backbone {
         shift(options?: Silenceable): TModel;
         sort(options?: Silenceable): Collection<TModel>;
         unshift(model: TModel, options?: AddOptions): TModel;
-        where(properies: any): TModel[];
+        where(properties: any): TModel[];
         findWhere(properties: any): TModel;
 
         private _prepareModel(attrs?: any, options?: any): any;

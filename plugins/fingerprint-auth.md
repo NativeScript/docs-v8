@@ -1,7 +1,16 @@
 ---
-title: Fingerprint Auth
-link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/fingerprint-auth/README.md
+title: 'Fingerprint-Auth'
+link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/fingerprint-auth/README.md
 ---
+
+<div style="width: 100%; padding: 1.2em 0em">
+  					<img alt="github logo" src="../assets/images/github/GitHub-Mark-32px.png" style="display: inline; margin: 1em 0.5em 1em 0em">
+  					<a href="https://github.com/NativeScript/plugins/tree/main/packages/fingerprint-auth" target="_blank" noopener>Fingerprint-Auth</a>
+				</div>
+
+## Replacement notice
+
+This plugin is replaced by [@nativescript/biometrics](../biometrics)
 
 # @nativescript/fingerprint-auth
 
@@ -9,8 +18,8 @@ link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/fin
 ns plugin add @nativescript/fingerprint-auth
 ```
 
-Then open `App_Resources/Android/AndroidManifest.xml` and look for `minSdkVersion`.
-If that's set to a version less than 23, add this `overrideLibrary` line:
+Then open `App_Resources/Android/app.gradle` and look for `minSdkVersion`.
+If that's set to a version less than 23, add this `overrideLibrary` line to `App_Resources/Android/src/main/AndroidManifest.xml`:
 
 ```xml
 <uses-sdk
@@ -25,6 +34,19 @@ If that's set to a version less than 23, add this `overrideLibrary` line:
 Want a nicer guide than these raw code samples? Read [Nic Raboy's blog post about this plugin](https://www.thepolyglotdeveloper.com/2016/03/add-touch-id-authentication-support-to-your-nativescript-app/).
 
 ### `available`
+
+#### JavaScript
+
+```js
+var fingerprintAuthPlugin = require('@nativescript/fingerprint-auth')
+var fingerprintAuth = new fingerprintAuthPlugin.FingerprintAuth()
+
+fingerprintAuth.available().then(function (avail) {
+  console.log('Available? ' + avail)
+})
+```
+
+#### TypeScript
 
 ```typescript
 import { FingerprintAuth, BiometricIDAvailableResult } from "@nativescript/fingerprint-auth";
@@ -46,19 +68,13 @@ class MyClass {
 
 ### `verifyFingerprint`
 
-::: warning Note
-On the iOS simulator this will just `resolve()`.
-:::
+Note that on the iOS simulator this will just `resolve()`.
 
 ```typescript
-import { FingerprintAuth } from '@nativescript/fingerprint-auth'
-
 fingerprintAuth
   .verifyFingerprint({
     title: 'Android title', // optional title (used only on Android)
-    message: 'Scan yer finger', // optional (used on both platforms) - for FaceID on iOS see the notes about NSFaceIDUsageDescription
-    authenticationValidityDuration: 10, // optional (used on Android, default 5)
-    useCustomAndroidUI: false // set to true to use a different authentication screen (see below)
+    message: 'Scan yer finger' // optional (used on both platforms) - for FaceID on iOS see the notes about NSFaceIDUsageDescription
   })
   .then((enteredPassword?: string) => {
     if (enteredPassword === undefined) {
@@ -68,57 +84,6 @@ fingerprintAuth
     }
   })
   .catch(err => console.log(`Biometric ID NOT OK: ${JSON.stringify(err)}`))
-```
-
-#### A nicer UX/UI on Android (`useCustomAndroidUI: true`)
-
-The default authentication screen on Android is a standalone screen that (depending on the exact Android version) looks kinda 'uninteresting'.
-So with version 6.0.0 this plugin added the ability to override the default screen and offer an iOS popover style which you can activate by passing in `useCustomAndroidUI: true` in the function above.
-
-One important thing to realize is that the 'use password' option in this dialog doesn't verify the entered password against
-the system password. It must be used to compare the entered password with an app-specific password the user previously configured.
-
-The password fallback can be disabled by overriding the default `use_password` text to a blank string (see optional change below for details on how to do this).
-
-##### Optional change
-
-If you want to override the default texts of this popover screen, then drop a file [`strings.xml`](https://github.com/EddyVerbruggen/nativescript-fingerprint-auth/blob/5a14f96f7e752953df506401588b5694e3ab6444/demo/app/App_Resources/Android/src/main/res/values/strings.xml) in your project and override the properties you like. See the demo app for an example.
-
-##### ⚠️ Important note when using NativeScript < 5.4.0
-
-**Use plugin version < 7.0.0 to be able to use this feature with NativeScript < 5.4.0**
-
-> Skip this section if you're on NativeScript 5.4.0 or newer because it's all handled automatically!
-
-To be able to use this screen, a change to `App_Resources/Android/AndroidManifest.xml` is required as our NativeScript activity needs to extend AppCompatActivity (note that in the future this may become the default for NativeScript apps).
-
-To do so, open the file and replace `<activity android:name="com.tns.NativeScriptActivity"` by `<activity android:name="org.nativescript.fingerprintplugin.AppCompatActivity"`.
-
-Note that if you forget this and set `useCustomAndroidUI: true` the plugin will `reject` the Promise with a relevant error message.
-
-**Mandatory changes for webpack and snapshot builds (again, for NativeScript < 5.4.0 only)**
-
-If you are using Webpack with or without snapshot there are couple more changes required in order to make the custom UI work in your production builds.  
-First you need to edit your `vendor-platform.android.ts` file and add `require("nativescript-fingerprint-auth/appcompat-activity");`. You can see the changed file in the demo app [here](https://github.com/EddyVerbruggen/nativescript-fingerprint-auth/blob/master/demo/app/vendor-platform.android.ts#L9).  
-The second change should be made in your `webpack.config.js` file. Find the place where the `NativeScriptSnapshotPlugin` is pushed to the webpack plugins and add `"nativescript-fingerprint-auth"` in the `tnsJavaClassesOptions.packages` array. The result should look something like:
-
-```js
-// ...
-if (snapshot) {
-  config.plugins.push(
-    new nsWebpack.NativeScriptSnapshotPlugin({
-      chunk: 'vendor',
-      projectRoot: __dirname,
-      webpackConfig: config,
-      targetArchs: ['arm', 'arm64', 'ia32'],
-      tnsJavaClassesOptions: {
-        packages: ['tns-core-modules', '@nativescript/fingerprint-auth']
-      },
-      useLibs: false
-    })
-  )
-}
-// ...
 ```
 
 ### `verifyFingerprintWithCustomFallback` (iOS only, falls back to `verifyFingerprint` on Android)
@@ -165,7 +130,7 @@ You can provide this value (the reason for using Face ID) by adding something li
 
 Since iOS9 it's possible to check whether or not the list of enrolled fingerprints changed since
 the last time you checked it. It's recommended you add this check so you can counter hacker attacks
-to your app. See [this article](https://godpraksis.no/2016/03/fingerprint-trojan/) for more details.
+to your app. See [this article](https://www.linkedin.com/pulse/fingerprint-trojan-per-thorsheim/) for more details.
 
 So instead of checking the fingerprint after `available` add another check.
 In case `didFingerprintDatabaseChange` returns `true` you probably want to re-authenticate your user

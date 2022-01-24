@@ -6,7 +6,7 @@ title: Advanced Concepts
 
 ## The Layout process
 
-Getting views to render with the right dimensions and positions requires a run of the layout process. When rendering, a recursive process runs through every view in the **view hiearchy** in two passes &mdash; a measure pass and a layout pass.
+Getting views to render with the right dimensions and positions requires a run of the layout process. When rendering, a recursive process runs through every view in the **view hierarchy** in two passes &mdash; a measure pass and a layout pass.
 
 During **the measure pass** every view is measured to obtain its desired size. The following properties are considered during the measuring:
 
@@ -23,7 +23,7 @@ During **the layout pass** every view is placed in a specific layout slot. The s
 The layout process is by nature an resource-intensive process and it's performance highly depends on the number views (and complexity).
 
 :::tip
-Try to keep the view hierachy as flat as possible by utilizing different [Layout Containers](/ui-and-styling#layout-containers) rather than relying on excessive view nesting.
+Try to keep the view hierarchy as flat as possible by utilizing different [Layout Containers](/ui-and-styling#layout-containers) rather than relying on excessive view nesting.
 
 **For example:** don't treat `<StackLayout>` as a `<div>` &mdash; instead try to use a `<GridLayout>` with specific `rows` and `columns` to achieve the same result:
 
@@ -42,7 +42,7 @@ Try to keep the view hierachy as flat as possible by utilizing different [Layout
 <!--  -->
 
 ```html
-<GridLayout rows="auto, auto" colums="auto, auto">
+<GridLayout rows="auto, auto" columns="auto, auto">
   <SomeItem row="0" col="0" />
   <SomeItem row="0" col="1" />
   <!-- ... row="1" ... -->
@@ -152,7 +152,7 @@ The source code of `application.android.ts` is bundled separately as `applicatio
 The `bundle.js` and `vendor.js` files are not loaded early enough in the application launch. That's why the logic in `application.android.ts` is needed to be bundled separately in order to be loaded as early as needed in the application lifecycle.
 
 ::: warning Note
-This approach will not work if aplication.android.ts requires external modules.
+This approach will not work if application.android.ts requires external modules.
 :::
 
 ### Extending Android Activity
@@ -658,7 +658,7 @@ iOS contains both an Objective-C standard library (the Foundation framework) and
 
 #### Toll-free Bridging
 
-Core Foundation has the concept of [Toll-free bridged types](https://developer.apple.com/library/ios/documentation/CoreFoundation/Conceptual/CFDesignConcepts/Articles/tollFreeBridgedTypes.html) - data types which can be used interchangably with their Objective-C counterparts. When dealing with a toll-free bridged type NativeScript always treats it as its Objective-C counterpart. Core Foundation objects on the [toll-free bridged types list](https://developer.apple.com/library/ios/documentation/CoreFoundation/Conceptual/CFDesignConcepts/Articles/tollFreeBridgedTypes.html#//apple_ref/doc/uid/TP40010677-SW4) are exposed as if they were instances of the equivalent Objective-C class. This means that a `CFDictionaryRef` value in JavaScript has the same methods on its prototype as if it were a `NSDictionary` object. Unlike regular Core Foundation objects, toll-free bridged types are automatically memory managed by NativeScript, so there is no need to retain or release them using `CFRetain` and `CFRelease`.
+Core Foundation has the concept of [Toll-free bridged types](https://developer.apple.com/library/ios/documentation/CoreFoundation/Conceptual/CFDesignConcepts/Articles/tollFreeBridgedTypes.html) - data types which can be used interchangeably with their Objective-C counterparts. When dealing with a toll-free bridged type NativeScript always treats it as its Objective-C counterpart. Core Foundation objects on the [toll-free bridged types list](https://developer.apple.com/library/ios/documentation/CoreFoundation/Conceptual/CFDesignConcepts/Articles/tollFreeBridgedTypes.html#//apple_ref/doc/uid/TP40010677-SW4) are exposed as if they were instances of the equivalent Objective-C class. This means that a `CFDictionaryRef` value in JavaScript has the same methods on its prototype as if it were a `NSDictionary` object. Unlike regular Core Foundation objects, toll-free bridged types are automatically memory managed by NativeScript, so there is no need to retain or release them using `CFRetain` and `CFRelease`.
 
 #### Null Values
 
@@ -2357,7 +2357,7 @@ After analyzing the filtering rules for a platform, {N} CLI builds final whiteli
 - If it is `true`, the final whitelist is a concatenation of all plugins' usage lists with the app's whitelist
 - Otherwise, it is equal to the app's whitelist
 
-These two lists unambigously determine how filtering is performed:
+These two lists unambiguously determine how filtering is performed:
 
 1. If the whitelist is empty, then everything is considered whitelisted by default
 2. If it contains at least one rule, only entities matching a rule are considered whitelisted

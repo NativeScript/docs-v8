@@ -1,23 +1,32 @@
 {
-    "name": "nativescript-docs-new",
-    "private": true,
-    "scripts": {
-        "clean": "yarn rimraf node_modules package-lock.json yarn.lock .vitepress/dist",
-        "start": "yarn dev",
-        "dev": "vitepress dev .",
-        "build": "vitepress build .",
-        "format": "prettier --write \"**/*.{js,css,md}\"",
-        "postinstall": "husky install"
-    },
-    "devDependencies": {
-        "@prettier/plugin-xml": "^0.13.0",
-        "husky": "^5.0.9",
-        "lint-staged": "^10.5.4",
-        "prettier": "^2.2.1",
-        "rimraf": "^3.0.2",
-        "vitepress": "0.12.2"
-    },
-    "lint-staged": {
-        "*.{js,css,md}": "prettier --write"
-    }
+  "name": "nativescript-docs-new",
+  "private": true,
+  "scripts": {
+    "clean": "yarn rimraf node_modules package-lock.json yarn.lock .vitepress/dist",
+    "start": "yarn dev",
+    "dev": "vitepress dev .",
+    "build": "vitepress build .",
+    "format": "prettier --write \"**/*.{js,css,md}\"",
+    "postinstall": "husky install && npm run patch.vitepress",
+    "scrape.plugins": "zx ./scripts/plugin-scraper.mjs && prettier --write \"./plugins/*.md\"",
+    "patch.vitepress": "zx ./scripts/patch-vitepress-deadLinks.mjs"
+  },
+  "devDependencies": {
+    "@prettier/plugin-xml": "^1.1.0",
+    "fs-extra": "^10.0.0",
+    "husky": "^7.0.2",
+    "jsdom": "^17.0.0",
+    "lint-staged": "^11.2.0",
+    "markdown-it": "^12.2.0",
+    "markdown-it-container": "^3.0.0",
+    "prettier": "^2.2.1",
+    "puppeteer": "^10.4.0",
+    "puppeteer-extra": "^3.2.3",
+    "rimraf": "^3.0.2",
+    "vitepress": "0.20.1",
+    "zx": "^4.2.0"
+  },
+  "lint-staged": {
+    "*.{js,css,md}": "prettier --write"
+  }
 }

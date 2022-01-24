@@ -1,7 +1,12 @@
 ---
-title: DateTimePicker
-link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/datetimepicker/README.md
+title: 'DateTimePicker'
+link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/datetimepicker/README.md
 ---
+
+<div style="width: 100%; padding: 1.2em 0em">
+  					<img alt="github logo" src="../assets/images/github/GitHub-Mark-32px.png" style="display: inline; margin: 1em 0.5em 1em 0em">
+  					<a href="https://github.com/NativeScript/plugins/tree/main/packages/datetimepicker" target="_blank" noopener>DateTimePicker</a>
+				</div>
 
 # @nativescript/datetimepicker
 
@@ -39,7 +44,7 @@ To use one of the UI elements `DatePickerField`, `TimePickerField` or `DateTimeP
 
 - If you are developing a NativeScript Angular app, you need to import the plugin module in the module of your component:
 
-```typescript
+```ts
 import { NativeScriptDateTimePickerModule } from "@nativescript/datetimepicker/angular";
 ...
 @NgModule({
@@ -122,6 +127,52 @@ You can use css to style the `DatePickerField` and the `TimePickerField`. The fi
 <img alt="DatePickerField with CSS applied on iOS (left) and Android (right)" src="https://raw.githubusercontent.com/NativeScript/nativescript-datetimepicker/master/docs/date_picker_field_css.png" width="500px"/>
 
 Here's the css used to achieve the above result, as used in the [demo](https://github.com/NativeScript/nativescript-datetimepicker/blob/master/demo/app/home/home-page.css#L22), [demo-angular](https://github.com/NativeScript/nativescript-datetimepicker/blob/master/demo-angular/src/app/home/home.component.css#L22) and [demo-vue](https://github.com/NativeScript/nativescript-datetimepicker/blob/master/demo-vue/app/components/Home.vue#L350) applications.
+
+To apply styles at runtime when opening the DateTimePicker you can do the following:
+
+```ts
+import { DateTimePicker, DateTimePickerStyle } from '@nativescript/datetimepicker';
+import { Application, Button } from '@nativescript/core';
+
+export function someButtonTapToOpenThePicker(args) {
+	const dateTimePickerStyle = DateTimePickerStyle.create(args.object as any);
+
+    // This example handles styling the calendar for light and dark mode of the device settings
+	if (Application.systemAppearance() === 'dark') {
+      // style for dark mode
+      dateTimePickerStyle.buttonsBackgroundColor = new Color('#202125');
+      dateTimePickerStyle.dialogBackgroundColor = new Color('#202125');
+      dateTimePickerStyle.titleTextColor = new Color('#fff');
+      dateTimePickerStyle.buttonsTextColor = new Color('#0067a6');
+      dateTimePickerStyle.spinnersBackgroundColor = new Color('#202125');
+      dateTimePickerStyle.spinnersTextColor = new Color('#fff');
+    } else {
+      // style for light mode
+      dateTimePickerStyle.buttonsBackgroundColor = new Color('#fff');
+      dateTimePickerStyle.dialogBackgroundColor = new Color('#fff');
+      dateTimePickerStyle.titleTextColor = new Color('#0067a6');
+      dateTimePickerStyle.buttonsTextColor = new Color('#0067a6');
+      dateTimePickerStyle.spinnersBackgroundColor = new Color('#fff');
+      dateTimePickerStyle.spinnersTextColor = new Color('#0067a6');
+    }
+
+     DateTimePicker.pickDate(
+      {
+        context: (args.object as Button)._context,
+        date: yourDateValue
+        minDate: subYears(new Date(), 10),
+        maxDate: new Date(),
+        title: 'DatePicker'
+        okButtonText: 'Okay',
+        cancelButtonText: 'Cancel',
+        locale: 'en'
+      },
+      dateTimePickerStyle
+    ).then((result) => {
+        // handle the result
+    })
+}
+```
 
 ### DateTimePickerFields
 
@@ -223,6 +274,7 @@ Internally `DatePickerField` and `TimePickerField` call `DateTimePicker`'s `pick
 | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
 | `pickDate(options: DatePickerOptions, style?: DateTimePickerStyle): Promise<Date>` | picks a date from a dialog picker initialized with the provided options and styled with the optionally provided style. |
 | `pickTime(options: TimePickerOptions, style?: DateTimePickerStyle): Promise<Date>` | picks a time from a dialog picker initialized with the provided options and styled with the optionally provided style. |
+| `close()`                                                                          | closes the presented dialog picker                                                                                     |
 
 **DatePickerOptions**:
 

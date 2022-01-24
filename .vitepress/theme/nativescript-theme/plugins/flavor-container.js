@@ -5,7 +5,10 @@ var __importDefault =
 		return mod && mod.__esModule ? mod : { default: mod }
 	}
 Object.defineProperty(exports, '__esModule', { value: true })
-exports.wrapFlavorContainersInTabs = exports.markFlavorHeadings = exports.createFlavorContainer = void 0
+exports.wrapFlavorContainersInTabs =
+	exports.markFlavorHeadings =
+	exports.createFlavorContainer =
+		void 0
 const token_1 = __importDefault(require('markdown-it/lib/token'))
 /**
  * Adds flavor containers

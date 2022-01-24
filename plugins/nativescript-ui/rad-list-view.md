@@ -336,4 +336,4 @@ async onPullToRefreshInitiated(args: ListViewEventData) {
 
 ## API Reference
 
-[Here](https://docs.nativescript.org/ns-ui-api-reference/classes/radlistview) is the API Reference section.
+[Here](https://v7.docs.nativescript.org/ns-ui-api-reference/classes/radlistview) is the API Reference section.

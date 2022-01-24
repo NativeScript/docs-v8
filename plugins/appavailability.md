@@ -1,9 +1,14 @@
 ---
-title: App Availability
-link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/appavailability/README.md
+title: 'App Availability'
+link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/appavailability/README.md
 ---
 
-# @nativescript/appavailability
+<div style="width: 100%; padding: 1.2em 0em">
+  					<img alt="github logo" src="../assets/images/github/GitHub-Mark-32px.png" style="display: inline; margin: 1em 0.5em 1em 0em">
+  					<a href="https://github.com/NativeScript/plugins/tree/main/packages/appavailability" target="_blank" noopener>App Availability</a>
+				</div>
+
+# @nativescript/app-availability
 
 A plugin to check for availability of other apps on the device.
 
@@ -13,7 +18,11 @@ ns plugin add @nativescript/appavailability
 
 ## Usage
 
-> Note that version 1.3.0 added a synchronous version of this method that doesn't return a Promise. Need that? Use `availableSync` instead of `available`.
+:::tip Note
+
+Version 1.3.0 added a synchronous version of this method that doesn't return a Promise. Need that? Use `availableSync` instead of `available`.
+
+:::
 
 ### TypeScript
 
@@ -43,7 +52,7 @@ appavailability.available('twitter://').then((avail: boolean) => {
 
 ### JavaScript
 
-```js
+```javascript
 var appAvailability = require('@nativescript/appavailability')
 
 // examples of what to pass:

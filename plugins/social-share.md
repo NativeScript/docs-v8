@@ -1,7 +1,12 @@
 ---
-title: Social Share
-link: https://raw.githubusercontent.com/NativeScript/plugins/master/packages/social-share/README.md
+title: 'Social Share'
+link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/social-share/README.md
 ---
+
+<div style="width: 100%; padding: 1.2em 0em">
+  					<img alt="github logo" src="../assets/images/github/GitHub-Mark-32px.png" style="display: inline; margin: 1em 0.5em 1em 0em">
+  					<a href="https://github.com/NativeScript/plugins/tree/main/packages/social-share" target="_blank" noopener>Social Share</a>
+				</div>
 
 # @nativescript/social-share
 
@@ -23,7 +28,7 @@ import * as SocialShare from "@nativescript/social-share";
 
 ## API
 
-### shareImage(ImageSource image, [optional] String subject)
+### shareImage(ImageSource image, \[optional\] String subject)
 
 The `shareImage()` method expects an [`ImageSource`](https://docs.nativescript.org/api-reference/classes/imagesource.html) object. The code below loads an image from the app and invokes the share widget with it:
 
@@ -49,7 +54,7 @@ You can optionally provide a second argument to configure the subject on Android
 SocialShare.shareImage(image, "How would you like to share this image?");
 ```
 
-### shareText(String text, [optional] String subject)
+### shareText(String text, \[optional\] String subject)
 
 The `shareText()` method expects a simple string:
 
@@ -63,7 +68,7 @@ Like `shareImage()`, you can optionally pass `shareText()` a second argument to 
 SocialShare.shareText('I love NativeScript!', 'How would you like to share this text?')
 ```
 
-### shareUrl(String url, String text, [optional] String subject)
+### shareUrl(String url, String text, \[optional\] String subject)
 
 The `shareUrl()` method excepts a url and a string.
 
@@ -81,22 +86,15 @@ SocialShare.shareUrl(
 )
 ```
 
-### shareViaTwitter(text?: string, url?: string): `Promise<void>`;
+### shareViaTwitter(text?: string, url?: string): Promise\<void\>;
 
 Share text or url via Twitter.
-
-/\*\*
-
-- Share via Facebook
-- @param {string} text - Text to share with URL.
-- @param {string} url - URL to share.
-  \*/
 
 ```js
 SocialShare.shareViaTwitter('Home of NativeScript', 'https://www.nativescript.org/')
 ```
 
-### shareViaFacebook(text?: string, url?: string): `Promise<void>`;
+### shareViaFacebook(text?: string, url?: string): Promise\<void\>;
 
 Share url via Facebook. Note that `text` will usually be suppressed due to Facebook security/abuse prevention, but the url will come through.
 
