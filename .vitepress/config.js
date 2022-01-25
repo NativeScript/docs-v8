@@ -354,6 +354,12 @@ function getPlugins() {
 			category: 'Firebase',
 			plugins: [
 				{
+					name: 'Core',
+					link: '/plugins/firebase-core',
+					readme: `${firebasePlugins_baseUrl}/firebase-core/README.md`,
+					repo: `${firebaseGithubUrl}/firebase-core`,
+				},
+				{
 					name: 'Admob',
 					link: '/plugins/firebase-admob',
 					readme: `${firebasePlugins_baseUrl}/firebase-admob/README.md`,
@@ -375,12 +381,6 @@ function getPlugins() {
 					link: '/plugins/firebase-auth',
 					readme: `${firebasePlugins_baseUrl}/firebase-auth/README.md`,
 					repo: `${firebaseGithubUrl}/firebase-auth`,
-				},
-				{
-					name: 'Core',
-					link: '/plugins/firebase-core',
-					readme: `${firebasePlugins_baseUrl}/firebase-core/README.md`,
-					repo: `${firebaseGithubUrl}/firebase-core`,
 				},
 				{
 					name: 'Crashlytics',
