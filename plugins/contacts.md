@@ -18,15 +18,9 @@ npm install @nativescript/contacts
 
 ## Usage
 
-To use the contacts module you must first `require()` it.
+### iOS Settings
 
-```js
-var contacts = require('@nativescript/contacts')
-```
-
-## iOS Caveats
-
-Add following key to Info.plist found in `app/App_Resources/iOS/Info.plist`
+Add following key to Info.plist often found in `App_Resources/iOS/Info.plist`
 
 ```
 <key>NSContactsUsageDescription</key>
@@ -35,9 +29,9 @@ Add following key to Info.plist found in `app/App_Resources/iOS/Info.plist`
 
 User will be asked for permissions when contacts are accessed by the app.
 
-## Android Caveats
+### Android Settings
 
-From API level 23 on you need to check for the appropriate permissions to access the contacts. So not only do you need these permissions in your manifest:
+From API level 23 on you need to check for the appropriate permissions to access the contacts. So not only do you need these permissions in your `AndroidManifest.xml`:
 
 ```
 <uses-permission android:name="android.permission.GET_ACCOUNTS" />
@@ -46,12 +40,16 @@ From API level 23 on you need to check for the appropriate permissions to access
 <uses-permission android:name="android.permission.GLOBAL_SEARCH" />
 ```
 
-You also need to make sure to request the permissions everytime you perform the operation itself (e.g. using the great nativescript-permissions plugin):
+You also need to make sure to request the permissions everytime you perform the operation itself (e.g. using the nativescript-permissions plugin):
 
 ```
+import { Contact } from '@nativescript/contacts';
+import { requestPermissions } from 'nativescript-permissions';
+
 const contact = new Contact();
-(...)
-Permissions.requestPermissions([android.Manifest.permission.GET_ACCOUNTS, android.Manifest.permission.READ_CONTACTS, android.Manifest.permission.WRITE_CONTACTS, android.Manifest.permission.GLOBAL_SEARCH], "I need these permissions because I'm cool").then(() => {
+// build a new contact...
+
+requestPermissions([android.Manifest.permission.GET_ACCOUNTS, android.Manifest.permission.READ_CONTACTS, android.Manifest.permission.WRITE_CONTACTS, android.Manifest.permission.GLOBAL_SEARCH], "I need these permissions because I'm cool").then(() => {
     contact.save();
 });
 ```
@@ -60,16 +58,16 @@ Permissions.requestPermissions([android.Manifest.permission.GET_ACCOUNTS, androi
 
 #### getContact: Pick one contact and bring back its data.
 
-```js
-var contacts = require('@nativescript/contacts')
+```ts
+import { Contacts } from '@nativescript/contacts'
 
-contacts.getContact().then(function (args) {
+Contacts.getContact().then(function (args) {
   /// Returns args:
   /// args.data: Generic cross platform JSON object
   /// args.reponse: "selected" or "cancelled" depending on wheter the user selected a contact.
 
   if (args.response === 'selected') {
-    var contact = args.data //See data structure below
+    const contact = args.data //See data structure below
 
     // lets say you wanted to grab first name and last name
     console.log(contact.name.given + ' ' + contact.name.family)
@@ -89,58 +87,55 @@ contacts.getContact().then(function (args) {
 
 #### Save a new contact
 
-```js
-var contacts = require('@nativescript/contacts')
-var imageSource = require('@nativescript/core').ImageSource
+```ts
+import { Contact, KnownLabel } from '@nativescript/contacts'
+import { ImageSource } from '@nativescript/core'
 
-var newContact = new contacts.Contact()
+const newContact = new Contact()
 newContact.name.given = 'John'
 newContact.name.family = 'Doe'
 newContact.phoneNumbers.push({
-  label: contacts.KnownLabel.HOME,
+  label: KnownLabel.HOME,
   value: '123457890'
 }) // See below for known labels
 newContact.phoneNumbers.push({ label: 'My Custom Label', value: '11235813' })
-newContact.photo = imageSource.fromFileOrResource('~/photo.png')
+newContact.photo = ImageSource.fromFileOrResource('~/photo.png')
 newContact.save()
 ```
 
 #### Update an existing contact
 
-```js
-var app = require('@nativescript/core/application')
-var contacts = require('@nativescript/contacts')
-var imageSource = require('@nativescript/core/image-source')
+```ts
+import { Application, ImageSource } from '@nativescript/core'
+import { Contacts } from '@nativescript/contacts'
 
-contacts.getContact().then(function (args) {
+Contacts.getContact().then(function (args) {
   if (args.response === 'selected') {
-    var contact = args.data
+    const contact = args.data
     contact.name.given = 'Jane'
     contact.name.family = 'Doe'
 
-    imageSource
-      .fromUrl('http://www.google.com/images/errors/logo_sm_2.png')
-      .then(function (src) {
+    ImageSource.fromUrl('http://www.google.com/images/errors/logo_sm_2.png').then(
+      function (src) {
         contact.photo = src
         contact.save()
-      })
+      }
+    )
   }
 })
 ```
 
 #### Delete a contact
 
-```js
-var app = require('@nativescript/core/application')
-var contacts = require('@nativescript/contacts')
+```ts
+import { Contacts } from '@nativescript/contacts'
 
-contacts.getContact().then(function (args) {
-  /// Returns args:
+Contacts.getContact().then(function (args) {
   /// args.data: Generic cross platform JSON object
   /// args.reponse: "selected" or "cancelled" depending on wheter the user selected a contact.
 
   if (args.response === 'selected') {
-    var contact = args.data //See data structure below
+    const contact = args.data //See data structure below
     contact.delete()
   }
 })
@@ -148,17 +143,15 @@ contacts.getContact().then(function (args) {
 
 #### Check if contact is Unified/Linked (iOS Specific)
 
-```js
-var app = require('@nativescript/core/application')
-var contacts = require('@nativescript/contacts')
+```ts
+import { Contacts } from '@nativescript/contacts'
 
-contacts.getContact().then(function (args) {
-  /// Returns args:
+Contacts.getContact().then(function (args) {
   /// args.data: Generic cross platform JSON object
   /// args.reponse: "selected" or "cancelled" depending on wheter the user selected a contact.
 
   if (args.response === 'selected') {
-    var contact = args.data //See data structure below
+    const contact = args.data //See data structure below
     console.log(contact.isUnified() ? 'Contact IS unified' : 'Contact is NOT unified')
   }
 })
@@ -166,20 +159,18 @@ contacts.getContact().then(function (args) {
 
 #### getContactsByName: Find all contacts whose name matches. Returns an array of contact data.
 
-```js
-var app = require('@nativescript/core/application')
-var contacts = require('@nativescript/contacts')
+```ts
+import { Contacts } from '@nativescript/contacts'
 
 /*
   contactFields contains the fields to retrieve from native backend to reduce processing time
-  var contactFields = ['name','organization','nickname','notes','photo','urls','phoneNumbers','emailAddresses','postalAddresses']
+  const contactFields = ['name','organization','nickname','notes','photo','urls','phoneNumbers','emailAddresses','postalAddresses']
 */
-var contactFields = ['name', 'phoneNumbers']
+const contactFields = ['name', 'phoneNumbers']
 
-contacts.getContactsByName('Hicks', contactFields).then(
+Contacts.getContactsByName('Hicks', contactFields).then(
   function (args) {
     console.log('getContactsByName Complete')
-    console.log(JSON.stringify(args))
     /// Returns args:
     /// args.data: Generic cross platform JSON object, null if no contacts were found.
     /// args.reponse: "fetch"
@@ -192,22 +183,20 @@ contacts.getContactsByName('Hicks', contactFields).then(
 
 #### getAllContacts: Find all contacts. Returns an array of contact data.
 
-```js
-var app = require('@nativescript/core/application')
-var contacts = require('@nativescript/contacts')
+```ts
+import { Contacts } from '@nativescript/contacts'
 
 /*
   Optional: contactFields contains the fields to retrieve from native backend to reduce processing time
-  var contactFields = ['name','organization','nickname','notes','photo','urls','phoneNumbers','emailAddresses','postalAddresses']
+  const contactFields = ['name','organization','nickname','notes','photo','urls','phoneNumbers','emailAddresses','postalAddresses']
 
   If not supplied, all available contactFields will be returned.
 */
-var contactFields = ['name', 'phoneNumbers']
+const contactFields = ['name', 'phoneNumbers']
 
-contacts.getAllContacts(contactFields).then(
+Contacts.getAllContacts(contactFields).then(
   function (args) {
     console.log('getAllContacts Complete')
-    console.log(JSON.stringify(args))
     /// Returns args:
     /// args.data: Generic cross platform JSON object, null if no contacts were found.
     /// args.reponse: "fetch"
@@ -220,16 +209,14 @@ contacts.getAllContacts(contactFields).then(
 
 #### getContactById: Finds the contact with the matching identifier. Returns GetFetchResult. _(iOS Only)_
 
-```js
-var app = require('@nativescript/core/application')
-var contacts = require('@nativescript/contacts')
+```ts
+import { Contacts } from '@nativescript/contacts'
 
-var contactId = '[Contact Identifier]' // Assumes this is a valid contact identifier (Contact.id)
+const contactId = '[Contact Identifier]' // Assumes this is a valid contact identifier (Contact.id)
 
-contacts.getContactById(contactId).then(
+Contacts.getContactById(contactId).then(
   function (args) {
     console.log('getContactById Complete')
-    console.log(JSON.stringify(args))
     /// Returns args:
     /// args.data: Generic cross platform JSON object, null if no contacts were found.
     /// args.reponse: "fetch"
@@ -242,16 +229,13 @@ contacts.getContactById(contactId).then(
 
 #### getGroups: Find groups. Returns an array of group data.
 
-```js
-var app = require('@nativescript/core/application')
-var contacts = require('@nativescript/contacts')
+```ts
+import { Contacts } from '@nativescript/contacts'
 
-contacts
-  .getGroups('Test Group') //[name] optional. If defined will look for group with the specified name, otherwise will return all groups.
+Contacts.getGroups('Test Group') //[name] optional. If defined will look for group with the specified name, otherwise will return all groups.
   .then(
     function (args) {
       console.log('getGroups Complete')
-      console.log(JSON.stringify(args))
       /// Returns args:
       /// args.data: Generic cross platform JSON object, null if no groups were found.
       /// args.reponse: "fetch"
@@ -270,11 +254,10 @@ contacts
 
 #### Save a new group
 
-```js
-var app = require('@nativescript/core/application')
-var contacts = require('@nativescript/contacts')
+```ts
+import { Group } from '@nativescript/contacts'
 
-var groupModel = new contacts.Group()
+const groupModel = new Group()
 groupModel.name = 'Test Group'
 //Save Argument (boolean)
 //iOS: [false=> Use Local Container, true=> Use Default Container]
@@ -284,11 +267,10 @@ groupModel.save(false)
 
 #### Delete a group
 
-```js
-var app = require('@nativescript/core/application')
-var contacts = require('@nativescript/contacts')
+```ts
+import { Contacts } from '@nativescript/contacts'
 
-contacts.getGroups('Test Group').then(
+Contacts.getGroups('Test Group').then(
   function (args) {
     console.log('getGroups Complete')
     console.log(JSON.stringify(args))
@@ -309,21 +291,19 @@ contacts.getGroups('Test Group').then(
 
 #### Add Member To Group
 
-```js
-var app = require('@nativescript/core/application')
-var contacts = require('@nativescript/contacts')
+```ts
+import { Contacts } from '@nativescript/contacts'
 
-contacts.getContact().then(function (args) {
-  /// Returns args:
+Contacts.getContact().then(function (args) {
   /// args.data: Generic cross platform JSON object
   /// args.reponse: "selected" or "cancelled" depending on wheter the user selected a contact.
 
   if (args.response === 'selected') {
-    var contact = args.data //See data structure below
-    contacts.getGroups('Test Group').then(
+    const contact = args.data //See data structure below
+    Contacts.getGroups('Test Group').then(
       function (a) {
         if (a.data !== null) {
-          var group = a.data[0]
+          const group = a.data[0]
           group.addMember(contact)
         }
       },
@@ -337,18 +317,16 @@ contacts.getContact().then(function (args) {
 
 #### Remove Member From Group
 
-```js
-var app = require('@nativescript/core/application')
-var contacts = require('@nativescript/contacts')
+```ts
+import { Contacts } from '@nativescript/contacts'
 
-contacts
-  .getGroups('Test Group') //[name] optional. If defined will look for group with the specified name, otherwise will return all groups.
+Contacts.getGroups('Test Group') //[name] optional. If defined will look for group with the specified name, otherwise will return all groups.
   .then(
     function (args) {
       if (args.data !== null) {
-        var group = args.data[0]
+        const group = args.data[0]
 
-        contacts.getContactsInGroup(group).then(
+        Contacts.getContactsInGroup(group).then(
           function (a) {
             /// Returns args:
             /// args.data: Generic cross platform JSON object, null if no groups were found.
@@ -375,18 +353,16 @@ contacts
 
 #### getContactsInGroup: Get all contacts in a group. Returns an array of contact data.
 
-```js
-var app = require('@nativescript/core/application')
-var contacts = require('@nativescript/contacts')
+```ts
+import { Contacts } from '@nativescript/contacts'
 
-contacts
-  .getGroups('Test Group') //[name] optional. If defined will look for group with the specified name, otherwise will return all groups.
+Contacts.getGroups('Test Group') //[name] optional. If defined will look for group with the specified name, otherwise will return all groups.
   .then(
     function (args) {
       if (args.data !== null) {
-        var group = args.data[0]
+        const group = args.data[0]
 
-        contacts.getContactsInGroup(group).then(
+        Contacts.getContactsInGroup(group).then(
           function (a) {
             console.log('getContactsInGroup complete')
             /// Returns args:
@@ -407,7 +383,7 @@ contacts
 
 ### Single User Data Structure
 
-```js
+```ts
 {
     id : "",
     name : {
@@ -447,7 +423,7 @@ contacts
 
 ### PhoneNumber / EmailAddress structure
 
-```js
+```ts
 {
     id: "",
     label: "",
@@ -457,7 +433,7 @@ contacts
 
 ### Url structure
 
-```js
+```ts
 {
     label: "",
     value: ""
@@ -466,7 +442,7 @@ contacts
 
 ### PostalAddress structure
 
-```js
+```ts
 {
     id: "",
     label: "",
@@ -544,7 +520,7 @@ Those are the system labels but you can also use any custom label you want.
 
 ### Single Group Data Structure
 
-```js
+```ts
 {
   id: ''
   name: ''
@@ -555,7 +531,7 @@ Those are the system labels but you can also use any custom label you want.
 
 The object returned by contact fetch requests.
 
-```js
+```ts
 {
   data: Contact[];
   response: string;
