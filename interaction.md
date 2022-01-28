@@ -1499,7 +1499,7 @@ export function showAlertDialog() {
 
 ### Action Dialog
 
-An Action Dialog will require a particular activity from the user. The action method accepts multiple parameters or an ActionOptions object with keys title, message, cancelBUttonText, actions, and cancelable(Android only property).
+An Action Dialog will require a particular activity from the user. The action method accepts multiple parameters or an ActionOptions object with keys title, message, cancelButtonText, actions, and cancelable(Android only property).
 
 ```ts
 import { Dialogs } from '@nativescript/core'
