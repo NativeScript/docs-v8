@@ -280,9 +280,9 @@ Next, add the `ListView` component:
   <!-- Add this 👇 -->
   <stackLayout height="100%">
     <listView height="100%" separatorColor="transparent" items="{flicks}">
-      <template let:item>
+      <Template let:item>
         <label text="{item.title}" />
-      </template>
+      </Template>
     </listView>
   </stackLayout>
 </page>
@@ -345,7 +345,7 @@ As you can see in the image above, each card is made up of 3 components, the pre
   <actionBar title="NativeFlix" />
   <stackLayout height="100%">
     <listView height="100%" separatorColor="transparent" items="{flicks}">
-      <template let:item>
+      <Template let:item>
         <!-- Add this 👇 -->
         <gridLayout
           height="280"
@@ -374,7 +374,7 @@ As you can see in the image above, each card is made up of 3 components, the pre
             text="{item.description}"
           />
         </gridLayout>
-      </template>
+      </Template>
     </listView>
   </stackLayout>
 </page>
@@ -416,7 +416,7 @@ We will be using the `navigate` function from `svelte-native` class to navigate 
   <actionBar title="NativeFlix" />
   <stackLayout height="100%">
     <listView height="100%" separatorColor="transparent" items="{flicks}">
-      <template let:item>
+      <Template let:item>
         <gridLayout
           height="280"
           borderRadius="10"
@@ -444,7 +444,7 @@ We will be using the `navigate` function from `svelte-native` class to navigate 
             text="{item.description}"
           />
         </gridLayout>
-      </template>
+      </Template>
     </listView>
   </stackLayout>
 </page>
@@ -484,7 +484,7 @@ Next, let's add the tap event to the listview items. Open `Home.svelte` and add 
       items="{flicks}"
       on:itemTap="{onFlickTap}"
     >
-      <template let:item>
+      <Template let:item>
         <gridLayout
           height="280"
           borderRadius="10"
@@ -512,7 +512,7 @@ Next, let's add the tap event to the listview items. Open `Home.svelte` and add 
             text="{item.description}"
           />
         </gridLayout>
-      </template>
+      </Template>
     </listView>
   </stackLayout>
 </page>
