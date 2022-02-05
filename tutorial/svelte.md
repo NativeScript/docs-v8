@@ -280,9 +280,9 @@ Next, add the `ListView` component:
   <!-- Add this 👇 -->
   <stackLayout height="100%">
     <listView height="100%" separatorColor="transparent" items="{flicks}">
-      <template let:item>
+      <Template let:item>
         <label text="{item.title}" />
-      </template>
+      </Template>
     </listView>
   </stackLayout>
 </page>
