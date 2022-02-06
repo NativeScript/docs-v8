@@ -318,7 +318,7 @@ export class FlickService {
   }
 }
 ```
-Next, add a ```/src/assets/``` directory to your project, and copy the 3 static images over from the sample project [here](https://github.com/NativeScript/tutorials/tree/main/plain-tutorial/app/assets).
+Add a ```/src/assets/``` directory to your project, and copy the 3 static images over from the sample project [here](https://github.com/NativeScript/tutorials/tree/main/plain-tutorial/app/assets).
 
 :::tip Note
 You can create barrel exports for your models and services to give you more flexibility in organizing your files and folders. To do this, create an `index.ts` in your `services` and `models` directory and export `flick.service.ts` and `flick.model.ts` respectively. You can also add another `index.ts` in your `core` folder and export your `services` and `models` directory.

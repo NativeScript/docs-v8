@@ -63,6 +63,10 @@ Based on the Vue starter app, we will be creating the following file/folder stru
 
 ```
 app
+  |- assets
+      |- anastasia.png
+      |- beetlejuicemusical.png
+      |- bookofmormon.png
   |- components
       |- Home.vue
       |- Details.vue
@@ -243,6 +247,7 @@ export default class FlickService {
   }
 }
 ```
+Add a ```/src/assets/``` directory to your project, and copy the 3 static images over from the sample project [here](https://github.com/NativeScript/tutorials/tree/main/plain-tutorial/app/assets).
 
 Next, let's break down the layout and UI elements of the home page.
 
