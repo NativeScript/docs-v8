@@ -325,6 +325,12 @@ function getPlugins() {
 					readme: `${officialPlugins_baseUrl}/zip/README.md`,
 					repo: `${officialGithubUrl}/zip`,
 				},
+				{
+					name: 'Tailwind CSS',
+					link: '/plugins/tailwindcss',
+					readme: `https://raw.githubusercontent.com/NativeScript/tailwind/main/README.md`,
+					repo: `https://github.com/NativeScript/tailwind`,
+				},
 			],
 		},
 		{
