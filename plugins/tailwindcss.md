@@ -38,7 +38,7 @@ This guide assumes you are using `@nativescript/webpack@5.x` as some configurati
 Install `@nativescript/tailwind` and `tailwindcss`
 
 ```cli
-npm install --save @nativescript/tailwind tailwindcss
+npm install --save @nativescript/tailwind@rc tailwindcss
 ```
 
 Generate a `tailwind.config.js` with
@@ -112,7 +112,7 @@ This usage is considered legacy and will not be supported - however we are docum
   <summary>See instructions</summary>
 
 ```cli
-npm install --save-dev @nativescript/tailwind tailwindcss postcss postcss-loader
+npm install --save-dev @nativescript/tailwind@rc tailwindcss postcss postcss-loader
 ```
 
 Create `postcss.config.js` with the following:
