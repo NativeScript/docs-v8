@@ -269,7 +269,8 @@ class _FlickService {
 
 export const FlickService = new _FlickService()
 ```
-Add a ```/src/assets/``` directory to your project, and copy the 3 static images over from the sample project [here](https://github.com/NativeScript/tutorials/tree/main/plain-tutorial/app/assets).
+
+Add a `/src/assets/` directory to your project, and copy the 3 static images over from the sample project [here](https://github.com/NativeScript/tutorials/tree/main/react-tutorial/src/assets).
 
 Next, let's break down the layout and UI elements of the home page.
 
