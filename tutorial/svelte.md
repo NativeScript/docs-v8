@@ -60,6 +60,10 @@ Based on the Typescript starter app, we will be creating the following file/fold
 
 ```
 app
+  |- assets
+      |- anastasia.png
+      |- beetlejuicemusical.png
+      |- bookofmormon.png
   |- pages
       |- Home.svelte
       |- Details.svelte
@@ -238,6 +242,8 @@ export class FlickService {
   }
 }
 ```
+
+Add a `/src/assets/` directory to your project, and copy the 3 static images over from the sample project [here](https://github.com/NativeScript/tutorials/tree/main/svelte-tutorial/app/assets).
 
 Next, let's break down the layout and UI elements of the home page.
 
