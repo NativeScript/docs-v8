@@ -112,7 +112,8 @@ export class HomeViewModel extends Observable {}
 <!-- tab:home-page.xml -->
 
 ```xml
-
+<!-- app/home/home-page.xml -->
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo" />
 ```
 
 ### Routing setup
@@ -120,7 +121,8 @@ export class HomeViewModel extends Observable {}
 We will be setting up the home page as our default route when the app starts. We can set the default route by passing the path in our home page file to the `defaultPage` property of the root's `Frame` component. Open `app-root.xml` and add the following code:
 
 ```xml
-
+<!-- app/app-root.xml -->
+<Frame defaultPage="home/home-page" />
 ```
 
 ### Home UI
@@ -268,7 +270,10 @@ Next, let's break down the layout and UI elements of the home page.
 The home page can be divided into two main parts, the action bar with the title and the scrollable main content area with the cards (we will talk about the cards in the next section). Let's start with creating the action bar with the title. Open `home-page.xml` and add the following code:
 
 ```xml
-
+<!-- app/home/home-page.xml -->
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo">
+  <ActionBar title="NativeFlix" />
+</Page>
 ```
 
 Since we have an array of flicks to display we can use NativeScript's [`ListView`](https://docs.nativescript.org/ui-and-styling.html#listview) component. `ListView` is a NativeScript UI component that efficiently renders items in a vertical or horizontal scrolling list. Let's first create a variable called flick in our home component that we are going to use as our `ListView`'s data source. Open `home-view-model.ts` and add the following:
@@ -443,7 +448,8 @@ export class DetailsViewModel extends Observable {}
 <!-- tab:details-page.xml -->
 
 ```xml
-
+<!-- app/details/details-page.xml -->
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo" />
 ```
 
 ### Setup navigation from home to details component
