@@ -137,7 +137,7 @@ export class FlickService {
       id: 1,
       genre: 'Musical',
       title: 'Book of Mormon',
-      image: '/assets/bookofmormon.png',
+      image: '~/assets/bookofmormon.png',
       url: 'https://nativescript.org/images/ngconf/book-of-mormon.mov',
       description: `A satirical examination of the beliefs and practices of The Church of Jesus Christ of Latter-day Saints.`,
       details: [
@@ -169,7 +169,7 @@ export class FlickService {
       id: 2,
       genre: 'Musical',
       title: 'Beetlejuice',
-      image: '/assets/beetlejuicemusical.png',
+      image: '~/assets/beetlejuicemusical.png',
       url: 'https://nativescript.org/images/ngconf/beetlejuice.mov',
       description: `A deceased couple looks for help from a devious bio-exorcist to handle their haunted house.`,
       details: [
@@ -199,7 +199,7 @@ export class FlickService {
       id: 3,
       genre: 'Musical',
       title: 'Anastasia',
-      image: '/assets/anastasia.png',
+      image: '~/assets/anastasia.png',
       url: 'https://nativescript.org/images/ngconf/anastasia.mov',
       description: `The legend of Grand Duchess Anastasia Nikolaevna of Russia.`,
       details: [
@@ -256,7 +256,7 @@ The home page can be divided into two main parts, the action bar with the title 
 Since we have an array of flicks to display we can use NativeScript's [`ListView`](https://docs.nativescript.org/ui-and-styling.html#listview) component. `ListView` is a NativeScript UI component that efficiently renders items in a vertical or horizontal scrolling list. Let's first create a variable called flick in our home component that we are going to use as our `ListView`'s data source. Open `Home.svelte` and add the following:
 
 ```html{9}
-// app/pages/Home.svelte
+<!-- app/pages/Home.svelte -->
 
 <page>
   <actionBar title="NativeFlix" />
