@@ -374,7 +374,7 @@ module.exports = env => {
 
   // set the base config
   // can be false to opt out from using a base config (used mostly in tests)
-  // or can be one of the base configs: base, angular, javascript, react, svelte,	typescript, vue
+  // or can be one of the base configs: base, angular, javascript, react, svelte, typescript, vue
   webpack.useConfig('vue')
 
   return webpack.resolveConfig()
