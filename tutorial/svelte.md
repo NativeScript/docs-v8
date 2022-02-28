@@ -71,8 +71,6 @@ app
       |- flick.ts
   |- services
       |- flickService.ts
-  |- services
-      |- flick.service.ts
   |- app.css
   |- App.svelte
   |- app.ts
