@@ -248,7 +248,7 @@ export default class FlickService {
 }
 ```
 
-Add a `/src/assets/` directory to your project, and copy the 3 static images over from the sample project [here](https://github.com/NativeScript/tutorials/tree/main/vue-tutorial/app/assets).
+Add a `/app/assets/` directory to your project, and copy the 3 static images over from the sample project [here](https://github.com/NativeScript/tutorials/tree/main/vue-tutorial/app/assets).
 
 Next, let's break down the layout and UI elements of the home page.
 
