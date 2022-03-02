@@ -158,6 +158,12 @@ function getPlugins() {
 					repo: `${officialGithubUrl}/appavailability`,
 				},
 				{
+					name: 'Apple Signin',
+					link: '/plugins/apple-sign-in',
+					readme: `${officialPlugins_baseUrl}/apple-sign-in/README.md`,
+					repo: `${officialGithubUrl}/apple-sign-in`,
+				},
+				{
 					name: 'Auto Fit Text',
 					link: '/plugins/auto-fit-text',
 					readme: `${officialPlugins_baseUrl}/auto-fit-text/README.md`,
@@ -170,6 +176,12 @@ function getPlugins() {
 					repo: `${officialGithubUrl}/background-http`,
 				},
 				{
+					name: 'Biometrics',
+					link: '/plugins/biometrics',
+					readme: `${officialPlugins_baseUrl}/biometrics/README.md`,
+					repo: `${officialGithubUrl}/biometrics`,
+				},
+				{
 					name: 'Brightness',
 					link: '/plugins/brightness',
 					readme: `${officialPlugins_baseUrl}/brightness/README.md`,
@@ -180,6 +192,12 @@ function getPlugins() {
 					link: '/plugins/camera',
 					readme: `${officialPlugins_baseUrl}/camera/README.md`,
 					repo: `${officialGithubUrl}/camera`,
+				},
+				{
+					name: 'Contacts',
+					link: '/plugins/contacts',
+					readme: `${officialPlugins_baseUrl}/contacts/README.md`,
+					repo: `${officialGithubUrl}/contacts`,
 				},
 				{
 					name: 'DateTimePicker',
@@ -224,22 +242,34 @@ function getPlugins() {
 					repo: `${officialGithubUrl}/fingerprint-auth`,
 				},
 				{
-					name: 'Google Signin',
-					link: '/plugins/google-signin',
-					readme: `${officialPlugins_baseUrl}/google-signin/README.md`,
-					repo: `${officialGithubUrl}/google-signin`,
-				},
-				{
 					name: 'Geolocation',
 					link: '/plugins/geolocation',
 					readme: `${officialPlugins_baseUrl}/geolocation/README.md`,
 					repo: `${officialGithubUrl}/geolocation`,
 				},
 				{
+					name: 'Google Maps',
+					link: '/plugins/google-maps',
+					readme: `${officialPlugins_baseUrl}/google-maps/README.md`,
+					repo: `${officialGithubUrl}/google-maps`,
+				},
+				{
+					name: 'Google Signin',
+					link: '/plugins/google-signin',
+					readme: `${officialPlugins_baseUrl}/google-signin/README.md`,
+					repo: `${officialGithubUrl}/google-signin`,
+				},
+				{
 					name: 'Image Picker',
 					link: '/plugins/imagepicker',
 					readme: `${officialPlugins_baseUrl}/imagepicker/README.md`,
 					repo: `${officialGithubUrl}/imagepicker`,
+				},
+				{
+					name: 'iOS Security',
+					link: '/plugins/ios-security',
+					readme: `${officialPlugins_baseUrl}/ios-security/README.md`,
+					repo: `${officialGithubUrl}/ios-security`,
 				},
 				{
 					name: 'IQ Keyboard Manager',
@@ -278,6 +308,12 @@ function getPlugins() {
 					repo: `${officialGithubUrl}/social-share`,
 				},
 				{
+					name: 'Theme Switcher',
+					link: '/plugins/theme-switcher',
+					readme: `${officialPlugins_baseUrl}/theme-switcher/README.md`,
+					repo: `${officialGithubUrl}/theme-switcher`,
+				},
+				{
 					name: 'Twitter',
 					link: '/plugins/twitter',
 					readme: `${officialPlugins_baseUrl}/twitter/README.md`,
@@ -288,6 +324,12 @@ function getPlugins() {
 					link: '/plugins/zip',
 					readme: `${officialPlugins_baseUrl}/zip/README.md`,
 					repo: `${officialGithubUrl}/zip`,
+				},
+				{
+					name: 'Tailwind CSS',
+					link: '/plugins/tailwindcss',
+					readme: `https://raw.githubusercontent.com/NativeScript/tailwind/main/README.md`,
+					repo: `https://github.com/NativeScript/tailwind`,
 				},
 			],
 		},
@@ -318,6 +360,12 @@ function getPlugins() {
 			category: 'Firebase',
 			plugins: [
 				{
+					name: 'Core',
+					link: '/plugins/firebase-core',
+					readme: `${firebasePlugins_baseUrl}/firebase-core/README.md`,
+					repo: `${firebaseGithubUrl}/firebase-core`,
+				},
+				{
 					name: 'Admob',
 					link: '/plugins/firebase-admob',
 					readme: `${firebasePlugins_baseUrl}/firebase-admob/README.md`,
@@ -339,12 +387,6 @@ function getPlugins() {
 					link: '/plugins/firebase-auth',
 					readme: `${firebasePlugins_baseUrl}/firebase-auth/README.md`,
 					repo: `${firebaseGithubUrl}/firebase-auth`,
-				},
-				{
-					name: 'Core',
-					link: '/plugins/firebase-core',
-					readme: `${firebasePlugins_baseUrl}/firebase-core/README.md`,
-					repo: `${firebaseGithubUrl}/firebase-core`,
 				},
 				{
 					name: 'Crashlytics',
@@ -443,6 +485,10 @@ function getSidebar() {
 				{
 					text: '@nativescript',
 					link: '/understanding-packages',
+				},
+				{
+					text: 'Tutorials',
+					link: '/tutorial/',
 				},
 			],
 		},

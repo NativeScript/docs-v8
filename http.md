@@ -178,5 +178,3 @@ Http.request({
 | Name                                                                                     | Type     |
 | ---------------------------------------------------------------------------------------- | -------- |
 | [@nativescript/core/http](https://docs.nativescript.org/api-reference/modules.html#http) | `Module` |
-
-<!-- TODO: fix links -->

@@ -6666,9 +6666,10 @@ var script$a = defineComponent({
 			mobileMenuOpen: mobileMenuOpen,
 			flyoutMenuOpen: flyoutMenuOpen,
 			algoliaOptions: {
-				apiKey: '8d41b4ae92a02aea355e1dc8cfad1899',
+				appId: '110JARHFDU',
+				apiKey: 'b54a1df4c08fbed7da6964ca0e24281d',
 				indexName: 'nativescript',
-				debug: true,
+				debug: false,
 			},
 			openSearch: openSearch,
 		}
@@ -6683,7 +6684,7 @@ var _hoisted_1$a = {
 	class: 'top-0 z-10 lg:sticky nav-bar',
 }
 var _hoisted_2$9 = {
-	class: 'pt-6 pb-6 bg-ns-blue',
+	class: 'py-4 bg-ns-blue',
 }
 var _hoisted_3$6 = {
 	class:
@@ -6782,7 +6783,7 @@ var _hoisted_14$1 = /*#__PURE__*/ createVNode(
 	-1
 )
 
-var _hoisted_15$1 = /*#__PURE__*/ createStaticVNode(
+var _hoisted_15 = /*#__PURE__*/ createStaticVNode(
 	'<input aria-hidden="true" id="search" name="search" disabled class="\n                      block\n                      w-full\n                      py-2\n                      pl-10\n                      pr-3\n                      leading-5\n                      bg-white\n                      border border-transparent\n                      rounded-md\n                      placeholder-blue-50\n                      text-blue-50\n                      bg-opacity-20\n                      focus:outline-none focus:bg-white focus:ring-0 focus:placeholder-gray-400 focus:text-gray-900\n                      sm:text-sm\n                    " placeholder="Search Anything" type="search"><div class="absolute inset-y-0 right-0 items-center hidden pr-3 pointer-events-none xl:flex"><div class="px-2 py-1 text-xs text-white bg-white border border-white border-opacity-50 rounded bg-opacity-30"><span class="sr-only">Press Ctrl+K to open quick search</span><span aria-hidden="true">Ctrl K</span></div></div>',
 	2
 )
@@ -7044,7 +7045,7 @@ function render$9(_ctx, _cache, $props, $setup, $data, $options) {
 											_: 1,
 										}),
 										_hoisted_14$1,
-										_hoisted_15$1,
+										_hoisted_15,
 									]),
 								]),
 							]),
@@ -7628,17 +7629,109 @@ function render$7(_ctx, _cache, $props, $setup, $data, $options) {
 
 script$8.render = render$7
 
+function _defineProperty(obj, key, value) {
+	if (key in obj) {
+		Object.defineProperty(obj, key, {
+			value: value,
+			enumerable: true,
+			configurable: true,
+			writable: true,
+		})
+	} else {
+		obj[key] = value
+	}
+
+	return obj
+}
+
+function _slicedToArray(arr, i) {
+	return (
+		_arrayWithHoles(arr) ||
+		_iterableToArrayLimit(arr, i) ||
+		_unsupportedIterableToArray(arr, i) ||
+		_nonIterableRest()
+	)
+}
+
+function _arrayWithHoles(arr) {
+	if (Array.isArray(arr)) return arr
+}
+
+function _iterableToArrayLimit(arr, i) {
+	var _i =
+		arr &&
+		((typeof Symbol !== 'undefined' && arr[Symbol.iterator]) ||
+			arr['@@iterator'])
+
+	if (_i == null) return
+	var _arr = []
+	var _n = true
+	var _d = false
+
+	var _s, _e
+
+	try {
+		for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) {
+			_arr.push(_s.value)
+
+			if (i && _arr.length === i) break
+		}
+	} catch (err) {
+		_d = true
+		_e = err
+	} finally {
+		try {
+			if (!_n && _i['return'] != null) _i['return']()
+		} finally {
+			if (_d) throw _e
+		}
+	}
+
+	return _arr
+}
+
+function _unsupportedIterableToArray(o, minLen) {
+	if (!o) return
+	if (typeof o === 'string') return _arrayLikeToArray(o, minLen)
+	var n = Object.prototype.toString.call(o).slice(8, -1)
+	if (n === 'Object' && o.constructor) n = o.constructor.name
+	if (n === 'Map' || n === 'Set') return Array.from(o)
+	if (n === 'Arguments' || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
+		return _arrayLikeToArray(o, minLen)
+}
+
+function _arrayLikeToArray(arr, len) {
+	if (len == null || len > arr.length) len = arr.length
+
+	for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]
+
+	return arr2
+}
+
+function _nonIterableRest() {
+	throw new TypeError(
+		'Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.'
+	)
+}
+
 function useActiveSidebarLinks$1() {
-	let rootActiveLink = null
-	let activeLink = null
-	const onScroll = throttleAndDebounce$1(setActiveLink, 300)
+	var rootActiveLink = null
+	var activeLink = null
+	var onScroll = throttleAndDebounce$1(setActiveLink, 300)
+
 	function setActiveLink() {
-		const sidebarLinks = getSidebarLinks$1()
-		const anchors = getAnchors$1(sidebarLinks)
-		for (let i = 0; i < anchors.length; i++) {
-			const anchor = anchors[i]
-			const nextAnchor = anchors[i + 1]
-			const [isActive, hash] = isAnchorActive$1(i, anchor, nextAnchor)
+		var sidebarLinks = getSidebarLinks$1()
+		var anchors = getAnchors$1(sidebarLinks)
+
+		for (var i = 0; i < anchors.length; i++) {
+			var anchor = anchors[i]
+			var nextAnchor = anchors[i + 1]
+
+			var _isAnchorActive = isAnchorActive$1(i, anchor, nextAnchor),
+				_isAnchorActive2 = _slicedToArray(_isAnchorActive, 2),
+				isActive = _isAnchorActive2[0],
+				hash = _isAnchorActive2[1]
+
 			if (isActive) {
 				history.replaceState(null, document.title, hash ? hash : ' ')
 				activateLink(hash)
@@ -7646,16 +7739,20 @@ function useActiveSidebarLinks$1() {
 			}
 		}
 	}
+
 	function activateLink(hash) {
 		deactiveLink(activeLink)
 		deactiveLink(rootActiveLink)
-		activeLink = document.querySelector(`.sidebar a[href="${hash}"]`)
+		activeLink = document.querySelector('.sidebar a[href="'.concat(hash, '"]'))
+
 		if (!activeLink) {
 			return
 		}
-		activeLink.classList.add('active')
-		// also add active class to parent h2 anchors
-		const rootLi = activeLink.closest('.sidebar-links > ul > li')
+
+		activeLink.classList.add('active') // also add active class to parent h2 anchors
+
+		var rootLi = activeLink.closest('.sidebar-links > ul > li')
+
 		if (rootLi && rootLi !== activeLink.parentElement) {
 			rootActiveLink = rootLi.querySelector('a')
 			rootActiveLink && rootActiveLink.classList.add('active')
@@ -7663,64 +7760,79 @@ function useActiveSidebarLinks$1() {
 			rootActiveLink = null
 		}
 	}
+
 	function deactiveLink(link) {
 		link && link.classList.remove('active')
 	}
-	onMounted(() => {
+
+	onMounted(function () {
 		setActiveLink()
 		window.addEventListener('scroll', onScroll)
 	})
-	onUpdated(() => {
+	onUpdated(function () {
 		// sidebar update means a route change
 		activateLink(decodeURIComponent(location.hash))
 	})
-	onUnmounted(() => {
+	onUnmounted(function () {
 		window.removeEventListener('scroll', onScroll)
 	})
 }
+
 function getSidebarLinks$1() {
 	return [].slice.call(
 		document.querySelectorAll('.sidebar a.sidebar-link-item')
 	)
 }
+
 function getAnchors$1(sidebarLinks) {
 	return [].slice
 		.call(document.querySelectorAll('.header-anchor'))
-		.filter((anchor) =>
-			sidebarLinks.some((sidebarLink) => sidebarLink.hash === anchor.hash)
-		)
+		.filter(function (anchor) {
+			return sidebarLinks.some(function (sidebarLink) {
+				return sidebarLink.hash === anchor.hash
+			})
+		})
 }
+
 function getPageOffset$1() {
 	return document.querySelector('.nav-bar').offsetHeight
 }
+
 function getAnchorTop$1(anchor) {
-	const pageOffset = getPageOffset$1()
+	var pageOffset = getPageOffset$1()
 	return anchor.parentElement.offsetTop - pageOffset - 15
 }
+
 function isAnchorActive$1(index, anchor, nextAnchor) {
-	const scrollTop = window.scrollY
+	var scrollTop = window.scrollY
+
 	if (index === 0 && scrollTop === 0) {
 		return [true, null]
 	}
+
 	if (scrollTop < getAnchorTop$1(anchor)) {
 		return [false, null]
 	}
+
 	if (!nextAnchor || scrollTop < getAnchorTop$1(nextAnchor)) {
 		return [true, decodeURIComponent(anchor.hash)]
 	}
+
 	return [false, null]
 }
+
 function throttleAndDebounce$1(fn, delay) {
-	let timeout
-	let called = false
-	return () => {
+	var timeout
+	var called = false
+	return function () {
 		if (timeout) {
 			clearTimeout(timeout)
 		}
+
 		if (!called) {
 			fn()
 			called = true
-			setTimeout(() => {
+			setTimeout(function () {
 				called = false
 			}, delay)
 		} else {
@@ -7733,7 +7845,7 @@ function isArray(value) {
 	return Array.isArray(value)
 }
 function ensureStartingSlash(path) {
-	return /^\//.test(path) ? path : `/${path}`
+	return /^\//.test(path) ? path : '/'.concat(path)
 }
 
 function isSideBarConfig(sidebar) {
@@ -7745,65 +7857,84 @@ function isSideBarConfig(sidebar) {
  * combinations such as matching `guide/` and `/guide/`. If no matching config
  * was found, it will return `auto` as a fallback.
  */
+
 function getSideBarConfig(sidebar, path) {
 	if (isSideBarConfig(sidebar)) {
 		return sidebar
 	}
+
 	path = ensureStartingSlash(path)
-	for (const dir in sidebar) {
+
+	for (var dir in sidebar) {
 		// make sure the multi sidebar key starts with slash too
 		if (path.startsWith(ensureStartingSlash(dir))) {
 			return sidebar[dir]
 		}
 	}
+
 	return 'auto'
 }
 
 function useSideBar() {
-	const route = useRoute()
-	const { site } = useData()
+	var route = useRoute()
+
+	var _useData = useData(),
+		site = _useData.site
+
 	useActiveSidebarLinks$1()
-	return computed(() => {
+	return computed(function () {
 		// at first, we'll check if we can find the sidebar setting in frontmatter.
-		const headers = route.data.headers
-		const frontSidebar = route.data.frontmatter.sidebar
-		const sidebarDepth = route.data.frontmatter.sidebarDepth
-		// if it's `false`, we'll just return an empty array here.
+		var headers = route.data.headers
+		var frontSidebar = route.data.frontmatter.sidebar
+		var sidebarDepth = route.data.frontmatter.sidebarDepth // if it's `false`, we'll just return an empty array here.
+
 		if (frontSidebar === false) {
 			return []
-		}
-		// if it's `atuo`, render headers of the current page
+		} // if it's `atuo`, render headers of the current page
+
 		if (frontSidebar === 'auto') {
 			return resolveAutoSidebar(headers, sidebarDepth)
-		}
-		// now, there's no sidebar setting at frontmatter; let's see the configs
-		const themeSidebar = getSideBarConfig(
+		} // now, there's no sidebar setting at frontmatter; let's see the configs
+
+		var themeSidebar = getSideBarConfig(
 			site.value.themeConfig.sidebar,
 			route.data.relativePath
 		)
+
 		if (themeSidebar === false) {
 			return []
 		}
+
 		if (themeSidebar === 'auto') {
 			return resolveAutoSidebar(headers, sidebarDepth)
 		}
+
 		return themeSidebar
 	})
 }
+
 function resolveAutoSidebar(headers, depth) {
-	const ret = []
+	var ret = []
+
 	if (headers === undefined) {
 		return []
 	}
-	let lastH2 = undefined
-	headers.forEach(({ level, title, slug }) => {
+
+	var lastH2 = undefined
+	headers.forEach(function (_ref) {
+		var level = _ref.level,
+			title = _ref.title,
+			slug = _ref.slug
+
 		if (level - 1 > depth) {
 			return
 		}
-		const item = {
+
+		var item = {
 			text: title,
-			link: `#${slug}`,
+			link: '#'.concat(slug),
 		}
+
 		if (level === 2) {
 			lastH2 = item
 			ret.push(item)
@@ -7864,10 +7995,11 @@ var SideBarLink = function SideBarLink(props) {
 				link ? 'a' : 'p',
 				{
 					class: {
-						'text-gray-500 hover:text-gray-900 px-4 py-1 text-md': !!link,
-						'text-gray-600 font-bold mt-6 uppercase text-xs mb-3': !link,
+						'text-gray-600 font-bold mt-6 uppercase text-xs': !link,
 						// titles
-						'text-blue-400 font-bold': active,
+						'text-gray-500 hover:text-gray-900 py-1 text-sm': !!link,
+						// regular items
+						'text-blue-400 font-bold': active, // active items
 					},
 					href: link,
 				},
@@ -8141,91 +8273,6 @@ var script$5 = {
 	},
 }
 
-function _defineProperty(obj, key, value) {
-	if (key in obj) {
-		Object.defineProperty(obj, key, {
-			value: value,
-			enumerable: true,
-			configurable: true,
-			writable: true,
-		})
-	} else {
-		obj[key] = value
-	}
-
-	return obj
-}
-
-function _slicedToArray(arr, i) {
-	return (
-		_arrayWithHoles(arr) ||
-		_iterableToArrayLimit(arr, i) ||
-		_unsupportedIterableToArray(arr, i) ||
-		_nonIterableRest()
-	)
-}
-
-function _arrayWithHoles(arr) {
-	if (Array.isArray(arr)) return arr
-}
-
-function _iterableToArrayLimit(arr, i) {
-	var _i =
-		arr &&
-		((typeof Symbol !== 'undefined' && arr[Symbol.iterator]) ||
-			arr['@@iterator'])
-
-	if (_i == null) return
-	var _arr = []
-	var _n = true
-	var _d = false
-
-	var _s, _e
-
-	try {
-		for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) {
-			_arr.push(_s.value)
-
-			if (i && _arr.length === i) break
-		}
-	} catch (err) {
-		_d = true
-		_e = err
-	} finally {
-		try {
-			if (!_n && _i['return'] != null) _i['return']()
-		} finally {
-			if (_d) throw _e
-		}
-	}
-
-	return _arr
-}
-
-function _unsupportedIterableToArray(o, minLen) {
-	if (!o) return
-	if (typeof o === 'string') return _arrayLikeToArray(o, minLen)
-	var n = Object.prototype.toString.call(o).slice(8, -1)
-	if (n === 'Object' && o.constructor) n = o.constructor.name
-	if (n === 'Map' || n === 'Set') return Array.from(o)
-	if (n === 'Arguments' || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
-		return _arrayLikeToArray(o, minLen)
-}
-
-function _arrayLikeToArray(arr, len) {
-	if (len == null || len > arr.length) len = arr.length
-
-	for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]
-
-	return arr2
-}
-
-function _nonIterableRest() {
-	throw new TypeError(
-		'Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.'
-	)
-}
-
 function useActiveSidebarLinks() {
 	var rootActiveLink = null
 	var activeLink = null
@@ -8401,14 +8448,14 @@ var script$4 = defineComponent({
 	},
 })
 
-var _withId = /*#__PURE__*/ withScopeId('data-v-2b564ceb')
+var _withId = /*#__PURE__*/ withScopeId('data-v-56b37754')
 
-pushScopeId('data-v-2b564ceb')
+pushScopeId('data-v-56b37754')
 
 var _hoisted_1$4 = /*#__PURE__*/ createVNode(
 	'div',
 	{
-		class: 'pt-10 pb-2 text-xs font-bold text-gray-700 uppercase',
+		class: 'pt-10 pb-2 text-gray-600 font-bold uppercase text-xs',
 	},
 	'On this page',
 	-1
@@ -8454,7 +8501,7 @@ var render$4 = /*#__PURE__*/ _withId(function (
 										((_ref = {}),
 										_defineProperty(_ref, header.flavor, true),
 										_defineProperty(_ref, 'pl-0', header.level === 2),
-										_defineProperty(_ref, 'pl-4', header.level === 3),
+										_defineProperty(_ref, 'pl-3', header.level === 3),
 										_defineProperty(
 											_ref,
 											'',
@@ -8463,7 +8510,7 @@ var render$4 = /*#__PURE__*/ _withId(function (
 												_ctx.currentFlavor !== header.flavor
 										),
 										_ref),
-										'block py-1 text-gray-500 text-md sidebar-link hover:text-gray-900',
+										'block py-1 text-gray-500 text-sm sidebar-link hover:text-gray-900',
 									],
 								},
 								[
@@ -8496,7 +8543,7 @@ var render$4 = /*#__PURE__*/ _withId(function (
 })
 
 script$4.render = render$4
-script$4.__scopeId = 'data-v-2b564ceb'
+script$4.__scopeId = 'data-v-56b37754'
 
 var script$3 = defineComponent({
 	setup: function setup() {
@@ -8549,22 +8596,11 @@ var _hoisted_10 = {
 var _hoisted_11 = {
 	class: 'sticky h-sidebar top-[88px] h-sidebar',
 }
-
-var _hoisted_12 = /*#__PURE__*/ createVNode(
-	'div',
-	{
-		class:
-			'absolute inset-x-0 z-10 h-16 pointer-events-none lg:block bg-gradient-to-b from-white',
-	},
-	null,
-	-1
-)
-
-var _hoisted_13 = {
+var _hoisted_12 = {
 	class: 'space-y-1 overflow-y-auto h-sidebar',
 }
 
-var _hoisted_14 = /*#__PURE__*/ createVNode(
+var _hoisted_13 = /*#__PURE__*/ createVNode(
 	'div',
 	{
 		class: 'pt-6',
@@ -8573,7 +8609,7 @@ var _hoisted_14 = /*#__PURE__*/ createVNode(
 	-1
 )
 
-var _hoisted_15 = /*#__PURE__*/ createVNode(
+var _hoisted_14 = /*#__PURE__*/ createVNode(
 	'div',
 	{
 		class: 'pt-8',
@@ -8626,11 +8662,10 @@ function render$3(_ctx, _cache, $props, $setup, $data, $options) {
 							]),
 							createVNode('div', _hoisted_10, [
 								createVNode('div', _hoisted_11, [
-									_hoisted_12,
-									createVNode('div', _hoisted_13, [
+									createVNode('div', _hoisted_12, [
 										createVNode(_component_OnThisPage),
+										_hoisted_13,
 										_hoisted_14,
-										_hoisted_15,
 									]),
 								]),
 							]),
@@ -9066,4 +9101,4 @@ var theme = function theme(enhanceApp) {
 	}
 }
 
-export { theme as default }
+export default theme

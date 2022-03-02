@@ -117,7 +117,7 @@ Once the release build is ready, you have two options:
 ns publish ios --ipa ipa-file-path-here
 ```
 
-More options for publishing an iOS application can be found in the ["Publishing for iOS article"](https://docs.nativescript.org/publishing/publishing-ios-apps) article.
+More options for publishing an iOS application can be found in the ["Publishing for iOS article"](/releasing.html#ios) article.
 
 > If there are multiple mobile provisioning profiles for the selected development team available on the machine, it is not guaranteed that Xcode will choose the desired one and publishing using the command line will be successful. Therefore, in such cases, we recommend manually configuring and uploading the project from Xcode.
 
@@ -483,7 +483,7 @@ When working with the decode properties, the following considerations should be 
 
 ### Using `loadMode` property
 
-With [loadMode](/api-reference/modules/_ui_image_.html#loadmode) set to `async`, the image will load asynchronously which means the UI won't block by the decoding and preloading operations. The developers can use `loadMode` on both iOS and Android.
+With [loadMode](/api-reference/classes/image.html#loadmode) set to `async`, the image will load asynchronously which means the UI won't block by the decoding and preloading operations. The developers can use `loadMode` on both iOS and Android.
 
 > **Tip**: Use `loadMode="async"` to prevent blocking of the UI while the image is loading.
 
@@ -511,7 +511,7 @@ The `Image` module will use internal memory and disk cache, so when loaded the m
 The property `useCache` will work only for Android. Setting it for our iOS images will not change the application behavior in any way.
 :::
 
-**API Reference for** [Image Module](/api-reference/modules/_ui_image_.html)
+**API Reference for** [Image Class](/api-reference/classes/image.html)
 
 **NativeScript Core Examples** [Cookbook](http://docs.nativescript.org/cookbook/ui/image)
 
