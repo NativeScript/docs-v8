@@ -505,6 +505,10 @@ function getSidebar() {
 			text: 'UI & Styling',
 			children: [
 				{
+					text: 'App_Resources',
+					link: '/app-resources',
+				},
+				{
 					text: 'UI & Styling',
 					link: '/ui-and-styling',
 				},
