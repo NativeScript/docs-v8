@@ -143,6 +143,15 @@ function getPlugins() {
 
 	return [
 		{
+			category: 'Developing plugins',
+			plugins: [
+				{
+					name: 'Getting Started',
+					link: '/plugins/plugin-workspace-guide',
+				},
+			],
+		},
+		{
 			category: 'Plugins',
 			plugins: [
 				{
