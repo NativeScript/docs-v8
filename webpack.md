@@ -19,11 +19,16 @@ const webpack = require('@nativescript/webpack')
 module.exports = env => {
   webpack.init(env)
 
+  // Learn how to customize:
+  // https://docs.nativescript.org/webpack
+
   return webpack.resolveConfig()
 }
 ```
 
-With version `5.0.0` of `@nativescript/webpack` our goal was to simplify maintenance, upgradability and ease of use. Compared to prior versions, the above is all that's required to successfully bundle apps.
+The above config configures most things required to bundle a NativeScript application. Internally it's using [webpack-chain](https://github.com/neutrinojs/webpack-chain) to generate the final config that is passed to webpack.
+
+In some cases you may wish to extend the configuration, which is possible using the [API](#api) for applications, and the [Plugin API](#plugin-api) for plugins. This page contains many examples of common things you might want to change in the [Examples of configurations section](#examples-of-configurations) - for anything else not mentioned here, refer to the [webpack-chain documentation](https://github.com/neutrinojs/webpack-chain).
 
 ## Flags & their usage
 
@@ -33,13 +38,17 @@ When running a NativeScript app the following flags have an effect on the webpac
 
 - `--no-hmr` - disable HMR (enabled by default)
 
-### env flags
+### --env flags
+
+The following `--env` flags can be passed to the cli when running or building:
 
 - `--env.verbose` - prints verbose logs and the internal config before building
 - `--env.replace=from:to` - add file replacement rules. For source files (`.js` and `.ts`) this will add a new alias to the config, for everything else, this will add a new copy rule. Example: `--env.replace=./src/environments/environment.ts:./src/environments/environment.prod.ts` would add an alias so when you `import { environment } from './environments/environment.ts'` it will resolve & import from `./environments/environment.prod.ts`.
 - `--env.appComponents` - allows passing additional App Components for android. For example if you have a custom activity in `myCustomActivity.ts` you can pass `--env.appComponents=myCustomActivity.ts`.
 - `--env.production` - enable production mode (will minify the code)
 - `--env.report` - generate a report with the BundleAnalyzerPlugin
+- `--env.profile` - generate a `webpack.stats.json` to analyze on https://webpack.github.io/analyse/
+- `--env.watchNodeModules` - enable watching `node_modules` for changes. Useful when debugging plugins and making changes directly in `node_modules`.
 
 More env flags that are usually passed by the CLI automatically:
 
@@ -51,39 +60,94 @@ More env flags that are usually passed by the CLI automatically:
 - `--env.platform=<platform>` - for specifying the platform to use. Can be `android` or `ios`, or a custom platform in the future.
 - `--env.hmr` - `true` if building with HMR enabled
 
-<!-- #### Using flags at runtime -->
+## Using .env files
 
-<!-- In your app logic you can access `env` variables like the following: -->
+[DotEnv](https://github.com/mrsteele/dotenv-webpack) is pre-configured to allow defining environment variables available during runtime. You can create a `.env` file in your project root and define values that will be available to your app during runtime.
 
-<!-- ```js
-if (process.env.production) {
-  // this is a build executed with the `--env.production` flag
-  // typically this would be your release build
-} else {
-  // this is a debug/dev build
-}
-``` -->
+In case you need multiple environments, you can create additional env files with the naming convention of `.env.<name>` (e.g. `.env.prod`, `.env.staging`).
 
-#### Using a .env file
+The following logic is used when loading environment files:
 
-You can add a `.env` file to your project root and add any values to it and access those at runtime.
+- `.env` is loaded by default if found
+- `.env.<name>` is loaded when `--env.env=<name>` is passed to the build/run command and `.env.<name>` exists, otherwise it falls back to loading `.env` (if found)
 
-```js
-if (process.env.VAR_NAME) {
-  // do work here if the variable is true
-}
+### Example .env and .env.prod files
+
+```bash
+# example .env file
+MY_API_ENDPOINT=https://staging-api-host/api/v2
+MY_API_SECRET=supersecrettoken
 ```
 
-::: tip Note
-If you want to check if you are in Dev or Release mode you can also use:
+<!--  -->
 
-```js
-if (__DEV__) {
-  // this is dev builds
-}
+```bash
+# example .env.prod file
+MY_API_ENDPOINT=https://production-api-host/api/v2
+MY_API_SECRET=verysuperverysecretverytoken
 ```
+
+<!--  -->
+
+```ts
+// example usage - loaded from .env by default
+console.log(process.env.MY_API_ENDPOINT) // https://staging-api-host/api/v2
+console.log(process.env.MY_API_SECRET) // supersecrettoken
+
+// --env.env=prod: loaded from .env.prod
+console.log(process.env.MY_API_ENDPOINT) // https://production-api-host/api/v2
+console.log(process.env.MY_API_SECRET) // verysuperverysecretverytoken
+
+// --env.env=nonexistent: falls back to .env
+console.log(process.env.MY_API_ENDPOINT) // https://staging-api-host/api/v2
+console.log(process.env.MY_API_SECRET) // supersecrettoken
+```
+
+::: warning Note
+
+Please note that the way DotEnv works is it's using the webpack [DefinePlugin](#extending-the-defineplugin-options) internally to define the `process.env.<x>` values, meaning they are essentially statically replaced in the bundled code. This is important to keep in mind because destructuring, looping etc over `process` or `process.env` is not possible.
+
+See details about the limitations in the [DotEnv documentation](https://github.com/mrsteele/dotenv-webpack#limitations)
 
 :::
+
+## Global "magic" variables
+
+We define a few useful globally available variables:
+
+- `__DEV__` - true when webpack is building in development mode
+  ```ts
+  if (__DEV__) {
+    // we are running a dev build
+  }
+  ```
+- `global.isAndroid`, `__ANDROID__` - true when the platform is Android
+  ```ts
+  if (global.isAndroid) {
+    // we are running on android
+  }
+  ```
+- `global.isIOS`, `__IOS__` - true when the platform is iOS
+  ```ts
+  if (global.isIOS) {
+    // we are running on iOS
+  }
+  ```
+
+<details>
+
+<summary>
+The following variables are also defined, but are primarily intended to be used by NativeScript Core internally, or plugins that wish to use these.
+</summary>
+
+- `__NS_WEBPACK__` - always `true` when building with webpack
+- `__NS_ENV_VERBOSE__` - `true` when `--env.verbose` is set
+- `__NS_DEV_HOST_IPS__` - an array of IP addresses of the host machine (the machine running the build) when in `development` mode, and an empty array in production mode.
+- `__CSS_PARSER__` - the css parser used by NativeScript Core. The value is set based on the `cssParser` value in the `nativescript.config.ts` and defaults to `css-tree`
+- `__UI_USE_XML_PARSER__` - a flag used by NativeScript Core to disable the XML parser when it's not used
+- `__UI_USE_EXTERNAL_RENDERER__` - a flag used by NativeScript Core to disable registering global modules when an external renderer is used.
+
+</details>
 
 ## Examples of configurations
 
