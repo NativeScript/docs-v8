@@ -2,6 +2,136 @@
 title: Interaction
 ---
 
+## TouchManager 8.2+
+
+The `TouchManager` provides several conveniences for your apps interaction.
+
+### Auto animate touch down/up for all tap bindings
+
+For example, you can easily and quickly enable consistent touch down/up animations on every view which has a `tap` event binding throughout your entire app by enabling `TouchManager.enableGlobalTapAnimations` before your app bootstraps (typically in `app.ts` or `main.ts`):
+
+```ts
+import { TouchManager } from '@nativescript/core'
+
+TouchManager.enableGlobalTapAnimations = true
+TouchManager.animations = {
+  down: {
+    scale: { x: 0.95, y: 0.95 },
+    duration: 200,
+    curve: CoreTypes.AnimationCurve.easeInOut
+  },
+  up: {
+    scale: { x: 1, y: 1 },
+    duration: 200,
+    curve: CoreTypes.AnimationCurve.easeInOut
+  }
+}
+
+// bootstrap the app...
+```
+
+This would auto animate any view with a `tap` binding with those specific animations on touch down and up.
+
+If you have a few "tappable" views that need to be ignored:
+
+```xml
+<Button text="Global tap animations simply ignored" ignoreTouchAnimation="true" />
+```
+
+In addition to expressing NativeScript [Animation APIs](https://docs.nativescript.org/interaction.html#animations) which are convenient, simple and easy you can also define purely native animations like [iOS UIView Animations](https://developer.apple.com/documentation/uikit/uiview/1622418-animate) or even [Android Dynamic Spring Physics Animations](https://developer.android.com/guide/topics/graphics/spring-animation), for example:
+
+```ts
+touchAnimation = {
+  down(view: View) {
+    if (global.isIOS) {
+      UIView.animateWithDurationAnimations(0.25, () => {
+        view.ios.transform = CGAffineTransformMakeScale(0.95, 0.95)
+      })
+    } else if (global.isAndroid) {
+      const lib = androidx.dynamicanimation.animation
+      const spring = new lib.SpringForce(0.95)
+        .setDampingRatio(lib.SpringForce.DAMPING_RATIO_MEDIUM_BOUNCY)
+        .setStiffness(lib.SpringForce.STIFFNESS_MEDIUM)
+      let animation = new lib.SpringAnimation(
+        view.android,
+        lib.DynamicAnimation().SCALE_X,
+        float(0.95)
+      )
+      animation.setSpring(spring).setStartVelocity(0.7).setStartValue(1.0)
+      animation.start()
+      animation = new lib.SpringAnimation(
+        view.android,
+        lib.DynamicAnimation().SCALE_Y,
+        float(0.95)
+      )
+      animation.setSpring(spring).setStartVelocity(0.7).setStartValue(1.0)
+      animation.start()
+    }
+  },
+  up(view: View) {
+    if (global.isIOS) {
+      UIView.animateWithDurationAnimations(0.25, () => {
+        view.ios.transform = CGAffineTransformIdentity
+      })
+    } else if (global.isAndroid) {
+      const lib = androidx.dynamicanimation.animation
+      const spring = new lib.SpringForce(1)
+        .setDampingRatio(lib.SpringForce.DAMPING_RATIO_MEDIUM_BOUNCY)
+        .setStiffness(lib.SpringForce.STIFFNESS_MEDIUM)
+      let animation = new lib.SpringAnimation(
+        view.android,
+        lib.DynamicAnimation().SCALE_X,
+        float(1)
+      )
+      animation.setSpring(spring).setStartVelocity(0.7).setStartValue(0.95)
+      animation.start()
+      animation = new lib.SpringAnimation(
+        view.android,
+        lib.DynamicAnimation().SCALE_Y,
+        float(1)
+      )
+      animation.setSpring(spring).setStartVelocity(0.7).setStartValue(0.95)
+      animation.start()
+    }
+  }
+}
+```
+
+### touchAnimation and ignoreTouchAnimation
+
+You can also declaratively define custom touch animations on any specific view (_which overrides any global TouchManager settings_) by specifying it's own `touchAnimation` property:
+
+```xml
+<Button touchAnimation="{{ touchAnimation }}" />
+```
+
+This would animate touch down and up with the following view binding settings:
+
+```ts
+touchAnimation = {
+  down: {
+    scale: { x: 0.95, y: 0.95 },
+    backgroundColor: new Color('yellow'),
+    duration: 250,
+    curve: CoreTypes.AnimationCurve.easeInOut
+  },
+  up: {
+    scale: { x: 1, y: 1 },
+    backgroundColor: new Color('#63cdff'),
+    duration: 250,
+    curve: CoreTypes.AnimationCurve.easeInOut
+  }
+}
+```
+
+When using `TouchManager.enableGlobalTapAnimations` you can declare any views to be ignored in cases where a couple may need to be excluded from your global animation settings:
+
+```xml
+<Button text="Global tap animations simply ignored" ignoreTouchAnimation="true" />
+```
+
+You can [read more about how this feature came to be here](https://blog.nativescript.org/create-a-custom-view-plugin-touch-effects).
+
 ## Animations
 
 ### Animations with code
