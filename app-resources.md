@@ -17,7 +17,7 @@ On Android, many aspects of the default styling is controlled through various se
 
 Here we are showing the default look of a few elements (no custom styling applied) using the default values provided in `App_Resources`:
 
-![Default App_Resources on Android](assets/app-resources/default_app_resources_android.png)
+![Default App_Resources on Android](/assets/app-resources/default_app_resources_android.png)
 
 ```bash
 App_Resources/
@@ -39,7 +39,7 @@ To change the default color fo the ActionBar, edit the `ns_primary` color inside
 <color name="ns_primary">#65adf1</color>
 ```
 
-![](assets/app-resources/custom_action_bar_color.png)
+![](/assets/app-resources/custom_action_bar_color.png)
 
 ### Setting the default color of the status bar
 
@@ -56,7 +56,7 @@ The color will be applied on API21+ since lower API leves do not support custom 
 <color name="ns_primaryDark">#65adf1</color>
 ```
 
-![](assets/app-resources/custom_status_bar_color.png)
+![](/assets/app-resources/custom_status_bar_color.png)
 
 ### Setting the accent color
 
@@ -73,7 +73,7 @@ The color will be applied on API21+ since lower API leves do not support custom 
 <color name="ns_accent">#059669</color>
 ```
 
-![](assets/app-resources/custom_accent_color.png)
+![](/assets/app-resources/custom_accent_color.png)
 
 ### Showing the app under the status bar
 
@@ -103,7 +103,7 @@ We have added `<color name="ns_primary">#65ADF1</color>` to `App_Resources/Andro
 </style>
 ```
 
-![](assets/app-resources/action_bar_under_status_bar.png)
+![](/assets/app-resources/action_bar_under_status_bar.png)
 
 ### Changing the DatePicker to calendar mode
 
@@ -117,7 +117,7 @@ To change the mode of the DatePicker from the default `spinner` style, change `a
 </style>
 ```
 
-![](assets/app-resources/date_picker_calendar_mode.png)
+![](/assets/app-resources/date_picker_calendar_mode.png)
 
 ### Changing the TimePicker to clock mode
 
@@ -131,7 +131,7 @@ To change the mode of the TimePicker from the default `spinner` style, change `a
 </style>
 ```
 
-![](assets/app-resources/time_picker_clock_mode.png)
+![](/assets/app-resources/time_picker_clock_mode.png)
 
 ### Enabling force Dark Mode
 
@@ -154,7 +154,7 @@ If you enable `android:forceDarkAllowed` make sure you check if all the screens 
 
 :::
 
-![](assets/app-resources/android_force_dark_mode.png)
+![](/assets/app-resources/android_force_dark_mode.png)
 
 ## iOS
 
