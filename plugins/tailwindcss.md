@@ -12,7 +12,7 @@ link: https://raw.githubusercontent.com/NativeScript/tailwind/main/README.md
 
 :::warning Warning
 
-:warning: This `rc` version requires `@nativescript/core@8.2.0-alpha.*` to work properly.
+:warning: `@nativescript/core@8.2.0` is required for colors to work properly You may see wrong colors on older core versions, because Tailwind CSS v3 uses the RGB/A color notation, which has been implemented for 8.2.0 and prior versions don't support it.
 
 :::
 
