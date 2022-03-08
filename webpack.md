@@ -49,6 +49,7 @@ The following `--env` flags can be passed to the cli when running or building:
 - `--env.report` - generate a report with the BundleAnalyzerPlugin
 - `--env.profile` - generate a `webpack.stats.json` to analyze on https://webpack.github.io/analyse/
 - `--env.watchNodeModules` - enable watching `node_modules` for changes. Useful when debugging plugins and making changes directly in `node_modules`.
+- `--env.e2e` - enables E2E (end-to-end) mode - this currently enables the `testID` property in `@nativescript/core`
 
 More env flags that are usually passed by the CLI automatically:
 
