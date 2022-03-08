@@ -143,3 +143,51 @@ nx migrate --run-migrations=migrations.json
 Your plugin workspace will now be up to date regarding various configurations, settings and core dependencies. Depending on other customizations you made there may be other subtle things to adjust on your own.
 
 After running migrations you can always _delete_ the `migrations.json` folder as it will no longer be used. A `migrations.json` file is always generated if migrations are available to run and after applied you no longer need that file.
+
+### Migration 3.0.0 (Released March 8, 2022)
+
+After migrating:
+
+- If using angular integrations you may run into issues like the following:
+
+```
+✖ Compiling with Angular sources in Ivy partial compilation mode.
+Error: packages/picker/angular/picker.accessors.ts:30:14 - error NG3001: Unsupported private class PickerValueAccessor. This class is visible to consumers via NativeScriptPickerModule -> PickerValueAccessor, but is not exported from the top-level library entrypoint.
+
+30 export class PickerValueAccessor extends BaseValueAccessor<PickerField> {
+                ~~~~~~~~~~~~~~~~~~~~
+packages/picker/angular/picker.directive.ts:58:14 - error NG3001: Unsupported private class PickerFieldComponent. This class is visible to consumers via NativeScriptPickerModule -> PickerFieldComponent, but is not exported from the top-level library entrypoint.
+
+58 export class PickerFieldComponent extends ListViewComponent implements AfterContentInit {
+                ~~~~~~~~~~~~~~~~~~~~~
+
+    at compileSourceFiles (/Users/nstudio/Documents/github/NativeScript/plugins/node_modules/ng-packagr/lib/ngc/compile-source-files.js:141:15)
+    at async /Users/nstudio/Documents/github/NativeScript/plugins/node_modules/ng-packagr/lib/ng-package/entry-point/compile-ngc.transform.js:59:13
+    at async /Users/nstudio/Documents/github/NativeScript/plugins/node_modules/ng-packagr/lib/graph/transform.js:7:29
+ERROR: Something went wrong in @nrwl/run-commands - Command failed: node tools/scripts/build-finish.ts picker
+```
+
+This is related to ng-packgr updates and you can resolve by ensuring that the symbols complained about are exported from `packages/picker/angular/index.ts`, for example:
+
+- `packages/picker/angular/index/ts`:
+
+```
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
+import { registerElement } from '@nativescript/angular';
+import { PickerField } from '@nativescript/picker';
+import { DIRECTIVES } from './picker.directive';
+
+// Adding these exports fixes the error
+export * from './picker.directive';
+export * from './picker.accessors';
+
+@NgModule({
+	declarations: [DIRECTIVES],
+	exports: [DIRECTIVES],
+	schemas: [NO_ERRORS_SCHEMA],
+})
+export class NativeScriptPickerModule {}
+
+// Uncomment this line if the package provides a custom view component
+registerElement('PickerField', () => PickerField);
+```
