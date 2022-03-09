@@ -4,7 +4,7 @@ title: App_Resources
 
 # Understanding App_Resources
 
-This page serves as a quick reference to understand how most settings in App_Resources affect the look of a NativeScripta app.
+This page serves as a quick reference to understand how most settings in App_Resources affect the look of a NativeScript app.
 
 **Quick Links:**
 [[toc]]
