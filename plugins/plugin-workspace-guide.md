@@ -91,7 +91,7 @@ This created a `packages/nativescript-label-marquee` folder containing a plugin 
 
 ## Add Angular compatibility to a package
 
-```bash
+```cli
 npm run add-angular
 ```
 
@@ -99,7 +99,7 @@ At the prompt, enter the name of the package to add an `angular` folder to it wi
 
 ## How to focus on just 1 package to develop in isolation
 
-```bash
+```cli
 npm start
 ```
 
@@ -112,7 +112,7 @@ You can reset anytime with `npm start` > `focus.reset` ENTER
 
 ## How to publish packages?
 
-```bash
+```cli
 npm run publish-packages
 ```
 
@@ -124,7 +124,7 @@ npm run publish-packages
 
 One of the additional nice benefits of using plugin workspaces is updating them is a made simple and efficient through Nx tooling. The TSC maintains the plugin workspace migrations so whenever one is available you can update your plugin workspace (which will often contain auto version bumps of supporting packages to latest NativeScript versions, configuration improvements and other welcome additions to help you create and maintain great NativeScript plugins):
 
-```
+```cli
 nx migrate @nativescript/plugin-tools
 ```
 
@@ -132,7 +132,7 @@ That will fetch `latest` version of `plugin-tools`, analyze the package to see i
 
 Sometimes `@nativescript/plugin-tools` updates will not contain any migrations so you won't always see migrations available but if it states they are available you can run them as the message states:
 
-```
+```cli
 // install latest updates
 npm install
 
@@ -150,7 +150,7 @@ After migrating:
 
 - If using angular integrations you may run into issues like the following:
 
-```
+```cli
 ✖ Compiling with Angular sources in Ivy partial compilation mode.
 Error: packages/picker/angular/picker.accessors.ts:30:14 - error NG3001: Unsupported private class PickerValueAccessor. This class is visible to consumers via NativeScriptPickerModule -> PickerValueAccessor, but is not exported from the top-level library entrypoint.
 
@@ -171,23 +171,23 @@ This is related to ng-packgr updates and you can resolve by ensuring that the sy
 
 - `packages/picker/angular/index/ts`:
 
-```
-import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
-import { registerElement } from '@nativescript/angular';
-import { PickerField } from '@nativescript/picker';
-import { DIRECTIVES } from './picker.directive';
+```ts
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core'
+import { registerElement } from '@nativescript/angular'
+import { PickerField } from '@nativescript/picker'
+import { DIRECTIVES } from './picker.directive'
 
 // Adding these exports fixes the error
-export * from './picker.directive';
-export * from './picker.accessors';
+export * from './picker.directive'
+export * from './picker.accessors'
 
 @NgModule({
-	declarations: [DIRECTIVES],
-	exports: [DIRECTIVES],
-	schemas: [NO_ERRORS_SCHEMA],
+  declarations: [DIRECTIVES],
+  exports: [DIRECTIVES],
+  schemas: [NO_ERRORS_SCHEMA]
 })
 export class NativeScriptPickerModule {}
 
 // Uncomment this line if the package provides a custom view component
-registerElement('PickerField', () => PickerField);
+registerElement('PickerField', () => PickerField)
 ```
