@@ -238,7 +238,9 @@ If the binary is not found run `gem env` to examine your folders, and update you
 
 Starting with macOS 12.3, python 2.x is no longer shipped with the system and requires you to install it manually.
 
-If you are on macOS 12.3 or newer, please follow these instructions. These instructions may change over time, as we are still evaluating whether or not there's a better approach, but the following should get you running on macOS 12.3+.
+If you are on macOS 12.3 or newer, please follow these instructions.
+
+:warning: These instructions may change over time, as we are still evaluating whether or not there's a better approach, but the following should get you running on macOS 12.3+.
 
 First, install **<abbr title="Python version manager">pyenv</abbr>** and Python@2.7.18 by running the following:
 
@@ -248,6 +250,9 @@ pyenv install 2.7.18
 
 # set the global python version to 2.7.18
 pyenv global 2.7.18
+
+# link the installed python version to be available to XCode
+ln -s ~/.pyenv/shims/python /usr/local/bin/python
 ```
 
 To load and initialize pyenv, add the following lines to your shell profile, usually `~/.bash_profile` or `~/.bashrc`, or if you are using `zsh` then `~/.zshrc`:
