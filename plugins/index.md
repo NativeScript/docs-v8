@@ -15,9 +15,9 @@ If you are interested in building your own plugins, we recommend following our [
 - reduces configuration files to provide easy maintainence
 - provides shareable structure for ease of demoing your plugins
 - ability to focus your workspace down to a single plugin in an instant if you ever need to isolate development when working within a multi-plugin workspace
-- provides automated migrations managed by the TSC to keep your plugins workspaces updates without manual hassles
+- provides automated migrations managed by the TSC to keep your plugin workspaces up-to-date without manual hassles
 
-You may also find these resources helpful in further understanding plugin workspaces as well as developing plugins in general:
+You may also find these resources helpful:
 
 - [Introducing plugin workspaces to simplify and streamline maintenance](https://blog.nativescript.org/announcing-plugin-workspaces)
 - [Migrate your plugin workspace in 2 seconds - NativeScript 8 + webpack5 + configuration updates](https://blog.nativescript.org/plugin-workspace-migrate-to-v2)
