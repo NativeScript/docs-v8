@@ -37,14 +37,14 @@ parameters: {
 
 ```xml
 <android>
-  <GooglePayBtn
-    cardNetworks="VISA, AMEX, DISCOVER"
-    authMethods="PAN_ONLY, CRYPTOGRAM_3DS"
-    tap="onGooglePayTap"
-    width="100%"
-    height="40"
-    buttonType="PAY_BLACK"
-  />
+    <GooglePayBtn
+        cardNetworks="VISA, AMEX, DISCOVER"
+        authMethods="PAN_ONLY, CRYPTOGRAM_3DS"
+        tap="onGooglePayTap"
+        width="100%"
+        height="40"
+        buttonType="PAY_BLACK"
+    ></GooglePayBtn>
 </android>
 ```
 
