@@ -10,7 +10,7 @@ link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/finge
 
 ## Replacement notice
 
-This plugin is replaced by [@nativescript/biometrics](../biometrics)
+This plugin is replaced by [@nativescript/biometrics](./biometrics)
 
 # @nativescript/fingerprint-auth
 
