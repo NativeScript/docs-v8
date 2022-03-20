@@ -89,18 +89,6 @@ This created a `packages/nativescript-label-marquee` folder containing a plugin 
 - Updating the `npm start` interactive display
 - Updating the README here to list the new package
 
-## If needed, add Angular compatibility to a package
-
-Not all packages need specific Angular compatibility. Only if you want to provide Angular specific behavior for example, custom directives, components or other extended behavior to expand on top of your NativeScript plugin will you need to do this.
-
-You can [see an example of Angular specific behavior in a plugin here](https://github.com/NativeScript/plugins/blob/main/packages/datetimepicker/angular/nativescript-datetimepicker.accessors.ts).
-
-```cli
-npm run add-angular
-```
-
-At the prompt, enter the name of the package to add an `angular` folder to it with the necessary boilerplate to provide Angular support to the package.
-
 ## How to focus on just 1 package to develop in isolation
 
 ```cli
@@ -123,6 +111,18 @@ npm run publish-packages
 - You will be prompted for the package names to publish. Leaving blank and hitting enter will publish them all.
 - You will then be prompted for the version to use. Leaving blank will auto bump the patch version (it also handles prerelease types like alpha, beta, rc, etc. - It even auto tags the corresponding prelease type on npm).
 - You will then be given a brief sanity check 🧠😊
+
+## If needed, add Angular compatibility to a package
+
+Not all packages need specific Angular compatibility. Only if you want to provide Angular specific behavior for example, custom directives, components or other extended behavior to expand on top of your NativeScript plugin will you need to do this.
+
+You can [see an example of Angular specific behavior in a plugin here](https://github.com/NativeScript/plugins/blob/main/packages/datetimepicker/angular/nativescript-datetimepicker.accessors.ts).
+
+```cli
+npm run add-angular
+```
+
+At the prompt, enter the name of the package to add an `angular` folder to it with the necessary boilerplate to provide Angular support to the package.
 
 ## Migrating your plugin workspace
 
