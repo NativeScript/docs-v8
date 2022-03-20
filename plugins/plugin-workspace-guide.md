@@ -89,7 +89,11 @@ This created a `packages/nativescript-label-marquee` folder containing a plugin 
 - Updating the `npm start` interactive display
 - Updating the README here to list the new package
 
-## Add Angular compatibility to a package
+## If needed, add Angular compatibility to a package
+
+Not all packages need specific Angular compatibility. Only if you want to provide Angular specific behavior for example, custom directives, components or other extended behavior to expand on top of your NativeScript plugin will you need to do this.
+
+You can [see an example of Angular specific behavior in a plugin here](https://github.com/NativeScript/plugins/blob/main/packages/datetimepicker/angular/nativescript-datetimepicker.accessors.ts).
 
 ```cli
 npm run add-angular
