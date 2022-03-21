@@ -252,7 +252,7 @@ pyenv install 2.7.18
 pyenv global 2.7.18
 
 # link the installed python version to be available to XCode
-ln -s ~/.pyenv/shims/python /usr/local/bin/python
+sudo ln -s ~/.pyenv/shims/python /usr/local/bin/python
 ```
 
 To load and initialize pyenv, add the following lines to your shell profile, usually `~/.bash_profile` or `~/.bashrc`, or if you are using `zsh` then `~/.zshrc`:
