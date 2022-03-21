@@ -11,7 +11,7 @@ link: https://raw.githubusercontent.com/NativeScript/firebase/main/packages/fire
 # @nativescript/firebase-analytics
 
 ```cli
-ns plugin add @nativescript/firebase-analytics
+npm install @nativescript/firebase-analytics
 ```
 
 ## What does it do?

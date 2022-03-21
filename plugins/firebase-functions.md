@@ -11,7 +11,7 @@ link: https://raw.githubusercontent.com/NativeScript/firebase/main/packages/fire
 # @nativescript/firebase-functions
 
 ```cli
-ns plugin add @nativescript/firebase-functions
+npm install @nativescript/firebase-functions
 ```
 
 ## What does it do

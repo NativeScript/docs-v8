@@ -11,7 +11,7 @@ link: https://raw.githubusercontent.com/NativeScript/firebase/main/packages/fire
 # @nativescript/firebase-admob
 
 ```cli
-ns plugin add @nativescript/firebase-admob
+npm install @nativescript/firebase-admob
 ```
 
 This guide is intended for publishers who want to monetize a NativeScript app.

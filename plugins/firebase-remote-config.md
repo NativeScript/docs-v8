@@ -11,7 +11,7 @@ link: https://raw.githubusercontent.com/NativeScript/firebase/main/packages/fire
 # @nativescript/firebase-remote-config
 
 ```cli
-ns plugin add @nativescript/firebase-remote-config
+npm install @nativescript/firebase-remote-config
 ```
 
 ### What does it do

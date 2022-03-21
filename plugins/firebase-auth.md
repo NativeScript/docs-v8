@@ -11,7 +11,7 @@ link: https://raw.githubusercontent.com/NativeScript/firebase/main/packages/fire
 # @nativescript/firebase-auth
 
 ```cli
-ns plugin add @nativescript/firebase-auth
+npm install @nativescript/firebase-auth
 ```
 
 ## Authentication

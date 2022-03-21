@@ -11,7 +11,7 @@ link: https://raw.githubusercontent.com/NativeScript/firebase/main/packages/fire
 # @nativescript/firebase-storage
 
 ```cli
-ns plugin add @nativescript/firebase-storage
+npm install @nativescript/firebase-storage
 ```
 
 ## What does it do

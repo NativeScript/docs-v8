@@ -11,7 +11,7 @@ link: https://raw.githubusercontent.com/NativeScript/firebase/main/packages/fire
 # @nativescript/firebase-core
 
 ```cli
-ns plugin add @nativescript/firebase-core
+npm install @nativescript/firebase-core
 ```
 
 ## Usage

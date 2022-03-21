@@ -11,7 +11,7 @@ link: https://raw.githubusercontent.com/NativeScript/firebase/main/packages/fire
 # @nativescript/firebase-app-check
 
 ```cli
-ns plugin add @nativescript/firebase-app-check
+npm install @nativescript/firebase-app-check
 ```
 
 :::tip Note
