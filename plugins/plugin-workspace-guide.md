@@ -126,7 +126,7 @@ At the prompt, enter the name of the package to add an `angular` folder to it wi
 
 ## Migrating your plugin workspace
 
-One of the additional nice benefits of using plugin workspaces is updating them is a made simple and efficient through Nx tooling. The TSC maintains the plugin workspace migrations so whenever one is available you can update your plugin workspace (which will often contain auto version bumps of supporting packages to latest NativeScript versions, configuration improvements and other welcome additions to help you create and maintain great NativeScript plugins):
+One of the nice benefits of using our plugin workspaces is updating them is made simple and efficient through Nx tooling. The TSC maintains plugin workspace migrations so whenever one is available you can update your plugin workspace with just a few simple commands (which will often provide dependency version bumps of supporting packages to latest NativeScript versions, configuration improvements, as well as other welcome additions to help you create and maintain NativeScript plugins):
 
 ```cli
 nx migrate @nativescript/plugin-tools
@@ -134,7 +134,7 @@ nx migrate @nativescript/plugin-tools
 
 That will fetch `latest` version of `plugin-tools`, analyze the package to see if any migrations are available and then print a message if there are migrations to run.
 
-Sometimes `@nativescript/plugin-tools` updates will not contain any migrations so you won't always see migrations available but if it states they are available you can run them as the message states:
+Sometimes `@nativescript/plugin-tools` updates won't need any migrations so you won't always see migrations available but if it states they are available you can run them as the message states:
 
 ```cli
 // install latest updates
@@ -144,9 +144,9 @@ npm install
 nx migrate --run-migrations=migrations.json
 ```
 
-Your plugin workspace will now be up to date regarding various configurations, settings and core dependencies. Depending on other customizations you made there may be other subtle things to adjust on your own.
+Your plugin workspace will now be up to date regarding various configurations, settings and core dependencies. Depending on other customizations you made there may be other things to adjust on your own.
 
-After running migrations you can always _delete_ the `migrations.json` folder as it will no longer be used. A `migrations.json` file is always generated if migrations are available to run and after applied you no longer need that file.
+After running migrations you can always _delete_ the `migrations.json` file as it will no longer be used. A `migrations.json` file is always generated if migrations are available to run. After applied, you no longer need the file.
 
 ### Migration 3.0.0 (Released March 8, 2022)
 
@@ -165,9 +165,9 @@ packages/picker/angular/picker.directive.ts:58:14 - error NG3001: Unsupported pr
 58 export class PickerFieldComponent extends ListViewComponent implements AfterContentInit {
                 ~~~~~~~~~~~~~~~~~~~~~
 
-    at compileSourceFiles (/Users/nstudio/Documents/github/NativeScript/plugins/node_modules/ng-packagr/lib/ngc/compile-source-files.js:141:15)
-    at async /Users/nstudio/Documents/github/NativeScript/plugins/node_modules/ng-packagr/lib/ng-package/entry-point/compile-ngc.transform.js:59:13
-    at async /Users/nstudio/Documents/github/NativeScript/plugins/node_modules/ng-packagr/lib/graph/transform.js:7:29
+    at compileSourceFiles (/NativeScript/plugins/node_modules/ng-packagr/lib/ngc/compile-source-files.js:141:15)
+    at async /NativeScript/plugins/node_modules/ng-packagr/lib/ng-package/entry-point/compile-ngc.transform.js:59:13
+    at async /NativeScript/plugins/node_modules/ng-packagr/lib/graph/transform.js:7:29
 ERROR: Something went wrong in @nrwl/run-commands - Command failed: node tools/scripts/build-finish.ts picker
 ```
 
