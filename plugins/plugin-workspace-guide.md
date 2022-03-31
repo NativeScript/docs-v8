@@ -129,7 +129,7 @@ At the prompt, enter the name of the package to add an `angular` folder to it wi
 One of the nice benefits of using our plugin workspaces is updating them is made simple and efficient through Nx tooling. The TSC maintains plugin workspace migrations so whenever one is available you can update your plugin workspace with just a few simple commands (which will often provide dependency version bumps of supporting packages to latest NativeScript versions, configuration improvements, as well as other welcome additions to help you create and maintain NativeScript plugins):
 
 ```cli
-nx migrate @nativescript/plugin-tools
+npx nx migrate @nativescript/plugin-tools
 ```
 
 That will fetch `latest` version of `plugin-tools`, analyze the package to see if any migrations are available and then print a message if there are migrations to run.
@@ -141,7 +141,7 @@ Sometimes `@nativescript/plugin-tools` updates won't need any migrations so you 
 npm install
 
 // now run the migrations
-nx migrate --run-migrations=migrations.json
+npx nx migrate --run-migrations=migrations.json
 ```
 
 Your plugin workspace will now be up to date regarding various configurations, settings and core dependencies. Depending on other customizations you made there may be other things to adjust on your own.
