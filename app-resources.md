@@ -34,20 +34,40 @@ Values can be overriden on specific API levels by making the changes in the corr
 
 ### Adding native code to an application
 
-There are different ways to add native code to an Android application.  You can add Java or Kotlin source files and/or compiled Java bytecode in the following directories:
+There are different ways to add native code to an Android application.  You can add Java JAR files or Java and/or Kotlin source files in `App_Resources/Android/libs` and `App_Resources/Android/src` respectively, e.g.:
 
 ```bash
 App_Resources
 ├── Android
+│   ├── app.gradle
 │   ├── libs
-│   │   └── HelloJavaLibrary.jar                   # Java ARchive files
+│   │   └── HelloJavaLib.jar                     # Java ARchive files
 │   └── src
 │       └── main
 │           ├── java
-│           │   └── com
-│           │       └── example
-│           │           └── HelloJavaSource.java   # Java source code
+│           │   └── com/example/HelloJava.java   # Java source code files
+│           └── res
+... more 
 ```
+
+Given the example above, your JavaScript or TypeScript code can reference the Java code by using the full class names, e.g.
+
+```typescript
+const helloJava = new com.example.HelloJava();
+console.log("Java says: " + helloJava.getString());
+```
+
+:::tip Note
+
+If using TypeScript then the top level package name should be declared as `any`, e.g.
+
+```typescript
+declare const com: any;
+```
+
+:::tip Note
+
+If using Kotlin source files, `useKotlin` should be enabled in app.gradle
 
 ### Setting the default color of the ActionBar
 
