@@ -4,7 +4,9 @@ title: App_Resources
 
 # Understanding App_Resources
 
-This page serves as a quick reference to understand how most settings in App_Resources affect the look of a NativeScript app.
+The App_Resources folder contains platform-specific resources of the application (icons, configuration files, native code, etc.).  An application that supports both Android and iOS would therefore contain a subfolder for each platform.
+
+This page serves as a quick reference to understand how most settings in App_Resources affect behavior and the the look of a NativeScript app.
 
 **Quick Links:**
 [[toc]]
@@ -29,6 +31,23 @@ App_Resources/
 ```
 
 Values can be overriden on specific API levels by making the changes in the corresponding directories.
+
+### Adding native code to an application
+
+There are different ways to add native code to an Android application.  You can add Java or Kotlin source files and/or compiled Java bytecode in the following directories:
+
+```bash
+App_Resources
+├── Android
+│   ├── libs
+│   │   └── HelloJavaLibrary.jar                   # Java ARchive files
+│   └── src
+│       └── main
+│           ├── java
+│           │   └── com
+│           │       └── example
+│           │           └── HelloJavaSource.java   # Java source code
+```
 
 ### Setting the default color of the ActionBar
 
