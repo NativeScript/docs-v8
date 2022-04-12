@@ -236,41 +236,22 @@ If the binary is not found run `gem env` to examine your folders, and update you
 
 :::warning Important note about macOS 12.3+
 
-Starting with macOS 12.3, python 2.x is no longer shipped with the system and requires you to install it manually.
+Starting with macOS 12.3, python 2.x is no longer shipped with the system and the python3 executable isn't aliased to `python`, so you need to alias it manually.
 
 If you are on macOS 12.3 or newer, please follow these instructions.
 
-:warning: These instructions may change over time, as we are still evaluating whether or not there's a better approach, but the following should get you running on macOS 12.3+.
-
-First, install **<abbr title="Python version manager">pyenv</abbr>** and Python@2.7.18 by running the following:
+:warning: Python 3 is fully supported, but changing the executable name and removing this workaround is a minor breaking change we're aiming to introduce in NativeScript 8.3.
 
 ```cli
-brew install pyenv
-pyenv install 2.7.18
-
-# set the global python version to 2.7.18
-pyenv global 2.7.18
-
-# link the installed python version to be available to XCode
-sudo ln -s ~/.pyenv/shims/python /usr/local/bin/python
+# link the installed python3 version to be available to XCode
+sudo ln -s $(which python3) /usr/local/bin/python
 ```
-
-To load and initialize pyenv, add the following lines to your shell profile, usually `~/.bash_profile` or `~/.bashrc`, or if you are using `zsh` then `~/.zshrc`:
-
-```bash
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init --path)"
-  eval "$(pyenv init -)"
-fi
-```
-
-**Note:** Make sure to open a new terminal window for the above changes to take effect!
 
 Next, update **<abbr title="Python package manager">pip</abbr>** and install **<abbr title="Python 2 & 3 compatibility package used by NativeScript">six</abbr>** by running the following:
 
 ```cli
-pip install --upgrade pip
-python -m pip install six
+python3 -m pip install --upgrade pip
+python3 -m pip install six
 ```
 
 Now continue to the "Install the **NativeScript CLI** globally" section below.
