@@ -11,7 +11,7 @@ link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/zip/R
 # @nativescript/zip
 
 ```cli
-ns plugin add @nativescript/zip
+npm install @nativescript/zip
 ```
 
 ## Usage
