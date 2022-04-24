@@ -59,15 +59,14 @@ console.log("Java says: " + helloJava.getString());
 
 :::tip Note
 
-If using TypeScript then the top level package name should be declared as `any`, e.g.
+If using TypeScript, you may need to generate typings, or alternatively the top level package name can be declared as `any`, e.g.
 
 ```typescript
 declare const com: any;
-```
 
-:::tip Note
+:::
 
-If using Kotlin source files, `useKotlin` should be enabled in app.gradle
+If using Kotlin source files, `useKotlin` should be enabled in `before-plugins.gradle` or `app.gradle`
 
 ### Setting the default color of the ActionBar
 
