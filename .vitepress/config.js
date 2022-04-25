@@ -90,7 +90,8 @@ module.exports = {
 			},
 			{
 				text: 'Capacitor',
-				link: 'https://capacitor.nativescript.org',
+				link: '/capacitor/index',
+				activeMatch: '^/capacitor',
 			},
 			// 	{
 			// 		text: 'Writing Guide',
@@ -275,6 +276,12 @@ function getPlugins() {
 					repo: `${officialGithubUrl}/imagepicker`,
 				},
 				{
+					name: 'Ionic Portals',
+					link: '/plugins/ionic-portals',
+					readme: `${officialPlugins_baseUrl}/ionic-portals/README.md`,
+					repo: `${officialGithubUrl}/ionic-portals`,
+				},
+				{
 					name: 'iOS Security',
 					link: '/plugins/ios-security',
 					readme: `${officialPlugins_baseUrl}/ios-security/README.md`,
@@ -434,7 +441,7 @@ function getPlugins() {
 					repo: `${firebaseGithubUrl}/firebase-in-app-messaging`,
 				},
 				{
-					name: 'Insallations',
+					name: 'Installations',
 					link: '/plugins/firebase-installations',
 					readme: `${firebasePlugins_baseUrl}/firebase-installations/README.md`,
 					repo: `${firebaseGithubUrl}/firebase-installations`,
