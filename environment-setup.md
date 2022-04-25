@@ -236,14 +236,15 @@ If the binary is not found run `gem env` to examine your folders, and update you
 
 :::warning Important note about macOS 12.3+
 
-Starting with macOS 12.3, python 2.x is no longer shipped with the system and the python3 executable isn't aliased to `python`, so you need to alias it manually.
+Starting with macOS 12.3, python 2.x is no longer shipped with the system and the python3 executable isn't aliased to `python`, you will need to do that manually.
 
 If you are on macOS 12.3 or newer, please follow these instructions.
 
-:warning: Python 3 is fully supported, but changing the executable name and removing this workaround is a minor breaking change we're aiming to introduce in NativeScript 8.3.
+:warning: **Note**: Python 3 is fully supported by the NativeScript components that rely on it, however changing our scripts to use the `python3` executable name by default is a minor breaking change we're aiming to introduce in NativeScript 8.3. Until then, this workaround is required to get running.
 
 ```cli
-# link the installed python3 version to be available to XCode
+# link and alias the installed python3
+# version to be available to XCode as python
 sudo ln -s $(which python3) /usr/local/bin/python
 ```
 
@@ -265,8 +266,8 @@ sudo easy_install pip==20.3.3
 python -m pip install six
 ```
 
-:::tip NOTE
-You may see a Deprecation warning when installing **six**, feel free to ignore it for now &mdash; NativeScript will update to Python 3.x in the near future.
+:::tip Note
+You may see a Deprecation warning when installing **six**, feel free to ignore it for now &mdash; NativeScript will update to Python 3.x in version 8.3.
 :::
 
 Install the **NativeScript CLI** globally:
@@ -275,7 +276,7 @@ Install the **NativeScript CLI** globally:
 npm install -g nativescript
 ```
 
-:::tip NOTE
+:::tip Note
 You may see Deprecation and security warnings from **npm**, these are safe to ignore.
 
 _**More details for those curious:** The NativeScript CLI relies on 3rd party packages that may have been deprecated over the past years. We are slowly replacing these dependencies with newer, supported alternatives to resolve these warnings, however they are generally safe to ignore, since the CLI is never exposed to the public and it's only used for local development, where most of the security concerns don't apply._
