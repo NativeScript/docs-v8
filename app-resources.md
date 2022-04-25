@@ -4,7 +4,9 @@ title: App_Resources
 
 # Understanding App_Resources
 
-This page serves as a quick reference to understand how most settings in App_Resources affect the look of a NativeScript app.
+The App_Resources folder contains platform-specific resources of the application (icons, configuration files, native code, etc.). An application that supports both Android and iOS would therefore contain a subfolder for each platform.
+
+This page serves as a quick reference to understand how most settings in App_Resources affect behavior and the the look of a NativeScript app.
 
 **Quick Links:**
 [[toc]]
@@ -21,14 +23,85 @@ Here we are showing the default look of a few elements (no custom styling applie
 
 ```bash
 App_Resources/
-  |- Android
-    |- src/main/res
-      |- values      # Default Values
-      |- values-v21  # Values for API 21+
-      |- values-v29  # Values for API 29+
+├─ Android/
+│  └─ src/main/res/
+│     ├─ values/      # Default Values
+│     ├─ values-v21/  # Values for API 21+
+│     └─ values-v29/  # Values for API 29+
+└─ ... more
 ```
 
 Values can be overriden on specific API levels by making the changes in the corresponding directories.
+
+### Adding native code to an application
+
+There are different ways to add native code to an Android application. You can add Java JAR files or Java and/or Kotlin source files in `App_Resources/Android/libs` and `App_Resources/Android/src` respectively, e.g.:
+
+```bash
+App_Resources/
+├─ Android/
+│  ├─ app.gradle
+│  ├─ libs/
+│  │  ├─ HelloAndroidLib.aar  # Android ARchive
+│  │  └─ HelloJavaLib.jar     # Java ARchive
+│  └─ src/
+│     └─ main/
+│       ├─ java/
+│       │  ├─ com/example/HelloKotlin.kt  # Kotlin source code
+│       │  └─ com/example/HelloJava.java  # Java source code
+│       └─ res/
+└─ ... more
+```
+
+<!--  -->
+
+<!-- tab: Kotlin -->
+
+```kt
+// HelloKotlin.kt
+package com.example
+
+class HelloKotlin {
+  val hello = "Hello from Kotlin!"
+}
+```
+
+<!-- tab: Java -->
+
+```java
+// HelloJava.java
+package com.example
+
+class HelloJava {
+  public String getString() {
+    return "Hello from Java!";
+  }
+}
+```
+
+Given the example above, your JavaScript or TypeScript code can reference the Kotlin or Java code by using the full class names, e.g.
+
+```typescript
+const helloKotlin = new com.example.HelloKotlin()
+console.log('Kotlin says: ' + helloKotlin.hello)
+// prints: Kotlin says: Hello from Kotlin!
+
+const helloJava = new com.example.HelloJava()
+console.log('Java says: ' + helloJava.getString())
+// prints: Java says: Hello from Java!
+```
+
+:::tip Note
+
+If using TypeScript, you may need to generate typings, or alternatively declare the top level package name as `any`, e.g.
+
+```typescript
+declare const com: any
+```
+
+:::
+
+If using Kotlin source files, `useKotlin` should be enabled in `before-plugins.gradle` or `app.gradle`
 
 ### Setting the default color of the ActionBar
 

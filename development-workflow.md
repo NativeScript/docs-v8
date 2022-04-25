@@ -232,12 +232,12 @@ Follow the official documentation on [Creating and Managing Virtual Devices](htt
 
 #### Creating Android Virtual Device via command line tool
 
-The `avdmanager` is a tool that allows you to create and manage Android Virtual Devices (AVDs) from the command line. The `avdmanager` is provided in the Android SDK Tools package (25.3.0 and higher) and is located in `<ANDROID_HOME_PATH_HERE>/tools/bin/`. For more information about the avdmanager and how to use it to create AVDs, see the [official avdmanager documentation](https://developer.android.com/studio/command-line/avdmanager.html).
+The `avdmanager` is a tool that allows you to create and manage Android Virtual Devices (AVDs) from the command line. The `avdmanager` is provided in the Android SDK Tools package (25.3.0 and higher) and is located in `<ANDROID_HOME_PATH_HERE>/cmdline-tools/latest/bin/`. For more information about the avdmanager and how to use it to create AVDs, see the [official avdmanager documentation](https://developer.android.com/studio/command-line/avdmanager).
 
 Command syntax to create new AVD
 
 ```cli
-cd $ANDROID_HOME/tools/bin
+cd $ANDROID_HOME/cmdline-tools/latest/bin
 avdmanager create avd -n name -k "sdk_id" [-c {path|size}] [-f] [-p path]
 ```
 
