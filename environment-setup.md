@@ -236,41 +236,23 @@ If the binary is not found run `gem env` to examine your folders, and update you
 
 :::warning Important note about macOS 12.3+
 
-Starting with macOS 12.3, python 2.x is no longer shipped with the system and requires you to install it manually.
+Starting with macOS 12.3, python 2.x is no longer shipped with the system and the python3 executable isn't aliased to `python`, you will need to do that manually.
 
 If you are on macOS 12.3 or newer, please follow these instructions.
 
-:warning: These instructions may change over time, as we are still evaluating whether or not there's a better approach, but the following should get you running on macOS 12.3+.
-
-First, install **<abbr title="Python version manager">pyenv</abbr>** and Python@2.7.18 by running the following:
+:warning: **Note**: Python 3 is fully supported by the NativeScript components that rely on it, however changing our scripts to use the `python3` executable name by default is a minor breaking change we're aiming to introduce in NativeScript 8.3. Until then, this workaround is required to get running.
 
 ```cli
-brew install pyenv
-pyenv install 2.7.18
-
-# set the global python version to 2.7.18
-pyenv global 2.7.18
-
-# link the installed python version to be available to XCode
-sudo ln -s ~/.pyenv/shims/python /usr/local/bin/python
+# link and alias the installed python3
+# version to be available to XCode as python
+sudo ln -s $(which python3) /usr/local/bin/python
 ```
-
-To load and initialize pyenv, add the following lines to your shell profile, usually `~/.bash_profile` or `~/.bashrc`, or if you are using `zsh` then `~/.zshrc`:
-
-```bash
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init --path)"
-  eval "$(pyenv init -)"
-fi
-```
-
-**Note:** Make sure to open a new terminal window for the above changes to take effect!
 
 Next, update **<abbr title="Python package manager">pip</abbr>** and install **<abbr title="Python 2 & 3 compatibility package used by NativeScript">six</abbr>** by running the following:
 
 ```cli
-pip install --upgrade pip
-python -m pip install six
+python3 -m pip install --upgrade pip
+python3 -m pip install six
 ```
 
 Now continue to the "Install the **NativeScript CLI** globally" section below.
@@ -284,8 +266,8 @@ sudo easy_install pip==20.3.3
 python -m pip install six
 ```
 
-:::tip NOTE
-You may see a Deprecation warning when installing **six**, feel free to ignore it for now &mdash; NativeScript will update to Python 3.x in the near future.
+:::tip Note
+You may see a Deprecation warning when installing **six**, feel free to ignore it for now &mdash; NativeScript will update to Python 3.x in version 8.3.
 :::
 
 Install the **NativeScript CLI** globally:
@@ -294,7 +276,7 @@ Install the **NativeScript CLI** globally:
 npm install -g nativescript
 ```
 
-:::tip NOTE
+:::tip Note
 You may see Deprecation and security warnings from **npm**, these are safe to ignore.
 
 _**More details for those curious:** The NativeScript CLI relies on 3rd party packages that may have been deprecated over the past years. We are slowly replacing these dependencies with newer, supported alternatives to resolve these warnings, however they are generally safe to ignore, since the CLI is never exposed to the public and it's only used for local development, where most of the security concerns don't apply._
