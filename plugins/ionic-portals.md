@@ -48,12 +48,11 @@ Application.run({ moduleName: 'app-root' })
 ### Vanilla/Plain/Core
 
 ```xml
-<Page
-  xmlns="http://schemas.nativescript.org/tns.xsd"
-  xmlns:ionic="@nativescript/ionic-portals"
->
+<Page xmlns="http://schemas.nativescript.org/tns.xsd"
+  xmlns:ionic="@nativescript/ionic-portals">
   <StackLayout class="p-20">
-    <ionic:IonicPortal id="webPortal" />
+    <ionic:IonicPortal id="webPortal">
+    </ionic:IonicPortal>
   </StackLayout>
 </Page>
 ```

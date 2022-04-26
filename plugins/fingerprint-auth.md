@@ -22,11 +22,10 @@ Then open `App_Resources/Android/app.gradle` and look for `minSdkVersion`.
 If that's set to a version less than 23, add this `overrideLibrary` line to `App_Resources/Android/src/main/AndroidManifest.xml`:
 
 ```xml
-<uses-sdk
-  android:minSdkVersion="17"
-  android:targetSdkVersion="__APILEVEL__"
-  tools:overrideLibrary="com.jesusm.kfingerprintmanager"
-/>
+  <uses-sdk
+      android:minSdkVersion="17"
+      android:targetSdkVersion="__APILEVEL__"
+      tools:overrideLibrary="com.jesusm.kfingerprintmanager"/>
 ```
 
 ## API

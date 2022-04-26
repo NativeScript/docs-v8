@@ -192,7 +192,7 @@ You can use [NativeScript's `testID` property](https://blog.nativescript.org/nat
 Example:
 
 ```xml
-<Button text="Tap Me!" testID="testButton" />
+<Button text="Tap Me!" testID="testButton"></Button>
 ```
 
 ```javascript
@@ -279,9 +279,9 @@ In order to use the `automationText` property in NativeScript it must be enabled
 Create a file called `ids.xml` in `App_Resources/Android/src/main/res/values/` and add the following:
 
 ```xml
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <item type="id" name="nativescript_accessibility_id" />
+    <item type="id" name="nativescript_accessibility_id"/>
 </resources>
 ```
 

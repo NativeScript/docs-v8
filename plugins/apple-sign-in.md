@@ -20,16 +20,15 @@ Go to [the Apple developer](https://developer.apple.com/account/resources/identi
 Open your app's App_Resources/iOS folder and add the following (or append) to a file named app.entitlements.
 
 ```xml
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
-  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-  <dict>
-    <key>com.apple.developer.applesignin</key>
-    <array>
-      <string>Default</string>
-    </array>
-  </dict>
+<dict>
+	<key>com.apple.developer.applesignin</key>
+	<array>
+		<string>Default</string>
+	</array>
+</dict>
 </plist>
 ```
 
