@@ -41,10 +41,7 @@ Once that configuration is done for your Apple developer account, you will be ab
 
 ```xml
 <ios>
-    <ApplePayBtn
-        tap="onApplePayTap"
-        buttonType="InStore"
-    ></ApplePayBtn>
+  <ApplePayBtn tap="onApplePayTap" buttonType="InStore" />
 </ios>
 ```
 

@@ -28,10 +28,7 @@ This plugin is based on the Nativescript Label implementation but with changes t
   xmlns:AFT="@nativescript/auto-fit-text"
 >
   <StackLayout class="p-20">
-    <AFT:AutoFitText
-      text="Testinggggggggggggggggg"
-      textWrap="false"
-    ></AFT:AutoFitText>
+    <AFT:AutoFitText text="Testinggggggggggggggggg" textWrap="false" />
   </StackLayout>
 </Page>
 ```
@@ -48,7 +45,12 @@ import { NativeScriptAutoFitTextModule } from '@nativescript/auto-fit-text/angul
 ```
 
 ```xml
-<AutoFitText row="2" fontSize="48" text="Lorem Ipsum this line of text with fontSize ignored because the text is so long." textWrap="false"></AutoFitText>
+<AutoFitText
+  row="2"
+  fontSize="48"
+  text="Lorem Ipsum this line of text with fontSize ignored because the text is so long."
+  textWrap="false"
+/>
 ```
 
 ## Credits

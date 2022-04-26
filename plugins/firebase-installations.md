@@ -1,11 +1,11 @@
 ---
-title: 'Insallations'
+title: 'Installations'
 link: https://raw.githubusercontent.com/NativeScript/firebase/main/packages/firebase-installations/README.md
 ---
 
 <div style="width: 100%; padding: 1.2em 0em">
 	<img alt="github logo" src="../assets/images/github/GitHub-Mark-32px.png" style="display: inline; margin: 1em 0.5em 1em 0em">
-	<a href="https://github.com/NativeScript/firebase/tree/main/packages/firebase-installations" target="_blank" noopener>Insallations</a>
+	<a href="https://github.com/NativeScript/firebase/tree/main/packages/firebase-installations" target="_blank" noopener>Installations</a>
 </div>
 
 # @nativescript/firebase-installations
