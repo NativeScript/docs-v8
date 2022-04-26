@@ -19,23 +19,26 @@ Creates an animated circle (animates the border of the circle) on iOS and Androi
 ## Usage
 
 ```xml
-<Page xmlns="http://schemas.nativescript.org/tns.xsd"
-  xmlns:ui="@nativescript/animated-circle">
-    <ui:AnimatedCircle
-        backgroundColor="transparent"
-        width="200"
-        height="200"
-        animated="true"
-        animateFrom="0"
-        rimColor="#FF5722"
-        barColor="#3D8FF4"
-        fillColor="#eee"
-        clockwise="true"
-        rimWidth="5"
-        progress="80"
-        text="bam"
-        textSize="28"
-        textColor="red" />
+<Page
+  xmlns="http://schemas.nativescript.org/tns.xsd"
+  xmlns:ui="@nativescript/animated-circle"
+>
+  <ui:AnimatedCircle
+    backgroundColor="transparent"
+    width="200"
+    height="200"
+    animated="true"
+    animateFrom="0"
+    rimColor="#FF5722"
+    barColor="#3D8FF4"
+    fillColor="#eee"
+    clockwise="true"
+    rimWidth="5"
+    progress="80"
+    text="bam"
+    textSize="28"
+    textColor="red"
+  />
 </Page>
 ```
 
@@ -49,7 +52,20 @@ imports: [NativeScriptAnimatedCircleModule]
 ```
 
 ```xml
-			<AnimatedCircle backgroundColor="transparent" width="200" height="200" animated="true" animateFrom="0" rimColor="#fff000" barColor="#ff4081" rimWidth="25" progress="{{ circleProgress }}" text="" textSize="22" textColor="#336699"></AnimatedCircle>
+<AnimatedCircle
+  backgroundColor="transparent"
+  width="200"
+  height="200"
+  animated="true"
+  animateFrom="0"
+  rimColor="#fff000"
+  barColor="#ff4081"
+  rimWidth="25"
+  progress="{{ circleProgress }}"
+  text=""
+  textSize="22"
+  textColor="#336699"
+/>
 ```
 
 ## API
