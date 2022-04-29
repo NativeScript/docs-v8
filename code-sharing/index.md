@@ -74,7 +74,7 @@ If a "code sharing solution" is maintained by a framework that can often mean th
 - You are on your own with organizational structure which can lead to common pitfalls with cross platform mixtures
 - No out of the box deployment/distribution target setup to identify app targets vs. shared code
 
-### [Lerna](https://github.com/lerna/lerna)
+### [Lerna-Lite](https://github.com/ghiscoding/lerna-lite)
 
 **Pros:**
 
