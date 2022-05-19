@@ -183,6 +183,7 @@ class Activity extends androidx.appcompat.app.AppCompatActivity {
   private _callbacks: AndroidActivityCallbacks
 
   public onCreate(savedInstanceState: android.os.Bundle): void {
+    Application.android.init(this.getApplication())
     // Set the isNativeScriptActivity in onCreate (as done in the original NativeScript activity code)
     // The JS constructor might not be called because the activity is created from Android.
     this.isNativeScriptActivity = true
@@ -191,6 +192,10 @@ class Activity extends androidx.appcompat.app.AppCompatActivity {
     }
 
     this._callbacks.onCreate(this, savedInstanceState, this.getIntent(), super.onCreate)
+  }
+
+  public onNewIntent(intent: android.content.Intent): void {
+    this._callbacks.onNewIntent(this, intent, super.setIntent, super.onNewIntent)
   }
 
   public onSaveInstanceState(outState: android.os.Bundle): void {
@@ -207,6 +212,10 @@ class Activity extends androidx.appcompat.app.AppCompatActivity {
 
   public onDestroy(): void {
     this._callbacks.onDestroy(this, super.onDestroy)
+  }
+
+  public onPostResume(): void {
+    this._callbacks.onPostResume(this, super.onPostResume)
   }
 
   public onBackPressed(): void {
