@@ -59,7 +59,7 @@ NativeScript provides a way to create custom `android.app.Application` and `andr
 
 ### Extending the Android Application
 
-1. Create a new TypeScript file in your app folder - name it `application.android.ts` or `application.android.js` if you are using plain JS.
+1. Create a new TypeScript file in the root of your project folder - name it `application.android.ts` or `application.android.js` if you are using plain JS.
    ::: tip Note
    Note the \*.android suffix - we want this file packaged for Android only.
    :::
@@ -139,7 +139,7 @@ module.exports = env => {
       // is relative to the webpack.config.js
       // you may need to use `./app/application.android if
       // your app source is located inside the ./app folder.
-      config.entry('application').add('./src/application.android')
+      config.entry('application').add('./application.android')
     }
   })
 
@@ -1223,16 +1223,13 @@ SomeObject.myMethod(arr) // assuming the method is accepting an array of primiti
 However there are some other helpful classes we can use to create a few other arrays of primitive types
 
 ```js
-const byteArray = java.nio.ByteBuffer.wrap([1]).array();
-const shortArray = java.nio.ShortBuffer.wrap([1]).array();
-const intArray = java.nio.IntBuffer.wrap([1]).array();
-const longArray = java.nio.LongBuffer.wrap([1]).array();
-const floatArray = java.nio.FloatBuffer.wrap([1]).array();
-const doubleArray = java.nio.DoubleBuffer.wrap([1]).array();
+const byteArray = java.nio.ByteBuffer.wrap([1]).array()
+const shortArray = java.nio.ShortBuffer.wrap([1]).array()
+const intArray = java.nio.IntBuffer.wrap([1]).array()
+const longArray = java.nio.LongBuffer.wrap([1]).array()
+const floatArray = java.nio.FloatBuffer.wrap([1]).array()
+const doubleArray = java.nio.DoubleBuffer.wrap([1]).array()
 ```
-
-
-
 
 ##### Two-Dimensional Arrays of Primitive Types
 
