@@ -395,4 +395,4 @@
 # /ui/theme
 
 # fallback redirect to index.html
-/*                              /404.html?path=:splat
+# /*                              /404.html?path=:splat
