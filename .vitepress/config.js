@@ -534,7 +534,7 @@ function getSidebar() {
 		{
 			text: 'Networking',
 			children: [
-				{ text: 'Http', link: '/Http' },
+				{ text: 'Http', link: '/http' },
 				{
 					text: 'Connectivity',
 					link: '/connectivity',
