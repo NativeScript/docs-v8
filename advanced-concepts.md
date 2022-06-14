@@ -368,7 +368,7 @@ In order to satisfy the above constraints the developer has to:
 Swift classes need to be accessible from the Objective-C runtime in order to be used from NativeScript. This can be done by using the _@objc_ attribute or by inheriting _NSObject_.
 :::
 
-For a detailed walkthrough on how to use native iOS source code in NativeScript [here](https://www.nativescript.org/blog/adding-objective-c-code-to-a-nativescript-app).
+For a detailed walkthrough on how to use native iOS source code in NativeScript [here](https://blog.nativescript.org/adding-objective-c-code-to-a-nativescript-app/).
 
 ### Objective C Example
 
