@@ -56,6 +56,10 @@ var config = {
 			link: docsURL(),
 		},
 		{
+			text: 'Blog',
+			link: blogURL(),
+		},
+		{
 			text: 'Community',
 			link: 'https://nativescript.org/discord',
 			target: 'blank',
@@ -66,12 +70,6 @@ var config = {
 		},
 	],
 	flyoutNav: [
-		{
-			text: 'Blog',
-			link: blogURL(),
-			description:
-				'Read about updates, tips & tricks, guides from us and the community.',
-		},
 		{
 			text: 'Partners',
 			link: mainURL('/partners'),
@@ -6784,7 +6782,7 @@ var _hoisted_14$1 = /*#__PURE__*/ createVNode(
 )
 
 var _hoisted_15 = /*#__PURE__*/ createStaticVNode(
-	'<input aria-hidden="true" id="search" name="search" disabled class="\n                      block\n                      w-full\n                      py-2\n                      pl-10\n                      pr-3\n                      leading-5\n                      bg-white\n                      border border-transparent\n                      rounded-md\n                      placeholder-blue-50\n                      text-blue-50\n                      bg-opacity-20\n                      focus:outline-none focus:bg-white focus:ring-0 focus:placeholder-gray-400 focus:text-gray-900\n                      sm:text-sm\n                    " placeholder="Search Anything" type="search"><div class="absolute inset-y-0 right-0 items-center hidden pr-3 pointer-events-none xl:flex"><div class="px-2 py-1 text-xs text-white bg-white border border-white border-opacity-50 rounded bg-opacity-30"><span class="sr-only">Press Ctrl+K to open quick search</span><span aria-hidden="true">Ctrl K</span></div></div>',
+	'<input aria-hidden="true" id="search" name="search" disabled class="\r\n                      block\r\n                      w-full\r\n                      py-2\r\n                      pl-10\r\n                      pr-3\r\n                      leading-5\r\n                      bg-white\r\n                      border border-transparent\r\n                      rounded-md\r\n                      placeholder-blue-50\r\n                      text-blue-50\r\n                      bg-opacity-20\r\n                      focus:outline-none focus:bg-white focus:ring-0 focus:placeholder-gray-400 focus:text-gray-900\r\n                      sm:text-sm\r\n                    " placeholder="Search Anything" type="search"><div class="absolute inset-y-0 right-0 items-center hidden pr-3 pointer-events-none xl:flex"><div class="px-2 py-1 text-xs text-white bg-white border border-white border-opacity-50 rounded bg-opacity-30"><span class="sr-only">Press Ctrl+K to open quick search</span><span aria-hidden="true">Ctrl K</span></div></div>',
 	2
 )
 
@@ -6851,7 +6849,7 @@ var _hoisted_26 = /*#__PURE__*/ createVNode(
 		target: '_blank',
 		rel: 'noopener noreferrer',
 		class:
-			'\n              inline-flex\n              items-center\n              justify-center\n              p-2\n              text-gray-900\n              transition-colors\n              rounded-md\n              hover:text-white\n              focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-transparent\n            ',
+			'\r\n              inline-flex\r\n              items-center\r\n              justify-center\r\n              p-2\r\n              text-gray-900\r\n              transition-colors\r\n              rounded-md\r\n              hover:text-white\r\n              focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-transparent\r\n            ',
 		'aria-expanded': 'false',
 	},
 	[
@@ -7017,7 +7015,7 @@ function render$9(_ctx, _cache, $props, $setup, $data, $options) {
 											}),
 										type: 'button',
 										class:
-											'\n                  inline-flex\n                  items-center\n                  justify-center\n                  p-2\n                  text-gray-900\n                  bg-white\n                  rounded-md\n                  hover:bg-gray-800 hover:text-white\n                  focus:outline-none focus:ring-2 focus-ring-inset focus:ring-white\n                ',
+											'\r\n                  inline-flex\r\n                  items-center\r\n                  justify-center\r\n                  p-2\r\n                  text-gray-900\r\n                  bg-white\r\n                  rounded-md\r\n                  hover:bg-gray-800 hover:text-white\r\n                  focus:outline-none focus:ring-2 focus-ring-inset focus:ring-white\r\n                ',
 										'aria-expanded': 'false',
 									},
 									[_hoisted_8$2, _hoisted_9$2]
@@ -7089,7 +7087,7 @@ function render$9(_ctx, _cache, $props, $setup, $data, $options) {
 											['prevent']
 										)),
 									class: [
-										'\n                relative\n                z-20\n                inline-flex\n                items-center\n                justify-center\n                p-2\n                transition-colors\n                rounded-md\n                focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-transparent\n              ',
+										'\r\n                relative\r\n                z-20\r\n                inline-flex\r\n                items-center\r\n                justify-center\r\n                p-2\r\n                transition-colors\r\n                rounded-md\r\n                focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-transparent\r\n              ',
 										{
 											'bg-white text-gray-900': _ctx.flyoutMenuOpen,
 											'text-white hover:text-gray-900': !_ctx.flyoutMenuOpen,
@@ -7242,7 +7240,7 @@ function render$9(_ctx, _cache, $props, $setup, $data, $options) {
 																}),
 															type: 'button',
 															class:
-																'\n                  inline-flex\n                  items-center\n                  justify-center\n                  p-2\n                  text-gray-400\n                  bg-white\n                  rounded-md\n                  hover:bg-gray-100\n                  focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600\n                ',
+																'\r\n                  inline-flex\r\n                  items-center\r\n                  justify-center\r\n                  p-2\r\n                  text-gray-400\r\n                  bg-white\r\n                  rounded-md\r\n                  hover:bg-gray-100\r\n                  focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600\r\n                ',
 														},
 														[_hoisted_31, _hoisted_32]
 													),
@@ -8448,9 +8446,9 @@ var script$4 = defineComponent({
 	},
 })
 
-var _withId = /*#__PURE__*/ withScopeId('data-v-56b37754')
+var _withId = /*#__PURE__*/ withScopeId('data-v-5173fc41')
 
-pushScopeId('data-v-56b37754')
+pushScopeId('data-v-5173fc41')
 
 var _hoisted_1$4 = /*#__PURE__*/ createVNode(
 	'div',
@@ -8543,7 +8541,7 @@ var render$4 = /*#__PURE__*/ _withId(function (
 })
 
 script$4.render = render$4
-script$4.__scopeId = 'data-v-56b37754'
+script$4.__scopeId = 'data-v-5173fc41'
 
 var script$3 = defineComponent({
 	setup: function setup() {
@@ -8685,8 +8683,13 @@ var script$2 = defineComponent({
 		var urlsToTry = ref([])
 
 		if (typeof window !== 'undefined') {
+			var _parms$get
+
 			var parms = new URLSearchParams(window.location.search)
-			var path = parms.get('path')
+			var path =
+				(_parms$get = parms.get('path')) !== null && _parms$get !== void 0
+					? _parms$get
+					: window.location.pathname.replace('.html', '').replace(/^\//, '')
 
 			if (path) {
 				urlsToTry.value.push('https://v7.docs.nativescript.org/'.concat(path))
