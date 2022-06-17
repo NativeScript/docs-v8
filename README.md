@@ -7,7 +7,7 @@ npm start
 ```
 
 
-## IMPORTANT NOTE ABOUT PLUGIN DOCS
+## Important Note about Plugin Docs
 
 Plugins docs are automatically synced every night via cron job with various plugin workspace repos, for example:
 * https://github.com/NativeScript/firebase
