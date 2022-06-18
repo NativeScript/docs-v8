@@ -336,7 +336,7 @@ Through the use of NativeAdListener, you can listen for lifecycle events, such a
 <ui:NativeAdView height="400" loaded="{{nativeAdLoaded}}">
   <GridLayout height="300" width="300">
     <Label id="headLineView" />
-    <ui:MediaView id="mediaView" height="100%"/>
+    <ui:MediaView id="mediaView" height="100%" />
     <Label id="bodyView" />
     <Button id="callToActionView" />
   </GridLayout>
