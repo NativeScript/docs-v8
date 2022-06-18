@@ -532,13 +532,29 @@ function getSidebar() {
 			],
 		},
 		{
-			text: 'Networking',
+			text: '@nativescript/core',
 			children: [
-				{ text: 'Http', link: '/http' },
+				{ text: 'Color', link: '/nativescript-core/color' },
+				{ text: 'Connectivity', link: '/nativescript-core/connectivity' },
+				{ text: 'Application', link: '/nativescript-core/application' },
 				{
-					text: 'Connectivity',
-					link: '/connectivity',
+					text: 'ApplicationSettings',
+					link: '/nativescript-core/application-settings',
 				},
+				{ text: 'Observable', link: '/nativescript-core/observable' },
+				{
+					text: 'Observable Array',
+					link: '/nativescript-core/observable-array',
+				},
+				{ text: 'Virtual Array', link: '/nativescript-core/virtual-array' },
+				{ text: 'File System', link: '/nativescript-core/file-system' },
+				{ text: 'Fps Meter', link: '/nativescript-core/fps-meter' },
+				{ text: 'Http', link: '/nativescript-core/http' },
+				{ text: 'Image Source', link: '/nativescript-core/image-source' },
+				{ text: 'Platform', link: '/nativescript-core/platform' },
+				{ text: 'Timer', link: '/nativescript-core/timer' },
+				{ text: 'Trace', link: '/nativescript-core/trace' },
+				{ text: 'Xml Parser', link: '/nativescript-core/xml-parser' },
 			],
 		},
 		// {
