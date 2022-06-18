@@ -1,6 +1,5 @@
 const puppeteer = require('puppeteer-extra')
 const fse = require('fs-extra')
-const chalk = require('chalk')
 const log = console.log
 
 const config = require('../.vitepress/config')
@@ -48,7 +47,7 @@ async function main() {
 				`./${plugin.link}.md`,
 				`${headerSnippet}\n\n${repoSnippet}\n\n${transformNoteStyle(data)}`
 			)
-			log(chalk.green(`File saved for plugin: ${plugin.name}`))
+			log(`File saved for plugin: ${plugin.name}`)
 		}
 
 		const walkPlugin = (plugin) => {
@@ -59,7 +58,7 @@ async function main() {
 			if (plugin.readme) {
 				promises.push(
 					fetchData(plugin).catch((error) => {
-						log(chalk.red(error))
+						log(error)
 					})
 				)
 			}
@@ -72,10 +71,10 @@ async function main() {
 		walkPlugins(config.plugins)
 
 		await Promise.all(promises)
-		log(chalk.green('Done.'))
+		log('Done.')
 		process.exit()
 	} catch (error) {
-		log(chalk.red(error), error)
+		log(error, error)
 		process.exit()
 	}
 }
