@@ -1,75 +1,84 @@
 ---
-title: Connectivity
+title: Application
 ---
 
-## Connectivity
+## Application
 
-The connectivity module provides a common abstraction of the functionality responsible for receiving information about the connection type and availability of the network.
+The Application module provides abstraction over the platform-specific Application implementations. The module lets you manage the lifecycle of your NativeScript applications from starting the application to handling application events and creating platform-specific logic, such as, sending Broadcasts on Android or adding a Notification observer on IOS.
 
 #### Usage
 
+/// flavor javascript
+
+```javascript
+const applicationModule = require('@nativescript/core/application')
+```
+
+///
+
+/// flavor typescript
+
 ```typescript
-import { Connectivity } from '@nativescript/core'
+import { Application } from '@nativescript/core'
+```
 
-export function onNavigatedTo(args) {
-  const page = args.object
+///
 
-  // Get the current connection type
-  const type = Connectivity.getConnectionType()
+## Android
 
-  switch (type) {
-    case Connectivity.connectionType.none:
-      console.log('No connection')
-      break
-    case Connectivity.connectionType.wifi:
-      console.log('WiFi connection')
-      break
-    case Connectivity.connectionType.vpn:
-      console.log('VPN connection')
-      break
-    case Connectivity.connectionType.mobile:
-      console.log('Mobile connection')
-      break
-    case Connectivity.connectionType.ethernet:
-      console.log('Ethernet connection')
-      break
-    case Connectivity.connectionType.bluetooth:
-      console.log('Bluetooth connection')
-      break
-    default:
-      break
+The application module provides a number of Android specific properties to access the Android app, context and activities.
+
+/// flavor javascript
+
+```javascript
+const androidApp = applicationModule.android
+const isPaused = androidApp.paused // e.g. false
+const packageName = androidApp.packageName // The package ID e.g. org.nativescript.nativescriptsdkexamplesng
+const nativeApp = androidApp.nativeApp // The native APplication reference
+const foregroundActivity = androidApp.foregroundActivity // The current Activity reference
+const context = androidApp.context // The current Android context
+```
+
+///
+
+/// flavor typescript
+
+```typescript
+
+```
+
+///
+
+#### Registering a Broadcast Receiver
+
+/// flavor javascript
+
+```javascript
+if (applicationModule.isAndroid) {
+  // use tns-platform-declarations to acces native APIs (e.g. android.content.Intent)
+  const receiverCallback = (androidContext, intent) => {
+    const level = intent.getIntExtra(android.os.BatteryManager.EXTRA_LEVEL, -1)
+    const scale = intent.getIntExtra(android.os.BatteryManager.EXTRA_SCALE, -1)
+    const percent = (level / scale) * 100.0
+    vm.set('batteryLife', percent.toString())
   }
 
-  // Starts monitoring the network for changes
-  Connectivity.startMonitoring(newConnectionType => {
-    switch (newConnectionType) {
-      case Connectivity.connectionType.none:
-        console.log('Connection type changed to none.')
-        break
-      case Connectivity.connectionType.wifi:
-        console.log('Connection type changed to WiFi.')
-        break
-      case Connectivity.connectionType.vpn:
-        console.log('Connection type changed to VPN.')
-        break
-      case Connectivity.connectionType.mobile:
-        console.log('Connection type changed to mobile.')
-        break
-      case Connectivity.connectionType.ethernet:
-        console.log('Connection type changed to ethernet.')
-        break
-      case Connectivity.connectionType.bluetooth:
-        console.log('Connection type changed to bluetooth.')
-        break
-      default:
-        break
-    }
-  })
-
-  // Stops monitoring the connection
-  Connectivity.stopMonitoring()
+  applicationModule.android.registerBroadcastReceiver(
+    android.content.Intent.ACTION_BATTERY_CHANGED,
+    receiverCallback
+  )
 }
 ```
+
+///
+
+/// flavor typescript
+
+```typescript
+
+```
+
+///
 
 #### Methods
 
