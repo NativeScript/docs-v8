@@ -11,7 +11,7 @@ The Application module provides abstraction over the platform-specific Applicati
 /// flavor javascript
 
 ```javascript
-const applicationModule = require('@nativescript/core/application')
+import { Application } from '@nativescript/core'
 ```
 
 ///
@@ -36,7 +36,7 @@ The property gives you the Nativescript wrapper, the AndroidApplication object, 
 /// flavor javascript
 
 ```javascript
-const androidApp = applicationModule.android
+const androidApp = Application.android
 ```
 
 ///
@@ -218,22 +218,32 @@ const isInBackground: boolean = androidApp.backgrounded
 
 ///
 
-### Broadcasts
+## AndroidApplication Methods
 
-### Registering a broadcast Receiver
+### registerBroadcastReceiver(intentFilter, onReceiveCallback)
 
+Registers a BroadcastReceiver to be run in the main activity thread. The receiver will be called with any broadcast Intent that matches filter, in the main application thread. For more information, please [visit](http://developer.android.com/reference/android/content/Context.html#registerReceiver%28android.content.BroadcastReceiver,%20android.content.IntentFilter%29).
+
+| Parameter(s)        | Definition                                                                           |
+| ------------------- | ------------------------------------------------------------------------------------ |
+| `intentFilter`      | A string containing the intent filter.                                               |
+| `onReceiveCallback` | A callback function that will be called each time the receiver receives a broadcast. |
+
+Since this code is Android specific, first check if `isAndroid` is true.
 /// flavor javascript
 
 ```javascript
-if (platformModule.isAndroid) {
+import { isAndroid } from '@nativescript/core'
+
+if (isAndroid) {
   const receiverCallback = (androidContext, intent) => {
     const level = intent.getIntExtra(android.os.BatteryManager.EXTRA_LEVEL, -1)
     const scale = intent.getIntExtra(android.os.BatteryManager.EXTRA_SCALE, -1)
     const percent = (level / scale) * 100.0
-    vm.set('batteryLife', percent.toString())
+    viewModel.set('batteryLife', percent.toString())
   }
 
-  applicationModule.android.registerBroadcastReceiver(
+  androidApp.registerBroadcastReceiver(
     android.content.Intent.ACTION_BATTERY_CHANGED,
     receiverCallback
   )
@@ -245,6 +255,8 @@ if (platformModule.isAndroid) {
 /// flavor typescript
 
 ```typescript
+import { isAndroid } from '@nativescript/core'
+
 if (isAndroid) {
   const receiverCallback = (
     androidContext: globalAndroid.content.Context,
@@ -253,13 +265,70 @@ if (isAndroid) {
     const level = intent.getIntExtra(android.os.BatteryManager.EXTRA_LEVEL, -1)
     const scale = intent.getIntExtra(android.os.BatteryManager.EXTRA_SCALE, -1)
     const percent = (level / scale) * 100.0
-    vm.set('batteryLife', percent.toString())
+    viewModel.set('batteryLife', percent.toString())
   }
 
-  Application.android.registerBroadcastReceiver(
+  androidApp.registerBroadcastReceiver(
     android.content.Intent.ACTION_BATTERY_CHANGED,
     receiverCallback
   )
+}
+```
+
+///
+
+### getRegisteredBroadcastReceiver(intentFilter)
+
+Gets a registered BroadcastReceiver for the specified intent filter.
+|Parameter(s)|Definition|
+|-----|-----|
+|`intentFilter`| A string containing the intent filter for which the BroadcastReceiver.|
+
+/// flavor javascript
+
+```javascript
+if (isAndroid) {
+  const registerReceiver = androidApp.getRegisteredBroadcastReceiver(intentFilter)
+}
+```
+
+///
+
+/// flavor typescript
+
+```typescript
+if (isAndroid) {
+  const registerReceiver: android.content.BroadcastReceiver =
+    androidApp.getRegisteredBroadcastReceiver(intentFilter)
+}
+```
+
+///
+
+### unregisterBroadcastReceiver(intentFilter)
+
+Unregisters previously registered BroadcastReceiver.
+|Parameter(s)|Definition|
+|-----|-----|
+|`intentFilter`|A string containing the intent filter with which the receiver was originally registered.
+.|
+
+/// flavor javascript
+
+```javascript
+if (isAndroid) {
+  const registerReceiver = androidApp.getRegisteredBroadcastReceiver(intentFilter)
+}
+```
+
+///
+
+/// flavor typescript
+
+```typescript
+if (isAndroid) {
+  const registerReceiver: android.content.BroadcastReceiver =
+    androidApp.getRegisteredBroadcastReceiver(intentFilter)
 }
 ```
 
