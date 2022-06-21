@@ -88,6 +88,13 @@ export function onNavigatedTo(args) {
 - `bluetooth = 4`,
 - `vpn = 5`
 
+#### API References
+
+| Name                                                                                                     | Type     |
+| -------------------------------------------------------------------------------------------------------- | -------- |
+| [@nativescript/core/connectivity](https://docs.nativescript.org/api-reference/modules.html#connectivity) | `Module` |
+| [connectionType](https://docs.nativescript.org/api-reference/modules.html#connectivity)                  | `Enum`   |
+
 #### Native Component
 
 | Android                                                                                                           | iOS                                                                                                              |
