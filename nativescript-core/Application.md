@@ -32,7 +32,7 @@ The application module provides a number of Android specific properties to acces
 
 ### android
 
-The property gives you the Nativescript wrapper, the AndroidApplication object, around the android application.
+The property gives you the Nativescript wrapper, the AndroidApplication object, around the native android application instance.
 /// flavor javascript
 
 ```javascript
@@ -54,7 +54,7 @@ const androidApp: AndroidApplication = Application.android
 This a native application reference. Basically, it is the [Android Application](http://developer.android.com/reference/android/app/Application.html) object instance keeping track of the global application state. From this object you can get methods such as `getFilesDir()`, `onLowMemory()`,etc.
 |||
 |----|-----|
-|Return type:|`android.app.Application`|
+|Type:|`android.app.Application`|
 |||
 
 /// flavor javascript
@@ -77,7 +77,7 @@ const nativeApp: android.app.Application = androidApp.nativeApp
 The reference to the currently active (loaded) [android Activity](http://developer.android.com/reference/android/app/Activity.html). This property is automatically updated upon Activity events.
 |||
 |----|-----|
-|Return type:|`androidx.appcompat.app.AppCompatActivity`|
+|Type:|`androidx.appcompat.app.AppCompatActivity`|
 |||
 
 /// flavor javascript
@@ -100,7 +100,7 @@ const foregroundActivity = androidApp.foregroundActivity
 The main (start) Activity for the application.
 |||
 |----|-----|
-|Return type:|`androidx.appcompat.app.AppCompatActivity`|
+|Type:|`androidx.appcompat.app.AppCompatActivity`|
 |||
 
 /// flavor javascript
@@ -121,17 +121,17 @@ const startActivity: androidx.appcompat.app.AppCompatActivity = androidApp.start
 
 ### orientation
 
-Gets the orientation of the application.
+Gets or sets the orientation of the application.
 
-|              |                                      |
-| ------------ | ------------------------------------ |
-| Return type: | `portrait`\| `landscape`\| `unknown` |
-|              |                                      |
+|       |                                      |
+| ----- | ------------------------------------ |
+| Type: | `portrait`\| `landscape`\| `unknown` |
+|       |                                      |
 
 /// flavor javascript
 
 ```javascript
-const startActivity = androidApp.orientaion
+const orientation = androidApp.orientaion
 ```
 
 ///
@@ -148,10 +148,10 @@ const orientation: 'portrait' | 'landscape' | 'unknown' = androidApp.orientation
 
 Returns whether the system appearance is dark or light.
 
-|              |                  |
-| ------------ | ---------------- |
-| Return type: | `dark`\| `light` |
-|              |                  |
+|       |                  |
+| ----- | ---------------- |
+| Type: | `dark`\| `light` |
+|       |                  |
 
 /// flavor javascript
 
@@ -173,10 +173,10 @@ const systemAppearance: 'dark' | 'light' = androidApp.systemAppearance
 
 Returns `true` if the main application activity is not running (suspended), not even running in the background, otherwise `false` is returned.
 
-|              |           |
-| ------------ | --------- |
-| Return type: | `boolean` |
-|              |           |
+|       |           |
+| ----- | --------- |
+| Type: | `boolean` |
+|       |           |
 
 /// flavor javascript
 
@@ -199,7 +199,7 @@ const isSuspended: boolean = androidApp.paused
 Returns true if the main application activity is in background, otherwise false is returned.
 |||
 |----|-----|
-|Return type:|`boolean`|
+|Type:|`boolean`|
 |||
 
 /// flavor javascript
@@ -334,8 +334,320 @@ if (isAndroid) {
 
 ///
 
+## Android Activity lifecycles events
+
+/// flavor javascript
+
+```javascript
+applicationModule.AndroidApplication.on('activityResumed', args => {
+  //handle the event here
+})
+```
+
+///
+
+/// flavor typescript
+
+```typescript
+Application.AndroidApplication.on('activityResumed', args => {
+  //handle the event here
+})
+```
+
+///
+Other Android Activity lifecycles events are:
+
+- `activityCreated`
+- `activityDestroyed`
+- `activityStarted`
+- `activityPaused`
+- `activityStopped`
+- `saveActivityState`
+- `activityResult`
+- `activityBackPressed`
+- `activityNewIntent`
+- `activityRequestPermissions`
+
+## iOS
+
+## iOS Properties
+
+### ios
+
+The property gives you the Nativescript wrapper, the iOSApplication object, around the native iOS application instance.
+
+|       |                  |
+| ----- | ---------------- |
+| Type: | `iOSApplication` |
+
+/// flavor javascript
+
+```javascript
+const iOSApp = Application.ios
+```
+
+///
+
+/// flavor typescript
+
+```typescript
+const iOSApp: iOSApplication = Application.ios
+```
+
+///
+
+### rootController
+
+The root view controller for the iOS application.
+|||
+|----|-----|
+|Type:|`UIViewController`|
+
+/// flavor javascript
+
+```javascript
+const rootController = iOSApp.rootController
+```
+
+///
+
+/// flavor typescript
+
+```typescript
+const rootController: UIViewController = iOSApp.rootController
+```
+
+///
+
+### window
+
+This property gives the key window, the container for your app views and one of its roles is to deliver touch events to the views. Views are the user interface items such as button, label or scrollview.
+|||
+|----|-----|
+|Type:|`UIWindow`|
+
+/// flavor javascript
+
+```javascript
+const rootController = iOSApp.window
+```
+
+///
+
+/// flavor typescript
+
+```typescript
+const rootController: UIWindow = iOSApp.window
+```
+
+///
+
+### delegate
+
+A set of methods to manage shared behaviors for your app
+|||
+|----|-----|
+|Type:|`UIApplicationDelegate`|
+
+/// flavor javascript
+
+```javascript
+const delegate = iOSApp.delegate
+```
+
+///
+
+/// flavor typescript
+
+```typescript
+const rootController: UIApplicationDelegate = iOSApp.delegate
+```
+
+///
+
+### orientation
+
+Gets or sets the orientation of the application.
+
+|       |                                      |
+| ----- | ------------------------------------ |
+| Type: | `portrait`\| `landscape`\| `unknown` |
+|       |                                      |
+
+/// flavor javascript
+
+```javascript
+const orientation = iOSApp.orientaion
+```
+
+///
+
+/// flavor typescript
+
+```typescript
+const orientation: 'portrait' | 'landscape' | 'unknown' = iOSApp.orientation
+```
+
+///
+
+### systemAppearance
+
+Returns whether the system appearance is dark or light.
+
+|       |                                                 |
+| ----- | ----------------------------------------------- |
+| Type: | `'dark'` \| `'light'` \| `null` (for iOS <= 11) |
+|       |                                                 |
+
+/// flavor javascript
+
+```javascript
+const systemAppearance = iOSApp.systemAppearance
+```
+
+///
+
+/// flavor typescript
+
+```typescript
+const systemAppearance: 'dark' \| 'light' \| 'null' = iOSApp.systemAppearance
+```
+
+///
+
+### nativeApp
+
+Returns the reference to the native iOS app.
+
+|       |                 |
+| ----- | --------------- |
+| Type: | `UIApplication` |
+|       |                 |
+
+/// flavor javascript
+
+```javascript
+const nativeApp = iOSApp.nativeApp
+```
+
+///
+
+/// flavor typescript
+
+```typescript
+const nativeApp: UIApplication = iOSApp.nativeApp
+```
+
+///
+
+## iOSApplication Methods
+
+### addNotificationObserver(notificationName, onReceiveCallback: (notification))
+
+Adds an observer to the default notification center for the specified notification.
+For more information, please [visit](https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/Classes/NSNotificationCenter_Class/#//apple_ref/occ/instm/NSNotificationCenter/addObserver:selector:name:object:)
+
+| Parameter(s)                                               | Definition                                                                                                                                                               |
+| ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `notificationName:string`                                  | A string containing the name of the notification. Find the possible values [here](https://developer.apple.com/documentation/foundation/nsnotificationname?language=objc) |
+| `onReceiveCallback:(notification: NSNotification) => void` | A callback function that will be called each time the observer receives a notification for which it was registered.                                                      |
+
+/// flavor javascript
+
+```javascript
+const observer = iOSApp.addNotificationObserver(
+  'myNotification',
+  (notification: NSNotification) => {}
+)
+```
+
+///
+
+/// flavor typescript
+
+```typescript
+const observer: any = iOSApp.addNotificationObserver(
+  UIDeviceOrientationDidChangeNotification, // For example
+  (notification: NSNotification) => {
+    //Handle the notification
+  }
+)
+```
+
+///
+
+### removeNotificationObserver(observer, notificationName)
+
+Removes the observer for the specified notification from the default notification center.
+|Parameter(s)|Definition|
+|-----|-----|
+|`observer`| The observer that was returned from the addNotificationObserver method.|
+|`notificationName`| A string containing the name of the notification. |
+|`onReceiveCallback`| A callback function that will be called each time the observer receives a notification.|
+
+/// flavor javascript
+
+```javascript
+iOSApp.removeNotificationObserver(observer, UIDeviceBatteryStateDidChangeNotification)
+```
+
+///
+
+/// flavor typescript
+
+```typescript
+iOSApp.removeNotificationObserver(observer, UIDeviceBatteryStateDidChangeNotification)
+```
+
+///
+
+## Cross-platform application events
+
+These events are the application-state related.
+
+/// flavor javascript
+
+```javascript
+applicationModule.on('orientationChanged', args => {
+  console.log(args.eventName) // orientationChanged
+})
+```
+
+///
+
+/// flavor typescript
+
+```typescript
+Application.on('orientationChanged', (args: ApplicationEventData) => {
+  console.log(args.eventName) // orientationChanged
+})
+```
+
+///
+Other cross-platform events:
+
+- `livesync`
+- `cssChanged`
+- `launch`
+- `displayed`
+- `suspend`
+- `resume`
+- `exit`
+- `lowMemory`
+- `uncaughtError`
+- `discardedError`
+- `orientationChanged`
+- `systemAppearanceChanged`
+- `fontScaleChanged`
+
+#### API References
+
+| Name                                                                                              | Type     |
+| ------------------------------------------------------------------------------------------------- | -------- |
+| [@nativescript/core/application](https://docs.nativescript.org/api-reference/modules#application) | `Module` |
+
 #### Native Component
 
-| Android                                                                                                           | iOS                                                                                                              |
-| :---------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------- |
-| [CONNECTIVITY_SERVICE (android.content.Context)](https://developer.android.com/reference/android/content/Context) | [SCNetworkReachability](https://developer.apple.com/documentation/systemconfiguration/scnetworkreachability-g7d) |
+| Android                                                                                    | iOS                                                                                          |
+| :----------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------- |
+| [android.app.Application](https://developer.android.com/reference/android/app/Application) | [UIApplication](https://developer.apple.com/documentation/uikit/uiapplication?language=objc) |
