@@ -4,7 +4,7 @@ title: Application
 
 # Application
 
-The Application module provides abstraction over the platform-specific Application implementations. The module lets you manage things like the lifecycle of your NativeScript applications, from starting the application to handling application events, and creating platform-specific logic, such as, sending Broadcasts on Android or adding a Notification observer on IOS.
+The Application module provides abstraction over the platform-specific application implementations. The module lets you manage things such as handling lifecycle events of your application (cross-platform and/or native), sending Broadcasts on Android or adding a Notification observer on IOS.
 
 ### Import
 
@@ -26,13 +26,13 @@ import { Application } from '@nativescript/core'
 
 ## Android
 
-The application module provides a number of Android specific properties to access the Android app which exposes things such as the main activity for the application, the currently active activity, a method to register a broadcast receiver and other Android specific property and methods, as we will see below.
+For android, you can access the main activity for the application, currently active activity, a method to register a broadcast receiver and other Android-specific properties and methods, as we will see below.
 
 ## Android Properties
 
 ### android
 
-The property gives you the Nativescript wrapper, the AndroidApplication object, around the native android application instance.
+The property gives you the Nativescript wrapper, the AndroidApplication object, around the native android native application instance.
 /// flavor javascript
 
 ```javascript
@@ -51,7 +51,7 @@ const androidApp: AndroidApplication = Application.android
 
 ### nativeApp
 
-This a native application reference. Basically, it is the [Android Application](http://developer.android.com/reference/android/app/Application.html) object instance keeping track of the global application state. From this object you can get methods such as `getFilesDir()`, `onLowMemory()`,etc.
+This a native application reference. Basically, it is the [android.app.Application](http://developer.android.com/reference/android/app/Application.html) instance keeping track of the global application state. From this object you can get methods such as `getFilesDir()`, `onLowMemory()`,etc.
 |||
 |----|-----|
 |Type:|`android.app.Application`|
@@ -171,7 +171,7 @@ const systemAppearance: 'dark' | 'light' = androidApp.systemAppearance
 
 ### paused
 
-Returns `true` if the main application activity is not running (suspended), not even running in the background, otherwise `false` is returned.
+Returns `true` if the main application activity is not running (suspended), otherwise `false` is returned.
 
 |       |           |
 | ----- | --------- |
@@ -229,7 +229,7 @@ Registers a BroadcastReceiver to be run in the main activity thread. The receive
 | `intentFilter`      | A string containing the intent filter.                                               |
 | `onReceiveCallback` | A callback function that will be called each time the receiver receives a broadcast. |
 
-Since this code is Android specific, first check if `isAndroid` is true.
+Since this code is Android specific, first check if `isAndroid` is true. You the same for any Android-specific code to avoid code for Android to run on iOS and results in the app crashing.
 /// flavor javascript
 
 ```javascript
@@ -444,15 +444,34 @@ const rootController: UIWindow = iOSApp.window
 
 ### delegate
 
-A set of methods to manage shared behaviors for your app
+This returns the class you set (the best place to set it is in the `app.js` or `app.ts`, right before `Application.run()`) as a delegate or undefined if you didn't set any. The iOS system monitors the different states of your application and emits an event at each state. To handle these lifecycle events, you have to write a class that extends UIResponder and implements UIApplicationDelegate classes. This class is your delegate. You overwrite the methods from UIApplicationDelegate to handle the events.
 |||
 |----|-----|
-|Type:|`UIApplicationDelegate`|
+|Type:|`UIApplicationDelegate` \| `undefined`|
 
 /// flavor javascript
 
 ```javascript
-const delegate = iOSApp.delegate
+const MyDelegate = (function (_super) {
+  __extends(MyDelegate, _super)
+  function MyDelegate() {
+    _super.apply(this, arguments)
+  }
+  MyDelegate.prototype.applicationDidFinishLaunchingWithOptions = function (
+    application,
+    launchOptions
+  ) {
+    console.log('applicationWillFinishLaunchingWithOptions: ' + launchOptions)
+    return true
+  }
+  MyDelegate.prototype.applicationDidBecomeActive = function (application) {
+    console.log('applicationDidBecomeActive: ' + application)
+  }
+  MyDelegate.ObjCProtocols = [UIApplicationDelegate]
+  return MyDelegate
+})(UIResponder)
+
+Application.ios.delegate = MyDelegate
 ```
 
 ///
@@ -460,8 +479,27 @@ const delegate = iOSApp.delegate
 /// flavor typescript
 
 ```typescript
-const rootController: UIApplicationDelegate = iOSApp.delegate
+@NativeClass()
+class MyDelegate extends UIResponder implements UIApplicationDelegate {
+  public static ObjCProtocols = [UIApplicationDelegate]
+
+  applicationDidFinishLaunchingWithOptions(
+    application: UIApplication,
+    launchOptions: NSDictionary<string, any>
+  ): boolean {
+    console.log('applicationWillFinishLaunchingWithOptions: ' + launchOptions)
+
+    return true
+  }
+
+  applicationDidBecomeActive(application: UIApplication): void {
+    console.log('applicationDidBecomeActive: ' + application)
+  }
+}
+Application.ios.delegate = MyDelegate
 ```
+
+For a complete list of the lifecycle events, visit [UIApplicationDelegate](https://developer.apple.com/documentation/uikit/uiapplicationdelegate?language=objc).
 
 ///
 
@@ -545,7 +583,7 @@ const nativeApp: UIApplication = iOSApp.nativeApp
 ### addNotificationObserver(notificationName, onReceiveCallback: (notification))
 
 Adds an observer to the default notification center for the specified notification.
-For more information, please [visit](https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/Classes/NSNotificationCenter_Class/#//apple_ref/occ/instm/NSNotificationCenter/addObserver:selector:name:object:)
+For more information, please [visit](https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/Classes/NSNotificationCenter_Class/#//apple_ref/occ/instm/NSNotificationCenter/addObserver:selector:name:object:).
 
 | Parameter(s)                                               | Definition                                                                                                                                                               |
 | ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -603,8 +641,7 @@ iOSApp.removeNotificationObserver(observer, UIDeviceBatteryStateDidChangeNotific
 
 ## Cross-platform application events
 
-These events are the application-state related.
-
+These are Nativescript events for both platforms.
 /// flavor javascript
 
 ```javascript
