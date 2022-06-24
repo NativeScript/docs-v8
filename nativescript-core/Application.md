@@ -8,21 +8,13 @@ The Application module provides abstraction over the platform-specific applicati
 
 ### Import
 
-/// flavor javascript
-
 ```javascript
 import { Application } from '@nativescript/core'
 ```
 
-///
-
-/// flavor typescript
-
 ```typescript
 import { Application } from '@nativescript/core'
 ```
-
-///
 
 ## Android
 
@@ -33,21 +25,14 @@ For android, you can access the main activity for the application, currently act
 ### android
 
 The property gives you the Nativescript wrapper, the AndroidApplication object, around the native android native application instance.
-/// flavor javascript
 
 ```javascript
 const androidApp = Application.android
 ```
 
-///
-
-/// flavor typescript
-
 ```typescript
 const androidApp: AndroidApplication = Application.android
 ```
-
-///
 
 ### nativeApp
 
@@ -57,20 +42,13 @@ This a native application reference. Basically, it is the [android.app.Applicati
 |Type:|`android.app.Application`|
 |||
 
-/// flavor javascript
-
 ```javascript
 const nativeApp = androidApp.nativeApp
 ```
 
-///
-/// flavor typescript
-
 ```typescript
 const nativeApp: android.app.Application = androidApp.nativeApp
 ```
-
-///
 
 ### foregroundActivity
 
@@ -80,20 +58,13 @@ The reference to the currently active (loaded) [android Activity](http://develop
 |Type:|`androidx.appcompat.app.AppCompatActivity`|
 |||
 
-/// flavor javascript
-
 ```javascript
 const foregroundActivity = androidApp.foregroundActivity
 ```
 
-///
-/// flavor typescript
-
 ```typescript
 const foregroundActivity = androidApp.foregroundActivity
 ```
-
-///
 
 ### startActivity
 
@@ -103,21 +74,13 @@ The main (start) Activity for the application.
 |Type:|`androidx.appcompat.app.AppCompatActivity`|
 |||
 
-/// flavor javascript
-
 ```javascript
 const startActivity = androidApp.startActivity
 ```
 
-///
-
-/// flavor typescript
-
 ```typescript
 const startActivity: androidx.appcompat.app.AppCompatActivity = androidApp.startActivity
 ```
-
-///
 
 ### orientation
 
@@ -128,21 +91,13 @@ Gets or sets the orientation of the application.
 | Type: | `portrait`\| `landscape`\| `unknown` |
 |       |                                      |
 
-/// flavor javascript
-
 ```javascript
 const orientation = androidApp.orientaion
 ```
 
-///
-
-/// flavor typescript
-
 ```typescript
 const orientation: 'portrait' | 'landscape' | 'unknown' = androidApp.orientation
 ```
-
-///
 
 ### systemAppearance
 
@@ -153,21 +108,13 @@ Returns whether the system appearance is dark or light.
 | Type: | `dark`\| `light` |
 |       |                  |
 
-/// flavor javascript
-
 ```javascript
 const systemAppearance = androidApp.systemAppearance
 ```
 
-///
-
-/// flavor typescript
-
 ```typescript
 const systemAppearance: 'dark' | 'light' = androidApp.systemAppearance
 ```
-
-///
 
 ### paused
 
@@ -178,21 +125,13 @@ Returns `true` if the main application activity is not running (suspended), othe
 | Type: | `boolean` |
 |       |           |
 
-/// flavor javascript
-
 ```javascript
 const isSuspended = androidApp.paused
 ```
 
-///
-
-/// flavor typescript
-
 ```typescript
 const isSuspended: boolean = androidApp.paused
 ```
-
-///
 
 ### backgrounded
 
@@ -202,21 +141,13 @@ Returns true if the main application activity is in background, otherwise false 
 |Type:|`boolean`|
 |||
 
-/// flavor javascript
-
 ```javascript
 const isInBackground = androidApp.backgrounded
 ```
 
-///
-
-/// flavor typescript
-
 ```typescript
 const isInBackground: boolean = androidApp.backgrounded
 ```
-
-///
 
 ## AndroidApplication Methods
 
@@ -230,7 +161,6 @@ Registers a BroadcastReceiver to be run in the main activity thread. The receive
 | `onReceiveCallback` | A callback function that will be called each time the receiver receives a broadcast. |
 
 Since this code is Android specific, first check if `isAndroid` is true. You the same for any Android-specific code to avoid code for Android to run on iOS and results in the app crashing.
-/// flavor javascript
 
 ```javascript
 import { isAndroid } from '@nativescript/core'
@@ -249,10 +179,6 @@ if (isAndroid) {
   )
 }
 ```
-
-///
-
-/// flavor typescript
 
 ```typescript
 import { isAndroid } from '@nativescript/core'
@@ -275,8 +201,6 @@ if (isAndroid) {
 }
 ```
 
-///
-
 ### getRegisteredBroadcastReceiver(intentFilter)
 
 Gets a registered BroadcastReceiver for the specified intent filter.
@@ -284,17 +208,11 @@ Gets a registered BroadcastReceiver for the specified intent filter.
 |-----|-----|
 |`intentFilter`| A string containing the intent filter for which the BroadcastReceiver.|
 
-/// flavor javascript
-
 ```javascript
 if (isAndroid) {
   const registerReceiver = androidApp.getRegisteredBroadcastReceiver(intentFilter)
 }
 ```
-
-///
-
-/// flavor typescript
 
 ```typescript
 if (isAndroid) {
@@ -302,8 +220,6 @@ if (isAndroid) {
     androidApp.getRegisteredBroadcastReceiver(intentFilter)
 }
 ```
-
-///
 
 ### unregisterBroadcastReceiver(intentFilter)
 
@@ -313,17 +229,11 @@ Unregisters previously registered BroadcastReceiver.
 |`intentFilter`|A string containing the intent filter with which the receiver was originally registered.
 .|
 
-/// flavor javascript
-
 ```javascript
 if (isAndroid) {
   const registerReceiver = androidApp.getRegisteredBroadcastReceiver(intentFilter)
 }
 ```
-
-///
-
-/// flavor typescript
 
 ```typescript
 if (isAndroid) {
@@ -332,11 +242,7 @@ if (isAndroid) {
 }
 ```
 
-///
-
 ## Android Activity lifecycles events
-
-/// flavor javascript
 
 ```javascript
 applicationModule.AndroidApplication.on('activityResumed', args => {
@@ -344,17 +250,12 @@ applicationModule.AndroidApplication.on('activityResumed', args => {
 })
 ```
 
-///
-
-/// flavor typescript
-
 ```typescript
 Application.AndroidApplication.on('activityResumed', args => {
   //handle the event here
 })
 ```
 
-///
 Other Android Activity lifecycles events are:
 
 - `activityCreated`
@@ -380,21 +281,13 @@ The property gives you the Nativescript wrapper, the iOSApplication object, arou
 | ----- | ---------------- |
 | Type: | `iOSApplication` |
 
-/// flavor javascript
-
 ```javascript
 const iOSApp = Application.ios
 ```
 
-///
-
-/// flavor typescript
-
 ```typescript
 const iOSApp: iOSApplication = Application.ios
 ```
-
-///
 
 ### rootController
 
@@ -403,21 +296,13 @@ The root view controller for the iOS application.
 |----|-----|
 |Type:|`UIViewController`|
 
-/// flavor javascript
-
 ```javascript
 const rootController = iOSApp.rootController
 ```
 
-///
-
-/// flavor typescript
-
 ```typescript
 const rootController: UIViewController = iOSApp.rootController
 ```
-
-///
 
 ### window
 
@@ -426,21 +311,13 @@ This property gives the key window, the container for your app views and one of 
 |----|-----|
 |Type:|`UIWindow`|
 
-/// flavor javascript
-
 ```javascript
 const rootController = iOSApp.window
 ```
 
-///
-
-/// flavor typescript
-
 ```typescript
 const rootController: UIWindow = iOSApp.window
 ```
-
-///
 
 ### delegate
 
@@ -448,8 +325,6 @@ This returns the class you set (the best place to set it is in the `app.js` or `
 |||
 |----|-----|
 |Type:|`UIApplicationDelegate` \| `undefined`|
-
-/// flavor javascript
 
 ```javascript
 const MyDelegate = (function (_super) {
@@ -474,10 +349,6 @@ const MyDelegate = (function (_super) {
 Application.ios.delegate = MyDelegate
 ```
 
-///
-
-/// flavor typescript
-
 ```typescript
 @NativeClass()
 class MyDelegate extends UIResponder implements UIApplicationDelegate {
@@ -501,8 +372,6 @@ Application.ios.delegate = MyDelegate
 
 For a complete list of the lifecycle events, visit [UIApplicationDelegate](https://developer.apple.com/documentation/uikit/uiapplicationdelegate?language=objc).
 
-///
-
 ### orientation
 
 Gets or sets the orientation of the application.
@@ -512,21 +381,13 @@ Gets or sets the orientation of the application.
 | Type: | `portrait`\| `landscape`\| `unknown` |
 |       |                                      |
 
-/// flavor javascript
-
 ```javascript
 const orientation = iOSApp.orientaion
 ```
 
-///
-
-/// flavor typescript
-
 ```typescript
 const orientation: 'portrait' | 'landscape' | 'unknown' = iOSApp.orientation
 ```
-
-///
 
 ### systemAppearance
 
@@ -537,21 +398,15 @@ Returns whether the system appearance is dark or light.
 | Type: | `'dark'` \| `'light'` \| `null` (for iOS <= 11) |
 |       |                                                 |
 
-/// flavor javascript
-
 ```javascript
 const systemAppearance = iOSApp.systemAppearance
 ```
 
 ///
 
-/// flavor typescript
-
 ```typescript
 const systemAppearance: 'dark' \| 'light' \| 'null' = iOSApp.systemAppearance
 ```
-
-///
 
 ### nativeApp
 
@@ -562,21 +417,13 @@ Returns the reference to the native iOS app.
 | Type: | `UIApplication` |
 |       |                 |
 
-/// flavor javascript
-
 ```javascript
 const nativeApp = iOSApp.nativeApp
 ```
 
-///
-
-/// flavor typescript
-
 ```typescript
 const nativeApp: UIApplication = iOSApp.nativeApp
 ```
-
-///
 
 ## iOSApplication Methods
 
@@ -590,18 +437,12 @@ For more information, please [visit](https://developer.apple.com/library/mac/doc
 | `notificationName:string`                                  | A string containing the name of the notification. Find the possible values [here](https://developer.apple.com/documentation/foundation/nsnotificationname?language=objc) |
 | `onReceiveCallback:(notification: NSNotification) => void` | A callback function that will be called each time the observer receives a notification for which it was registered.                                                      |
 
-/// flavor javascript
-
 ```javascript
 const observer = iOSApp.addNotificationObserver(
   'myNotification',
   (notification: NSNotification) => {}
 )
 ```
-
-///
-
-/// flavor typescript
 
 ```typescript
 const observer: any = iOSApp.addNotificationObserver(
@@ -612,8 +453,6 @@ const observer: any = iOSApp.addNotificationObserver(
 )
 ```
 
-///
-
 ### removeNotificationObserver(observer, notificationName)
 
 Removes the observer for the specified notification from the default notification center.
@@ -623,26 +462,17 @@ Removes the observer for the specified notification from the default notificatio
 |`notificationName`| A string containing the name of the notification. |
 |`onReceiveCallback`| A callback function that will be called each time the observer receives a notification.|
 
-/// flavor javascript
-
 ```javascript
 iOSApp.removeNotificationObserver(observer, UIDeviceBatteryStateDidChangeNotification)
 ```
-
-///
-
-/// flavor typescript
 
 ```typescript
 iOSApp.removeNotificationObserver(observer, UIDeviceBatteryStateDidChangeNotification)
 ```
 
-///
-
 ## Cross-platform application events
 
 These are Nativescript events for both platforms.
-/// flavor javascript
 
 ```javascript
 applicationModule.on('orientationChanged', args => {
@@ -650,17 +480,12 @@ applicationModule.on('orientationChanged', args => {
 })
 ```
 
-///
-
-/// flavor typescript
-
 ```typescript
 Application.on('orientationChanged', (args: ApplicationEventData) => {
   console.log(args.eventName) // orientationChanged
 })
 ```
 
-///
 Other cross-platform events:
 
 - `livesync`
