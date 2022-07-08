@@ -183,6 +183,7 @@ class Activity extends androidx.appcompat.app.AppCompatActivity {
   private _callbacks: AndroidActivityCallbacks
 
   public onCreate(savedInstanceState: android.os.Bundle): void {
+    Application.android.init(this.getApplication())
     // Set the isNativeScriptActivity in onCreate (as done in the original NativeScript activity code)
     // The JS constructor might not be called because the activity is created from Android.
     this.isNativeScriptActivity = true
@@ -191,6 +192,10 @@ class Activity extends androidx.appcompat.app.AppCompatActivity {
     }
 
     this._callbacks.onCreate(this, savedInstanceState, this.getIntent(), super.onCreate)
+  }
+
+  public onNewIntent(intent: android.content.Intent): void {
+    this._callbacks.onNewIntent(this, intent, super.setIntent, super.onNewIntent)
   }
 
   public onSaveInstanceState(outState: android.os.Bundle): void {
@@ -207,6 +212,10 @@ class Activity extends androidx.appcompat.app.AppCompatActivity {
 
   public onDestroy(): void {
     this._callbacks.onDestroy(this, super.onDestroy)
+  }
+
+  public onPostResume(): void {
+    this._callbacks.onPostResume(this, super.onPostResume)
   }
 
   public onBackPressed(): void {
@@ -368,7 +377,7 @@ In order to satisfy the above constraints the developer has to:
 Swift classes need to be accessible from the Objective-C runtime in order to be used from NativeScript. This can be done by using the _@objc_ attribute or by inheriting _NSObject_.
 :::
 
-For a detailed walkthrough on how to use native iOS source code in NativeScript [here](https://www.nativescript.org/blog/adding-objective-c-code-to-a-nativescript-app).
+For a detailed walkthrough on how to use native iOS source code in NativeScript [here](https://blog.nativescript.org/adding-objective-c-code-to-a-nativescript-app/).
 
 ### Objective C Example
 

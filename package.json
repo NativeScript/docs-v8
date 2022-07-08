@@ -12,19 +12,19 @@
     "patch.vitepress": "zx ./scripts/patch-vitepress-deadLinks.mjs"
   },
   "devDependencies": {
-    "@prettier/plugin-xml": "^1.1.0",
+    "@prettier/plugin-xml": "^2.2.0",
     "fs-extra": "^10.0.0",
-    "husky": "^7.0.2",
-    "jsdom": "^17.0.0",
-    "lint-staged": "^11.2.0",
-    "markdown-it": "^12.2.0",
+    "husky": "^8.0.1",
+    "jsdom": "^19.0.0",
+    "lint-staged": "^13.0.1",
+    "markdown-it": "^13.0.1",
     "markdown-it-container": "^3.0.0",
-    "prettier": "^2.2.1",
-    "puppeteer": "^10.4.0",
+    "prettier": "^2.7.0",
+    "puppeteer": "^14.4.0",
     "puppeteer-extra": "^3.2.3",
     "rimraf": "^3.0.2",
-    "vitepress": "0.20.1",
-    "zx": "^4.2.0"
+    "vitepress": "^0.22.4",
+    "zx": "^6.2.5"
   },
   "lint-staged": {
     "*.{js,css,md}": "prettier --write"

@@ -51,11 +51,12 @@ Given the following examples, ensure your web portal is built into the following
 #### Vanilla/Plain/Core
 
 ```xml
-<Page xmlns="http://schemas.nativescript.org/tns.xsd"
-  xmlns:ionic="@nativescript/ionic-portals">
+<Page
+  xmlns="http://schemas.nativescript.org/tns.xsd"
+  xmlns:ionic="@nativescript/ionic-portals"
+>
   <StackLayout class="p-20">
-    <ionic:IonicPortal id="webPortal">
-    </ionic:IonicPortal>
+    <ionic:IonicPortal id="webPortal" />
   </StackLayout>
 </Page>
 ```

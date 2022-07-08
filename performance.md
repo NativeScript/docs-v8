@@ -427,7 +427,7 @@ Because heap snapshots completely avoid the need to parse and execute the vast m
 
 <img src="https://github.com/NativeScript/docs/raw/master/docs/img/best-practices/android-start-up-3.gif" style="height: 450px;">
 
-> **NOTE**: For a far more technical explanation of how V8 heap snapshots work in NativeScript, and how you can configure and optimize the snapshots, check out [this article on the NativeScript blog](https://www.nativescript.org/blog/improving-app-startup-time-on-android-with-webpack-v8-heap-snapshot).
+> **NOTE**: For a far more technical explanation of how V8 heap snapshots work in NativeScript, and how you can configure and optimize the snapshots, check out [this article on the NativeScript blog](https://blog.nativescript.org/improving-app-startup-time-on-android-with-webpack-v8-heap-snapshot).
 
 <h2 id="summary">Summary</h2>
 

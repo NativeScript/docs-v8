@@ -40,15 +40,19 @@ Note in the example below that the two `<TextField>` controls are not siblings (
 However, if you surround the controls with this plugin's `<PreviousNextView>` control, as the example below shows, you will continue to get an optimized keyboard as expected.
 
 ```xml
-<Page xmlns="http://schemas.nativescript.org/tns.xsd" xmlns:IQKeyboardManager="nativescript-iqkeyboardmanager">
+<Page
+  xmlns="http://schemas.nativescript.org/tns.xsd"
+  xmlns:IQKeyboardManager="nativescript-iqkeyboardmanager"
+>
   <StackLayout>
-    <IQKeyboardManager:PreviousNextView><!-- add this 'wrapper' to enable those previous / next buttons -->
+    <IQKeyboardManager:PreviousNextView>
+      <!-- add this 'wrapper' to enable those previous / next buttons -->
       <StackLayout>
         <StackLayout>
-          <TextField hint="Email"/>
+          <TextField hint="Email" />
         </StackLayout>
         <StackLayout>
-          <TextField hint="Password"/>
+          <TextField hint="Password" />
         </StackLayout>
       </StackLayout>
     </IQKeyboardManager:PreviousNextView>
@@ -111,10 +115,13 @@ use `TextViewWithHint` instead.
 #### NativeScript /w XML usage
 
 ```xml
-<Page xmlns="http://schemas.nativescript.org/tns.xsd" xmlns:IQKeyboardManager="@nativescript/iqkeyboardmanager">
+<Page
+  xmlns="http://schemas.nativescript.org/tns.xsd"
+  xmlns:IQKeyboardManager="@nativescript/iqkeyboardmanager"
+>
   <StackLayout>
-    <TextView hint="Not working TextView hint"/>
-    <IQKeyboardManager:TextViewWithHint hint="Working TextView hint 🤪"/>
+    <TextView hint="Not working TextView hint" />
+    <IQKeyboardManager:TextViewWithHint hint="Working TextView hint 🤪" />
   </StackLayout>
 </Page>
 ```
