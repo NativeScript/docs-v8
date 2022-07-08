@@ -509,23 +509,14 @@ function getSidebar() {
 			],
 		},
 		{
-			text: 'Running & Building',
-			children: [
-				{
-					text: 'Webpack',
-					link: '/webpack',
-				},
-			],
-		},
-		{
-			text: 'UI & Styling',
+			text: 'UI Components',
 			children: [
 				{
 					text: 'App_Resources',
 					link: '/app-resources',
 				},
 				{
-					text: 'UI & Styling',
+					text: 'Styling',
 					link: '/ui-and-styling',
 				},
 				{ text: 'Interaction', link: '/interaction' },
@@ -551,6 +542,16 @@ function getSidebar() {
 				//{ text: 'Xml Parser', link: '/nativescript-core/xml-parser' },
 			],
 		},
+		{
+			text: '@nativescript/webpack',
+			children: [
+				{
+					text: 'Overview',
+					link: '/webpack',
+				},
+			],
+		},
+
 		// {
 		// 	text: 'Performance',
 		// 	children: [{ text: 'Webpack/Bundle Optimizations', link: '/performance' }],
