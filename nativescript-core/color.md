@@ -4,81 +4,14 @@ title: Color
 
 ## Color
 
-The color module provides a common abstraction of a list of known colors and a color object which allows you to create custom colors that you can use to style the UI.
+The Color class allows you to create custom colors that you can use to style the UI. You can create a color object from different types of inputs types, as shown below, that stores all color components (alpha (opacity), red, green, blue) in a [0..255] range:
 
-#### Usage
+- `Color(knownColor: string)`
+- `Color(hex: string)`
+- `Color(argb: number)`
+- `Color(alpha: number, red: number, green:number, blue: number, type?: 'rgb' \| 'hsl' \| 'hsv')`
 
-/// flavor javascript
-
-```javascript
-const Color = require('@nativescript/core/color').Color
-const colors = require('@nativescript/core/color/known-colors')
-function createColor() {
-  // Using hex values to create color;
-  const colorHex = new Color('#FF00CC')
-  const colorShortHex = new Color('#F0C')
-
-  // Creates the color with 100 alpha, 255 red, 100 green, 100 blue
-  const colorARGB = new Color(100, 255, 100, 100)
-
-  // Creates the color with 100 alpha, 100 red, 100 green, 100 blue
-  const argb = (100 << 24) | (100 << 16) | (100 << 8) | 100 //eslint-disable-line no-bitwise
-  const colorSingleARGB = new Color(argb)
-
-  // Using string values to create colors
-  const namedColor = 'orangered'
-  const isKnown = colors.isKnownName(namedColor)
-  if (isKnown) {
-    const colorName = new Color(namedColor)
-  }
-
-  // Using supported known colors from @nativescript/core/color/known-colors
-  const colorKnownName = new Color(colors.OrangeRed)
-}
-```
-
-///
-
-/// flavor typescript
-
-```typescript
-import { Color } from '@nativescript/core/color'
-import * as colors from '@nativescript/core/color/known-colors'
-import { isKnownName } from '@nativescript/core/color/known-colors'
-
-function createColor() {
-  // Using hex values to create color;
-  const colorHex = new Color('#FF00CC')
-  const colorShortHex = new Color('#F0C')
-
-  // Creates the color with 100 alpha, 255 red, 100 green, 100 blue
-  const colorARGB = new Color(100, 255, 100, 100)
-
-  // Creates the color with 100 alpha, 100 red, 100 green, 100 blue
-  const argb = (100 << 24) | (100 << 16) | (100 << 8) | 100
-  const colorSingleARGB = new Color(argb)
-
-  // Using string values to create colors
-  const namedColor = 'orangered'
-  const isKnown: boolean = isKnownName(namedColor)
-  if (isKnown) {
-    const colorName = new Color(namedColor)
-  }
-
-  // Using supported known colors from @nativescript/core/color/known-colors
-  const colorKnownName = new Color(colors.OrangeRed)
-}
-```
-
-///
-
-#### Color class
-
-Creates a color object from different types of inputs types, as shown below, that stores all color components (alpha (opacity), red, green, blue) in a [0..255] range.:
-
-`Color(knownColor: string)` or <br> `Color(hex: string)` or <br> `Color(argb: number)` or <br> `Color(alpha: number, red: number, green:number, blue: number, type?: 'rgb' \| 'hsl' \| 'hsv')`
-
-#### Properties
+### Properties
 
 | Name      | Type      | Description                                                                                                                                       |
 | --------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -92,20 +25,20 @@ Creates a color object from different types of inputs types, as shown below, tha
 | `android` | `number`  | Gets the android-specific integer value representation. Same as the Argb one. This is a read-only property.                                       |
 | `ios`     | `UIColor` | Gets the iOS-specific UIColor value representation. This is a read-only property.                                                                 |
 
-#### Stactic Methods
+### Static Methods
 
-| Name                                                | Type      | Description                                                  |
-| --------------------------------------------------- | --------- | ------------------------------------------------------------ |
-| `equals(value1: Color, value2: Color)`              | `boolean` | Compares two `Color` instances                               |
-| `isValid(value: any)`                               | `boolean` | Validates if a value can be converted to a color.            |
-| `fromIosColor(value: UIColor)`                      | `Color`   | Creates color from iOS-specific UIColor value representation |
-| `mix(color1: Color, color2: Color, amount: number)` | `Color`   | Mixes                                                        |
-| `fromHSL(a, h, s, l)`                               | `Color`   | Returns a new `Color` from HSL.                              |
-| `fromHSV(a, h, s, l)`                               | `Color`   | Returns a new `Color` from HSV.                              |
+| Name                                                | Return Type | Description                                                  |
+| --------------------------------------------------- | ----------- | ------------------------------------------------------------ |
+| `equals(value1: Color, value2: Color)`              | `boolean`   | Compares two `Color` instances                               |
+| `isValid(value: any)`                               | `boolean`   | Validates if a value can be converted to a color.            |
+| `fromIosColor(value: UIColor)`                      | `Color`     | Creates color from iOS-specific UIColor value representation |
+| `mix(color1: Color, color2: Color, amount: number)` | `Color`     | Mixes                                                        |
+| `fromHSL(a, h, s, l)`                               | `Color`     | Returns a new `Color` from HSL.                              |
+| `fromHSV(a, h, s, l)`                               | `Color`     | Returns a new `Color` from HSV.                              |
 
-#### Instance Methods
+### Instance Methods
 
-| Name                                                        | Type                                             | Description                                                                                                                                                |
+| Name                                                        | Return Type                                      | Description                                                                                                                                                |
 | ----------------------------------------------------------- | ------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `equals(value: Color)`                                      | `boolean`                                        | Specifies whether the created Color is equal to the Color parameter.                                                                                       |
 | `isDark()`                                                  | `boolean`                                        | Returns true if `brightenss < 128`                                                                                                                         |
@@ -126,7 +59,43 @@ Creates a color object from different types of inputs types, as shown below, tha
 | `spin(amount: number)`                                      | `Color`                                          | Spins the hue a given amount, from `-360` to `360`. Calling with `0`, `360`, or `-360` will do nothing (since it sets the hue back to what it was before). |
 | `complement()`                                              | `Color`                                          | Returns the color complement                                                                                                                               |
 
-#### Native Component
+## Usage
+
+```javascript
+import { Color } from '@nativescript/core'
+
+function createColor() {
+  // Using hex values to create color;
+  const colorHex = new Color('#FF00CC')
+  const colorShortHex = new Color('#F0C')
+
+  // Creates the color with 100 alpha, 255 red, 100 green, 100 blue
+  const colorARGB = new Color(100, 255, 100, 100)
+
+  // Creates the color with 100 alpha, 100 red, 100 green, 100 blue
+  const argb = (100 << 24) | (100 << 16) | (100 << 8) | 100 //eslint-disable-line no-bitwise
+  const colorSingleARGB = new Color(argb)
+}
+```
+
+```typescript
+import { Color } from '@nativescript/core'
+
+function createColor() {
+  // Using hex values to create color;
+  const colorHex = new Color('#FF00CC')
+  const colorShortHex = new Color('#F0C')
+
+  // Creates the color with 100 alpha, 255 red, 100 green, 100 blue
+  const colorARGB = new Color(100, 255, 100, 100)
+
+  // Creates the color with 100 alpha, 100 red, 100 green, 100 blue
+  const argb = (100 << 24) | (100 << 16) | (100 << 8) | 100
+  const colorSingleARGB = new Color(argb)
+}
+```
+
+## Native Component
 
 | Android                                                                                  | iOS                                                                              |
 | :--------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------- |
