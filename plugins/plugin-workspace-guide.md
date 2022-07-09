@@ -129,7 +129,7 @@ At the prompt, enter the name of the package to add an `angular` folder to it wi
 One of the nice benefits of using our plugin workspaces is updating them is made simple and efficient through Nx tooling. The TSC maintains plugin workspace migrations so whenever one is available you can update your plugin workspace with just a few simple commands (which will often provide dependency version bumps of supporting packages to latest NativeScript versions, configuration improvements, as well as other welcome additions to help you create and maintain NativeScript plugins):
 
 ```cli
-npx nx migrate @nativescript/plugin-tools
+yarn nx migrate @nativescript/plugin-tools
 ```
 
 That will fetch `latest` version of `plugin-tools`, analyze the package to see if any migrations are available and then print a message if there are migrations to run.
@@ -138,15 +138,22 @@ Sometimes `@nativescript/plugin-tools` updates won't need any migrations so you 
 
 ```cli
 // install latest updates
-npm install
+yarn
 
 // now run the migrations
-npx nx migrate --run-migrations=migrations.json
+yarn nx migrate --run-migrations=migrations.json
 ```
 
 Your plugin workspace will now be up to date regarding various configurations, settings and core dependencies. Depending on other customizations you made there may be other things to adjust on your own.
 
 After running migrations you can always _delete_ the `migrations.json` file as it will no longer be used. A `migrations.json` file is always generated if migrations are available to run. After applied, you no longer need the file.
+
+### Migration 4.0.0 (Released July 3, 2022)
+
+- Migrates to Nx 14.4.0 and Angular 14 compatibility.
+- Allows custom demo `modals` folder to work with _focus_ tooling:
+
+> You can now have supplementary modal views within `apps/demo/src/modals/anything-packagename.{xml,ts}` for assisting testing package integrations with various modal handling whereby using the `packagename` in the filename will work with the _focus_ tooling of the workspace. See [here](https://github.com/NativeScript/plugins/tree/main/apps/demo/src/modals) for example.
 
 ### Migration 3.0.0 (Released March 8, 2022)
 
