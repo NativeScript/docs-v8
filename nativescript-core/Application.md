@@ -4,7 +4,7 @@ title: Application
 
 # Application
 
-The Application module provides abstraction over the platform-specific application implementations. The module lets you manage things such as handling lifecycle events of your application (cross-platform and/or native), sending Broadcasts on Android or adding a Notification observer on IOS.
+The Application class provides abstraction over the platform-specific application implementations. It lets you manage things such as handling lifecycle events of your application (cross-platform and/or native), sending Broadcasts on Android or adding a Notification observer on IOS.
 
 ### Import
 
@@ -18,7 +18,7 @@ import { Application } from '@nativescript/core'
 
 ## Android
 
-For android, you can access the main activity for the application, currently active activity, a method to register a broadcast receiver and other Android-specific properties and methods, as we will see below.
+For android, you can access the main activity for the application, currently active activity, a method to register a broadcast receiver and other Android-specific properties and methods, as you will see below.
 
 ## Android Properties
 
@@ -36,7 +36,7 @@ const androidApp: AndroidApplication = Application.android
 
 ### nativeApp
 
-This a native application reference. Basically, it is the [android.app.Application](http://developer.android.com/reference/android/app/Application.html) instance keeping track of the global application state. From this object you can get methods such as `getFilesDir()`, `onLowMemory()`,etc.
+This is a native application reference. Basically, it is the [android.app.Application](http://developer.android.com/reference/android/app/Application.html) instance keeping track of the global application state. From this object you can get methods such as `getFilesDir()`, `onLowMemory()`,etc.
 |||
 |----|-----|
 |Type:|`android.app.Application`|
@@ -153,7 +153,7 @@ const isInBackground: boolean = androidApp.backgrounded
 
 ### registerBroadcastReceiver(intentFilter, onReceiveCallback)
 
-Registers a BroadcastReceiver to be run in the main activity thread. The receiver will be called with any broadcast Intent that matches filter, in the main application thread. For more information, please [visit](http://developer.android.com/reference/android/content/Context.html#registerReceiver%28android.content.BroadcastReceiver,%20android.content.IntentFilter%29).
+Registers a BroadcastReceiver to be run in the main activity thread. The receiver will be called with any broadcast Intent that matches the intent filter, in the main application thread. For more information, please [visit](http://developer.android.com/reference/android/content/Context.html#registerReceiver%28android.content.BroadcastReceiver,%20android.content.IntentFilter%29).
 
 | Parameter(s)        | Definition                                                                           |
 | ------------------- | ------------------------------------------------------------------------------------ |
@@ -321,7 +321,7 @@ const rootController: UIWindow = iOSApp.window
 
 ### delegate
 
-This returns the class you set (the best place to set it is in the `app.js` or `app.ts`, right before `Application.run()`) as a delegate or undefined if you didn't set any. The iOS system monitors the different states of your application and emits an event at each state. To handle these lifecycle events, you have to write a class that extends UIResponder and implements UIApplicationDelegate classes. This class is your delegate. You overwrite the methods from UIApplicationDelegate to handle the events.
+This returns the class you set (the best place to set it is in the `app.js` or `app.ts`, before `Application.run()`) as a delegate or undefined if you didn't set any. The iOS system monitors the different states of your application and emits an event at each state. To handle these lifecycle events, you have to write a class that extends UIResponder and implements UIApplicationDelegate classes and set the `delegate` property to that class. You then overwrite the methods from UIApplicationDelegate to handle the events.
 |||
 |----|-----|
 |Type:|`UIApplicationDelegate` \| `undefined`|
@@ -370,7 +370,7 @@ class MyDelegate extends UIResponder implements UIApplicationDelegate {
 Application.ios.delegate = MyDelegate
 ```
 
-For a complete list of the lifecycle events, visit [UIApplicationDelegate](https://developer.apple.com/documentation/uikit/uiapplicationdelegate?language=objc).
+For a complete list of the iOS lifecycle events, visit [UIApplicationDelegate](https://developer.apple.com/documentation/uikit/uiapplicationdelegate?language=objc).
 
 ### orientation
 
