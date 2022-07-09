@@ -535,7 +535,10 @@ function getSidebar() {
 			text: '@nativescript/core',
 			children: [
 				{ text: 'Application', link: '/nativescript-core/application' },
-				//{text: 'ApplicationSettings',link: '/nativescript-core/application-settings'},
+				{
+					text: 'ApplicationSettings',
+					link: '/nativescript-core/application-settings',
+				},
 				{ text: 'Color', link: '/nativescript-core/color' },
 				{ text: 'Connectivity', link: '/nativescript-core/connectivity' },
 				//{ text: 'Observable', link: '/nativescript-core/observable' },
