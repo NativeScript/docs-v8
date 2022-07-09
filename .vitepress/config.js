@@ -535,7 +535,7 @@ function getSidebar() {
 				//{ text: 'Observable', link: '/nativescript-core/observable' },
 				//{text: 'Observable Array',link: '/nativescript-core/observable-array'},
 				//{ text: 'Virtual Array', link: '/nativescript-core/virtual-array' },
-				//{ text: 'File System', link: '/nativescript-core/file-system' },
+				{ text: 'FileSystem', link: '/nativescript-core/file-system' },
 				//{ text: 'Fps Meter', link: '/nativescript-core/fps-meter' },
 				{ text: 'Http', link: '/nativescript-core/http' },
 				//{ text: 'Image Source', link: '/nativescript-core/image-source' },
