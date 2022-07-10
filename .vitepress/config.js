@@ -539,7 +539,7 @@ function getSidebar() {
 				//{ text: 'Fps Meter', link: '/nativescript-core/fps-meter' },
 				{ text: 'Http', link: '/nativescript-core/http' },
 				//{ text: 'Image Source', link: '/nativescript-core/image-source' },
-				//{ text: 'Platform', link: '/nativescript-core/platform' },
+				{ text: 'Platform', link: '/nativescript-core/platform' },
 				//{ text: 'Timer', link: '/nativescript-core/timer' },
 				//{ text: 'Trace', link: '/nativescript-core/trace' },
 				//{ text: 'Xml Parser', link: '/nativescript-core/xml-parser' },
