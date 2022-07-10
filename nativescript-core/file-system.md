@@ -4,7 +4,7 @@ title: FileSystem
 
 ## FileSystem
 
-The File System module provides high-level abstractions for file system entities such as files, folders, known folders, paths, separators, etc.
+The FileSystem module provides high-level abstractions for file system entities such as files, folders, known folders, paths, separators, etc.
 
 ## Usage
 
@@ -31,30 +31,28 @@ export function createViewModel() {
 ### Create a File
 
 ```javascript
-function createFile() {
-  const documents = knownFolders.documents()
-  const folder = documents.getFolder(vm.get('folderName') || 'testFolder')
-  const file = folder.getFile(`${vm.get('fileName') || 'testFile'}`.txt)
+const documents = knownFolders.documents()
+const folder = documents.getFolder(vm.get('folderName') || 'testFolder')
+const file = folder.getFile(`${vm.get('fileName') || 'testFile'}.txt`)
 
-  file
-    .writeText(vm.get('fileTextContent') || 'some random content')
-    .then(result => {
-      file.readText().then(res => {
-        vm.set('successMessage', `Successfully saved in${file.path}`)
-        vm.set('message', res)
-        vm.set('isItemVisible', true)
-      })
+file
+  .writeText(vm.get('fileTextContent') || 'some random content')
+  .then(result => {
+    file.readText().then(res => {
+      vm.set('successMessage', `Successfully saved in${file.path}`)
+      vm.set('message', res)
+      vm.set('isItemVisible', true)
     })
-    .catch(err => {
-      console.log(err)
-    })
-}
+  })
+  .catch(err => {
+    console.log(err)
+  })
 ```
 
 ```typescript
 const documents: Folder = <Folder>knownFolders.documents()
 const folder: Folder = <Folder>documents.getFolder(vm.get('folderName') || 'testFolder')
-const file: File = <File>folder.getFile(`${vm.get('fileName') || 'testFile'}` + `.txt`)
+const file: File = folder.getFile(`${vm.get('fileName') || 'testFile'}` + `.txt`)
 
 file
   .writeText(vm.get('fileTextContent') || 'some random content')
@@ -87,7 +85,7 @@ file
 ```typescript
 file
   .remove()
-  .then(res => {
+  .then((res: boolean) => {
     // Success removing the file.
     vm.set('resultMessage', 'File successfully deleted!')
   })
@@ -96,12 +94,12 @@ file
   })
 ```
 
-### Remove a Folder
+### Removing a Folder
 
 ```javascript
 folder
   .remove()
-  .then(fres => {
+  .then(res => {
     // Success removing the folder.
     vm.set('resultMessage', 'Folder successfully deleted!')
   })
@@ -113,7 +111,7 @@ folder
 ```typescript
 folder
   .remove()
-  .then(fres => {
+  .then((res: boolean) => {
     // Success removing the folder.
     vm.set('resultMessage', 'Folder successfully deleted!')
   })
@@ -122,7 +120,7 @@ folder
   })
 ```
 
-### Clear the contents of a Folder
+### Clearing the contents of a Folder
 
 ```javascript
 folder
@@ -139,7 +137,7 @@ folder
 ```typescript
 folder
   .clear()
-  .then(res => {
+  .then((res: boolean) => {
     // Successfully cleared the folder.
     vm.set('resultMessage', 'Folder successfully cleared!')
   })
@@ -152,12 +150,12 @@ folder
 
 ```javascript
 const documentsFolder = knownFolders.documents()
-const path = path.join(documentsFolder.path, 'FileFromPath.txt')
-const file = File.fromPath(path)
+const filePath = path.join(documentsFolder.path, 'FileFromPath.txt')
+const file = File.fromPath(filePath)
 
 // Writing text to the file.
 file
-  .writeText(vm.get('textContentToBeSaved'))
+  .writeText('Some text')
   .then(result => {
     // Succeeded writing to the file.
     file.readText().then(res => {
@@ -174,12 +172,12 @@ file
 
 ```typescript
 const documentsFolder = knownFolders.documents()
-const path = path.join(documentsFolder.path, 'FileFromPath.txt')
-const file = File.fromPath(path)
+const filePath = path.join(documentsFolder.path, 'FileFromPath.txt')
+const file = File.fromPath(filePath)
 
 // Writing text to the file.
 file
-  .writeText(vm.get('textContentToBeSaved'))
+  .writeText('Some text')
   .then(result => {
     // Succeeded writing to the file.
     file.readText().then(res => {
@@ -223,33 +221,45 @@ file
 ```javascript
 import { ImageSource } from '@nativescript/core'
 
-const image = ImageSource.fromResource('icon')
 const folder = knownFolders.documents()
-const path = path.join(folder.path, 'Test.png')
-const saved = image.saveToFile(path, 'png')
+const fPath = path.join(folder.path, 'Test.png')
+const imageFile = File.fromPath(fPath)
 
-if (saved) {
-  const imageFile = File.fromPath(path)
-  const binarySource = imageFile.readSync(err => {
-    console.log(err)
+const image = ImageSource.fromResource('icon')
+  .then(image => {
+    const saved = image.saveToFile(fPath, 'png')
+
+    if (saved) {
+      Dialogs.alert('Saved')
+      const binarySource = imageFile.readSync(err => {
+        console.log(err)
+      })
+      console.log(binarySource)
+    }
   })
-}
+  .catch(err => Dialogs.alert(err))
 ```
 
 ```typescript
 import { ImageSource } from '@nativescript/core'
 
-const image = ImageSource.fromResource('icon')
 const folder = knownFolders.documents()
-const path = path.join(folder.path, 'Test.png')
-const saved = image.saveToFile(path, 'png')
+const fPath = path.join(folder.path, 'Test.png')
+const imageFile = File.fromPath(fPath)
 
-if (saved) {
-  const imageFile = File.fromPath(path)
-  const binarySource = imageFile.readSync(err => {
-    console.log(err)
+const image = ImageSource.fromResource('icon')
+  .then((image: ImageSource) => {
+    const saved = image.saveToFile(fPath, 'png')
+
+    if (saved) {
+      Dialogs.alert('Saved')
+      const binarySource = imageFile.readSync(err => {
+        console.log(err)
+      })
+      console.log(binarySource)
+    }
   })
-}
+  .catch(err => Dialogs.alert(err))
 ```
 
 ### Checking if a File Exists
@@ -263,46 +273,59 @@ console.log(`Does Text.txt exists: ${exists}`)
 
 ```typescript
 const documents = knownFolders.documents()
-const path = path.join(documents.path, 'Text.txt')
-const exists = File.exists(path)
+const fPath = path.join(documents.path, 'Text.txt')
+const exists = File.exists(fPath)
 console.log(`Does Text.txt exists: ${exists}`)
 ```
 
 ### Renaming a File
 
 ```javascript
-const fileName = vm.get("fileName");
-file.rename(`${fileName}.txt`)
-    .then((res) => {
-        // File Successfully Renamed.
-        vm.set("fileSuccessMessage", `File renamed to:  ${fileName}.txt`);
-        vm.set("isItemVisible", true);
-    }).catch((err) => {
-        // Error!
-        console.log("Error: ");
-        console.log(err);
+const newName = 'NewName'
+const documents = knownFolders.documents()
+const file = documents.getFile('Text.txt')
+const fPath = path.join(documents.path, 'Text.txt')
+file
+  .rename(`${newName}.txt`)
+  .then(res => {
+    // File Successfully Renamed.
+    Dialogs.alert(`File renamed to:  ${newName}.txt`)
+    vm.set('fileSuccessMessage', `File renamed to:  ${newName}.txt`)
+    vm.set('isItemVisible', true)
+  })
+  .catch(err => {
+    // Error!
+    console.log('Error: ')
+    console.log(err)
 
-        .then(() => {
-            console.log("Dialog closed!");
-        });
-    });
+    Dialogs.alert(err).then(() => {
+      console.log('Dialog closed!')
+    })
+  })
 ```
 
 ```typescript
-const fileName: string = vm.get("fileName");
-file.rename(`${fileName}.txt`)
-    .then(() => {
-        // File Successfully Renamed.
-        vm.set("fileSuccessMessage", `File renamed to:  ${fileName}.txt`);
-        vm.set("isItemVisible", true);
-    }).catch((err) => {
-        // Error!
-        console.log("Error: ");
-        console.log(err);
-            .then(() => {
-                console.log("Dialog closed!");
-            });
-    });
+const newName = 'NewName'
+const documents = knownFolders.documents()
+const file = documents.getFile('Text.txt')
+const fPath = path.join(documents.path, 'Text.txt')
+file
+  .rename(`${newName}.txt`)
+  .then(res => {
+    // File Successfully Renamed.
+    Dialogs.alert(`File renamed to:  ${newName}.txt`)
+    vm.set('fileSuccessMessage', `File renamed to:  ${newName}.txt`)
+    vm.set('isItemVisible', true)
+  })
+  .catch(err => {
+    // Error!
+    console.log('Error: ')
+    console.log(err)
+
+    Dialogs.alert(err).then(() => {
+      console.log('Dialog closed!')
+    })
+  })
 ```
 
 ### Get or Create a Folder With Path
@@ -314,7 +337,7 @@ const folder = Folder.fromPath(folderPath)
 
 ```typescript
 const folderPath = path.join(knownFolders.documents().path, 'music')
-const folder = Folder.fromPath(folderPath)
+const folder: Folder = Folder.fromPath(folderPath)
 ```
 
 ### Renaming a Folder
@@ -355,92 +378,223 @@ folder.rename(folderName)
     });
 ```
 
-### Properties
+### Getting Folder Contents
 
-| Name      | Type      | Description                                                                                                                                       |
-| --------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `a`       | `string`  | Gets the Alpha component (in the [0, 255] range) of thecolor. This is a read-only property.                                                       |
-| `r`       | `string`  | Gets the Red component (in the [0, 255] range) of the color. This is a read-only property.                                                        |
-| `g`       | `string`  | Gets the Green component (in the [0, 255] range) of the color. This is a read-only property.                                                      |
-| `b`       | `string`  | Gets the Blue component (in the [0, 255] range) of the color. This is a read-only property.                                                       |
-| `argb`    | `number`  | Gets the Argb Number representation of this color where each 8 bits represent a single color component. This is a read-only property.             |
-| `hex`     | `string`  | Gets the Hexadecimal string representation of the color. This is a read-only property                                                             |
-| `name`    | `string`  | Gets the known name of this instance. Defined only if it has been constructed from a known color name - e.g. "red". This is a read-only property. |
-| `android` | `number`  | Gets the android-specific integer value representation. Same as the Argb one. This is a read-only property.                                       |
-| `ios`     | `UIColor` | Gets the iOS-specific UIColor value representation. This is a read-only property.                                                                 |
-
-### Static Methods
-
-| Name                                                | Return Type | Description                                                  |
-| --------------------------------------------------- | ----------- | ------------------------------------------------------------ |
-| `equals(value1: Color, value2: Color)`              | `boolean`   | Compares two `Color` instances                               |
-| `isValid(value: any)`                               | `boolean`   | Validates if a value can be converted to a color.            |
-| `fromIosColor(value: UIColor)`                      | `Color`     | Creates color from iOS-specific UIColor value representation |
-| `mix(color1: Color, color2: Color, amount: number)` | `Color`     | Mixes                                                        |
-| `fromHSL(a, h, s, l)`                               | `Color`     | Returns a new `Color` from HSL.                              |
-| `fromHSV(a, h, s, l)`                               | `Color`     | Returns a new `Color` from HSV.                              |
-
-### Instance Methods
-
-| Name                                                        | Return Type                                      | Description                                                                                                                                                |
-| ----------------------------------------------------------- | ------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `equals(value: Color)`                                      | `boolean`                                        | Specifies whether the created Color is equal to the Color parameter.                                                                                       |
-| `isDark()`                                                  | `boolean`                                        | Returns true if `brightenss < 128`                                                                                                                         |
-| `isLight()`                                                 | `boolean`                                        | Returns true if `brightenss >= 128`                                                                                                                        |
-| `getBrightness()`                                           | `number`                                         | Returns the [brightness](http://www.w3.org/TR/AERT#color-contrast).                                                                                        |
-| `getLuminance()`                                            | `number`                                         | Returns the [luminance](http://www.w3.org/TR/2008/REC-WCAG20-20081211/#relativeluminancedef).                                                              |
-| `setAlpha(a: number)`. `a` is a value between `0` and `255` | `Color`                                          | Return the created color (as a new Color instance) with the provided alpha                                                                                 |
-| `toHsl()`                                                   | `{ h: number; s: number; l: number; a: number }` | Return the hsl representation of the color.                                                                                                                |
-| `toHslString()`                                             | `string`                                         | Returns the [CSS hsv](https://www.w3schools.com/Css/css_colors_hsl.asp) representation of the color                                                        |
-| `toHsv()`                                                   | `{ h: number; s: number; v: number; a: number }` | Returns the hsv representation of the color.                                                                                                               |
-| `toHsvString()`                                             | `string`                                         | Returns the [CSS rgb](https://www.w3schools.com/Css/css_colors_rgb.asp) representation of the color                                                        |
-| `desaturate(amount: number)`                                | `Color`                                          | Desaturates the color a given amount, from `0` to `100`. Providing `100` is the same as calling greyscale.                                                 |
-| `saturate(amount: number)`                                  | `Color`                                          | Saturates the color a given amount, from `0` to `100`.                                                                                                     |
-| `greyscale()`                                               | `Color`                                          | Completely desaturates a color into greyscale. Same as calling `desaturate(100)`                                                                           |
-| `lighten()`                                                 | `Color`                                          | Lightens the color a given amount, from `0` to `100`. Providing `100` will always return white.                                                            |
-| `brighten(amount: number)`                                  | `Color`                                          | Brightens the color a given amount, from `0` to `100`.                                                                                                     |
-| `darken(amount:number)`                                     | `Color`                                          | Darkens the color a given amount, from `0` to `100`. Providing `100` will always return `black`.                                                           |
-| `spin(amount: number)`                                      | `Color`                                          | Spins the hue a given amount, from `-360` to `360`. Calling with `0`, `360`, or `-360` will do nothing (since it sets the hue back to what it was before). |
-| `complement()`                                              | `Color`                                          | Returns the color complement                                                                                                                               |
-
-## Usage
+Getting all folder entities in array may be slow with large number of files. Enumerating the folder entities would iterate the files one by one without blocking the UI.
 
 ```javascript
-import { Color } from '@nativescript/core'
-
-function createColor() {
-  // Using hex values to create color;
-  const colorHex = new Color('#FF00CC')
-  const colorShortHex = new Color('#F0C')
-
-  // Creates the color with 100 alpha, 255 red, 100 green, 100 blue
-  const colorARGB = new Color(100, 255, 100, 100)
-
-  // Creates the color with 100 alpha, 100 red, 100 green, 100 blue
-  const argb = (100 << 24) | (100 << 16) | (100 << 8) | 100 //eslint-disable-line no-bitwise
-  const colorSingleARGB = new Color(argb)
-}
+documents
+  .getEntities()
+  .then(entities => {
+    // entities is array with the document's files and folders.
+    entities.forEach(entity => {
+      array.push({
+        name: entity.name,
+        path: entity.path,
+        lastModified: entity.lastModified.toString()
+      })
+    })
+  })
+  .catch(err => {
+    // Failed to obtain folder's contents.
+    console.log(err.stack)
+  })
 ```
 
 ```typescript
-import { Color } from '@nativescript/core'
-
-function createColor() {
-  // Using hex values to create color;
-  const colorHex = new Color('#FF00CC')
-  const colorShortHex = new Color('#F0C')
-
-  // Creates the color with 100 alpha, 255 red, 100 green, 100 blue
-  const colorARGB = new Color(100, 255, 100, 100)
-
-  // Creates the color with 100 alpha, 100 red, 100 green, 100 blue
-  const argb = (100 << 24) | (100 << 16) | (100 << 8) | 100
-  const colorSingleARGB = new Color(argb)
-}
+documents
+  .getEntities()
+  .then(entities => {
+    // entities is array with the document's files and folders.
+    entities.forEach(entity => {
+      array.push({
+        name: entity.name,
+        path: entity.path,
+        lastModified: entity.lastModified.toString()
+      })
+    })
+  })
+  .catch(err => {
+    // Failed to obtain folder's contents.
+    console.log(err.stack)
+  })
 ```
+
+### Removing a Folder
+
+```javascript
+folder
+  .remove()
+  .then(fres => {
+    // Success removing the folder.
+    vm.set('resultMessage', 'Folder successfully deleted!')
+  })
+  .catch(err => {
+    console.log(err.stack)
+  })
+```
+
+```typescript
+folder
+  .remove()
+  .then(fres => {
+    // Success removing the folder.
+    vm.set('resultMessage', 'Folder successfully deleted!')
+  })
+  .catch(err => {
+    console.log(err.stack)
+  })
+```
+
+### Checking if a Folder Exists
+
+```javascript
+const temp = knownFolders.temp()
+const tempExists = Folder.exists(temp.path)
+console.log(`Does temp folder exists: ${tempExists}`)
+```
+
+```typescript
+const temp: Folder = <Folder>knownFolders.temp()
+const tempExists: boolean = Folder.exists(temp.path)
+console.log(`Does temp folder exists: ${tempExists}`)
+```
+
+### Normalize a Path
+
+```javascript
+let documentsFolder = knownFolders.documents()
+const currentAppFolder = knownFolders.currentApp()
+const tempFolder = knownFolders.temp()
+
+const testPath = '///test.txt'
+// Get a normalized path such as <folder.path>/test.txt from <folder.path>///test.txt
+vm.set('documents', path.normalize(documentsFolder.path + testPath))
+vm.set('currentApp', path.normalize(currentAppFolder.path + testPath))
+vm.set('temp', path.normalize(tempFolder.path + testPath))
+```
+
+```typescript
+let documentsFolder: Folder = <Folder>knownFolders.documents()
+const currentAppFolder = knownFolders.currentApp()
+const tempFolder = knownFolders.temp()
+
+const testPath: string = '///test.txt'
+// Get a normalized path such as <folder.path>/test.txt from <folder.path>///test.txt
+vm.set('documents', path.normalize(documentsFolder.path + testPath))
+vm.set('currentApp', path.normalize(currentAppFolder.path + testPath))
+vm.set('temp', path.normalize(tempFolder.path + testPath))
+```
+
+### Path join
+
+```javascript
+// Generate a path like <documents.path>/myFiles/test.txt
+const documentsFolder = knownFolders.documents()
+const filePath = path.join(documentsFolder.path, 'myFiles', 'test.txt')
+```
+
+```typescript
+// Generate a path like <documents.path>/myFiles/test.txt
+const documentsFolder = <Folder>knownFolders.documents()
+const filePath: string = path.join(documentsFolder.path, 'myFiles', 'test.txt')
+```
+
+### Get the Path Separator
+
+```javascript
+// An OS dependent path separator, "\" or "/".
+const separator = path.separator
+```
+
+```typescript
+// An OS dependent path separator, "\" or "/".
+const separator = path.separator
+```
+
+## File Properties
+
+| Name           | Type      | Description                                                                                                                                           |
+| -------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `extension`    | `string`  | Gets the extension of the file.property.                                                                                                              |
+| `isLocked`     | `boolean` | Gets a value indicating whether the file is currently locked, meaning a background operation associated with this file is running.property.           |
+| `lastModified` | `Date`    | Gets the Date object specifying the last time this entity was modified.                                                                               |
+| `name`         | `string`  | Gets the name of the entity.                                                                                                                          |
+| `parent`       | `Folder`  | Gets the Folder object representing the parent of this entity. Will be null for a root folder like Documents or Temporary. This property is readonly. |
+| `path`         | `string`  | Gets the fully-qualified path (including the extension for a File) of the entity.                                                                     |
+| `name`         | `string`  | Gets the known name of this instance. Defined only if it has been constructed from a known color name - e.g. "red". This is a read-only property.     |
+| `size`         | `number`  | Gets the size in bytes of the file.                                                                                                                   |
+
+## File Methods
+
+| Name                                                   | Return Type       | Description                                                                                                 |
+| ------------------------------------------------------ | ----------------- | ----------------------------------------------------------------------------------------------------------- |
+| `read()`                                               | `Promise<any>`    | Reads the binary content of the file asynchronously.                                                        |
+| `readSync(onError?: function)`                         | `any`             | Reads the binary content of the file synchronously.                                                         |
+| `readText(encoding?: string)`                          | `Promise<string>` | Reads the content of the file asynchronously as a string using the specified encoding (defaults to UTF-8).  |
+| `readTextSync(onError?: function, encoding?: string)`  | `string`          | Reads the content of the file as a string synchronously, using the specified encoding (defaults to UTF-8).  |
+| `remove()`                                             | `Promise<void>`   | Removes (deletes) the current file asynchronously from the file system.                                     |
+| `removeSync(onError?: function)`                       | `void`            | Removes (deletes) the current file from the file system synchronously.                                      |
+| `rename(newName: string)`                              | `Promise<any>`    | Renames the current file asynchronously using the specified name.                                           |
+| `renameSync(newName: string, onError?: function)`      | `void`            | Renames the current file synchronously using the specified name.                                            |
+| `write(newName: string)`                               | `Promise<void>`   | Writes the provided binary content,asynchronously, to the file.                                             |
+| `writeText(encoding?: string)`                         | `Promise<string>` | Asynchronously writes the content of the file as a string using the specified encoding (defaults to UTF-8). |
+| `writeTextSync(onError?: function, encoding?: string)` | `string`          | Writes the content of the file as a string synchronously using the specified encoding (defaults to UTF-8).  |
+| `exists(path: string)`                                 | `boolean`         | Checks whether a File with the specified path already exists.                                               |
+| `fromPath(path: string)`                               | `File`            | Gets or creates a File entity at the specified path.                                                        |
+
+## Folder Properties
+
+| Name           | Type      | Description                                                                                                                                           |
+| -------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `isKnown`      | `boolean` | Determines whether this instance is a KnownFolder (accessed through the KnownFolders object).                                                         |
+| `lastModified` | `Date`    | Gets the Date object specifying the last time this entity was modified.                                                                               |
+| `name`         | `string`  | Gets the name of the entity.                                                                                                                          |
+| `parent`       | `Folder`  | Gets the Folder object representing the parent of this entity. Will be null for a root folder like Documents or Temporary. This property is readonly. |
+| `path`         | `string`  | Gets the fully-qualified path (including the extension for a File) of the entity.                                                                     |
+
+## Folder Methods
+
+| Name                                  | Return Type                       | Description                                                                                                                                                   |
+| ------------------------------------- | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `clear()`                             | `Promise<any>`                    | Deletes all the files and folders (recursively), contained within this Folder.                                                                                |
+| `clearSync(onError?: function)`       | `void`                            | Deletes all the files and folders (recursively), contained within this Folder synchronously.                                                                  |
+| `contains(name: string)`              | `boolean`                         | Checks whether this Folder contains an Entity with the specified name. The path of the folder is added to the name to resolve the complete path to check for. |
+| `eachEntity(onEntity: function)`      | `any`                             | Enumerates all the top-level FileSystem entities residing within this folder.                                                                                 |
+| `getEntities()`                       | `Promise<Array<FileSystemEntity>` | Gets all the top-level entities residing within this folder.                                                                                                  |
+| `getEntitiesSync(onError?: function)` | `Array<FileSystemEntity>`         | Gets all the top-level entities residing within this folder synchronously                                                                                     |
+| `getFile(name: string)`               | `File`                            | Gets or creates a File entity with the specified name within this Folder.                                                                                     |
+| `getFolder(name: string)`             | `Folder`                          | Gets or creates a Folder entity with the specified name within this Folder.                                                                                   |
+| `remove()`                            | `Promise<any>`                    | Removes (deletes) the current Entity from the file system.                                                                                                    |
+| `removeSync(onError?: function)`      | `void`                            | Removes (deletes) the current Entity from the file system synchronously.                                                                                      |
+
+## knownFolders Methods
+
+| Name           | Return Type | Description                                                                                                                                                                                                          |
+| -------------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `currentApp()` | `Folder`    | Gets the root folder for the current application. This Folder is private for the application and not accessible from Users/External apps. iOS - this folder is read-only and contains the app and all its resources. |
+| `documents()`  | `Folder`    | Gets the Documents folder available for the current application. This Folder is private for the application and not accessible from Users/External apps.                                                             |
+| `temp()`       | `Folder`    | Gets the Temporary (Caches) folder available for the current application. This Folder is private for the application and not accessible from Users/External apps.                                                    |
+
+## path Methods
+
+| Name                       | Return Type | Description                                                                    |
+| -------------------------- | ----------- | ------------------------------------------------------------------------------ |
+| `join(...paths: string[])` | `string`    | Joins all the provided string components, forming a valid and normalized path. |
+| `normalize(path: string)`  | `string`    | Normalizes a path, taking care of occurrances like ".." and "//".              |
+
+## API References
+
+| Name                                                                                                        | Type     |
+| ----------------------------------------------------------------------------------------------------------- | -------- |
+| [FileSystem](https://docs.nativescript.org/api-reference/classes/_file_system_.file.html)                   | Class    |
+| [FileSystemEntity](https://docs.nativescript.org/api-reference/classes/_file_system_.filesystementity.html) | `Class`  |
+| [Folder](https://docs.nativescript.org/api-reference/classes/_file_system_.folder.html)                     | `Class`  |
+| [knownFolders](https://docs.nativescript.org/api-reference/modules/_file_system_.knownfolders)              | `Module` |
+| [path](https://docs.nativescript.org/api-reference/modules/_file_system_.path)                              | `Module` |
 
 ## Native Component
 
-| Android                                                                                  | iOS                                                                              |
-| :--------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------- |
-| [android.graphics.Color](https://developer.android.com/reference/android/graphics/Color) | [UICOlor](https://developer.apple.com/documentation/uikit/uicolor?language=objc) |
+| Android                                                              | iOS                                                                                 |
+| :------------------------------------------------------------------- | :---------------------------------------------------------------------------------- |
+| [java.io.File](https://developer.android.com/reference/java/io/File) | [NSFileManager](https://developer.apple.com/documentation/foundation/nsfilemanager) |
