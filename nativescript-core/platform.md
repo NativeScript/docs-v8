@@ -75,3 +75,4 @@ Gets information about the main screen of the current device.
 | Name                                                                 | Type    |
 | -------------------------------------------------------------------- | ------- |
 | [Device](https://docs.nativescript.org/api-reference/modules#device) | `Class` |
+| [Screen](https://docs.nativescript.org/api-reference/classes/screen) | `Class` |
