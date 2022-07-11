@@ -262,6 +262,20 @@ const image = ImageSource.fromResource('icon')
   .catch(err => Dialogs.alert(err))
 ```
 
+### Writing binary data to a File
+
+```javascript
+imageFile.writeSync(binarySource, err => {
+  console.log(err)
+})
+```
+
+```typescript
+imageFile.writeSync(binarySource, err => {
+  console.log(err)
+})
+```
+
 ### Checking if a File Exists
 
 ```javascript
