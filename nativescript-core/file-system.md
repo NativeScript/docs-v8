@@ -343,47 +343,47 @@ const folder: Folder = Folder.fromPath(folderPath)
 ### Renaming a Folder
 
 ```javascript
-const folderName = "folderName";
+const newName = 'newName'
 
-folder.rename(folderName)
-    .then((res) => {
-        // Folder Successfully Renamed.
-        vm.set("folderSuccessMessage", `Folder renamed to:  ${folderName}`);
-        vm.set("isFolderItemVisible", true);
-    }).catch((err) => {
-        // Error!
-        console.log("Error: ");
-        console.log(err);
-        .then(() => {
-            console.log("Dialog closed!");
-        });
-    });
+folder
+  .rename(newName)
+  .then(res => {
+    // Folder Successfully Renamed.
+    Dialogs.alert(`Folder renamed to:  ${newName} ${res}`)
+    vm.set('folderSuccessMessage', `Folder renamed to:  ${newName}`)
+    vm.set('isFolderItemVisible', true)
+  })
+  .catch(err => {
+    // Error!
+    console.log('Error: ')
+    console.error(err)
+  })
 ```
 
 ```typescript
-const folderName = "folderName";
+const newName = 'newName'
 
-folder.rename(folderName)
-    .then((res) => {
-        // Folder Successfully Renamed.
-        vm.set("folderSuccessMessage", `Folder renamed to:  ${folderName}`);
-        vm.set("isFolderItemVisible", true);
-    }).catch((err) => {
-        // Error!
-        console.log("Error: ");
-        console.log(err);
-        .then(() => {
-            console.log("Dialog closed!");
-        });
-    });
+folder
+  .rename(newName)
+  .then((res: boolean) => {
+    // Folder Successfully Renamed.
+    Dialogs.alert(`Folder renamed to:  ${newName} ${res}`)
+    vm.set('folderSuccessMessage', `Folder renamed to:  ${newName}`)
+    vm.set('isFolderItemVisible', true)
+  })
+  .catch(err => {
+    // Error!
+    console.log('Error: ')
+    console.error(err)
+  })
 ```
 
 ### Getting Folder Contents
 
-Getting all folder entities in array may be slow with large number of files. Enumerating the folder entities would iterate the files one by one without blocking the UI.
+Getting all folder entities in an array may be slow with large number of files. Enumerating the folder entities would iterate the files one by one without blocking the UI.
 
 ```javascript
-documents
+folder
   .getEntities()
   .then(entities => {
     // entities is array with the document's files and folders.
@@ -393,6 +393,7 @@ documents
         path: entity.path,
         lastModified: entity.lastModified.toString()
       })
+      console.log(array.length)
     })
   })
   .catch(err => {
@@ -402,9 +403,9 @@ documents
 ```
 
 ```typescript
-documents
+folder
   .getEntities()
-  .then(entities => {
+  .then((entities: FileSystemEntity[]) => {
     // entities is array with the document's files and folders.
     entities.forEach(entity => {
       array.push({
@@ -412,6 +413,7 @@ documents
         path: entity.path,
         lastModified: entity.lastModified.toString()
       })
+      console.log(array.length)
     })
   })
   .catch(err => {
@@ -425,9 +427,10 @@ documents
 ```javascript
 folder
   .remove()
-  .then(fres => {
+  .then(res => {
     // Success removing the folder.
     vm.set('resultMessage', 'Folder successfully deleted!')
+    Dialogs.alert(res)
   })
   .catch(err => {
     console.log(err.stack)
@@ -437,9 +440,10 @@ folder
 ```typescript
 folder
   .remove()
-  .then(fres => {
+  .then((res: boolean) => {
     // Success removing the folder.
     vm.set('resultMessage', 'Folder successfully deleted!')
+    Dialogs.alert(res)
   })
   .catch(err => {
     console.log(err.stack)
@@ -449,15 +453,27 @@ folder
 ### Checking if a Folder Exists
 
 ```javascript
-const temp = knownFolders.temp()
-const tempExists = Folder.exists(temp.path)
-console.log(`Does temp folder exists: ${tempExists}`)
+const documents = knownFolders.documents()
+const folder = documents.getFolder(vm.get('folderName') || 'testFolder')
+
+const folderExists = Folder.exists(folder.path)
+console.log(folderExists) // true
+const folder2Path = path.join(documents.path, 'myFolder')
+
+const folder2Exists = Folder.exists(folder2Path)
+console.log(folder2Exists) // false
 ```
 
 ```typescript
-const temp: Folder = <Folder>knownFolders.temp()
-const tempExists: boolean = Folder.exists(temp.path)
-console.log(`Does temp folder exists: ${tempExists}`)
+const documents = knownFolders.documents()
+const folder: Folder = documents.getFolder(vm.get('folderName') || 'testFolder')
+
+const folderExists: boolean = Folder.exists(folder.path)
+console.log(folderExists) // true
+
+const folder2Path: string = path.join(documents.path, 'myFolder')
+const folder2Exists: boolean = Folder.exists(folder2Path)
+console.log(folder2Exists) // false
 ```
 
 ### Normalize a Path
@@ -469,21 +485,21 @@ const tempFolder = knownFolders.temp()
 
 const testPath = '///test.txt'
 // Get a normalized path such as <folder.path>/test.txt from <folder.path>///test.txt
-vm.set('documents', path.normalize(documentsFolder.path + testPath))
-vm.set('currentApp', path.normalize(currentAppFolder.path + testPath))
-vm.set('temp', path.normalize(tempFolder.path + testPath))
+console.log('documents', path.normalize(documentsFolder.path + testPath))
+console.log('currentApp', path.normalize(currentAppFolder.path + testPath))
+console.log('temp', path.normalize(tempFolder.path + testPath))
 ```
 
 ```typescript
-let documentsFolder: Folder = <Folder>knownFolders.documents()
+let documentsFolder = knownFolders.documents()
 const currentAppFolder = knownFolders.currentApp()
 const tempFolder = knownFolders.temp()
 
-const testPath: string = '///test.txt'
+const testPath = '///test.txt'
 // Get a normalized path such as <folder.path>/test.txt from <folder.path>///test.txt
-vm.set('documents', path.normalize(documentsFolder.path + testPath))
-vm.set('currentApp', path.normalize(currentAppFolder.path + testPath))
-vm.set('temp', path.normalize(tempFolder.path + testPath))
+console.log('documents', path.normalize(documentsFolder.path + testPath))
+console.log('currentApp', path.normalize(currentAppFolder.path + testPath))
+console.log('temp', path.normalize(tempFolder.path + testPath))
 ```
 
 ### Path join
