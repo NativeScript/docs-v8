@@ -1997,7 +1997,7 @@ export class HtmlViewUsageComponent {
 
 ### Image
 
-`<Image>` is a UI component that shows an image from an [ImageSource](/api-reference/classes/imagesource.html) or from a URL.
+`<Image>` is a UI component that shows an image from an [ImageSource](https://docs.nativescript.org/api-reference/classes/imagesource) or from a URL.
 
 <!-- TODO: fix links -->
 
@@ -2254,7 +2254,7 @@ In NativeScript-Vue, `.decode` is required for parsing properties that have HTML
 | `tintColor`    | `Color`                                                              | (Style property) Sets a color to tint template images.                                                                                                                                                                                                    |
 | `stretch`      | `ImageStretch`                                                       | (Style property) Gets or sets the way the image is resized to fill its allocated space.<br/>Valid values: `none`, `aspectFill`, `aspectFit`, or `fill`.<br/>For more information, see [ImageStretch](/api-reference/modules/coretypes.imagestretch.html). |
 | `loadMode`     |                                                                      | Gets or sets the loading strategy for the images on the local file system.<br/>Valid values: `sync` or `async`.<br/>Default value: `async`.<br/>For more information, see [loadMode](/api-reference/classes/image.html#loadmode).                         |
-| `...Inherited` | `Inherited`                                                          | Additional inherited properties not shown. Refer to the [API Reference](/api-reference/classes/image.html)                                                                                                                                                |
+| `...Inherited` | `Inherited`                                                          | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.org/api-reference/classes/image)                                                                                                                        |
 
 <!-- TODO: fix links -->
 
@@ -2403,16 +2403,16 @@ import { Color } from '@nativescript/core'
 
 #### Props
 
-| Name             | Type                                                             | Description                                                                                                                                 |
-| ---------------- | ---------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| `letterSpacing`  | `number`                                                         | Gets or sets letterSpace style property.                                                                                                    |
-| `lineHeight`     | `number`                                                         | Gets or sets lineHeight style property.                                                                                                     |
-| `text`           | `string`                                                         | Gets or sets the Label text.                                                                                                                |
-| `textAlignment`  | `initial`, `left`, `center`, `right`, `justify`                  | Gets or sets text-alignment style property.                                                                                                 |
-| `textDecoration` | `none`, `underline`, `line-through`, `underline`, `line-through` | Gets or sets text swcoration style property.                                                                                                |
-| `textTransform`  | `initial`, `none`, `capitalize`, `uppercase`, `lowercase`        | Gets or sets text transform style property.                                                                                                 |
-| `textWrap`       | `boolean`                                                        | Gets or sets whether the Label wraps text or not.                                                                                           |
-| `whiteSpace`     | `initial`, `normal`, `nowrap`                                    | Gets or sets the white space style.                                                                                                         |
+| Name             | Type                                                             | Description                                                                                               |
+| ---------------- | ---------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `letterSpacing`  | `number`                                                         | Gets or sets letterSpace style property.                                                                  |
+| `lineHeight`     | `number`                                                         | Gets or sets lineHeight style property.                                                                   |
+| `text`           | `string`                                                         | Gets or sets the Label text.                                                                              |
+| `textAlignment`  | `initial`, `left`, `center`, `right`, `justify`                  | Gets or sets text-alignment style property.                                                               |
+| `textDecoration` | `none`, `underline`, `line-through`, `underline`, `line-through` | Gets or sets text swcoration style property.                                                              |
+| `textTransform`  | `initial`, `none`, `capitalize`, `uppercase`, `lowercase`        | Gets or sets text transform style property.                                                               |
+| `textWrap`       | `boolean`                                                        | Gets or sets whether the Label wraps text or not.                                                         |
+| `whiteSpace`     | `initial`, `normal`, `nowrap`                                    | Gets or sets the white space style.                                                                       |
 | `...Inherited`   | `Inherited`                                                      | Additional inherited properties not shown. Refer to the [API Reference](api-reference/classes/label.html) |
 
 <!-- TODO: fix links -->
@@ -5242,7 +5242,7 @@ This list of properties can be set in CSS or through the style property of each 
 | `font-size`           | `fontSize`            | Sets the font size of the matched view (only supports device-independent units).                                                                                                                                                          |
 | `font-style`          | `fontStyle`           | Sets the font style of the matched view. Possible values: `italic`, `normal`.                                                                                                                                                             |
 | `font-weight`         | `fontWeight`          | Sets the font weight of the matched view Possible values: `bold`, `normal` OR `100`,`200`,`300`,`400`,`500`,`600`,`700`,`800`,`900`, where `400` is `normal` and `700` is `bold` (NOTE: Some fonts do not support all available variants) |
-| `text-align`          | `textAlignment`       | Sets text alignment in the matched view. Possible values: `left` , `center`, `right`, `justify`.                                                                                                                                                     |
+| `text-align`          | `textAlignment`       | Sets text alignment in the matched view. Possible values: `left` , `center`, `right`, `justify`.                                                                                                                                          |
 | `text-decoration`     | `textDecoration`      | Sets the text formatting. Possible values: `none`, `line-through`, `underline`.                                                                                                                                                           |
 | `text-transform`      | `textTransform`       | Sets the text transform. Possible values: `none`, `capitalize`, `uppercase`, `lowercase`.                                                                                                                                                 |
 | `letter-spacing`      | `letterSpacing`       | Sets the text letter spacing. (On Android API Level 21 and above.)                                                                                                                                                                        |
