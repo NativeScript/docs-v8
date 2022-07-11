@@ -262,20 +262,6 @@ const image = ImageSource.fromResource('icon')
   .catch(err => Dialogs.alert(err))
 ```
 
-### Writing binary data to a File
-
-```javascript
-imageFile.writeSync(binarySource, err => {
-  console.log(err)
-})
-```
-
-```typescript
-imageFile.writeSync(binarySource, err => {
-  console.log(err)
-})
-```
-
 ### Checking if a File Exists
 
 ```javascript
@@ -615,13 +601,13 @@ const separator = path.separator
 
 ## API References
 
-| Name                                                                                                        | Type     |
-| ----------------------------------------------------------------------------------------------------------- | -------- |
-| [FileSystem](https://docs.nativescript.org/api-reference/classes/_file_system_.file.html)                   | Class    |
-| [FileSystemEntity](https://docs.nativescript.org/api-reference/classes/_file_system_.filesystementity.html) | `Class`  |
-| [Folder](https://docs.nativescript.org/api-reference/classes/_file_system_.folder.html)                     | `Class`  |
-| [knownFolders](https://docs.nativescript.org/api-reference/modules/_file_system_.knownfolders)              | `Module` |
-| [path](https://docs.nativescript.org/api-reference/modules/_file_system_.path)                              | `Module` |
+| Name                                                                                     | Type     |
+| ---------------------------------------------------------------------------------------- | -------- |
+| [File](https://docs.nativescript.org/api-reference/classes/file)                         | Class    |
+| [FileSystemEntity](https://docs.nativescript.org/api-reference/classes/filesystementity) | `Class`  |
+| [Folder](https://docs.nativescript.org/api-reference/classes/folder)                     | `Class`  |
+| [knownFolders](https://docs.nativescript.org/api-reference/modules/knownfolders)         | `Module` |
+| [path](https://docs.nativescript.org/api-reference/modules/path)                         | `Module` |
 
 ## Native Component
 
