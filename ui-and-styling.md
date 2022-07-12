@@ -3479,7 +3479,7 @@ When using `ObservableArray` the repeater will be automatically updated when ite
 
 `<ScrollView>` is a UI component that shows a scrollable content area. Content can be scrolled vertically or horizontally.
 
-It's important to note that `<ScrollView>` extends [`ContentView`](/api-reference/classes/contentview.html), so it can only have a single child element.
+It's important to note that `<ScrollView>` extends [`ContentView`](https://docs.nativescript.org/api-reference/classes/contentview.html), so it can only have a single child element.
 
 ---
 

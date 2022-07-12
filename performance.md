@@ -483,7 +483,7 @@ When working with the decode properties, the following considerations should be 
 
 ### Using `loadMode` property
 
-With [loadMode](/api-reference/classes/image.html#loadmode) set to `async`, the image will load asynchronously which means the UI won't block by the decoding and preloading operations. The developers can use `loadMode` on both iOS and Android.
+With [loadMode]/classes/image.html#loadmode) set to `async`, the image will load asynchronously which means the UI won't block by the decoding and preloading operations. The developers can use `loadMode` on both iOS and Android.
 
 > **Tip**: Use `loadMode="async"` to prevent blocking of the UI while the image is loading.
 
@@ -511,7 +511,7 @@ The `Image` module will use internal memory and disk cache, so when loaded the m
 The property `useCache` will work only for Android. Setting it for our iOS images will not change the application behavior in any way.
 :::
 
-**API Reference for** [Image Class](/api-reference/classes/image.html)
+**API Reference for** [Image Class](https://docs.nativescript.org/api-reference/classes/image.html)
 
 **NativeScript Core Examples** [Cookbook](http://docs.nativescript.org/cookbook/ui/image)
 
