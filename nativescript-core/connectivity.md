@@ -6,7 +6,7 @@ title: Connectivity
 
 The connectivity module provides a common abstraction of the functionality responsible for receiving information about the connection type and availability of the network.
 
-#### Usage
+### Usage
 
 ```typescript
 import { Connectivity } from '@nativescript/core'
@@ -71,7 +71,7 @@ export function onNavigatedTo(args) {
 }
 ```
 
-#### Methods
+### Methods
 
 | Name                                                       | Type     | Description                                                                                                                                                                                                                                                 |
 | ---------------------------------------------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -79,7 +79,7 @@ export function onNavigatedTo(args) {
 | `startMonitoring(connectionTypeChangedCallback: function)` | `void`   | Starts monitoring the connection type.                                                                                                                                                                                                                      |
 | `stopMonitoring`                                           | `void`   | Stops monitoring the connection type.                                                                                                                                                                                                                       |
 
-#### Connection Types
+### Connection Types
 
 - `none = 0`,
 - `wifi = 1`,
@@ -88,7 +88,7 @@ export function onNavigatedTo(args) {
 - `bluetooth = 4`,
 - `vpn = 5`
 
-#### API References
+### API References
 
 | Name                                                                                                     | Type     |
 | -------------------------------------------------------------------------------------------------------- | -------- |
