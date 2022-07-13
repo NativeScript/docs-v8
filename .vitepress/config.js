@@ -509,17 +509,26 @@ function getSidebar() {
 			],
 		},
 		{
-			text: 'UI Components',
+			text: 'App_Resources',
 			children: [
 				{
-					text: 'App_Resources',
+					text: 'Understanding App_Resources',
 					link: '/app-resources',
+				},
+			],
+		},
+		{
+			text: 'UI',
+			children: [
+				{
+					text: 'Components',
+					link: '/ui/components',
 				},
 				{
 					text: 'Styling',
-					link: '/ui-and-styling',
+					link: '/ui/styling',
 				},
-				{ text: 'Interaction', link: '/interaction' },
+				{ text: 'Interaction', link: '/ui/interaction' },
 			],
 		},
 		{
@@ -538,10 +547,11 @@ function getSidebar() {
 				{ text: 'FileSystem', link: '/nativescript-core/file-system' },
 				//{ text: 'Fps Meter', link: '/nativescript-core/fps-meter' },
 				{ text: 'Http', link: '/nativescript-core/http' },
-				//{ text: 'Image Source', link: '/nativescript-core/image-source' },
+				{ text: 'ImageSource', link: '/nativescript-core/image-source' },
 				{ text: 'Platform', link: '/nativescript-core/platform' },
 				//{ text: 'Timer', link: '/nativescript-core/timer' },
 				//{ text: 'Trace', link: '/nativescript-core/trace' },
+				{ text: 'Utils', link: '/nativescript-core/utils' },
 				//{ text: 'Xml Parser', link: '/nativescript-core/xml-parser' },
 			],
 		},
@@ -550,7 +560,32 @@ function getSidebar() {
 			children: [
 				{
 					text: 'Overview',
-					link: '/webpack',
+					link: 'webpack/overview',
+				},
+				{
+					text: 'Flags & their usage',
+					link: 'webpack/flags-and-their-usage',
+				},
+
+				{
+					text: 'Using .env files',
+					link: 'webpack/using-dot-env-files',
+				},
+				{
+					text: 'Global "magic" variables',
+					link: 'webpack/global-magic-variables',
+				},
+				{
+					text: 'Examples of configurations',
+					link: 'webpack/examples-of-configurations',
+				},
+				{
+					text: 'Plugin API',
+					link: 'webpack/plugin-api',
+				},
+				{
+					text: 'Webpack API',
+					link: 'webpack/api',
 				},
 			],
 		},
