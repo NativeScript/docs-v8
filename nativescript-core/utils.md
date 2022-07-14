@@ -4,6 +4,8 @@ title: Utils
 
 ## Utils overview
 
+`Utils` provides you with different utilities properties and functions.
+
 ## Usage
 
 ### Import
@@ -139,10 +141,71 @@ console.log(numberValue) // logs 23
 | `getModuleName(path: string)`                    | `string`                   | Gets module name from `path`. <br> `path` : The module path.                                                                                                                                                                                                                                                                                     |
 | `openFile(filePath: string, title?: string)`     | `boolean`                  | Opens file. <br> `filePath`: The file to open. <br> `title`:Optional title for Android. Default is: 'Open File...'                                                                                                                                                                                                                               |
 | `isRealDevice()`                                 | `boolean`                  | Checks whether the application is running on real device and not on simulator/emulator.                                                                                                                                                                                                                                                          |
+| `getClass()`                                     | `string`                   | A function that gets the class name of an object. Examples: <br> `console.log(Utils.getClass({}))` logs `"Object"` <br> `console.log(Utils.getClass([]))` logs `"Array"` <br> `console.log(Utils.getClass(2))` logs `"Number"`                                                                                                                   |
+| `getBaseClasses(object: any)`                    | `Array<string>`            | A function that gets the entire class hierarchy of an object.                                                                                                                                                                                                                                                                                    |
+| `getClassInfo(object: Object)`                   | `ClassInfo`                | A function that gets the ClassInfo for an object.                                                                                                                                                                                                                                                                                                |
+| `isBoolean(value: any)`                          | `boolean`                  | A function that checks if something is a valid boolean.                                                                                                                                                                                                                                                                                          |
+| `isDefined(value: any)`                          | `boolean`                  | A function that checks if something is defined (not undefined).                                                                                                                                                                                                                                                                                  |
+| `isFunction(value:any)`                          | `boolean`                  | A function that checks if something is a function.                                                                                                                                                                                                                                                                                               |
+| `isNullOrUndefined(value:any)`                   | `boolean`                  | A function that checks if something is not defined (null or undefined).                                                                                                                                                                                                                                                                          |
+| `isNumber(value:any)`                            | `boolean`                  | A function that checks if something is a valid number.                                                                                                                                                                                                                                                                                           |
+| `isObject(value:any)`                            | `boolean`                  | A function that checks if something is an object. Examples: <br> `console.log(Utils.isObject(""))` logs `false` <br> `console.log(Utils.isObject([]))` logs `true`                                                                                                                                                                               |
+| `isString(value:any)`                            | `boolean`                  | A function that checks if something is a valid string.                                                                                                                                                                                                                                                                                           |
+| `isUndefined(value:any)`                         | `boolean`                  | A function that checks if something is "undefined".                                                                                                                                                                                                                                                                                              |
+| `toUIString(object: any)`                        | `string`                   | Returns a string representation of an object to be shown in UI.                                                                                                                                                                                                                                                                                  |
+| `verifyCallback(value: any)`                     | `void`                     | A function that checks if something is a valid function. Throws exception if passed value is not a valid function.                                                                                                                                                                                                                               |
+
+## Timer utilities
+
+### Setting & clearing interval
+
+`Utils.setInterval()` can be used to apply recurring action on given interval in miliseconds. To stop `Utils.setInterval()`, use `Utils.clearInterval()`.
+
+```js
+let counter = 0
+const interval = Utils.setInterval(() => {
+  console.log('Hello' + counter)
+
+  if (counter > 10) {
+    Dialogs.alert('Condition met')
+    Utils.clearInterval(interval)
+  }
+  counter++
+}, 1000)
+```
+
+```ts
+let counter = 0
+const interval = Utils.setInterval(() => {
+  console.log('Hello' + counter)
+
+  if (counter > 10) {
+    Dialogs.alert('Condition met')
+    Utils.clearInterval(interval)
+  }
+  counter++
+}, 1000)
+```
+
+### Setting Timeout
+
+`Utils.setTimeout()` can be used to delay the execution of an action in miliseconds.
+
+```js
+Utils.setTimeout(() => {
+  Dialogs.alert('Hello there! 500 milliseconds have passed.')
+}, 500)
+```
+
+```ts
+Utils.setTimeout(() => {
+  Dialogs.alert('Hello there! 500 milliseconds have passed.')
+}, 500)
+```
 
 ## Android specific utilities
 
-### Utils.ad functions
+### Utils.android functions
 
 Module with android specific utilities.
 
@@ -154,14 +217,52 @@ Module with android specific utilities.
 | `dismissSoftInput(nativeView?: android.view.View)` | `void`                                        | Hides the soft input method, usually a soft keyboard. |
 | `showSoftInput(nativeView?: android.view.View)`    | `void`                                        | Shows the soft input method, usually a soft keyboard. |
 
-### Utils.ad.resources functions
+### Utils.android.collections functions
 
-| Name                                                              | Return Type | Description                                                                                                                   |
-| ----------------------------------------------------------------- | ----------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| `getDrawableId(name)`                                             | `any`       | Gets the drawable id from a given name.<br> `name`: Name of the resource. Example: `Utils.ad.resources.getDrawableId("logo")` |
-| `getStringId(name)`                                               | `any`       | Gets the string id from a given name.<br> `name`: Name of the resource.                                                       |
-| `getId(name: string)`                                             | `number`    | Gets the id from a given name. <br> `name`: Name of the resource.                                                             |
-| `getPaletteColor(name: string, context: android.content.Context)` | `number`    | Gets a color from the current theme. <br> `name`: Name of the color resource.                                                 |
+Utility module dealing with some android collections.
+
+| Name                                     | Return Type | Description                                                                                                           |
+| ---------------------------------------- | ----------- | --------------------------------------------------------------------------------------------------------------------- |
+| `stringArrayToStringSet(str: string[])`  | `any`       | Converts an array of strings into a String [hash set](http://developer.android.com/reference/java/util/HashSet.html). |
+| `stringSetToStringArray(stringSet: any)` | `string[]`  | Converts a string hash set into array of strings.                                                                     |
+
+### Utils.android.resources functions
+
+Utility module related to android resources.
+
+| Name                                                              | Return Type | Description                                                                                                                        |
+| ----------------------------------------------------------------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| `getDrawableId(name)`                                             | `any`       | Gets the drawable id from a given name.<br> `name`: Name of the resource. Example: `Utils.android.resources.getDrawableId("logo")` |
+| `getStringId(name)`                                               | `any`       | Gets the string id from a given name.<br> `name`: Name of the resource.                                                            |
+| `getId(name: string)`                                             | `number`    | Gets the id from a given name. <br> `name`: Name of the resource.                                                                  |
+| `getPaletteColor(name: string, context: android.content.Context)` | `number`    | Gets a color from the current theme. <br> `name`: Name of the color resource.                                                      |
+
+## iOS specific utilities
+
+### Utils.ios propeties
+
+| Name           | Return Type | Description                                                |
+| -------------- | ----------- | ---------------------------------------------------------- |
+| `MajorVersion` | `number`    | Gets the iOS device major version (for 8.1 will return 8). |
+
+### Utils.ios functions
+
+| Name                                                                 | Return Type        | Description                                                                                                                                                                                                    |
+| -------------------------------------------------------------------- | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `joinPaths(...paths: string[])`                                      | `string`           | Joins an array of file paths aeturns the joined path.                                                                                                                                                          |
+| `getCurrentAppPath()`                                                | `string`           | Gets the root folder for the current application. This Folder is private for the application and not accessible from Users/External apps. This folder is read-only and contains the app and all its resources. |
+| `getVisibleViewController(rootViewController: UIViewController)`     | `UIViewController` | Gets the currently visible(topmost) UIViewController. <br> `rootViewController`: The root UIViewController instance to start searching from (normally window.rootViewController).                              |
+| `getShadowLayer(nativeView:UIView, name?: string, create?: boolean)` | `CALayer`          | `nativeView`: UIView to find shadow layer with. <br> `name`: Name of the shadow layer if looking for specifically named layer. <br> `create`: should we create a new layer if not found.                       |
+| `createUIDocumentInteractionControllerDelegate()`                    | `any`              | Create a UIDocumentInteractionControllerDelegate implementation for use with UIDocumentInteractionController.                                                                                                  |
+
+### Utils.ios.collections
+
+Utility module dealing with some iOS collections.
+
+| Name                                 | Return Type  | Description                                                                                                                                      |
+| ------------------------------------ | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `jsArrayToNSArray<T>(str: T[])`      | `NSArray<T>` | Converts JavaScript array to [NSArray](https://developer.apple.com/library/ios/documentation/Cocoa/Reference/Foundation/Classes/NSArray_Class/). |
+| `nsArrayToJSArray<T>(a: NSArray<T>)` | `T[]`        | Converts NSArray to JavaScript array.                                                                                                            |
 
 ### API Reference
 
