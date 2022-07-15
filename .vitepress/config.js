@@ -541,13 +541,13 @@ function getSidebar() {
 				},
 				{ text: 'Color', link: '/nativescript-core/color' },
 				{ text: 'Connectivity', link: '/nativescript-core/connectivity' },
-				//{ text: 'Observable', link: '/nativescript-core/observable' },
-				//{text: 'Observable Array',link: '/nativescript-core/observable-array'},
 				//{ text: 'Virtual Array', link: '/nativescript-core/virtual-array' },
 				{ text: 'FileSystem', link: '/nativescript-core/file-system' },
 				//{ text: 'Fps Meter', link: '/nativescript-core/fps-meter' },
 				{ text: 'Http', link: '/nativescript-core/http' },
 				{ text: 'ImageSource', link: '/nativescript-core/image-source' },
+				{ text: 'Observable', link: '/nativescript-core/observable' },
+				//{text: 'Observable Array',link: '/nativescript-core/observable-array'},
 				{ text: 'Platform', link: '/nativescript-core/platform' },
 				//{ text: 'Timer', link: '/nativescript-core/timer' },
 				//{ text: 'Trace', link: '/nativescript-core/trace' },
@@ -608,10 +608,14 @@ function getSidebar() {
 			],
 		},
 		{
-			text: 'Advanced Concepts',
+			text: 'Architecture Concepts',
 			children: [
 				{
-					text: 'Advanced Concepts',
+					text: 'Layout Process',
+					link: '/advanced-concepts',
+				},
+				{
+					text: 'Data Binding',
 					link: '/advanced-concepts',
 				},
 			],
