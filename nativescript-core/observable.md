@@ -144,9 +144,9 @@ To create a binding in XML, a source object is needed, which will be created the
 
 ```xml
 <Page xmlns="http://schemas.nativescript.org/tns.xsd">
-    <StackLayout>
-        <TextField text="{{ someSourceProperty }}" />
-    </StackLayout>
+  <StackLayout>
+    <TextField text="{{ someSourceProperty }}" />
+  </StackLayout>
 </Page>
 ```
 

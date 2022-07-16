@@ -237,13 +237,11 @@ export class FlickService {
         },
         {
           title: 'Revenue',
-          body:
-            'Grossed over $500 million, making it one of the most successful musicals of all time.'
+          body: 'Grossed over $500 million, making it one of the most successful musicals of all time.'
         },
         {
           title: 'History',
-          body:
-            'The Book of Mormon was conceived by Trey Parker, Matt Stone, and Robert Lopez. Parker and Stone grew up in Colorado and were familiar with The Church of Jesus Christ of Latter-day Saints and its members. They became friends at the University of Colorado Boulder and collaborated on a musical film, Cannibal! The Musical (1993), their first experience with movie musicals. In 1997, they created the TV series South Park for Comedy Central and in 1999, the musical film South Park: Bigger, Longer & Uncut. The two had first thought of a fictionalized Joseph Smith, religious leader and founder of the Latter Day Saint movement while working on an aborted Fox series about historical characters. Their 1997 film, Orgazmo, and a 2003 episode of South Park, "All About Mormons", both gave comic treatment to Mormonism. Smith was also included as one of South Park\'s "Super Best Friends", a Justice League parody team of religious figures like Jesus and Buddha.'
+          body: 'The Book of Mormon was conceived by Trey Parker, Matt Stone, and Robert Lopez. Parker and Stone grew up in Colorado and were familiar with The Church of Jesus Christ of Latter-day Saints and its members. They became friends at the University of Colorado Boulder and collaborated on a musical film, Cannibal! The Musical (1993), their first experience with movie musicals. In 1997, they created the TV series South Park for Comedy Central and in 1999, the musical film South Park: Bigger, Longer & Uncut. The two had first thought of a fictionalized Joseph Smith, religious leader and founder of the Latter Day Saint movement while working on an aborted Fox series about historical characters. Their 1997 film, Orgazmo, and a 2003 episode of South Park, "All About Mormons", both gave comic treatment to Mormonism. Smith was also included as one of South Park\'s "Super Best Friends", a Justice League parody team of religious figures like Jesus and Buddha.'
         },
         {
           title: 'Development',
