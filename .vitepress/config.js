@@ -547,7 +547,10 @@ function getSidebar() {
 				{ text: 'Http', link: '/nativescript-core/http' },
 				{ text: 'ImageSource', link: '/nativescript-core/image-source' },
 				{ text: 'Observable', link: '/nativescript-core/observable' },
-				//{text: 'Observable Array',link: '/nativescript-core/observable-array'},
+				{
+					text: 'Observable Array',
+					link: '/nativescript-core/observable-array',
+				},
 				{ text: 'Platform', link: '/nativescript-core/platform' },
 				//{ text: 'Timer', link: '/nativescript-core/timer' },
 				//{ text: 'Trace', link: '/nativescript-core/trace' },
