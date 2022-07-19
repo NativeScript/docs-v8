@@ -552,10 +552,9 @@ function getSidebar() {
 					link: '/nativescript-core/observable-array',
 				},
 				{ text: 'Platform', link: '/nativescript-core/platform' },
-				//{ text: 'Timer', link: '/nativescript-core/timer' },
 				{ text: 'Trace', link: '/nativescript-core/trace' },
 				{ text: 'Utils', link: '/nativescript-core/utils' },
-				//{ text: 'Xml Parser', link: '/nativescript-core/xml-parser' },
+				{ text: 'Xml Parser', link: '/nativescript-core/xml-parser' },
 			],
 		},
 		{
