@@ -21,7 +21,7 @@ myObservableArray = new ObservableArray(arr)
 
 ### Lsitening to the ObservableArray.changeEvent
 
-The example in Stackblitz editor below shows how to hook to the `changeEvent`. To use it, you have to download the `Nativescript Preview` app from Google Play or App Store. Once you have the app, scan the QR with your phone camera and the result of the code in the playground will show in `Nativescript Preview` app.
+The example in Stackblitz editor below shows how to hook to the `changeEvent`. To try it, you have to download the `Nativescript Preview` app from Google Play or App Store. Once you have the app, scan the QR with your phone camera and the result of the code in the playground will show in `Nativescript Preview` app.
 
 <iframe width="100%" height="600px" src="https://stackblitz.com/edit/nativescript-stackblitz-templates-kps7hp?embed=1&file=app/main-view-model.ts"></iframe>
 
