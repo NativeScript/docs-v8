@@ -4,28 +4,30 @@ title: XmlParser
 
 ## XmlParser
 
-`XML Module` presents a simple way to parse data from an XML content. One scenario where you can use this class is when a service returns an XML response. The module allows you to go through the XML code and to search for specific attribute and its value or to take the data(e.g. text value) locked between the XML elements.
+The `XmlParser` class presents a simple way to parse data from an XML content. One scenario where you could use this class is when a service returns an XML response. With this class you can go through the XML code and search for specific attribute and its value or to take the data(e.g. text value) locked between the XML elements.
 
 The `XmlParser` constructor function has the following shape:
 `XmlParser(onEvent: (event: ParserEvent) => void, onError?: (error: Error, position: Position) => void, processNamespaces?: boolean, angularSyntax?: boolean)`
 
 Where:
 
-- `onEvent`: The callback to execute when a parser event occurs. The `event` parameter contains information about the event.
-- `onError`: The callback to execute when a parser error occurs. The 'error' parameter contains the error.
-- `processNamespaces`: Specifies whether namespaces should be processed.
+- `onEvent` is the callback to execute when a parser event occurs. The `event` parameter contains information about the event.
+- `onError` is the callback to execute when a parser error occurs. The 'error' parameter contains the error.
+- `processNamespaces` specifies whether namespaces should be processed.
 
-Below is a StackBlitz IDE with an example of how to use the `XmlParser` class. In order to try it out and see the results of the code, you have to download the Nativescript Preview 2.0 app from App Store and/or Google Play. Once you have the app on your phone, use the phone Camera to scan the QR code in the Preview tab.
+Below is a StackBlitz IDE with an example of how to use the `XmlParser` class. In order to try it out and see the results of the code, you have to download the `Nativescript Preview` app from App Store and/or Google Play. Once you have the app on your phone, use the phone Camera to scan the QR code in the Preview tab.
 
 <iframe width="100%" height="600px" src="https://stackblitz.com/edit/nativescript-stackblitz-templates-54tppc?embed=1&file=app/main-view-model.ts"></iframe>
-	 
-| Name           | Return Type     | Description                       |
-| -------------- | ----------------| ---------------------------------------- |
-| `parse(xmlString: string)`| `void`| Parses the supplied xml string.|
+
+### Method(s)
+
+| Name                       | Return Type | Description                                                                              |
+| -------------------------- | ----------- | ---------------------------------------------------------------------------------------- |
+| `parse(xmlString: string)` | `void`      | Parses the supplied xml string. <br>`xmlString`: The string containing the xml to parse. |
 
 ### ParserEventType class
 
-This class specifies the type of parser event.
+From this class you get static properties that represent the various types of parser events.
 
 #### Static Properties
 
@@ -39,7 +41,7 @@ This class specifies the type of parser event.
 
 ### Position
 
-Defines a position within string, in line and column form.
+Defines a position within a string, in line and column form.
 
 | Name     | Type     | Description                                           |
 | -------- | -------- | ----------------------------------------------------- |
@@ -48,7 +50,7 @@ Defines a position within string, in line and column form.
 
 ### ParserEvent data
 
-Provides information for a parser event. The `ParserEvent` data has the following properties:
+The `ParserEvent` object provides information about a parser event and it has the following properties:
 
 | Name          | Type       | Description                                                                                                                                                       |
 | ------------- | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -59,11 +61,10 @@ Provides information for a parser event. The `ParserEvent` data has the followin
 | `elementName` | `string`   | If namespace processing is enabled, returns the namespace of the element in case the eventType is `ParserEventType.StartElement` or `ParserEventType.EndElement`. |
 | `attributes`  | `Object`   | Returns a JSON object with the attributes of an element in case the eventType is `ParserEventType.StartElement`.                                                  |
 | `data`        | `string`   | Returns the relevant data in case the eventType is `ParserEventType.Text`, `ParserEventType.CDATA` or `ParserEventType.Comment`.                                  |
+| `toString()`  | `string`   | Returns a JSON string representation of this instance.                                                                                                            |
 
-### Method(s)
+### API References
 
-| Name       | Return Type | Description                                                                                                     |
-| ---------- | ----------- | --------------------------------------------------------------------------------------------------------------- |
-| `toString` | `string`    | Returns a JSON string representation of this instance. <br>`xmlString`: The string containing the xml to parse. |
-
-## API References
+| Name                                                                                          | Type    |
+| --------------------------------------------------------------------------------------------- | ------- |
+| [@nativescript/core/XmlParser](https://docs.nativescript.org/api-reference/classes/xmlparser) | `Class` |
