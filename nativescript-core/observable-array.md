@@ -21,15 +21,15 @@ myObservableArray = new ObservableArray(arr)
 
 ### Lsitening to the ObservableArray.changeEvent
 
-The example in Stackblitz editor below shows how to hook to the `changeEvent`. To try it, you have to download the `Nativescript Preview` app from Google Play or App Store. Once you have the app, scan the QR with your phone camera and the result of the code in the playground will show in `Nativescript Preview` app.
+The example in the Stackblitz IDE below shows how to hook to the `changeEvent`. To try it out, you have to download the `Nativescript Preview` app from Google Play or App Store. Once you have the app, scan the QR with your phone Camera and the app resulting from the code in the IDE will appear in the `Nativescript Preview` app.
 
 <iframe width="100%" height="600px" src="https://stackblitz.com/edit/nativescript-stackblitz-templates-kps7hp?embed=1&file=app/main-view-model.ts"></iframe>
 
-You can use the playground to try out rest of the `ObservableArray` methods.
+You can use the IDE and the Preview app to experiment with the rest of the `ObservableArray` methods.
 
 ### Array index
 
-One difference with the base array implementation is in the way the items are accessed through their index. While in the common JS array we would do `array[index]` with an `ObservableArray` we need to use `getItem(index)` method.
+One difference between the base array implementation and the `ObservableArray` is in the way the items are accessed through their index. While in the common JS array we would do `array[index]`, with an `ObservableArray` we need to use the `getItem(index)` method.
 
 ```ts
 const firstItem = myObservableArray.getItem(0)
