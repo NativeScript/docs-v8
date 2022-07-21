@@ -618,7 +618,7 @@ function getSidebar() {
 				},
 				{
 					text: 'Data Binding',
-					link: '/advanced-concepts',
+					link: '/architecture-concepts/data-binding',
 				},
 			],
 		},
