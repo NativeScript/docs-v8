@@ -160,10 +160,10 @@ The following example creates a group of overlapping items.
 
 #### Props
 
-| Name           | Type        | Description                                                                                                                                      |
-| -------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `N/A`          | `N/A`       | None.                                                                                                                                            |
-| `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.org/api-reference/classes/absolutelayout.html) |
+| Name           | Type        | Description                                                                                                                                 |
+| -------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| `N/A`          | `N/A`       | None.                                                                                                                                       |
+| `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.org/api-reference/classes/absolutelayout) |
 
 #### Additional children props
 
@@ -247,10 +247,10 @@ The following example creates a single line of 4 elements that stretch across th
 
 #### Props
 
-| Name               | Type        | Description                                                                                                                                  |
-| ------------------ | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| `stretchLastChild` | `Boolean`   | Enables or disables stretching the last child to fit the remaining space.                                                                    |
-| `...Inherited`     | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.org/api-reference/classes/docklayout.html) |
+| Name               | Type        | Description                                                                                                                             |
+| ------------------ | ----------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| `stretchLastChild` | `Boolean`   | Enables or disables stretching the last child to fit the remaining space.                                                               |
+| `...Inherited`     | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.org/api-reference/classes/docklayout) |
 
 <!-- TODO: fix links -->
 
@@ -347,7 +347,7 @@ The following example creates a complex grid with responsive design, mixed width
 | -------------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `columns`      | `String`    | A string value representing column widths delimited with commas.<br/>Valid values: an absolute number, `auto`, or `*`.<br/>A number indicates an absolute column width. `auto` makes the column as wide as its widest child. `*` makes the column occupy all available horizontal space. The space is proportionally divided over all star-sized columns. You can set values such as `3*` and `5*` to indicate a ratio of 3:5 in sizes. |
 | `rows`         | `String`    | A string value representing row heights delimited with commas.<br/>Valid values: an absolute number, `auto`, or `*`.<br/>A number indicates an absolute row height. `auto` makes the row as tall as its tallest child. `*` makes the row occupy all available vertical space. The space is proportionally divided over all star-sized rows. You can set values such as `3*` and `5*` to indicate a ratio of 3:5 in sizes.               |
-| `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.org/api-reference/classes/gridlayout.html)                                                                                                                                                                                                                                                                                            |
+| `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.org/api-reference/classes/gridlayout)                                                                                                                                                                                                                                                                                                 |
 
 #### Additional children props
 
@@ -476,10 +476,10 @@ The following example creates a diagonal stack of items with responsive sizes. I
 
 #### Props
 
-| Name           | Type        | Description                                                                                                                                   |
-| -------------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| `orientation`  | `String`    | Specifies the stacking direction.<br/>Valid values: `vertical` and `horizontal`.<br/>Default value: `vertical`.                               |
-| `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.org/api-reference/classes/stacklayout.html) |
+| Name           | Type        | Description                                                                                                                              |
+| -------------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| `orientation`  | `String`    | Specifies the stacking direction.<br/>Valid values: `vertical` and `horizontal`.<br/>Default value: `vertical`.                          |
+| `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.org/api-reference/classes/stacklayout) |
 
 #### Additional children props
 
@@ -642,7 +642,7 @@ The following example creates a column of equally-sized items. When the row runs
 | `orientation`  | `String`    | Specifies the stacking direction.<br/>Valid values: `horizontal` (arranges items in rows) and `vertical` (arranges items in columns).<br/>Default value: `horizontal`. |
 | `itemWidth`    | `Number`    | Sets the width used to measure and layout each child.<br/>Default value: `Number.NaN`, which does not restrict children.                                               |
 | `itemHeight`   | `Number`    | Sets the height used to measure and layout each child.<br/>Default value is `Number.NaN`, which does not restrict children.                                            |
-| `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.org/api-reference/classes/wraplayout.html)                           |
+| `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.org/api-reference/classes/wraplayout)                                |
 
 #### Additional children props
 
@@ -767,7 +767,7 @@ The following example shows how to use:
 | `justifyContent` | `String`    | Sets the alignment of child elements along the main axis. You can use it to distribute leftover space when all the child elements on a line are inflexible or are flexible but have reached their maximum size. You can also use it to control the alignment of items when they overflow the line.<br/>Valid values:<br/>`flex-start` (items are packed toward the start line),<br/>`flex-end` (items are packed toward the end line),<br/>`center` (items are centered along the line),<br/>`space-between` (items are evenly distributed on the line; first item is on the start line, last item on the end line), and<br/>`space-around` (items are evenly distributed on the line with equal space around them).<br/>Default value: `flex-start`.                          |
 | `alignItems`     | `String`    | (Android-only) Sets the alignment of child elements along the cross axis on the current line. Acts as `justifyContent` for the cross axis.<br/>Valid values:<br/>`flex-start` (cross-start margin edge of the items is placed on the cross-start line),<br/>`flex-end` (cross-end margin edge of the items is placed on the cross-end line),<br/>`center` (items are centered оn the cross axis),<br/>`baseline` (the item baselines are aligned), and<br/>`stretch` (items are stretched to fill the container but respect `min-width` and `max-width`).<br/>Default value: `stretch`.                                                                                                                                                                                        |
 | `alignContent`   | `String`    | Sets how lines are aligned in the flex container on the cross axis, similar to how `justifyContent` aligns individual items within the main axis.<br/> This property has no effect when the flex container has only one line.<br/>Valid values:<br/>`flex-start` (lines are packed to the start of the container),<br/>`flex-end` (lines are packed to the end of the container),<br/>`center` (lines are packed to the center of the container),<br/>`space-between` (lines are evenly distributed; the first line is at the start of the container while the last one is at the end),<br/>`space-around` (lines are evenly distributed with equal space between them), and<br/>`stretch` (lines are stretched to take up the remaining space).<br/>Default value: `stretch`. |
-| `...Inherited`   | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.org/api-reference/classes/flexboxlayout.html)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| `...Inherited`   | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.org/api-reference/classes/flexboxlayout)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 
 #### Additional children props
 
@@ -1295,11 +1295,11 @@ In iOS, the color property affects the color of the title and the action items. 
 
 #### ActionBar Properties
 
-| Name        | Type                                                                  | Description                                                                          |
-| :---------- | :-------------------------------------------------------------------- | :----------------------------------------------------------------------------------- |
-| `title`     | `string`                                                              | Gets or sets the action bar title.                                                   |
-| `titleView` | [View](https://docs.nativescript.org/api-reference/classes/view.html) | Gets or sets the title view. When set - replaces the title with a custom view.       |
-| `flat`      | `boolean`                                                             | Removes the border on Android and the translucency on iOS. Default value is `false`. |
+| Name        | Type                                                             | Description                                                                          |
+| :---------- | :--------------------------------------------------------------- | :----------------------------------------------------------------------------------- |
+| `title`     | `string`                                                         | Gets or sets the action bar title.                                                   |
+| `titleView` | [View](https://docs.nativescript.org/api-reference/classes/view) | Gets or sets the title view. When set - replaces the title with a custom view.       |
+| `flat`      | `boolean`                                                        | Removes the border on Android and the translucency on iOS. Default value is `false`. |
 
 #### ActionItem Properties
 
@@ -1329,12 +1329,12 @@ In iOS, the color property affects the color of the title and the action items. 
 
 #### API References
 
-| Name                                                                                          | Type    |
-| :-------------------------------------------------------------------------------------------- | :------ |
-| [ActionBar](https://docs.nativescript.org/api-reference/classes/actionbar.html)               | `Class` |
-| [ActionItem](https://docs.nativescript.org/api-reference/classes/actionitem.html)             | `Class` |
-| [ActionItems](https://docs.nativescript.org/api-reference/classes/actionitems.html)           | `Class` |
-| [NavigationButton](https://docs.nativescript.org/api-reference/classes/navigationbutton.html) | `Class` |
+| Name                                                                                     | Type    |
+| :--------------------------------------------------------------------------------------- | :------ |
+| [ActionBar](https://docs.nativescript.org/api-reference/classes/actionbar)               | `Class` |
+| [ActionItem](https://docs.nativescript.org/api-reference/classes/actionitem)             | `Class` |
+| [ActionItems](https://docs.nativescript.org/api-reference/classes/actionitems)           | `Class` |
+| [NavigationButton](https://docs.nativescript.org/api-reference/classes/navigationbutton) | `Class` |
 
 #### Native Component
 
@@ -1435,10 +1435,10 @@ export default {
 
 #### Props
 
-| Name           | Type        | Description                                                                                                                                         |
-| -------------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `busy`         | `Boolean`   | Gets or sets whether the indicator is active. When `true`, the indicator is active.                                                                 |
-| `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.org/api-reference/classes/activityindicator.html) |
+| Name           | Type        | Description                                                                                                                                    |
+| -------------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| `busy`         | `Boolean`   | Gets or sets whether the indicator is active. When `true`, the indicator is active.                                                            |
+| `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.org/api-reference/classes/activityindicator) |
 
 #### Events
 
@@ -1456,7 +1456,7 @@ export default {
 
 `<Button>` is a UI component that displays a button which reacts to a user gesture.
 
-For more information about the available gestures, see [Gestures in the documentation](/interaction.html#gestures).
+For more information about the available gestures, see [Gestures in the documentation](/ui/interaction.html#gestures).
 
 ---
 
@@ -1526,12 +1526,12 @@ import { EventData } from '@nativescript/core'
 
 #### Props
 
-| Name           | Type        | Description                                                                                                                              |
-| -------------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| `text`         | `String`    | Sets the label of the button.                                                                                                            |
-| `textWrap`     | `Boolean`   | Gets or sets whether the widget wraps the text of the label. Useful for longer labels. Default value is `false`.                         |
-| `isEnabled `   | `Boolean`   | Make the button disabled or enabled. A disabled button is unusable and un-clickable. Default value is `true`.                            |
-| `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.org/api-reference/classes/button.html) |
+| Name           | Type        | Description                                                                                                                         |
+| -------------- | ----------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `text`         | `String`    | Sets the label of the button.                                                                                                       |
+| `textWrap`     | `Boolean`   | Gets or sets whether the widget wraps the text of the label. Useful for longer labels. Default value is `false`.                    |
+| `isEnabled `   | `Boolean`   | Make the button disabled or enabled. A disabled button is unusable and un-clickable. Default value is `true`.                       |
+| `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.org/api-reference/classes/button) |
 
 <!-- TODO: fix links -->
 
@@ -1721,15 +1721,15 @@ import { EventData } from '@nativescript/core'
 
 #### Props
 
-| Name           | Type        | Description                                                                                                                                  |
-| -------------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| `date`         | `Date`      | Gets or sets the complete date.                                                                                                              |
-| `minDate`      | `Date`      | Gets or sets the earliest possible date to select.                                                                                           |
-| `maxDate`      | `Date`      | Gets or sets the latest possible date to select.                                                                                             |
-| `day`          | `Number`    | Gets or sets the day.                                                                                                                        |
-| `month`        | `Number`    | Gets or sets the month.                                                                                                                      |
-| `year`         | `Number`    | Gets or sets the year.                                                                                                                       |
-| `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.org/api-reference/classes/datepicker.html) |
+| Name           | Type        | Description                                                                                                                             |
+| -------------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| `date`         | `Date`      | Gets or sets the complete date.                                                                                                         |
+| `minDate`      | `Date`      | Gets or sets the earliest possible date to select.                                                                                      |
+| `maxDate`      | `Date`      | Gets or sets the latest possible date to select.                                                                                        |
+| `day`          | `Number`    | Gets or sets the day.                                                                                                                   |
+| `month`        | `Number`    | Gets or sets the month.                                                                                                                 |
+| `year`         | `Number`    | Gets or sets the year.                                                                                                                  |
+| `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.org/api-reference/classes/datepicker) |
 
 #### Events
 
@@ -1984,10 +1984,10 @@ export class HtmlViewUsageComponent {
 
 #### Props
 
-| Name           | Type        | Description                                                                                                                                |
-| -------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| `html`         | `String`    | The HTML content to be shown.                                                                                                              |
-| `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.org/api-reference/classes/htmlview.html) |
+| Name           | Type        | Description                                                                                                                           |
+| -------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| `html`         | `String`    | The HTML content to be shown.                                                                                                         |
+| `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.org/api-reference/classes/htmlview) |
 
 #### Native component
 
@@ -2247,22 +2247,22 @@ In NativeScript-Vue, `.decode` is required for parsing properties that have HTML
 
 #### Props
 
-| Name           | Type                                                                                              | Description                                                                                                                                                                                                                                                                            |
-| -------------- | ------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `src`          | `String` or [`ImageSource`](https://docs.nativescript.org/api-reference/classes/imagesource.html) | Gets or sets the source of the image as a URL or an image source. If you use the new font:// icon protocol in {N} 6.2, make sure you add .decode to the name of the property - e.g. `src.decode="font://&#xf004;"`                                                                     |
-| `imageSource`  | [`ImageSource`](https://docs.nativescript.org/api-reference/classes/imagesource.html)             | Gets or sets the image source of the image.                                                                                                                                                                                                                                            |
-| `tintColor`    | `Color`                                                                                           | (Style property) Sets a color to tint template images.                                                                                                                                                                                                                                 |
-| `stretch`      | `ImageStretch`                                                                                    | (Style property) Gets or sets the way the image is resized to fill its allocated space.<br/>Valid values: `none`, `aspectFill`, `aspectFit`, or `fill`.<br/>For more information, see [ImageStretch](https://docs.nativescript.org/api-reference/modules/coretypes.imagestretch.html). |
-| `loadMode`     |                                                                                                   | Gets or sets the loading strategy for the images on the local file system.<br/>Valid values: `sync` or `async`.<br/>Default value: `async`.<br/>For more information, see [loadMode](https://docs.nativescript.org/api-reference/classes/image.html#loadmode).                         |
-| `...Inherited` | `Inherited`                                                                                       | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.orghttps://docs.nativescript.org/api-reference/classes/image)                                                                                                                        |
+| Name           | Type                                                                                         | Description                                                                                                                                                                                                                                                                       |
+| -------------- | -------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `src`          | `String` or [`ImageSource`](https://docs.nativescript.org/api-reference/classes/imagesource) | Gets or sets the source of the image as a URL or an image source. If you use the new font:// icon protocol in {N} 6.2, make sure you add .decode to the name of the property - e.g. `src.decode="font://&#xf004;"`                                                                |
+| `imageSource`  | [`ImageSource`](https://docs.nativescript.org/api-reference/classes/imagesource)             | Gets or sets the image source of the image.                                                                                                                                                                                                                                       |
+| `tintColor`    | `Color`                                                                                      | (Style property) Sets a color to tint template images.                                                                                                                                                                                                                            |
+| `stretch`      | `ImageStretch`                                                                               | (Style property) Gets or sets the way the image is resized to fill its allocated space.<br/>Valid values: `none`, `aspectFill`, `aspectFit`, or `fill`.<br/>For more information, see [ImageStretch](https://docs.nativescript.org/api-reference/modules/coretypes.imagestretch). |
+| `loadMode`     |                                                                                              | Gets or sets the loading strategy for the images on the local file system.<br/>Valid values: `sync` or `async`.<br/>Default value: `async`.<br/>For more information, see [loadMode](https://docs.nativescript.org/api-reference/classes/image#loadmode).                         |
+| `...Inherited` | `Inherited`                                                                                  | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.orghttps://docs.nativescript.org/api-reference/classes/image)                                                                                                                   |
 
 <!-- TODO: fix links -->
 
 #### Native component
 
-| Android                                                                                             | iOS                                                                          |
-| --------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| [`android.widget.ImageView`](https://developer.android.com/reference/android/widget/ImageView.html) | [`UIImageView`](https://developer.apple.com/documentation/uikit/uiimageview) |
+| Android                                                                                        | iOS                                                                          |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| [`android.widget.ImageView`](https://developer.android.com/reference/android/widget/ImageView) | [`UIImageView`](https://developer.apple.com/documentation/uikit/uiimageview) |
 
 ### Label
 
@@ -2403,17 +2403,17 @@ import { Color } from '@nativescript/core'
 
 #### Props
 
-| Name             | Type                                                             | Description                                                                                               |
-| ---------------- | ---------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| `letterSpacing`  | `number`                                                         | Gets or sets letterSpace style property.                                                                  |
-| `lineHeight`     | `number`                                                         | Gets or sets lineHeight style property.                                                                   |
-| `text`           | `string`                                                         | Gets or sets the Label text.                                                                              |
-| `textAlignment`  | `initial`, `left`, `center`, `right`, `justify`                  | Gets or sets text-alignment style property.                                                               |
-| `textDecoration` | `none`, `underline`, `line-through`, `underline`, `line-through` | Gets or sets text swcoration style property.                                                              |
-| `textTransform`  | `initial`, `none`, `capitalize`, `uppercase`, `lowercase`        | Gets or sets text transform style property.                                                               |
-| `textWrap`       | `boolean`                                                        | Gets or sets whether the Label wraps text or not.                                                         |
-| `whiteSpace`     | `initial`, `normal`, `nowrap`                                    | Gets or sets the white space style.                                                                       |
-| `...Inherited`   | `Inherited`                                                      | Additional inherited properties not shown. Refer to the [API Reference](api-reference/classes/label.html) |
+| Name             | Type                                                             | Description                                                                                                                        |
+| ---------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| `letterSpacing`  | `number`                                                         | Gets or sets letterSpace style property.                                                                                           |
+| `lineHeight`     | `number`                                                         | Gets or sets lineHeight style property.                                                                                            |
+| `text`           | `string`                                                         | Gets or sets the Label text.                                                                                                       |
+| `textAlignment`  | `initial`, `left`, `center`, `right`, `justify`                  | Gets or sets text-alignment style property.                                                                                        |
+| `textDecoration` | `none`, `underline`, `line-through`, `underline`, `line-through` | Gets or sets text swcoration style property.                                                                                       |
+| `textTransform`  | `initial`, `none`, `capitalize`, `uppercase`, `lowercase`        | Gets or sets text transform style property.                                                                                        |
+| `textWrap`       | `boolean`                                                        | Gets or sets whether the Label wraps text or not.                                                                                  |
+| `whiteSpace`     | `initial`, `normal`, `nowrap`                                    | Gets or sets the white space style.                                                                                                |
+| `...Inherited`   | `Inherited`                                                      | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.org/api-reference/classes/label) |
 
 <!-- TODO: fix links -->
 
@@ -2537,11 +2537,11 @@ import { EventData, ListPicker } from '@nativescript/core'
 
 #### Props
 
-| Name            | Type            | Description                                                                                                                                  |
-| --------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| `items`         | `Array<String>` | Gets or sets the items displayed as options in the list picker.                                                                              |
-| `selectedIndex` | `Number`        | Gets or sets the index of the currently selected item.                                                                                       |
-| `...Inherited`  | `Inherited`     | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.org/api-reference/classes/listpicker.html) |
+| Name            | Type            | Description                                                                                                                             |
+| --------------- | --------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| `items`         | `Array<String>` | Gets or sets the items displayed as options in the list picker.                                                                         |
+| `selectedIndex` | `Number`        | Gets or sets the index of the currently selected item.                                                                                  |
+| `...Inherited`  | `Inherited`     | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.org/api-reference/classes/listpicker) |
 
 #### Events
 
@@ -2890,12 +2890,12 @@ If a `v-for` is used on a `<ListView>` a warning will be printed to the console,
 
 #### todo: cleanup API References
 
-| Name                                                                                       | Type        |
-| ------------------------------------------------------------------------------------------ | ----------- |
-| [ListView](https://docs.nativescript.org/api-reference/classes/listview.html)              | `Class`     |
-| [ItemEventData](https://docs.nativescript.org/api-reference/interfaces/itemeventdata.html) | `Interface` |
-| [ItemsSource](https://docs.nativescript.org/api-reference/interfaces/itemssource.html)     | `Interface` |
-| [KeyedTemplate](https://docs.nativescript.org/api-reference/interfaces/keyedtemplate.html) | `Interface` |
+| Name                                                                                  | Type        |
+| ------------------------------------------------------------------------------------- | ----------- |
+| [ListView](https://docs.nativescript.org/api-reference/classes/listview)              | `Class`     |
+| [ItemEventData](https://docs.nativescript.org/api-reference/interfaces/itemeventdata) | `Interface` |
+| [ItemsSource](https://docs.nativescript.org/api-reference/interfaces/itemssource)     | `Interface` |
+| [KeyedTemplate](https://docs.nativescript.org/api-reference/interfaces/keyedtemplate) | `Interface` |
 
 ///
 
@@ -3112,14 +3112,14 @@ Developers coming from a web background would usually reach for the `mounted` li
 
 #### Props
 
-| Name                           | Type        | Description                                                                                              |
-| ------------------------------ | ----------- | -------------------------------------------------------------------------------------------------------- |
-| `actionBarHidden`              | `Boolean`   | Shows or hides the `<ActionBar>` for the page.<br/>Default value: `false`.                               |
-| `backgroundSpanUnderStatusBar` | `Boolean`   | Gets or sets whether the background of the page spans under the status bar.<br/>Default value: `false`.  |
-| `androidStatusBarBackground`   | `Color`     | (Android-only) Gets or sets the color of the status bar on Android devices.                              |
-| `enableSwipeBackNavigation`    | `Boolean`   | (iOS-only) Gets or sets whether the page can be swiped back on iOS.<br/>Default value: `true`.           |
-| `statusBarStyle`               | `String`    | Gets or sets the style of the status bar.<br/>Valid values:<br/>`light`,<br/>`dark`.                     |
-| `...Inherited`                 | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](api-reference/classes/page.html) |
+| Name                           | Type        | Description                                                                                                                       |
+| ------------------------------ | ----------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `actionBarHidden`              | `Boolean`   | Shows or hides the `<ActionBar>` for the page.<br/>Default value: `false`.                                                        |
+| `backgroundSpanUnderStatusBar` | `Boolean`   | Gets or sets whether the background of the page spans under the status bar.<br/>Default value: `false`.                           |
+| `androidStatusBarBackground`   | `Color`     | (Android-only) Gets or sets the color of the status bar on Android devices.                                                       |
+| `enableSwipeBackNavigation`    | `Boolean`   | (iOS-only) Gets or sets whether the page can be swiped back on iOS.<br/>Default value: `true`.                                    |
+| `statusBarStyle`               | `String`    | Gets or sets the style of the status bar.<br/>Valid values:<br/>`light`,<br/>`dark`.                                              |
+| `...Inherited`                 | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.org/api-reference/classes/page) |
 
 #### Events
 
@@ -3265,10 +3265,10 @@ methods: {
 
 #### Props
 
-| Name           | Type        | Description                                                                                                                                   |
-| -------------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| `N/A`          | `N/A`       | None.                                                                                                                                         |
-| `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.org/api-reference/classes/placeholder.html) |
+| Name           | Type        | Description                                                                                                                              |
+| -------------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| `N/A`          | `N/A`       | None.                                                                                                                                    |
+| `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.org/api-reference/classes/placeholder) |
 
 ### Progress
 
@@ -3395,11 +3395,11 @@ Progress {
 
 #### Props
 
-| Name           | Type        | Description                                                                                                                                |
-| -------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| `value`        | `Number`    | Gets or sets the current value of the progress bar. Must be within the range of 0 to `maxValue`.                                           |
-| `maxValue`     | `Number`    | Gets or sets the maximum value of the progress bar.<br/>Default value: `100`.                                                              |
-| `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.org/api-reference/classes/progress.html) |
+| Name           | Type        | Description                                                                                                                           |
+| -------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| `value`        | `Number`    | Gets or sets the current value of the progress bar. Must be within the range of 0 to `maxValue`.                                      |
+| `maxValue`     | `Number`    | Gets or sets the maximum value of the progress bar.<br/>Default value: `100`.                                                         |
+| `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.org/api-reference/classes/progress) |
 
 #### Events
 
@@ -3471,15 +3471,15 @@ When using `ObservableArray` the repeater will be automatically updated when ite
 
 #### API References
 
-| Name                                                                          | Type    |
-| ----------------------------------------------------------------------------- | ------- |
-| [Repeater](https://docs.nativescript.org/api-reference/classes/repeater.html) | `Class` |
+| Name                                                                     | Type    |
+| ------------------------------------------------------------------------ | ------- |
+| [Repeater](https://docs.nativescript.org/api-reference/classes/repeater) | `Class` |
 
 ### ScrollView
 
 `<ScrollView>` is a UI component that shows a scrollable content area. Content can be scrolled vertically or horizontally.
 
-It's important to note that `<ScrollView>` extends [`ContentView`](https://docs.nativescript.org/api-reference/classes/contentview.html), so it can only have a single child element.
+It's important to note that `<ScrollView>` extends [`ContentView`](https://docs.nativescript.org/api-reference/classes/contentview), so it can only have a single child element.
 
 ---
 
@@ -3608,11 +3608,11 @@ export class TipsAndTricksComponent {
 
 #### Props
 
-| name                        | type        | description                                                                                                                                  |
-| --------------------------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| `orientation`               | `String`    | Gets or sets the direction in which the content can be scrolled: `horizontal` or `vertical`.<br/>Default value: `vertical`.                  |
-| `scrollBarIndicatorVisible` | `Boolean`   | Specifies if the scrollbar is visible.<br/>Default value: `true`.                                                                            |
-| `...Inherited`              | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.org/api-reference/classes/scrollview.html) |
+| name                        | type        | description                                                                                                                             |
+| --------------------------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| `orientation`               | `String`    | Gets or sets the direction in which the content can be scrolled: `horizontal` or `vertical`.<br/>Default value: `vertical`.             |
+| `scrollBarIndicatorVisible` | `Boolean`   | Specifies if the scrollbar is visible.<br/>Default value: `true`.                                                                       |
+| `...Inherited`              | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.org/api-reference/classes/scrollview) |
 
 #### Events
 
@@ -3770,13 +3770,13 @@ export class UsageComponent {
 
 #### Props
 
-| Name                       | Type        | Description                                                                                                                                 |
-| -------------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| `hint`                     | `String`    | Gets or sets placeholder text for the input area.                                                                                           |
-| `text`                     | `String`    | Gets or sets the value of the search query.                                                                                                 |
-| `textFieldBackgroundColor` | `Color`     | Gets or sets the background color of the input area.                                                                                        |
-| `textFieldHintColor`       | `Color`     | Gets or sets the color of the placeholder text.                                                                                             |
-| `...Inherited`             | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.org/api-reference/classes/searchbar.html) |
+| Name                       | Type        | Description                                                                                                                            |
+| -------------------------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| `hint`                     | `String`    | Gets or sets placeholder text for the input area.                                                                                      |
+| `text`                     | `String`    | Gets or sets the value of the search query.                                                                                            |
+| `textFieldBackgroundColor` | `Color`     | Gets or sets the background color of the input area.                                                                                   |
+| `textFieldHintColor`       | `Color`     | Gets or sets the color of the placeholder text.                                                                                        |
+| `...Inherited`             | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.org/api-reference/classes/searchbar) |
 
 <!-- TODO: fix links -->
 
@@ -4013,7 +4013,7 @@ let listOfItems = ['First', 'Second', 'Third']
 | `items`                   | `Array<SegmentedBarItem>` | An array of items to be displayed in the segmented bar. Represents the button labels or icons of the segmented bar.<br/>The array must be created in advance. |
 | `selectedIndex`           | `Number`                  | Gets or sets the index of the selected item.                                                                                                                  |
 | `selectedBackgroundColor` | `Color`                   | (Style property) Gets or sets the background color of the selected item. To set the background color of the entire bar, use `backgroundColor`.                |
-| `...Inherited`            | `Inherited`               | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.org/api-reference/classes/segmentedbar.html)                |
+| `...Inherited`            | `Inherited`               | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.org/api-reference/classes/segmentedbar)                     |
 
 #### Events
 
@@ -4122,12 +4122,12 @@ export class UsageComponent {
 
 #### Props
 
-| Name           | Type        | Description                                                                                                                              |
-| -------------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| `value`        | `Number`    | Gets or sets the currently selected value of the slider.<br/>Default value: `0`.                                                         |
-| `minValue`     | `Number`    | Gets or sets the minimum value of the slider.<br/>Default value: `0`.                                                                    |
-| `maxValue`     | `Number`    | Gets or sets the maximum value of the slider.<br/>Default value: `100`.                                                                  |
-| `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.org/api-reference/classes/slider.html) |
+| Name           | Type        | Description                                                                                                                         |
+| -------------- | ----------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `value`        | `Number`    | Gets or sets the currently selected value of the slider.<br/>Default value: `0`.                                                    |
+| `minValue`     | `Number`    | Gets or sets the minimum value of the slider.<br/>Default value: `0`.                                                               |
+| `maxValue`     | `Number`    | Gets or sets the maximum value of the slider.<br/>Default value: `100`.                                                             |
+| `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.org/api-reference/classes/slider) |
 
 <!-- TODO: fix links -->
 
@@ -4236,10 +4236,10 @@ export class BasicSwitchComponent {
 
 #### Props
 
-| Name           | Type        | Description                                                                                                                              |
-| -------------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| `checked`      | `Boolean`   | Gets or sets the value of the switch selection.<br/>Default value: `false`.                                                              |
-| `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.org/api-reference/classes/switch.html) |
+| Name           | Type        | Description                                                                                                                         |
+| -------------- | ----------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `checked`      | `Boolean`   | Gets or sets the value of the switch selection.<br/>Default value: `false`.                                                         |
+| `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.org/api-reference/classes/switch) |
 
 <!-- TODO: fix links -->
 
@@ -4538,18 +4538,18 @@ The `TabView` component has the following unique styling properties:
 
 #### Props
 
-| Name                               | Type                                            | Description                                                                                                                               |
-| ---------------------------------- | ----------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| `selectedIndex`                    | `Number`                                        | Gets or sets the currently selected tab. Default is `0`.                                                                                  |
-| `tabTextColor`                     | `Color`                                         | (Style property) Gets or sets the text color of the tabs titles.                                                                          |
-| `tabTextFontSize`                  | `Color`                                         | Gets or sets the font size of the tabs titles.                                                                                            |
-| `tabBackgroundColor`               | `Color`                                         | (Style property) Gets or sets the background color of the tabs.                                                                           |
-| `selectedTabTextColor`             | `Color`                                         | (Style property) Gets or sets the text color of the selected tab title.                                                                   |
-| `androidTabsPosition`              | `String`                                        | Sets the position of the TabView in Android platform<br/>Valid values: `top` or `bottom`.                                                 |
-| `androidOffscreenTabLimit`         | `number`                                        | Gets or sets the number of tabs that should be retained to either side of the current tab in the view hierarchy in an idle state.         |
-| `androidSelectedTabHighlightColor` | `Color`                                         | Gets or sets the color of the horizontal line drawn below the currently selected tab on Android.                                          |
-| `iosIconRenderingMode`             | `automatic`, `alwaysOriginal`, `alwaysTemplate` | Gets or sets the icon rendering mode on iOS.                                                                                              |
-| `...Inherited`                     | `Inherited`                                     | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.org/api-reference/classes/tabview.html) |
+| Name                               | Type                                            | Description                                                                                                                          |
+| ---------------------------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| `selectedIndex`                    | `Number`                                        | Gets or sets the currently selected tab. Default is `0`.                                                                             |
+| `tabTextColor`                     | `Color`                                         | (Style property) Gets or sets the text color of the tabs titles.                                                                     |
+| `tabTextFontSize`                  | `Color`                                         | Gets or sets the font size of the tabs titles.                                                                                       |
+| `tabBackgroundColor`               | `Color`                                         | (Style property) Gets or sets the background color of the tabs.                                                                      |
+| `selectedTabTextColor`             | `Color`                                         | (Style property) Gets or sets the text color of the selected tab title.                                                              |
+| `androidTabsPosition`              | `String`                                        | Sets the position of the TabView in Android platform<br/>Valid values: `top` or `bottom`.                                            |
+| `androidOffscreenTabLimit`         | `number`                                        | Gets or sets the number of tabs that should be retained to either side of the current tab in the view hierarchy in an idle state.    |
+| `androidSelectedTabHighlightColor` | `Color`                                         | Gets or sets the color of the horizontal line drawn below the currently selected tab on Android.                                     |
+| `iosIconRenderingMode`             | `automatic`, `alwaysOriginal`, `alwaysTemplate` | Gets or sets the icon rendering mode on iOS.                                                                                         |
+| `...Inherited`                     | `Inherited`                                     | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.org/api-reference/classes/tabview) |
 
 #### TabViewItem Properties
 
@@ -4560,9 +4560,9 @@ The `TabView` component has the following unique styling properties:
 
 #### Events
 
-| Name                  | Description                                                                                                                                                                                                                                                         |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `selectedIndexChange` | Emits [an event object](https://docs.nativescript.org/api-reference/classes/tabview.html#selectedindexchangedevent) containing an `newIndex` property with the index of the tapped `<TabViewItem>` (and an `oldIndex` property with the index of the previous tab). |
+| Name                  | Description                                                                                                                                                                                                                                                    |
+| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `selectedIndexChange` | Emits [an event object](https://docs.nativescript.org/api-reference/classes/tabview#selectedindexchangedevent) containing an `newIndex` property with the index of the tapped `<TabViewItem>` (and an `oldIndex` property with the index of the previous tab). |
 
 <!-- TODO: fix links -->
 
@@ -4576,7 +4576,7 @@ The `TabView` component has the following unique styling properties:
 
 `<TextField>` is an input component that creates an editable single-line box.
 
-`<TextField>` extends [`TextBase`](https://docs.nativescript.org/api-reference/classes/textbase.html) and [`EditableTextBase`](https://docs.nativescript.org/api-reference/classes/editabletextbase.html) which provide additional properties and events.
+`<TextField>` extends [`TextBase`](https://docs.nativescript.org/api-reference/classes/textbase) and [`EditableTextBase`](https://docs.nativescript.org/api-reference/classes/editabletextbase) which provide additional properties and events.
 
 <!-- TODO: fix links -->
 
@@ -4703,26 +4703,26 @@ export class UsageComponent {
 
 #### Props
 
-| Name                     | Type                                                                                                                  | Description                                                                                                                                 |
-| ------------------------ | --------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| `text`                   | `String`                                                                                                              | Gets or sets the value of the field.                                                                                                        |
-| `hint`                   | `String`                                                                                                              | Gets or sets the placeholder text.                                                                                                          |
-| `isEnabled`              | `Boolean`                                                                                                             | Make the field disabled or enabled. Default value is `true`.                                                                                |
-| `editable`               | `Boolean`                                                                                                             | When `true`, indicates that the user can edit the value of the field.                                                                       |
-| `maxLength`              | `Number`                                                                                                              | Limits input to the specified number of characters.                                                                                         |
-| `secure`                 | `Boolean`                                                                                                             | Hides the entered text when `true`. Use this property to create password input fields.<br/>Default value: `false`.                          |
-| `secureWithoutAutofill`  | `Boolean`                                                                                                             | Prevent iOS 12+ auto suggested strong password handling (iOS Only)                                                                          |
-| `keyboardType`           | `KeyboardType`                                                                                                        | Shows a custom keyboard for easier text input.<br/>Valid values: `datetime`, `phone`, `number`, `url`, or `email`.                          |
-| `returnKeyType`          | `ReturnKeyType`                                                                                                       | Gets or sets the label of the return key.<br/>Valid values: `done`, `next`, `go`, `search`, or `send`.                                      |
-| `autocorrect`            | `Boolean`                                                                                                             | Enables or disables autocorrect.                                                                                                            |
-| `autocapitalizationType` | [`AutocapitalizationType`](https://docs.nativescript.org/api-reference/modules/coretypes.autocapitalizationtype.html) | Gets or sets the autocapitalization type.                                                                                                   |
-| `letterSpacing`          | `number`                                                                                                              | Gets or sets letter space style property.                                                                                                   |
-| `lineHeight`             | `number`                                                                                                              | Gets or sets line height style property.                                                                                                    |
-| `textAlignment`          | `TextAlignment`                                                                                                       | Gets or sets the text alignment.                                                                                                            |
-| `textDecoration`         | `TextDecoration`                                                                                                      | Gets or sets the text decoration.                                                                                                           |
-| `textTransform`          | `TextTransform`                                                                                                       | Gets or sets the text transform.                                                                                                            |
-| `whiteSpace`             | `WhiteSpace`                                                                                                          | Gets or sets white space style property.                                                                                                    |
-| `...Inherited`           | `Inherited`                                                                                                           | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.org/api-reference/classes/textfield.html) |
+| Name                     | Type                                                                                                             | Description                                                                                                                            |
+| ------------------------ | ---------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| `text`                   | `String`                                                                                                         | Gets or sets the value of the field.                                                                                                   |
+| `hint`                   | `String`                                                                                                         | Gets or sets the placeholder text.                                                                                                     |
+| `isEnabled`              | `Boolean`                                                                                                        | Make the field disabled or enabled. Default value is `true`.                                                                           |
+| `editable`               | `Boolean`                                                                                                        | When `true`, indicates that the user can edit the value of the field.                                                                  |
+| `maxLength`              | `Number`                                                                                                         | Limits input to the specified number of characters.                                                                                    |
+| `secure`                 | `Boolean`                                                                                                        | Hides the entered text when `true`. Use this property to create password input fields.<br/>Default value: `false`.                     |
+| `secureWithoutAutofill`  | `Boolean`                                                                                                        | Prevent iOS 12+ auto suggested strong password handling (iOS Only)                                                                     |
+| `keyboardType`           | `KeyboardType`                                                                                                   | Shows a custom keyboard for easier text input.<br/>Valid values: `datetime`, `phone`, `number`, `url`, or `email`.                     |
+| `returnKeyType`          | `ReturnKeyType`                                                                                                  | Gets or sets the label of the return key.<br/>Valid values: `done`, `next`, `go`, `search`, or `send`.                                 |
+| `autocorrect`            | `Boolean`                                                                                                        | Enables or disables autocorrect.                                                                                                       |
+| `autocapitalizationType` | [`AutocapitalizationType`](https://docs.nativescript.org/api-reference/modules/coretypes.autocapitalizationtype) | Gets or sets the autocapitalization type.                                                                                              |
+| `letterSpacing`          | `number`                                                                                                         | Gets or sets letter space style property.                                                                                              |
+| `lineHeight`             | `number`                                                                                                         | Gets or sets line height style property.                                                                                               |
+| `textAlignment`          | `TextAlignment`                                                                                                  | Gets or sets the text alignment.                                                                                                       |
+| `textDecoration`         | `TextDecoration`                                                                                                 | Gets or sets the text decoration.                                                                                                      |
+| `textTransform`          | `TextTransform`                                                                                                  | Gets or sets the text transform.                                                                                                       |
+| `whiteSpace`             | `WhiteSpace`                                                                                                     | Gets or sets white space style property.                                                                                               |
+| `...Inherited`           | `Inherited`                                                                                                      | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.org/api-reference/classes/textfield) |
 
 #### Events
 
@@ -4743,7 +4743,7 @@ export class UsageComponent {
 
 `<TextView>` is a UI component that shows an editable or a read-only multi-line text container. You can use it to let users type large text in your app or to show longer, multi-line text on the screen.
 
-`<TextView>` extends [`TextBase`](https://docs.nativescript.org/api-reference/classes/textbase.html) and [`EditableTextBase`](https://docs.nativescript.org/api-reference/classes/editabletextbase.html) which provide additional properties and events.
+`<TextView>` extends [`TextBase`](https://docs.nativescript.org/api-reference/classes/textbase) and [`EditableTextBase`](https://docs.nativescript.org/api-reference/classes/editabletextbase) which provide additional properties and events.
 
 <!-- TODO: fix links -->
 
@@ -4938,16 +4938,16 @@ To apply multiple styles to the text in your `<TextView>`, you can use `<Formatt
 
 #### Props
 
-| Name            | Type                                                                                                                                    | Description                                                                                                                                |
-| --------------- | --------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| `text`          | `String`                                                                                                                                | Gets or sets the value of the component.                                                                                                   |
-| `hint`          | `String`                                                                                                                                | Gets or sets the placeholder text when the component is editable.                                                                          |
-| `editable`      | `Boolean`                                                                                                                               | When `true`, indicates that the user can edit the contents of the container.                                                               |
-| `maxLength`     | `Number`                                                                                                                                | Sets the maximum number of characters that can be entered in the container.                                                                |
-| `keyboardType`  | `KeyboardType`                                                                                                                          | Shows a custom keyboard for easier text input.<br/>Valid values: `datetime`, `phone`, `number`, `url`, or `email`.                         |
+| Name            | Type                                                                                                                                    | Description                                                                                                                           |
+| --------------- | --------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| `text`          | `String`                                                                                                                                | Gets or sets the value of the component.                                                                                              |
+| `hint`          | `String`                                                                                                                                | Gets or sets the placeholder text when the component is editable.                                                                     |
+| `editable`      | `Boolean`                                                                                                                               | When `true`, indicates that the user can edit the contents of the container.                                                          |
+| `maxLength`     | `Number`                                                                                                                                | Sets the maximum number of characters that can be entered in the container.                                                           |
+| `keyboardType`  | `KeyboardType`                                                                                                                          | Shows a custom keyboard for easier text input.<br/>Valid values: `datetime`, `phone`, `number`, `url`, or `email`.                    |
 | `returnKeyType` | Gets or sets the label of the return key. Currently supported only on iOS.<br/>Valid values: `done`, `next`, `go`, `search`, or `send`. |
-| `autocorrect`   | `Boolean`                                                                                                                               | Enables or disables autocorrect.                                                                                                           |
-| `...Inherited`  | `Inherited`                                                                                                                             | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.org/api-reference/classes/textview.html) |
+| `autocorrect`   | `Boolean`                                                                                                                               | Enables or disables autocorrect.                                                                                                      |
+| `...Inherited`  | `Inherited`                                                                                                                             | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.org/api-reference/classes/textview) |
 
 #### Events
 
@@ -5088,17 +5088,17 @@ export class UsageComponent {
 
 #### Props
 
-| Name             | Type        | Description                                                                                                                                  |
-| ---------------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| `hour`           | `Number`    | Gets or sets the selected hour.                                                                                                              |
-| `minute`         | `Number`    | Gets or sets the selected minute.                                                                                                            |
-| `time`           | `Date`      | Gets or sets the selected time.                                                                                                              |
-| `minHour`        | `Number`    | Gets or sets the minimum selectable hour.                                                                                                    |
-| `maxHour`        | `Number`    | Gets or sets the maximum selectable hour.                                                                                                    |
-| `minMinute`      | `Number`    | Gets or sets the minimum selectable minute.                                                                                                  |
-| `maxMinute`      | `Number`    | Gets or sets the maximum selectable minute.                                                                                                  |
-| `minuteInterval` | `Number`    | Gets or sets the selectable minute interval. For example: 5 or 15 minutes.<br/>Default value: `1`.                                           |
-| `...Inherited`   | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.org/api-reference/classes/timepicker.html) |
+| Name             | Type        | Description                                                                                                                             |
+| ---------------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| `hour`           | `Number`    | Gets or sets the selected hour.                                                                                                         |
+| `minute`         | `Number`    | Gets or sets the selected minute.                                                                                                       |
+| `time`           | `Date`      | Gets or sets the selected time.                                                                                                         |
+| `minHour`        | `Number`    | Gets or sets the minimum selectable hour.                                                                                               |
+| `maxHour`        | `Number`    | Gets or sets the maximum selectable hour.                                                                                               |
+| `minMinute`      | `Number`    | Gets or sets the minimum selectable minute.                                                                                             |
+| `maxMinute`      | `Number`    | Gets or sets the maximum selectable minute.                                                                                             |
+| `minuteInterval` | `Number`    | Gets or sets the selectable minute interval. For example: 5 or 15 minutes.<br/>Default value: `1`.                                      |
+| `...Inherited`   | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.org/api-reference/classes/timepicker) |
 
 #### Events
 
@@ -5183,10 +5183,10 @@ To be able to use gestures in WebView component on Android, we should first disa
 
 #### Props
 
-| Name           | Type        | Description                                                                                                                               |
-| -------------- | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| `src`          | `String`    | Gets or sets the displayed web content.<br/>Valid values: an absolute URL, the path to a local HTML file, or static HTML.                 |
-| `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.org/api-reference/classes/webview.html) |
+| Name           | Type        | Description                                                                                                                          |
+| -------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| `src`          | `String`    | Gets or sets the displayed web content.<br/>Valid values: an absolute URL, the path to a local HTML file, or static HTML.            |
+| `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](https://docs.nativescript.org/api-reference/classes/webview) |
 
 #### Events
 
