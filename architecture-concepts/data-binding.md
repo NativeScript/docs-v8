@@ -134,7 +134,7 @@ The full binding syntax contains three parameters:
 
 As mentioned earlier, XML declaration creates a two-way binding by default, so in the example, the third parameter could be omitted. Keeping the other two properties means that the custom expression will be evaluated only when the sourceProperty changes. The first parameter could also be omitted; if you do that, then the custom expression will not be evaluated every time the bindingContext changes. Thus, the recommended syntax is to include two parameters in the XML declaration, as in our example - the property of interest and the expression, which has to be evaluated.
 
-#### Supported Expressions
+### Supported Expressions
 
 NativeScript supports different kind of expressions including:
 | Feature| Example| Description|
@@ -159,6 +159,234 @@ Special characters need to be escaped as follows:
 - \> => \&gt;
 - & => \&amp;
   :::
+
+### Using converters in bindings
+
+Speaking of a two-way binding, there is a common problem - having different ways of storing and displaying data. Probably the best example here is the date and time objects. Date and time information is stored as a number or a sequence of numbers (very useful for indexing, searching and other database operations), but this is not the best possible option for displaying date to the application user. Also there is another problem when the user inputs a date (in the example below, the user types into a TextField). The result of the user input will be a string, which will be formatted in accordance with the user's preferences. This string should be converted to a correct date object. Let's see how this could be handled with NativeScript binding.
+The code below shows how to format a TextField input:
+
+<!--tabs: XML -->
+
+```html
+<Page navigatingTo="onNavigatingTo" xmlns="http://schemas.nativescript.org/tns.xsd">
+  <StackLayout>
+    <TextField text="{{ testDate, testDate | dateConverter('DD.MM.YYYY') }}" />
+  </StackLayout>
+</Page>
+```
+
+```js
+import { fromObject } from '@nativescript/core'
+
+export function onNavigatingTo(args) {
+  const dateConverter = {
+    toView(value, format) {
+      let result = format
+      const day = value.getDate()
+      result = result.replace('DD', day < 10 ? `0${day}` : day)
+      const month = value.getMonth() + 1
+      result = result.replace('MM', month < 10 ? `0${month}` : month)
+      result = result.replace('YYYY', value.getFullYear())
+
+      return result
+    },
+    toModel(value, format) {
+      const ddIndex = format.indexOf('DD')
+      const day = parseInt(value.substr(ddIndex, 2), 10)
+      const mmIndex = format.indexOf('MM')
+      const month = parseInt(value.substr(mmIndex, 2), 10)
+      const yyyyIndex = format.indexOf('YYYY')
+      const year = parseInt(value.substr(yyyyIndex, 4), 10)
+      const result = new Date(year, month - 1, day)
+
+      return result
+    }
+  }
+
+  const page = args.object
+  const viewModel = fromObject({
+    dateConverter,
+    testDate: new Date()
+  })
+
+  page.bindingContext = viewModel
+}
+```
+
+```ts
+import { Page, EventData, fromObject } from '@nativescript/core'
+
+export function onNavigatingTo(args: EventData) {
+  const dateConverter = {
+    toView(value, format) {
+      let result = format
+      const day = value.getDate()
+      result = result.replace('DD', day < 10 ? '0' + day : day)
+      const month = value.getMonth() + 1
+      result = result.replace('MM', month < 10 ? '0' + month : month)
+      result = result.replace('YYYY', value.getFullYear())
+
+      return result
+    },
+    toModel(value, format) {
+      const ddIndex = format.indexOf('DD')
+      const day = parseInt(value.substr(ddIndex, 2), 10)
+      const mmIndex = format.indexOf('MM')
+      const month = parseInt(value.substr(mmIndex, 2), 10)
+      const yyyyIndex = format.indexOf('YYYY')
+      const year = parseInt(value.substr(yyyyIndex, 4), 10)
+      const result = new Date(year, month - 1, day)
+
+      return result
+    }
+  }
+
+  const page = <Page>args.object
+  const viewModel = fromObject({
+    dateConverter,
+    testDate: new Date()
+  })
+
+  page.bindingContext = viewModel
+}
+```
+
+Note the special operator `\|` within the expression. The above code snippet (both XML and JavaScript) will display a date in a `DD.MM.YYYY` format (`toView()` function), and when a new date is entered with the same format, it is converted to a valid Date object (`toModel()` function). A Converter object should have one or two functions (`toView()` and `toModel()`) executed every time when a data should be converted. The `toView()` function is called when data will be displayed to the end user as a value of any UI view, and the `toModel()` function will be called when there is an editable element (like TextField) and the user enters a new value. In the case of one-way binding, the Converter object could have only a `toView()` function or it should be a function. All converter functions have an array of parameters where the first parameter is the value that will be converted, and all other parameters are custom parameters defined in the converter definition.
+
+:::tip Note
+Any run-time error within the converter methods (`toView()` and `toModel()`) will be handled automatically and the application will not break, but the data in the view-model will not be altered (in case of error) and an error message with more information will be logged to the console. To enable it, use the built-in [Trace](/nativescript-core/trace.md) with an `Trace.categories.Error` category. A date converter is simplified just for the sake of the example and it is not supposed to be used as a fully functional converter from date to string and vice versa. The best way to get a date from a user is to use a [DatePicker](/ui/components.md#date-picker).
+:::
+
+A converter can accept not only static custom parameters, but any value from the bindingContext. For example:
+
+<!--tabs: XML -->
+
+```html
+<Page navigatingTo="onNavigatingTo" xmlns="http://schemas.nativescript.org/tns.xsd">
+  <StackLayout>
+    <TextField text="{{ testDate, testDate | dateConverter(dateFormat) }}" />
+  </StackLayout>
+</Page>
+```
+
+```ts
+import { Page, EventData, fromObject } from '@nativescript/core'
+
+export function onNavigatingTo(args: EventData) {
+  const dateConverter = {
+    toView(value, format) {
+      let result = format
+      const day = value.getDate()
+      result = result.replace('DD', day < 10 ? '0' + day : day)
+      const month = value.getMonth() + 1
+      result = result.replace('MM', month < 10 ? '0' + month : month)
+      result = result.replace('YYYY', value.getFullYear())
+
+      return result
+    },
+    toModel(value, format) {
+      const ddIndex = format.indexOf('DD')
+      const day = parseInt(value.substr(ddIndex, 2), 10)
+      const mmIndex = format.indexOf('MM')
+      const month = parseInt(value.substr(mmIndex, 2), 10)
+      const yyyyIndex = format.indexOf('YYYY')
+      const year = parseInt(value.substr(yyyyIndex, 4), 10)
+      const result = new Date(year, month - 1, day)
+
+      return result
+    }
+  }
+
+  const page = <Page>args.object
+  const viewModel = fromObject({
+    dateConverter,
+    dateFormat: 'DD.MM.YYYY',
+    testDate: new Date()
+  })
+
+  page.bindingContext = viewModel
+}
+```
+
+Setting a converter function and a parameter within the bindingContext is very useful for ensuring proper conversion of data. However, this is not the case when [ListView](/ui/components.md#listview) items should be bound. The problem comes from the fact that the bindingContext of a ListView is the individual data items in the array, and to apply a converter, the converter and its parameters should be added to the each data item, which will result in multiple converter instances. Tackling this problem with NativeScript is fairly simple. the binding infrastructure search in the application level resources to find a proper converter and parameters. So you could add the converters to the resources in the [Application](/nativescript-core/application.md) class. To be more clear, examine the following example (both XML and JavaScript):
+
+<!--tabs: XML-->
+
+```html
+<Page navigatingTo="onNavigatingTo" xmlns="http://schemas.nativescript.org/tns.xsd">
+  <StackLayout>
+    <ListView items="{{ items }}" height="200">
+      <ListView.itemTemplate>
+        <label text="{{ itemDate | dateConverter(dateFormat) }}" />
+      </ListView.itemTemplate>
+    </ListView>
+  </StackLayout>
+</Page>
+```
+
+```js
+import { Application, Page, EventData, fromObject } from '@nativescript/core'
+
+export function onNavigatingTo(args) {
+  const list = []
+  for (let i = 0; i < 5; i++) {
+    list.push({ itemDate: new Date() })
+  }
+
+  const dateConverter = (value, format) => {
+    let result = format
+    const day = value.getDate()
+    result = result.replace('DD', day < 10 ? `0${day}` : day)
+    const month = value.getMonth() + 1
+    result = result.replace('MM', month < 10 ? `0${month}` : month)
+    result = result.replace('YYYY', value.getFullYear())
+
+    return result
+  }
+
+  Application.getResources().dateConverter = dateConverter
+  Application.getResources().dateFormat = 'DD.MM.YYYY'
+
+  const page = args.object
+  const viewModel = fromObject({
+    items: list
+  })
+
+  page.bindingContext = viewModel
+}
+```
+
+```ts
+import { Application, Page, EventData, fromObject } from '@nativescript/core'
+
+export function onNavigatingTo(args: EventData) {
+  const list = []
+  for (let i = 0; i < 5; i++) {
+    list.push({ itemDate: new Date() })
+  }
+
+  const dateConverter = (value, format) => {
+    let result = format
+    const day = value.getDate()
+    result = result.replace('DD', day < 10 ? '0' + day : day)
+    const month = value.getMonth() + 1
+    result = result.replace('MM', month < 10 ? '0' + month : month)
+    result = result.replace('YYYY', value.getFullYear())
+
+    return result
+  }
+
+  application.getResources().dateConverter = dateConverter
+  application.getResources().dateFormat = 'DD.MM.YYYY'
+
+  const page = <Page>args.object
+  const viewModel = fromObject({
+    items: list
+  })
+
+  page.bindingContext = viewModel
+}
+```
 
 ### Stop binding
 
