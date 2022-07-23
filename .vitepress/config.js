@@ -613,12 +613,16 @@ function getSidebar() {
 			text: 'Architecture Concepts',
 			children: [
 				{
-					text: 'Layout Process',
-					link: '/advanced-concepts',
-				},
-				{
 					text: 'Data Binding',
 					link: '/architecture-concepts/data-binding',
+				},
+				{
+					text: 'Custom Application and Activity',
+					link: '/architecture-concepts/custom-application-and-activity',
+				},
+				{
+					text: 'Layout Process',
+					link: '/advanced-concepts',
 				},
 			],
 		},
