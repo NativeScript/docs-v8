@@ -4,11 +4,12 @@ title: Trace
 
 ## Trace
 
-Tracing is the process of logging diagnostic information about your application at runtime. This module is useful for debugging. When developing an app, develpers tend to add `console.log()` to test out different values in the code. When it's time to launch the app to production, you have to remove those `console.log()`s for clean up. To remove those `console.log()` from all the places you left them is tedious. The `Trace` module comes in handy because it allows you to disable the `Trace.write()` from one place by calling `Trace.disable()`.
+This module provides a good way to streamline error logging and handling throughout the framework. It gives you a way to define custom TraceWriters and ErrorHandlers for your app and even specify different sets of those to be used in during development and in production.
+When developing an app, developers tend to add `console.log()` to test out different values in the code. When it's time to launch the app to production, you have to remove those `console.log()`s for clean up. To remove those `console.log()` from all the places you left them is tedious. You can instead use the `Trace.write()` function, and then call the `Trace.disable()` once to switch off all of them.
 
-This article uses the StackBlitz editor and the Nativescript Preview app to demostrate different use cases of the `Trace` module. You need to download the app from Google Play or App Store. Once you've downloaded the app, use your phone Camera to scan the QR shown in the `Preview` tab.
+This article uses the StackBlitz IDE and the Nativescript Preview app to demostrate different use cases of the `Trace` module. You need to download the app from Google Play or App Store. Once you've downloaded the app, use your phone Camera to scan the QR shown in the `Preview` tab.
 
-The following are the 3 basic steps to take in order to use the Trace module. The first two step must be executed earlier in your applicaton, usually in the `app.ts` file.
+The following are the 3 basic steps to take in order to use the Trace module. The first two step should be executed earlier in your applicaton, usually in the `app.ts` file.
 
 1. If you have specific categor(ies)y you want to trace, set them by calling:
 
@@ -18,7 +19,7 @@ Trace.setCategories("category"))
 Trace.setCategories(Trace.categories.concat("category1","category2"));
 ```
 
-Setting categor(ies)y makes the message for the category you pass as the second parameter of Trace.write() to print on the console.
+Setting categor(ies)y makes the message for the category you pass as the second parameter of `Trace.write()` to print to the console.
 
 2. Enable tracing
 
@@ -82,7 +83,7 @@ Trace.addWriter(new TimestampConsoleWriter())
 
 ### Error handling
 
-The Trace module also allows you to set a single error handler(`TraceErrorHandler`) to handle errors you capture with `Trace.error("Error messsage" | Error)` at different places in your app.
+The Trace module also allows you to set a single error handler(`TraceErrorHandler`) to handle errors you capture with `Trace.error("Error messsage" | Error)` at different places in your app. You can read more about error handling in Nativescript at [Error Hnadling](/architecture-concepts/error-handling.md).
 
 ```ts
 const errorHandler: TraceErrorHandler = {
