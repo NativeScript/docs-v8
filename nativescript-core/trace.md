@@ -83,12 +83,29 @@ Trace.addWriter(new TimestampConsoleWriter())
 
 ### Error handling
 
-The Trace module also allows you to set a single error handler(`TraceErrorHandler`) to handle errors you capture with `Trace.error("Error messsage" | Error)` at different places in your app. You can read more about error handling in Nativescript at [Error Hnadling](/architecture-concepts/error-handling.md).
+A big difference between web and NativeScript applications is the way the Errors are handled. Currently, when an unhandled exception is thrown in NativeScript, the app will crash, and an Error with the corresponding stack trace will be shown. In some cases, this seems to be the expected behaviour when the app is in **development** mode. You would want to have the stack trace of the exact location the unexpected error has occurred so that you can more easily understand what happened and fix the issue. However, when the app is in **production** similar application crashes can seriously hurt your application credibility and drive away customers. In many cases, you might prefer something else (e.g. app freeze, blank screen, failed navigation) to an actual crash with an error log.
+
+Through the `Trace` module, Nativescript provides you with the ability to handle errors differently depending on whether the app is in **development** or **production** mode. When creating this module, the following 3 scenarios were taken into consideration:
+
+1. (**development mode**) Throw exceptions as soon as an error occurs.
+1. (**development mode**) Show a scary console.log with `"ERROR: Something bad happened"` but continue the execution of the app. You will see it in your terminal, but decide if it is critical based on what happens with the app after that.
+1. (**production mode**) Send an error report to your analytics/error-report server but continue app execution. Maybe trigger some recover logic that will handle the app without a crash.
+
+### Defining custom error handler
+
+The default error handler will just throw the errors as they come. The following is a simple example showing how to define a custom handler to deal with the scenarios above:
 
 ```ts
 const errorHandler: TraceErrorHandler = {
-  handlerError(error: Error) {
-    console.log(error.stack)
+  handlerError(err) {
+    // Option 1 (development) - throw the error
+    throw err
+
+    // Option 2 (development) - logging the error via write method provided from trace module
+    Trace.write(err, 'unhandled-error', type.error)
+
+    // (production) - custom functionality for error handling
+    // reportToAnalytics(err)
   }
 }
 
@@ -96,7 +113,40 @@ const errorHandler: TraceErrorHandler = {
 Trace.setErrorHandler(errorHandler)
 ```
 
-### Trace functionss
+The `errorHandler` will be called whenever `Trace.error(...)` is called.
+
+### Disabling rethrowing of uncaught JS exceptions to native
+
+Nativescript provides developers with the property called `discardUncaughtJsExceptions` that allows you to configure whether unhandled exceptions coming from JavaScript code which has been called from the native platform should be caught or not. This option is disabled by default and to enable it you have to set the `discardUncaughtJsExceptions` property to `true` inside the `app/package.json` file.
+
+Switching it on will cause JS exceptions to be caught without being propagated to the native world, effectively protecting the app from crashing. All discarded exceptions can be processed in the app by either subscribing to the `Application.discardedErrorEvent` and using the received `DiscardedErrorEventData` instance, or by assigning a one-argument function to `global.__onDiscardedError` which will receive the exception as a `NativeScriptError` instance. Usually you would want to log and/or report the exception to analytics.
+
+<!--tabs: app/package.json -->
+
+```json
+{
+    "main": "app.js",
+    "discardUncaughtJsExceptions": true,
+    ...
+}
+```
+
+```ts
+import { Application, DiscardedErrorEventData } from '@nativescript/core'
+
+Application.on(Application.discardedErrorEvent, function (args: DiscardedErrorEventData) {
+  const error = args.error
+
+  console.log('Received discarded exception: ')
+  console.log(error.message)
+  console.log(error.name)
+  console.log(error.stack)
+  console.log(error.nativeError)
+  //report the exception in your analytics solution here
+})
+```
+
+### Trace functions
 
 | Name                                                    | Type                | Description                                                                                                                                                                                                                                                                 |
 | ------------------------------------------------------- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
