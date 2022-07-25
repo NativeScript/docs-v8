@@ -6,7 +6,7 @@ title: Connectivity
 
 The connectivity module provides a common abstraction of the functionality responsible for receiving information about the connection type and availability of the network.
 
-#### Usage
+### Usage
 
 ```typescript
 import { Connectivity } from '@nativescript/core'
@@ -71,7 +71,7 @@ export function onNavigatedTo(args) {
 }
 ```
 
-#### Methods
+### Methods
 
 | Name                                                       | Type     | Description                                                                                                                                                                                                                                                 |
 | ---------------------------------------------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -79,12 +79,21 @@ export function onNavigatedTo(args) {
 | `startMonitoring(connectionTypeChangedCallback: function)` | `void`   | Starts monitoring the connection type.                                                                                                                                                                                                                      |
 | `stopMonitoring`                                           | `void`   | Stops monitoring the connection type.                                                                                                                                                                                                                       |
 
-#### API References
+### Connection Types
 
-| Name                                                                        | Type     |
-| --------------------------------------------------------------------------- | -------- |
-| [@nativescript/core/connectivity](/api-reference/modules.html#connectivity) | `Module` |
-| [connectionType](/api-reference/modules.html#connectivity)                  | `Enum`   |
+- `none = 0`,
+- `wifi = 1`,
+- `mobile = 2`,
+- `ethernet = 3`,
+- `bluetooth = 4`,
+- `vpn = 5`
+
+### API References
+
+| Name                                                                                                     | Type     |
+| -------------------------------------------------------------------------------------------------------- | -------- |
+| [@nativescript/core/connectivity](https://docs.nativescript.org/api-reference/modules.html#connectivity) | `Module` |
+| [connectionType](https://docs.nativescript.org/api-reference/modules.html#connectivity)                  | `Enum`   |
 
 #### Native Component
 

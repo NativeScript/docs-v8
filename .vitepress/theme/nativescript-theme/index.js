@@ -689,7 +689,6 @@ function H(e, t, n, r, o, i, a, c, u) {
 				g && (f.__E = f.__ = null),
 				(f.__e = !1)
 		} else t.__e = M(n.__e, t, n, r, o, i, a, u)
-
 		;(l = s.diffed) && l(t)
 	} catch (e) {
 		s.__e(e, t, n)
@@ -8988,7 +8987,6 @@ var script = defineComponent({
 		})
 		watch(currentTab, function (next, prev) {
 			var _tabContainer$value, _tabContainer$value2
-
 			;(_tabContainer$value = tabContainer.value) === null ||
 			_tabContainer$value === void 0
 				? void 0

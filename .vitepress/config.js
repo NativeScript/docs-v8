@@ -509,38 +509,89 @@ function getSidebar() {
 			],
 		},
 		{
-			text: 'Running & Building',
+			text: 'App_Resources',
 			children: [
 				{
-					text: 'Webpack',
-					link: '/webpack',
-				},
-			],
-		},
-		{
-			text: 'UI & Styling',
-			children: [
-				{
-					text: 'App_Resources',
+					text: 'Understanding App_Resources',
 					link: '/app-resources',
 				},
-				{
-					text: 'UI & Styling',
-					link: '/ui-and-styling',
-				},
-				{ text: 'Interaction', link: '/interaction' },
 			],
 		},
 		{
-			text: 'Networking',
+			text: 'UI',
 			children: [
-				{ text: 'Http', link: '/http' },
 				{
-					text: 'Connectivity',
-					link: '/connectivity',
+					text: 'Components',
+					link: '/ui/components',
+				},
+				{
+					text: 'Styling',
+					link: '/ui/styling',
+				},
+				{ text: 'Interaction', link: '/ui/interaction' },
+			],
+		},
+		{
+			text: '@nativescript/core',
+			children: [
+				{ text: 'Application', link: '/nativescript-core/application' },
+				{
+					text: 'ApplicationSettings',
+					link: '/nativescript-core/application-settings',
+				},
+				{ text: 'Color', link: '/nativescript-core/color' },
+				{ text: 'Connectivity', link: '/nativescript-core/connectivity' },
+				//{ text: 'Virtual Array', link: '/nativescript-core/virtual-array' },
+				{ text: 'FileSystem', link: '/nativescript-core/file-system' },
+				//{ text: 'Fps Meter', link: '/nativescript-core/fps-meter' },
+				{ text: 'Http', link: '/nativescript-core/http' },
+				{ text: 'ImageSource', link: '/nativescript-core/image-source' },
+				{ text: 'Observable', link: '/nativescript-core/observable' },
+				{
+					text: 'Observable Array',
+					link: '/nativescript-core/observable-array',
+				},
+				{ text: 'Platform', link: '/nativescript-core/platform' },
+				{ text: 'Trace', link: '/nativescript-core/trace' },
+				{ text: 'Utils', link: '/nativescript-core/utils' },
+				{ text: 'Xml Parser', link: '/nativescript-core/xml-parser' },
+			],
+		},
+		{
+			text: '@nativescript/webpack',
+			children: [
+				{
+					text: 'Overview',
+					link: 'webpack/overview',
+				},
+				{
+					text: 'Flags & their usage',
+					link: 'webpack/flags-and-their-usage',
+				},
+
+				{
+					text: 'Using .env files',
+					link: 'webpack/using-dot-env-files',
+				},
+				{
+					text: 'Global "magic" variables',
+					link: 'webpack/global-magic-variables',
+				},
+				{
+					text: 'Examples of configurations',
+					link: 'webpack/examples-of-configurations',
+				},
+				{
+					text: 'Plugin API',
+					link: 'webpack/plugin-api',
+				},
+				{
+					text: 'Webpack API',
+					link: 'webpack/api',
 				},
 			],
 		},
+
 		// {
 		// 	text: 'Performance',
 		// 	children: [{ text: 'Webpack/Bundle Optimizations', link: '/performance' }],
@@ -559,10 +610,18 @@ function getSidebar() {
 			],
 		},
 		{
-			text: 'Advanced Concepts',
+			text: 'Architecture Concepts',
 			children: [
 				{
-					text: 'Advanced Concepts',
+					text: 'Data Binding',
+					link: '/architecture-concepts/data-binding',
+				},
+				{
+					text: 'Custom Application and Activity',
+					link: '/architecture-concepts/custom-application-and-activity',
+				},
+				{
+					text: 'Layout Process',
 					link: '/advanced-concepts',
 				},
 			],
