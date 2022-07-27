@@ -490,6 +490,8 @@ function getSidebar() {
 			text: 'Basics',
 			children: [
 				{ text: 'Introduction', link: '/introduction' },
+				{ text: 'Application Architecture', link: '/application-architecture' },
+				{ text: 'Project Structure', link: '/project-structure' },
 				{
 					text: 'Environment Setup',
 					link: '/environment-setup',
@@ -615,6 +617,19 @@ function getSidebar() {
 				{
 					text: 'Data Binding',
 					link: '/architecture-concepts/data-binding',
+				},
+				{
+					text: 'Adding Objective C/Swift Code',
+					link: '/architecture-concepts/adding-objectivec-swift-code',
+				},
+				{ text: 'Navigation', link: '/architecture-concepts/navigation' },
+				{
+					text: 'Marshalling',
+					link: '/architecture-concepts/marshalling',
+				},
+				{
+					text: 'Metadata',
+					link: '/architecture-concepts/metadata',
 				},
 				{
 					text: 'Custom Application and Activity',
