@@ -5,3 +5,337 @@ title: Navigation
 ## Navigation
 
 Navigation refers to the act of moving around the screens of your application. Each mobile app has its own unique navigation schema based on the information it tries to present. The schema below is an example of a common mobile navigation scenario.
+![schema](</assets/images/architecture_concepts/navigation-schema%20(1).png>)
+
+Based on the schema, there are three distinct navigational directions a user can move in:
+
+- **Forward** - refers to navigating to a screen on the next level in the hierarchy.
+- **Backward** - refers to navigating back to a screen either on the previous level in the hierarchy or chronologically.
+- **Lateral** - refers to navigating between screens on the same level in the hierarchy.
+
+This article demonstrates how you can implement these in NativeScript and combine them to build the navigation architecture of your application.
+
+## Forward Navigation
+
+![Forward navigation schema](/assets/images/architecture_concepts/navigation-schema-forward.png)
+
+Forward navigation can be also called **downward** navigation since you are going down in your navigation hierarchy. There are two navigation components in NativeScript that enable implementing forward navigation - [Frame](/ui/components.md#frame) and [Page](/ui/components.md#page). A Frame represents a navigation controller that navigates through Page instances.
+
+![Forward navigation schema](/assets/images/architecture_concepts/navigation-diagram-forward.png)
+
+### Page
+
+The Page is NativeScript's most basic navigation component. It represents a screen that the user can navigate to. This component serves two important roles. It holds the UI components of a single screen and provides navigation lifecycle events.
+
+By design, a Page can't be declared as a child of another component. It is used as a root component of a module, in which case the module becomes a page module. Here is an example of how you can implement the item-page module from the diagram above:
+
+<!--tab: item-page.xml -->
+
+```xml
+<Page loaded="onPageLoaded">
+  <ActionBar title="Item" class="action-bar" />
+
+  <StackLayout>
+    <Label text="Item Details" />
+  </StackLayout>
+</Page>
+```
+
+<!--tab: item-page.js -->
+
+```js
+export function onPageLoaded(args) {
+  console.log('Page Loaded')
+}
+```
+
+<!--tab: item-page.ts -->
+
+```ts
+import { EventData } from '@nativescript/core'
+
+export function onPageLoaded(args: EventData): void {
+  console.log('Page Loaded')
+}
+```
+
+### Frame
+
+To display a Page on the screen, you need to navigate to it using the Frame component. This component is the main provider of forward and backward navigation in NativeScript. The Frame component has no visible representation. It simply provides a container for transitions between pages. It also provides a navigation API which includes history manipulation and setting custom navigation transitions.
+
+For the most basic forward navigation scenario, you need only these two features:
+
+- `defaultPage` attribute - use this attribute to declare the initial page module that is displayed.
+- `navigate()` method - use this method to force a navigation to another page module.
+
+The following example demonstrates the implementation of the rest of the forward navigation diagram above. There is a Frame declared as root component in the app-root module. Upon load, the `Frame` will automatically navigate to the `featured-page` module. The `featured-page` module in turn has a button that navigates to the `item-page` module. Check out the complete playground demo below the code sample.
+
+<!--tab: app-root.xml -->
+
+```xml
+<Frame id="featured" defaultPage="featured-page" />
+```
+
+<!--tab: featured-page.xml -->
+
+```xml
+<Page>
+  <ActionBar title="Featured" class="action-bar" />
+
+  <StackLayout>
+    <Button text="navigate('item-page')" tap="onTap" />
+  </StackLayout>
+</Page>
+```
+
+<!--tab: featured-page.js -->
+
+```js
+export function onTap(args) {
+  const button = args.object
+  const page = button.page
+  page.frame.navigate('item-page')
+}
+```
+
+<!--tab: featured-page.ts -->
+
+```ts
+import { EventData, Button, Page } from '@nativescript/core'
+
+export function onTap(args: EventData) {
+  const button: Button = <Button>args.object
+  const page: Page = button.page
+  page.frame.navigate('item-page')
+}
+```
+
+## Backward Navigation
+
+![Backward Navigation](/assets/images/architecture_concepts/navigation-schema-backward.png)
+
+It can also be called upward navigation since you are going up in your navigation hierarchy. This type of navigation represents the opposite direction of the forward navigation and is supported by the Frame API. To force a navigation back to the previous page module loaded in a Frame simply call its `goBack()` method.
+
+<!--tab:  item-page.xml-->
+
+```xml
+<Page loaded="onPageLoaded">
+  <ActionBar title="Item" class="action-bar" />
+
+  <StackLayout>
+    <Label text="Item Details" />
+    <Button text="goBack()" tap="onTap" />
+  </StackLayout>
+</Page>
+```
+
+<!--tab:  item-page.js-->
+
+```js
+export function onPageLoaded(args) {
+  console.log('Page Loaded')
+}
+
+export function onTap(args) {
+  const button = args.object
+  const page = button.page
+  page.frame.goBack()
+}
+```
+
+<!--tab:  item-page.ts-->
+
+```ts
+import { EventData, Button, Page } from '@nativescript/core'
+
+export function onPageLoaded(args: EventData): void {
+  console.log('Page Loaded')
+}
+
+export function onTap(args: EventData) {
+  const button: Button = <Button>args.object
+  const page: Page = button.page
+  page.frame.goBack()
+}
+```
+
+:::tip Note
+Note: Both the Android hardware button and the iOS back button in the **ActionBar** execute upward navigation. These platform specific navigation controls come out of the box and there is no need for you to implement them yourself.
+:::
+
+## Lateral Navigation
+
+![navigation-schema-lateral](/assets/images/architecture_concepts/navigation-schema-lateral.png)
+
+Implementing lateral navigation in NativeScript usually means to incorporate several instances of the Frame component in your navigation and provide means to the user to switch between them. This is usually enabled through specific navigation components. These include **BottomNavigation**, **Tabs**, **TabView**, **SideDrawer**, **Modal View**, and even **Frame** each providing a unique mobile navigation pattern.
+
+### Hub Navigation
+
+The most simple and straight forward way to implement lateral navigation is the hub navigation pattern. It consists of a screen, called a hub, that holds navigation buttons leading to different features. In essence, this pattern uses the same mechanism of forward navigation for lateral navigation. In NativeScript you can implement this with a **Frame** and have one **Page** serve as the hub screen.
+
+[Hub Navigation](/assets/images/architecture_concepts/navigation-diagram-hub.png)
+
+<!--tab: hub-page.xml -->
+
+```xml
+<Page class="page">
+  <ActionBar title="Hub" class="action-bar" />
+
+  <StackLayout>
+    <Button text="navigate('featured-page')" tap="navigateToFeatured" />
+    <Button text="navigate('browse-page')" tap="navigateToBrowse" />
+    <Button text="navigate('search-page')" tap="navigateToSearch" />
+  </StackLayout>
+</Page>
+```
+
+<!--tab:  hub-page.js -->
+
+```js
+export function navigateToFeatured(args) {
+  const button = args.object
+  const page = button.page
+  page.frame.navigate('featured-page')
+}
+
+export function navigateToBrowse(args: EventData) {
+  const button = args.object
+  const page = button.page
+  page.frame.navigate('browse-page')
+}
+
+export function navigateToSearch(args: EventData) {
+  const button = args.object
+  const page = button.page
+  page.frame.navigate('search-page')
+}
+```
+
+<!--tab:  hub-page.ts -->
+
+```ts
+import { EventData, Button, Page } from '@nativescript/core'
+
+export function navigateToFeatured(args: EventData) {
+  const button: Button = <Button>args.object
+  const page: Page = button.page
+  page.frame.navigate('featured-page')
+}
+
+export function navigateToBrowse(args: EventData) {
+  const button: Button = <Button>args.object
+  const page: Page = button.page
+  page.frame.navigate('browse-page')
+}
+
+export function navigateToSearch(args: EventData) {
+  const button: Button = <Button>args.object
+  const page: Page = button.page
+  page.frame.navigate('search-page')
+}
+```
+
+### TabView
+
+### Modal View Navigation
+
+Opening a new **Frame** as a full screen modal view is a very common mobile navigation pattern. In this context opening the modal view represents lateral navigation to a new feature. You can then leverage the embedded **Frame** to navigate forward and backward in this feature. Closing the modal will navigate laterally back to where the modal view was opened from. Below is a diagram that displays how the navigation schema can be implemented using modal views.
+
+![Modal View Navigation](/assets/images/architecture_concepts/navigation-diagram-modal.png)
+
+Each UI component in NativeScript provides two methods for managing modal views:
+
+- `showModal()` - opens a modal view on top of the Page the UI component is part of.
+- `closeModal()` - closes the modal view that the UI component is part of.
+  To open a modal view you should simply call the `showModal()` method of any UI component instance with a path to the modal root module as parameter.
+
+The following code sample demonstrates how you can implement the Search modal view and page from the diagram above. Check out the complete playground demo below the code sample.
+
+<!--tab: app-root.xml -->
+
+```xml
+<Frame id="featured" defaultPage="featured-page" />
+```
+
+<!--tab: featured-page.xml -->
+
+```xml
+<Page>
+  <ActionBar title="Featured" class="action-bar" />
+
+  <StackLayout>
+    <Button
+      text="showModal('search-root', context, closeCallback, fullscreen)"
+      tap="openSearchModal"
+    />
+  </StackLayout>
+</Page>
+```
+
+<!--tab: featured-page.js -->
+
+```js
+export function openSearchModal(args) {
+  const view = args.object
+  const context = null
+  const closeCallback = null
+  const fullscreen = true
+  view.showModal('search-root', context, closeCallback, fullscreen)
+}
+```
+
+<!--tab: featured-page.ts -->
+
+```ts
+import { EventData, View } from '@nativescript/core'
+
+export function openSearchModal(args: EventData) {
+  const view: View = <View>args.object
+  const context = null
+  const closeCallback = null
+  const fullscreen = true
+  view.showModal('search-root', context, closeCallback, fullscreen)
+}
+```
+
+<!--tab: search-root.xml -->
+
+```xml
+<Frame id="search" defaultPage="search-page" />
+```
+
+<!--tab: search-page.xml -->
+
+```xml
+<Page>
+  <ActionBar title="Search" class="action-bar" />
+
+  <StackLayout>
+    <Button text="closeModal()" tap="closeModal" />
+  </StackLayout>
+</Page>
+```
+
+<!--tab: search-page.js -->
+
+```js
+export function closeModal(args) {
+  const view = args.object
+  view.closeModal()
+}
+```
+
+<!--tab: search-page.ts -->
+
+```ts
+import { EventData, View } from '@nativescript/core'
+
+export function closeModal(args: EventData) {
+  const view: View = <View>args.object
+  view.closeModal()
+}
+```
+
+:::tip Note:
+In the current scenario the Search feature has only one page and it's possible to implement it directly in the modal view without embedding a Frame in `search-root`. However, in this case there won't be a navigation controller in the modal view and therefore, no ActionBar.
+:::
