@@ -76,7 +76,7 @@ As Crashlytics will be sending certain information regarding the user, users may
 ```ts
 import { firebase } from '@nativescript/firebase-core'
 
-firebase().crashlytics().setCrashlyticsCollectionEnabled(true)
+firebase().crashlytics().setCrashlyticsCollectionEnabled(false)
 ```
 
 ## License
