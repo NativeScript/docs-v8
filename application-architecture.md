@@ -61,7 +61,7 @@ export function onPageLoaded(args: EventData): void {
 }
 ```
 
-<!--tabs: CSS -->
+<!--tab: CSS -->
 
 ```css
 /* home-page.css */
