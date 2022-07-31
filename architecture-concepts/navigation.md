@@ -68,7 +68,7 @@ For the most basic forward navigation scenario, you need only these two features
 - `defaultPage` attribute - use this attribute to declare the initial page module that is displayed.
 - `navigate()` method - use this method to force a navigation to another page module.
 
-The following example demonstrates the implementation of the rest of the forward navigation diagram above. There is a Frame declared as root component in the app-root module. Upon load, the `Frame` will automatically navigate to the `featured-page` module. The `featured-page` module in turn has a button that navigates to the `item-page` module. Check out the complete playground demo below the code sample.
+The following example demonstrates the implementation of the rest of the forward navigation diagram above. There is a Frame declared as root component in the app-root module. Upon load, the `Frame` will automatically navigate to the `featured-page` module. The `featured-page` module in turn has a button that navigates to the `item-page` module.
 
 <!--tab: app-root.xml -->
 
@@ -237,6 +237,9 @@ export function navigateToSearch(args: EventData) {
 
 ### TabView
 
+The [TabView](/ui/components.md#tabview) component enables the user to arbitrarily navigate between several UI containers at the same level. A key feature of these components is that they keep the state of the containers that are not visible. This means that when the user comes back to a previous tab, the data, scroll position and navigation state should be like they left them. Here is a diagram that demonstrates how the navigation schema can be implemented with a TabView:
+![TabView diagram](/assets/images/architecture_concepts/navigation-diagram-tab.png)
+
 ### Modal View Navigation
 
 Opening a new **Frame** as a full screen modal view is a very common mobile navigation pattern. In this context opening the modal view represents lateral navigation to a new feature. You can then leverage the embedded **Frame** to navigate forward and backward in this feature. Closing the modal will navigate laterally back to where the modal view was opened from. Below is a diagram that displays how the navigation schema can be implemented using modal views.
@@ -249,7 +252,7 @@ Each UI component in NativeScript provides two methods for managing modal views:
 - `closeModal()` - closes the modal view that the UI component is part of.
   To open a modal view you should simply call the `showModal()` method of any UI component instance with a path to the modal root module as parameter.
 
-The following code sample demonstrates how you can implement the Search modal view and page from the diagram above. Check out the complete playground demo below the code sample.
+The following code sample demonstrates how you can implement the Search modal view and page from the diagram above.
 
 <!--tab: app-root.xml -->
 
@@ -339,3 +342,18 @@ export function closeModal(args: EventData) {
 :::tip Note:
 In the current scenario the Search feature has only one page and it's possible to implement it directly in the modal view without embedding a Frame in `search-root`. However, in this case there won't be a navigation controller in the modal view and therefore, no ActionBar.
 :::
+
+## SideDrawer Navigation
+
+Sidedrawer navigation enables the user to open a hidden view, i.e. drawer, containing navigation controls, or settings from the sides of the screen. There are a lot of navigation patterns that can be implemented using a SideDrawer. You can use the [@nativescript-community/ui-drawer](https://github.com/nativescript-community/ui-drawer) plugin for sidedrawer navigation. A typical usage would be to add UI controls and have them do one of two things:
+
+- **Forward navigation** - get a reference to a navigation Frame and navigate in it.-
+- **Lateral navigation** - open a modal view.
+  The simplest navigation pattern that you can implement is again the hub navigation pattern, but this time with the `SideDrawer` serving as the hub.
+
+![Sidedrawr](/assets/images/architecture_concepts/navigation-diagram-drawer-hub.png)
+
+The component itself doesn't provide navigation logic automatically like the TabView. Instead, it is built with more freedom in mind and lets you customize its content. It exposes two UI containers - either the `leftDrawer`, `rightDrawer`, `topDrawer`or `bottomDrawer` container houses the UI of the hidden side view and the `mainContent` holds the UI that will be shown on the screen. To implement the diagram above, you can embed a [Frame](/ui/components.md#frame) component in the main content container. In this case the hub screen will be hidden to the side, so you will have to show one of the features initially using the `defaultPage` property, e.g. the `featured-page` module. In the hidden drawer content you can have three buttons. Each of them will navigate to one of the three features.
+
+An alternative navigation pattern for the SideDrawer would be to have the main content hold only one feature and navigate to the other two laterally using modal views. ![Sidedrawer with Modal View](/assets/images/architecture_concepts/navigation-diagram-drawer.png)
+![ios @nativescript-community/ui-drawer](/assets/images/architecture_concepts/demo-ios.gif)
