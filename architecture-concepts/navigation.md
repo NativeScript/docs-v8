@@ -343,7 +343,7 @@ export function closeModal(args: EventData) {
 In the current scenario the Search feature has only one page and it's possible to implement it directly in the modal view without embedding a Frame in `search-root`. However, in this case there won't be a navigation controller in the modal view and therefore, no ActionBar.
 :::
 
-## SideDrawer Navigation
+### SideDrawer Navigation
 
 Sidedrawer navigation enables the user to open a hidden view, i.e. drawer, containing navigation controls, or settings from the sides of the screen. There are a lot of navigation patterns that can be implemented using a SideDrawer. You can use the [@nativescript-community/ui-drawer](https://github.com/nativescript-community/ui-drawer) plugin for sidedrawer navigation. A typical usage would be to add UI controls and have them do one of two things:
 
@@ -357,3 +357,84 @@ The component itself doesn't provide navigation logic automatically like the Tab
 
 An alternative navigation pattern for the SideDrawer would be to have the main content hold only one feature and navigate to the other two laterally using modal views. ![Sidedrawer with Modal View](/assets/images/architecture_concepts/navigation-diagram-drawer.png)
 ![ios @nativescript-community/ui-drawer](/assets/images/architecture_concepts/demo-ios.gif)
+
+## Nested Navigation
+
+The main goal of this section is to demonstrate some good practices for creating nested navigation structure. It does not aim to be a strict guide, but will help you to understand how you could create complex navigation structures while using forward (e.g., frames or outlets) & lateral navigation (e.g., drawers, tabs, bottom navigation, etc.). In each of the sub sections, you can find visual guides.
+
+### Simple Rule
+
+There is one simple rule when it comes to nesting navigation widgets.
+
+::: tip
+**Important:**
+When nesting a frame or a tabView, they should never have direct siblings in the markup. Instead, wrap the siblings in a layout and nest this layout.
+:::
+
+If these components have siblings, they will span over them in most scenarios. The reason for this is on iOS the navigation controllers always take all the space provided by their parent regardless of their own layout parameters.
+
+You can check out how this is done in the examples below.
+
+### Nesting Simple Forward Navigation
+
+![Nesting Simple Forward Navigation](/assets/images/architecture_concepts/navigation-examples-page-1.png)
+
+Nesting simple forward navigation: a `Frame` in a layout, for example, to show an advertisement banner on the top/bottom (static content). The root page is using a layout (e.g., a [GridLayout](/ui/components.md#gridlayout)) as a wrapper for the nested forward navigation (Frame) and for the static content (layout).
+
+```
+GridLayout
+    > Frame (forward navigation)
+        >> Pages
+    > Static Content
+```
+
+### Nesting Forward in Forward Navigation
+
+![navigation-examples-page-3](/assets/images/architecture_concepts/navigation-examples-page-3.png)
+Nesting a Frame inside a Page/Frame, for example, a secondary navigation level.
+
+::: tip Note
+Each Frame comes with its own [ActionBar](/ui/components.md#actionbar) by default. It's typical that you want to keep one ActionBar on top of the screen when nesting navigations. Set the `actionBarVisibility` property of the Frame to never to hide the ActionBar where needed.
+:::
+
+```
+Frame (root forward navigation)
+    > Page (login)
+    > Page (home)
+        >> Frame (secondary forward navigation)
+            >>> Page
+```
+
+### Nesting Lateral in Forward Navigation
+
+### Nesting Forward in Lateral Navigation
+
+![navigation-examples-page-5](/assets/images/architecture_concepts/navigation-examples-page-5.png)
+
+Root TabView with multiple nested Frames.
+
+```TabView (lateral navigation)
+    > Frame (id="featured" defaultPage="featured-page")
+    > Frame (id="browse" defaultPage="browse-page")
+    > Frame (id="search" defaultPage="search-page")
+```
+
+TabView > Frames >> Pages
+
+### Nesting Lateral in Lateral
+
+![navigation-examples-page-6]()
+In this example, the root TabView is explicitly set to bottom for Android (by design the tabs are always placed at the bottom on iOS, but on Android, we can change the placement).
+
+### Combining Nested Navigation Scenarios
+
+### Nesting Lateral in Lateral
+
+In this example, the root TabView is explicitly set to bottom for Android (by design the tabs are always placed at the bottom on iOS, but on Android, we can change the placement).
+
+![Nesting Lateral in Lateral]()
+In this example, the root TabView is explicitly set to bottom for Android (by design the tabs are always placed at the bottom on iOS, but on Android, we can change the placement).
+
+### Combining Nested Navigation Scenarios
+
+The following example demonstrates a scenario where we have combined several nested navigations (both lateral and forward navigations on different nested levels). For example, a RadSidedrawer + Login page leading to a page with a TabView and in one TabView there are inner forward navigations in each tab item. There is also a modal page with its own forward navigation.

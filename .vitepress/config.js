@@ -639,6 +639,10 @@ function getSidebar() {
 					text: 'Layout Process',
 					link: '/advanced-concepts',
 				},
+				{
+					text: 'Property System',
+					link: '/architecture-concepts/property-system',
+				},
 			],
 		},
 		{
