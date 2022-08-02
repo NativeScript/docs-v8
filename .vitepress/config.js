@@ -74,7 +74,7 @@ module.exports = {
 			},
 			{
 				text: 'API',
-				link: '/api-reference',
+				link: 'https://docs.nativescript.org/api-reference',
 				activeMatch: '^/api-reference',
 				target: '_blank',
 			},
@@ -635,10 +635,10 @@ function getSidebar() {
 					text: 'Custom Application and Activity',
 					link: '/architecture-concepts/custom-application-and-activity',
 				},
-				{
+				/*{
 					text: 'Layout Process',
 					link: '/advanced-concepts',
-				},
+				},*/
 				{
 					text: 'Property System',
 					link: '/architecture-concepts/property-system',
