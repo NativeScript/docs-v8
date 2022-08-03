@@ -1,6 +1,6 @@
 # Metadata
 
-To allow JavaScript code to call into native iOS or Android code both NativeScript runtimes need the so called **_metadata_**. It contains all the necessary information about each of the supported native classes, interfaces, protocols, structures, enumerations, functions, variables, etc. and is generated at build time by examining the native libraries from the iOS/Android operating systems' SDKs and any third-party libraries and frameworks that are used by the {N} application. More detailed descriptions about the iOS and Android metadata format and features can be found in these two articles:
+To allow JavaScript code to call into native iOS or Android code both NativeScript runtimes need the so called **_metadata_**. It contains all the necessary information about each of the supported native classes, interfaces, protocols, structures, enumerations, functions, variables, etc. and is generated at build time by examining the native libraries from the iOS/Android operating systems' SDKs and any third-party libraries and frameworks that are used by the {N} application.
 
 ## Android Metadata
 
@@ -17,7 +17,7 @@ Metadata is built automatically for the application. The metadata API level, or 
 #### Metadata Limitations
 
 Let's look at the Android [TextView](https://developer.android.com/reference/android/widget/TextView.html).
-In API level 21 a method called `getLetterSpacing` was added. What that means is, an application developer can use the `"`getLetterSpacing` method only on two conditions:
+In API level 21 a method called `getLetterSpacing` was added. What that means is, an application developer can use the `getLetterSpacing` method only on two conditions:
 
 - The built metadata is >= 21
 - The device that the application will be running on is >= 21
@@ -26,9 +26,9 @@ In API level 21 a method called `getLetterSpacing` was added. What that means is
 
 ##### Implication A: Building against lower API level.
 
-If an application is built with --compileSdk flag pointing to a lower Android API level, for example 19, the generated metadata will also be for API level 19. In that case making calls to API in Levels 21 and up will not be possible, because the metadata comprises of meta information about API level <= 19.
+If an application is built with `--compileSdk` flag pointing to a lower Android API level, for example 19, the generated metadata will also be for API level 19. In that case making calls to API in Levels 21 and up will not be possible, because the metadata comprises of meta information about API level <= 19.
 
-This problem is easily solved by not specifying a --compileSdk flag and using the default behavior.
+This problem is easily solved by not specifying a `--compileSdk` flag and using the default behavior.
 
 ##### Implication B: Building against higher API level.
 
