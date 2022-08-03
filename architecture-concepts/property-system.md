@@ -248,3 +248,28 @@ After a property is defined it needs to be registered on a type like this:
 ```
 textProperty.register(MyButtonBase);
 ```
+
+The _CssProperties_ should be registered on the _Style_ class like this:
+
+```ts
+declare module '@nativescript/core/ui/styling/style' {
+  interface Style {
+    myOpacity: number
+  }
+}
+
+// Defines 'myOpacity' property on Style class.
+myOpacityProperty.register(Style)
+```
+
+The registration defines that property for the type passed on to _register_ method.
+
+## Value Change Event
+
+To get notification when some property value changes, a `<propertyName>Change` has to be specified as eventName to `addEventListener()` or `on()` method. For example:
+
+```
+textField.addEventListener('textChange', handler...)
+```
+
+## NativeView Property
