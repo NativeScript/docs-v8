@@ -632,6 +632,10 @@ function getSidebar() {
 					link: '/architecture-concepts/metadata',
 				},
 				{
+					text: 'Memory Management',
+					link: '/architecture-concepts/memory-management',
+				},
+				{
 					text: 'Custom Application and Activity',
 					link: '/architecture-concepts/custom-application-and-activity',
 				},
