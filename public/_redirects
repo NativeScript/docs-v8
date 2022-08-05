@@ -234,7 +234,7 @@
 /tooling/testing/testing                                                                        /development-workflow.html#testing
 # /tooling/transpilers
 # /tooling/visual-studio-code-extension
-/troubleshooting                                                                                /troubleshooting.html
+# /troubleshooting                                                                                /troubleshooting.html
 /ui/action-bar                                                                                  /ui-and-styling.html#actionbar
 /ui/animation                                                                                   /interaction.html#animations
 /ui/animation-code                                                                              /interaction.html#animations-with-code
