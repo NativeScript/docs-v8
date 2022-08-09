@@ -68,9 +68,14 @@ module.exports = {
 
 		nav: [
 			{
-				text: 'Docs',
+				text: 'Guides',
 				link: '/introduction',
 				activeMatch: '^/(?!plugins)',
+			},
+			{
+				text: 'Components',
+				link: '/components/index',
+				activeMatch: '^/components',
 			},
 			{
 				text: 'API',
@@ -102,7 +107,7 @@ module.exports = {
 		sidebar: {
 			'/best-practices/': getBestPracticeSidebar(),
 			'/plugins/': getPluginsSidebar(),
-
+			'/components/': getComponentsSidebar(),
 			// fallback
 			'/': getSidebar(),
 		},
@@ -728,6 +733,20 @@ function getBestPracticeSidebar() {
 				{
 					text: 'Optimizing Images',
 					link: '/best-practices/optimizing-images',
+				},
+			],
+		},
+	]
+}
+
+function getComponentsSidebar() {
+	return [
+		{
+			text: 'Components',
+			children: [
+				{
+					text: 'ActionBar',
+					link: '/components/actionbar',
 				},
 			],
 		},
