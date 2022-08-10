@@ -13,7 +13,7 @@ If you are looking for NS7 & NS6 docs, you can still find them here:
 
 ## Prerequisites
 
-The docs have been written with no assumptions of the readers experience, however it does assume knowledge of JavaScript fundamentals. If you are new to JavaScript, we recommend these resources from <abbr title="Mozilla Developer Network">MDN</abbr>:
+The docs have been written with no assumptions of the reader's experience, however it does assume knowledge of JavaScript fundamentals. If you are new to JavaScript, we recommend these resources from <abbr title="Mozilla Developer Network">MDN</abbr>:
 
 - [Introduction to JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 - [Re-Introduction to JavaScript to refresh your knowledge](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript)
@@ -25,7 +25,7 @@ You will want to setup your development machine using the [Environment Setup gui
 ## Overview of NativeScript development
 
 :::warning Note
-The following is a general overview of NativeScript development. To try any of the commands mentioned be sure you have a proper environment setup first.
+The following is a general overview of NativeScript development. To try any of the commands mentioned, be sure you have a proper environment setup first.
 :::
 
 NativeScript allows scaffolding projects with various templates to kickstart your app development. Official templates can be found in the [Templates GitHub repository](https://github.com/NativeScript/nativescript-app-templates/tree/master/packages) and on [NPM](https://www.npmjs.com/search?q=%40nativescript%20template).
@@ -38,14 +38,14 @@ To create a new project, run:
 ns create myCoolApp
 ```
 
-If you'd like to try one of the other templates not listed by `ns create` run:
+If you would like to try one of the other templates not listed by `ns create` run:
 
 ```cli
 ns create myCoolApp --template <template-package-name>
 ```
 
 :::tip
-If you want to skip the interactive prompts, you can pass:
+If you want to skip the interactive prompts, you can pass the following flags:
 
 ```cli
 ns create myCoolApp --angular // or --ng for short
@@ -136,9 +136,9 @@ ns create myCoolApp --template @nativescript/template-master-detail
 
 ### Bring your own
 
-You may create a custom template for your projects. The best place to start is to use one of the Official templates as a base and applying your changes on top.
+You may create a custom template for your projects. The best place to start is to use one of the Official templates as a base and apply your changes on top.
 
-The easiest and straight-forward way to create your customized template is to clone one of the blank templates. NativeScript templates come in different flavors (Plain JavaScript, TypeScript, Angular and Vue.js) so you could select the blank template for the desired application flavor.
+The easiest way to create your customized template is to clone one of the blank templates. NativeScript templates come in different flavors (Plain JavaScript, TypeScript, Angular and Vue.js) so you could select the blank template for the desired application flavor.
 
 Here is the list of the six main blank templates depending on the coding language preferences.
 
@@ -149,13 +149,13 @@ Here is the list of the six main blank templates depending on the coding languag
 - [Blank React template](https://github.com/NativeScript/nativescript-app-templates/tree/master/packages/template-blank-react)
 - [Blank Svelte template](https://github.com/NativeScript/nativescript-app-templates/tree/master/packages/template-blank-svelte)
 
-Creating your template is as simple as cloning the wanted template repository and modifying the source code to satisfy your business logic.
+Creating your template is as simple as cloning the chosen template repository and modifying the source code to satisfy your business logic.
 
 ```cli
 git clone https://github.com/NativeScript/template-blank-ts.git
 ```
 
-As of NativeScript 4.x.x the application templates have a mobile application structure so you could develop your template by following the standard developer workflow.
+As of NativeScript 4.x.x, the application templates have a mobile application structure, so you could develop your template by following the standard developer workflow.
 
 ```cli
 cd template-blank-ts
@@ -170,7 +170,7 @@ ns run android
 
 - Create folders named for the feature area they represent. Each featured area should be placed in a separate folder in the template's folder structure.
 
-- Place each page, view model, and service in its file. Apply the single responsibility principle (SRP) to all pages, view models, services, and other symbols. This helps make the app cleaner, easier to read and maintain, and more testable.
+- Place each page, each view model, and each service in a separate file. Apply the single responsibility principle (SRP) to all pages, all view models, all services, and other symbols. This helps make the app cleaner, easier to read and maintain, and more testable.
 
 - Consider creating a folder for a page when it has multiple accompanying files (.ts, .xml, .scss/css, etc.).
 
@@ -179,12 +179,12 @@ ns run android
 ##### Package.json Guidelines
 
 - Place a `package.json` file in the root folder of your app template.  
-  Note this is not the actual root package.json of the generated mobile app – it is only used by the `ns create` CLI command upon app creation. Do not expect that everything you place in your package.json will be transferred to the actual package.json file. Notably `scripts` property content is removed. However, if you provide preinstall / postinstall scripts, they will be executed before getting removed. You can use this mechanism to generate/move settings files to the root folder of the generated app and generate actual "scripts" content for the resulting app package.json – see [generating `scripts` commands on-the-fly](https://github.com/NativeScript/nativescript-app-templates/blob/master/shared/hooks/after-createProject/after-createProject.js) for concrete examples.
+  Note this is not the actual root package.json of the generated mobile app – it is only used by the `ns create` CLI command upon app creation. Do not expect that everything you place in your package.json will be transferred to the actual package.json file. Notably, `scripts` property content is removed. However, if you provide preinstall / postinstall scripts, they will be executed before getting removed. You can use this mechanism to generate/move settings files to the root folder of the generated app and generate actual "scripts" content for the resulting app package.json – see [generating `scripts` commands on-the-fly](https://github.com/NativeScript/nativescript-app-templates/blob/master/shared/hooks/after-createProject/after-createProject.js) for concrete examples.
 
 - Provide a value for the `name` property using the format: **ns-template-[custom-template-name-goes-here]-ts**.  
   Note this property value is NOT transferred to the root package.json file generated by the `ns create` CLI command but can be found in the app/package.json file of the generated app.
 
-- Provide a value for the `version` property following semver rules (e.g., 1.0.0).  
+- Provide a value for the `version` property following semver rules (e.g. 1.0.0).  
   Note this property value is NOT transferred to the root package.json file generated by the `ns create` CLI command but can be found in the app/package.json file of the generated app.
 
 - Provide a value for the `main` property specifying the primary entry point to your app (usually **app.js**).  
@@ -232,7 +232,7 @@ ns run android
 ```
 
 - Provide a value for the `keywords`. Keywords can be very helpful for the discoverability of the template. Also, there are special keywords that could be used to make the template appear in the [NativeScript marketplace](https://market.nativescript.org/) especially and under certain conditions. The following keywords are supported:
-  - `ux-preview` - will add an “Preview & Vote” label on the "preview box" in the search list. It will also enable email registration and voting. This keyword should be used when adding a "preview" of a template that is not implemented but is rather an idea.
+  - `ux-preview` - will add an "Preview & Vote" label on the "preview box" in the search list. It will also enable email registration and voting. This keyword should be used when adding a "preview" of a template that is not implemented but is rather an idea.
   - `category-general` - will show the template under the "General" tab in the ["Templates" page](https://market.nativescript.org/?tab=templates). This is the general or basic category, used to describe "generic" functionality.
   - `category-healthcare` - will show the template under the "Healthcare" tab in the ["Templates" page](https://market.nativescript.org/?tab=templates). This is a special category, used to describe a template with functionality related to the healthcare industry.
 
@@ -245,7 +245,7 @@ ns run android
 
 - Provide correct `repository` property value in the root package.json file of your app template (see the "Package.json guidelines" section above for additional package.json requirements).
 
-- [Read more](https://github.com/NativeScript/marketplace-feedback/blob/master/docs/template-submission.md) how to submit your app template to [NativeScript Marketplace](https://market.nativescript.org).
+- [Read more](https://github.com/NativeScript/marketplace-feedback/blob/master/docs/template-submission.md) about how to submit your app template to [NativeScript Marketplace](https://market.nativescript.org).
 
 ##### Styling Guidelines
 
@@ -277,7 +277,7 @@ $primary: lighten(#000, 13%);
 
 ```
 
-**\_app-common.scss** file in the app template's root folder should contain any styling rules to be applied both on iOS and Android:
+The **\_app-common.scss** file in the app template's root folder should contain any styling rules to be applied both on iOS and Android:
 
 ```CSS
 /*
@@ -297,7 +297,7 @@ NavigationButton {
 }
 ```
 
-**app.android.scss** file in the app template's root folder should import the app variables, the NativeScript core theme main ruleset, and the common styles; also place any styling rules to be applied only on Android here:
+The **app.android.scss** file in the app template's root folder should import the app variables, the NativeScript core theme main ruleset, and the common styles; also place any styling rules to be applied only on Android here:
 
 ```CSS
 /* Import app variables */
@@ -317,7 +317,7 @@ NavigationButton {
 }
 ```
 
-**app.ios.scss** file in the app template's root folder should import the app variables, the NativeScript core theme main ruleset, and the common styles; also place any styling rules to be applied only on iOS here:
+The **app.ios.scss** file in the app template's root folder should import the app variables, the NativeScript core theme main ruleset, and the common styles; also place any styling rules to be applied only on iOS here:
 
 ```CSS
 /* Import app variables */
