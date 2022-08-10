@@ -345,7 +345,7 @@ In the current scenario the Search feature has only one page and it's possible t
 
 ### SideDrawer Navigation
 
-Sidedrawer navigation enables the user to open a hidden view, i.e. drawer, containing navigation controls, or settings from the sides of the screen. There are a lot of navigation patterns that can be implemented using a SideDrawer. You can use the [@nativescript-community/ui-drawer](https://github.com/nativescript-community/ui-drawer) plugin for sidedrawer navigation. A typical usage would be to add UI controls and have them do one of two things:
+Sidedrawer navigation enables the user to open a hidden view, i.e. drawer, containing navigation controls, or settings from the sides of the screen. There are a lot of navigation patterns that can be implemented using a SideDrawer. You can use the RadSidedrawer or [@nativescript-community/ui-drawer](https://github.com/nativescript-community/ui-drawer) plugin for sidedrawer navigation. A typical usage would be to add UI controls and have them do one of two things:
 
 - **Forward navigation** - get a reference to a navigation Frame and navigate in it.-
 - **Lateral navigation** - open a modal view.
@@ -405,7 +405,13 @@ Frame (root forward navigation)
             >>> Page
 ```
 
+### Nesting Simple Lateral Navigation
+
+![Nesting Simple Lateral Navigation](/assets/images/architecture_concepts/navigation-examples-page-2.png)
+
 ### Nesting Lateral in Forward Navigation
+
+![Nesting Lateral in Forward Navigation](/assets/images/architecture_concepts/navigation-examples-page-4.png)
 
 ### Nesting Forward in Lateral Navigation
 
@@ -419,22 +425,31 @@ Root TabView with multiple nested Frames.
     > Frame (id="search" defaultPage="search-page")
 ```
 
-TabView > Frames >> Pages
-
 ### Nesting Lateral in Lateral
 
-![navigation-examples-page-6]()
-In this example, the root TabView is explicitly set to bottom for Android (by design the tabs are always placed at the bottom on iOS, but on Android, we can change the placement).
+![Nesting Lateral in Lateral](/assets/images/architecture_concepts/navigation-examples-page-6.png)
 
 ### Combining Nested Navigation Scenarios
 
-### Nesting Lateral in Lateral
+The following example demonstrates a scenario where we have combined several nested navigations (both lateral and forward navigations on different nested levels). For example, a RadSidedrawer + Login page leading to a page with a TabView and in one TabView there are inner forward navigations in each TabViewItem. There is also a modal page with its own forward navigation.
 
-In this example, the root TabView is explicitly set to bottom for Android (by design the tabs are always placed at the bottom on iOS, but on Android, we can change the placement).
+```
+RadSideDrawer (lateral navigation)
+    drawer content
+        > Frame id="root-frame" (forward navigation)
+            >> Page (e.g. login-page)
+            >> Page (e.g. main-page) with BottomNavigation (lateral navigation)
+                 TabViewItem >>> Frame (featured)
+                            >>>> Page (featured-page)
+                 TabViewItem >>> Frame (browse)
+                            >>>> Page (browse-page)
+                 TabViewItem >>> Frame (search)
+                            >>>> Page (search-page)
 
-![Nesting Lateral in Lateral]()
-In this example, the root TabView is explicitly set to bottom for Android (by design the tabs are always placed at the bottom on iOS, but on Android, we can change the placement).
+    drawer link
+        > Modal page root (Frame - forward navigation)
+            >> Modal Page
 
-### Combining Nested Navigation Scenarios
-
-The following example demonstrates a scenario where we have combined several nested navigations (both lateral and forward navigations on different nested levels). For example, a RadSidedrawer + Login page leading to a page with a TabView and in one TabView there are inner forward navigations in each tab item. There is also a modal page with its own forward navigation.
+    drawer link
+        >> Page (e.g. info-page loaded via "root-frame")
+```
