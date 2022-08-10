@@ -22,7 +22,7 @@ choco install -y nodejs.install temurin11
 
 Setting up the Android development environment can be daunting if you are new to Android development, however following the next steps carefully will get you up and running in no time.
 
-[Download and install Android Studio](https://developer.android.com/studio). In the installation wizard make sure to have the following components selected (the list should appear if you select **custom** options):
+[Download and install Android Studio](https://developer.android.com/studio). In the installation wizard make sure you have the following components selected (the list should appear if you select **custom** options):
 
 - Android SDK
 - Android SDK Platform
@@ -41,7 +41,7 @@ Configure the `ANDROID_HOME` environment variable for NativeScript to be able to
 
 ![New User Variable (ANDROID_HOME)](./assets/environment-setup/new_user_variable_dialog.png)
 
-The SDK is by default located at
+The SDK is by default located at:
 
 ```
 %LOCALAPPDATA%\Android\Sdk
@@ -68,13 +68,13 @@ Install the NativeScript CLI globally:
 npm install -g nativescript
 ```
 
-To verify if the installation was successful, open a new Command Prompt window to ensure the new environment variables are loaded and run
+To verify that the installation was successful, open a new Command Prompt window (to ensure the new environment variables are loaded) and run:
 
 ```cli
 ns doctor android
 ```
 
-If you see **No issues were detected** you have successfully set up your system.
+If you see **No issues were detected** then you have successfully set up your system.
 
 #### Preparing an Android device
 
@@ -82,7 +82,7 @@ To run a NativeScript app, you will need an Android device &mdash; either a phy
 
 - **Using a physical device**: Connect the device using a USB cable, and follow the instructions from [Running on a physical device](/development-workflow.md)
 
-- **Using a virtual device**: Open Android Studio, and open "AVD Manager" &mdash; If you are on the welcome screen, it's under the **Configure › AVD Manager** dropdown, otherwise under the **Tools › AVD Manager** menu.
+- **Using a virtual device**: Open Android Studio, and then open "AVD Manager" &mdash; if you are on the welcome screen, then it's under the **Configure › AVD Manager** dropdown, otherwise it's under the **Tools › AVD Manager** menu.
 
   If the list of available Virtual Devices is empty, you will need to create a new AVD. Click on "**Create Virtual Device...**" then pick a phone from the list. You can select any phone from the list &mdash; for example "**Pixel 3 XL**" and then click "**Next**". For the System Image select the latest version (the highest API Level in the list). If the selection is greyed out, click the "Download" link next to the Release Name to download the System Image and then click "**Next**" and "**Finish**" to create the AVD. The newly created AVD should show up in the list, and you should be able to click the green "play" button to start the virtual device.
 
@@ -127,7 +127,7 @@ The default `temurin` does not currently work with the gradle plugin version Nat
 
 Setting up the Android development environment can be daunting if you are new to Android development, however following the next steps carefully will get you up and running in no time.
 
-[Download and install Android Studio](https://developer.android.com/studio). In the installation wizard make sure to have the following components selected (the list should appear if you select **custom** options):
+[Download and install Android Studio](https://developer.android.com/studio). In the installation wizard, make sure you have the following components selected (the list should appear if you select **custom** options):
 
 - Android SDK
 - Android SDK Platform
@@ -153,13 +153,13 @@ Install the **NativeScript CLI** globally:
 npm install -g nativescript
 ```
 
-To verify if the installation was successful, open a new Command Prompt window to ensure the new environment variables are loaded and run
+To verify that the installation was successful, open a new Command Prompt window (to ensure the new environment variables are loaded) and run:
 
 ```cli
 ns doctor android
 ```
 
-If you see **No issues were detected** you have successfully set up your system.
+If you see **No issues were detected** then you have successfully set up your system.
 
 #### Preparing an Android device
 
@@ -167,7 +167,7 @@ To run a NativeScript app, you will need an Android device &mdash; either a phy
 
 - **Using a physical device**: Connect the device using a USB cable, and follow the instructions from [Running on a physical device](/development-workflow.md)
 
-- **Using a virtual device**: Open Android Studio, and open "AVD Manager" &mdash; If you are on the welcome screen, it's under the **Configure › AVD Manager** dropdown, otherwise under the **Tools › AVD Manager** menu.
+- **Using a virtual device**: Open Android Studio, and open "AVD Manager" &mdash; if you are on the welcome screen, then it's under the **Configure › AVD Manager** dropdown, otherwise it's under the **Tools › AVD Manager** menu.
 
   If the list of available Virtual Devices is empty, you will need to create a new AVD. Click on "**Create Virtual Device...**" then pick a phone from the list. You can select any phone from the list &mdash; for example "**Pixel 3 XL**" and then click "**Next**". For the System Image select the latest version (the highest API Level in the list). If the selection is greyed out, click the "Download" link next to the Release Name to download the System Image and then click "**Next**" and "**Finish**" to create the AVD. The newly created AVD should show up in the list, and you should be able to click the green "play" button to start the virtual device.
 
@@ -282,13 +282,13 @@ You may see Deprecation and security warnings from **npm**, these are safe to ig
 _**More details for those curious:** The NativeScript CLI relies on 3rd party packages that may have been deprecated over the past years. We are slowly replacing these dependencies with newer, supported alternatives to resolve these warnings, however they are generally safe to ignore, since the CLI is never exposed to the public and it's only used for local development, where most of the security concerns don't apply._
 :::
 
-To verify if the installation was successful, open a new Terminal window to ensure the new environment variables are loaded and run
+To verify that the installation was successful, open a new Terminal window (to ensure the new environment variables are loaded) and run:
 
 ```cli
 ns doctor ios
 ```
 
-If you see **No issues were detected** you have successfully set up your system.
+If you see **No issues were detected** then you have successfully set up your system.
 
 <!-- If you see the following, you have successfully set up your system for iOS development. Select **Skip Step and Configure Manually** or hit `Ctrl+C` to exit.
 
@@ -303,7 +303,7 @@ You will need Node, NativeScript CLI (command line interface), Android Studio an
 To install **Node** follow the [instructions specific to your Linux distribution](https://nodejs.org/en/download/package-manager/). We recommend using the latest version, however anything above **Node 12** should be fine.
 
 :::warning Note
-We have gone through these steps on **Ubuntu 20.04** and noted commands we've used, however depending on your Linux distribution, the commands may be different. We cannot provide commands for all possible distributions, so please refer to the linked documentation to find the correct commands you need to run.
+We have gone through these steps on **Ubuntu 20.04** and noted the commands we used, however depending on your Linux distribution, the commands may be different. We cannot provide commands for all possible distributions, so please refer to the linked documentation to find the correct commands you need to run.
 :::
 
 <!-- tab:Ubuntu 20.04 -->
@@ -352,7 +352,7 @@ javac 14.0.2
 
 Setting up the Android development environment can be daunting if you are new to Android development, however following the next steps carefully will get you up and running in no time.
 
-[Download and install Android Studio](https://developer.android.com/studio). In the installation wizard make sure to have the following components selected (the list should appear if you select **custom** options):
+[Download and install Android Studio](https://developer.android.com/studio). In the installation wizard, make sure you have the following components selected (the list should appear if you select **custom** options):
 
 - Android SDK
 - Android SDK Platform
@@ -381,13 +381,13 @@ npm install -g nativescript
 Depending on how you installed **Node**, you may get an `EACCESS: permission denied` error when trying to install a global package. It's generally not recommended to run `npm` with `sudo`, see this guide for [Resolving EACCESS permissions errors](https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally).
 :::
 
-To verify if the installation was successful, open a new Command Prompt window to ensure the new environment variables are loaded and run
+To verify that the installation was successful, open a new Command Prompt window (to ensure the new environment variables are loaded) and run
 
 ```cli
 ns doctor android
 ```
 
-If you see **No issues were detected** you have successfully set up your system.
+If you see **No issues were detected** then you have successfully set up your system.
 
 #### Preparing an Android device
 
@@ -395,7 +395,7 @@ To run a NativeScript app, you will need an Android device &mdash; either a phy
 
 - **Using a physical device**: Connect the device using a USB cable, and follow the instructions from [Running on a physical device](/development-workflow.md)
 
-- **Using a virtual device**: Open Android Studio, and open "AVD Manager" &mdash; If you are on the welcome screen, it's under the **Configure › AVD Manager** dropdown, otherwise under the **Tools › AVD Manager** menu.
+- **Using a virtual device**: Open Android Studio, and open "AVD Manager" &mdash; If you are on the welcome screen, then it's under the **Configure › AVD Manager** dropdown, otherwise it's under the **Tools › AVD Manager** menu.
 
   If the list of available Virtual Devices is empty, you will need to create a new AVD. Click on "**Create Virtual Device...**" then pick a phone from the list. You can select any phone from the list &mdash; for example "**Pixel 3 XL**" and then click "**Next**". For the System Image select the latest version (the highest API Level in the list). If the selection is greyed out, click the "Download" link next to the Release Name to download the System Image and then click "**Next**" and "**Finish**" to create the AVD. The newly created AVD should show up in the list, and you should be able to click the green "play" button to start the virtual device.
 
@@ -465,13 +465,13 @@ This section is missing, some details can be found at the following location:
 
 :::warning Note
 
-This section may be outdated, if you attempt to build for a smart watch and run into issues, please help us update this section.
+This section may be outdated. If you attempt to build for a smart watch and run into issues, please help us update this section.
 
 :::
 
 #### iOS WatchOS Applications
 
-With version 5.4 the NativeScript CLI introduces a Beta support for integrating a [WatchOS](https://developer.apple.com/watchos/) application in your iOS mobile app created with NativeScript.
+With version 5.4, the NativeScript CLI introduces a Beta support for integrating a [WatchOS](https://developer.apple.com/watchos/) application in your iOS mobile app created with NativeScript.
 
 #### Prerequisites
 
@@ -530,7 +530,7 @@ You can skip steps 1-3 if your Watch app is already created.
    }
    ```
 
-6. Build & Run the NativeScript application.
+6. Build and run the NativeScript application:
 
    ```cli
    ns run ios
