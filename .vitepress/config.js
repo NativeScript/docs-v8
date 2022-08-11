@@ -525,20 +525,6 @@ function getSidebar() {
 			],
 		},
 		{
-			text: 'UI',
-			children: [
-				{
-					text: 'Components',
-					link: '/ui/components',
-				},
-				{
-					text: 'Styling',
-					link: '/ui/styling',
-				},
-				{ text: 'Interaction', link: '/ui/interaction' },
-			],
-		},
-		{
 			text: '@nativescript/core',
 			children: [
 				{ text: 'Application', link: '/nativescript-core/application' },
@@ -745,8 +731,108 @@ function getComponentsSidebar() {
 			text: 'Components',
 			children: [
 				{
+					text: 'Styling',
+					link: '/components/styling',
+				},
+				{
+					text: 'Interaction',
+					link: '/components/interaction',
+				},
+				{
 					text: 'ActionBar',
 					link: '/components/actionbar',
+				},
+				{
+					text: 'ActivityIndicator',
+					link: '/components/activityindicator',
+				},
+				{
+					text: 'Button',
+					link: '/components/button',
+				},
+				{
+					text: 'DatePicker',
+					link: '/components/datepicker',
+				},
+				{
+					text: 'Frame',
+					link: '/components/frame',
+				},
+				{
+					text: 'HtmlView',
+					link: '/components/htmlview',
+				},
+				{
+					text: 'Image',
+					link: '/components/image',
+				},
+				{
+					text: 'Label',
+					link: '/components/label',
+				},
+				{
+					text: 'ListPicker',
+					link: '/components/listpicker',
+				},
+				{
+					text: 'ListView',
+					link: '/components/listview',
+				},
+				{
+					text: 'Page',
+					link: '/components/page',
+				},
+				{
+					text: 'Placeholder',
+					link: '/components/placeholder',
+				},
+				{
+					text: 'Progress',
+					link: '/components/progress',
+				},
+				{
+					text: 'Repeator',
+					link: '/components/repeator',
+				},
+				{
+					text: 'ScrollView',
+					link: '/components/scrollview',
+				},
+				{
+					text: 'SearchBar',
+					link: '/components/searchbar',
+				},
+				{
+					text: 'SegmentedBar',
+					link: '/components/segmentedbar',
+				},
+				{
+					text: 'Slider',
+					link: '/components/slider',
+				},
+				{
+					text: 'Switch',
+					link: '/components/switch',
+				},
+				{
+					text: 'TabView',
+					link: '/components/tabview',
+				},
+				{
+					text: 'TextField',
+					link: '/components/textfield',
+				},
+				{
+					text: 'TextView',
+					link: '/components/textview',
+				},
+				{
+					text: 'TimePicker',
+					link: '/components/timepicker',
+				},
+				{
+					text: 'WebView',
+					link: '/components/webview',
 				},
 			],
 		},
