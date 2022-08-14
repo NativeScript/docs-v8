@@ -19,7 +19,7 @@ const arr = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
 myObservableArray = new ObservableArray(arr)
 ```
 
-### Lsitening to the ObservableArray.changeEvent
+### Listening to the ObservableArray.changeEvent
 
 The example in the Stackblitz IDE below shows how to hook to the `changeEvent`. To try it out, you have to download the `Nativescript Preview` app from Google Play or App Store. Once you have the app, scan the QR with your phone Camera and the app resulting from the code in the IDE will appear in the `Nativescript Preview` app.
 
