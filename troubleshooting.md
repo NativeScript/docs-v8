@@ -60,6 +60,32 @@ end
 
 Just match the target version you use in `build.xcconfig`.
 
+## Chrome DevTools
+
+If you have trouble connecting Chrome DevTools debugger via `devtools://devtools/bundled/inspector.html?ws=localhost:41000` or `devtools://devtools/bundled/inspector.html?ws=localhost:40000` you may encounter an error like this:
+
+```
+NativeScript debugger has opened inspector socket on port 18183 for {your-app-bundle-id}.
+Error: connect ECONNREFUSED ::1:18183
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1195:16) {
+  errno: -61,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '::1',
+  port: 18183
+}
+Backend socket created.
+TypeError: Cannot read properties of undefined (reading 'pipe')
+    at WebSocketServer.<anonymous> (/Users/{username}/.config/yarn/global/node_modules/nativescript/lib/device-sockets/ios/app-debug-socket-proxy-factory.js:151:32)
+    at WebSocketServer.emit (node:events:527:28)
+```
+
+This can be related to different versions of NativeScript CLI being installed on your system. For example the above error is from a system where global yarn packages were installed but also [nvm](https://github.com/nvm-sh/nvm) was configured which had the latest CLI. The project was invoked using yarn package manager and used the older CLI from yarn globals which interfered with latest versions being used in the project.
+
+When doing `ns -v` to print version it would print the latest CLI was installed but that was pulling from `nvm` only.
+
+**Solution**: `yarn global add nativescript` which ensured latest CLI was installed in yarn as well as latest in `nvm`. That ensured that for projects using `yarn` as the package manager also used latest CLI.
+
 ## Machine Setup Related
 
 If you had just followed the setup guide in the docs you may see something like this:
