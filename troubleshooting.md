@@ -60,6 +60,19 @@ end
 
 Just match the target version you use in `build.xcconfig`.
 
+## iOS run on device
+
+If you see a message like the following when trying to run on a connected iOS device:
+
+```
+Installing on device d06531f3df21b65f44d52bcb1b147dew65d0c958...
+Unable to apply changes on device: d06531f3df21b65f44d52bcb1b147dew65d0c958. Error is: Failed to install /path/to/appname/platforms/ios/build/Debug-iphoneos/appname.ipa on device with identifier d06531f3df21b65f44d52bcb1b147dew65d0c958. Error is: Could not install application.
+```
+
+**Solution:**
+
+Open Xcode (platforms/ios/{appname}.xcworkspace) and then select the project name in the left file tree. You should see 'General', 'Signing & Capabilities' and other tabs in the middle. Choose 'Signing & Capabilities' and choose to 'Register Device' (there will be a button). You should now be able to run/install on that connected device.
+
 ## Chrome DevTools
 
 If you have trouble connecting Chrome DevTools debugger via `devtools://devtools/bundled/inspector.html?ws=localhost:41000` or `devtools://devtools/bundled/inspector.html?ws=localhost:40000` you may encounter an error like this:
