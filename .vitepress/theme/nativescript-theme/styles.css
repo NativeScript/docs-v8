@@ -1208,8 +1208,8 @@ select {
 .mt-8 {
 	margin-top: 2rem;
 }
-.ml-4 {
-	margin-left: 1rem;
+.ml-2 {
+	margin-left: 0.5rem;
 }
 .-mr-1 {
 	margin-right: -0.25rem;
@@ -1616,9 +1616,6 @@ select {
 .uppercase {
 	text-transform: uppercase;
 }
-.leading-snug {
-	line-height: 1.375;
-}
 .leading-5 {
 	line-height: 1.25rem;
 }
@@ -1665,6 +1662,9 @@ select {
 .text-blue-50 {
 	--tw-text-opacity: 1;
 	color: rgba(239, 246, 255, var(--tw-text-opacity));
+}
+.underline {
+	text-decoration: underline;
 }
 .antialiased {
 	-webkit-font-smoothing: antialiased;
@@ -1797,10 +1797,6 @@ select {
 .hover\:bg-ns-blue:hover {
 	--tw-bg-opacity: 1;
 	background-color: rgba(101, 173, 241, var(--tw-bg-opacity));
-}
-.hover\:hover\:bg-blue-300:hover:hover {
-	--tw-bg-opacity: 1;
-	background-color: rgba(147, 197, 253, var(--tw-bg-opacity));
 }
 .hover\:bg-gray-800:hover {
 	--tw-bg-opacity: 1;
@@ -3627,7 +3623,7 @@ svg.DocSearch-Hit-Select-Icon {
 	scroll-margin-top: 88px;
 }
 
-.sidebar-link.active[data-v-5173fc41] {
+.sidebar-link.active[data-v-56b37754] {
 	font-weight: 700;
 	--tw-text-opacity: 1;
 	color: rgba(96, 165, 250, var(--tw-text-opacity));
