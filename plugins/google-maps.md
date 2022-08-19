@@ -64,7 +64,7 @@ To use the Google Maps API, you must register your app in the [Google API Consol
 
 ## Installation
 
-```javascript
+```cli
 ns plugin add @nativescript/google-maps
 ```
 
@@ -191,32 +191,32 @@ The following properties are available for adjusting the camera view on initiali
 
 The following events are available:
 
-| Event                 | Description                                                             |
-| :-------------------- | :---------------------------------------------------------------------- | ------- | -------- |
-| `ready`               | Fires when the MapView is ready for use see [GoogleMap](#google-map)    |
-| `mapTap`              | Fires when a coordinate is tapped on the map                            |
-| `mapLongPress`        | Fires when a coordinate is long-pressed on the map                      |
-| `markerTap`           | Fires when a marker is tapped                                           |
-| `myLocationTap`       | Fires when 'My Location' is tapped                                      |
-| `myLocationButtonTap` | Fires when the 'My Location' button is tapped                           |
-| `markerDragStart`     | Fires when a marker begins dragging                                     |
-| `markerDragging`      | Fires while a marker is being dragged                                   |
-| `markerDragEnd`       | Fires when a marker ends dragging                                       |
-| `tileRenderingStart`  | Fires when tile rendering begins                                        |
-| `tileRenderingEnd`    | Fires when tile rendering ends                                          |
-| `cameraPosition`      | Fires when the map viewport state changes, camera states include `idle` | `start` | `moving` |
-| `circle`              | Fires when a circle is tapped                                           |
-| `polygon`             | Fires when a polygon is tapped                                          |
-| `polyline`            | Fires when a polyline is tapped                                         |
-| `poi`                 | Fires when a POI is tapped                                              |
-| `groundOverlay`       | Fires when a ground overlay is tapped                                   |
-| `infoWindowTap`       | Fires when a marker's info window is tapped                             |
-| `infoWindowLongPress` | Fires when a marker's info window is long-pressed                       |
-| `infoWindowClose`     | Fires when a marker's info window is closed                             |
+| Event                 | Description                                                                                    |
+| :-------------------- | :--------------------------------------------------------------------------------------------- |
+| `ready`               | Fires when the MapView is ready for use see [GoogleMap](#google-map)                           |
+| `mapTap`              | Fires when a coordinate is tapped on the map                                                   |
+| `mapLongPress`        | Fires when a coordinate is long-pressed on the map                                             |
+| `markerTap`           | Fires when a marker is tapped                                                                  |
+| `myLocationTap`       | Fires when 'My Location' is tapped                                                             |
+| `myLocationButtonTap` | Fires when the 'My Location' button is tapped                                                  |
+| `markerDragStart`     | Fires when a marker begins dragging                                                            |
+| `markerDragging`      | Fires while a marker is being dragged                                                          |
+| `markerDragEnd`       | Fires when a marker ends dragging                                                              |
+| `tileRenderingStart`  | Fires when tile rendering begins                                                               |
+| `tileRenderingEnd`    | Fires when tile rendering ends                                                                 |
+| `cameraPosition`      | Fires when the map viewport state changes, camera states include `idle` \| `start` \| `moving` |
+| `circle`              | Fires when a circle is tapped                                                                  |
+| `polygon`             | Fires when a polygon is tapped                                                                 |
+| `polyline`            | Fires when a polyline is tapped                                                                |
+| `poi`                 | Fires when a POI is tapped                                                                     |
+| `groundOverlay`       | Fires when a ground overlay is tapped                                                          |
+| `infoWindowTap`       | Fires when a marker's info window is tapped                                                    |
+| `infoWindowLongPress` | Fires when a marker's info window is long-pressed                                              |
+| `infoWindowClose`     | Fires when a marker's info window is closed                                                    |
 | `markerInfoContents`  |
 | `markerInfoWindow`    |
-| `activeBuilding`      | Fires when a building is focused on                                     |
-| `activeLevel`         | Fires when the level of the focused building changes                    |
+| `activeBuilding`      | Fires when a building is focused on                                                            |
+| `activeLevel`         | Fires when the level of the focused building changes                                           |
 
 # Google Map
 
@@ -406,8 +406,8 @@ map.mapStyle = [{
 You can create markers using the [GoogleMap](#google-map)s object `addMarker` function by passing in the specified [Marker Options](#marker-options).
 
 ```ts
-function addMarker(map: GoogleMap, marker: MarkerOptions): Marker {
-  return map.addMarker(marker)
+function addMarker(map: GoogleMap, markerOptions: MarkerOptions): Marker {
+  return map.addMarker(markerOptions)
 }
 ```
 
@@ -445,8 +445,8 @@ function removeMarker(map: GoogleMap, marker: Marker) {
 You can create Circles using the [GoogleMap](#google-map)s object `addCircle` function by passing in the specified [Circle Options](#circle-options).
 
 ```ts
-function addCircle(map: GoogleMap, Circle: CircleOptions): Circle {
-  return map.addCircle(Circle)
+function addCircle(map: GoogleMap, circleOptions: CircleOptions): Circle {
+  return map.addCircle(circleOptions)
 }
 ```
 
@@ -470,8 +470,8 @@ function addCircle(map: GoogleMap, Circle: CircleOptions): Circle {
 You can remove a Circle using the [GoogleMap](#google-map)s `removeCircle` function, like so:
 
 ```ts
-function removeCircle(map: GoogleMap, Circle: CircleOptions) {
-  map.removeCircle(Circle)
+function removeCircle(map: GoogleMap, circle: Circle) {
+  map.removeCircle(circle)
 }
 ```
 
@@ -482,8 +482,8 @@ function removeCircle(map: GoogleMap, Circle: CircleOptions) {
 You can create polygons using the [GoogleMap](#google-map)s object `addPolygon` function by passing in the specified [Polygon Options](#polygon-options).
 
 ```ts
-function addPolygon(map: GoogleMap, Polygon: PolygonOptions): Polygon {
-  return map.addPolygon(Polygon)
+function addPolygon(map: GoogleMap, polygonOptions: PolygonOptions): Polygon {
+  return map.addPolygon(polygonOptions)
 }
 ```
 
@@ -509,8 +509,8 @@ function addPolygon(map: GoogleMap, Polygon: PolygonOptions): Polygon {
 You can remove a Polygon using the [GoogleMap](#google-map)s `removePolygon` function, like so:
 
 ```ts
-function removePolygon(map: GoogleMap, Polygon: PolygonOptions) {
-  map.removePolygon(Polygon)
+function removePolygon(map: GoogleMap, polygon: Polygon) {
+  map.removePolygon(polygon)
 }
 ```
 
@@ -521,8 +521,8 @@ function removePolygon(map: GoogleMap, Polygon: PolygonOptions) {
 You can create Polylines using the [GoogleMap](#google-map)s object `addPolyline` function by passing in the specified [Polyline Options](#polyline-options).
 
 ```ts
-function addPolyline(map: GoogleMap, Polyline: PolylineOptions): Polyline {
-  return map.addPolyline(Polyline)
+function addPolyline(map: GoogleMap, polylineOptions: PolylineOptions): Polyline {
+  return map.addPolyline(polylineOptions)
 }
 ```
 
@@ -548,8 +548,8 @@ function addPolyline(map: GoogleMap, Polyline: PolylineOptions): Polyline {
 You can remove a Polyline using the [GoogleMap](#google-map)s `removePolyline` function, like so:
 
 ```ts
-function removePolyline(map: GoogleMap, Polyline: PolylineOptions) {
-  map.removePolyline(Polyline)
+function removePolyline(map: GoogleMap, polyline: Polyline) {
+  map.removePolyline(polyline)
 }
 ```
 
@@ -562,9 +562,9 @@ You can create Ground Overlays using the [GoogleMap](#google-map)s object `addGr
 ```ts
 function addGroundOverlay(
   map: GoogleMap,
-  GroundOverlay: GroundOverlayOptions
+  groundOverlayOptions: GroundOverlayOptions
 ): GroundOverlay {
-  return map.addGroundOverlay(GroundOverlay)
+  return map.addGroundOverlay(groundOverlayOptions)
 }
 ```
 
@@ -591,8 +591,8 @@ function addGroundOverlay(
 You can remove a GroundOverlay using the [GoogleMap](#google-map)s `removeGroundOverlay` function, like so:
 
 ```ts
-function removeGroundOverlay(map: GoogleMap, GroundOverlay: GroundOverlayOptions) {
-  map.removeGroundOverlay(GroundOverlay)
+function removeGroundOverlay(map: GoogleMap, groundOverlay: GroundOverlay) {
+  map.removeGroundOverlay(groundOverlay)
 }
 ```
 
@@ -603,8 +603,11 @@ function removeGroundOverlay(map: GoogleMap, GroundOverlay: GroundOverlayOptions
 You can create Tile Overlays using the [GoogleMap](#google-map)s object `addTileOverlay` function by passing in the specified [TileOverlay Options](#tileoverlay-options).
 
 ```ts
-function addTileOverlay(map: GoogleMap, TileOverlay: TileOverlayOptions): TileOverlay {
-  return map.addTileOverlay(TileOverlay)
+function addTileOverlay(
+  map: GoogleMap,
+  tileOverlayOptions: TileOverlayOptions
+): TileOverlay {
+  return map.addTileOverlay(tileOverlayOptions)
 }
 ```
 
@@ -623,8 +626,8 @@ function addTileOverlay(map: GoogleMap, TileOverlay: TileOverlayOptions): TileOv
 You can remove a TileOverlay using the [GoogleMap](#google-map)s `removeTileOverlay` function, like so:
 
 ```ts
-function removeTileOverlay(map: GoogleMap, TileOverlay: TileOverlayOptions) {
-  map.removeTileOverlay(TileOverlay)
+function removeTileOverlay(map: GoogleMap, tileOverlay: TileOverlay) {
+  map.removeTileOverlay(tileOverlay)
 }
 ```
 
