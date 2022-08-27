@@ -336,7 +336,7 @@ Next, add the `ListView` component:
 Before we dive into creating the card below, let's create some classes for our background and text colors that we will be using in the application. As this will be shared throughout the application, let's add this to the `app.css`. Open `app.css` and add the following:
 
 ```css
-/* app/app.scss */
+/* app/app.css */
 
 /* applied when device is in light mode */
 .ns-light .bg-primary {
