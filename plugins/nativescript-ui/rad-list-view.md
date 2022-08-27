@@ -21,7 +21,7 @@ The **NativeScript UI ListView** plugin is a virtualizing list component that pr
 In Command prompt / Terminal navigate to your application root folder and run:
 
 ```cli
-ns plugin add nativescript-ui-listview
+npm install nativescript-ui-listview
 ```
 
 ## Features

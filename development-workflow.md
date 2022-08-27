@@ -686,16 +686,12 @@ Also, make sure to look through the [NativeScript core modules](https://docs.nat
 
 #### Installing Plugins
 
-Once you’ve found the plugin you need, install the plugin into your app using the `ns plugin add` command.
-
-```cli
-ns plugin add <plugin-name>
-```
+Once you’ve found the plugin you need, install the plugin into your app.
 
 For example, the following command installs the [NativeScript camera plugin](plugins/camera).
 
 ```cli
-ns plugin add @nativescript/camera
+npm install @nativescript/camera
 ```
 
 Instead of using `plugin add`, you can use your package manager as well (npm, yarn, pnpm...):
@@ -708,7 +704,7 @@ The installation of a NativeScript plugin mimics the installation of an npm pack
 
 #### Installing Plugins as Developer Dependencies
 
-As shown above the command `ns plugin add @nativescript/camera` is actually doing `npm i @nativescript/camera --save` behind the scenes. If you need to install a **developer dependency** in your project (e.g., like **@nativescript/types** or **@nativescript/webpack**) then you will need to explicitly save it as a **devDependency**. To achieve that, use the `npm install` command with `--save-dev` flag. For example:
+If you need to install a **developer dependency** in your project (e.g., like **@nativescript/types** or **@nativescript/webpack**) then you will need to explicitly save it as a **devDependency**. To achieve that, use the `npm install` command with `--save-dev` flag. For example:
 
 ```cli
 npm i @nativescript/types --save-dev
@@ -910,7 +906,7 @@ Instead of editing the package.json file by hand, you could run the following co
 ```cli
 ns platform add ios@next
 ns platform add android@next
-ns plugin add @nativescript/core@next
+npm install @nativescript/core@next
 ```
 
 - Run the `npm install` command to update the node modules:

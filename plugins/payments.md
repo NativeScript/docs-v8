@@ -15,7 +15,7 @@ In-App Purchase and Subscriptions for NativeScript iOS and Android.
 ## Installation
 
 ```bash
-ns plugin add @nativescript/payments
+npm install @nativescript/payments
 ```
 
 ## What does this plugin do?

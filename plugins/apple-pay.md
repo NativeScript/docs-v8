@@ -11,7 +11,7 @@ link: https://raw.githubusercontent.com/NativeScript/payments/main/packages/appl
 # @nativescript/apple-pay
 
 ```javascript
-ns plugin add @nativescript/apple-pay
+npm install @nativescript/apple-pay
 ```
 
 ## Usage

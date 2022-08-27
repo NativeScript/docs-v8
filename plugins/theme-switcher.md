@@ -11,7 +11,7 @@ link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/theme
 # @nativescript/theme-switcher
 
 ```cli
-ns plugin add @nativescript/theme-switcher
+npm install @nativescript/theme-switcher
 ```
 
 <table style="width:auto;">
