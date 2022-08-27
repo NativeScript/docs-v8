@@ -306,7 +306,7 @@ export class HomeViewModel extends Observable {
   }
 
   populateFlicks(): void {
-    this._flicks = FlickService().getInstance().getFlicks()
+    this._flicks = FlickService.getInstance().getFlicks()
   }
 }
 ```
