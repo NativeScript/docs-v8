@@ -137,6 +137,11 @@ function getPlugins() {
 	const paymentsGithubUrl =
 		'https://github.com/NativeScript/payments/tree/main/packages'
 
+	const mlkitPlugins_baseUrl =
+		'https://raw.githubusercontent.com/NativeScript/mlkit/main/packages'
+	const mlkitGithubUrl =
+		'https://github.com/NativeScript/mlkit/tree/main/packages'
+
 	const firebasePlugins_baseUrl =
 		'https://raw.githubusercontent.com/NativeScript/firebase/main/packages'
 	const firebaseGithubUrl =
@@ -369,6 +374,65 @@ function getPlugins() {
 					link: '/plugins/payments',
 					readme: `${paymentsPlugins_baseUrl}/payments/README.md`,
 					repo: `${paymentsGithubUrl}/payments`,
+				},
+			],
+		},
+		{
+			category: 'ML Kit',
+			plugins: [
+				{
+					name: 'Core',
+					link: '/plugins/mlkit-core',
+					readme: `${mlkitPlugins_baseUrl}/mlkit-core/README.md`,
+					repo: `${mlkitGithubUrl}/mlkit-core`,
+				},
+				{
+					name: 'Barcode Scanning',
+					link: '/plugins/mlkit-barcode-scanning',
+					readme: `${mlkitPlugins_baseUrl}/mlkit-barcode-scanning/README.md`,
+					repo: `${mlkitGithubUrl}/mlkit-barcode-scanning`,
+				},
+				{
+					name: 'Digital Ink Recognition',
+					link: '/plugins/mlkit-digital-ink-recognition',
+					readme: `${mlkitPlugins_baseUrl}/mlkit-digital-ink-recognition/README.md`,
+					repo: `${mlkitGithubUrl}/mlkit-digital-ink-recognition`,
+				},
+				{
+					name: 'Face Detection',
+					link: '/plugins/mlkit-face-detection',
+					readme: `${mlkitPlugins_baseUrl}/mlkit-face-detection/README.md`,
+					repo: `${mlkitGithubUrl}/mlkit-face-detection`,
+				},
+				{
+					name: 'Image Labeling',
+					link: '/plugins/mlkit-image-labeling',
+					readme: `${mlkitPlugins_baseUrl}/mlkit-image-labeling/README.md`,
+					repo: `${mlkitGithubUrl}/mlkit-image-labeling`,
+				},
+				{
+					name: 'Object Detection',
+					link: '/plugins/mlkit-object-detection',
+					readme: `${mlkitPlugins_baseUrl}/mlkit-object-detection/README.md`,
+					repo: `${mlkitGithubUrl}/mlkit-object-detection`,
+				},
+				{
+					name: 'Pose Detection',
+					link: '/plugins/mlkit-pose-detection',
+					readme: `${mlkitPlugins_baseUrl}/mlkit-pose-detection/README.md`,
+					repo: `${mlkitGithubUrl}/mlkit-pose-detection`,
+				},
+				{
+					name: 'Selfie Segmentation',
+					link: '/plugins/mlkit-selfie-segmentation',
+					readme: `${mlkitPlugins_baseUrl}/mlkit-selfie-segmentation/README.md`,
+					repo: `${mlkitGithubUrl}/mlkit-selfie-segmentation`,
+				},
+				{
+					name: 'Text Recognition',
+					link: '/plugins/mlkit-text-recognition',
+					readme: `${mlkitPlugins_baseUrl}/mlkit-text-recognition/README.md`,
+					repo: `${mlkitGithubUrl}/mlkit-text-recognition`,
 				},
 			],
 		},
