@@ -13,7 +13,7 @@ link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/geolo
 Geolocation plugin to use for getting current location, monitor movement, etc.
 
 ```cli
-npm install @nativescript/geolocation
+ns plugin add @nativescript/geolocation
 ```
 
 > **Important Breaking Change**

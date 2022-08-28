@@ -13,7 +13,7 @@ link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/appav
 A plugin to check for availability of other apps on the device.
 
 ```cli
-npm install @nativescript/appavailability
+ns plugin add @nativescript/appavailability
 ```
 
 ## Usage

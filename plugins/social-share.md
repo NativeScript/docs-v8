@@ -11,7 +11,7 @@ link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/socia
 # @nativescript/social-share
 
 ```cli
-npm install @nativescript/social-share
+ns plugin add @nativescript/social-share
 ```
 
 ## Usage

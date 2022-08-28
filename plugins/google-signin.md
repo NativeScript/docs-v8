@@ -11,7 +11,7 @@ link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/googl
 # @nativescript/google-signin
 
 ```cli
-npm install @nativescript/google-signin
+ns plugin add @nativescript/google-signin
 ```
 
 ## Prerequisites

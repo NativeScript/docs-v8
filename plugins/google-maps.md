@@ -65,7 +65,7 @@ To use the Google Maps API, you must register your app in the [Google API Consol
 ## Installation
 
 ```cli
-npm install @nativescript/google-maps
+ns plugin add @nativescript/google-maps
 ```
 
 ## Config

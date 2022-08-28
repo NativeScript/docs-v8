@@ -21,7 +21,7 @@ link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/ios-s
 > - Common reverse engineering tools running on the device 🔭
 
 ```javascript
-npm install @nativescript/ios-security
+ns plugin add @nativescript/ios-security
 ```
 
 ## Usage

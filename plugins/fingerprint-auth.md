@@ -15,7 +15,7 @@ This plugin is replaced by [@nativescript/biometrics](../biometrics)
 # @nativescript/fingerprint-auth
 
 ```cli
-npm install @nativescript/fingerprint-auth
+ns plugin add @nativescript/fingerprint-auth
 ```
 
 Then open `App_Resources/Android/app.gradle` and look for `minSdkVersion`.

@@ -11,7 +11,7 @@ link: https://raw.githubusercontent.com/NativeScript/payments/main/packages/goog
 # @nativescript/google-pay
 
 ```shell
-npm install @nativescript/google-pay
+ns plugin add @nativescript/google-pay
 ```
 
 Before you get started, review the following prerequisites:

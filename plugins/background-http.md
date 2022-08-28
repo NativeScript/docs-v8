@@ -11,7 +11,7 @@ link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/backg
 # @nativescript/background-http
 
 ```cli
-npm install @nativescript/background-http
+ns plugin add @nativescript/background-http
 ```
 
 ## Usage
