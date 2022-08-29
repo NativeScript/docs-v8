@@ -29,7 +29,7 @@ This plugin depends on the default mail app. If you want a fallback to a third p
 :::
 
 ```cli
-ns plugin add @nativescript/email
+npm install @nativescript/email
 ```
 
 ## Usage

@@ -11,7 +11,7 @@ link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/faceb
 # @nativescript/facebook
 
 ```cli
-ns plugin add @nativescript/facebook
+npm install @nativescript/facebook
 ```
 
 ## Prerequisites

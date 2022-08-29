@@ -11,7 +11,7 @@ link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/twitt
 # @nativescript/twitter
 
 ```cli
-ns plugin add @nativescript/twitter
+npm install @nativescript/twitter
 ```
 
 ## Prerequisites

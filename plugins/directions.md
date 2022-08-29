@@ -11,7 +11,7 @@ link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/direc
 # @nativescript/directions
 
 ```cli
-ns plugin add @nativescript/directions
+npm install @nativescript/directions
 ```
 
 ## Usage

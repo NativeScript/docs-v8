@@ -11,7 +11,7 @@ link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/apple
 # @nativescript/apple-sign-in
 
 ```javascript
-ns plugin add @nativescript/apple-sign-in
+npm install @nativescript/apple-sign-in
 ```
 
 ## Requirements

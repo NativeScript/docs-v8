@@ -11,7 +11,7 @@ link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/brigh
 # @nativescript/brightness
 
 ```cli
-ns plugin add @nativescript/brightness
+npm install @nativescript/brightness
 ```
 
 This command automatically installs the necessary files, as well as stores @nativescript/brightness as a dependency in your project's `package.json` file.
