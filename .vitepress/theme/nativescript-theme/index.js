@@ -689,7 +689,6 @@ function H(e, t, n, r, o, i, a, c, u) {
 				g && (f.__E = f.__ = null),
 				(f.__e = !1)
 		} else t.__e = M(n.__e, t, n, r, o, i, a, u)
-
 		;(l = s.diffed) && l(t)
 	} catch (e) {
 		s.__e(e, t, n)
@@ -6694,7 +6693,7 @@ var _hoisted_1$a = /*#__PURE__*/ createVNode(
 			[
 				/*#__PURE__*/ createTextVNode("We're excited to announce "),
 				/*#__PURE__*/ createVNode('b', null, 'Preview 2.0'),
-				/*#__PURE__*/ createTextVNode(' is entering Public Beta!'),
+				/*#__PURE__*/ createTextVNode(' is now in Public Beta!'),
 			]
 		),
 		/*#__PURE__*/ createVNode(
@@ -9036,7 +9035,6 @@ var script = defineComponent({
 		})
 		watch(currentTab, function (next, prev) {
 			var _tabContainer$value, _tabContainer$value2
-
 			;(_tabContainer$value = tabContainer.value) === null ||
 			_tabContainer$value === void 0
 				? void 0
