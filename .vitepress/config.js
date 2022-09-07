@@ -275,6 +275,12 @@ function getPlugins() {
 					repo: `${officialGithubUrl}/google-signin`,
 				},
 				{
+					name: 'Haptics',
+					link: '/plugins/haptics',
+					readme: `${officialPlugins_baseUrl}/haptics/README.md`,
+					repo: `${officialGithubUrl}/haptics`,
+				},
+				{
 					name: 'Image Picker',
 					link: '/plugins/imagepicker',
 					readme: `${officialPlugins_baseUrl}/imagepicker/README.md`,
@@ -311,6 +317,12 @@ function getPlugins() {
 					repo: `${officialGithubUrl}/localize`,
 				},
 				{
+					name: 'PDF',
+					link: '/plugins/pdf',
+					readme: `${officialPlugins_baseUrl}/pdf/README.md`,
+					repo: `${officialGithubUrl}/pdf`,
+				},
+				{
 					name: 'Picker',
 					link: '/plugins/picker',
 					readme: `${officialPlugins_baseUrl}/picker/README.md`,
@@ -329,6 +341,12 @@ function getPlugins() {
 					repo: `${officialGithubUrl}/social-share`,
 				},
 				{
+					name: 'Tailwind CSS',
+					link: '/plugins/tailwindcss',
+					readme: `https://raw.githubusercontent.com/NativeScript/tailwind/main/README.md`,
+					repo: `https://github.com/NativeScript/tailwind`,
+				},
+				{
 					name: 'Theme Switcher',
 					link: '/plugins/theme-switcher',
 					readme: `${officialPlugins_baseUrl}/theme-switcher/README.md`,
@@ -345,12 +363,6 @@ function getPlugins() {
 					link: '/plugins/zip',
 					readme: `${officialPlugins_baseUrl}/zip/README.md`,
 					repo: `${officialGithubUrl}/zip`,
-				},
-				{
-					name: 'Tailwind CSS',
-					link: '/plugins/tailwindcss',
-					readme: `https://raw.githubusercontent.com/NativeScript/tailwind/main/README.md`,
-					repo: `https://github.com/NativeScript/tailwind`,
 				},
 			],
 		},
