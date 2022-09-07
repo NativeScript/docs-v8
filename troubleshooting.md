@@ -60,6 +60,44 @@ end
 
 Just match the target version you use in `build.xcconfig`.
 
+### Common Issue 3
+
+If you ever see a build issue like the following:
+
+```
+dyld: Symbol not found: __ZNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEE3strERKNS_12basic_stringIcS2_S4_EE
+  Referenced from: /path/to/app/platforms/ios/internal/metadata-generator-x86_64/bin/./objc-metadata-generator (which was built for Mac OS X 12.0)
+  Expected in: /usr/lib/libc++.1.dylib
+```
+
+This can happen when a lib uses a symbol accessible from a lower minimum target.
+
+**Solution**: Use `build.xcconfig` and your own `Podfile` to target a minimum version, for example:
+
+- In `build.xcconfig`, add this:
+
+```
+IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+```
+
+You can adjust lower or higher depending on needs.
+
+- If you don't have one already, you can add `App_Resources/iOS/Podfile` with the following:
+
+```
+platform :ios, '12.0'
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '12.0'
+    end
+  end
+end
+```
+
+Just match the target version you use in `build.xcconfig`. Be sure to `ns clean` each time you make adjustment before running again.
+
 ## iOS run on device
 
 If you see a message like the following when trying to run on a connected iOS device:
