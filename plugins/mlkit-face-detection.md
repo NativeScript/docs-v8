@@ -16,7 +16,7 @@ npm install @nativescript/mlkit-face-detection
 
 ## Usage
 
-See [@nativescript/mlkit-core](/packages/mlkit-core/README.md) Usage
+See [@nativescript/mlkit-core](/plugins/mlkit-core.html#usage) Usage
 
 ## License
 
