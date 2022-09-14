@@ -95,7 +95,7 @@ We will be setting up the home page as our default route when the app starts. We
 <!-- app/App.svelte -->
 
 <page>
-  <frame id="rootFrame" defaultPage="{Home}"></frame>
+  <Home />
 </page>
 
 <script>
