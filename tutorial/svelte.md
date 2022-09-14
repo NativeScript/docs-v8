@@ -94,9 +94,9 @@ We will be setting up the home page as our default route when the app starts. We
 ```html
 <!-- app/App.svelte -->
 
-<page>
+<frame>
   <Home />
-</page>
+</frame>
 
 <script>
   import Home from './pages/Home.svelte'
