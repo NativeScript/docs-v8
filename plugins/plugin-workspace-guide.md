@@ -148,6 +148,32 @@ Your plugin workspace will now be up to date regarding various configurations, s
 
 After running migrations you can always _delete_ the `migrations.json` file as it will no longer be used. A `migrations.json` file is always generated if migrations are available to run. After applied, you no longer need the file.
 
+### Migration 4.1.0 (Released Sept 17, 2022)
+
+- Migrates to Nx 14.7.5 and NativeScript 8.3.
+
+For any angular specific behavior you may encounter the following if you are extending `ListViewComponent`:
+
+```
+✖ Compiling with Angular sources in Ivy partial compilation mode.
+Error: packages/picker/angular/picker.directive.ts:60:40 - error TS2345: Argument of type 'NgZone' is not assignable to parameter of type 'ChangeDetectorRef'.
+  Type 'NgZone' is missing the following properties from type 'ChangeDetectorRef': markForCheck, detach, detectChanges, checkNoChanges, reattach
+
+     super(_elementRef, _iterableDiffers, zone);
+```
+
+This is related the `ListViewComponent` signature modified in latest:
+https://github.com/NativeScript/angular/blob/main/packages/angular/src/lib/cdk/list-view/list-view.component.ts#L133
+
+Can fix by modifying signature to the following:
+
+```
+export class PickerFieldComponent extends ListViewComponent implements AfterContentInit {
+	constructor(_elementRef: ElementRef, _iterableDiffers: IterableDiffers, _cdRef: ChangeDetectorRef) {
+		super(_elementRef, _iterableDiffers, _cdRef);
+	}
+```
+
 ### Migration 4.0.0 (Released July 3, 2022)
 
 - Migrates to Nx 14.4.0 and Angular 14 compatibility.
