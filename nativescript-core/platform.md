@@ -8,28 +8,9 @@ Use this module to access information about the current device such as screen re
 
 ## Usage
 
-```typescript
-import { Device, Screen, isAndroid, isIOS } from '@nativescript/core'
+The code in the following Stackblitz Editor is an example of how to use the `Platform` module. To try it out, download the `Nativescript Preview` app from Google Play or App Store. Once you have the app, scan the QR with your phone Camera and the app resulting from the code in the IDE will appear in the `Nativescript Preview` app.
 
-console.log(`Running on Android? ${isAndroid}`) // true if app is running on Android. False otherwise
-console.log(`Running on iOS? ${isIOS}`) // true if app is running on iOS. False otherwise
-
-console.log(`Device.model ${Device.model}`) // For example: "Nexus 5" or "iPhone".
-console.log(`Device.deviceType ${Device.deviceType}`) // "Phone" | "Tablet"
-console.log(`Device.os ${Device.os}`) // For example: "Android" or "iOS".
-console.log(`Device.osVersion ${Device.osVersion}`) // For example: 4.4.4(android), 8.1(ios)
-console.log(`Device.sdkVersion ${Device.sdkVersion}`) //  For example: 19(android), 8.1(ios).
-console.log(`Device.language ${Device.language}`) // For example "en" or "en-US".
-console.log(`Device.manufacturer ${Device.manufacturer}`) // For example: "Apple" or "HTC" or "Samsung".
-console.log(`Device.uuid ${Device.uuid}`) // The unique identification number
-console.log(`Device.region ${Device.region}`) //  For example "US".
-
-console.log(`Screen.mainScreen.heightDIPs ${Screen.mainScreen.heightDIPs}`) // The absolute height of the screen in density independent pixels.
-console.log(`Screen.mainScreen.heightPixels ${Screen.mainScreen.heightPixels}`) // The absolute height of the screen in pixels.
-console.log(`Screen.mainScreen.scale ${Screen.mainScreen.scale}`) // The logical density of the display.
-console.log(`Screen.mainScreen.widthDIPs ${Screen.mainScreen.widthDIPs}`) // The absolute width of the screen in density independent pixels.
-console.log(`Screen.mainScreen.widthPixels ${Screen.mainScreen.widthPixels}`) // The absolute width of the screen in pixel
-```
+<iframe width="100%" height="640px" src="https://stackblitz.com/edit/nativescript-stackblitz-templates-hvxmgc?embed=1&file=app/main-view-model.ts&hideExplorer=0"></iframe>
 
 ## Device class
 
