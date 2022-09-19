@@ -11,12 +11,20 @@ The Color class allows you to create custom colors that you can use to style the
 - `Color(argb: number)`
 - `Color(alpha: number, red: number, green:number, blue: number, type?: 'rgb' \| 'hsl' \| 'hsv')`
 
+## Usage
+
+The following StackBlitz editor + Preview shows several use cases of the `Color` class. To try it out, download the `Nativescript Preview` app on your phone from Google Play or App Store. Once you have downloaded the app, scan the QR with your phone Camera and the app resulting from the code in the IDE will appear in the `Nativescript Preview` app.
+
+<iframe width="100%" height="640px" src="https://stackblitz.com/edit/nativescript-stackblitz-templates-x2y7k6?embed=1&file=app/main-view-model.ts&hideExplorer=0"></iframe>
+
+You can use the Stackblitz + Preview to experiment with the rest of the `Color` class properties and methods.
+
 ### Properties
 
 | Name      | Type      | Description                                                                                                                                       |
 | --------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `a`       | `string`  | Gets the Alpha component (in the [0, 255] range) of thecolor. This is a read-only property.                                                       |
-| `r`       | `string`  | Gets the Red component (in the [0, 255] range) of the color. This is a read-only property.                                                        |
+| `r`       | `string`  | Gets the Red component z(in the [0, 255] range) of the color. This is a read-only property.                                                       |
 | `g`       | `string`  | Gets the Green component (in the [0, 255] range) of the color. This is a read-only property.                                                      |
 | `b`       | `string`  | Gets the Blue component (in the [0, 255] range) of the color. This is a read-only property.                                                       |
 | `argb`    | `number`  | Gets the Argb Number representation of this color where each 8 bits represent a single color component. This is a read-only property.             |
@@ -58,42 +66,6 @@ The Color class allows you to create custom colors that you can use to style the
 | `darken(amount:number)`                                     | `Color`                                          | Darkens the color a given amount, from `0` to `100`. Providing `100` will always return `black`.                                                           |
 | `spin(amount: number)`                                      | `Color`                                          | Spins the hue a given amount, from `-360` to `360`. Calling with `0`, `360`, or `-360` will do nothing (since it sets the hue back to what it was before). |
 | `complement()`                                              | `Color`                                          | Returns the color complement                                                                                                                               |
-
-## Usage
-
-```javascript
-import { Color } from '@nativescript/core'
-
-function createColor() {
-  // Using hex values to create color;
-  const colorHex = new Color('#FF00CC')
-  const colorShortHex = new Color('#F0C')
-
-  // Creates the color with 100 alpha, 255 red, 100 green, 100 blue
-  const colorARGB = new Color(100, 255, 100, 100)
-
-  // Creates the color with 100 alpha, 100 red, 100 green, 100 blue
-  const argb = (100 << 24) | (100 << 16) | (100 << 8) | 100 //eslint-disable-line no-bitwise
-  const colorSingleARGB = new Color(argb)
-}
-```
-
-```typescript
-import { Color } from '@nativescript/core'
-
-function createColor() {
-  // Using hex values to create color;
-  const colorHex = new Color('#FF00CC')
-  const colorShortHex = new Color('#F0C')
-
-  // Creates the color with 100 alpha, 255 red, 100 green, 100 blue
-  const colorARGB = new Color(100, 255, 100, 100)
-
-  // Creates the color with 100 alpha, 100 red, 100 green, 100 blue
-  const argb = (100 << 24) | (100 << 16) | (100 << 8) | 100
-  const colorSingleARGB = new Color(argb)
-}
-```
 
 ## Native Component
 
