@@ -15,7 +15,7 @@ Where:
 - `onError` is the callback to execute when a parser error occurs. The 'error' parameter contains the error.
 - `processNamespaces` specifies whether namespaces should be processed.
 
-Below is a StackBlitz IDE with an example of how to use the `XmlParser` class. In order to try it out and see the results of the code, you have to download the `Nativescript Preview` app from App Store and/or Google Play. Once you have the app on your phone, use the phone Camera to scan the QR code in the Preview tab.
+Below is a StackBlitz IDE with an example of how to use the `XmlParser` class. In order to try it out and see the results of the code, download the `Nativescript Preview` app from App Store and/or Google Play. Once you have the app on your phone, use the phone Camera to scan the QR code in the Preview tab.
 
 <iframe width="100%" height="600px" src="https://stackblitz.com/edit/nativescript-stackblitz-templates-54tppc?embed=1&file=app/main-view-model.ts"></iframe>
 
