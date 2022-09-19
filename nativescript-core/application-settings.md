@@ -4,17 +4,15 @@ title: ApplicationSettings
 
 # ApplicationSettings
 
-The ApplicationSettings class allows you to store key/value pairs of data on the device. For example, an app could store a user's auth state so that, the user does not have to re-login when she resumes the app,if she didn't log out when she left the app.
+The `ApplicationSettings` class allows you to store key/value pairs of data on the device. For example, an app could store a user's auth state so that, the user does not have to re-login when she resumes the app,if she didn't log out when she left the app.
 
-### Import
+## Usage
 
-```javascript
-import { ApplicationSettings } from '@nativescript/core'
-```
+The code in the following Stackblitz Editor is an example of how to use the `ApplicationSettings` class. To try it out, download the `Nativescript Preview` app on your phone from Google Play or App Store. Once you have downloaded the app, scan the QR with your phone Camera and the app resulting from the code in the IDE will appear in the `Nativescript Preview` app.
 
-```typescript
-import { ApplicationSettings } from '@nativescript/core'
-```
+<iframe  width="100%" height="600px" src="https://stackblitz.com/edit/nativescript-stackblitz-templates-zvs34v?embed=1&file=app/main-view-model.ts&hideExplorer=0"></iframe>
+
+You can use the Stackblitz + Preview to experiment with the rest of the code snippets in the post.
 
 ### Setters
 
