@@ -8,69 +8,9 @@ The connectivity module provides a common abstraction of the functionality respo
 
 ### Usage
 
-```typescript
-import { Connectivity } from '@nativescript/core'
+The following is a Stackblitz + Preview instance showing you how to you could use the `Connectivity` module. To try the example out, download the `Nativescript Preview` app from Google Play or App Store. Once you have the app, scan the QR with your phone Camera and the app resulting from the code in the IDE will appear in the `Nativescript Preview` app.
 
-export function onNavigatedTo(args) {
-  const page = args.object
-
-  // Get the current connection type
-  const type = Connectivity.getConnectionType()
-
-  switch (type) {
-    case Connectivity.connectionType.none:
-      console.log('No connection')
-      break
-    case Connectivity.connectionType.wifi:
-      console.log('WiFi connection')
-      break
-    case Connectivity.connectionType.vpn:
-      console.log('VPN connection')
-      break
-    case Connectivity.connectionType.mobile:
-      console.log('Mobile connection')
-      break
-    case Connectivity.connectionType.ethernet:
-      console.log('Ethernet connection')
-      break
-    case Connectivity.connectionType.bluetooth:
-      console.log('Bluetooth connection')
-      break
-    default:
-      break
-  }
-
-  // Starts monitoring the network for changes
-  Connectivity.startMonitoring(newConnectionType => {
-    switch (newConnectionType) {
-      case Connectivity.connectionType.none:
-        console.log('Connection type changed to none.')
-        break
-      case Connectivity.connectionType.wifi:
-        console.log('Connection type changed to WiFi.')
-        break
-      case Connectivity.connectionType.vpn:
-        console.log('Connection type changed to VPN.')
-        break
-      case Connectivity.connectionType.mobile:
-        console.log('Connection type changed to mobile.')
-        break
-      case Connectivity.connectionType.ethernet:
-        console.log('Connection type changed to ethernet.')
-        break
-      case Connectivity.connectionType.bluetooth:
-        console.log('Connection type changed to bluetooth.')
-        break
-      default:
-        break
-    }
-  })
-
-  // Stops monitoring the connection
-  Connectivity.stopMonitoring()
-}
-```
-
+<iframe width="100%" height="640px" src="https://stackblitz.com/edit/nativescript-stackblitz-templates-1xb9ys?embed=1&file=app/main-view-model.ts&hideExplorer=0"></iframe>
 ### Methods
 
 | Name                                                       | Type     | Description                                                                                                                                                                                                                                                 |
