@@ -6,15 +6,15 @@ npm i
 npm start
 ```
 
-
 ## Important Note about Plugin Docs
 
 Plugins docs are automatically synced every night via cron job with various plugin workspace repos, for example:
-* https://github.com/NativeScript/firebase
-* https://github.com/NativeScript/plugins
-* https://github.com/NativeScript/payments
 
-Each plugin workspace can manage it's own README's for documentation and this main central docs will keep itself in sync with them every night.
+- https://github.com/NativeScript/firebase
+- https://github.com/NativeScript/plugins
+- https://github.com/NativeScript/payments
+
+Each plugin workspace can manage it's own set of README's for documentation. This docs repo will keep itself in sync with them every night.
 If you are wanting to modify any plugin documentation, you can do via their plugin workspaces as listed above.
 
 ## Outline
