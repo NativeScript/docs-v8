@@ -223,7 +223,7 @@ export class FlickService {
       id: 1,
       genre: 'Musical',
       title: 'Book of Mormon',
-      image: '~/assets/bookofmormon.png',
+      image: '~/app/assets/bookofmormon.png',
       url: 'https://nativescript.org/images/ngconf/book-of-mormon.mov',
       description: `A satirical examination of the beliefs and practices of The Church of Jesus Christ of Latter-day Saints.`,
       details: [
@@ -253,7 +253,7 @@ export class FlickService {
       id: 2,
       genre: 'Musical',
       title: 'Beetlejuice',
-      image: '~/assets/beetlejuicemusical.png',
+      image: '~/app/assets/beetlejuicemusical.png',
       url: 'https://nativescript.org/images/ngconf/beetlejuice.mov',
       description: `A deceased couple looks for help from a devious bio-exorcist to handle their haunted house.`,
       details: [
@@ -283,7 +283,7 @@ export class FlickService {
       id: 3,
       genre: 'Musical',
       title: 'Anastasia',
-      image: '~/assets/anastasia.png',
+      image: '~/app/assets/anastasia.png',
       url: 'https://nativescript.org/images/ngconf/anastasia.mov',
       description: `The legend of Grand Duchess Anastasia Nikolaevna of Russia.`,
       details: [
@@ -317,7 +317,7 @@ export class FlickService {
 }
 ```
 
-Add a `/src/assets/` directory to your project, and copy the 3 static images over from the sample project [here](https://github.com/NativeScript/tutorials/tree/main/angular-tutorial/src/assets).
+Add a `/src/app/assets/` directory to your project, and copy the 3 static images over from the sample project [here](https://github.com/NativeScript/tutorials/tree/main/angular-tutorial/src/assets).
 
 :::tip Note
 You can create barrel exports for your models and services to give you more flexibility in organizing your files and folders. To do this, create an `index.ts` in your `services` and `models` directory and export `flick.service.ts` and `flick.model.ts` respectively. You can also add another `index.ts` in your `core` folder and export your `services` and `models` directory.
