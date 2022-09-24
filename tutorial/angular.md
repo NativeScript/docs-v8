@@ -482,7 +482,7 @@ Let's start with creating the files for our details feature with the following c
 <!-- src/app/features/details/details.component.html -->
 ```
 
-<!-- tab:home.component.ts -->
+<!-- tab:details.component.ts -->
 
 ```typescript
 // src/app/features/details/details.component.ts
