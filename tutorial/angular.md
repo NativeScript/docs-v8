@@ -223,7 +223,7 @@ export class FlickService {
       id: 1,
       genre: 'Musical',
       title: 'Book of Mormon',
-      image: '~/assets/bookofmormon.png',
+      image: '~/app/assets/bookofmormon.png',
       url: 'https://nativescript.org/images/ngconf/book-of-mormon.mov',
       description: `A satirical examination of the beliefs and practices of The Church of Jesus Christ of Latter-day Saints.`,
       details: [
@@ -237,13 +237,11 @@ export class FlickService {
         },
         {
           title: 'Revenue',
-          body:
-            'Grossed over $500 million, making it one of the most successful musicals of all time.'
+          body: 'Grossed over $500 million, making it one of the most successful musicals of all time.'
         },
         {
           title: 'History',
-          body:
-            'The Book of Mormon was conceived by Trey Parker, Matt Stone, and Robert Lopez. Parker and Stone grew up in Colorado and were familiar with The Church of Jesus Christ of Latter-day Saints and its members. They became friends at the University of Colorado Boulder and collaborated on a musical film, Cannibal! The Musical (1993), their first experience with movie musicals. In 1997, they created the TV series South Park for Comedy Central and in 1999, the musical film South Park: Bigger, Longer & Uncut. The two had first thought of a fictionalized Joseph Smith, religious leader and founder of the Latter Day Saint movement while working on an aborted Fox series about historical characters. Their 1997 film, Orgazmo, and a 2003 episode of South Park, "All About Mormons", both gave comic treatment to Mormonism. Smith was also included as one of South Park\'s "Super Best Friends", a Justice League parody team of religious figures like Jesus and Buddha.'
+          body: 'The Book of Mormon was conceived by Trey Parker, Matt Stone, and Robert Lopez. Parker and Stone grew up in Colorado and were familiar with The Church of Jesus Christ of Latter-day Saints and its members. They became friends at the University of Colorado Boulder and collaborated on a musical film, Cannibal! The Musical (1993), their first experience with movie musicals. In 1997, they created the TV series South Park for Comedy Central and in 1999, the musical film South Park: Bigger, Longer & Uncut. The two had first thought of a fictionalized Joseph Smith, religious leader and founder of the Latter Day Saint movement while working on an aborted Fox series about historical characters. Their 1997 film, Orgazmo, and a 2003 episode of South Park, "All About Mormons", both gave comic treatment to Mormonism. Smith was also included as one of South Park\'s "Super Best Friends", a Justice League parody team of religious figures like Jesus and Buddha.'
         },
         {
           title: 'Development',
@@ -255,7 +253,7 @@ export class FlickService {
       id: 2,
       genre: 'Musical',
       title: 'Beetlejuice',
-      image: '~/assets/beetlejuicemusical.png',
+      image: '~/app/assets/beetlejuicemusical.png',
       url: 'https://nativescript.org/images/ngconf/beetlejuice.mov',
       description: `A deceased couple looks for help from a devious bio-exorcist to handle their haunted house.`,
       details: [
@@ -285,7 +283,7 @@ export class FlickService {
       id: 3,
       genre: 'Musical',
       title: 'Anastasia',
-      image: '~/assets/anastasia.png',
+      image: '~/app/assets/anastasia.png',
       url: 'https://nativescript.org/images/ngconf/anastasia.mov',
       description: `The legend of Grand Duchess Anastasia Nikolaevna of Russia.`,
       details: [
@@ -319,7 +317,7 @@ export class FlickService {
 }
 ```
 
-Add a `/src/assets/` directory to your project, and copy the 3 static images over from the sample project [here](https://github.com/NativeScript/tutorials/tree/main/angular-tutorial/src/assets).
+Add a `/src/app/assets/` directory to your project, and copy the 3 static images over from the sample project [here](https://github.com/NativeScript/tutorials/tree/main/angular-tutorial/src/assets).
 
 :::tip Note
 You can create barrel exports for your models and services to give you more flexibility in organizing your files and folders. To do this, create an `index.ts` in your `services` and `models` directory and export `flick.service.ts` and `flick.model.ts` respectively. You can also add another `index.ts` in your `core` folder and export your `services` and `models` directory.
@@ -384,41 +382,37 @@ Next, open your `home.component.html` and add the `ListView` component:
 
 ### Create flick cards
 
-Before we dive into creating the card below, let's create some classes for our background and text colors that we will be using in the application. As this will be shared throughout the application, let's add this to the `app.scss`. Open `app.scss` and add the following:
+Before we dive into creating the card below, let's create some classes for our background and text colors that we will be using in the application. As this will be shared throughout the application, let's add this to the `app.css`. Open `app.css` and add the following:
 
-```scss
-// src/app.scss
+```css
+/* src/app.css */
 
-// applied when device is in light mode
-.ns-light {
-  .bg-primary {
-    background-color: #fdfdfd;
-  }
-  .bg-secondary {
-    background-color: #ffffff;
-  }
-  .text-primary {
-    color: #444;
-  }
-  .text-secondary {
-    color: #777;
-  }
+/* applied when device is in light mode */
+.ns-light .bg-primary {
+  background-color: #fdfdfd;
+}
+.ns-light .bg-secondary {
+  background-color: #ffffff;
+}
+.ns-light .text-primary {
+  color: #444;
+}
+.ns-light .text-secondary {
+  color: #777;
 }
 
-// applied when device is in dark mode
-.ns-dark {
-  .bg-primary {
-    background-color: #212121;
-  }
-  .bg-secondary {
-    background-color: #383838;
-  }
-  .text-primary {
-    color: #eee;
-  }
-  .text-secondary {
-    color: #ccc;
-  }
+/* applied when device is in dark mode */
+.ns-dark .bg-primary {
+  background-color: #212121;
+}
+.ns-dark .bg-secondary {
+  background-color: #383838;
+}
+.ns-dark .text-primary {
+  color: #eee;
+}
+.ns-dark .text-secondary {
+  color: #ccc;
 }
 ```
 
@@ -482,7 +476,7 @@ Let's start with creating the files for our details feature with the following c
 <!-- src/app/features/details/details.component.html -->
 ```
 
-<!-- tab:home.component.ts -->
+<!-- tab:details.component.ts -->
 
 ```typescript
 // src/app/features/details/details.component.ts
@@ -575,13 +569,14 @@ export class AppRoutingModule {}
 
 Now that we have the routes already set up, we can use NativeScript Angular's `RouterExtensions` to perform the navigation. The `RouterExtensions` class provides methods for imperative navigation, similar to how you would navigate with the Angular `Router` and `Location` classes. To use the class simply inject it in your component constructor and call it's `navigate` function. Open `home.component.ts` and add the following:
 
-```typescript{7,21,25-27}
+```typescript{7-8,22,26-28}
 // src/app/features/home/home.component.ts
 
 import { Component } from '@angular/core'
 import { FlickService } from '~/app/core'
 
 // Add this 👇
+import { ItemEventData } from '@nativescript/core'
 import { RouterExtensions } from '@nativescript/angular'
 
 @Component({
