@@ -382,41 +382,37 @@ Next, open your `home.component.html` and add the `ListView` component:
 
 ### Create flick cards
 
-Before we dive into creating the card below, let's create some classes for our background and text colors that we will be using in the application. As this will be shared throughout the application, let's add this to the `app.scss`. Open `app.scss` and add the following:
+Before we dive into creating the card below, let's create some classes for our background and text colors that we will be using in the application. As this will be shared throughout the application, let's add this to the `app.css`. Open `app.css` and add the following:
 
-```scss
-// src/app.scss
+```css
+/* src/app.css */
 
-// applied when device is in light mode
-.ns-light {
-  .bg-primary {
-    background-color: #fdfdfd;
-  }
-  .bg-secondary {
-    background-color: #ffffff;
-  }
-  .text-primary {
-    color: #444;
-  }
-  .text-secondary {
-    color: #777;
-  }
+/* applied when device is in light mode */
+.ns-light .bg-primary {
+  background-color: #fdfdfd;
+}
+.ns-light .bg-secondary {
+  background-color: #ffffff;
+}
+.ns-light .text-primary {
+  color: #444;
+}
+.ns-light .text-secondary {
+  color: #777;
 }
 
-// applied when device is in dark mode
-.ns-dark {
-  .bg-primary {
-    background-color: #212121;
-  }
-  .bg-secondary {
-    background-color: #383838;
-  }
-  .text-primary {
-    color: #eee;
-  }
-  .text-secondary {
-    color: #ccc;
-  }
+/* applied when device is in dark mode */
+.ns-dark .bg-primary {
+  background-color: #212121;
+}
+.ns-dark .bg-secondary {
+  background-color: #383838;
+}
+.ns-dark .text-primary {
+  color: #eee;
+}
+.ns-dark .text-secondary {
+  color: #ccc;
 }
 ```
 
