@@ -1740,6 +1740,9 @@ select {
 		var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate)
 		var(--tw-sepia) var(--tw-drop-shadow);
 }
+.blur {
+	--tw-blur: blur(8px);
+}
 .transition-colors {
 	transition-property: background-color, border-color, color, fill, stroke;
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);

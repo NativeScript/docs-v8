@@ -94,7 +94,7 @@ var config = {
 			text: 'Preview',
 			link: 'https://preview.nativescript.org/',
 			target: 'blank',
-			description: 'Preview NativeScript projects on StackBlitz or locally.',
+			description: 'Preview NativeScript projects with StackBlitz or locally.',
 		},
 		{
 			text: 'Governance',
@@ -689,6 +689,7 @@ function H(e, t, n, r, o, i, a, c, u) {
 				g && (f.__E = f.__ = null),
 				(f.__e = !1)
 		} else t.__e = M(n.__e, t, n, r, o, i, a, u)
+
 		;(l = s.diffed) && l(t)
 	} catch (e) {
 		s.__e(e, t, n)
@@ -6691,7 +6692,6 @@ var _hoisted_1$a = /*#__PURE__*/ createVNode(
 				class: 'text-sm font-medium text-gray-800',
 			},
 			[
-				/*#__PURE__*/ createTextVNode("We're excited to announce "),
 				/*#__PURE__*/ createVNode('b', null, 'Preview 2.0'),
 				/*#__PURE__*/ createTextVNode(' is now in Public Beta!'),
 			]
@@ -7303,6 +7303,11 @@ function render$9(_ctx, _cache, $props, $setup, $data, $options) {
 																			'a',
 																			{
 																				key: index,
+																				onClick:
+																					_cache[5] ||
+																					(_cache[5] = function ($event) {
+																						return (_ctx.mobileMenuOpen = false)
+																					}),
 																				href: navItem.link,
 																				target: navItem.target,
 																				class:
@@ -7329,6 +7334,11 @@ function render$9(_ctx, _cache, $props, $setup, $data, $options) {
 																				'a',
 																				{
 																					key: index,
+																					onClick:
+																						_cache[6] ||
+																						(_cache[6] = function ($event) {
+																							return (_ctx.mobileMenuOpen = false)
+																						}),
 																					href: navItem.link,
 																					target: navItem.target,
 																					class:
@@ -7350,8 +7360,8 @@ function render$9(_ctx, _cache, $props, $setup, $data, $options) {
 																	'div',
 																	{
 																		onClickCapture:
-																			_cache[5] ||
-																			(_cache[5] = function () {
+																			_cache[7] ||
+																			(_cache[7] = function () {
 																				return (
 																					_ctx.openSearch &&
 																					_ctx.openSearch.apply(_ctx, arguments)
@@ -8172,7 +8182,20 @@ var script$6 = defineComponent({
 			route: route,
 			isSelected: isSelected,
 			onChange: function onChange(event) {
-				router.go(event.target.value)
+				var selectElement = event.target
+				selectElement === null || selectElement === void 0
+					? void 0
+					: selectElement.blur()
+
+				try {
+					router.go(
+						selectElement === null || selectElement === void 0
+							? void 0
+							: selectElement.value
+					)
+				} catch (err) {
+					// ignore?
+				}
 			},
 		}
 	},
@@ -9035,6 +9058,7 @@ var script = defineComponent({
 		})
 		watch(currentTab, function (next, prev) {
 			var _tabContainer$value, _tabContainer$value2
+
 			;(_tabContainer$value = tabContainer.value) === null ||
 			_tabContainer$value === void 0
 				? void 0
