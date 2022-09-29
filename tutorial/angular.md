@@ -372,7 +372,7 @@ Next, open your `home.component.html` and add the `ListView` component:
 <ListView height="100%" separatorColor="transparent" [items]="flicks">
   <ng-template let-item="item">
     <StackLayout>
-      <label [text]="item.title"></label>
+      <Label [text]="item.title"></Label>
     </StackLayout>
   </ng-template>
 </ListView>
@@ -438,23 +438,23 @@ As you can see in the image above, each card is made up of 3 components, the pre
       margin="5 10"
       padding="0"
     >
-      <image row="0" margin="0" stretch="aspectFill" [src]="item.image"></image>
-      <label
+      <Image row="0" margin="0" stretch="aspectFill" [src]="item.image"></Image>
+      <Label
         row="1"
         margin="10 10 0 10"
         fontWeight="700"
         class="text-primary"
         fontSize="18"
         [text]="item.title"
-      ></label>
-      <label
+      ></Label>
+      <Label
         row="2"
         margin="0 10 10 10"
         class="text-secondary"
         fontSize="14"
         textWrap="true"
         [text]="item.description"
-      ></label>
+      ></Label>
     </GridLayout>
   </ng-template>
 </ListView>
@@ -626,23 +626,23 @@ Next, let's add the tap event to the listview items. Open `home.component.html` 
       margin="5 10"
       padding="0"
     >
-      <image row="0" margin="0" stretch="aspectFill" [src]="item.image"></image>
-      <label
+      <Image row="0" margin="0" stretch="aspectFill" [src]="item.image"></Image>
+      <Label
         row="1"
         margin="10 10 0 10"
         fontWeight="700"
         class="text-primary"
         fontSize="18"
         [text]="item.title"
-      ></label>
-      <label
+      ></Label>
+      <Label
         row="2"
         margin="0 10 10 10"
         class="text-secondary"
         fontSize="14"
         textWrap="true"
         [text]="item.description"
-      ></label>
+      ></Label>
     </GridLayout>
   </ng-template>
 </ListView>
