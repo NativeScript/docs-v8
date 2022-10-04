@@ -236,16 +236,21 @@ If the binary is not found run `gem env` to examine your folders, and update you
 
 :::warning Important note about macOS 12.3+
 
+**Installing Python**
+
 Starting with macOS 12.3, python 2.x is no longer shipped with the system and the python3 executable isn't aliased to `python`, you will need to do that manually.
 
 If you are on macOS 12.3 or newer, please follow these instructions.
 
-:warning: **Note**: Python 3 is fully supported by the NativeScript components that rely on it, however changing our scripts to use the `python3` executable name by default is a minor breaking change we're aiming to introduce in NativeScript 8.3. Until then, this workaround is required to get running.
-
 ```cli
-# link and alias the installed python3
-# version to be available to XCode as python
-sudo ln -s $(which python3) /usr/local/bin/python
+# install python3 from Homebrew
+brew install python
+# create /usr/local/bin directory if it doesn’t exist
+sudo mkdir -p /usr/local/bin
+# link python -> /opt/homebrew/bin/python3
+sudo ln -s -f /opt/homebrew/bin/python3 /usr/local/bin/python
+# verify, should print 3.x
+python --version
 ```
 
 Next, update **<abbr title="Python package manager">pip</abbr>** and install **<abbr title="Python 2 & 3 compatibility package used by NativeScript">six</abbr>** by running the following:
