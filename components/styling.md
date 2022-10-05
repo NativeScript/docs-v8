@@ -1,6 +1,6 @@
 ## CSS
 
-You change the looks and appearance of views (elements) in a NativeScript application similarly to how you do it in a web application using Cascading Style Sheets (CSS) or changing the style object of the elements in JavaScript. Only a subset of the CSS language is supported.
+By default, NativeScript provides you with a theme(@nativescript/theme) that allows to change the looks and appearance of views (elements) in a NativeScript application similarly to how you do it in a web application using Cascading Style Sheets (CSS). However, only a subset of the CSS language is supported. For a full CSS support, you can use [@nativescript/tailwind](/plugins/tailwindcss.md). In addition to CSS, you can also style the elements by changing their style object in JavaScript.
 
 Similarly to the DOM Style Object, each View instance exposes a style property, which holds all the style properties for the view. When the view is displayed, all its style properties are applied to the underlying native widget.
 
