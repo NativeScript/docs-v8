@@ -703,25 +703,25 @@ The details page can be divided into three main parts, the action bar with the f
 <ScrollView height="100%">
   <StackLayout>
     <!-- hero image -->
-    <image margin="0" stretch="aspectFill" [src]="flick?.image"></image>
+    <Image margin="0" stretch="aspectFill" [src]="flick?.image"></Image>
 
     <!-- main content -->
     <StackLayout padding="10 20">
       <ng-container *ngFor="let detail of flick?.details">
-        <label
+        <Label
           marginTop="15"
           fontSize="16"
           fontWeight="700"
           class="text-primary"
           textWrap="true"
           [text]="detail.title"
-        ></label>
-        <label
+        ></Label>
+        <Label
           fontSize="14"
           class="text-secondary"
           textWrap="true"
           [text]="detail.body"
-        ></label>
+        ></Label>
       </ng-container>
     </StackLayout>
   </StackLayout>
