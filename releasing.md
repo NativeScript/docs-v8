@@ -56,7 +56,7 @@ In the `app/App_Resources/Android/AndroidManifest.xml` it will use a placeholder
 
 :::tip Note
 
-To edit the _Package Name_ and the _Application Id_, modify the `package.json` of your app and set the `nativescript.id` key.
+To edit the _Package Name_ and the _Application Id_, modify the `nativescript.config.ts` of your app and set the `id` key.
 You may need to delete `platforms/android` and rebuild using the CLI command `ns prepare android`.
 
 :::
@@ -537,11 +537,11 @@ You can publish a NativeScript app in the _App Store_ the same way you would [re
 
 The _Bundle ID_ is a unique identifier, provided by you for your app. It uses reverse domain name notation. For example, the NativeScript CLI will use `org.nativescript.<AppName>` as default. During `ns create` you can provide the _Bundle ID_ using the `--appid <id>` option.
 
-In iOS apps, the _Bundle ID_ is stored in the `CFBundleIdentifier` in the `Info.plist`, but the NativeScript CLI will explicitly set this to the value of the `nativescript.id` key stored in the `package.json` file in the root of your application.
+In iOS apps, the _Bundle ID_ is stored in the `CFBundleIdentifier` in the `Info.plist`, but the NativeScript CLI will explicitly set this to the value of the `id` key stored in the `nativescript.config.ts` file in the root of your application.
 
 :::tip Note
 
-To edit the _Bundle ID_, edit the `package.json` of your app and set the `nativescript.id` key.
+To edit the _Bundle ID_, edit the `nativescript.config.ts` of your app and set the `id` key.
 
 :::
 
