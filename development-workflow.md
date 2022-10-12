@@ -276,7 +276,7 @@ Visit the official sites for details on how to install and use these emulators.
 
 The iOS simulator emulates iOS devices on Macs. The following documentation is a quick way to get the iOS simulator set up. For more information, see [Apple's documentation](https://developer.apple.com/library/archive/documentation/IDEs/Conceptual/simulator_help_topics/Chapter/Chapter.html).
 
-#### Running on iOS Simualators
+#### Running on iOS Simulators
 
 On a mac if you have XCode installed with the proper tools, executing `ns run ios` from your terminal will launch the Simulator program with a default device. Alternatively, you can open the Simulator program on your mac, select which device(s) you want to open by navigating to `File -> Open Simulator` and choosing the device to launch. Then execute `ns run ios` and the NativeScript app will launch on the open simulator(s).
 
@@ -752,7 +752,7 @@ A package manager is a piece of software that lets you manage the external code,
 
 #### Supported package managers
 
-NativeScript CLI allows you to configure the package manager used when working with dependencies. When you change the defaultly used `npm` package manager, CLI will use the newly set package manager for all operations it executes related to project dependencies, for example, project creation, managing dependencies, etc.
+NativeScript CLI allows you to configure the package manager used when working with dependencies. When you change the default `npm` package manager, CLI will use the newly set package manager for all operations it executes related to project dependencies, for example, project creation, managing dependencies, etc.
 
 NativeScript CLI supports three package managers:
 
@@ -1035,6 +1035,6 @@ If you’re a WebStorm user, check out this [popular community-written plugin](h
 - [Code Samples](https://market.nativescript.org/?tab=samples&framework=all_frameworks&category=all_samples)
   - The NativeScript team provides a collection of high-quality code samples you can add to your applications. Perusing the code samples is a great way to get familiar with what NativeScript can do, as well as find the code you can use on your next app.
 - [Books and Videos](https://www.nativescript.org/books-and-videos)
-  - Browse our collection of NativeScript books and videos, including the free-to-download NativeScript book by Nick and Mike Brainstein.
+  - Browse our collection of NativeScript books and videos, including the free-to-download NativeScript book by Nick and Mike Branstein.
 - [NativeScripting](https://nativescripting.com/)
   - The third-party NativeScripting site has many video courses to teach you everything you need to know about NativeScript, including a collection of free courses to help you get started.
