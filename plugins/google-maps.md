@@ -36,6 +36,7 @@ NativeScript binding for the Google Maps Android & iOS API.
   - [Native Map Object](#native-map-object)
   - [Camera Position](#camera-position)
     - [Controlling the camera](#controlling-the-camera)
+  - [Projection](#projection)
   - [UI Settings](#ui-settings)
   - [Map Type](#map-type)
   - [Map Styles](#map-styles)
@@ -191,32 +192,32 @@ The following properties are available for adjusting the camera view on initiali
 
 The following events are available:
 
-| Event                 | Description                                                                                    |
-| :-------------------- | :--------------------------------------------------------------------------------------------- |
-| `ready`               | Fires when the MapView is ready for use see [GoogleMap](#google-map)                           |
-| `mapTap`              | Fires when a coordinate is tapped on the map                                                   |
-| `mapLongPress`        | Fires when a coordinate is long-pressed on the map                                             |
-| `markerTap`           | Fires when a marker is tapped                                                                  |
-| `myLocationTap`       | Fires when 'My Location' is tapped                                                             |
-| `myLocationButtonTap` | Fires when the 'My Location' button is tapped                                                  |
-| `markerDragStart`     | Fires when a marker begins dragging                                                            |
-| `markerDragging`      | Fires while a marker is being dragged                                                          |
-| `markerDragEnd`       | Fires when a marker ends dragging                                                              |
-| `tileRenderingStart`  | Fires when tile rendering begins                                                               |
-| `tileRenderingEnd`    | Fires when tile rendering ends                                                                 |
-| `cameraPosition`      | Fires when the map viewport state changes, camera states include `idle` \| `start` \| `moving` |
-| `circle`              | Fires when a circle is tapped                                                                  |
-| `polygon`             | Fires when a polygon is tapped                                                                 |
-| `polyline`            | Fires when a polyline is tapped                                                                |
-| `poi`                 | Fires when a POI is tapped                                                                     |
-| `groundOverlay`       | Fires when a ground overlay is tapped                                                          |
-| `infoWindowTap`       | Fires when a marker's info window is tapped                                                    |
-| `infoWindowLongPress` | Fires when a marker's info window is long-pressed                                              |
-| `infoWindowClose`     | Fires when a marker's info window is closed                                                    |
-| `markerInfoContents`  |
-| `markerInfoWindow`    |
-| `activeBuilding`      | Fires when a building is focused on                                                            |
-| `activeLevel`         | Fires when the level of the focused building changes                                           |
+| Event                 | Description                                                                                                                                         |
+| :-------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ready`               | Fires when the MapView is ready for use see [GoogleMap](#google-map)                                                                                |
+| `mapTap`              | Fires when a coordinate is tapped on the map                                                                                                        |
+| `mapLongPress`        | Fires when a coordinate is long-pressed on the map                                                                                                  |
+| `markerTap`           | Fires when a marker is tapped                                                                                                                       |
+| `myLocationTap`       | Fires when 'My Location' is tapped                                                                                                                  |
+| `myLocationButtonTap` | Fires when the 'My Location' button is tapped                                                                                                       |
+| `markerDragStart`     | Fires when a marker begins dragging                                                                                                                 |
+| `markerDragging`      | Fires while a marker is being dragged                                                                                                               |
+| `markerDragEnd`       | Fires when a marker ends dragging                                                                                                                   |
+| `tileRenderingStart`  | Fires when tile rendering begins                                                                                                                    |
+| `tileRenderingEnd`    | Fires when tile rendering ends                                                                                                                      |
+| `cameraPosition`      | Fires when the map viewport state changes, camera states include `idle` \| `start` \| `moving`                                                      |
+| `circle`              | Fires when a circle is tapped                                                                                                                       |
+| `polygon`             | Fires when a polygon is tapped                                                                                                                      |
+| `polyline`            | Fires when a polyline is tapped                                                                                                                     |
+| `poi`                 | Fires when a POI is tapped                                                                                                                          |
+| `groundOverlay`       | Fires when a ground overlay is tapped                                                                                                               |
+| `infoWindowTap`       | Fires when a marker's info window is tapped                                                                                                         |
+| `infoWindowLongPress` | Fires when a marker's info window is long-pressed                                                                                                   |
+| `infoWindowClose`     | Fires when a marker's info window is closed                                                                                                         |
+| `markerInfoContents`  | If this method returns a view, it will be placed within the default info window frame.                                                              |
+| `markerInfoWindow`    | Called when a marker is about to become selected, and provides an optional custom info window to use for that marker if this method returns a view. |
+| `activeBuilding`      | Fires when a building is focused on                                                                                                                 |
+| `activeLevel`         | Fires when the level of the focused building changes                                                                                                |
 
 # Google Map
 
@@ -236,37 +237,37 @@ function onReady(event: MapReadyEvent) {
 
 | Property            | Type           | Description                                 |
 | :------------------ | :------------- | :------------------------------------------ |
-| `mapStyle`          | Style[]        | See [Map Styles](#map-styles)               |
-| `mapType`           | MapType        | See [Map Type](#map-type)                   |
 | `buildingsEnabled`  | boolean        | Enables Buildings                           |
 | `maxZoomLevel`      | number         | Maximum level of zoom                       |
 | `minZoomLevel`      | number         | Minimum level of zoom                       |
 | `myLocationEnabled` | boolean        | Enables "My Location"                       |
 | `trafficEnabled`    | boolean        | Enables traffic                             |
-| `uiSettings`        | IUISettings    | See [UI Settings](#ui-settings)             |
 | `cameraPosition`    | CameraPosition | See [Camera Position](#camera-position)     |
 | `projection`        | Projection     | See [Projection](#projection)               |
+| `uiSettings`        | IUISettings    | See [UI Settings](#ui-settings)             |
+| `mapStyle`          | Style[]        | See [Map Styles](#map-styles)               |
+| `mapType`           | MapType        | See [Map Type](#map-type)                   |
 | `native`            | any            | See [Native Map Object](#native-map-object) |
 
 ### Functions
 
-| Func                                                                                                   | Description                                                    |
-| :----------------------------------------------------------------------------------------------------- | :------------------------------------------------------------- |
-| [addMarker](#adding-markers)(marker: [MarkerOptions](#marker-options)): [Marker](#markers)             | Adds a [marker](#markers) to the map                           |
-| [removeMarker](#removing-markers)(marker: [Marker](#markers))                                          | Removes a marker from the map                                  |
-| addTileOverlay(options: TileOverlayOptions): TileOverlay                                               | Adds a tile overlay to the map                                 |
-| removeTileOverlay(overlay: TileOverlay)                                                                | Removes a tile overlay from the map                            |
-| [addCircle](#adding-circles)(circle: [CircleOptions](#circle-options)): [Circle](#circle)              | Adds a circle to the map                                       |
-| [removeCircle](#removing-circles)(circle: [Circle](#circle))                                           | Removes a circle from the map                                  |
-| addGroundOverlay(options: GroundOverlayOptions): GroundOverlay                                         | Adds a ground overlay to the map                               |
-| removeGroundOverlay(groundOverlay: GroundOverlay)                                                      | Removes a ground overlay from the map                          |
-| [addPolygon](#adding-polygons)(options: [PolygonOptions](#polygon-options)): [Polygon](#polygons)      | Adds a polygon to the map                                      |
-| [removePolygon](#removing-polygons)(polygon: [Polygon](#polygons))                                     | Removes a polygon from the map                                 |
-| [addPolyline](#adding-polylines)(options: [PolylineOptions](#polyline-options)): [Polyline](#polyline) | Adds a polyline to the map                                     |
-| [removePolyline](#removing-polylines)(polyline: [Polyline]()#polyline)                                 | Removes a polyline from the map                                |
-| [animateCamera](#controlling-the-camera)(update: CameraUpdate)                                         | Animates camera to a new position                              |
-| snapshot(): Promise\<ImageSource\>                                                                     | Returns a platform specific image of the maps current viewport |
-| clear()                                                                                                | Clears all objects added to the map                            |
+| Func                                                                                                                                    | Description                                                    |
+| :-------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------- |
+| [addMarker](#adding-markers)(marker: [MarkerOptions](#marker-options)): [Marker](#markers)                                              | Adds a [marker](#markers) to the map                           |
+| [removeMarker](#removing-markers)(marker: [Marker](#markers))                                                                           | Removes a marker from the map                                  |
+| [addTileOverlay](#adding-tile-overlays)(options: [TileOverlayOptions](#tileoverlay-options)): [TileOverlay](#tile-overlays)             | Adds a tile overlay to the map                                 |
+| [removeTileOverlay](#removing-tile-overlays)(overlay: [TileOverlay](#tile-overlays))                                                    | Removes a tile overlay from the map                            |
+| [addCircle](#adding-circles)(circle: [CircleOptions](#circle-options)): [Circle](#circle)                                               | Adds a circle to the map                                       |
+| [removeCircle](#removing-circles)(circle: [Circle](#circle))                                                                            | Removes a circle from the map                                  |
+| [addGroundOverlay](#adding-ground-overlays)(options: [GroundOverlayOptions](#groundoverlay-options)): [GroundOverlay](#ground-overlays) | Adds a ground overlay to the map                               |
+| [removeGroundOverlay](#removing-ground-overlays)(groundOverlay: [GroundOverlay](#ground-overlays))                                      | Removes a ground overlay from the map                          |
+| [addPolygon](#adding-polygons)(options: [PolygonOptions](#polygon-options)): [Polygon](#polygons)                                       | Adds a polygon to the map                                      |
+| [removePolygon](#removing-polygons)(polygon: [Polygon](#polygons))                                                                      | Removes a polygon from the map                                 |
+| [addPolyline](#adding-polylines)(options: [PolylineOptions](#polyline-options)): [Polyline](#polyline)                                  | Adds a polyline to the map                                     |
+| [removePolyline](#removing-polylines)(polyline: [Polyline](#polyline))                                                                  | Removes a polyline from the map                                |
+| [animateCamera](#controlling-the-camera)(update: [CameraUpdate](#controlling-the-camera))                                               | Animates camera to a new position                              |
+| snapshot(): Promise\<ImageSource\>                                                                                                      | Returns a platform specific image of the maps current viewport |
+| clear()                                                                                                                                 | Clears all objects added to the map                            |
 
 ### Native Map Object
 
@@ -316,6 +317,16 @@ googleMap.animateCamera(
 | zoomTo(value: number)                                                                      | Returns a CameraUpdate that has zoomed to a value                                         |
 | zoomBy(amount: number, point?: { x: number; y: number })                                   | Returns a CameraUpdate that has zoomed and panned                                         |
 | scrollBy(x: number, y: number)                                                             | Returns a panned CameraUpdate                                                             |
+
+### Projection
+
+A projection is used to translate between on screen location and geographic coordinates on the surface of the Earth.
+
+| Method                                              | Description                                                                                                                |
+| :-------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------- |
+| fromScreenLocation(point: { x: number; y: number }) | Returns the geographic location that corresponds to a screen location.                                                     |
+| getVisibleRegion()                                  | Gets a projection of the viewing frustum for converting between screen coordinates and geo-latitude/longitude coordinates. |
+| toScreenLocation(coordinate: Coordinate)            | Returns a screen location that corresponds to a geographical coordinate.                                                   |
 
 ### UI Settings
 
