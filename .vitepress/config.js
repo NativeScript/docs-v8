@@ -516,6 +516,47 @@ function getSidebar() {
 			],
 		},
 		{
+			text: 'Development Workflow',
+			children: [
+				{
+					text: 'CLI Basics',
+					link: '/development-workflow/cli-basics',
+				},
+				{
+					text: 'Debugging',
+					link: '/development-workflow/debugging',
+				},
+				{
+					text: 'Running on Virtual Device',
+					link: '/development-workflow/running-on-virtual-device',
+				},
+				{
+					text: 'Running on Physical Device',
+					link: '/development-workflow/running-on-physical-device',
+				},
+				/*{
+					text: 'HMR',
+					link: '/development-workflow/hmr'
+				},*/
+				{
+					text: 'Testing',
+					link: '/development-workflow/testing',
+				},
+				{
+					text: 'Using Packages',
+					link: '/development-workflow/using-packages',
+				},
+				{
+					text: 'Updating',
+					link: '/development-workflow/updating',
+				},
+				{
+					text: 'Choosing an Editor',
+					link: '/development-workflow/choosing-an-editor',
+				},
+			],
+		},
+		{
 			text: 'App_Resources',
 			children: [
 				{
