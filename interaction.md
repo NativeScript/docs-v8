@@ -2241,7 +2241,7 @@ It can be set to one of the following:
 - `AccessibilityRole.Adjustable` Element that can be "adjusted" (e.g. a slider).
 - `AccessibilityRole.Button` Element that should be treated as a button.
 - `AccessibilityRole.Checkbox` Element that represents a checkbox which can be checked or unchecked.
-- `AccessibilityRole.Header` Eement that acts as a header for a section.
+- `AccessibilityRole.Header` Element that acts as a header for a section.
 - `AccessibilityRole.Image` Element that should be treated as an image.
 - `AccessibilityRole.ImageButton` Element that should be treated as a button and is also an image.
 - `AccessibilityRole.KeyboardKey` Element that acts as a keyboard key.

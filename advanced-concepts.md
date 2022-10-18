@@ -135,7 +135,7 @@ module.exports = env => {
 
   webpack.chainWebpack(config => {
     if (webpack.Utils.platform.getPlatformName() === 'android') {
-      // make sure the path to the applicatioon.android.(js|ts)
+      // make sure the path to the application.android.(js|ts)
       // is relative to the webpack.config.js
       // you may need to use `./app/application.android if
       // your app source is located inside the ./app folder.
@@ -660,7 +660,7 @@ Blocks in Objective-C, especially blocks that are closures, need to be properly 
 
 #### CoreFoundation Objects
 
-iOS contains both an Objective-C standard library (the Foundation framework) and a pure C standard library (Core Foundation). Core Foundation is modeled after Foundation to a great extent and implements a limited object model. Data types such as CFDictionaryRef and CFBundleRef are Core Foundation objects. Core Foundation objects are retained and released just like Objective-C objects, using the CFRetain and CFRelease functions. NativeScript implements automatic memory management for functions that are annotated as returning a retained Core Foundation object. For those that are not annotated, NativeScript returns an Unmanaged type that wraps the Core Foundation instance. This makes you partially responsible for keeping the instance allive. You could either
+iOS contains both an Objective-C standard library (the Foundation framework) and a pure C standard library (Core Foundation). Core Foundation is modeled after Foundation to a great extent and implements a limited object model. Data types such as CFDictionaryRef and CFBundleRef are Core Foundation objects. Core Foundation objects are retained and released just like Objective-C objects, using the CFRetain and CFRelease functions. NativeScript implements automatic memory management for functions that are annotated as returning a retained Core Foundation object. For those that are not annotated, NativeScript returns an Unmanaged type that wraps the Core Foundation instance. This makes you partially responsible for keeping the instance alive. You could either
 
 - Call takeRetainedValue() which would return managed reference to the wrapped instance, decrementing the reference count while doing so
 - Call takeUnretainedValue() which would return managed reference to the wrapped instance _without_ decrementing the reference count
@@ -1539,7 +1539,7 @@ Kotlin's [properties](https://kotlinlang.org/docs/reference/properties.html#prop
 ```js
 var kotlinClass = new com.example.KotlinClassWithStringProperty()
 
-var propertyValue = kotlinClass.getStringPropert()
+var propertyValue = kotlinClass.getStringProperty()
 kotlinClass.setStringProperty('example')
 
 propertyValue = kotlinClass.stringProperty
@@ -1801,7 +1801,7 @@ This problem is easily solved by not specifying a --compileSdk flag and using th
 ##### Implication B: Building against higher API level.
 
 What happens when an application is built with higher API level(e.g. 23), but runs on a device with a lower API level(e.g. 20)?
-First the metadata is built for API level 23. If the javascript code calls a method introduced after API level 20 the Android runtime will try to call this method because it will recognize it in the metadata, but when the actual native call is made on the lower level device, an exception will be trown because this method won't be present on the device.
+First the metadata is built for API level 23. If the javascript code calls a method introduced after API level 20 the Android runtime will try to call this method because it will recognize it in the metadata, but when the actual native call is made on the lower level device, an exception will be thrown because this method won't be present on the device.
 
 This problem is solved by detecting the API level at run-time and using the available API.
 
@@ -2320,7 +2320,7 @@ class MainActivity extends android.app.Activity {
 
 ### Metadata Filtering
 
-By default NativeScript includes all supported entities in the metadata. This allows app and plugin authors to freely call any native API from JavaScript. While it is benefitial during development, in some cases having metadata for all the APIs is undesirable. There could be security implications involved (mentioning names of entities that shouldn't be known in the metadata binary files for example); performance could be degraded at runtime (due to larger metabase which has to be consulted when an unknown entry is encountered or at startup); or app size could increase due to unnecessary metadata which is never used.
+By default NativeScript includes all supported entities in the metadata. This allows app and plugin authors to freely call any native API from JavaScript. While it is beneficial during development, in some cases having metadata for all the APIs is undesirable. There could be security implications involved (mentioning names of entities that shouldn't be known in the metadata binary files for example); performance could be degraded at runtime (due to larger metabase which has to be consulted when an unknown entry is encountered or at startup); or app size could increase due to unnecessary metadata which is never used.
 
 To give developers control over what to be included or not in the generated metadata there's support for black and whitelisting symbols by their native name.
 
