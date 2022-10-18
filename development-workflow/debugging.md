@@ -72,9 +72,9 @@ Figure 5: Call stack: Call stack
 To be able to debug code other than JavaScript, the transpiled sources should include [inlined source maps](https://www.typescriptlang.org/docs/handbook/compiler-options.html) for your code (default when developing NativeScript apps with TypeScript).
 ::::
 
-## Console
+### Console
 
-### [Writing to the console](https://developer.chrome.com/docs/devtools/console/api/#log)
+#### [Writing to the console](https://developer.chrome.com/docs/devtools/console/api/#log)
 
 One of the most natural things you can do to debug apps in any environment is writing to the system’s log. In NativeScript logging works a lot as it does on the web, as most of the same `console` APIs that work on the web also work in NativeScript.
 
@@ -109,7 +109,7 @@ JS: === dump(): dumping function and properties names ===
 JS: === dump(): finished ===
 ```
 
-## Autocompleting commands and expressions
+#### Autocompleting commands and expressions
 
 When you type in the Console, the Console automatically displays an autocomplete dropdown menu (Figure 6) of relevant methods that match the text that you have already typed. This includes previous commands that you executed.
 
@@ -117,19 +117,19 @@ Figure 6: Console autocomplete: Console autocomplete
 
 ![Console autocomplete](https://wd.imgix.net/image/admin/7HsvmvxxZifd5ZqkP4Hg.png?auto=format&w=1600)
 
-### [Measure execution times](https://developer.chrome.com/docs/devtools/console/api/#time)
+#### [Measure execution times](https://developer.chrome.com/docs/devtools/console/api/#time)
 
 The `time()` method starts a new timer and is very useful to measure how long something took. Pass a string to the method to give the marker a name. When you want to stop the timer, call `timeEnd()` and pass it the same string passed to the initializer. The console then logs the label and time elapsed when the `timeEnd()` method fires.
 
-### Evaluate expressions
+#### Evaluate expressions
 
 Explore the state of any object of your global application scope, or the paused local scope from the Console by evaluating an expression just by typing it.
 
-## Resources
+### Resources
 
 Scripts loaded by the JavaScript Virtual Machine appear in the Sources panel, which you can then debug and place breakpoints in. Besides scripts all other text and image resources found in your application are also listed in the Sources panel, grouped by folder name by default. You can inspect and search inside the contents of XML, HTML, CSS, JSON, and image files. Text and image network responses are also stored there.
 
-## Network
+### Network
 
 DevTools shows **all\*** network requests in the Network panel while the DevTools are open. In the panel you will find information about the requests made, whether they've completed, the response status and data.
 
@@ -164,11 +164,11 @@ Figure 10: The Headers tab, outlined in blue: Headers tab
 This is currently available for the built-in [http module](/nativescript-core/http.md). For third-party modules that do network requests, additional code must be implemented to populate the Network Tab. See [Plugin author's guide](#plugin-authors-guide) for details on how to do it for your plugin.
 :::
 
-## Elements
+### Elements
 
 The Elements panel in DevTools displays information about the current view tree, the attributes of each child, and its computed styles.
 
-## Plugin author’s guide
+### Plugin author’s guide
 
 Writing plugins is a great way to give back to the community by making application development ever easier by abstracting complex logic through a simple interface. What is even better is when your plugin can integrate almost seamlessly with the expanding arsenal of debugging tools provided by the platform. Following are the optional requirements and interfaces your plugin should comply to, to have your plugin's components/data shown in the respective DevTools panels.
 
@@ -216,7 +216,7 @@ Writing plugins is a great way to give back to the community by making applicati
 
 - Debugging typescript-transpiledTo debug your TypeScript plugin based on the sources, and not the transpiled JS, it is enough to edit the respective `tsconfig.json` to output sources with inlined maps. That will ensure that the TypeScript sources will also show in the Sources pane, and allow you to debug it. Don't forget to transpile the sources without source maps before publishing the plugin.
 
-## Credits
+### Credits
 
 :::tip Note:
 Portions of this page are modifications based on work created and [shared by Google](https://developers.google.com/terms/site-policies) and used according to terms described in the [Creative Commons 3.0 Attribution License](https://creativecommons.org/licenses/by/3.0/).
