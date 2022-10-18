@@ -33,11 +33,17 @@ The following is an overview of the features supported in Chrome DevTools when d
 
 Very often you need to reproduce a bug many times to get to the root of the problem. The debugger feature can help you find and diagnose the bugs occurring at runtime using the following techniques:
 
-- [Pause code with breakpoints](https://developer.chrome.com/docs/devtools/javascript/breakpoints/) - Set a breakpoint so that you can pause your code in the middle of its execution. Once your code is paused (Figure 1), you can [step through it](https://developer.chrome.com/docs/devtools/javascript/#code-stepping) (Figure 2) to investigate the control flow and property values
+- [Pause code with breakpoints](https://developer.chrome.com/docs/devtools/javascript/breakpoints/) - Set a breakpoint so that you can pause your code in the middle of its execution. Once your code is paused (Figure 1), you can [step through it](https://developer.chrome.com/docs/devtools/javascript/#code-stepping) to investigate the control flow and property values.
+
+```js
+console.log('a')
+console.log('b')
+debugger
+console.log('c')
+```
 
 Figure 1: A line-of-code breakpoint set on line 29: Setting breakpoints
-
-Figure 2: Stepping over code: Stepping over
+![Line of code breakpoint example](https://wd.imgix.net/image/admin/0BqKJaEX3Afeq6s5GbA6.png?auto=format&w=1600)
 
 :::tip Note:
 Sometimes when the code you want to debug executes too early, for example during application initialization, you will have to place a [Line-of-code breakpoint](https://developer.chrome.com/docs/devtools/javascript/#line-breakpoint) - `debugger;` statement in your code and start the debugging process with the [`--debug-brk`](/development-workflow/cli-basics.md#debug) CLI flag to allow the DevTools enough time to connect and attach before your code is executed.
@@ -46,6 +52,7 @@ Sometimes when the code you want to debug executes too early, for example during
 - [Inspect local and global properties, and variables](https://developer.chrome.com/docs/devtools/javascript/#check-values) - While paused on a line of code, use the Scope pane (Figure 3) to view and edit the values of properties and variables in the local, closure, and global scopes.
 
 Figure 3: The Scope pane: Scope pane
+![The Scope pane](https://wd.imgix.net/image/admin/Tynv55DnsSgtvpd6Iz9z.png?auto=format&w=1600)
 
 :::tip Note:
 The `Global` object in the context of a NativeScript application is a custom object and contains only a limited subset of the `Window` global object present in a Web application.
@@ -54,18 +61,20 @@ The `Global` object in the context of a NativeScript application is a custom obj
 - [Watch the values of custom JavaScript expressions](https://developer.chrome.com/docs/devtools/javascript/#watch-expressions) - Use the Watch pane (Figure 4) to watch the values of custom expressions. You can watch any valid JavaScript expression.
 
 Figure 4: The Watch pane: Watch pane
+![The Watch pane](https://wd.imgix.net/image/admin/iAZLQFWjCy2kNbYKPGpR.png?auto=format&w=1600)
 
-- [View the current call stack](https://developer.chrome.com/docs/devtools/javascript/#scope) - While paused on a line of code, use the Call Stack pane (Figure 5) to view the call stack that got you to this point. Click on an entry to jump to the line of code where that function was called. The blue arrow icon represents which function DevTools is currently highlighting.
+- [View the current call stack](https://developer.chrome.com/docs/devtools/javascript/#scope) - While paused on a line of code, use the Call Stack pane (Figure 5) to view the call stack that got you to this point. Click on an entry to jump to the line of code where that function was called. The blue arrow icon on the left of the blue outline represents which function DevTools is currently highlighting.
 
 Figure 5: Call stack: Call stack
+![Call stack](https://wd.imgix.net/image/admin/Tynv55DnsSgtvpd6Iz9z.png?auto=format&w=1600)
 
 :::tip Note:
 To be able to debug code other than JavaScript, the transpiled sources should include [inlined source maps](https://www.typescriptlang.org/docs/handbook/compiler-options.html) for your code (default when developing NativeScript apps with TypeScript).
 ::::
 
-### console
+## Console
 
-#### [Writing to the console](https://developer.chrome.com/docs/devtools/console/api/#log)
+### [Writing to the console](https://developer.chrome.com/docs/devtools/console/api/#log)
 
 One of the most natural things you can do to debug apps in any environment is writing to the system’s log. In NativeScript logging works a lot as it does on the web, as most of the same `console` APIs that work on the web also work in NativeScript.
 
@@ -100,17 +109,19 @@ JS: === dump(): dumping function and properties names ===
 JS: === dump(): finished ===
 ```
 
-#### Autocompleting commands and expressions
+## Autocompleting commands and expressions
 
 When you type in the Console, the Console automatically displays an autocomplete dropdown menu (Figure 6) of relevant methods that match the text that you have already typed. This includes previous commands that you executed.
 
 Figure 6: Console autocomplete: Console autocomplete
 
-#### [Measure execution times](https://developer.chrome.com/docs/devtools/console/api/#time)
+![Console autocomplete](https://wd.imgix.net/image/admin/7HsvmvxxZifd5ZqkP4Hg.png?auto=format&w=1600)
+
+### [Measure execution times](https://developer.chrome.com/docs/devtools/console/api/#time)
 
 The `time()` method starts a new timer and is very useful to measure how long something took. Pass a string to the method to give the marker a name. When you want to stop the timer, call `timeEnd()` and pass it the same string passed to the initializer. The console then logs the label and time elapsed when the `timeEnd()` method fires.
 
-#### Evaluate expressions
+### Evaluate expressions
 
 Explore the state of any object of your global application scope, or the paused local scope from the Console by evaluating an expression just by typing it.
 
@@ -124,23 +135,32 @@ DevTools shows **all\*** network requests in the Network panel while the DevTool
 
 - [View a log of requests](https://developer.chrome.com/docs/devtools/network/reference/#requests) - Use the Requests table (Figure 7) to view a log of all requests made while DevTools has been open. Clicking or hovering over requests reveals more information about them.
 
+Figure 8: A log of requests
+
+![A log of requests](https://wd.imgix.net/image/NJdAV9UgKuN8AhoaPBquL7giZQo1/0lULFSOjRlz3L83HPcKX.png?auto=format&w=1600)
+
 :::tip Note:
 Time, Size, and Waterfall metrics may sometimes appear incorrectly or be missing altogether if a Status Code is available, however, that means a response has been received.
 :::
 
 - [View a preview of a response body](https://developer.chrome.com/docs/devtools/network/reference/#preview) - To view a preview of a response body: Click the URL of the request, Under the Name column of the Requests table. Click the Preview tab (Figure 8). This tab is mostly useful for viewing images.
 
+Figure 8: A preview of a response body
+![A preview of a response body](https://wd.imgix.net/image/NJdAV9UgKuN8AhoaPBquL7giZQo1/91J6iI0F1RkJZEXBysdR.png?auto=format&w=1600)
+
 - [View a response body](https://developer.chrome.com/docs/devtools/network/reference/#response) - To view the response body to a request: Click the URL of the request, under the Name column of the Requests table. Click the Response tab (Figure 9).
 
 Figure 9: The Response tab, outlined in blue: Response tab
+![The Response tab](https://wd.imgix.net/image/NJdAV9UgKuN8AhoaPBquL7giZQo1/KDZZBMl2isErxrNSY0gQ.png?auto=format&w=1600)
 
 - [View HTTP headers](https://developer.chrome.com/docs/devtools/network/reference/#headers) - To view HTTP header data about a request: Click the URL of the request, under the Name column of the Requests table. Click the Headers tab (Figure 10).
 
 Figure 10: The Headers tab, outlined in blue: Headers tab
+![The Headers tab](https://wd.imgix.net/image/NJdAV9UgKuN8AhoaPBquL7giZQo1/0l9iRxK3yvrnha53NiKH.png?auto=format&w=1600)
 
 - [View query string parameters](https://developer.chrome.com/docs/devtools/network/reference/#payload) - To view the query string parameters of a URL in a human-readable format: Open the Headers tab for the request you're interested in. Go to the Query String Parameters section.
 
-:::tip Note: \*
+:::tip Note:
 This is currently available for the built-in [http module](/nativescript-core/http.md). For third-party modules that do network requests, additional code must be implemented to populate the Network Tab. See [Plugin author's guide](#plugin-authors-guide) for details on how to do it for your plugin.
 :::
 
