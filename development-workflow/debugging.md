@@ -42,7 +42,7 @@ debugger
 console.log('c')
 ```
 
-Figure 1: A line-of-code breakpoint set on line 29: Setting breakpoints
+_Figure 1: A line-of-code breakpoint set on line 29: Setting breakpoints_
 ![Line of code breakpoint example](https://wd.imgix.net/image/admin/0BqKJaEX3Afeq6s5GbA6.png?auto=format&w=1600)
 
 :::tip Note:
@@ -51,7 +51,7 @@ Sometimes when the code you want to debug executes too early, for example during
 
 - [Inspect local and global properties, and variables](https://developer.chrome.com/docs/devtools/javascript/#check-values) - While paused on a line of code, use the Scope pane (Figure 3) to view and edit the values of properties and variables in the local, closure, and global scopes.
 
-Figure 3: The Scope pane: Scope pane
+_Figure 3: The Scope pane: Scope pane_
 ![The Scope pane](https://wd.imgix.net/image/admin/Tynv55DnsSgtvpd6Iz9z.png?auto=format&w=1600)
 
 :::tip Note:
@@ -60,12 +60,12 @@ The `Global` object in the context of a NativeScript application is a custom obj
 
 - [Watch the values of custom JavaScript expressions](https://developer.chrome.com/docs/devtools/javascript/#watch-expressions) - Use the Watch pane (Figure 4) to watch the values of custom expressions. You can watch any valid JavaScript expression.
 
-Figure 4: The Watch pane: Watch pane
+_Figure 4: The Watch pane: Watch pane_
 ![The Watch pane](https://wd.imgix.net/image/admin/iAZLQFWjCy2kNbYKPGpR.png?auto=format&w=1600)
 
 - [View the current call stack](https://developer.chrome.com/docs/devtools/javascript/#scope) - While paused on a line of code, use the Call Stack pane (Figure 5) to view the call stack that got you to this point. Click on an entry to jump to the line of code where that function was called. The blue arrow icon on the left of the blue outline represents which function DevTools is currently highlighting.
 
-Figure 5: Call stack: Call stack
+_Figure 5: Call stack: Call stack_
 ![Call stack](https://wd.imgix.net/image/admin/Tynv55DnsSgtvpd6Iz9z.png?auto=format&w=1600)
 
 :::tip Note:
@@ -113,7 +113,7 @@ JS: === dump(): finished ===
 
 When you type in the Console, the Console automatically displays an autocomplete dropdown menu (Figure 6) of relevant methods that match the text that you have already typed. This includes previous commands that you executed.
 
-Figure 6: Console autocomplete: Console autocomplete
+_Figure 6: Console autocomplete: Console autocomplete_
 
 ![Console autocomplete](https://wd.imgix.net/image/admin/7HsvmvxxZifd5ZqkP4Hg.png?auto=format&w=1600)
 
@@ -135,7 +135,7 @@ DevTools shows **all\*** network requests in the Network panel while the DevTool
 
 - [View a log of requests](https://developer.chrome.com/docs/devtools/network/reference/#requests) - Use the Requests table (Figure 7) to view a log of all requests made while DevTools has been open. Clicking or hovering over requests reveals more information about them.
 
-Figure 8: A log of requests
+_Figure 7: A log of requests_
 
 ![A log of requests](https://wd.imgix.net/image/NJdAV9UgKuN8AhoaPBquL7giZQo1/0lULFSOjRlz3L83HPcKX.png?auto=format&w=1600)
 
@@ -145,17 +145,17 @@ Time, Size, and Waterfall metrics may sometimes appear incorrectly or be missing
 
 - [View a preview of a response body](https://developer.chrome.com/docs/devtools/network/reference/#preview) - To view a preview of a response body: Click the URL of the request, Under the Name column of the Requests table. Click the Preview tab (Figure 8). This tab is mostly useful for viewing images.
 
-Figure 8: A preview of a response body
+_Figure 8: A preview of a response body_
 ![A preview of a response body](https://wd.imgix.net/image/NJdAV9UgKuN8AhoaPBquL7giZQo1/91J6iI0F1RkJZEXBysdR.png?auto=format&w=1600)
 
 - [View a response body](https://developer.chrome.com/docs/devtools/network/reference/#response) - To view the response body to a request: Click the URL of the request, under the Name column of the Requests table. Click the Response tab (Figure 9).
 
-Figure 9: The Response tab, outlined in blue: Response tab
+_Figure 9: The Response tab, outlined in blue: Response tab_
 ![The Response tab](https://wd.imgix.net/image/NJdAV9UgKuN8AhoaPBquL7giZQo1/KDZZBMl2isErxrNSY0gQ.png?auto=format&w=1600)
 
 - [View HTTP headers](https://developer.chrome.com/docs/devtools/network/reference/#headers) - To view HTTP header data about a request: Click the URL of the request, under the Name column of the Requests table. Click the Headers tab (Figure 10).
 
-Figure 10: The Headers tab, outlined in blue: Headers tab
+_Figure 10: The Headers tab, outlined in blue: Headers tab_
 ![The Headers tab](https://wd.imgix.net/image/NJdAV9UgKuN8AhoaPBquL7giZQo1/0l9iRxK3yvrnha53NiKH.png?auto=format&w=1600)
 
 - [View query string parameters](https://developer.chrome.com/docs/devtools/network/reference/#payload) - To view the query string parameters of a URL in a human-readable format: Open the Headers tab for the request you're interested in. Go to the Query String Parameters section.
@@ -167,6 +167,9 @@ This is currently available for the built-in [http module](/nativescript-core/ht
 ### Elements
 
 The Elements panel in DevTools displays information about the current view tree, the attributes of each child, and its computed styles.
+
+_Figure 11: The DOM tree view of a NativeScript application:_
+![DOM tree view of a NativeScript application](/assets/images/development-workflow/elements-dom-tree-view.png)
 
 ### Plugin author’s guide
 
