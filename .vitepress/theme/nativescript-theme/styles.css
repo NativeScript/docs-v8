@@ -3645,3 +3645,7 @@ svg.DocSearch-Hit-Select-Icon {
 .code-tab-container [class*='language-'] pre {
 	margin: 0px;
 }
+
+.aspect-square {
+	aspect-ratio: 1 / 1;
+}

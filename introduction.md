@@ -68,10 +68,10 @@ A basic template with a single page and no custom styles.
 <!-- TODO: make nicer images -->
 
 /// frame ios
-<img src="https://raw.githubusercontent.com/NativeScript/nativescript-app-templates/master/packages/template-blank/tools/assets/appTemplate-ios.png">
+<img style="aspect-ratio: 128/227" src="https://raw.githubusercontent.com/NativeScript/nativescript-app-templates/master/packages/template-blank/tools/assets/appTemplate-ios.png">
 ///
 /// frame android
-<img src="https://raw.githubusercontent.com/NativeScript/nativescript-app-templates/master/packages/template-blank/tools/assets/appTemplate-android.png">
+<img style="aspect-ratio: 128/227" src="https://raw.githubusercontent.com/NativeScript/nativescript-app-templates/master/packages/template-blank/tools/assets/appTemplate-android.png">
 ///
 
 To use, run:
@@ -87,10 +87,10 @@ A simple template with a side drawer.
 <!-- TODO: make nicer images -->
 
 /// frame ios
-<img src="https://raw.githubusercontent.com/NativeScript/nativescript-app-templates/master/packages/template-drawer-navigation/tools/assets/appTemplate-ios.png">
+<img style="aspect-ratio: 128/227" src="https://raw.githubusercontent.com/NativeScript/nativescript-app-templates/master/packages/template-drawer-navigation/tools/assets/appTemplate-ios.png">
 ///
 /// frame android
-<img src="https://raw.githubusercontent.com/NativeScript/nativescript-app-templates/master/packages/template-drawer-navigation/tools/assets/appTemplate-android.png">
+<img style="aspect-ratio: 128/227" src="https://raw.githubusercontent.com/NativeScript/nativescript-app-templates/master/packages/template-drawer-navigation/tools/assets/appTemplate-android.png">
 ///
 
 To use, run:
@@ -106,10 +106,10 @@ A simple template with multiple tabs.
 <!-- TODO: make nicer images -->
 
 /// frame ios
-<img src="https://raw.githubusercontent.com/NativeScript/nativescript-app-templates/master/packages/template-tab-navigation/tools/assets/appTemplate-ios.png">
+<img style="aspect-ratio: 128/227" src="https://raw.githubusercontent.com/NativeScript/nativescript-app-templates/master/packages/template-tab-navigation/tools/assets/appTemplate-ios.png">
 ///
 /// frame android
-<img src="https://raw.githubusercontent.com/NativeScript/nativescript-app-templates/master/packages/template-tab-navigation/tools/assets/appTemplate-android.png">
+<img style="aspect-ratio: 128/227" src="https://raw.githubusercontent.com/NativeScript/nativescript-app-templates/master/packages/template-tab-navigation/tools/assets/appTemplate-android.png">
 ///
 
 To use, run:
@@ -122,10 +122,10 @@ ns create myCoolApp --template @nativescript/template-tab-navigation
 
 A simple template with a ListView and a details screen.
 /// frame ios
-<img src="https://raw.githubusercontent.com/NativeScript/nativescript-app-templates/master/packages/template-master-detail/tools/assets/appTemplate-ios.png">
+<img style="aspect-ratio: 128/227" src="https://raw.githubusercontent.com/NativeScript/nativescript-app-templates/master/packages/template-master-detail/tools/assets/appTemplate-ios.png">
 ///
 /// frame android
-<img src="https://raw.githubusercontent.com/NativeScript/nativescript-app-templates/master/packages/template-master-detail/tools/assets/appTemplate-android.png">
+<img style="aspect-ratio: 128/227" src="https://raw.githubusercontent.com/NativeScript/nativescript-app-templates/master/packages/template-master-detail/tools/assets/appTemplate-android.png">
 ///
 
 To use, run:

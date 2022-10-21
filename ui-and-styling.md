@@ -129,7 +129,7 @@ The following example creates a simple grid. For more information about creating
 </AbsoluteLayout>
 ```
 
-<img class="md:w-1/2 lg:w-1/3" src="https://art.nativescript.org/layouts/absolute_layout_grid.svg" />
+<img class="md:w-1/2 lg:w-1/3 aspect-square" src="https://art.nativescript.org/layouts/absolute_layout_grid.svg" />
 
 #### Example: Overlapping elements
 
@@ -156,7 +156,7 @@ The following example creates a group of overlapping items.
 </AbsoluteLayout>
 ```
 
-<img class="md:w-1/2 lg:w-1/3" src="https://art.nativescript.org/layouts/absolute_layout_overlap.svg" />
+<img class="md:w-1/2 lg:w-1/3 aspect-square" src="https://art.nativescript.org/layouts/absolute_layout_overlap.svg" />
 
 #### Props
 
@@ -197,7 +197,7 @@ The following example creates a frame-like layout consisting of 4 elements, posi
 </DockLayout>
 ```
 
-<img class="md:w-1/2 lg:w-1/3" src="https://art.nativescript.org/layouts/dock_layout_no_stretch.svg" />
+<img class="md:w-1/2 lg:w-1/3 aspect-square" src="https://art.nativescript.org/layouts/dock_layout_no_stretch.svg" />
 
 #### Example: Dock to every side and stretch the last child
 
@@ -212,7 +212,7 @@ The following example shows how `stretchLastChild` affects the positioning of ch
 </DockLayout>
 ```
 
-<img class="md:w-1/2 lg:w-1/3" src="https://art.nativescript.org/layouts/dock_layout_stretch.svg" />
+<img class="md:w-1/2 lg:w-1/3 aspect-square" src="https://art.nativescript.org/layouts/dock_layout_stretch.svg" />
 
 #### Example: Dock to every side and the center
 
@@ -228,7 +228,7 @@ The following example creates a `<DockLayout>` of 5 elements. The first four wra
 </DockLayout>
 ```
 
-<img class="md:w-1/2 lg:w-1/3" src="https://art.nativescript.org/layouts/dock_layout_all_sides_and_stretch.svg" />
+<img class="md:w-1/2 lg:w-1/3 aspect-square" src="https://art.nativescript.org/layouts/dock_layout_all_sides_and_stretch.svg" />
 
 #### Example: Dock multiple children to the same side
 
@@ -243,7 +243,7 @@ The following example creates a single line of 4 elements that stretch across th
 </DockLayout>
 ```
 
-<img class="md:w-1/2 lg:w-1/3" src="https://art.nativescript.org/layouts/dock_layout_multiple_on_same_side.svg" />
+<img class="md:w-1/2 lg:w-1/3 aspect-square" src="https://art.nativescript.org/layouts/dock_layout_multiple_on_same_side.svg" />
 
 #### Props
 
@@ -291,7 +291,7 @@ The following example creates a simple 2-by-2 grid with fixed column widths and 
 </GridLayout>
 ```
 
-<img class="md:w-1/2 lg:w-1/3" src="https://art.nativescript.org/layouts/grid_layout.svg" />
+<img class="md:w-1/2 lg:w-1/3 aspect-square" src="https://art.nativescript.org/layouts/grid_layout.svg" />
 
 #### Example: Grid layout with star sizing
 
@@ -306,7 +306,7 @@ The following example creates a grid with responsive design, where space is allo
 </GridLayout>
 ```
 
-<img class="md:w-1/2 lg:w-1/3" src="https://art.nativescript.org/layouts/grid_layout_star_sizing.svg" />
+<img class="md:w-1/2 lg:w-1/3 aspect-square" src="https://art.nativescript.org/layouts/grid_layout_star_sizing.svg" />
 
 #### Example: Grid layout with fixed and auto sizing
 
@@ -321,7 +321,7 @@ The following example create a grid with one auto-sized column and one column wi
 </GridLayout>
 ```
 
-<img class="md:w-1/2 lg:w-1/3" src="https://art.nativescript.org/layouts/grid_layout_fixed_auto.svg" />
+<img class="md:w-1/2 lg:w-1/3 aspect-square" src="https://art.nativescript.org/layouts/grid_layout_fixed_auto.svg" />
 
 #### Example: Grid layout with mixed sizing and merged cells
 
@@ -339,7 +339,7 @@ The following example creates a complex grid with responsive design, mixed width
 </GridLayout>
 ```
 
-<img class="md:w-1/2 lg:w-1/3" src="https://art.nativescript.org/layouts/grid_layout_complex.svg" />
+<img class="md:w-1/2 lg:w-1/3 aspect-square" src="https://art.nativescript.org/layouts/grid_layout_complex.svg" />
 
 #### Props
 
@@ -382,7 +382,7 @@ The following example creates a vertical stack of 3 equally-sized elements. Item
 </StackLayout>
 ```
 
-<img class="md:w-1/2 lg:w-1/3" src="https://art.nativescript.org/layouts/stack_layout_vertical.svg" />
+<img class="md:w-1/2 lg:w-1/3 aspect-square" src="https://art.nativescript.org/layouts/stack_layout_vertical.svg" />
 
 #### Example: Horizontal stacking
 
@@ -396,7 +396,7 @@ The following example creates a horizontal stack of 3 equally-sized elements. It
 </StackLayout>
 ```
 
-<img class="md:w-1/2 lg:w-1/3" src="https://art.nativescript.org/layouts/stack_layout_horizontal.svg" />
+<img class="md:w-1/2 lg:w-1/3 aspect-square" src="https://art.nativescript.org/layouts/stack_layout_horizontal.svg" />
 
 #### Example: Stack layout with horizontally aligned children
 
@@ -434,7 +434,7 @@ The following example creates a diagonal stack of items with responsive sizes. I
 </StackLayout>
 ```
 
-<img class="md:w-1/2 lg:w-1/3" src="https://art.nativescript.org/layouts/stack_layout_vertical_align_children.svg" />
+<img class="md:w-1/2 lg:w-1/3 aspect-square" src="https://art.nativescript.org/layouts/stack_layout_vertical_align_children.svg" />
 
 #### Example: Horizontal stack layout with vertically aligned children
 
@@ -472,7 +472,7 @@ The following example creates a diagonal stack of items with responsive sizes. I
 </StackLayout>
 ```
 
-<img class="md:w-1/2 lg:w-1/3" src="https://art.nativescript.org/layouts/stack_layout_horizontal_align_children.svg" />
+<img class="md:w-1/2 lg:w-1/3 aspect-square" src="https://art.nativescript.org/layouts/stack_layout_horizontal_align_children.svg" />
 
 #### Props
 
@@ -618,7 +618,7 @@ The following example creates a row of equally-sized items. When the row runs ou
 </WrapLayout>
 ```
 
-<img class="md:w-1/2 lg:w-1/3" src="https://art.nativescript.org/layouts/wrap_layout_horizontal.svg" />
+<img class="md:w-1/2 lg:w-1/3 aspect-square" src="https://art.nativescript.org/layouts/wrap_layout_horizontal.svg" />
 
 #### Example: Vertical wrap layout
 
@@ -633,7 +633,7 @@ The following example creates a column of equally-sized items. When the row runs
 </WrapLayout>
 ```
 
-<img class="md:w-1/2 lg:w-1/3" src="https://art.nativescript.org/layouts/wrap_layout_vertical.svg" />
+<img class="md:w-1/2 lg:w-1/3 aspect-square" src="https://art.nativescript.org/layouts/wrap_layout_vertical.svg" />
 
 #### Props
 
@@ -664,7 +664,7 @@ The following example creates a row of three equally-sized elements that span ac
 </FlexboxLayout>
 ```
 
-<img class="md:w-1/2 lg:w-1/3" src="https://art.nativescript.org/layouts/flexbox_layout_row_stretch.svg" />
+<img class="md:w-1/2 lg:w-1/3 aspect-square" src="https://art.nativescript.org/layouts/flexbox_layout_row_stretch.svg" />
 
 #### Example: Column flex layout
 
@@ -678,7 +678,7 @@ The following example creates a column of three equally-sized elements that span
 </FlexboxLayout>
 ```
 
-<img class="md:w-1/2 lg:w-1/3" src="https://art.nativescript.org/layouts/flexbox_layout_column_stretch.svg" />
+<img class="md:w-1/2 lg:w-1/3 aspect-square" src="https://art.nativescript.org/layouts/flexbox_layout_column_stretch.svg" />
 
 #### Example: Row flex layout with items aligned to `flex-start`
 
@@ -692,7 +692,7 @@ The following example creates a row of three items placed at the top of the scre
 </FlexboxLayout>
 ```
 
-<img class="md:w-1/2 lg:w-1/3" src="https://art.nativescript.org/layouts/flexbox_layout_row_flex-start.svg" />
+<img class="md:w-1/2 lg:w-1/3 aspect-square" src="https://art.nativescript.org/layouts/flexbox_layout_row_flex-start.svg" />
 
 #### Example: Row flex layout with custom order
 
@@ -706,7 +706,7 @@ The following example creates a row of three items placed at the top of the scre
 </FlexboxLayout>
 ```
 
-<img class="md:w-1/2 lg:w-1/3" src="https://art.nativescript.org/layouts/flexbox_layout_row_custom_order.svg" />
+<img class="md:w-1/2 lg:w-1/3 aspect-square" src="https://art.nativescript.org/layouts/flexbox_layout_row_custom_order.svg" />
 
 #### Example: Row flex layout with wrapping
 
@@ -721,7 +721,7 @@ The following example creates four items with enabled line wrapping. When the ro
 </FlexboxLayout>
 ```
 
-<img class="md:w-1/2 lg:w-1/3" src="https://art.nativescript.org/layouts/flexbox_layout_wrap.svg" />
+<img class="md:w-1/2 lg:w-1/3 aspect-square" src="https://art.nativescript.org/layouts/flexbox_layout_wrap.svg" />
 
 #### Example: Column flex layout with reverse order and items with a different `alignSelf`
 
@@ -756,7 +756,7 @@ The following example shows how to use:
 </FlexboxLayout>
 ```
 
-<img class="md:w-1/2 lg:w-1/3" src="https://art.nativescript.org/layouts/flexbox_layout_column_reverse_space_around_align_self.svg" />
+<img class="md:w-1/2 lg:w-1/3 aspect-square" src="https://art.nativescript.org/layouts/flexbox_layout_column_reverse_space_around_align_self.svg" />
 
 #### Props
 
@@ -2249,7 +2249,7 @@ In NativeScript-Vue, `.decode` is required for parsing properties that have HTML
 
 | Name           | Type                                                                 | Description                                                                                                                                                                                                                                               |
 | -------------- | -------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `src`          | `String` or [`ImageSource`](/api-reference/classes/imagesource.html) | Gets or sets the source of the image as a URL or an image source. In NativeScript-Vue, if you use the font:// icon protocol that was introduced in {N} 6.2, make sure you add .decode to the name of the property - e.g. `src.decode="font://&#xf004;"`                                        |
+| `src`          | `String` or [`ImageSource`](/api-reference/classes/imagesource.html) | Gets or sets the source of the image as a URL or an image source. In NativeScript-Vue, if you use the font:// icon protocol that was introduced in {N} 6.2, make sure you add .decode to the name of the property - e.g. `src.decode="font://&#xf004;"`   |
 | `imageSource`  | [`ImageSource`](/api-reference/classes/imagesource.html)             | Gets or sets the image source of the image.                                                                                                                                                                                                               |
 | `tintColor`    | `Color`                                                              | (Style property) Sets a color to tint template images.                                                                                                                                                                                                    |
 | `stretch`      | `ImageStretch`                                                       | (Style property) Gets or sets the way the image is resized to fill its allocated space.<br/>Valid values: `none`, `aspectFill`, `aspectFit`, or `fill`.<br/>For more information, see [ImageStretch](/api-reference/modules/coretypes.imagestretch.html). |
@@ -2403,16 +2403,16 @@ import { Color } from '@nativescript/core'
 
 #### Props
 
-| Name             | Type                                                             | Description                                                                                                                                 |
-| ---------------- | ---------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| `letterSpacing`  | `number`                                                         | Gets or sets letterSpace style property.                                                                                                    |
-| `lineHeight`     | `number`                                                         | Gets or sets lineHeight style property.                                                                                                     |
-| `text`           | `string`                                                         | Gets or sets the Label text.                                                                                                                |
-| `textAlignment`  | `initial`, `left`, `center`, `right`, `justify`                  | Gets or sets text-alignment style property.                                                                                                 |
-| `textDecoration` | `none`, `underline`, `line-through`, `underline`, `line-through` | Gets or sets text swcoration style property.                                                                                                |
-| `textTransform`  | `initial`, `none`, `capitalize`, `uppercase`, `lowercase`        | Gets or sets text transform style property.                                                                                                 |
-| `textWrap`       | `boolean`                                                        | Gets or sets whether the Label wraps text or not.                                                                                           |
-| `whiteSpace`     | `initial`, `normal`, `nowrap`                                    | Gets or sets the white space style.                                                                                                         |
+| Name             | Type                                                             | Description                                                                                               |
+| ---------------- | ---------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `letterSpacing`  | `number`                                                         | Gets or sets letterSpace style property.                                                                  |
+| `lineHeight`     | `number`                                                         | Gets or sets lineHeight style property.                                                                   |
+| `text`           | `string`                                                         | Gets or sets the Label text.                                                                              |
+| `textAlignment`  | `initial`, `left`, `center`, `right`, `justify`                  | Gets or sets text-alignment style property.                                                               |
+| `textDecoration` | `none`, `underline`, `line-through`, `underline`, `line-through` | Gets or sets text swcoration style property.                                                              |
+| `textTransform`  | `initial`, `none`, `capitalize`, `uppercase`, `lowercase`        | Gets or sets text transform style property.                                                               |
+| `textWrap`       | `boolean`                                                        | Gets or sets whether the Label wraps text or not.                                                         |
+| `whiteSpace`     | `initial`, `normal`, `nowrap`                                    | Gets or sets the white space style.                                                                       |
 | `...Inherited`   | `Inherited`                                                      | Additional inherited properties not shown. Refer to the [API Reference](api-reference/classes/label.html) |
 
 <!-- TODO: fix links -->
@@ -4944,7 +4944,7 @@ To apply multiple styles to the text in your `<TextView>`, you can use `<Formatt
 | `hint`          | `String`                                                                                                                                | Gets or sets the placeholder text when the component is editable.                                                  |
 | `editable`      | `Boolean`                                                                                                                               | When `true`, indicates that the user can edit the contents of the container.                                       |
 | `maxLength`     | `Number`                                                                                                                                | Sets the maximum number of characters that can be entered in the container.                                        |
-| `maxLines`     | `Number`                                                                                                                                | Sets the maximum number of lines that the component can grow.                                        |
+| `maxLines`      | `Number`                                                                                                                                | Sets the maximum number of lines that the component can grow.                                                      |
 | `keyboardType`  | `KeyboardType`                                                                                                                          | Shows a custom keyboard for easier text input.<br/>Valid values: `datetime`, `phone`, `number`, `url`, or `email`. |
 | `returnKeyType` | Gets or sets the label of the return key. Currently supported only on iOS.<br/>Valid values: `done`, `next`, `go`, `search`, or `send`. |
 | `autocorrect`   | `Boolean`                                                                                                                               | Enables or disables autocorrect.                                                                                   |
@@ -5243,7 +5243,7 @@ This list of properties can be set in CSS or through the style property of each 
 | `font-size`           | `fontSize`            | Sets the font size of the matched view (only supports device-independent units).                                                                                                                                                          |
 | `font-style`          | `fontStyle`           | Sets the font style of the matched view. Possible values: `italic`, `normal`.                                                                                                                                                             |
 | `font-weight`         | `fontWeight`          | Sets the font weight of the matched view Possible values: `bold`, `normal` OR `100`,`200`,`300`,`400`,`500`,`600`,`700`,`800`,`900`, where `400` is `normal` and `700` is `bold` (NOTE: Some fonts do not support all available variants) |
-| `text-align`          | `textAlignment`       | Sets text alignment in the matched view. Possible values: `left` , `center`, `right`, `justify`.                                                                                                                                                     |
+| `text-align`          | `textAlignment`       | Sets text alignment in the matched view. Possible values: `left` , `center`, `right`, `justify`.                                                                                                                                          |
 | `text-decoration`     | `textDecoration`      | Sets the text formatting. Possible values: `none`, `line-through`, `underline`.                                                                                                                                                           |
 | `text-transform`      | `textTransform`       | Sets the text transform. Possible values: `none`, `capitalize`, `uppercase`, `lowercase`.                                                                                                                                                 |
 | `letter-spacing`      | `letterSpacing`       | Sets the text letter spacing. (On Android API Level 21 and above.)                                                                                                                                                                        |
