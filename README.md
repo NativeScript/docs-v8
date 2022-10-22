@@ -1,4 +1,4 @@
-Writing Guide from the Vue team we can refer to and follow: https://v3.vuejs.org/guide/contributing/writing-guide.html
+You can refer to and follow the writing guide from the Vue team at : https://v3.vuejs.org/guide/contributing/writing-guide.html
 
 ```cli
 git clone https://github.com/NativeScript/docs-new.git
@@ -8,14 +8,14 @@ npm start
 
 ## Important Note about Plugin Docs
 
-Plugins docs are automatically synced every night via cron job with various plugin workspace repos, for example:
+Plugin docs are automatically synced every night via cron job with various plugin workspace repos, for example:
 
 - https://github.com/NativeScript/firebase
 - https://github.com/NativeScript/plugins
 - https://github.com/NativeScript/payments
 
 Each plugin workspace can manage it's own set of README's for documentation. This docs repo will keep itself in sync with them every night.
-If you are wanting to modify any plugin documentation, you can do via their plugin workspaces as listed above.
+If you want to modify any plugin documentation, you can do so via their plugin workspaces as listed above.
 
 ## Outline
 
