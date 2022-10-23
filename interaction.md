@@ -228,7 +228,7 @@ view.animate({
 })
 ```
 
-![multiple-properties](/assets/images/modules/animation/multiple-properties.gif 'Multiple Properties')
+<img class="aspect-square" src="/assets/images/modules/animation/multiple-properties.gif" />
 
 ### Chaining animations with promises
 
@@ -286,7 +286,7 @@ view
   })
 ```
 
-![chaining-with-promises](/assets/images/modules/animation/chaining-with-promises.gif 'Chaining with Promises')
+<img class="aspect-square" src="/assets/images/modules/animation/chaining-with-promises.gif" />
 
 ### CSS Animations
 
@@ -768,7 +768,7 @@ In **Example 1** we will change the background color of a button from "red" to "
 
 **Example 1: Changing background color animation with code.**
 
-![hello-world](/assets/images/modules/animation/hello-world.gif 'Hello world')
+<img style="aspect-ratio: 411/293" src="/assets/images/modules/animation/hello-world.gif" />
 
 ```js
 // Import color module
@@ -849,23 +849,23 @@ By default, an animation moves with a linear speed without acceleration or decel
 
 - **linear**: The simplest animation curve is linear. It maintains a constant speed while the animation is running:
 
-![linear](/assets/images/modules/animation/linear.gif 'Linear')
+<img style="aspect-ratio: 451/152" src="/assets/images/modules/animation/linear.gif" />
 
 - **Ease-in**: The ease-in curve causes the animation to begin slowly, and then speed up as it progresses.
 
-![easein](/assets/images/modules/animation/easein.gif 'EaseIn')
+<img style="aspect-ratio: 451/152" src="/assets/images/modules/animation/easein.gif" />
 
 - **Ease-out**: An ease-out curve causes the animation to begin quickly, and then slow down as it completes.
 
-![easeout](/assets/images/modules/animation/easeout.gif 'EaseOut')
+<img style="aspect-ratio: 451/152" src="/assets/images/modules/animation/easeout.gif" />
 
 - **Ease-in-out**: An ease-in ease-out curve causes the animation to begin slowly, accelerate through the middle of its duration, and then slow again before completing.
 
-![easeinout](/assets/images/modules/animation/easeinout.gif 'EaseInOut')
+<img style="aspect-ratio: 451/152" src="/assets/images/modules/animation/easeinout.gif" />
 
 - **Spring**: A spring animation curve causes an animation to produce a spring (bounce) effect.
 
-![spring](/assets/images/modules/animation/spring.gif 'Spring')
+<img style="aspect-ratio: 651/152" src="/assets/images/modules/animation/spring.gif" />
 
 In NativeScript, the animation curve is represented by the AnimationCurve enumeration and can be specified with the curve property of the animation. In CSS, the animation curve is defined by using the animation-timing-function property (see **Example 3**):
 
@@ -916,7 +916,7 @@ For help finding the `cubicBezier` values you need for your custom animation tim
 
 **Example 4: How to create own animation curve via cubic Bezier**
 
-![beziergraph](/assets/images/modules/animation/bezier-graph.png 'BezierGraph')
+<img class="aspect-square" src="/assets/images/modules/animation/bezier-graph.png" />
 
 ```js
 import { Enums } from '@nativescript/core'
@@ -947,7 +947,7 @@ view.animate({
 }
 ```
 
-![bezier](/assets/images/modules/animation/bezier.gif 'Bezier')
+<img style="aspect-ratio: 451/152" src="/assets/images/modules/animation/bezier.gif" />
 
 More detailed examples are available on the [Animation Examples](#animation-examples) page.
 
@@ -991,7 +991,7 @@ The full source code for all samples is located [here](https://github.com/Native
 
 ### Animated opacity
 
-![opacity](/assets/images/modules/animation/opacity.gif 'Opacity')
+<img class="aspect-square" src="/assets/images/modules/animation/opacity.gif" />
 
 ```js
 view.animate({
@@ -1026,7 +1026,7 @@ view.animate({
 
 ### Animate background color
 
-![background-color](/assets/images/modules/animation/background-color.gif 'Background Color')
+<img class="aspect-square" src="/assets/images/modules/animation/background-color.gif" />
 
 ```js
 import { Color } from '@nativescript/core'
@@ -1061,11 +1061,9 @@ view.animate({
 }
 ```
 
-[Try this in the NativeScript Playground](https://play.nativescript.org/?template=play-tsc&id=aLjBQg)
-
 ### Animate position
 
-![translate](/assets/images/modules/animation/translate.gif 'Translate')
+<img class="aspect-square" src="/assets/images/modules/animation/translate.gif" />
 
 ```js
 view.animate({
@@ -1100,7 +1098,7 @@ view.animate({
 
 ### Animate scale
 
-![scale](/assets/images/modules/animation/scale.gif 'Scale')
+<img class="aspect-square" src="/assets/images/modules/animation/scale.gif" />
 
 ```js
 view.animate({
@@ -1135,7 +1133,7 @@ view.animate({
 
 ### Animate rotate
 
-![rotate](/assets/images/modules/animation/rotate.gif 'Rotate')
+<img class="aspect-square" src="/assets/images/modules/animation/rotate.gif" />
 
 ```js
 view.animate({
@@ -1171,7 +1169,7 @@ view.animate({
 
 ### Chaining animations with AnimationSet
 
-![chaining-with-animation-set](/assets/images/modules/animation/chaining-with-animation-set.gif 'Chaining with Animation Set')
+<img class="aspect-square" src="/assets/images/modules/animation/chaining-with-animation-set.gif" />
 
 ```js
 import { Animation } from '@nativescript/core'
@@ -1216,7 +1214,7 @@ animationSet
 
 ### Animating multiple views
 
-![multiple-views](/assets/images/modules/animation/multiple-views.gif 'Multiple Views')
+<img class="aspect-square" src="/assets/images/modules/animation/multiple-views.gif" />
 
 ```js
 import { Animation } from '@nativescript/core'
@@ -1309,7 +1307,7 @@ animationSet
 
 ### Reusing animations
 
-![reusing](/assets/images/modules/animation/reusing.gif 'Reusing Animations')
+<img class="aspect-square" src="/assets/images/modules/animation/reusing.gif" />
 
 ```js
 const animation1 = view.createAnimation({ opacity: 0 })
@@ -1360,7 +1358,7 @@ animation1
 
 ### Slide-in effect
 
-![slide-in-effect](/assets/images/modules/animation/slide-in-effect.gif 'Slide-in Effect')
+<img class="aspect-square" src="/assets/images/modules/animation/slide-in-effect.gif" />
 
 ```js
 const item = new imageModule.Image()
@@ -1399,7 +1397,7 @@ wrapLayout.addChild(item)
 
 ### Infinite animations
 
-![infinite](/assets/images/modules/animation/infinite.gif 'Infinite')
+<img class="aspect-square" src="/assets/images/modules/animation/infinite.gif" />
 
 ```js
 animationSet = new animationModule.Animation([
@@ -1441,7 +1439,7 @@ animationSet.play().catch(e => {
 
 **Example 5: Rotating a view around its center. Center of view is changed via `originX` and `originY` properties.**
 
-![rotation_origin_x_y](/assets/images/modules/animation/rotation_origin_x_y.gif 'Rotation originX / originY')
+<img class="aspect-square" src="/assets/images/modules/animation/rotation_origin_x_y.gif" />
 
 ```js
 const view = page.getViewById('myView')
