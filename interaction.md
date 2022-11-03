@@ -54,7 +54,7 @@ touchAnimation = {
         .setStiffness(lib.SpringForce.STIFFNESS_MEDIUM)
       let animation = new lib.SpringAnimation(
         view.android,
-        lib.DynamicAnimation().SCALE_X,
+        lib.DynamicAnimation.SCALE_X,
         float(0.95)
       )
       animation.setSpring(spring).setStartVelocity(0.7).setStartValue(1.0)
@@ -80,7 +80,7 @@ touchAnimation = {
         .setStiffness(lib.SpringForce.STIFFNESS_MEDIUM)
       let animation = new lib.SpringAnimation(
         view.android,
-        lib.DynamicAnimation().SCALE_X,
+        lib.DynamicAnimation.SCALE_X,
         float(1)
       )
       animation.setSpring(spring).setStartVelocity(0.7).setStartValue(0.95)
