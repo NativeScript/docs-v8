@@ -32,14 +32,14 @@ In short here are the steps:
 
 _TypeScript_
 
-```
-import * as imagepicker from "@nativescript/imagepicker";
+```ts
+import * as imagepicker from '@nativescript/imagepicker'
 ```
 
 _Javascript_
 
-```
-var imagepicker = require("@nativescript/imagepicker");
+```js
+var imagepicker = require('@nativescript/imagepicker')
 ```
 
 ### Create imagepicker
@@ -48,34 +48,35 @@ Create imagepicker in `single` or `multiple` mode to specifiy if the imagepicker
 
 _TypeScript_
 
-```
+```ts
 let context = imagepicker.create({
-    mode: "single" // use "multiple" for multiple selection
-});
+  mode: 'single' // use "multiple" for multiple selection
+})
 ```
 
 _Javascript_
 
-```
-var context = imagepicker.create({ mode: "single" }); // use "multiple" for multiple selection
+```js
+var context = imagepicker.create({ mode: 'single' }) // use "multiple" for multiple selection
 ```
 
 ### Request permissions, show the images list and process the selection
 
-```
+```ts
 context
-    .authorize()
-    .then(function() {
-        return context.present();
+  .authorize()
+  .then(function () {
+    return context.present()
+  })
+  .then(function (selection) {
+    selection.forEach(function (selected) {
+      // process the selected image
     })
-    .then(function(selection) {
-        selection.forEach(function(selected) {
-            // process the selected image
-        });
-        list.items = selection;
-    }).catch(function (e) {
-        // process error
-    });
+    list.items = selection
+  })
+  .catch(function (e) {
+    // process error
+  })
 ```
 
 :::tip NOTE
@@ -86,15 +87,31 @@ To request permissions for Android 6+ (API 23+) we use [nativescript-permissions
 
 :::tip NOTE
 
-To be sure to have permissions add the following lines in AndroidManifest.xml
+Apps with a targetSdkVersion <33 To be sure to have permissions add the following lines in AndroidManifest.xml
 
 :::
 
-```
+```xml
 <manifest ... >
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
   <application android:requestLegacyExternalStorage="true" ... >
+    ...
+  </application>
+</manifest>
+```
+
+:::tip NOTE
+
+Apps with a targetSdkVersion >=33 i.e. Android 13+ (API 33+): To be sure to have permissions add the following lines in AndroidManifest.xml
+
+:::
+
+```xml
+<manifest ... >
+    ...
+ 	<uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+	<uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
     ...
   </application>
 </manifest>
