@@ -148,6 +148,31 @@ Your plugin workspace will now be up to date regarding various configurations, s
 
 After running migrations you can always _delete_ the `migrations.json` file as it will no longer be used. A `migrations.json` file is always generated if migrations are available to run. After applied, you no longer need the file.
 
+### Migration 5.0.0 (Released Dec 26, 2022)
+
+- Migrates to Nx 15.4.1, NativeScript 8.4, and TypeScript ~4.8.x.
+
+With NativeScript 8.4, the TypeScript target has been upgraded to `es2020` while also using `esnext` lib. In doing so, this standardizes WeakRef usage to modern usage.
+
+The migration updates this target for you, however if you encounter an issue like this:
+
+```
+Compiling TypeScript files for project "nativescript-loading-indicator"...
+packages/nativescript-loading-indicator/index.android.ts:122:19 - error TS2693: 'WeakRef' only refers to a type, but is being used as a value here.
+
+122   const ref = new WeakRef(this);
+```
+
+This just means the `tsconfig.base.json` still needs this following adjustment:
+
+```
+"target": "ES2020",
+"module": "esnext",
+"lib": ["ESNext", "dom"],
+```
+
+This also updates transient dependencies to Angular 15. When migrating your plugin workspace to @nativescript/plugin-tools@5, it is expected that any Angular parts will be compatible with Angular 15 and higher.
+
 ### Migration 4.1.0 (Released Sept 17, 2022)
 
 - Migrates to Nx 14.7.5 and NativeScript 8.3.
