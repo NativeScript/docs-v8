@@ -156,7 +156,7 @@ With NativeScript 8.4, the TypeScript target has been upgraded to `es2020` while
 
 The migration updates this target for you, however if you encounter an issue like this:
 
-```
+```ts
 Compiling TypeScript files for project "nativescript-loading-indicator"...
 packages/nativescript-loading-indicator/index.android.ts:122:19 - error TS2693: 'WeakRef' only refers to a type, but is being used as a value here.
 
@@ -165,7 +165,7 @@ packages/nativescript-loading-indicator/index.android.ts:122:19 - error TS2693: 
 
 This just means the `tsconfig.base.json` still needs this following adjustment:
 
-```
+```ts
 "target": "ES2020",
 "module": "esnext",
 "lib": ["ESNext", "dom"],
