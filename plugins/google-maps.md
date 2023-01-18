@@ -294,7 +294,7 @@ To programatically update the camera position you can call `animateCamera` from 
 import { CameraUpdate } from '@nativescript/google-maps'
 
 googleMap.animateCamera(
-  CameraUpdate.fromCoordinates(
+  CameraUpdate.fromCoordinate(
     {
       lat: -32.1234,
       lng: 125.1234

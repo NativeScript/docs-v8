@@ -10,10 +10,6 @@ link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/email
 
 # @nativescript/Email
 
-[![NPM version][npm-image]][npm-url]
-[![Downloads][downloads-image]][npm-url]
-[![Twitter Follow][twitter-image]][twitter-url]
-
 [npm-image]: https://img.shields.io/npm/v/nativescript-email.svg
 [npm-url]: https://npmjs.org/package/nativescript-email
 [downloads-image]: https://img.shields.io/npm/dm/nativescript-email.svg
@@ -28,19 +24,19 @@ This plugin depends on the default mail app. If you want a fallback to a third p
 
 :::
 
+## Installation
+
 ```cli
 npm install @nativescript/email
 ```
 
 ## Usage
 
-## API
+### Importing
 
-To use this plugin you must first require/import it:
+Once you've installed the plugin, the next step is to import it before using it.
 
-#### TypeScript
-
-```typescript
+```ts
 import * as email from '@nativescript/email'
 // or
 import { compose } from '@nativescript/email'
@@ -48,33 +44,19 @@ import { compose } from '@nativescript/email'
 import { compose as composeEmail } from '@nativescript/email'
 ```
 
-#### JavaScript
+### Checking the availability
 
-```js
-var email = require('@nativescript/email')
-```
+To check if the device has a mail app installed, call the `available` method.
 
-### `available`
-
-#### TypeScript
-
-```typescript
+```ts
 email.available().then((avail: boolean) => {
   console.log('Email available? ' + avail)
 })
 ```
 
-#### JavaScript
+### Composing an email
 
-```js
-email.available().then(function (avail) {
-  console.log('Email available? ' + avail)
-})
-```
-
-### `compose`
-
-#### JavaScript
+To compose an email, use the `compose` method.
 
 ```js
 // let's first create a File object
@@ -112,9 +94,35 @@ email
   )
 ```
 
-Full attachment support has been added to 1.3.0 per the example above.
+## API
 
-Since 1.4.0 the promise will be rejected in case a file can't be found.
+### Method(s)
+
+| Name                               | Return Type        | Description                                                   |
+| ---------------------------------- | ------------------ | ------------------------------------------------------------- |
+| `available()`                      | `Promise<boolean>` | Checks for availability of a mail app.                        |
+| `compose(options: ComposeOptions)` | `Promise<boolean>` | Composes and sends a [ComposeOptions](#composeoptions) email. |
+
+### Attachment
+
+| Name       | Type     | Description                                                                                           |
+| ---------- | -------- | ----------------------------------------------------------------------------------------------------- |
+| `fileName` | `string` | The name used for the attachment.<br>Example: fileName: 'Cute-Kitten.png'                             |
+| `path`     | `string` | The to the file to be attached.                                                                       |
+| `mimeType` | `string` | (`iOS-only`)Used to help the iOS device figure out how to send the file.Example:mimeType: 'image/png' |
+
+### ComposeOptions
+
+| Name                | Type                             | Description                                                                                                            |
+| ------------------- | -------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `subject`           | `string`                         | _Optional_: The subject of the email.                                                                                  |
+| `body`              | `string`                         | _Optional_: The body of the email. The plugin will automatically handle plain and html email content.                  |
+| `body`              | `string`                         | _Optional_: The body of the email. The plugin will automatically handle plain and html email content.                  |
+| `to`                | `string[]`                       | _Optional_: An array of email addresses of the direct recipients. On Android only the first item in the array is used. |
+| `cc`                | `string[]`                       | _Optional_: An array of email addresses of the `cc` recipients.                                                        |
+| `bcc`               | `string[]`                       | _Optional_: An array of email addresses of the `bcc` recipients.                                                       |
+| `attachments`       | Array<[Attachment](#attachment)> | The files to be attached to the email.                                                                                 |
+| `iosViewController` | `any`                            | _Optional_: (`iOS-only`) iOS View Controller to open `compose` from.                                                   |
 
 ## Usage with Angular
 
@@ -123,7 +131,7 @@ Check out [this tutorial (YouTube)](https://www.youtube.com/watch?v=fSnQb9-Gtdk)
 ## Known issues
 
 On iOS you can't use the simulator to test the plugin because of an iOS limitation.
-To prevent a crash this plugin returns `false` when `available` is invoked on the iOS sim.
+To prevent a crash, this plugin returns `false` when `available` is invoked on the iOS simulator.
 
 ## License
 
