@@ -72,7 +72,7 @@ class HelloKotlin {
 // HelloJava.java
 package com.example
 
-class HelloJava {
+public class HelloJava {
   public String getString() {
     return "Hello from Java!";
   }
