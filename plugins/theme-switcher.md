@@ -10,6 +10,22 @@ link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/theme
 
 # @nativescript/theme-switcher
 
+## Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+  - [Register the Themes](#register-the-themes)
+  - [Switch Themes](#switch-themes)
+  - [Switch multiple themes simultaneously](#switch-multiple-themes-simultaneously)
+- [API](#api)
+  - [initThemes()](#initthemes)
+  - [switchTheme()](#switchtheme)
+  - [loadDefaultTheme()](#loaddefaulttheme)
+- [Demo App](#demo-app)
+- [License](#license)
+
+## Installation
+
 ```cli
 npm install @nativescript/theme-switcher
 ```
@@ -31,6 +47,12 @@ npm install @nativescript/theme-switcher
 
 ## Usage
 
+### Register the Themes
+
+Use the [initThemes()]() function to register the themes to switch from.
+
+Call this function in the app's `app.ts` or `main.ts` file, before the app starts.
+
 ```ts
 import { initThemes, switchTheme } from '@nativescript/theme-switcher'
 
@@ -41,8 +63,13 @@ initThemes({
   red: () => import('theme-loader!./themes/red.scss'),
   green: () => import('theme-loader!./themes/green.scss')
 })
+```
 
-// the later on, switch themes with
+### Switch Themes
+
+To switch themes, call the [switchTheme()] method passing it the name of the theme to switch to.
+
+```ts
 switchTheme('red')
 switchTheme('green')
 ```
@@ -67,7 +94,9 @@ To your `references.d.ts`, or use `// @ts-ignore` to supress the errors locally.
 
 ---
 
-If you need to switch multiple themes simultaniously, you can initialize as many switchers as you need. Each switcher will load css and persist (unless disabled) the last selected theme.
+### Switch multiple themes simultaneously
+
+If you need to switch multiple themes simultaneously, you can initialize as many switchers as you need. Each switcher will load CSS and persist (unless disabled) the last selected theme.
 
 Can be useful if your app can switch different parts of the theme individually. For example
 
@@ -94,28 +123,65 @@ switcher2.switchTheme(/* ... */)
 
 ## API
 
-### initThemes(themes: ThemeDefinition, options?: ThemeSwitcherOptions)
+### initThemes()
+
+```ts
+initThemes(themes, options)
+```
+
+Register the themes to be switched from.
+
+| Parameter | Type                                          | Description                                                                                                                                                                             |
+| :-------- | :-------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `themes`  | [ThemeDefinition](#themedefinition)           | An object with the theme name as the key, and a loader function that returns the theme css (css string, ast, optionally async). `default` will be applied initially, if set as a theme. |
+| `options` | [ThemeSwitcherOptions](#themeswitcheroptions) | _Optional_: Themes initialization settings.                                                                                                                                             |
+
+### ThemeDefinition
 
 ```ts
 interface ThemeDefinition {
   [name: string]: () => any
 }
-
-interface ThemeSwitcherOptions {
-  persistent?: boolean // default: true
-  persistenceKey?: string // default: __theme_switcher_default
-}
 ```
 
-`themes` is an object with the theme name as the key, and a loader function that returns the theme css (css string, ast, optionally async).
+### ThemeSwitcherOptions
 
-`default` will be applied if set as a theme.
+| Option           | Type      | Description                                                                                                                                                                        |
+| :--------------- | :-------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `persistent`     | `boolean` | _Optional_: Defaults to `true`. If `persistent` is enabled, the last selected theme will be saved to ApplicationSettings and automatically restored when `initThemes()` is called. |
+| `persistenceKey` | `string`  | _Optional_: The key to the selected theme under on the device storage. Defaults to `__theme_switcher_default`                                                                      |
 
-If `persistent` is enabled (default), the last selected theme will be saved to ApplicationSettings and automatically restored when `initThemes` is called.
+---
 
-### switchTheme(themeName: string)
+### switchTheme()
 
-Used to switch the current theme.
+```ts
+switchTheme(themeName)
+```
+
+Used to switch from the current theme to the specified one.
+
+| Parameter   | Type     | Description                         |
+| :---------- | :------- | :---------------------------------- |
+| `themeName` | `string` | The name of the theme to switch to. |
+
+---
+
+### loadDefaultTheme()
+
+```ts
+import { loadDefaultTheme } from '@nativescript/theme-switcher'
+
+loadDefaultTheme()
+```
+
+Loads the last selected theme if persistence is enabled, otherwise loads `"default"` if it exists.
+
+---
+
+## Demo App
+
+Try out the plugin's [demo](https://stackblitz.com/edit/nativescript-stackblitz-templates-1cverj?file=app/main-view-model.ts) with the NativeScript Preview app at StackBlitz.
 
 ## License
 
