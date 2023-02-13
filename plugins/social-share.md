@@ -219,7 +219,7 @@ that `text` will usually be suppressed due to Facebook security/abuse prevention
 1. If you are already using the Facebook Share SDK in your project you likely do _not_ have to add the following.
    If you are not using the sdk explicitly in your project yet, add to your `app.gradle` file:
 
-```goovy
+```groovy
 dependencies {
 	implementation 'com.facebook.android:facebook-share:[5,6)'
 }

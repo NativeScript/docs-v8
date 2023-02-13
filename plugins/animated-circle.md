@@ -12,9 +12,9 @@ link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/anima
 
 A plugin that creates a circular progress bar on iOS and Android.
 
-| ![Android animated circle demo video](/packages/animated-circle/images/animated-circle-android.gif) | ![iOS animated circle demo video](/packages/animated-circle/images/animated-circle-ios.gif) |
-| :-------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------ |
-| `Android`                                                                                           | `iOS`                                                                                       |
+| ![Android animated circle demo video](https://raw.githubusercontent.com/NativeScript/plugins/main/packages/animated-circle/images/animated-circle-android.gif) | ![iOS animated circle demo video](https://raw.githubusercontent.com/NativeScript/plugins/main/packages/animated-circle/images/animated-circle-ios.gif) |
+| :------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Android`                                                                                                                                                      | `iOS`                                                                                                                                                  |
 
 ## Contents
 
