@@ -18,6 +18,7 @@ NativeScript can be used with no framework at all, which is what we call the **P
 
 :::
 
+- [Plain (JavaScript)](./plain-javascript.md)
 - [Plain (TypeScript)](./plain.md)
 - [Angular](./angular.md)
 - [React](./react.md)
