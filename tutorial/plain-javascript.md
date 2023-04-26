@@ -103,7 +103,7 @@ export function navigatingTo(args) {
 <!-- tab:home-view-model.js -->
 
 ```javascript
-// app/home/home-view-model.ss
+// app/home/home-view-model.js
 
 import { Observable } from '@nativescript/core'
 
@@ -229,11 +229,11 @@ export class FlickService {
   static #instance = new FlickService()
 
   getFlicks() {
-    return this.flicks
+    return this.#flicks
   }
 
   getFlickById(id) {
-    return this.flicks.find(flick => flick.id === id) || undefined
+    return this.#flicks.find(flick => flick.id === id) || undefined
   }
 }
 ```
@@ -272,7 +272,7 @@ export class HomeViewModel extends Observable {
 
   // this will be used as the data source of our ListView
   get flicks() {
-    return new ObservableArray(this._flicks)
+    return new ObservableArray(this.#flicks)
   }
 
   populateFlicks() {
@@ -399,21 +399,20 @@ Let's start with creating the file for our details feature with the following co
 
 <!-- tab:details-page.js -->
 
-```typescript
+```javascript
 // app/details/details-page.js
 
-import { NavigatedData, Page } from '@nativescript/core'
 import { DetailsViewModel } from './details-view-model'
 
-export function navigatingTo(args: NavigatedData): void {
-  const page = <Page>args.object
+export function navigatingTo(args) {
+  const page = args.object
   page.bindingContext = new DetailsViewModel()
 }
 ```
 
 <!-- tab:details-view-model.js -->
 
-```typescript
+```javascript
 // app/details/details-view-model.js
 
 import { Observable } from '@nativescript/core'
@@ -432,7 +431,7 @@ export class DetailsViewModel extends Observable {}
 
 We will be using the `navigate` function from the `Frame` class to navigate from our home component to the details component. In addition to the route name, we will also pass in the flick's `id` as part of the `context` object of the `navigate` function. We will use this `id` in our details component to access more information about the flick. Open `home-view-model.js` and add the following:
 
-```typescript{4,29-34}
+```javascript{4,29-34}
 // app/home/home-view-model.js
 
 // Update this 👇
@@ -445,23 +444,20 @@ export class HomeViewModel extends Observable {
 
   constructor() {
     super()
-    console.log("Called constructor")
     this.populateFlicks()
   }
 
   // this will be used as the data source of our ListView
   get flicks() {
-    console.log(this.#flicks)
     return new ObservableArray(this.#flicks)
   }
 
   populateFlicks() {
     this.#flicks = FlickService.getInstance().getFlicks();
-    console.log(this.#flicks);
   }
 
   // Add this 👇
-  onFlickTap(args: ItemEventData): void {
+  onFlickTap(args) {
     Frame.topmost().navigate({
       moduleName: 'details/details-page',
       context: { flickId: this.#flicks[args.index].id }
@@ -526,12 +522,10 @@ We passed in the `id` of the flick card the user tapped on in the previous secti
 ```javascript{9}
 // app/details/details-page.js
 
-import { EventData, Page } from '@nativescript/core'
 import { DetailsViewModel } from './details-view-model'
 
-export function navigatingTo(args: EventData): void {
-  const page = <Page>args.object
-  // Update this 👇
+export function navigatingTo(args) {
+  const page = args.object
   page.bindingContext = new DetailsViewModel(page.navigationContext)
 }
 ```
