@@ -72,8 +72,6 @@ app
       |- details-page.js
       |- details-page.xml
       |- details-view-model.js
-  |- models
-      |- flick.model.js
   |- services
       |- flick.service.js
   |- app-root.xml
@@ -130,25 +128,7 @@ We will be setting up the home page as our default route when the app starts. We
 
 ### Home UI
 
-Before we create the UI of our home page, let's create our `FlickModel` and `FlickService` first. This will allow us to use the data directly in our template.
-
-`FlickModel` will contain the shape of each flick object. Create a `models` directory inside `app` and create a new file called `flick.model.js`. Open the new `flick.model.js` and add the following `class`:
-
-```javascript
-// app/models/flick.model.js
-
-export class FlickModel {
-  id
-  genre
-  title
-  image
-  url
-  description
-  details
-}
-```
-
-We will then use the `FlickModel` in our `FlickService` to return our flick data. Create a `services` directory inside `app` and create a new file called `flick.service.js`. Open the new `flick.service.js` and add the following:
+We will create a `FlickService` to return our flick data. Create a `services` directory inside `app` and create a new file called `flick.service.js`. Open the new `flick.service.js` and add the following:
 
 ```javascript
 // app/services/flick.service.js
