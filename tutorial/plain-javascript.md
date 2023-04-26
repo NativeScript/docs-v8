@@ -22,7 +22,7 @@ You'll build a master-details app that displays a list of musicals and allows yo
 
 ![Example app preview](/assets/images/tutorial/tutorial-example-app-preview.png)
 
-You can find the complete source code of the application on [GitHub](https://github.com/NativeScript/tutorials/tree/main/plain-tutorial)
+You can find the complete source code of the application on [GitHub](https://github.com/NativeScript/tutorials/tree/main/plain-js-tutorial)
 
 ## Set up your environment
 
@@ -238,7 +238,7 @@ export class FlickService {
 }
 ```
 
-Add a `/app/assets/` directory to your project, and copy the 3 static images over from the sample project [here](https://github.com/NativeScript/tutorials/tree/main/plain-tutorial/app/assets).
+Add a `/app/assets/` directory to your project, and copy the 3 static images over from the sample project [here](https://github.com/NativeScript/tutorials/tree/main/plain-js-tutorial/app/assets).
 
 Next, let's break down the layout and UI elements of the home page.
 
