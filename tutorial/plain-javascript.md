@@ -14,7 +14,7 @@ This tutorial will teach you the following:
 
 ## Prerequisites
 
-NativeScript Core uses Javascript or Typescript and XML to create your applications. To get the most out of this tutorial you should already have a basic understanding of [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) or [TypeScript](https://www.typescriptlang.org/). This Tutorial illustrates the use of JavaScript, the TypeScript tutorial is [here](./plain.md).
+NativeScript Core uses Javascript or Typescript and XML to create your applications. To get the most out of this tutorial you should already have a basic understanding of [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript). This Tutorial illustrates the use of JavaScript, the TypeScript tutorial is [here](./plain.md).
 
 ## Overview of the example application
 
@@ -30,7 +30,7 @@ To set up your development environment, follow the instructions in the [Environm
 
 ## Create a new NativeScript application
 
-We will be using Typescript for this tutorial. To create a new NativeScript Typescript application, run the CLI command `ns create` with the name of the application followed by `--ts`.
+We will be using JavaScript for this tutorial. To create a new app, run the CLI command `ns create` with the name of the application followed by `--js`.
 
 ```cli
 ns create example-app --js
@@ -56,7 +56,7 @@ The `ns run` command builds the app and launches the app on a connected Android 
 
 ## Folder structure
 
-Based on the Typescript starter app, we will be creating the following file/folder structure for our application.
+Based on the JavaScript starter app, we will be creating the following file/folder structure for our application.
 
 ```
 app
