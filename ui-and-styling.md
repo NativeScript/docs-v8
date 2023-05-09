@@ -163,7 +163,7 @@ The following example creates a group of overlapping items.
 | Name           | Type        | Description                                                                                                         |
 | -------------- | ----------- | ------------------------------------------------------------------------------------------------------------------- |
 | `N/A`          | `N/A`       | None.                                                                                                               |
-| `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](/api-reference/classes/absolutelayout.html) |
+| `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](/api-reference/classes/absolutelayout) |
 
 #### Additional children props
 
@@ -250,7 +250,7 @@ The following example creates a single line of 4 elements that stretch across th
 | Name               | Type        | Description                                                                                                     |
 | ------------------ | ----------- | --------------------------------------------------------------------------------------------------------------- |
 | `stretchLastChild` | `Boolean`   | Enables or disables stretching the last child to fit the remaining space.                                       |
-| `...Inherited`     | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](/api-reference/classes/docklayout.html) |
+| `...Inherited`     | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](/api-reference/classes/docklayout) |
 
 <!-- TODO: fix links -->
 
@@ -347,7 +347,7 @@ The following example creates a complex grid with responsive design, mixed width
 | -------------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `columns`      | `String`    | A string value representing column widths delimited with commas.<br/>Valid values: an absolute number, `auto`, or `*`.<br/>A number indicates an absolute column width. `auto` makes the column as wide as its widest child. `*` makes the column occupy all available horizontal space. The space is proportionally divided over all star-sized columns. You can set values such as `3*` and `5*` to indicate a ratio of 3:5 in sizes. |
 | `rows`         | `String`    | A string value representing row heights delimited with commas.<br/>Valid values: an absolute number, `auto`, or `*`.<br/>A number indicates an absolute row height. `auto` makes the row as tall as its tallest child. `*` makes the row occupy all available vertical space. The space is proportionally divided over all star-sized rows. You can set values such as `3*` and `5*` to indicate a ratio of 3:5 in sizes.               |
-| `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](/api-reference/classes/gridlayout.html)                                                                                                                                                                                                                                                                                                                         |
+| `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](/api-reference/classes/gridlayout)                                                                                                                                                                                                                                                                                                                         |
 
 #### Additional children props
 
@@ -479,7 +479,7 @@ The following example creates a diagonal stack of items with responsive sizes. I
 | Name           | Type        | Description                                                                                                      |
 | -------------- | ----------- | ---------------------------------------------------------------------------------------------------------------- |
 | `orientation`  | `String`    | Specifies the stacking direction.<br/>Valid values: `vertical` and `horizontal`.<br/>Default value: `vertical`.  |
-| `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](/api-reference/classes/stacklayout.html) |
+| `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](/api-reference/classes/stacklayout) |
 
 #### Additional children props
 
@@ -642,7 +642,7 @@ The following example creates a column of equally-sized items. When the row runs
 | `orientation`  | `String`    | Specifies the stacking direction.<br/>Valid values: `horizontal` (arranges items in rows) and `vertical` (arranges items in columns).<br/>Default value: `horizontal`. |
 | `itemWidth`    | `Number`    | Sets the width used to measure and layout each child.<br/>Default value: `Number.NaN`, which does not restrict children.                                               |
 | `itemHeight`   | `Number`    | Sets the height used to measure and layout each child.<br/>Default value is `Number.NaN`, which does not restrict children.                                            |
-| `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](/api-reference/classes/wraplayout.html)                                                        |
+| `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](/api-reference/classes/wraplayout)                                                        |
 
 #### Additional children props
 
@@ -767,7 +767,7 @@ The following example shows how to use:
 | `justifyContent` | `String`    | Sets the alignment of child elements along the main axis. You can use it to distribute leftover space when all the child elements on a line are inflexible or are flexible but have reached their maximum size. You can also use it to control the alignment of items when they overflow the line.<br/>Valid values:<br/>`flex-start` (items are packed toward the start line),<br/>`flex-end` (items are packed toward the end line),<br/>`center` (items are centered along the line),<br/>`space-between` (items are evenly distributed on the line; first item is on the start line, last item on the end line), and<br/>`space-around` (items are evenly distributed on the line with equal space around them).<br/>Default value: `flex-start`.                          |
 | `alignItems`     | `String`    | (Android-only) Sets the alignment of child elements along the cross axis on the current line. Acts as `justifyContent` for the cross axis.<br/>Valid values:<br/>`flex-start` (cross-start margin edge of the items is placed on the cross-start line),<br/>`flex-end` (cross-end margin edge of the items is placed on the cross-end line),<br/>`center` (items are centered оn the cross axis),<br/>`baseline` (the item baselines are aligned), and<br/>`stretch` (items are stretched to fill the container but respect `min-width` and `max-width`).<br/>Default value: `stretch`.                                                                                                                                                                                        |
 | `alignContent`   | `String`    | Sets how lines are aligned in the flex container on the cross axis, similar to how `justifyContent` aligns individual items within the main axis.<br/> This property has no effect when the flex container has only one line.<br/>Valid values:<br/>`flex-start` (lines are packed to the start of the container),<br/>`flex-end` (lines are packed to the end of the container),<br/>`center` (lines are packed to the center of the container),<br/>`space-between` (lines are evenly distributed; the first line is at the start of the container while the last one is at the end),<br/>`space-around` (lines are evenly distributed with equal space between them), and<br/>`stretch` (lines are stretched to take up the remaining space).<br/>Default value: `stretch`. |
-| `...Inherited`   | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](/api-reference/classes/flexboxlayout.html)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| `...Inherited`   | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](/api-reference/classes/flexboxlayout)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 
 #### Additional children props
 
@@ -1438,7 +1438,7 @@ export default {
 | Name           | Type        | Description                                                                                                            |
 | -------------- | ----------- | ---------------------------------------------------------------------------------------------------------------------- |
 | `busy`         | `Boolean`   | Gets or sets whether the indicator is active. When `true`, the indicator is active.                                    |
-| `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](/api-reference/classes/activityindicator.html) |
+| `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](/api-reference/classes/activityindicator) |
 
 #### Events
 
@@ -1531,7 +1531,7 @@ import { EventData } from '@nativescript/core'
 | `text`         | `String`    | Sets the label of the button.                                                                                    |
 | `textWrap`     | `Boolean`   | Gets or sets whether the widget wraps the text of the label. Useful for longer labels. Default value is `false`. |
 | `isEnabled `   | `Boolean`   | Make the button disabled or enabled. A disabled button is unusable and un-clickable. Default value is `true`.    |
-| `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](/api-reference/classes/button.html)      |
+| `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](/api-reference/classes/button)      |
 
 <!-- TODO: fix links -->
 
@@ -1729,7 +1729,7 @@ import { EventData } from '@nativescript/core'
 | `day`          | `Number`    | Gets or sets the day.                                                                                           |
 | `month`        | `Number`    | Gets or sets the month.                                                                                         |
 | `year`         | `Number`    | Gets or sets the year.                                                                                          |
-| `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](/api-reference/classes/datepicker.html) |
+| `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](/api-reference/classes/datepicker) |
 
 #### Events
 
@@ -1987,7 +1987,7 @@ export class HtmlViewUsageComponent {
 | Name           | Type        | Description                                                                                                   |
 | -------------- | ----------- | ------------------------------------------------------------------------------------------------------------- |
 | `html`         | `String`    | The HTML content to be shown.                                                                                 |
-| `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](/api-reference/classes/htmlview.html) |
+| `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](/api-reference/classes/htmlview) |
 
 #### Native component
 
@@ -2254,7 +2254,7 @@ In NativeScript-Vue, `.decode` is required for parsing properties that have HTML
 | `tintColor`    | `Color`                                                              | (Style property) Sets a color to tint template images.                                                                                                                                                                                                    |
 | `stretch`      | `ImageStretch`                                                       | (Style property) Gets or sets the way the image is resized to fill its allocated space.<br/>Valid values: `none`, `aspectFill`, `aspectFit`, or `fill`.<br/>For more information, see [ImageStretch](/api-reference/modules/coretypes.imagestretch.html). |
 | `loadMode`     |                                                                      | Gets or sets the loading strategy for the images on the local file system.<br/>Valid values: `sync` or `async`.<br/>Default value: `async`.<br/>For more information, see [loadMode](/api-reference/classes/image.html#loadmode).                         |
-| `...Inherited` | `Inherited`                                                          | Additional inherited properties not shown. Refer to the [API Reference](/api-reference/classes/image.html)                                                                                                                                                |
+| `...Inherited` | `Inherited`                                                          | Additional inherited properties not shown. Refer to the [API Reference](/api-reference/classes/image)                                                                                                                                                |
 
 <!-- TODO: fix links -->
 
@@ -2541,7 +2541,7 @@ import { EventData, ListPicker } from '@nativescript/core'
 | --------------- | --------------- | --------------------------------------------------------------------------------------------------------------- |
 | `items`         | `Array<String>` | Gets or sets the items displayed as options in the list picker.                                                 |
 | `selectedIndex` | `Number`        | Gets or sets the index of the currently selected item.                                                          |
-| `...Inherited`  | `Inherited`     | Additional inherited properties not shown. Refer to the [API Reference](/api-reference/classes/listpicker.html) |
+| `...Inherited`  | `Inherited`     | Additional inherited properties not shown. Refer to the [API Reference](/api-reference/classes/listpicker) |
 
 #### Events
 
@@ -3119,7 +3119,7 @@ Developers coming from a web background would usually reach for the `mounted` li
 | `androidStatusBarBackground`   | `Color`     | (Android-only) Gets or sets the color of the status bar on Android devices.                              |
 | `enableSwipeBackNavigation`    | `Boolean`   | (iOS-only) Gets or sets whether the page can be swiped back on iOS.<br/>Default value: `true`.           |
 | `statusBarStyle`               | `String`    | Gets or sets the style of the status bar.<br/>Valid values:<br/>`light`,<br/>`dark`.                     |
-| `...Inherited`                 | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](api-reference/classes/page.html) |
+| `...Inherited`                 | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](api-reference/classes/page) |
 
 #### Events
 
@@ -3268,7 +3268,7 @@ methods: {
 | Name           | Type        | Description                                                                                                      |
 | -------------- | ----------- | ---------------------------------------------------------------------------------------------------------------- |
 | `N/A`          | `N/A`       | None.                                                                                                            |
-| `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](/api-reference/classes/placeholder.html) |
+| `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](/api-reference/classes/placeholder) |
 
 ### Progress
 
@@ -3399,7 +3399,7 @@ Progress {
 | -------------- | ----------- | ------------------------------------------------------------------------------------------------------------- |
 | `value`        | `Number`    | Gets or sets the current value of the progress bar. Must be within the range of 0 to `maxValue`.              |
 | `maxValue`     | `Number`    | Gets or sets the maximum value of the progress bar.<br/>Default value: `100`.                                 |
-| `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](/api-reference/classes/progress.html) |
+| `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](/api-reference/classes/progress) |
 
 #### Events
 
@@ -3473,13 +3473,13 @@ When using `ObservableArray` the repeater will be automatically updated when ite
 
 | Name                                             | Type    |
 | ------------------------------------------------ | ------- |
-| [Repeater](/api-reference/classes/repeater.html) | `Class` |
+| [Repeater](/api-reference/classes/repeater) | `Class` |
 
 ### ScrollView
 
 `<ScrollView>` is a UI component that shows a scrollable content area. Content can be scrolled vertically or horizontally.
 
-It's important to note that `<ScrollView>` extends [`ContentView`](/api-reference/classes/contentview.html), so it can only have a single child element.
+It's important to note that `<ScrollView>` extends [`ContentView`](/api-reference/classes/contentview), so it can only have a single child element.
 
 ---
 
@@ -3612,7 +3612,7 @@ export class TipsAndTricksComponent {
 | --------------------------- | ----------- | --------------------------------------------------------------------------------------------------------------------------- |
 | `orientation`               | `String`    | Gets or sets the direction in which the content can be scrolled: `horizontal` or `vertical`.<br/>Default value: `vertical`. |
 | `scrollBarIndicatorVisible` | `Boolean`   | Specifies if the scrollbar is visible.<br/>Default value: `true`.                                                           |
-| `...Inherited`              | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](/api-reference/classes/scrollview.html)             |
+| `...Inherited`              | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](/api-reference/classes/scrollview)             |
 
 #### Events
 
@@ -4013,7 +4013,7 @@ let listOfItems = ['First', 'Second', 'Third']
 | `items`                   | `Array<SegmentedBarItem>` | An array of items to be displayed in the segmented bar. Represents the button labels or icons of the segmented bar.<br/>The array must be created in advance. |
 | `selectedIndex`           | `Number`                  | Gets or sets the index of the selected item.                                                                                                                  |
 | `selectedBackgroundColor` | `Color`                   | (Style property) Gets or sets the background color of the selected item. To set the background color of the entire bar, use `backgroundColor`.                |
-| `...Inherited`            | `Inherited`               | Additional inherited properties not shown. Refer to the [API Reference](/api-reference/classes/segmentedbar.html)                                             |
+| `...Inherited`            | `Inherited`               | Additional inherited properties not shown. Refer to the [API Reference](/api-reference/classes/segmentedbar)                                             |
 
 #### Events
 
@@ -4127,7 +4127,7 @@ export class UsageComponent {
 | `value`        | `Number`    | Gets or sets the currently selected value of the slider.<br/>Default value: `0`.                            |
 | `minValue`     | `Number`    | Gets or sets the minimum value of the slider.<br/>Default value: `0`.                                       |
 | `maxValue`     | `Number`    | Gets or sets the maximum value of the slider.<br/>Default value: `100`.                                     |
-| `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](/api-reference/classes/slider.html) |
+| `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](/api-reference/classes/slider) |
 
 <!-- TODO: fix links -->
 
@@ -4239,7 +4239,7 @@ export class BasicSwitchComponent {
 | Name           | Type        | Description                                                                                                 |
 | -------------- | ----------- | ----------------------------------------------------------------------------------------------------------- |
 | `checked`      | `Boolean`   | Gets or sets the value of the switch selection.<br/>Default value: `false`.                                 |
-| `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](/api-reference/classes/switch.html) |
+| `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](/api-reference/classes/switch) |
 
 <!-- TODO: fix links -->
 
@@ -4549,7 +4549,7 @@ The `TabView` component has the following unique styling properties:
 | `androidOffscreenTabLimit`         | `number`                                        | Gets or sets the number of tabs that should be retained to either side of the current tab in the view hierarchy in an idle state. |
 | `androidSelectedTabHighlightColor` | `Color`                                         | Gets or sets the color of the horizontal line drawn below the currently selected tab on Android.                                  |
 | `iosIconRenderingMode`             | `automatic`, `alwaysOriginal`, `alwaysTemplate` | Gets or sets the icon rendering mode on iOS.                                                                                      |
-| `...Inherited`                     | `Inherited`                                     | Additional inherited properties not shown. Refer to the [API Reference](/api-reference/classes/tabview.html)                      |
+| `...Inherited`                     | `Inherited`                                     | Additional inherited properties not shown. Refer to the [API Reference](/api-reference/classes/tabview)                      |
 
 #### TabViewItem Properties
 
@@ -4743,7 +4743,7 @@ export class UsageComponent {
 
 `<TextView>` is a UI component that shows an editable or a read-only multi-line text container. You can use it to let users type large text in your app or to show longer, multi-line text on the screen.
 
-`<TextView>` extends [`TextBase`](/api-reference/classes/textbase.html) and [`EditableTextBase`](/api-reference/classes/editabletextbase.html) which provide additional properties and events.
+`<TextView>` extends [`TextBase`](/api-reference/classes/textbase) and [`EditableTextBase`](/api-reference/classes/editabletextbase.html) which provide additional properties and events.
 
 <!-- TODO: fix links -->
 
@@ -4948,7 +4948,7 @@ To apply multiple styles to the text in your `<TextView>`, you can use `<Formatt
 | `keyboardType`  | `KeyboardType`                                                                                                                          | Shows a custom keyboard for easier text input.<br/>Valid values: `datetime`, `phone`, `number`, `url`, or `email`. |
 | `returnKeyType` | Gets or sets the label of the return key. Currently supported only on iOS.<br/>Valid values: `done`, `next`, `go`, `search`, or `send`. |
 | `autocorrect`   | `Boolean`                                                                                                                               | Enables or disables autocorrect.                                                                                   |
-| `...Inherited`  | `Inherited`                                                                                                                             | Additional inherited properties not shown. Refer to the [API Reference](/api-reference/classes/textview.html)      |
+| `...Inherited`  | `Inherited`                                                                                                                             | Additional inherited properties not shown. Refer to the [API Reference](/api-reference/classes/textview)      |
 
 #### Events
 
@@ -5099,7 +5099,7 @@ export class UsageComponent {
 | `minMinute`      | `Number`    | Gets or sets the minimum selectable minute.                                                                     |
 | `maxMinute`      | `Number`    | Gets or sets the maximum selectable minute.                                                                     |
 | `minuteInterval` | `Number`    | Gets or sets the selectable minute interval. For example: 5 or 15 minutes.<br/>Default value: `1`.              |
-| `...Inherited`   | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](/api-reference/classes/timepicker.html) |
+| `...Inherited`   | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](/api-reference/classes/timepicker) |
 
 #### Events
 
@@ -5187,7 +5187,7 @@ To be able to use gestures in WebView component on Android, we should first disa
 | Name           | Type        | Description                                                                                                               |
 | -------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------- |
 | `src`          | `String`    | Gets or sets the displayed web content.<br/>Valid values: an absolute URL, the path to a local HTML file, or static HTML. |
-| `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](/api-reference/classes/webview.html)              |
+| `...Inherited` | `Inherited` | Additional inherited properties not shown. Refer to the [API Reference](/api-reference/classes/webview)              |
 
 #### Events
 
