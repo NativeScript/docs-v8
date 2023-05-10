@@ -8,29 +8,21 @@ link: https://raw.githubusercontent.com/NativeScript/firebase/main/packages/fire
 	<a href="https://github.com/NativeScript/firebase/tree/main/packages/firebase-crashlytics" target="_blank" noopener>Crashlytics</a>
 </div>
 
-<!-- vscode-markdown-toc -->
+# @nativescript/firebase-crashlytics
 
-- 1. [Intro](#Intro)
-- 2. [Installation](#Installation)
-- 3. [Use @nativescript/firebase-crashlytics](#Usenativescriptfirebase-crashlytics)
-  - 3.1. [Log a crash context](#Logacrashcontext)
-  - 3.2. [Set crash attributes for more context data](#Setcrashattributesformorecontextdata)
-  - 3.3. [Test crashlytics](#Testcrashlytics)
-  - 3.4. [Report errors manually](#Reporterrorsmanually)
-  - 3.5. [Manually enable or disable crashlytics collection](#Manuallyenableordisablecrashlyticscollection)
-- 4. [API](#API)
-  - 4.1. [Crashlytics](#Crashlytics)
-    - 4.1.1. [Properties](#Properties)
-    - 4.1.2. [Methods](#Methods)
-- 5. [License](#License)
-
-<!-- vscode-markdown-toc-config
-	numbering=true
-	autoSave=true
-	/vscode-markdown-toc-config -->
-<!-- /vscode-markdown-toc --># @nativescript/firebase-crashlytics
-
-## 1. <a name='Intro'></a>Intro
+- [Intro](#Intro)
+- [Installation](#Installation)
+- [Use @nativescript/firebase-crashlytics](#use-nativescriptfirebase-crashlytics)
+  - [Log a crash context](#log-a-crash-context)
+  - [Set crash attributes for more context data](#set-crash-attributes-for-more-context-data)
+  - [Test crashlytics](#test-crashlytics)
+  - [Report errors manually](#report-errors-manually)
+  - [Manually enable or disable crashlytics collection](#manually-enable-or-disable-crashlytics-collection
+- [API](#API)
+  - [Crashlytics](#Crashlytics)
+    - [Properties](#Properties)
+    - [Methods](#Methods)
+- [License](#License)
 
 A plugin that allows you to add [Firebase Crashlytics](https://firebase.google.com/docs/crashlytics) to your NativeScript app.
 
@@ -48,7 +40,7 @@ Crashlytics helps you to collect analytics and details about crashes and errors 
 
 [![image](https://img.youtube.com/vi/k_mdNRZzd30/hqdefault.jpg)](https://www.youtube.com/watch?v=k_mdNRZzd30)
 
-## 2. <a name='Installation'></a>Installation
+## Installation
 
 Install the plugin by running the following command in the root directory of your project.
 
@@ -56,9 +48,9 @@ Install the plugin by running the following command in the root directory of you
 npm install @nativescript/firebase-crashlytics
 ```
 
-## 3. <a name='Usenativescriptfirebase-crashlytics'></a>Use @nativescript/firebase-crashlytics
+## Use @nativescript/firebase-crashlytics
 
-### 3.1. <a name='Logacrashcontext'></a>Log a crash context
+### Log a crash context
 
 Use the `log` method throughout your app to accumulate extra context for possible crashes that can happen.
 
@@ -70,7 +62,7 @@ const crashlytics = firebase().crashlytics()
 crashlytics.log('User signed in.')
 ```
 
-### 3.2. <a name='Setcrashattributesformorecontextdata'></a>Set crash attributes for more context data
+### Set crash attributes for more context data
 
 For additional context, Crashlytics also offers various methods to set attributes for the crash report.
 
@@ -114,7 +106,7 @@ const crashlytics = firebase().crashlytics()
 crashlytics.setUserId(user.uid)
 ```
 
-### 3.3. <a name='Testcrashlytics'></a>Test crashlytics
+### Test crashlytics
 
 To test Crashlytics for your app, call the `crash` method to force a crash and in Firebase Console, see if the crash is logged.
 
@@ -122,7 +114,7 @@ To test Crashlytics for your app, call the `crash` method to force a crash and i
 firebase().crashlytics().crash()
 ```
 
-### 3.4. <a name='Reporterrorsmanually'></a>Report errors manually
+### Report errors manually
 
 Crashlytics also supports sending JavaScript stack traces to the Firebase console. This can be used in any situation where an error occurs but is caught by your code to recover gracefully.
 
@@ -145,7 +137,7 @@ try {
 }
 ```
 
-### 3.5. <a name='Manuallyenableordisablecrashlyticscollection'></a>Manually enable or disable crashlytics collection
+### Manually enable or disable crashlytics collection
 
 As Crashlytics will be sending certain information regarding the user, users may want to opt out of the crash reporting. To disable crashlytics collection, call the `setCrashlyticsCollectionEnabled` method on `firebase().crashlytics()` passing it `false` This can be done throughout the app with a simple method call to setCrashlyticsCollectionEnabled:
 
@@ -155,13 +147,13 @@ import { firebase } from '@nativescript/firebase-core'
 firebase().crashlytics().setCrashlyticsCollectionEnabled(false)
 ```
 
-## 4. <a name='API'></a>API
+## API
 
-### 4.1. <a name='Crashlytics'></a>Crashlytics
+### Crashlytics
 
 The Crashlytics class has the following members.
 
-#### 4.1.1. <a name='Properties'></a>Properties
+#### Properties
 
 | Property  | Type            | Description |
 | --------- | --------------- | ----------- |
@@ -169,7 +161,7 @@ The Crashlytics class has the following members.
 | `android` | _readonly_      |
 | `app`     | [FirebaseApp]() | _readonly_  |
 
-#### 4.1.2. <a name='Methods'></a>Methods
+#### Methods
 
 | Method                                              | Returns            | Description |
 | --------------------------------------------------- | ------------------ | ----------- | ------ |
@@ -185,6 +177,6 @@ The Crashlytics class has the following members.
 | `setCrashlyticsCollectionEnabled(enabled: boolean)` | `void`             |
 | `setUserId(userId: string)`                         | `void`             |
 
-## 5. <a name='License'></a>License
+## License
 
 Apache License Version 2.0
