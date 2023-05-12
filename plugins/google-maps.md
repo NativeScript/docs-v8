@@ -10,21 +10,18 @@ link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/googl
 
 # @nativescript/google-maps
 
-NativeScript binding for the Google Maps Android & iOS API.
+A plugin that allows you to use the [Maps SDK](https://developers.google.com/maps/documentation/android-sdk/overview) to access Google Maps features.
 
-[](#table-of-contents)
-
-## Table of Contents
+## Contents
 
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
-- [Usage](#usage)
+- [Use @nativescript/google-maps with Core](#use-nativescriptgoogle-maps-with-core)
 
-  - [Core](#core)
-  - [Angular](#angular)
-  - [Vue](#vue)
-  - [Controlling the camera](#controlling-the-camera)
-  - [Setting The Map Type](#setting-the-map-type)
+  - [Use @nativescript/google-maps with Angular](#use-nativescriptgoogle-maps-with-angular)
+  - [Use @nativescript/google-maps with Vue](#use-nativescriptgoogle-maps-with-vue)
+  - [Control the camera](#control-the-camera)
+  - [Set the map type](#set-the-map-type)
   - [Styling The Map](#styling-the-map)
 
 - [API](#api)
@@ -38,7 +35,7 @@ NativeScript binding for the Google Maps Android & iOS API.
   - [Camera Position](#camera-position)
   - [Projection](#projection)
   - [UISettings](#uisettings-interface)
-  - [MapType Enum](#maptype-enum)
+  - [MapType enum](#maptype-enum)
   - [Markers](#markers)
     - [Adding Markers](#adding-markers)
     - [Marker Object](#marker-object)
@@ -66,16 +63,17 @@ NativeScript binding for the Google Maps Android & iOS API.
     - [Adding Tile Overlays](#adding-tile-overlays)
     - [TileOverlayOptions](#tileoverlayoptions)
     - [Removing Tile Overlays](#removing-tile-overlays)
+    - [Tile Providers](#tile-providers)
 
 ## Prerequisites
 
-1. To use the Google Maps API, you must register your app in the [Google API Console](https://console.cloud.google.com/apis/dashboard) and obtain an API key.
+1. To use the Google Maps API, register your app in the [Google API Console](https://console.cloud.google.com/apis/dashboard) and obtain an API key.
 
 2. Add the Google Maps API key to your app.
 
 **Android**
 
-In the `AndroidManifest.xml` file, add the `<meta-data>` tag with the `com.google.android.geo.API_KEY` as its name and the key as the value.
+To add the API key for Android, modify the `AndroidManifest.xml` file and add the `<meta-data>` tag with the `com.google.android.geo.API_KEY` as its name and the key as the value.
 
 ```xml
 <application
@@ -92,7 +90,7 @@ In the `AndroidManifest.xml` file, add the `<meta-data>` tag with the `com.googl
 
 **iOS**
 
-Add the `TNSGoogleMapsAPIKey` key and the API key as the value to the `Info.plist` file, located
+To add the API key for iOS, add the `TNSGoogleMapsAPIKey` key and the API key as the value to the `Info.plist` file, located
 at `App_Resources/iOS`.
 
 ```xml
@@ -113,11 +111,24 @@ at `App_Resources/iOS`.
 npm install @nativescript/google-maps
 ```
 
-## Usage
+To use the plugin in the different NativeScript flavors, modify the `main.ts` to import and then register it.
 
-To show the map view, add the `<MapView>` element to your HTML. Then to manage the mapping features, get the reference to the [GoogleMap](#googlemap-object) instance from the `ready` event data.
+## Use @nativescript/google-maps with core
 
-### Core
+1. Register the plugin namespace with Page's `xmlns` attribute providing your prefix( `map`, for example).
+
+```xml
+<Page xmlns="http://schemas.nativescript.org/tns.xsd"
+  xmlns:map="@nativescript/google-maps">
+```
+
+2. Access the \<[MapView](#mapview-class)\> using the the `map` prefix.
+
+```xml
+<map:MapView ...
+```
+
+Below is the complete code from the 2 preceding steps:
 
 ```xml
 <Page
@@ -130,7 +141,6 @@ To show the map view, add the `<MapView>` element to your HTML. Then to manage t
     zoom="{{zoom}}"
     bearing="{{bearing}}"
     tilt="{{tilt}}"
-    ready="{{onReady}}"
     mapTap="{{onTap}}"
     mapLongPress="{{onLongPress}}"
     markerTap="{{onMarkerTap}}"
@@ -138,15 +148,32 @@ To show the map view, add the `<MapView>` element to your HTML. Then to manage t
 </Page>
 ```
 
-To use the plugin in the different NativeScript flavors, modify the `main.ts` to import and then register it.
+3. To manage the mapping features, listen to the map view's `ready` event and get the reference to the [GoogleMap](#googlemap-object) instance from the event data.
 
-:::tip Note
+```xml
+<Page xmlns="http://schemas.nativescript.org/tns.xsd"
+  xmlns:map="@nativescript/google-maps">
+	<map:MapView
+		lat="{{lat}}"
+		lng="{{lng}}"
+		zoom="{{zoom}}"
+		bearing="{{bearing}}"
+		tilt="{{tilt}}"
 
-To handle the map features, see the [GoogleMap object](#googlemap-object) API.
+		ready="{{onReady}}" 👈
 
-:::
+		mapTap="{{onTap}}"
+		mapLongPress="{{onLongPress}}"
+		markerTap="{{onMarkerTap}}"
+	/>
+</Page>
+```
 
-### Angular
+To use the plugin in the different NativeScript flavors, modify the `main.ts` to register it.
+
+### Use @nativescript/google-maps with Angular
+
+1. Register the plugin by adding the `GoogleMapsModule` to the `imports` array of the `AppModule`, in `app.module.ts` as follows:
 
 ```ts
 import { GoogleMapsModule } from '@nativescript/google-maps/angular';
@@ -163,6 +190,19 @@ import { GoogleMapsModule } from '@nativescript/google-maps/angular';
 })
 ```
 
+2. Add [MapView](#mapview-class) to your markup.
+
+```html
+<MapView
+  (mapTap)="onTap($event)"
+  (mapLongPress)="onLongPress($event)"
+  (markerTap)="onMarkerTap($event)"
+>
+</MapView>
+```
+
+3. Manage
+
 ```html
 <MapView
   (ready)="onReady($event)"
@@ -172,6 +212,14 @@ import { GoogleMapsModule } from '@nativescript/google-maps/angular';
 >
 </MapView>
 ```
+
+3. To manage the mapping features, listen to the map view's `ready` event and get the reference to the [GoogleMap](#googlemap-object) instance from the event data.
+
+---
+
+### Use @nativescript/google-maps with Vue
+
+1. In the `app.ts` file, register the plugin by passing its reference to the `use()` method to the app instance.
 
 ---
 
@@ -195,6 +243,8 @@ To handle the map features, see the [GoogleMap object](#googlemap-object) API.
 
 ---
 
+2. Add the [MapView](#mapview-class) component to the markup.
+
 ```html
 <MapView
   @ready="onReady"
@@ -210,9 +260,11 @@ To handle the map features, see the [GoogleMap object](#googlemap-object) API.
 
 :::
 
-### Controlling the camera
+3. To manage the mapping features, listen to the map view's `ready` event and get the reference to the [GoogleMap](#googlemap-object) instance from the event data.
 
-To programatically update the camera position, call the `animateCamera()` method on the `GoogleMap` object and pass it a [CameraUpdate](#cameraupdate-class) instance.
+### Control the camera
+
+To programmatically update the camera position, call the `animateCamera()` method on the `GoogleMap` object and pass it a [CameraUpdate](#cameraupdate-class) instance.
 
 ```ts
 import { CameraUpdate } from '@nativescript/google-maps'
@@ -228,12 +280,12 @@ googleMap.animateCamera(
 )
 ```
 
-### Setting The Map Type
+### Set the map type
 
-To set the map type, set the `mapType` property to one of the [MapType](#maptype) options.
+To set the map type, set the `mapType` property to one of the [MapType](#maptype-enum) options.
 
 ```ts
-import { GoogleMap, MapType } from '@nativescript/googlemap-class'
+import { GoogleMap, MapType } from '@nativescript/google-maps'
 
 map: GoogleMap
 map.mapType = MapType.Hybrid
@@ -271,7 +323,7 @@ To style your map, use a JSON file generated by the [Google Maps APIs Styling Wi
 To apply a custom style to your map you can set the `mapStyle` property on your `GoogleMap` object:
 
 ```ts
-import { GoogleMap } from '@nativescript/googlemap-class'
+import { GoogleMap } from '@nativescript/google-maps'
 
 map: GoogleMap
 map.mapStyle = [
@@ -437,9 +489,9 @@ You can adjust the maps UI settings from the `GoogleMap` object by configuring t
 | `zoomControlsEnabled`                     | `boolean` | Whether map zoom controls are enabled or not                  |
 | `scrollGesturesEnabledDuringRotateOrZoom` | `boolean` | Whether scroll gestures are enabled while rotating or zooming |
 
-### MapType Enum
+### MapType enum
 
-The Google Maps API offers five types of maps:
+The Google Maps API offers the following five types of maps:
 
 | Type        | Description                                                                                                                                            |
 | :---------- | :----------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -682,13 +734,13 @@ function addTileOverlay(
 
 #### TileOverlayOptions
 
-| Property       | Type                                   |
-| :------------- | :------------------------------------- |
-| `fadeIn`       | `boolean`                              |
-| `transparency` | `number`                               |
-| `visible`      | `boolean`                              |
-| `tileProvider` | TileProvider & Partial\<NativeObject\> |
-| `zIndex`       | `number`                               |
+| Property       | Type                                                      |
+| :------------- | :-------------------------------------------------------- |
+| `fadeIn`       | `boolean`                                                 |
+| `transparency` | `number`                                                  |
+| `visible`      | `boolean`                                                 |
+| `tileProvider` | [TileProvider](#tile-providers) & Partial\<NativeObject\> |
+| `zIndex`       | `number`                                                  |
 
 #### Removing Tile Overlays
 
@@ -698,6 +750,23 @@ You can remove a TileOverlay using the [GoogleMap](#googlemap-object)'s `removeT
 function removeTileOverlay(map: GoogleMap, tileOverlay: TileOverlay) {
   map.removeTileOverlay(tileOverlay)
 }
+```
+
+#### Tile Providers
+
+Tile providers are objects that provide tiles to be used in a Tile Overlay.
+
+| Provider          | Description                                  |
+| :---------------- | :------------------------------------------- |
+| `TileProvider`    | Base class for tile providers                |
+| `UrlTileProvider` | Tile provider that returns a tile from a URL |
+
+For example a `UrlTileProvider` can be created like so:
+
+```ts
+const tileProvider = new UrlTileProvider((x, y, z) => {
+  return `https://tiles.example.com/${z}/${x}/${y}.png`
+})
 ```
 
 ---

@@ -10,58 +10,63 @@ link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/ionic
 
 # @nativescript/ionic-portals
 
-https://ionic.io/docs/portals
+## Contents
+
+- [Intro](#intro)
+- [Installation](#installation)
+- [Enable Ionic Portals in your app](#enable-ionic-portals-in-your-app)
+  - [Get a Portal API Key](#1-get-a-portal-api-key)
+  - [Register portals on app boot](#2-register-portals)
+  - [Add portals view to markup](#3-add-portals-view-to-markup)
+    - [Core](#core)
+    - [Angular](#angular)
+    - [Vue](#vue)
+    - [Svelte](#svelte)
+  - [Send events from NativeScript to any web portal](#send-events-from-nativescript-to-any-web-portal)
+  - [Subscribe to events sent from web portals](#subscribe-to-events-sent-from-web-portals)
+  - [Unsubscribe to events sent from web portals](#unsubscribe-from-events-sent-from-web-portals)
+- [IonicPortalManager API](#ionicportalmanager-api)
+  - [register()](#register)
+  - [setInitialContext()](#setinitialcontext)
+  - [sendAndroidPlugins](#setandroidplugins)
+  - [publishTopic()](#publishtopic)
+  - [subscribeToTopic()](#subscribetotopic)
+  - [unsubscribeFromTopic()](#unsubscribefromtopic)
+  - [configureLiveUpdates()](#configureliveupdates)
+  - [syncNow()](#syncnow)
+  - [getLastSync()](#getlastsync)
+- [Using Capacitor Plugins with Ionic Portals](#using-capacitor-plugins-with-ionic-portals)
+- [Notes](#notes)
+- [Additional Resources](#additional-resources)
+- [License](#license)
+
+## Intro
+
+A plugin that allows you to use [Ionic Portals](https://ionic.io/docs/portals) in NativeScript.
 
 > Ionic Portals are supercharged native WebView components for iOS and Android that let you add web-based experiences to native mobile apps.
 
 ![Ionic Portal View](https://raw.githubusercontent.com/NativeScript/plugins/main/packages/ionic-portals/images/ionic-portal-ios.png)
 
-## Contents
-
-- [@nativescript/ionic-portals](#nativescriptionic-portals)
-  - [Contents](#contents)
-  - [Installation](#installation)
-  - [Prerequisites](#prerequisites)
-  - [Usage](#usage)
-    - [1. Registering portals](#1-registering-portals)
-    - [2. Use it in markup](#2-use-it-in-markup)
-      - [Core](#core)
-      - [Angular](#angular)
-      - [Vue](#vue)
-      - [Svelte](#svelte)
-      - [Sending events from NativeScript to any web portal](#sending-events-from-nativescript-to-any-web-portal)
-      - [Subscribing to events sent from web portals](#subscribing-to-events-sent-from-web-portals)
-      - [Unsubscribing from events sent from web portals](#unsubscribing-from-events-sent-from-web-portals)
-  - [IonicPortalManager API](#ionicportalmanager-api)
-    - [register()](#register)
-    - [setInitialContext()](#setinitialcontext)
-    - [setAndroidPlugins()](#setandroidplugins)
-    - [publishTopic()](#publishtopic)
-    - [subscribeToTopic()](#subscribetotopic)
-    - [unsubscribeFromTopic()](#unsubscribefromtopic)
-    - [configureLiveUpdates](#configureliveupdates)
-    - [syncNow](#syncnow)
-    - [getLastSync](#getlastsync)
-  - [Using Capacitor Plugins with Ionic Portals](#using-capacitor-plugins-with-ionic-portals)
-  - [Notes](#notes)
-  - [Additional Resources](#additional-resources)
-  - [License](#license)
-
 ## Installation
+
+To install the plugin, run the following command from the root of your project:
 
 ```cli
 npm install @nativescript/ionic-portals
 ```
 
-## Prerequisites
+## Enable Ionic portals in your app
 
-- [Get a Portal API Key here](https://ionic.io/docs/portals/getting-started/guide).
+Below are the steps to enable Ionic Portal in your app.
 
-## Usage
+### 1. Get a Portal API Key
 
-### 1. Registering portals
+[Get a Portal API Key here](https://ionic.io/docs/portals/getting-started/guide).
 
-To register your Ionic Portals, call the [IonicPortalManager] class's [register](#register) method with the Portal API key.
+### 2. Register portals
+
+Register your Ionic Portals, by calling the [IonicPortalManager] class's [register()](#register) method with the [Portal API key](#1-get-a-portal-api-key).
 
 ```ts
 import { Application } from '@nativescript/core'
@@ -86,9 +91,23 @@ Given the following examples, ensure your web portal is built into the following
 - For iOS: `App_Resources/iOS/webPortal`
 - For Android: `App_Resources/Android/src/main/asssets/webPortal`
 
-### 2. Use it in markup
+### 3. Add portals view to markup
 
 #### Core
+
+1. Register the plugin namespace with Page's `xmlns` attribute providing your prefix( `ionic`, for example).
+
+```xml
+<Page xmlns:ionic="@nativescript/ionic-portals">
+```
+
+2. Access the `IonicPortal` view through the prefix and add it to markup.
+
+```xml
+<ionic:IonicPortal id="webPortal" />
+```
+
+**Full code**
 
 ```xml
 <Page
@@ -103,11 +122,15 @@ Given the following examples, ensure your web portal is built into the following
 
 #### Angular
 
+1. To add the `IonicPortal` view to the markup of any component, register it by adding the following code to the `main.ts` file:
+
 ```ts
 import { registerElement } from '@nativescript/angular'
 import { IonicPortal } from '@nativescript/ionic-portals'
 registerElement('IonicPortal', () => IonicPortal)
 ```
+
+2. Add `IonicPortal` to markup.
 
 ```html
 <IonicPortal id="webPortal"></IonicPortal>;
@@ -115,19 +138,25 @@ registerElement('IonicPortal', () => IonicPortal)
 
 #### Vue
 
+1. To add the `IonicPortal` view in the markup of any component, register it by adding the following code to the `app.ts` file:
+
 ```ts
 import { IonicPortal } from '@nativescript/ionic-portals'
 
 registerElement('IonicPortal', () => IonicPortal)
 ```
 
+2. Add `IonicPortal` to markup.
+
 ```xml
-<gridLayout height="300" class="mt-3 p-3">
+<GridLayout height="300" class="mt-3 p-3">
   <IonicPortal id="webPortal" />
-</gridLayout>
+</GridLayout>
 ```
 
 #### Svelte
+
+1. To use the `IonicPortal` view in the markup of any component, register it by adding the following code to the `app.ts` file:
 
 ```ts
 import { IonicPortal } from '@nativescript/ionic-portals'
@@ -136,13 +165,15 @@ import { registerNativeViewElement } from 'svelte-native/dom'
 registerNativeViewElement('ionicPortal', () => IonicPortal)
 ```
 
+2. Add `IonicPortal` to markup.
+
 ```xml
 <gridLayout height="300" class="mt-3 p-3">
   <ionicPortal id="webPortal" />
 </gridLayout>
 ```
 
-#### Sending events from NativeScript to any web portal
+### Send events from NativeScript to any web portal
 
 To send events from NativeScript to any web portal, use the [publishTopic()](#publishtopic) method:
 
@@ -150,7 +181,7 @@ To send events from NativeScript to any web portal, use the [publishTopic()](#pu
 IonicPortalManager.publishTopic('hello', { name: 'data from NativeScript' })
 ```
 
-#### Subscribing to events sent from web portals
+#### Subscribe to events sent from web portals
 
 To subscribe to events sent from any web portal, call the [subscribeToTopic](#subscribetotopic) method with the event name as the first argument and the event handler as the second argument.
 
@@ -160,7 +191,7 @@ const subscriptionId = IonicPortalManager.subscribeToTopic('useful-web-event', r
 })
 ```
 
-#### Unsubscribing from events sent from web portals
+#### Unsubscribe from events sent from web portals
 
 To unsubscribe from events sent from any web portal, call the [unsubscribeFromTopic()](#unsubscribefromtopic) method with the event name as the first argument and the subscription id as the second argument.
 
@@ -250,7 +281,7 @@ IonicPortalManager.unsubscribeFromTopic(topic, subscriptionId)
 | `topic`          | ` string` | The name of the topic/event to unsubscribe from.                         |
 | `subscriptionId` | `number`  | The subscription id returned by [subscribeToTopic()](#subscribetotopic). |
 
-### configureLiveUpdates
+### configureLiveUpdates()
 
 Note: configure before displaying the portal.
 
@@ -267,7 +298,7 @@ IonicPortalManager.configureLiveUpdates('webPortal', {
 | `portalId` | ` string`                     | The portal id.             |
 | `config`   | `IonicPortalLiveUpdateConfig` | Live update configuration. |
 
-### syncNow
+### syncNow()
 
 ```ts
 IonicPortalManager.syncNow(['e2abc12'], false, status => {
@@ -281,7 +312,7 @@ IonicPortalManager.syncNow(['e2abc12'], false, status => {
 | `isParallel` | `boolean`                  | Whether to sync in parallel or not. |
 | `complete`   | `(status: string) => void` | Complete callback.                  |
 
-### getLastSync
+### getLastSync()
 
 ```ts
 const lastSync = IonicPortalManager.getLastSync('e2abc12')

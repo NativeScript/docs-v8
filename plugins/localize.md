@@ -10,17 +10,12 @@ link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/local
 
 # @nativescript/localize
 
-A plugin that implements internationalization (i18n) using the native capabilities of each platform. It is inspired by [nativescript-i18n](https://github.com/rborn/nativescript-i18n)
-
-## Credits
-
-A lot of thanks goes out to [Ludovic Fabrèges (@lfabreges)](https://github.com/lfabreges) for developing and maintaining this plugin in the past. When he had to abandon it due to shifted priorities, he was kind enough to [move the repo to me](https://github.com/EddyVerbruggen/nativescript-localize/issues/73). Eddy then joined NativeScript's Technical Steering Committee and to vastly improve plugin maintenance [it was scoped and moved here](https://github.com/EddyVerbruggen/nativescript-localize/issues/99)
-
-## Table of contents
+## Contents
 
 - [Installation](#installation)
-- [Usage](#usage)
-  - [Core](#core)
+- [Use @nativescript/localize](#use-nativescriptlocalize)
+  - [Localization in NativeScript Core](#localization-in-nativescript-core)
+    - [Quirks](#quirks)
   - [Localization in Angular](#localization-in-angular)
     - [Localization in Vue](#localization-in-vue)
   - [Localization in Svelte](#localization-in-svelte)
@@ -38,17 +33,26 @@ A lot of thanks goes out to [Ludovic Fabrèges (@lfabreges)](https://github.com/
   - [localize()](#localize)
   - [overrideLocale()](#overridelocale)
   - [androidLaunchEventLocalizationHandler()](#androidlauncheventlocalizationhandler)
+- [Credits](#credits)
 - [License](#license)
 
+## Intro
+
+A plugin that implements internationalization (i18n) using the native capabilities of each platform. It is inspired by [nativescript-i18n](https://github.com/rborn/nativescript-i18n)
+
 ## Installation
+
+To install the plugin, run the following command in the root directory of your project.
 
 ```cli
 npm install @nativescript/localize
 ```
 
-## Usage
+## Use @nativescript/localize
 
-### Core
+This section describes how to use the `@nativescript/localize` plugin in several flavors that NativeScript supports.
+
+### Localization in NativeScript Core
 
 1. Create a folder named `i18n` in the `app` folder, with the following structure:
 
@@ -72,7 +76,7 @@ app
 }
 ```
 
-2. In the `main.ts` file, register the `localize()` function with the `setResources()` method of the [Appilcation](https://docs.nativescript.org/api-reference/modules#application) class, as follows.
+2. In the `main.ts` file, register the `localize` function with the `setResources` method of the [Appilcation](https://docs.nativescript.org/api-reference/modules#application) class, as follows.
 
 ```js
 import { Application } from '@nativescript/core'
@@ -90,7 +94,7 @@ Then, use the `L` property in the markup.
 </StackLayout>
 ```
 
-To localize in code-behind, just call the `localize()` method directly.
+To localize in code-behind, just call the `localize` method directly.
 
 ```js
 import { localize } from '@nativescript/localize'
@@ -172,7 +176,7 @@ app
 }
 ```
 
-2. To localize in Vue3 is simple. Just import the [localize()](#localize) method
+2. To localize in Vue3, import the [localize](#localize) method
    and call it in markup.
 
 ```ts
@@ -213,8 +217,7 @@ app
 }
 ```
 
-2. To localize in Svelte is simple. Just import the [localize()](#localize) method
-   and then call it in markup.
+2. To localize in Svelte, import the [localize](#localize) method and then call it in markup.
 
 ```ts
 import { localize } from '@nativescript/localize'
@@ -294,7 +297,7 @@ To localize an iOS property, prefix it with `ios.info.plist.`. The example below
 
 ### Changing the language dynamically at runtime
 
-To change the language dynamically at runtime, use the [overrideLocale()]() method.
+To change the language dynamically at runtime, use the [overrideLocale](#overridelocale) method.
 
 #### iOS
 
@@ -305,7 +308,7 @@ const localeOverriddenSuccessfully = overrideLocale('en-GB') // or "nl-NL", etc 
 
 #### Android
 
-For Android, first, call the `androidLaunchEventLocalizationHandler()` method in the `launchEvent` handler, in the `main.ts` file.
+For Android, first, call the `androidLaunchEventLocalizationHandler` method in the `launchEvent` handler, in the `main.ts` file.
 
 ```ts
 import { Application } from '@nativescript/core'
@@ -318,7 +321,7 @@ Application.on(Application.launchEvent, args => {
 })
 ```
 
-Then, in your settings page where the user chooses the language, call the `overrideLocale()` method:
+Then, in your settings page where the user chooses the language, call the `overrideLocale` method:
 
 ```ts
 import { overrideLocale } from '@nativescript/localize'
@@ -327,7 +330,7 @@ const localeOverriddenSuccessfully = overrideLocale('en-GB') // or "nl-NL", etc 
 
 :::tip Important
 
-On both platforms, after calling `overrideLocale()`, you must ask the user to restart the app.
+On both platforms, after calling `overrideLocale` method, you must ask the user to restart the app.
 
 :::
 
@@ -386,7 +389,7 @@ console.log("user's language is", Device.language.split('-')[0])
 
 :::tip Tip
 
-The `overrideLocale()` method stores the language in a special key in app-settings, you can access it like this
+The `overrideLocale` method stores the language in a special key in app-settings, you can access it like this
 
 :::
 
@@ -464,6 +467,12 @@ Overrides the current locale with the specified `locale` parameter.
 ```ts
 androidLaunchEventLocalizationHandler()
 ```
+
+---
+
+## Credits
+
+A lot of thanks goes out to [Ludovic Fabrèges (@lfabreges)](https://github.com/lfabreges) for developing and maintaining this plugin in the past. When he had to abandon it due to shifted priorities, he was kind enough to [move the repo to me](https://github.com/EddyVerbruggen/nativescript-localize/issues/73). Eddy then joined NativeScript's Technical Steering Committee and to vastly improve plugin maintenance [it was scoped and moved here](https://github.com/EddyVerbruggen/nativescript-localize/issues/99)
 
 ## License
 

@@ -10,6 +10,25 @@ link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/ios-s
 
 # @nativescript/ios-security
 
+## Contents
+
+- [Intro](#intro)
+- [Installation](#installation)
+- [Prerequisites](#prerequisites)
+  - [Specify the URLs to be queried](#specify-the-urls-to-be-queried)
+- [Use @nativescript/ios-security](#use-nativescriptios-security)
+  - [Detect jailbreaking](#detect-jailbreaking)
+  - [Detect debugger attachment](#detect-bebugger-attachment)
+  - [Prevent Debugger Attachment](#prevent-debugger-attachment)
+  - [Emulator detection](#emulator-detection)
+  - [Detect the use of reverse engineering tools](#detect-the-use-of-reverse-engineering-tools)
+  - [System proxy detection](#system-proxy-detection)
+  - [Runtime Hooks Detection](#runtime-hooks-detection)
+  - [App tampering detection](#app-tampering-detection)
+- [License](#license)
+
+## Intro
+
 🔒 [IOSSecuritySuite](https://github.com/securing/IOSSecuritySuite) for NativeScript.
 
 > 🌏 iOS Security Suite is an advanced and easy-to-use platform security & anti-tampering library. If you are developing for iOS and you want to protect your app according to the OWASP [MASVS](https://github.com/OWASP/owasp-masvs) standard, chapter v8, then this library could save you a lot of time. 🚀
@@ -20,24 +39,9 @@ link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/ios-s
 > - If an app was run in an emulator 👽
 > - Common reverse engineering tools running on the device 🔭
 
-## Contents
-
-1. [Installation](#installation)
-2. [Prerequisites](#prerequisites)
-   - [Specifying the URLs to be queried](#specifying-the-urls-to-be-queried)
-3. [Usage](#usage)
-   - [Importing the plugin](#importing-the-plugin)
-   - [Jailbreaking Detection](#jailbreaking-detection)
-   - [Debugger detection](#debugger-detection)
-   - [Preventing Debugger Attachment](#preventing-debugger-attachment)
-   - [Emulator detection](#emulator-detection)
-   - [Detecting reverse engineering tools](#detecting-reverse-engineering-tools)
-   - [System proxy detection](#system-proxy-detection)
-   - [Runtime Hooks Detection](#runtime-hooks-detection)
-   - [App tampering detection](#app-tampering-detection)
-4. [License](#license)
-
 ## Installation
+
+To install the plugin, run the following command in your app's root folder:
 
 ```cli
 npm install @nativescript/ios-security
@@ -45,7 +49,7 @@ npm install @nativescript/ios-security
 
 ## Prerequisites
 
-### Specifying the URLs to be queried
+### Specify the URLs to be queried
 
 In the jailbreak detection module, there is a check that uses the [canOpenURL(\_:)](https://developer.apple.com/documentation/uikit/uiapplication/1622952-canopenurl) method and it requires specifying the URLs that will be queried.
 
@@ -63,19 +67,11 @@ Specify those URLs in the `App_Resources/iOS/Info.plist` file as follows:
 </array>
 ```
 
-## Usage
+## Use @nativescript/ios-security
 
-### Importing the plugin
+The following sections describe how to use `@nativescript/ios-security`.
 
-```ts
-import { IOSSecurity } from '@nativescript/ios-security'
-```
-
-```js
-var IOSSecurity = require('@nativescript/ios-security').IOSSecurity
-```
-
-### Jailbreaking Detection
+### Detect jailbreaking
 
 For a simple check of whether the device is jailbroken, use the `amIJailbroken()` method.
 
@@ -90,7 +86,7 @@ if (isJailBroken) {
 
 ---
 
-### Debugger detection
+### Detect bebugger attachment
 
 To detect if a debugger is attached to the app, use the `amIDebugged()` method.
 
@@ -100,7 +96,7 @@ const amIDebugged: boolean = IOSSecurity.amIDebugged()
 
 ---
 
-### Preventing Debugger Attachment
+### Prevent debugger attachment
 
 To prevent the debugger from being attached to the app, call the `denyDebugger()` method.
 
@@ -120,7 +116,7 @@ const runInEmulator: boolean = IOSSecurity.amIRunInEmulator()
 
 ---
 
-### Detecting reverse engineering tools
+### Detect the use of reverse engineering tools
 
 To detect if a common reverse engineering tool is being used on the app, call the `amIReverseEngineered()` method.
 
@@ -142,7 +138,7 @@ const amIProxied: boolean = IOSSecurity.amIProxied()
 
 ### Runtime Hooks Detection
 
-To detect if a hook is placed in the application's code , call the `amIRuntimeHookedWithDyldWhiteListDetectionClassSelectorIsClassMethod()` method.
+To detect if a hook is placed in the application's code, call the `amIRuntimeHookedWithDyldWhiteListDetectionClassSelectorIsClassMethod()` method.
 
 ```ts
 let amIRuntimeHooked: boolean = IOSSecurity.amIRuntimeHookedWithDyldWhiteListDetectionClassSelectorIsClassMethod(dyldWhiteList: NSArray<string> | string[], detectionClass: typeof NSObject, selector: string, isClassMethod: boolean)

@@ -10,14 +10,17 @@ link: https://raw.githubusercontent.com/NativeScript/plugins/main/packages/hapti
 
 # @nativescript/haptics
 
+A plugin that allows you to add haptics to your app.
+
 > Playing haptics can engage people's sense of touch and bring their familiarity with the physical world into your app or game.
 > ~ Developer docs
 
 Thanks to [Eddy Verbruggen](EddyVerbruggen) for providing [nativescript-taptic-engine](https://github.com/EddyVerbruggen/nativescript-taptic-engine) as this continues its evolution by streamlining the API and adding Android support, inspired by [react-native-haptic-feedback](https://github.com/junina-de/react-native-haptic-feedback).
 
-## Table of Contents
+## Contents
 
 - [Installation](#installation)
+- [Use @nativescript/haptics](#use-nativescripthaptics)
 - [API](#api)
   - [isSupported()](#issupported)
   - [is6SAnd6SPlusSupported()](#is6sand6splussupported)
@@ -35,7 +38,13 @@ Thanks to [Eddy Verbruggen](EddyVerbruggen) for providing [nativescript-taptic-e
 npm install @nativescript/haptics
 ```
 
+## Use @nativescript/haptics
+
+Find an example of `@nativescript/haptics` usage [here](https://stackblitz.com/edit/nativescript-stackblitz-templates-jlvtwm?file=app/main-view-model.ts) on StackBlitz.
+
 ## API
+
+The plugin provides the API below.
 
 ### isSupported()
 
@@ -43,7 +52,7 @@ npm install @nativescript/haptics
 isHapticsSupported: boolean = Haptics.isSupported()
 ```
 
-Checks if Haptics is supported.
+Checks if haptics is supported on the device.
 
 ---
 
@@ -100,7 +109,7 @@ There are 3 impact types:
 
 ### HapticsFallback
 
-To use the haptics fallbacks, first check if there is support:
+To use the haptics fallbacks, check if there is support:
 
 ```ts
 if (!Haptics.isSupported() && Haptics.is6SAnd6SPlusSupported()) {
@@ -129,7 +138,7 @@ import { HapticsFallback } from '@nativescript/haptics'
 HapticsFallback.strongBoom()
 ```
 
-This triggers the 'Pop' effect of 'Peek & Pop', which is a bit more profound than the 'Peek' effect.
+This triggers the `Pop` effect of `Peek & Pop`, which is a bit more profound than the `Peek` effect.
 
 ### burst()
 
@@ -139,7 +148,7 @@ import { HapticsFallback } from '@nativescript/haptics'
 HapticsFallback.burst()
 ```
 
-This triggers the 'Nope' effect you get when force-touching a home icon that doesn't have any action. It's a short burst of 3-ish 'weak booms'.
+This triggers the `Nope` effect you get when force-touching a home icon that doesn't have any action. It's a short burst of 3-ish 'weak booms'.
 
 ## Changelog
 
