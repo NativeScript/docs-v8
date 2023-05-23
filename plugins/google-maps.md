@@ -734,13 +734,16 @@ function addTileOverlay(
 
 #### TileOverlayOptions
 
-| Property       | Type                                                      |
-| :------------- | :-------------------------------------------------------- |
-| `fadeIn`       | `boolean`                                                 |
-| `transparency` | `number`                                                  |
-| `visible`      | `boolean`                                                 |
-| `tileProvider` | [TileProvider](#tile-providers) & Partial\<NativeObject\> |
-| `zIndex`       | `number`                                                  |
+| Property           | Type                                                      |
+| :----------------- | :-------------------------------------------------------- |
+| `fadeIn`           | `boolean`                                                 |
+| `transparency`     | `number`                                                  |
+| `visible`          | `boolean`                                                 |
+| `tileProvider`     | [TileProvider](#tile-providers) & Partial\<NativeObject\> |
+| `zIndex`           | `number`                                                  |
+| `clearTileCache()` | `void`                                                    |
+
+Setting tile overlay options after the tile overlay has been added to the map can have no effect on the tile overlay. To update the tile overlay, you may need to call `clearTileCache()`.
 
 #### Removing Tile Overlays
 
