@@ -536,11 +536,11 @@ const payload = {
   apns: {
     payload: {
       aps: {
-        'mutable-content': 1 // 1 or true
+        'mutable-content': 1
       }
     },
-    fcm_options: {
-      image: 'image-url'
+    fcmOptions: {
+      imageUrl: 'image-url'
     }
   }
 }
@@ -599,13 +599,13 @@ const message = {
         'mutable-content': 1
       }
     },
-    fcm_options: {
-      image: 'image-url'
+    fcmOptions: {
+      imageUrl: 'image-url'
     }
   },
   android: {
     notification: {
-      image: 'image-url'
+      imageUrl: 'image-url'
     }
   }
 }
