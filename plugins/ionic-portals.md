@@ -48,7 +48,7 @@ A plugin that allows you to use [Ionic Portals](https://ionic.io/docs/portals) i
 
 > Ionic Portals are supercharged native WebView components for iOS and Android that let you add web-based experiences to native mobile apps.
 
-![Ionic Portal View](/packages/ionic-portals/images/ionic-portal-ios.png)
+![Ionic Portal View](https://raw.githubusercontent.com/NativeScript/ui-kit/main/packages/ionic-portals/images/ionic-portal-ios.png)
 
 ## Installation
 
