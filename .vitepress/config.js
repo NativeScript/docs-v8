@@ -132,6 +132,11 @@ function getPlugins() {
 	const officialGithubUrl =
 		'https://github.com/NativeScript/plugins/tree/main/packages'
 
+	const officialUIKitPlugins_baseUrl =
+		'https://raw.githubusercontent.com/NativeScript/ui-kit/main/packages'
+	const officialUIKitGithubUrl =
+		'https://github.com/NativeScript/ui-kit/tree/main/packages'
+
 	const paymentsPlugins_baseUrl =
 		'https://raw.githubusercontent.com/NativeScript/payments/main/packages'
 	const paymentsGithubUrl =
@@ -289,8 +294,8 @@ function getPlugins() {
 				{
 					name: 'Ionic Portals',
 					link: '/plugins/ionic-portals',
-					readme: `${officialPlugins_baseUrl}/ionic-portals/README.md`,
-					repo: `${officialGithubUrl}/ionic-portals`,
+					readme: `${officialUIKitPlugins_baseUrl}/ionic-portals/README.md`,
+					repo: `${officialUIKitGithubUrl}/ionic-portals`,
 				},
 				{
 					name: 'iOS Security',
