@@ -8,11 +8,11 @@ link: https://raw.githubusercontent.com/NativeScript/ui-kit/main/packages/ionic-
 	<a href="https://github.com/NativeScript/ui-kit/tree/main/packages/ionic-portals" target="_blank" noopener>Ionic Portals</a>
 </div>
 
-# @nativescript/imagepicker
+# @nativescript/ionic-portals
 
 ## Contents
 
-- [@nativescript/imagepicker](#nativescriptimagepicker)
+- [@nativescript/ionic-portals](#nativescriptionic-portals)
   - [Contents](#contents)
   - [Intro](#intro)
   - [Installation](#installation)
