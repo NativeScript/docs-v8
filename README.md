@@ -13,6 +13,7 @@ Plugin docs are automatically synced every night via cron job with various plugi
 - https://github.com/NativeScript/firebase
 - https://github.com/NativeScript/plugins
 - https://github.com/NativeScript/payments
+- https://github.com/NativeScript/ui-kit
 
 Each plugin workspace can manage it's own set of README's for documentation. This docs repo will keep itself in sync with them every night.
 If you want to modify any plugin documentation, you can do so via their plugin workspaces as listed above.

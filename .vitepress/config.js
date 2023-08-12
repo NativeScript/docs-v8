@@ -262,6 +262,12 @@ function getPlugins() {
 					repo: `${officialGithubUrl}/fingerprint-auth`,
 				},
 				{
+					name: 'Flutter',
+					link: '/plugins/flutter',
+					readme: `${officialUIKitPlugins_baseUrl}/flutter/README.md`,
+					repo: `${officialUIKitGithubUrl}/flutter`,
+				},
+				{
 					name: 'Geolocation',
 					link: '/plugins/geolocation',
 					readme: `${officialPlugins_baseUrl}/geolocation/README.md`,
@@ -310,6 +316,12 @@ function getPlugins() {
 					repo: `${officialGithubUrl}/iqkeyboardmanager`,
 				},
 				{
+					name: 'Jetpack Compose',
+					link: '/plugins/jetpack-compose',
+					readme: `${officialUIKitPlugins_baseUrl}/jetpack-compose/README.md`,
+					repo: `${officialUIKitGithubUrl}/jetpack-compose`,
+				},
+				{
 					name: 'Local Notifications',
 					link: '/plugins/local-notifications',
 					readme: `${officialPlugins_baseUrl}/local-notifications/README.md`,
@@ -334,6 +346,12 @@ function getPlugins() {
 					repo: `${officialGithubUrl}/picker`,
 				},
 				{
+					name: 'Rive',
+					link: '/plugins/rive',
+					readme: `${officialUIKitPlugins_baseUrl}/rive/README.md`,
+					repo: `${officialUIKitGithubUrl}/rive`,
+				},
+				{
 					name: 'Shared Notification Delegate',
 					link: '/plugins/shared-notification-delegate',
 					readme: `${officialPlugins_baseUrl}/shared-notification-delegate/README.md`,
@@ -344,6 +362,12 @@ function getPlugins() {
 					link: '/plugins/social-share',
 					readme: `${officialPlugins_baseUrl}/social-share/README.md`,
 					repo: `${officialGithubUrl}/social-share`,
+				},
+				{
+					name: 'SwiftUI',
+					link: '/plugins/swift-ui',
+					readme: `${officialUIKitPlugins_baseUrl}/swift-ui/README.md`,
+					repo: `${officialUIKitGithubUrl}/swift-ui`,
 				},
 				{
 					name: 'Tailwind CSS',
