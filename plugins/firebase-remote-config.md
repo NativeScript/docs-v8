@@ -377,9 +377,9 @@ Asynchronously fetches and then activates the fetched configs. For more informat
 #### getAll()
 
 ```ts
-import { firebase } from '@nativescript/firebase-core';
+import { firebase } from '@nativescript/firebase-core'
 
-parameters: Record<string, ConfigValue> = firebase().remoteConfig().getAll();
+parameters: Record<string, ConfigValue> = firebase().remoteConfig().getAll()
 ```
 
 Returns an object with all the parameters in the Remote Config.
