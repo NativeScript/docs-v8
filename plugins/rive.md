@@ -74,6 +74,24 @@ For Android, add this provider to your `AndroidManifest.xml` inside the `applica
         </provider>
 ```
 
+#### Gradle settings
+
+Add this to your `app.gradle` inside the `android` section:
+
+```yml
+kotlinOptions {
+jvmTarget = '1.8'
+}
+```
+
+Ensure your gradle settings are setup to use Kotlin by adding a `gradle.properties` file (right next to your `app.gradle`) with the following:
+
+```yml
+useKotlin=true
+```
+
+## RiveView
+
 Use `RiveView`:
 
 ```xml
@@ -89,7 +107,7 @@ Use `RiveView`:
 </Page>
 ```
 
-When using flavors, you can just register the element for usage in your markup:
+When using flavors, you can register the element for usage in your markup:
 
 ```ts
 import { RiveView } from '@nativescript/rive'
@@ -153,6 +171,73 @@ let rive: RiveView
 function loadedRive(args) {
   rive = args.object
   rive.triggerInputValue(name, value)
+}
+```
+
+## Troubleshooting
+
+When configuring your Android app for Rive you may run into the following issues. Here's some solutions.
+
+### Potential Error 1
+
+```
+Execution failed for task ':app:checkDebugDuplicateClasses'.
+Duplicate class kotlin.collections.jdk8.CollectionsJDK8Kt found in modules jetified-kotlin-stdlib-1.8.21 (org.jetbrains.kotlin:kotlin-stdlib:1.8.21) and jetified-kotlin-stdlib-jdk8-1.6.21 (org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.6.21)
+Duplicate class kotlin.internal.jdk7.JDK7PlatformImplementations found in modules jetified-kotlin-stdlib-1.8.21 (org.jetbrains.kotlin:kotlin-stdlib:1.8.21) and jetified-kotlin-stdlib-jdk7-1.6.21 (org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.6.21)
+```
+
+**Solution**
+
+Add the following dependency constraints to the top of your `app.gradle` above the android section:
+
+```
+dependencies {
+    constraints {
+        implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.21"
+        implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.21"
+    }
+}
+```
+
+### Potential Error 2
+
+```bash
+Execution failed for task ':app:mergeDebugNativeLibs'.
+2 files found with path 'lib/arm64-v8a/libc++_shared.so' from inputs:
+ - /Users/you/.gradle/caches/transforms-3/fed290951dd20dba6bd42d7106bb3f26/transformed/jetified-rive-android-8.1.3/jni/arm64-v8a/libc++_shared.so
+```
+
+**Solution**
+
+Add this section to `app.gradle` android section:
+
+```bash
+android {
+  …
+  packagingOptions {
+      pickFirst "lib/x86/libc++_shared.so"
+      pickFirst "lib/x86_64/libc++_shared.so"
+      pickFirst "lib/armeabi-v7a/libc++_shared.so"
+      pickFirst "lib/arm64-v8a/libc++_shared.so"
+  }
+  …
+}
+```
+
+### Potential Error 3
+
+```bash
+This version (1.2.0-alpha05) of the Compose Compiler requires Kotlin version 1.6.10 but you appear to be using Kotlin version 1.7.10 which is not known to be compatible.  Please fix your configuration (or `suppressKotlinVersionCompatibilityCheck` but don't say I didn't warn you!).
+```
+
+**Solution**
+
+Add a `before-plugins.gradle` file next to your app.gradle containing the following:
+
+```
+ext {
+    gradlePluginVersion = "7.3.1"
+    kotlinVersion = "1.6.10"
 }
 ```
 
