@@ -155,11 +155,11 @@ The Crashlytics class has the following members.
 
 #### Properties
 
-| Property  | Type            | Description |
-| --------- | --------------- | ----------- |
-| `ios`     |                 | _readonly_  |
-| `android` | _readonly_      |
-| `app`     | [FirebaseApp]() | _readonly_  |
+| Property  | Type                                                                                              | Description |
+| --------- | ------------------------------------------------------------------------------------------------- | ----------- |
+| `ios`     |                                                                                                   | _readonly_  |
+| `android` | _readonly_                                                                                        |
+| `app`     | [FirebaseApp](https://firebase.google.com/docs/reference/android/com/google/firebase/FirebaseApp) | _readonly_  |
 
 #### Methods
 
