@@ -322,6 +322,12 @@ function getPlugins() {
 					repo: `${officialUIKitGithubUrl}/jetpack-compose`,
 				},
 				{
+					name: 'Keyboard Toolbar',
+					link: '/plugins/keyboard-toolbar',
+					readme: `${officialPlugins_baseUrl}/keyboard-toolbar/README.md`,
+					repo: `${officialGithubUrl}/keyboard-toolbar`,
+				},
+				{
 					name: 'Local Notifications',
 					link: '/plugins/local-notifications',
 					readme: `${officialPlugins_baseUrl}/local-notifications/README.md`,
