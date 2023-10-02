@@ -689,7 +689,6 @@ function H(e, t, n, r, o, i, a, c, u) {
 				g && (f.__E = f.__ = null),
 				(f.__e = !1)
 		} else t.__e = M(n.__e, t, n, r, o, i, a, u)
-
 		;(l = s.diffed) && l(t)
 	} catch (e) {
 		s.__e(e, t, n)
@@ -6681,7 +6680,7 @@ var script$a = defineComponent({
 var _hoisted_1$a = /*#__PURE__*/ createVNode(
 	'a',
 	{
-		href: 'https://blog.nativescript.org/nativescript-preview-announcement',
+		href: 'https://beta.docs.nativescript.org/',
 		class:
 			'flex flex-col items-center content-center justify-center px-4 py-2 text-white md:flex-row bg-white',
 	},
@@ -6691,10 +6690,7 @@ var _hoisted_1$a = /*#__PURE__*/ createVNode(
 			{
 				class: 'text-sm font-medium text-gray-800',
 			},
-			[
-				/*#__PURE__*/ createVNode('b', null, 'Preview 2.0'),
-				/*#__PURE__*/ createTextVNode(' is now in Public Beta!'),
-			]
+			'🧠 🎥 '
 		),
 		/*#__PURE__*/ createVNode(
 			'div',
@@ -6702,7 +6698,9 @@ var _hoisted_1$a = /*#__PURE__*/ createVNode(
 				class: 'font-bold underline text-gray-900 ml-2 text-sm',
 			},
 			[
-				/*#__PURE__*/ createTextVNode('Read the Announcement '),
+				/*#__PURE__*/ createTextVNode(
+					'NEW docs are almost ready! Check them out here '
+				),
 				/*#__PURE__*/ createVNode(
 					'span',
 					{
@@ -9058,7 +9056,6 @@ var script = defineComponent({
 		})
 		watch(currentTab, function (next, prev) {
 			var _tabContainer$value, _tabContainer$value2
-
 			;(_tabContainer$value = tabContainer.value) === null ||
 			_tabContainer$value === void 0
 				? void 0
