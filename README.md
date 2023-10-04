@@ -1,4 +1,16 @@
-You can refer to and follow the writing guide from the Vue team at : https://v3.vuejs.org/guide/contributing/writing-guide.html
+# NEW DOCS!
+
+We are working on a docs revamp over at [NativeScript/docs](https://github.com/NativeScript/docs) now in beta!
+
+**Check them out** at https://beta.docs.nativescript.org/
+
+![NativeScript Logo](https://art.nativescript.org/logo/export/NativeScript_Logo_Wide_White_Blue_Rounded_Blue.png)
+
+---
+
+## Running the docs locally
+
+<!-- You can refer to and follow the writing guide from the Vue team at : https://v3.vuejs.org/guide/contributing/writing-guide.html -->
 
 ```cli
 git clone https://github.com/NativeScript/docs-new.git
