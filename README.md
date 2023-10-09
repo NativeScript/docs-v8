@@ -1,8 +1,8 @@
-# NEW DOCS!
+# Contribute to Docs at new location:
 
-We are working on a docs revamp over at [NativeScript/docs](https://github.com/NativeScript/docs) now in beta!
+Don't use this repo; instead can modify docs here:
 
-**Check them out** at https://beta.docs.nativescript.org/
+- [NativeScript/docs](https://github.com/NativeScript/docs)
 
 ![NativeScript Logo](https://art.nativescript.org/logo/export/NativeScript_Logo_Wide_White_Blue_Rounded_Blue.png)
 
