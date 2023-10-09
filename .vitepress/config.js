@@ -15,6 +15,7 @@ module.exports = {
 	description: 'NativeScript docs',
 
 	head: [
+		['meta', { name: 'robots', content: 'noindex' }],
 		['link', { rel: 'stylesheet', href: 'https://rsms.me/inter/inter.css' }],
 		['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com' }],
 
