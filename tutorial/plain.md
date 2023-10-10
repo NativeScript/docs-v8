@@ -157,7 +157,7 @@ We will then use the `FlickModel` in our `FlickService` to return our flick data
 ```typescript
 // app/services/flick.service.ts
 
-import { FlickModel } from '../models'
+import { FlickModel } from '~/models/flick.service'
 
 export class FlickService {
   private flicks: FlickModel[] = [
@@ -288,8 +288,8 @@ Since we have an array of flicks to display we can use NativeScript's [`ListView
 // app/home/home-view-model.ts
 
 import { Observable, ObservableArray } from '@nativescript/core'
-import { FlickModel } from '../models'
-import { FlickService } from '../services'
+import { FlickModel } from '~/models/flick.model'
+import { FlickService } from '~/services/flick.service'
 
 // Add the contents of HomeViewModel class 👇
 export class HomeViewModel extends Observable {
@@ -467,8 +467,8 @@ We will be using the `navigate` function from the `Frame` class to navigate from
 
 // Update this 👇
 import { Frame, Observable, ObservableArray, ItemEventData } from '@nativescript/core'
-import { FlickModel } from '../models'
-import { FlickService } from '../services'
+import { FlickModel } from '~/models/flick.model'
+import { FlickService } from '~/services/flick.service'
 
 export class HomeViewModel extends Observable {
   private _flicks: FlickModel[]
@@ -567,8 +567,8 @@ Next, let's access this property and get the flick information in our `DetailsVi
 // app/details/details-view-model.ts
 
 import { Observable } from '@nativescript/core'
-import { FlickService } from '../services'
-import { FlickModel } from '../models'
+import { FlickService } from '~/services/flick.service'
+import { FlickModel } from '~/models/flick.model'
 
 // Add the contents of HomeViewModel class 👇
 export class DetailsViewModel extends Observable {
