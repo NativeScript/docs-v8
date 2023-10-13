@@ -10,14 +10,13 @@ import {
 	createVNode,
 	ref,
 	resolveComponent,
-	Fragment,
 	withCtx,
+	Fragment,
 	renderList,
 	toDisplayString,
 	withModifiers,
 	Transition,
 	createCommentVNode,
-	createTextVNode,
 	createStaticVNode,
 	onUpdated,
 	onUnmounted,
@@ -26,6 +25,7 @@ import {
 	unref,
 	pushScopeId,
 	popScopeId,
+	createTextVNode,
 	withScopeId,
 	nextTick,
 	renderSlot,
@@ -689,7 +689,6 @@ function H(e, t, n, r, o, i, a, c, u) {
 				g && (f.__E = f.__ = null),
 				(f.__e = !1)
 		} else t.__e = M(n.__e, t, n, r, o, i, a, u)
-
 		;(l = s.diffed) && l(t)
 	} catch (e) {
 		s.__e(e, t, n)
@@ -6678,62 +6677,25 @@ var script$a = defineComponent({
 	},
 })
 
-var _hoisted_1$a = /*#__PURE__*/ createVNode(
-	'a',
-	{
-		href: 'https://beta.docs.nativescript.org/',
-		class:
-			'flex flex-col items-center content-center justify-center px-4 py-2 text-white md:flex-row bg-white',
-	},
-	[
-		/*#__PURE__*/ createVNode(
-			'span',
-			{
-				class: 'text-sm font-medium text-gray-800',
-			},
-			'📚 '
-		),
-		/*#__PURE__*/ createVNode(
-			'div',
-			{
-				class: 'font-bold underline text-gray-900 ml-2 text-sm',
-			},
-			[
-				/*#__PURE__*/ createTextVNode(
-					'NEW docs are almost ready! Check them out here '
-				),
-				/*#__PURE__*/ createVNode(
-					'span',
-					{
-						'aria-hidden': 'true',
-					},
-					'→'
-				),
-			]
-		),
-	],
-	-1
-)
-
+var _hoisted_1$a = {
+	class: 'nav-bar top-0 z-10 lg:sticky',
+}
 var _hoisted_2$9 = {
-	class: 'top-0 z-10 lg:sticky nav-bar',
+	class: 'bg-ns-blue py-4',
 }
 var _hoisted_3$6 = {
-	class: 'py-4 bg-ns-blue',
-}
-var _hoisted_4$6 = {
 	class:
-		'relative flex items-center justify-between px-4 mx-auto 2xl:container sm:px-6',
+		'relative mx-auto flex items-center justify-between px-4 sm:px-6 2xl:container',
 	'aria-label': 'Global',
 }
-var _hoisted_5$3 = {
-	class: 'flex items-center flex-1',
+var _hoisted_4$6 = {
+	class: 'flex flex-1 items-center',
 }
-var _hoisted_6$2 = {
-	class: 'flex items-center justify-between w-full lg:w-auto',
+var _hoisted_5$3 = {
+	class: 'flex w-full items-center justify-between lg:w-auto',
 }
 
-var _hoisted_7$2 = /*#__PURE__*/ createVNode(
+var _hoisted_6$2 = /*#__PURE__*/ createVNode(
 	'span',
 	{
 		class: 'sr-only',
@@ -6742,11 +6704,11 @@ var _hoisted_7$2 = /*#__PURE__*/ createVNode(
 	-1
 )
 
-var _hoisted_8$2 = {
-	class: 'flex items-center -mr-1 lg:hidden',
+var _hoisted_7$2 = {
+	class: '-mr-1 flex items-center lg:hidden',
 }
 
-var _hoisted_9$2 = /*#__PURE__*/ createVNode(
+var _hoisted_8$2 = /*#__PURE__*/ createVNode(
 	'span',
 	{
 		class: 'sr-only',
@@ -6755,10 +6717,10 @@ var _hoisted_9$2 = /*#__PURE__*/ createVNode(
 	-1
 )
 
-var _hoisted_10$1 = /*#__PURE__*/ createVNode(
+var _hoisted_9$2 = /*#__PURE__*/ createVNode(
 	'svg',
 	{
-		class: 'w-6 h-6',
+		class: 'h-6 w-6',
 		xmlns: 'http://www.w3.org/2000/svg',
 		fill: 'none',
 		viewBox: '0 0 24 24',
@@ -6776,31 +6738,31 @@ var _hoisted_10$1 = /*#__PURE__*/ createVNode(
 	-1
 )
 
+var _hoisted_10$1 = {
+	class: 'ml-10 hidden space-x-8 lg:flex',
+}
 var _hoisted_11$1 = {
-	class: 'hidden ml-10 space-x-8 lg:flex',
+	class: 'flex flex-1 justify-center px-2 lg:justify-end',
 }
 var _hoisted_12$1 = {
-	class: 'flex justify-center flex-1 px-2 lg:justify-end',
-}
-var _hoisted_13$1 = {
 	class: 'w-full max-w-xl xl:max-w-xs',
 }
-var _hoisted_14$1 = {
+var _hoisted_13$1 = {
 	class:
-		'relative text-white rounded-md focus-within:ring-2 ring-offset-2 ring-offset-transparent',
+		'text-white ring-offset-transparent relative rounded-md ring-offset-2 focus-within:ring-2',
 }
 
-var _hoisted_15 = /*#__PURE__*/ createVNode(
+var _hoisted_14$1 = /*#__PURE__*/ createVNode(
 	'div',
 	{
 		class:
-			'absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none',
+			'pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3',
 	},
 	[
 		/*#__PURE__*/ createVNode(
 			'svg',
 			{
-				class: 'w-5 h-5',
+				class: 'h-5 w-5',
 				xmlns: 'http://www.w3.org/2000/svg',
 				viewBox: '0 0 20 20',
 				fill: 'currentColor',
@@ -6818,19 +6780,19 @@ var _hoisted_15 = /*#__PURE__*/ createVNode(
 	-1
 )
 
-var _hoisted_16 = /*#__PURE__*/ createStaticVNode(
-	'<input aria-hidden="true" id="search" name="search" disabled class="\n                      block\n                      w-full\n                      py-2\n                      pl-10\n                      pr-3\n                      leading-5\n                      bg-white\n                      border border-transparent\n                      rounded-md\n                      placeholder-blue-50\n                      text-blue-50\n                      bg-opacity-20\n                      focus:outline-none focus:bg-white focus:ring-0 focus:placeholder-gray-400 focus:text-gray-900\n                      sm:text-sm\n                    " placeholder="Search Anything" type="search"><div class="absolute inset-y-0 right-0 items-center hidden pr-3 pointer-events-none xl:flex"><div class="px-2 py-1 text-xs text-white bg-white border border-white border-opacity-50 rounded bg-opacity-30"><span class="sr-only">Press Ctrl+K to open quick search</span><span aria-hidden="true">Ctrl K</span></div></div>',
+var _hoisted_15 = /*#__PURE__*/ createStaticVNode(
+	'<input aria-hidden="true" id="search" name="search" disabled class="bg-white border-transparent placeholder-blue-50 text-blue-50 focus:bg-white block w-full rounded-md border bg-opacity-20 py-2 pl-10 pr-3 leading-5 focus:text-gray-900 focus:placeholder-gray-400 focus:outline-none focus:ring-0 sm:text-sm" placeholder="Search Anything" type="search"><div class="pointer-events-none absolute inset-y-0 right-0 hidden items-center pr-3 xl:flex"><div class="text-white bg-white border-white rounded border border-opacity-50 bg-opacity-30 px-2 py-1 text-xs"><span class="sr-only">Press Ctrl+K to open quick search</span><span aria-hidden="true">Ctrl K</span></div></div>',
 	2
 )
 
-var _hoisted_18 = {
+var _hoisted_17 = {
 	class: 'hidden lg:flex lg:items-center lg:space-x-6',
 }
-var _hoisted_19 = {
+var _hoisted_18 = {
 	class: 'relative',
 }
 
-var _hoisted_20 = /*#__PURE__*/ createVNode(
+var _hoisted_19 = /*#__PURE__*/ createVNode(
 	'span',
 	{
 		class: 'sr-only',
@@ -6839,10 +6801,10 @@ var _hoisted_20 = /*#__PURE__*/ createVNode(
 	-1
 )
 
-var _hoisted_21 = /*#__PURE__*/ createVNode(
+var _hoisted_20 = /*#__PURE__*/ createVNode(
 	'svg',
 	{
-		class: 'w-6 h-6',
+		class: 'h-6 w-6',
 		role: 'presentation',
 		xmlns: 'http://www.w3.org/2000/svg',
 		fill: 'none',
@@ -6860,33 +6822,33 @@ var _hoisted_21 = /*#__PURE__*/ createVNode(
 	-1
 )
 
-var _hoisted_22 = {
+var _hoisted_21 = {
 	key: 0,
 	class:
-		'absolute z-10 w-screen max-w-xs px-2 mt-3 transform -translate-x-full left-24 sm:px-0',
+		'absolute left-24 z-10 mt-3 w-screen max-w-xs -translate-x-full transform px-2 sm:px-0',
+}
+var _hoisted_22 = {
+	class:
+		'ring-black overflow-hidden rounded-lg shadow-lg ring-1 ring-opacity-5',
 }
 var _hoisted_23 = {
-	class:
-		'overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5',
+	class: 'bg-white relative grid gap-6 px-5 py-6 sm:gap-8 sm:p-8',
 }
 var _hoisted_24 = {
-	class: 'relative grid gap-6 px-5 py-6 bg-white sm:gap-8 sm:p-8',
-}
-var _hoisted_25 = {
 	class: 'text-base font-medium text-gray-900',
 }
-var _hoisted_26 = {
+var _hoisted_25 = {
 	class: 'mt-1 text-sm text-gray-500',
 }
 
-var _hoisted_27 = /*#__PURE__*/ createVNode(
+var _hoisted_26 = /*#__PURE__*/ createVNode(
 	'a',
 	{
 		href: 'https://github.com/NativeScript/NativeScript',
 		target: '_blank',
 		rel: 'noopener noreferrer',
 		class:
-			'\n              inline-flex\n              items-center\n              justify-center\n              p-2\n              text-gray-900\n              transition-colors\n              rounded-md\n              hover:text-white\n              focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-transparent\n            ',
+			'hover:text-white focus:ring-offset-transparent inline-flex items-center justify-center rounded-md p-2 text-gray-900 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2',
 		'aria-expanded': 'false',
 	},
 	[
@@ -6900,7 +6862,7 @@ var _hoisted_27 = /*#__PURE__*/ createVNode(
 		/*#__PURE__*/ createVNode(
 			'svg',
 			{
-				class: 'w-6 h-6',
+				class: 'h-6 w-6',
 				role: 'presentation',
 				viewBox: '0 0 16 16',
 				fill: 'currentColor',
@@ -6916,23 +6878,23 @@ var _hoisted_27 = /*#__PURE__*/ createVNode(
 	-1
 )
 
-var _hoisted_28 = {
+var _hoisted_27 = {
 	key: 0,
 	class:
-		'absolute inset-x-0 top-0 z-20 p-2 transition origin-top transform lg:hidden',
+		'absolute inset-x-0 top-0 z-20 origin-top transform p-2 transition lg:hidden',
+}
+var _hoisted_28 = {
+	class:
+		'bg-white ring-black overflow-hidden rounded-lg shadow-md ring-1 ring-opacity-5',
 }
 var _hoisted_29 = {
-	class:
-		'overflow-hidden bg-white rounded-lg shadow-md ring-1 ring-black ring-opacity-5',
-}
-var _hoisted_30 = {
 	class: 'flex items-center justify-between px-5 pt-4',
 }
-var _hoisted_31 = {
+var _hoisted_30 = {
 	class: '-mr-3',
 }
 
-var _hoisted_32 = /*#__PURE__*/ createVNode(
+var _hoisted_31 = /*#__PURE__*/ createVNode(
 	'span',
 	{
 		class: 'sr-only',
@@ -6941,10 +6903,10 @@ var _hoisted_32 = /*#__PURE__*/ createVNode(
 	-1
 )
 
-var _hoisted_33 = /*#__PURE__*/ createVNode(
+var _hoisted_32 = /*#__PURE__*/ createVNode(
 	'svg',
 	{
-		class: 'w-6 h-6',
+		class: 'h-6 w-6',
 		xmlns: 'http://www.w3.org/2000/svg',
 		fill: 'none',
 		viewBox: '0 0 24 24',
@@ -6962,30 +6924,30 @@ var _hoisted_33 = /*#__PURE__*/ createVNode(
 	-1
 )
 
-var _hoisted_34 = {
+var _hoisted_33 = {
 	class: 'pt-5 pb-6',
 }
+var _hoisted_34 = {
+	class: 'space-y-1 px-2',
+}
 var _hoisted_35 = {
-	class: 'px-2 space-y-1',
+	class: 'mt-6 px-5',
 }
 var _hoisted_36 = {
-	class: 'px-5 mt-6',
-}
-var _hoisted_37 = {
 	class: 'w-full',
 }
 
-var _hoisted_38 = /*#__PURE__*/ createVNode(
+var _hoisted_37 = /*#__PURE__*/ createVNode(
 	'div',
 	{
 		class:
-			'absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none',
+			'pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3',
 	},
 	[
 		/*#__PURE__*/ createVNode(
 			'svg',
 			{
-				class: 'w-5 h-5',
+				class: 'h-5 w-5',
 				xmlns: 'http://www.w3.org/2000/svg',
 				viewBox: '0 0 20 20',
 				fill: 'currentColor',
@@ -7003,10 +6965,10 @@ var _hoisted_38 = /*#__PURE__*/ createVNode(
 	-1
 )
 
-var _hoisted_39 = /*#__PURE__*/ createVNode(
+var _hoisted_38 = /*#__PURE__*/ createVNode(
 	'button',
 	{
-		class: 'block w-full py-3 pl-10 text-left rounded-md bg-ns-blue',
+		class: 'block w-full rounded-md bg-ns-blue py-3 pl-10 text-left',
 	},
 	'Search Anything',
 	-1
@@ -7021,371 +6983,362 @@ function render$9(_ctx, _cache, $props, $setup, $data, $options) {
 
 	return (
 		openBlock(),
-		createBlock(
-			Fragment,
-			null,
-			[
-				_hoisted_1$a,
-				createVNode('header', _hoisted_2$9, [
-					createVNode('div', _hoisted_3$6, [
-						createVNode('nav', _hoisted_4$6, [
-							createVNode('div', _hoisted_5$3, [
-								createVNode('div', _hoisted_6$2, [
-									createVNode(
-										'a',
-										{
-											href: _ctx.mainURL,
-										},
-										[
-											_hoisted_7$2,
-											createVNode(_component_NativeScriptLogo, {
-												class: 'w-auto h-8 sm:h-10',
-												'aria-hidden': 'true',
-											}),
-										],
-										8,
-										['href']
-									),
-									createVNode('div', _hoisted_8$2, [
-										createVNode(
-											'button',
-											{
-												onClick:
-													_cache[1] ||
-													(_cache[1] = function ($event) {
-														return (_ctx.mobileMenuOpen = true)
-													}),
-												type: 'button',
-												class:
-													'\n                  inline-flex\n                  items-center\n                  justify-center\n                  p-2\n                  text-gray-900\n                  bg-white\n                  rounded-md\n                  hover:bg-gray-800 hover:text-white\n                  focus:outline-none focus:ring-2 focus-ring-inset focus:ring-white\n                ',
-												'aria-expanded': 'false',
-											},
-											[_hoisted_9$2, _hoisted_10$1]
-										),
-									]),
-								]),
-								createVNode('div', _hoisted_11$1, [
-									createVNode('div', _hoisted_12$1, [
-										createVNode('div', _hoisted_13$1, [
-											createVNode('div', _hoisted_14$1, [
-												createVNode(_component_ClientOnly, null, {
-													default: withCtx(function () {
-														return [
-															createVNode(
-																_component_AlgoliaSearchBox,
-																{
-																	options: _ctx.algoliaOptions,
-																},
-																null,
-																8,
-																['options']
-															),
-														]
-													}),
-													_: 1,
-												}),
-												_hoisted_15,
-												_hoisted_16,
-											]),
-										]),
-									]),
-								]),
-							]),
-							createVNode('div', _hoisted_18, [
-								(openBlock(true),
-								createBlock(
-									Fragment,
-									null,
-									renderList(_ctx.nav, function (navItem, index) {
-										return (
-											openBlock(),
-											createBlock(
-												'a',
-												{
-													key: index,
-													href: navItem.link,
-													target: navItem.target,
-													class:
-														'text-base font-medium text-white border-b-4 border-transparent hover:border-blue-100',
-												},
-												toDisplayString(navItem.text),
-												9,
-												['href', 'target']
-											)
-										)
+		createBlock('header', _hoisted_1$a, [
+			createVNode('div', _hoisted_2$9, [
+				createVNode('nav', _hoisted_3$6, [
+					createVNode('div', _hoisted_4$6, [
+						createVNode('div', _hoisted_5$3, [
+							createVNode(
+								'a',
+								{
+									href: _ctx.mainURL,
+								},
+								[
+									_hoisted_6$2,
+									createVNode(_component_NativeScriptLogo, {
+										class: 'h-8 w-auto sm:h-10',
+										'aria-hidden': 'true',
 									}),
-									128
-								)),
-								createVNode('div', _hoisted_19, [
-									createVNode(
-										'button',
-										{
-											onClick:
-												_cache[2] ||
-												(_cache[2] = withModifiers(
-													function ($event) {
-														return (_ctx.flyoutMenuOpen = !_ctx.flyoutMenuOpen)
-													},
-													['prevent']
-												)),
-											class: [
-												'\n                relative\n                z-20\n                inline-flex\n                items-center\n                justify-center\n                p-2\n                transition-colors\n                rounded-md\n                focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-transparent\n              ',
-												{
-													'bg-white text-gray-900': _ctx.flyoutMenuOpen,
-													'text-white hover:text-gray-900':
-														!_ctx.flyoutMenuOpen,
-												},
-											],
-											role: 'button',
-											'aria-expanded': _ctx.flyoutMenuOpen,
-										},
-										[_hoisted_20, _hoisted_21],
-										10,
-										['aria-expanded']
-									),
-									createVNode(
-										Transition,
-										{
-											'enter-from-class': 'opacity-0',
-											'enter-to-class': 'opacity-100',
-											'leave-from-class': 'opacity-100',
-											'leave-to-class': 'opacity-0',
-										},
-										{
+								],
+								8,
+								['href']
+							),
+							createVNode('div', _hoisted_7$2, [
+								createVNode(
+									'button',
+									{
+										onClick:
+											_cache[1] ||
+											(_cache[1] = function ($event) {
+												return (_ctx.mobileMenuOpen = true)
+											}),
+										type: 'button',
+										class:
+											'bg-white hover:text-white focus-ring-inset focus:ring-white inline-flex items-center justify-center rounded-md p-2 text-gray-900 hover:bg-gray-800 focus:outline-none focus:ring-2',
+										'aria-expanded': 'false',
+									},
+									[_hoisted_8$2, _hoisted_9$2]
+								),
+							]),
+						]),
+						createVNode('div', _hoisted_10$1, [
+							createVNode('div', _hoisted_11$1, [
+								createVNode('div', _hoisted_12$1, [
+									createVNode('div', _hoisted_13$1, [
+										createVNode(_component_ClientOnly, null, {
 											default: withCtx(function () {
 												return [
-													_ctx.flyoutMenuOpen
-														? (openBlock(),
-														  createBlock('button', {
-																key: 0,
-																tabindex: '-1',
-																onClick:
-																	_cache[3] ||
-																	(_cache[3] = function ($event) {
-																		return (_ctx.flyoutMenuOpen = false)
-																	}),
-																class:
-																	'fixed inset-0 z-10 w-screen h-screen transition duration-200 bg-gray-900 cursor-default bg-opacity-20',
-														  }))
-														: createCommentVNode('', true),
+													createVNode(
+														_component_AlgoliaSearchBox,
+														{
+															options: _ctx.algoliaOptions,
+														},
+														null,
+														8,
+														['options']
+													),
 												]
 											}),
 											_: 1,
-										}
-									),
-									createVNode(
-										Transition,
-										{
-											'enter-active-class': 'transition duration-200 ease-out',
-											'enter-from-class': 'translate-y-1 opacity-0',
-											'enter-to-class': 'translate-y-0 opacity-100',
-											'leave-active-class': 'transition duration-150 ease-in',
-											'leave-from-class': 'translate-y-0 opacity-100',
-											'leave-to-class': 'translate-y-1 opacity-0',
-										},
-										{
-											default: withCtx(function () {
-												return [
-													_ctx.flyoutMenuOpen
-														? (openBlock(),
-														  createBlock('div', _hoisted_22, [
-																createVNode('div', _hoisted_23, [
-																	createVNode('div', _hoisted_24, [
-																		(openBlock(true),
-																		createBlock(
-																			Fragment,
-																			null,
-																			renderList(
-																				_ctx.flyoutNav,
-																				function (navItem, index) {
-																					return (
-																						openBlock(),
-																						createBlock(
-																							'a',
-																							{
-																								key: index,
-																								href: navItem.link,
-																								target: navItem.target,
-																								class:
-																									'block p-3 -m-3 transition duration-150 ease-in-out rounded-md hover:bg-gray-50',
-																							},
-																							[
-																								createVNode(
-																									'p',
-																									_hoisted_25,
-																									toDisplayString(navItem.text),
-																									1
-																								),
-																								createVNode(
-																									'p',
-																									_hoisted_26,
-																									toDisplayString(
-																										navItem.description
-																									),
-																									1
-																								),
-																							],
-																							8,
-																							['href', 'target']
-																						)
-																					)
-																				}
-																			),
-																			128
-																		)),
-																	]),
-																]),
-														  ]))
-														: createCommentVNode('', true),
-												]
-											}),
-											_: 1,
-										}
-									),
+										}),
+										_hoisted_14$1,
+										_hoisted_15,
+									]),
 								]),
-								_hoisted_27,
 							]),
 						]),
 					]),
-					createVNode(
-						Transition,
-						{
-							'enter-active-class': 'duration-150 ease-out',
-							'enter-from-class': 'scale-95 opacity-0',
-							'enter-to-class': 'scale-100 opacity-100',
-							'leave-active-class': 'duration-100 ease-in',
-							'leave-from-class': 'scale-100 opacity-100',
-							'leave-to-class': 'opacity-0',
-						},
-						{
-							default: withCtx(function () {
-								return [
-									_ctx.mobileMenuOpen
-										? (openBlock(),
-										  createBlock('div', _hoisted_28, [
-												createVNode('div', _hoisted_29, [
-													createVNode('div', _hoisted_30, [
-														createVNode('div', null, [
-															createVNode(_component_NativeScriptLogo, {
-																class: 'w-auto h-8',
-																variant: 'blue',
-																'aria-hidden': 'true',
+					createVNode('div', _hoisted_17, [
+						(openBlock(true),
+						createBlock(
+							Fragment,
+							null,
+							renderList(_ctx.nav, function (navItem, index) {
+								return (
+									openBlock(),
+									createBlock(
+										'a',
+										{
+											key: index,
+											href: navItem.link,
+											target: navItem.target,
+											class:
+												'text-white border-transparent hover:border-blue-100 border-b-4 text-base font-medium',
+										},
+										toDisplayString(navItem.text),
+										9,
+										['href', 'target']
+									)
+								)
+							}),
+							128
+						)),
+						createVNode('div', _hoisted_18, [
+							createVNode(
+								'button',
+								{
+									onClick:
+										_cache[2] ||
+										(_cache[2] = withModifiers(
+											function ($event) {
+												return (_ctx.flyoutMenuOpen = !_ctx.flyoutMenuOpen)
+											},
+											['prevent']
+										)),
+									class: [
+										'focus:ring-offset-transparent relative z-20 inline-flex items-center justify-center rounded-md p-2 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2',
+										{
+											'bg-white text-gray-900': _ctx.flyoutMenuOpen,
+											'text-white hover:text-gray-900': !_ctx.flyoutMenuOpen,
+										},
+									],
+									role: 'button',
+									'aria-expanded': _ctx.flyoutMenuOpen,
+								},
+								[_hoisted_19, _hoisted_20],
+								10,
+								['aria-expanded']
+							),
+							createVNode(
+								Transition,
+								{
+									'enter-from-class': 'opacity-0',
+									'enter-to-class': 'opacity-100',
+									'leave-from-class': 'opacity-100',
+									'leave-to-class': 'opacity-0',
+								},
+								{
+									default: withCtx(function () {
+										return [
+											_ctx.flyoutMenuOpen
+												? (openBlock(),
+												  createBlock('button', {
+														key: 0,
+														tabindex: '-1',
+														onClick:
+															_cache[3] ||
+															(_cache[3] = function ($event) {
+																return (_ctx.flyoutMenuOpen = false)
 															}),
-														]),
-														createVNode('div', _hoisted_31, [
-															createVNode(
-																'button',
-																{
-																	onClick:
-																		_cache[4] ||
-																		(_cache[4] = function ($event) {
-																			return (_ctx.mobileMenuOpen = false)
-																		}),
-																	type: 'button',
-																	class:
-																		'\n                  inline-flex\n                  items-center\n                  justify-center\n                  p-2\n                  text-gray-400\n                  bg-white\n                  rounded-md\n                  hover:bg-gray-100\n                  focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600\n                ',
-																},
-																[_hoisted_32, _hoisted_33]
-															),
-														]),
-													]),
-													createVNode('div', _hoisted_34, [
-														createVNode('div', _hoisted_35, [
-															(openBlock(true),
-															createBlock(
-																Fragment,
-																null,
-																renderList(_ctx.nav, function (navItem, index) {
-																	return (
-																		openBlock(),
-																		createBlock(
-																			'a',
-																			{
-																				key: index,
-																				onClick:
-																					_cache[5] ||
-																					(_cache[5] = function ($event) {
-																						return (_ctx.mobileMenuOpen = false)
-																					}),
-																				href: navItem.link,
-																				target: navItem.target,
-																				class:
-																					'block px-3 py-2 text-base font-medium text-gray-900 rounded-md hover:bg-gray-50',
-																			},
-																			toDisplayString(navItem.text),
-																			9,
-																			['href', 'target']
-																		)
-																	)
-																}),
-																128
-															)),
-															(openBlock(true),
-															createBlock(
-																Fragment,
-																null,
-																renderList(
-																	_ctx.flyoutNav,
-																	function (navItem, index) {
-																		return (
-																			openBlock(),
-																			createBlock(
-																				'a',
-																				{
-																					key: index,
-																					onClick:
-																						_cache[6] ||
-																						(_cache[6] = function ($event) {
-																							return (_ctx.mobileMenuOpen = false)
-																						}),
-																					href: navItem.link,
-																					target: navItem.target,
-																					class:
-																						'block px-3 py-2 text-base font-medium text-gray-900 rounded-md hover:bg-gray-50',
-																				},
-																				toDisplayString(navItem.text),
-																				9,
-																				['href', 'target']
-																			)
-																		)
-																	}
-																),
-																128
-															)),
-														]),
-														createVNode('div', _hoisted_36, [
-															createVNode('div', _hoisted_37, [
-																createVNode(
-																	'div',
-																	{
-																		onClickCapture:
-																			_cache[7] ||
-																			(_cache[7] = function () {
-																				return (
-																					_ctx.openSearch &&
-																					_ctx.openSearch.apply(_ctx, arguments)
+														class:
+															'fixed inset-0 z-10 h-screen w-screen cursor-default bg-gray-900 bg-opacity-20 transition duration-200',
+												  }))
+												: createCommentVNode('', true),
+										]
+									}),
+									_: 1,
+								}
+							),
+							createVNode(
+								Transition,
+								{
+									'enter-active-class': 'transition duration-200 ease-out',
+									'enter-from-class': 'translate-y-1 opacity-0',
+									'enter-to-class': 'translate-y-0 opacity-100',
+									'leave-active-class': 'transition duration-150 ease-in',
+									'leave-from-class': 'translate-y-0 opacity-100',
+									'leave-to-class': 'translate-y-1 opacity-0',
+								},
+								{
+									default: withCtx(function () {
+										return [
+											_ctx.flyoutMenuOpen
+												? (openBlock(),
+												  createBlock('div', _hoisted_21, [
+														createVNode('div', _hoisted_22, [
+															createVNode('div', _hoisted_23, [
+																(openBlock(true),
+																createBlock(
+																	Fragment,
+																	null,
+																	renderList(
+																		_ctx.flyoutNav,
+																		function (navItem, index) {
+																			return (
+																				openBlock(),
+																				createBlock(
+																					'a',
+																					{
+																						key: index,
+																						href: navItem.link,
+																						target: navItem.target,
+																						class:
+																							'-m-3 block rounded-md p-3 transition duration-150 ease-in-out hover:bg-gray-50',
+																					},
+																					[
+																						createVNode(
+																							'p',
+																							_hoisted_24,
+																							toDisplayString(navItem.text),
+																							1
+																						),
+																						createVNode(
+																							'p',
+																							_hoisted_25,
+																							toDisplayString(
+																								navItem.description
+																							),
+																							1
+																						),
+																					],
+																					8,
+																					['href', 'target']
 																				)
-																			}),
-																		class: 'relative text-white',
-																	},
-																	[_hoisted_38, _hoisted_39],
-																	32
-																),
+																			)
+																		}
+																	),
+																	128
+																)),
 															]),
 														]),
+												  ]))
+												: createCommentVNode('', true),
+										]
+									}),
+									_: 1,
+								}
+							),
+						]),
+						_hoisted_26,
+					]),
+				]),
+			]),
+			createVNode(
+				Transition,
+				{
+					'enter-active-class': 'duration-150 ease-out',
+					'enter-from-class': 'scale-95 opacity-0',
+					'enter-to-class': 'scale-100 opacity-100',
+					'leave-active-class': 'duration-100 ease-in',
+					'leave-from-class': 'scale-100 opacity-100',
+					'leave-to-class': 'opacity-0',
+				},
+				{
+					default: withCtx(function () {
+						return [
+							_ctx.mobileMenuOpen
+								? (openBlock(),
+								  createBlock('div', _hoisted_27, [
+										createVNode('div', _hoisted_28, [
+											createVNode('div', _hoisted_29, [
+												createVNode('div', null, [
+													createVNode(_component_NativeScriptLogo, {
+														class: 'h-8 w-auto',
+														variant: 'blue',
+														'aria-hidden': 'true',
+													}),
+												]),
+												createVNode('div', _hoisted_30, [
+													createVNode(
+														'button',
+														{
+															onClick:
+																_cache[4] ||
+																(_cache[4] = function ($event) {
+																	return (_ctx.mobileMenuOpen = false)
+																}),
+															type: 'button',
+															class:
+																'bg-white focus:ring-indigo-600 inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset',
+														},
+														[_hoisted_31, _hoisted_32]
+													),
+												]),
+											]),
+											createVNode('div', _hoisted_33, [
+												createVNode('div', _hoisted_34, [
+													(openBlock(true),
+													createBlock(
+														Fragment,
+														null,
+														renderList(_ctx.nav, function (navItem, index) {
+															return (
+																openBlock(),
+																createBlock(
+																	'a',
+																	{
+																		key: index,
+																		onClick:
+																			_cache[5] ||
+																			(_cache[5] = function ($event) {
+																				return (_ctx.mobileMenuOpen = false)
+																			}),
+																		href: navItem.link,
+																		target: navItem.target,
+																		class:
+																			'block rounded-md px-3 py-2 text-base font-medium text-gray-900 hover:bg-gray-50',
+																	},
+																	toDisplayString(navItem.text),
+																	9,
+																	['href', 'target']
+																)
+															)
+														}),
+														128
+													)),
+													(openBlock(true),
+													createBlock(
+														Fragment,
+														null,
+														renderList(
+															_ctx.flyoutNav,
+															function (navItem, index) {
+																return (
+																	openBlock(),
+																	createBlock(
+																		'a',
+																		{
+																			key: index,
+																			onClick:
+																				_cache[6] ||
+																				(_cache[6] = function ($event) {
+																					return (_ctx.mobileMenuOpen = false)
+																				}),
+																			href: navItem.link,
+																			target: navItem.target,
+																			class:
+																				'block rounded-md px-3 py-2 text-base font-medium text-gray-900 hover:bg-gray-50',
+																		},
+																		toDisplayString(navItem.text),
+																		9,
+																		['href', 'target']
+																	)
+																)
+															}
+														),
+														128
+													)),
+												]),
+												createVNode('div', _hoisted_35, [
+													createVNode('div', _hoisted_36, [
+														createVNode(
+															'div',
+															{
+																onClickCapture:
+																	_cache[7] ||
+																	(_cache[7] = function () {
+																		return (
+																			_ctx.openSearch &&
+																			_ctx.openSearch.apply(_ctx, arguments)
+																		)
+																	}),
+																class: 'text-white relative',
+															},
+															[_hoisted_37, _hoisted_38],
+															32
+														),
 													]),
 												]),
-										  ]))
-										: createCommentVNode('', true),
-								]
-							}),
-							_: 1,
-						}
-					),
-				]),
-			],
-			64
-		)
+											]),
+										]),
+								  ]))
+								: createCommentVNode('', true),
+						]
+					}),
+					_: 1,
+				}
+			),
+		])
 	)
 }
 
@@ -7476,7 +7429,7 @@ var _hoisted_1$8 = {
 }
 var _hoisted_2$7 = {
 	class:
-		'px-4 pt-10 pb-4 mx-auto max-w-7xl sm:px-6 md:flex md:items-center md:justify-between lg:px-6',
+		'mx-auto max-w-7xl px-4 pt-10 pb-4 sm:px-6 md:flex md:items-center md:justify-between lg:px-6',
 }
 
 var _hoisted_3$5 = /*#__PURE__*/ createVNode(
@@ -7504,7 +7457,7 @@ var _hoisted_3$5 = /*#__PURE__*/ createVNode(
 				/*#__PURE__*/ createVNode(
 					'svg',
 					{
-						class: 'w-6 h-6 p-0.5',
+						class: 'h-6 w-6 p-0.5',
 						fill: 'currentColor',
 						viewBox: '0 0 24 24',
 						'aria-hidden': 'true',
@@ -7536,7 +7489,7 @@ var _hoisted_3$5 = /*#__PURE__*/ createVNode(
 				/*#__PURE__*/ createVNode(
 					'svg',
 					{
-						class: 'w-6 h-6 p-0.5',
+						class: 'h-6 w-6 p-0.5',
 						fill: 'currentColor',
 						viewBox: '0 0 24 24',
 						'aria-hidden': 'true',
@@ -7568,7 +7521,7 @@ var _hoisted_3$5 = /*#__PURE__*/ createVNode(
 				/*#__PURE__*/ createVNode(
 					'svg',
 					{
-						class: 'w-6 h-6 p-0.5',
+						class: 'h-6 w-6 p-0.5',
 						fill: 'currentColor',
 						viewBox: '0 0 24 24',
 						'aria-hidden': 'true',
@@ -7600,7 +7553,7 @@ var _hoisted_3$5 = /*#__PURE__*/ createVNode(
 				/*#__PURE__*/ createVNode(
 					'svg',
 					{
-						class: 'w-6 h-6',
+						class: 'h-6 w-6',
 						fill: 'currentColor',
 						viewBox: '0 0 24 24',
 						'aria-hidden': 'true',
@@ -7639,14 +7592,14 @@ var _hoisted_6$1 = /*#__PURE__*/ createVNode(
 )
 
 var _hoisted_7$1 = {
-	class: 'mt-8 md:mt-0 md:order-2',
+	class: 'mt-8 md:order-2 md:mt-0',
 }
 var _hoisted_8$1 = {
-	class: 'text-base text-center text-gray-500',
+	class: 'text-center text-base text-gray-500',
 }
 
 var _hoisted_9$1 = /*#__PURE__*/ createStaticVNode(
-	'<div class="mt-10 text-sm"><div class="px-4 mx-auto max-w-7xl sm:px-6"><p class="text-gray-500"> Copyright <a class="font-medium text-gray-600 hover:text-gray-900" target="_blank" href="https://openjsf.org">OpenJS Foundation</a> and NativeScript contributors. All rights reserved. The <a class="font-medium text-gray-600 hover:text-gray-900" target="_blank" href="https://openjsf.org">OpenJS Foundation</a> has registered trademarks and uses trademarks. For a list of trademarks of the <a class="font-medium text-gray-600 hover:text-gray-900" target="_blank" href="https://openjsf.org">OpenJS Foundation</a>, please see our <a class="font-medium text-gray-600 hover:text-gray-900" target="_blank" href="https://trademark-policy.openjsf.org">Trademark Policy</a> and <a class="font-medium text-gray-600 hover:text-gray-900" target="_blank" href="https://trademark-list.openjsf.org">Trademark List</a>. Trademarks and logos not indicated on the <a class="font-medium text-gray-600 hover:text-gray-900" target="_blank" href="https://trademark-list.openjsf.org"> list of OpenJS Foundation trademarks </a> are trademarks™ or registered® trademarks of their respective holders. Use of them does not imply any affiliation with or endorsement by them. </p></div><div class="flex flex-col justify-center pb-10 mt-6 space-y-4 divide-gray-300 sm:px-3 lg:space-y-0 lg:px-0 lg:divide-x lg:flex-row"><a class="px-3 text-gray-500 hover:text-gray-800" target="_blank" href="https://openjsf.org">The OpenJS Foundation</a><a class="px-3 text-gray-500 hover:text-gray-800" target="_blank" href="https://terms-of-use.openjsf.org">Terms of Use</a><a class="px-3 text-gray-500 hover:text-gray-800" target="_blank" href="https://privacy-policy.openjsf.org">Privacy Policy</a><a class="px-3 text-gray-500 hover:text-gray-800" target="_blank" href="https://bylaws.openjsf.org">OpenJS Foundation Bylaws</a><a class="px-3 text-gray-500 hover:text-gray-800" target="_blank" href="https://trademark-policy.openjsf.org">Trademark Policy</a><a class="px-3 text-gray-500 hover:text-gray-800" target="_blank" href="https://trademark-list.openjsf.org">Trademark List</a><a class="px-3 text-gray-500 hover:text-gray-800" target="_blank" href="https://www.linuxfoundation.org/cookies">Cookie Policy</a></div></div>',
+	'<div class="mt-10 text-sm"><div class="mx-auto max-w-7xl px-4 sm:px-6"><p class="text-gray-500"> Copyright <a class="font-medium text-gray-600 hover:text-gray-900" target="_blank" href="https://openjsf.org">OpenJS Foundation</a> and NativeScript contributors. All rights reserved. The <a class="font-medium text-gray-600 hover:text-gray-900" target="_blank" href="https://openjsf.org">OpenJS Foundation</a> has registered trademarks and uses trademarks. For a list of trademarks of the <a class="font-medium text-gray-600 hover:text-gray-900" target="_blank" href="https://openjsf.org">OpenJS Foundation</a>, please see our <a class="font-medium text-gray-600 hover:text-gray-900" target="_blank" href="https://trademark-policy.openjsf.org">Trademark Policy</a> and <a class="font-medium text-gray-600 hover:text-gray-900" target="_blank" href="https://trademark-list.openjsf.org">Trademark List</a>. Trademarks and logos not indicated on the <a class="font-medium text-gray-600 hover:text-gray-900" target="_blank" href="https://trademark-list.openjsf.org"> list of OpenJS Foundation trademarks </a> are trademarks™ or registered® trademarks of their respective holders. Use of them does not imply any affiliation with or endorsement by them. </p></div><div class="mt-6 flex flex-col justify-center space-y-4 divide-gray-300 pb-10 sm:px-3 lg:flex-row lg:space-y-0 lg:divide-x lg:px-0"><a class="px-3 text-gray-500 hover:text-gray-800" target="_blank" href="https://openjsf.org">The OpenJS Foundation</a><a class="px-3 text-gray-500 hover:text-gray-800" target="_blank" href="https://terms-of-use.openjsf.org">Terms of Use</a><a class="px-3 text-gray-500 hover:text-gray-800" target="_blank" href="https://privacy-policy.openjsf.org">Privacy Policy</a><a class="px-3 text-gray-500 hover:text-gray-800" target="_blank" href="https://bylaws.openjsf.org">OpenJS Foundation Bylaws</a><a class="px-3 text-gray-500 hover:text-gray-800" target="_blank" href="https://trademark-policy.openjsf.org">Trademark Policy</a><a class="px-3 text-gray-500 hover:text-gray-800" target="_blank" href="https://trademark-list.openjsf.org">Trademark List</a><a class="px-3 text-gray-500 hover:text-gray-800" target="_blank" href="https://www.linuxfoundation.org/cookies">Cookie Policy</a></div></div>',
 	1
 )
 
@@ -7663,7 +7616,7 @@ function render$7(_ctx, _cache, $props, $setup, $data, $options) {
 						_hoisted_6$1,
 						createVNode(_component_OpenJSLogo, {
 							'aria-hidden': 'true',
-							class: 'w-auto h-12',
+							class: 'h-12 w-auto',
 						}),
 					]),
 				]),
@@ -8204,7 +8157,7 @@ var _hoisted_1$6 = {
 	class: 'bg-blue-50 lg:hidden',
 }
 var _hoisted_2$6 = {
-	class: 'p-4 px-6 mx-auto',
+	class: 'mx-auto p-4 px-6',
 }
 function render$5(_ctx, _cache, $props, $setup, $data, $options) {
 	return (
@@ -8281,13 +8234,13 @@ var _hoisted_1$5 = {
 	class: 'bg-ns-blue',
 }
 var _hoisted_2$5 = {
-	class: 'container px-6 pb-2 mx-auto',
+	class: 'container mx-auto px-6 pb-2',
 }
 
 var _hoisted_3$4 = /*#__PURE__*/ createVNode(
 	'svg',
 	{
-		class: 'w-6 h-6',
+		class: 'h-6 w-6',
 		xmlns: 'http://www.w3.org/2000/svg',
 		fill: 'none',
 		viewBox: '0 0 24 24',
@@ -8327,7 +8280,7 @@ var script$5 = {
 							'a',
 							{
 								href: unref(theme).mainURL,
-								class: 'flex items-center text-white',
+								class: 'text-white flex items-center',
 							},
 							[_hoisted_3$4, _hoisted_4$4],
 							8,
@@ -8515,14 +8468,14 @@ var script$4 = defineComponent({
 	},
 })
 
-var _withId = /*#__PURE__*/ withScopeId('data-v-56b37754')
+var _withId = /*#__PURE__*/ withScopeId('data-v-859cd27e')
 
-pushScopeId('data-v-56b37754')
+pushScopeId('data-v-859cd27e')
 
 var _hoisted_1$4 = /*#__PURE__*/ createVNode(
 	'div',
 	{
-		class: 'pt-10 pb-2 text-gray-600 font-bold uppercase text-xs',
+		class: 'pt-10 pb-2 text-xs font-bold uppercase text-gray-600',
 	},
 	'On this page',
 	-1
@@ -8577,7 +8530,7 @@ var render$4 = /*#__PURE__*/ _withId(function (
 												_ctx.currentFlavor !== header.flavor
 										),
 										_ref),
-										'block py-1 text-gray-500 text-sm sidebar-link hover:text-gray-900',
+										'sidebar-link block py-1 text-sm text-gray-500 hover:text-gray-900',
 									],
 								},
 								[
@@ -8610,7 +8563,7 @@ var render$4 = /*#__PURE__*/ _withId(function (
 })
 
 script$4.render = render$4
-script$4.__scopeId = 'data-v-56b37754'
+script$4.__scopeId = 'data-v-859cd27e'
 
 var script$3 = defineComponent({
 	setup: function setup() {
@@ -8634,37 +8587,37 @@ var _hoisted_1$3 = {
 	class: 'min-h-screen font-sans antialiased',
 }
 var _hoisted_2$3 = {
-	class: 'mx-auto 2xl:container lg:px-8',
+	class: 'mx-auto lg:px-8 2xl:container',
 }
 var _hoisted_3$3 = {
 	class: 'flex',
 }
 var _hoisted_4$3 = {
-	class: 'hidden lg:block w-72 2xl:w-96',
+	class: 'hidden w-72 lg:block 2xl:w-96',
 }
 var _hoisted_5$1 = {
 	class: 'static h-full',
 }
 var _hoisted_6 = {
-	class: 'sticky top-[88px] pt-4 overflow-y-auto h-sidebar',
+	class: 'h-sidebar sticky top-[88px] overflow-y-auto pt-4',
 }
 var _hoisted_7 = {
-	class: 'static flex-auto w-full max-h-full min-w-0 overflow-y-visible',
+	class: 'static max-h-full w-full min-w-0 flex-auto overflow-y-visible',
 }
 var _hoisted_8 = {
 	class: 'flex w-full',
 }
 var _hoisted_9 = {
-	class: 'flex-auto min-w-0 px-6 pt-10 pb-16',
+	class: 'min-w-0 flex-auto px-6 pt-10 pb-16',
 }
 var _hoisted_10 = {
-	class: 'flex-none hidden pl-8 xl:block w-72 3xl:w-96',
+	class: 'hidden w-72 flex-none pl-8 xl:block 3xl:w-96',
 }
 var _hoisted_11 = {
-	class: 'sticky h-sidebar top-[88px] h-sidebar',
+	class: 'h-sidebar h-sidebar sticky top-[88px]',
 }
 var _hoisted_12 = {
-	class: 'space-y-1 overflow-y-auto h-sidebar',
+	class: 'h-sidebar space-y-1 overflow-y-auto',
 }
 
 var _hoisted_13 = /*#__PURE__*/ createVNode(
@@ -8724,7 +8677,7 @@ function render$3(_ctx, _cache, $props, $setup, $data, $options) {
 						createVNode('div', _hoisted_8, [
 							createVNode('div', _hoisted_9, [
 								createVNode(_component_Content, {
-									class: 'mx-auto prose max-w-none lg:prose-lg',
+									class: 'prose mx-auto max-w-none lg:prose-lg',
 								}),
 							]),
 							createVNode('div', _hoisted_10, [
@@ -8968,11 +8921,11 @@ var _hoisted_2$1 = {
 	class: 'border-b border-gray-200',
 }
 var _hoisted_3$1 = {
-	class: 'z-10 flex -mb-px space-x-8',
+	class: 'z-10 -mb-px flex space-x-8',
 }
 var _hoisted_4$1 = {
 	class:
-		'relative px-4 -mt-px border rounded-md rounded-t-none shadow-lg tab-container',
+		'tab-container relative -mt-px rounded-md rounded-t-none border px-4 shadow-lg',
 	ref: 'tabContainer',
 }
 function render$1(_ctx, _cache, $props, $setup, $data, $options) {
@@ -8993,11 +8946,11 @@ function render$1(_ctx, _cache, $props, $setup, $data, $options) {
 									{
 										key: tab.index,
 										class: [
-											'px-4 py-4 text-sm font-medium uppercase border-b-4 whitespace-nowrap focus:outline-none focus:font-bold',
+											'whitespace-nowrap border-b-4 px-4 py-4 text-sm font-medium uppercase focus:font-bold focus:outline-none',
 											{
 												'border-ns-blue text-ns-blue focus:border-ns-blue':
 													_ctx.currentTab === tab,
-												'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:border-gray-300':
+												'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 focus:border-gray-300':
 													_ctx.currentTab !== tab,
 											},
 										],
@@ -9057,7 +9010,6 @@ var script = defineComponent({
 		})
 		watch(currentTab, function (next, prev) {
 			var _tabContainer$value, _tabContainer$value2
-
 			;(_tabContainer$value = tabContainer.value) === null ||
 			_tabContainer$value === void 0
 				? void 0
@@ -9082,7 +9034,7 @@ var _hoisted_2 = {
 	class: '',
 }
 var _hoisted_3 = {
-	class: 'z-10 flex bg-gray-900 rounded-t-md',
+	class: 'z-10 flex rounded-t-md bg-gray-900',
 }
 var _hoisted_4 = {
 	class: 'code-tab-container',
@@ -9106,11 +9058,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 									{
 										key: tab,
 										class: [
-											'px-6 py-4 text-sm font-medium uppercase border-b-4 whitespace-nowrap focus:outline-none focus:font-bold',
+											'whitespace-nowrap border-b-4 px-6 py-4 text-sm font-medium uppercase focus:font-bold focus:outline-none',
 											{
 												'border-ns-blue text-ns-blue focus:border-ns-blue':
 													_ctx.currentTab === tab.index,
-												'border-transparent text-gray-300 hover:text-gray-100 hover:border-gray-300 focus:border-gray-300':
+												'border-transparent text-gray-300 hover:border-gray-300 hover:text-gray-100 focus:border-gray-300':
 													_ctx.currentTab !== tab.index,
 											},
 										],
