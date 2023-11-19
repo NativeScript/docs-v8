@@ -88,13 +88,7 @@ keytool -list -v \
    2. [Register your app with Firebase](https://firebase.google.com/docs/ios/setup#register-app)
    3. [Add a Firebase configuration file](https://firebase.google.com/docs/ios/setup#add-config-file), `GoogleService-Info.plist.` to `App_Resources/iOS/`.
 
-3. Open Xcode
-
-   1. Right-click on the `Runner` directory and select `Add Files to Runner`.
-   2. Select `GoogleService-Info.plist` from the file manager.
-   3. Select the `Runner` target from the dialog that appears.
-
-4. Add the `CFBundleURLTypes` and `GIDClientID` attributes below to the `App_Resources/iOS/Info.plist` file.
+3. Add the `CFBundleURLTypes` and `GIDClientID` attributes below to the `App_Resources/iOS/Info.plist` file.
 
 ```xml
 <!-- Google Sign-in Section -->
