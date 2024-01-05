@@ -101,7 +101,8 @@ In case you need to customize the postcss configuration, you can create a `postc
 module.exports = {
   plugins: [
     ['tailwindcss', { config: './tailwind.config.custom.js' }],
-    '@nativescript/tailwind'
+    '@nativescript/tailwind',
+    '@csstools/postcss-is-pseudo-class'
   ]
 }
 ```
