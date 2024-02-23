@@ -272,7 +272,9 @@ See the description [here](https://firebase.google.com/docs/reference/android/co
 ```ts
 enum ConsentType {
   Ad_Storage,
-  Analytics_Storage
+  Analytics_Storage,
+  Ad_User_Data,
+  Ad_Personalization
 }
 ```
 
