@@ -47,7 +47,7 @@ The SDK is by default located at:
 %LOCALAPPDATA%\Android\Sdk
 ```
 
-To find the actual location in the Android Studio **Settings**, navigate to **Appearance & Behavior › System Settings › Android SDK** and copy the Android SDK Location.
+To find the actual location in the Android Studio **Settings**, navigate to **Languages & Frameworks › Android SDK** and copy the Android SDK Location.
 
 Add Android **platform-tools** to path.
 
